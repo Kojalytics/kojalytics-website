@@ -78,6 +78,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Kojalytics. All rights reserved.
           </p>
           <div className="flex gap-6">
+            <Link href="/datenschutz" className="text-sm text-muted hover:text-foreground transition-colors">
+              Datenschutz
+            </Link>
             <Link href="/impressum" className="text-sm text-muted hover:text-foreground transition-colors">
               Impressum
             </Link>
