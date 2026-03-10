@@ -20,7 +20,7 @@ export default function DatenschutzPage() {
             Datenschutzerklärung
           </h1>
           <p className="text-muted text-sm mb-10">
-            Zuletzt aktualisiert: 5. März 2025
+            Zuletzt aktualisiert: 10. März 2026
           </p>
 
           <div className="glass-card rounded-2xl p-10 space-y-10">
@@ -64,7 +64,12 @@ export default function DatenschutzPage() {
                 <li>
                   <strong className="text-foreground">Referenzfotos:</strong> Die
                   von Ihnen ausgewählten Fotos (max. 5) werden zur Erstellung
-                  der Portraits an unseren Server übermittelt.
+                  der Portraits an unseren Server übermittelt und anschließend an
+                  den{" "}
+                  <strong className="text-foreground">
+                    Drittanbieter-KI-Dienst Google Gemini API
+                  </strong>{" "}
+                  weitergeleitet (siehe Abschnitt 4 und 6).
                 </li>
                 <li>
                   <strong className="text-foreground">
@@ -80,6 +85,14 @@ export default function DatenschutzPage() {
                   durch Apple.
                 </li>
               </ul>
+              <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mt-4">
+                <p className="text-accent-light font-medium text-sm leading-relaxed">
+                  Wichtig: Vor der ersten Übermittlung Ihrer Fotos an den
+                  KI-Dienst werden Sie in der App um Ihre ausdrückliche
+                  Einwilligung gebeten. Ohne Ihre Zustimmung werden keine Fotos
+                  an Drittanbieter übertragen.
+                </p>
+              </div>
             </Section>
 
             <Section title="3. Was wird NICHT erfasst?">
@@ -99,28 +112,58 @@ export default function DatenschutzPage() {
             </Section>
 
             <Section title="4. Wie werden Ihre Fotos verarbeitet?">
+              <p className="text-muted leading-relaxed mb-3">
+                Ihre Referenzfotos werden wie folgt verarbeitet:
+              </p>
               <ul className="text-muted space-y-2 list-disc list-inside leading-relaxed">
                 <li>
                   Die Fotos werden verschlüsselt (HTTPS) an unseren Server
-                  übermittelt.
+                  (Supabase) übermittelt.
                 </li>
                 <li>
-                  Zur Bildgenerierung wird die{" "}
+                  <strong className="text-foreground">
+                    Drittanbieter-KI-Dienst:
+                  </strong>{" "}
+                  Zur Bildgenerierung werden Ihre Referenzfotos an die{" "}
                   <strong className="text-foreground">Google Gemini API</strong>{" "}
-                  verwendet. Google verarbeitet die Bilder gemäß der{" "}
-                  <a
-                    href="https://policies.google.com/privacy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent-light hover:underline"
-                  >
-                    Google-Datenschutzrichtlinie
-                  </a>
-                  .
+                  (ein Drittanbieter-KI-Dienst von Google LLC) weitergeleitet.
+                  <ul className="mt-2 ml-4 space-y-1 list-disc list-inside">
+                    <li>
+                      <strong className="text-foreground">
+                        Übermittelte Daten:
+                      </strong>{" "}
+                      Ihre Referenzfotos (Gesichtsbilder) sowie Stil- und
+                      Formatierungsanweisungen.
+                    </li>
+                    <li>
+                      <strong className="text-foreground">
+                        Zweck der Übermittlung:
+                      </strong>{" "}
+                      Ausschließlich zur Generierung Ihrer KI-Portraits.
+                    </li>
+                    <li>
+                      <strong className="text-foreground">Einwilligung:</strong>{" "}
+                      Die Übermittlung erfolgt erst nach Ihrer ausdrücklichen
+                      Einwilligung im Onboarding der App (Rechtsgrundlage: Art.
+                      6 Abs. 1 lit. a, Art. 9 Abs. 2 lit. a DSGVO).
+                    </li>
+                    <li>
+                      Google verarbeitet die Bilder gemäß der{" "}
+                      <a
+                        href="https://policies.google.com/privacy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent-light hover:underline"
+                      >
+                        Google-Datenschutzrichtlinie
+                      </a>{" "}
+                      und gewährleistet einen gleichwertigen Datenschutz.
+                    </li>
+                  </ul>
                 </li>
                 <li>
-                  Nach Abschluss der Generierung werden die Referenzfotos vom
-                  Server gelöscht.
+                  Nach Abschluss der Generierung werden die Referenzfotos sowohl
+                  von unserem Server als auch bei Google gelöscht.
                 </li>
                 <li>
                   Die generierten Portraits werden über zeitlich begrenzte,
@@ -165,10 +208,19 @@ export default function DatenschutzPage() {
             </Section>
 
             <Section title="6. Drittanbieter">
+              <p className="text-muted leading-relaxed mb-3">
+                Die App nutzt folgende Drittanbieter-Dienste:
+              </p>
               <ul className="text-muted space-y-3 list-disc list-inside leading-relaxed">
                 <li>
-                  <strong className="text-foreground">Google Gemini API:</strong>{" "}
-                  Zur KI-basierten Bildgenerierung. Verarbeitung gemäß der{" "}
+                  <strong className="text-foreground">
+                    Google Gemini API (Drittanbieter-KI-Dienst):
+                  </strong>{" "}
+                  Zur KI-basierten Bildgenerierung. Ihre Referenzfotos
+                  (Gesichtsbilder) werden an Google LLC übermittelt,
+                  ausschließlich zum Zweck der Portrait-Generierung. Die
+                  Übermittlung erfolgt nur nach Ihrer ausdrücklichen
+                  Einwilligung. Google verarbeitet die Daten gemäß der{" "}
                   <a
                     href="https://policies.google.com/privacy"
                     target="_blank"
@@ -176,13 +228,14 @@ export default function DatenschutzPage() {
                     className="text-accent-light hover:underline"
                   >
                     Google-Datenschutzrichtlinie
-                  </a>
-                  .
+                  </a>{" "}
+                  und gewährleistet einen gleichwertigen Datenschutz. Nach der
+                  Verarbeitung werden die Fotos bei Google gelöscht.
                 </li>
                 <li>
                   <strong className="text-foreground">Supabase:</strong>{" "}
                   Backend-Infrastruktur für sichere Datenverarbeitung und
-                  -speicherung.
+                  -speicherung. Server in der EU.
                 </li>
                 <li>
                   <strong className="text-foreground">Apple StoreKit:</strong>{" "}
