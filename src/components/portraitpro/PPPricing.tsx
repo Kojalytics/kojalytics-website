@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import type { Translations } from '@/i18n/translations/de';
 
-export default function PPPricing({ t }: { t: Translations }) {
+export default function PPPricing({ t, locale }: { t: Translations; locale: string }) {
   const plans = [
     {
       ...t.pricing.starter,
@@ -166,18 +166,23 @@ export default function PPPricing({ t }: { t: Translations }) {
                 ))}
               </ul>
 
-              <button
-                className={plan.highlighted ? 'pp-btn-primary' : 'pp-btn-secondary'}
-                style={{
-                  width: '100%',
-                  justifyContent: 'center',
-                  marginTop: 'auto',
-                  ...('strikethrough' in plan ? { cursor: 'default', opacity: 0.5 } : {}),
-                }}
-                disabled={'strikethrough' in plan}
-              >
-                <span>{plan.cta}</span>
-              </button>
+              {'strikethrough' in plan ? (
+                <button
+                  className="pp-btn-secondary"
+                  style={{ width: '100%', justifyContent: 'center', marginTop: 'auto', cursor: 'default', opacity: 0.5 }}
+                  disabled
+                >
+                  <span>{plan.cta}</span>
+                </button>
+              ) : (
+                <a
+                  href={`/${locale}/portraitpro/app`}
+                  className={plan.highlighted ? 'pp-btn-primary' : 'pp-btn-secondary'}
+                  style={{ width: '100%', justifyContent: 'center', marginTop: 'auto', textDecoration: 'none' }}
+                >
+                  <span>{plan.cta}</span>
+                </a>
+              )}
             </motion.div>
           ))}
         </div>

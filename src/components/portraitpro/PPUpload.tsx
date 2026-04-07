@@ -4,7 +4,7 @@ import { useState, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import type { Translations } from '@/i18n/translations/de';
 
-export default function PPUpload({ t }: { t: Translations }) {
+export default function PPUpload({ t, locale }: { t: Translations; locale: string }) {
   const [files, setFiles] = useState<File[]>([]);
   const [previews, setPreviews] = useState<string[]>([]);
   const [dragOver, setDragOver] = useState(false);

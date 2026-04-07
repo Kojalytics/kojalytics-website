@@ -8,7 +8,8 @@ const portraits = Array.from({ length: 8 }, (_, i) => ({
   style: ['Business', 'Creative', 'LinkedIn', 'Corporate', 'Startup', 'Executive', 'Modern', 'Classic'][i],
 }));
 
-export default function PPHero({ t }: { t: Translations }) {
+export default function PPHero({ t, locale }: { t: Translations; locale: string }) {
+  const appUrl = `/${locale}/portraitpro/app`;
   return (
     <section style={{
       paddingTop: 120,
@@ -80,7 +81,7 @@ export default function PPHero({ t }: { t: Translations }) {
               transition={{ duration: 0.5, delay: 0.3 }}
               style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}
             >
-              <a href="#upload" className="pp-btn-primary" style={{ textDecoration: 'none' }}>
+              <a href={appUrl} className="pp-btn-primary" style={{ textDecoration: 'none' }}>
                 <span>{t.hero.cta}</span>
                 <span style={{ position: 'relative', zIndex: 1 }}>→</span>
               </a>

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import type { Translations } from '@/i18n/translations/de';
 
-export default function PPCTA({ t }: { t: Translations }) {
+export default function PPCTA({ t, locale }: { t: Translations; locale: string }) {
   return (
     <section style={{
       padding: '80px 0',
@@ -48,7 +48,7 @@ export default function PPCTA({ t }: { t: Translations }) {
           }}>
             {t.cta.subtitle}
           </p>
-          <a href="#upload" className="pp-btn-primary" style={{ textDecoration: 'none', fontSize: '1.1rem', padding: '18px 48px' }}>
+          <a href={`/${locale}/portraitpro/app`} className="pp-btn-primary" style={{ textDecoration: 'none', fontSize: '1.1rem', padding: '18px 48px' }}>
             <span>{t.cta.button}</span>
             <span style={{ position: 'relative', zIndex: 1 }}>→</span>
           </a>

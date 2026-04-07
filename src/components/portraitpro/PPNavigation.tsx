@@ -101,7 +101,7 @@ export default function PPNavigation({ t, locale }: { t: Translations; locale: L
               )}
             </div>
 
-            <a href="#upload" className="pp-btn-primary" style={{ padding: '10px 24px', fontSize: '0.9rem' }}>
+            <a href={`/${locale}/portraitpro/app`} className="pp-btn-primary" style={{ padding: '10px 24px', fontSize: '0.9rem' }}>
               <span>{t.nav.cta}</span>
             </a>
           </div>
@@ -154,7 +154,7 @@ export default function PPNavigation({ t, locale }: { t: Translations; locale: L
                 </a>
               ))}
             </div>
-            <a href="#upload" className="pp-btn-primary" style={{ textAlign: 'center', textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
+            <a href={`/${locale}/portraitpro/app`} className="pp-btn-primary" style={{ textAlign: 'center', textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
               <span>{t.nav.cta}</span>
             </a>
           </div>

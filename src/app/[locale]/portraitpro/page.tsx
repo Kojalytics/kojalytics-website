@@ -25,15 +25,15 @@ export default async function PortraitProPage({
     <>
       <PPNavigation t={t} locale={locale} />
       <main>
-        <PPHero t={t} />
+        <PPHero t={t} locale={locale} />
         <PPSocialProof t={t} />
         <PPHowItWorks t={t} />
         <PPGallery t={t} />
         <PPFeatures t={t} />
-        <PPPricing t={t} />
-        <PPUpload t={t} />
+        <PPPricing t={t} locale={locale} />
+        <PPUpload t={t} locale={locale} />
         <PPFAQ t={t} locale={locale} />
-        <PPCTA t={t} />
+        <PPCTA t={t} locale={locale} />
       </main>
       <PPFooter t={t} locale={locale} />
     </>
