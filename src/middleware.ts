@@ -69,5 +69,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/portraitpro', '/portraitpro/', '/:locale/portraitpro'],
+  matcher: ['/portraitpro', '/portraitpro/', '/:locale/portraitpro', '/:locale/portraitpro/:path*'],
 };
