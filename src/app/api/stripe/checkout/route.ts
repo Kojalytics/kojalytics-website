@@ -2,10 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { PLANS, type PlanId } from '@/lib/stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 export async function POST(request: NextRequest) {
   try {
+    if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY.includes('REPLACE')) {
+      return NextResponse.json({ error: 'Stripe is not configured yet' }, { status: 503 });
+    }
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     const { plan, jobId, locale, userId } = await request.json();
 
     if (!plan || !PLANS[plan as PlanId]) {
