@@ -30,6 +30,7 @@ const appLabels: Record<string, Record<string, string>> = {
   previewWatermark: { de: 'Vorschau mit Wasserzeichen — kaufe ein Paket für volle Qualität', en: 'Preview with watermark — buy a package for full quality' },
   buyStarter: { de: '12 Portraits — €9,99', en: '12 Portraits — €9.99' },
   buyPremium: { de: '24 Portraits — €20,99', en: '24 Portraits — €20.99' },
+  paymentSoon: { de: 'Zahlung wird bald verfügbar sein! Wir richten gerade Stripe ein.', en: 'Payment coming soon! We are setting up Stripe.' },
   processing: { de: 'Deine Portraits werden generiert...', en: 'Your portraits are being generated...' },
   done: { de: 'Fertig! Deine Portraits sind bereit.', en: 'Done! Your portraits are ready.' },
   download: { de: 'Alle herunterladen', en: 'Download All' },
@@ -237,8 +238,14 @@ export default function PortraitProApp() {
     }
   };
 
+  // Check if Stripe is configured
+  const stripeConfigured = typeof process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === 'string'
+    && process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY.length > 10
+    && !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY.includes('REPLACE');
+
   // Stripe checkout
   const handleCheckout = async (plan: PlanId) => {
+    if (!stripeConfigured) return;
     setSelectedPlan(plan);
     try {
       const res = await fetch('/api/stripe/checkout', {
@@ -568,12 +575,26 @@ export default function PortraitProApp() {
             ))}
           </div>
 
+          {/* Stripe not configured notice */}
+          {!stripeConfigured && (
+            <div style={{
+              background: 'linear-gradient(135deg, #FEF3C7, #FDE68A)', borderRadius: 16,
+              padding: '20px 28px', marginBottom: 32, textAlign: 'center',
+              border: '1px solid #F59E0B',
+            }}>
+              <p style={{ fontWeight: 600, color: '#92400E', fontSize: '0.95rem' }}>
+                🚧 {t('paymentSoon')}
+              </p>
+            </div>
+          )}
+
           {/* Pricing cards */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, maxWidth: 700, margin: '0 auto' }}>
             {/* Starter */}
             <div style={{
               background: 'white', borderRadius: 20, padding: '32px 24px',
               border: '1px solid #E8E6E1', textAlign: 'center',
+              opacity: stripeConfigured ? 1 : 0.6,
             }}>
               <h3 style={{ fontFamily: 'var(--font-pp-heading)', fontSize: '1.2rem', fontWeight: 700, marginBottom: 8 }}>Starter</h3>
               <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#1A1A2E', marginBottom: 4 }}>€9,99</div>
@@ -585,7 +606,7 @@ export default function PortraitProApp() {
                   </li>
                 ))}
               </ul>
-              <button onClick={() => handleCheckout('starter')} className="pp-btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
+              <button onClick={() => handleCheckout('starter')} className="pp-btn-secondary" style={{ width: '100%', justifyContent: 'center' }} disabled={!stripeConfigured}>
                 {t('buyStarter')}
               </button>
             </div>
@@ -597,6 +618,7 @@ export default function PortraitProApp() {
               backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #E94560, #F27121)',
               backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box',
               textAlign: 'center', position: 'relative',
+              opacity: stripeConfigured ? 1 : 0.6,
             }}>
               <div style={{
                 position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
@@ -613,7 +635,7 @@ export default function PortraitProApp() {
                   </li>
                 ))}
               </ul>
-              <button onClick={() => handleCheckout('premium')} className="pp-btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+              <button onClick={() => handleCheckout('premium')} className="pp-btn-primary" style={{ width: '100%', justifyContent: 'center' }} disabled={!stripeConfigured}>
                 <span>{t('buyPremium')}</span>
               </button>
             </div>
