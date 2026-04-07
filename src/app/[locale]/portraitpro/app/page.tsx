@@ -332,28 +332,15 @@ export default function PortraitProApp() {
     );
   }
 
-  // Not authenticated
+  // Not authenticated — show auth modal directly over branded background
   if (!user) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: 24 }}>
-        <div style={{ textAlign: 'center', maxWidth: 480 }}>
-          <div style={{
-            width: 64, height: 64, borderRadius: 18, margin: '0 auto 24px',
-            background: 'linear-gradient(135deg, #E94560, #F27121)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'white', fontWeight: 800, fontSize: '1.6rem',
-          }}>P</div>
-          <h1 style={{ fontFamily: 'var(--font-pp-heading)', fontSize: '2rem', fontWeight: 700, marginBottom: 12, color: '#1A1A2E' }}>
-            Portrait<span className="pp-gradient-text">Pro</span> AI
-          </h1>
-          <p style={{ color: '#6b7280', marginBottom: 32, fontSize: '1.05rem' }}>
-            {t('welcome')}
-          </p>
-          <button onClick={() => setShowAuth(true)} className="pp-btn-primary" style={{ fontSize: '1.1rem', padding: '18px 48px' }}>
-            <span>{appLabels.title?.[locale] || 'Sign In'}</span>
-          </button>
-        </div>
-        {showAuth && <AuthModal locale={locale} onClose={() => setShowAuth(false)} onAuth={() => {}} />}
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        minHeight: '100vh', padding: 24,
+        background: 'linear-gradient(180deg, #FAFAF8 0%, #F5F0EB 100%)',
+      }}>
+        <AuthModal locale={locale} onClose={() => window.history.back()} onAuth={() => {}} />
       </div>
     );
   }

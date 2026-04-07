@@ -64,29 +64,11 @@ export default function AuthModal({
   return (
     <div
       style={{
-        position: 'fixed', inset: 0, zIndex: 9999,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(8px)',
+        background: 'white', borderRadius: 24, padding: '48px 40px',
+        maxWidth: 440, width: '90%', position: 'relative',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.08)',
       }}
-      onClick={onClose}
     >
-      <div
-        onClick={e => e.stopPropagation()}
-        style={{
-          background: 'white', borderRadius: 24, padding: '48px 40px',
-          maxWidth: 440, width: '90%', position: 'relative',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.2)',
-        }}
-      >
-        {/* Close */}
-        <button
-          onClick={onClose}
-          style={{
-            position: 'absolute', top: 16, right: 16,
-            background: 'none', border: 'none', cursor: 'pointer',
-            fontSize: '1.2rem', color: '#888',
-          }}
-        >✕</button>
 
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
@@ -150,7 +132,6 @@ export default function AuthModal({
             )}
           </>
         )}
-      </div>
     </div>
   );
 }
