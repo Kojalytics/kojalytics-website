@@ -92,9 +92,10 @@ export default function PortraitProApp() {
     return () => subscription.unsubscribe();
   }, []);
 
-  // QR upload URL
-  const uploadUrl = typeof window !== 'undefined'
-    ? `${window.location.origin}/${locale}/portraitpro/app/mobile-upload?session=${session?.access_token || ''}&uid=${user?.id || ''}`
+  // QR upload URL — only pass uid (short), no JWT (too long for QR code)
+  // Mobile uploads via API route which uses service role key
+  const uploadUrl = typeof window !== 'undefined' && user
+    ? `${window.location.origin}/${locale}/portraitpro/app/mobile-upload?uid=${user.id}`
     : '';
 
   // Listen for mobile uploads via Supabase Realtime
@@ -103,27 +104,33 @@ export default function PortraitProApp() {
 
     const channel = supabase.channel(`mobile-upload:${user.id}`);
     channel.on('broadcast', { event: 'files_ready' }, async (payload) => {
-      const { paths, count } = payload.payload as { paths: string[]; count: number };
+      const { paths } = payload.payload as { paths: string[]; count: number };
       if (!paths?.length) return;
 
-      // Download files from Supabase Storage and add to local state
+      // Download files from Supabase Storage using authenticated client
       for (const path of paths) {
-        if (files.length >= 10) break;
-        const { data, error } = await supabase.storage.from('mobile-uploads').download(path);
-        if (error || !data) continue;
+        try {
+          const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/mobile-uploads/${path}`;
+          const res = await fetch(url, {
+            headers: { Authorization: `Bearer ${session.access_token}` },
+          });
+          if (!res.ok) continue;
+          const blob = await res.blob();
 
-        const filename = path.split('/').pop() || `mobile-${Date.now()}.jpg`;
-        const file = new File([data], filename, { type: data.type || 'image/jpeg' });
+          const filename = path.split('/').pop() || `mobile-${Date.now()}.jpg`;
+          const file = new File([blob], filename, { type: blob.type || 'image/jpeg' });
 
-        setFiles(prev => {
-          if (prev.length >= 10) return prev;
-          return [...prev, file];
-        });
+          setFiles(prev => {
+            if (prev.length >= 10) return prev;
+            return [...prev, file];
+          });
 
-        // Create preview
-        const reader = new FileReader();
-        reader.onload = (e) => setPreviews(prev => [...prev, e.target?.result as string]);
-        reader.readAsDataURL(data);
+          const reader = new FileReader();
+          reader.onload = (e) => setPreviews(prev => [...prev, e.target?.result as string]);
+          reader.readAsDataURL(blob);
+        } catch (e) {
+          console.error('Failed to download mobile upload:', e);
+        }
       }
     });
 

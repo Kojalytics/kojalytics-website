@@ -1,8 +1,7 @@
 'use client';
 
-import { Suspense, useState, useRef, useEffect } from 'react';
+import { Suspense, useState, useRef } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
-import { createClient } from '@supabase/supabase-js';
 
 const MAX_FILES = 10;
 
@@ -18,7 +17,6 @@ function MobileUpload() {
   const params = useParams();
   const searchParams = useSearchParams();
   const locale = params.locale as string;
-  const sessionToken = searchParams.get('session') || '';
   const userId = searchParams.get('uid') || '';
 
   const [files, setFiles] = useState<File[]>([]);
@@ -30,12 +28,6 @@ function MobileUpload() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const isDe = locale === 'de';
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: `Bearer ${sessionToken}` } } }
-  );
 
   const handleFiles = (newFiles: FileList) => {
     const remaining = MAX_FILES - files.length;
@@ -55,37 +47,31 @@ function MobileUpload() {
   };
 
   const handleUpload = async () => {
-    if (!userId || !sessionToken || files.length < 1) return;
+    if (!userId || files.length < 5) return;
     setUploading(true);
     setError('');
+    setUploadProgress(10);
 
     try {
-      const uploadedPaths: string[] = [];
+      const formData = new FormData();
+      formData.append('uid', userId);
+      files.forEach(f => formData.append('files', f));
 
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const ext = file.name.split('.').pop() || 'jpg';
-        const path = `${userId}/${Date.now()}-${i}.${ext}`;
+      setUploadProgress(30);
 
-        const { error: uploadErr } = await supabase.storage
-          .from('mobile-uploads')
-          .upload(path, file, { contentType: file.type, upsert: false });
+      const res = await fetch('/api/mobile-upload', {
+        method: 'POST',
+        body: formData,
+      });
 
-        if (uploadErr) throw uploadErr;
-        uploadedPaths.push(path);
-        setUploadProgress(Math.round(((i + 1) / files.length) * 100));
+      setUploadProgress(90);
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Upload failed');
       }
 
-      // Notify desktop via Realtime broadcast
-      const channel = supabase.channel(`mobile-upload:${userId}`);
-      await channel.subscribe();
-      await channel.send({
-        type: 'broadcast',
-        event: 'files_ready',
-        payload: { paths: uploadedPaths, count: uploadedPaths.length },
-      });
-      channel.unsubscribe();
-
+      setUploadProgress(100);
       setUploaded(true);
     } catch (err: unknown) {
       console.error('Upload failed:', err);
@@ -110,6 +96,25 @@ function MobileUpload() {
           </h1>
           <p style={{ color: '#6b7280' }}>
             {isDe ? 'Du kannst dieses Fenster jetzt schließen und am Computer weitermachen.' : 'You can close this window and continue on your computer.'}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!userId) {
+    return (
+      <div style={{
+        minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: 24, background: '#FAFAF8', fontFamily: 'system-ui, sans-serif',
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: '3rem', marginBottom: 16 }}>⚠️</div>
+          <h1 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: 8, color: '#1A1A2E' }}>
+            {isDe ? 'Ungültiger Link' : 'Invalid Link'}
+          </h1>
+          <p style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+            {isDe ? 'Bitte scanne den QR-Code erneut von der Desktop-Seite.' : 'Please scan the QR code again from the desktop page.'}
           </p>
         </div>
       </div>
@@ -243,16 +248,17 @@ function MobileUpload() {
       {files.length >= 1 && !uploading && (
         <button
           onClick={handleUpload}
+          disabled={files.length < 5}
           style={{
             width: '100%', padding: '18px 24px', borderRadius: 14,
             background: files.length >= 5
               ? 'linear-gradient(135deg, #E94560, #F27121)'
               : '#ccc',
             color: 'white', fontWeight: 700, fontSize: '1.05rem',
-            border: 'none', cursor: files.length >= 5 ? 'pointer' : 'not-allowed',
+            border: 'none',
+            cursor: files.length >= 5 ? 'pointer' : 'not-allowed',
             opacity: files.length >= 5 ? 1 : 0.6,
           }}
-          disabled={files.length < 5}
         >
           ✨ {isDe ? `${files.length} Fotos hochladen` : `Upload ${files.length} photos`}
         </button>
