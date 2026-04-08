@@ -190,11 +190,19 @@ export default function PortraitProApp() {
   // Error state for user feedback
   const [genError, setGenError] = useState('');
 
+  // Get a fresh access token (auto-refreshes if expired)
+  const getFreshToken = async (): Promise<string> => {
+    const { data: { session: freshSession } } = await supabase.auth.getSession();
+    if (!freshSession) throw new Error('Not authenticated');
+    setSession(freshSession);
+    return freshSession.access_token;
+  };
+
   // Upload reference images to Supabase Storage via direct fetch with auth token
   const uploadReferenceImages = async (): Promise<string[]> => {
     const paths: string[] = [];
     const uid = user!.id;
-    const token = session!.access_token;
+    const token = await getFreshToken();
     for (let i = 0; i < Math.min(files.length, 5); i++) {
       const file = files[i];
       const ext = file.name.split('.').pop() || 'jpg';
@@ -263,6 +271,9 @@ export default function PortraitProApp() {
     setGenError('');
 
     try {
+      // Get fresh token (auto-refreshes if expired)
+      const token = await getFreshToken();
+
       // 1. Upload reference images to Storage (skip if already uploaded from mobile)
       setProgress(10);
       let storagePaths: string[];
@@ -278,7 +289,7 @@ export default function PortraitProApp() {
           const path = `${user!.id}/${Date.now()}-desktop-${i}.${ext}`;
           const res = await fetch(
             `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/reference-images/${path}`,
-            { method: 'POST', headers: { 'Authorization': `Bearer ${session.access_token}`, 'Content-Type': file.type, 'x-upsert': 'false' }, body: file }
+            { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': file.type, 'x-upsert': 'false' }, body: file }
           );
           if (res.ok) storagePaths.push(path);
         }
@@ -296,7 +307,7 @@ export default function PortraitProApp() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.access_token}`,
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
@@ -331,8 +342,9 @@ export default function PortraitProApp() {
     for (let i = 0; i < maxAttempts; i++) {
       await new Promise(r => setTimeout(r, 3000));
 
+      const pollToken = await getFreshToken();
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/get-job-status?jobId=${id}`, {
-        headers: { 'Authorization': `Bearer ${session!.access_token}` },
+        headers: { 'Authorization': `Bearer ${pollToken}` },
       });
       const data = await res.json();
 
@@ -396,6 +408,8 @@ export default function PortraitProApp() {
     setProgress(0);
 
     try {
+      const token = await getFreshToken();
+
       // Use previously uploaded reference paths, or upload fresh
       let storagePaths = refPaths;
       if (!storagePaths.length) {
@@ -411,7 +425,7 @@ export default function PortraitProApp() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.access_token}`,
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
