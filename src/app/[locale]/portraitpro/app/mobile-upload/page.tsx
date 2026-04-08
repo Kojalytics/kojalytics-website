@@ -4,6 +4,8 @@ import { Suspense, useState, useRef } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 
 const MAX_FILES = 10;
+const MAX_IMAGE_DIMENSION = 1536;
+const JPEG_QUALITY = 0.75;
 
 export default function MobileUploadPage() {
   return (
@@ -11,6 +13,54 @@ export default function MobileUploadPage() {
       <MobileUpload />
     </Suspense>
   );
+}
+
+// Compress image client-side before upload
+function compressImage(file: File): Promise<File> {
+  return new Promise((resolve) => {
+    // Skip non-images or already small files (<500KB)
+    if (!file.type.startsWith('image/') || file.size < 500_000) {
+      resolve(file);
+      return;
+    }
+
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+
+      let { width, height } = img;
+      // Scale down if larger than max dimension
+      if (width > MAX_IMAGE_DIMENSION || height > MAX_IMAGE_DIMENSION) {
+        const ratio = Math.min(MAX_IMAGE_DIMENSION / width, MAX_IMAGE_DIMENSION / height);
+        width = Math.round(width * ratio);
+        height = Math.round(height * ratio);
+      }
+
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d')!;
+      ctx.drawImage(img, 0, 0, width, height);
+
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            resolve(new File([blob], file.name.replace(/\.\w+$/, '.jpg'), { type: 'image/jpeg' }));
+          } else {
+            resolve(file);
+          }
+        },
+        'image/jpeg',
+        JPEG_QUALITY
+      );
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      resolve(file);
+    };
+    img.src = url;
+  });
 }
 
 function MobileUpload() {
@@ -50,25 +100,40 @@ function MobileUpload() {
     if (!userId || files.length < 5) return;
     setUploading(true);
     setError('');
-    setUploadProgress(10);
+    setUploadProgress(5);
 
     try {
-      const formData = new FormData();
-      formData.append('uid', userId);
-      files.forEach(f => formData.append('files', f));
+      // Compress all images client-side first
+      setUploadProgress(10);
+      const compressed = await Promise.all(files.map(f => compressImage(f)));
+      setUploadProgress(25);
 
-      setUploadProgress(30);
+      // Upload in batches of 3 to avoid timeout/size issues
+      const batchSize = 3;
+      let uploadedCount = 0;
 
-      const res = await fetch('/api/mobile-upload', {
-        method: 'POST',
-        body: formData,
-      });
+      for (let batch = 0; batch < compressed.length; batch += batchSize) {
+        const batchFiles = compressed.slice(batch, batch + batchSize);
+        const formData = new FormData();
+        formData.append('uid', userId);
+        batchFiles.forEach(f => formData.append('files', f));
 
-      setUploadProgress(90);
+        // Add flag for last batch to trigger realtime broadcast
+        const isLastBatch = batch + batchSize >= compressed.length;
+        formData.append('final', isLastBatch ? '1' : '0');
 
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Upload failed');
+        const res = await fetch('/api/mobile-upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({ error: 'Upload failed' }));
+          throw new Error(data.error || 'Upload failed');
+        }
+
+        uploadedCount += batchFiles.length;
+        setUploadProgress(25 + Math.round((uploadedCount / compressed.length) * 70));
       }
 
       setUploadProgress(100);
@@ -234,7 +299,7 @@ function MobileUpload() {
             }} />
           </div>
           <p style={{ textAlign: 'center', fontSize: '0.85rem', color: '#888', marginTop: 8 }}>
-            {isDe ? `Hochladen... ${uploadProgress}%` : `Uploading... ${uploadProgress}%`}
+            {isDe ? `Komprimiere & lade hoch... ${uploadProgress}%` : `Compressing & uploading... ${uploadProgress}%`}
           </p>
         </div>
       )}
