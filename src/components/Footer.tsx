@@ -55,7 +55,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { href: "/support", label: "PortraitPro AI" },
+                { href: "/de/portraitpro", label: "PortraitPro AI" },
                 { href: "#work", label: "BILDER AI" },
               ].map((link) => (
                 <li key={link.href}>

@@ -7,13 +7,13 @@ import Link from "next/link";
 const projects = [
   {
     title: "PortraitPro AI",
-    category: "iOS App",
+    category: "iOS App & Web App",
     description:
       "AI-powered professional portrait generator. Upload selfies, get studio-quality headshots in minutes. Built with SwiftUI, Supabase, and Google Gemini.",
-    tags: ["SwiftUI", "AI/ML", "Supabase"],
+    tags: ["SwiftUI", "Next.js", "AI/ML", "Supabase"],
     gradient: "from-indigo-500/20 to-purple-500/20",
     accentColor: "text-indigo-400",
-    link: "/support",
+    link: "/de/portraitpro",
   },
   {
     title: "BILDER AI",
