@@ -198,16 +198,33 @@ export default function PortraitProApp() {
   // Error state for user feedback
   const [genError, setGenError] = useState('');
 
-  // Upload reference images to Supabase Storage
+  // Upload reference images to Supabase Storage via direct fetch with auth token
   const uploadReferenceImages = async (): Promise<string[]> => {
     const paths: string[] = [];
     const uid = user!.id;
+    const token = session!.access_token;
     for (let i = 0; i < Math.min(files.length, 5); i++) {
       const file = files[i];
       const ext = file.name.split('.').pop() || 'jpg';
       const path = `${uid}/${Date.now()}-${i}.${ext}`;
-      const { error } = await supabase.storage.from('reference-images').upload(path, file, { contentType: file.type });
-      if (error) throw new Error(`Upload failed: ${error.message}`);
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/reference-images/${path}`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': file.type,
+            'x-upsert': 'false',
+          },
+          body: file,
+        }
+      );
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: res.statusText }));
+        throw new Error(`Upload failed: ${err.error || err.message || res.statusText}`);
+      }
       paths.push(path);
     }
     return paths;
