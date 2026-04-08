@@ -112,23 +112,18 @@ export default function PortraitProApp() {
       };
       if (!paths?.length) return;
 
-      // Store the Storage paths — these are already in reference-images bucket
-      setMobileRefPaths(prev => [...prev, ...paths]);
+      // Store the Storage paths — replace (not append) since server sends ALL paths from Storage
+      setMobileRefPaths(paths);
 
       // Create placeholder File objects so the file count is correct
-      paths.forEach((path, i) => {
+      const placeholders = paths.map((path, i) => {
         const filename = path.split('/').pop() || `mobile-${i}.jpg`;
-        const placeholder = new File([new Blob([''])], filename, { type: 'image/jpeg' });
-        setFiles(prev => {
-          if (prev.length >= 10) return prev;
-          return [...prev, placeholder];
-        });
+        return new File([new Blob([''])], filename, { type: 'image/jpeg' });
       });
+      setFiles(placeholders.slice(0, 10));
 
       // Use signed URLs as thumbnails
-      if (thumbnails?.length) {
-        setPreviews(prev => [...prev, ...thumbnails]);
-      }
+      setPreviews(thumbnails?.length ? thumbnails : []);
     });
 
     channel.subscribe();

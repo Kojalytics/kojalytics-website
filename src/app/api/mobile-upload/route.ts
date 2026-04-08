@@ -72,20 +72,38 @@ export async function POST(request: NextRequest) {
 
     // Only broadcast on the final batch
     if (isFinal) {
+      // List ALL files from Storage for this user (in-memory state is unreliable on serverless)
+      const { data: allFiles } = await supabase.storage
+        .from('reference-images')
+        .list(uid, { limit: 20, sortBy: { column: 'created_at', order: 'asc' } });
+
+      const allPaths = (allFiles || [])
+        .filter(f => f.name && !f.name.startsWith('.'))
+        .map(f => `${uid}/${f.name}`);
+
+      // Generate signed URLs for all files
+      const allThumbnails: string[] = [];
+      for (const path of allPaths) {
+        const { data: signedData } = await supabase.storage
+          .from('reference-images')
+          .createSignedUrl(path, 3600);
+        if (signedData?.signedUrl) allThumbnails.push(signedData.signedUrl);
+      }
+
       const channel = supabase.channel(`mobile-upload:${uid}`);
       await channel.subscribe();
       await channel.send({
         type: 'broadcast',
         event: 'files_ready',
         payload: {
-          paths: pending.paths,
-          thumbnails: pending.thumbnails,
-          count: pending.paths.length,
+          paths: allPaths,
+          thumbnails: allThumbnails,
+          count: allPaths.length,
         },
       });
       channel.unsubscribe();
 
-      // Clean up
+      // Clean up in-memory state
       pendingPaths.delete(uid);
     }
 
