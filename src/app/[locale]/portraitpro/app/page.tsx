@@ -195,16 +195,55 @@ export default function PortraitProApp() {
     setWebcamActive(false);
   };
 
-  // Convert files to base64 for API
-  const filesToBase64 = async (): Promise<string[]> => {
-    return Promise.all(files.map(file => new Promise<string>((resolve) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const result = reader.result as string;
-        resolve(result.split(',')[1]); // strip data:image prefix
+  // Error state for user feedback
+  const [genError, setGenError] = useState('');
+
+  // Upload reference images to Supabase Storage
+  const uploadReferenceImages = async (): Promise<string[]> => {
+    const paths: string[] = [];
+    const uid = user!.id;
+    for (let i = 0; i < Math.min(files.length, 5); i++) {
+      const file = files[i];
+      const ext = file.name.split('.').pop() || 'jpg';
+      const path = `${uid}/${Date.now()}-${i}.${ext}`;
+      const { error } = await supabase.storage.from('reference-images').upload(path, file, { contentType: file.type });
+      if (error) throw new Error(`Upload failed: ${error.message}`);
+      paths.push(path);
+    }
+    return paths;
+  };
+
+  // Build prompts matching the iOS app format
+  const buildPreviewPrompts = (): { index: number; prompt: string; category: string }[] => {
+    const categories = [
+      { category: 'Studio', fragment: 'elegant formal style, refined classic lighting, timeless look, clean studio background' },
+      { category: 'Modern', fragment: 'modern contemporary style, clean crisp look, minimalist aesthetic, subtle gradient background' },
+      { category: 'Natural', fragment: 'natural authentic style, relaxed warm atmosphere, genuine expression, soft window light' },
+    ];
+    return categories.map((cat, i) => ({
+      index: i,
+      prompt: `Ultra-realistic professional headshot portrait of a professional. This must be the SAME person as in the reference photos — same face, same features, same identity. ${cat.fragment}. Professional business attire. Shot with Canon EOS R5, 85mm f/1.4 lens, shallow depth of field. Keep the face identical to the reference photos. Closed-mouth expression, no teeth visible, confident and approachable look.`,
+      category: cat.category,
+    }));
+  };
+
+  const buildFullPrompts = (count: number): { index: number; prompt: string; category: string }[] => {
+    const categories = [
+      { category: 'Studio', fragment: 'elegant formal style, refined classic lighting, timeless look, clean studio background' },
+      { category: 'Modern', fragment: 'modern contemporary style, clean crisp look, minimalist aesthetic, subtle gradient background' },
+      { category: 'Natural', fragment: 'natural authentic style, relaxed warm atmosphere, genuine expression, soft window light' },
+      { category: 'Outdoor', fragment: 'natural outdoor light, urban environment, blurred city background, golden hour warmth' },
+      { category: 'Schwarzweiß', fragment: 'black and white photography, high contrast monochrome, dramatic shadows, timeless elegance' },
+      { category: 'Dramatisch', fragment: 'dramatic artistic lighting, bold rim light, deep shadows, cinematic mood' },
+    ];
+    return Array.from({ length: count }, (_, i) => {
+      const cat = categories[i % categories.length];
+      return {
+        index: i,
+        prompt: `Ultra-realistic professional headshot portrait of a professional. This must be the SAME person as in the reference photos — same face, same features, same identity. ${cat.fragment}. Professional business attire. Shot with Canon EOS R5, 85mm f/1.4 lens, shallow depth of field. Keep the face identical to the reference photos. Closed-mouth expression, no teeth visible, confident and approachable look.`,
+        category: cat.category,
       };
-      reader.readAsDataURL(file);
-    })));
+    });
   };
 
   // Generate preview (3 watermarked images)
@@ -212,12 +251,19 @@ export default function PortraitProApp() {
     if (files.length < 5 || !session) return;
     setStep('generating-preview');
     setProgress(0);
+    setGenError('');
 
     try {
-      const base64Images = await filesToBase64();
-      setProgress(20);
+      // 1. Upload reference images to Storage
+      setProgress(10);
+      const storagePaths = await uploadReferenceImages();
+      setRefPaths(storagePaths);
+      setProgress(30);
 
-      // Call create-job for 3 preview portraits
+      // 2. Build prompts
+      const prompts = buildPreviewPrompts();
+
+      // 3. Call create-job with correct format
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/create-job`, {
         method: 'POST',
         headers: {
@@ -225,22 +271,28 @@ export default function PortraitProApp() {
           'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({
-          referenceImages: base64Images.slice(0, 5),
-          totalPortraits: 3,
-          imageSize: '1K', // lower res for preview
-          isPreview: true,
+          referenceImagePaths: storagePaths,
+          prompts,
+          imageSize: '1K',
+          aspectRatio: '1:1',
         }),
       });
 
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || `Server error ${res.status}`);
+      }
+
       const data = await res.json();
-      if (!data.jobId) throw new Error('No job ID');
+      if (!data.jobId) throw new Error('No job ID returned');
       setJobId(data.jobId);
       setProgress(40);
 
-      // Poll for completion
+      // 4. Poll for completion
       await pollJob(data.jobId, true);
     } catch (err) {
       console.error('Preview generation failed:', err);
+      setGenError(err instanceof Error ? err.message : 'Generation failed');
       setStep('upload');
     }
   };
@@ -306,15 +358,26 @@ export default function PortraitProApp() {
     }
   };
 
+  // Store reference paths for reuse after payment
+  const [refPaths, setRefPaths] = useState<string[]>([]);
+
   // Generate full set after payment
   const generateFull = async (plan: PlanId) => {
-    if (!session || !jobId) return;
+    if (!session) return;
     setStep('generating-full');
     setProgress(0);
 
     try {
-      const base64Images = await filesToBase64();
+      // Use previously uploaded reference paths, or upload fresh
+      let storagePaths = refPaths;
+      if (!storagePaths.length) {
+        storagePaths = await uploadReferenceImages();
+        setRefPaths(storagePaths);
+      }
+      setProgress(20);
+
       const planData = PLANS[plan];
+      const prompts = buildFullPrompts(planData.portraits);
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/create-job`, {
         method: 'POST',
@@ -323,19 +386,26 @@ export default function PortraitProApp() {
           'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({
-          referenceImages: base64Images.slice(0, 5),
-          totalPortraits: planData.portraits,
+          referenceImagePaths: storagePaths,
+          prompts,
           imageSize: plan === 'premium' ? '4K' : '2K',
-          isPreview: false,
+          aspectRatio: '1:1',
         }),
       });
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || `Server error ${res.status}`);
+      }
 
       const data = await res.json();
       if (!data.jobId) throw new Error('No job ID');
       setJobId(data.jobId);
+      setProgress(40);
       await pollJob(data.jobId, false);
     } catch (err) {
       console.error('Full generation failed:', err);
+      setGenError(err instanceof Error ? err.message : 'Generation failed');
     }
   };
 
@@ -516,6 +586,18 @@ export default function PortraitProApp() {
             </div>
             <p style={{ fontSize: '0.85rem', color: '#888', marginTop: 12 }}>{t('scanQR')}</p>
           </div>
+
+          {/* Error message */}
+          {genError && (
+            <div style={{
+              background: '#FEF2F2', border: '1px solid #FECACA', borderRadius: 12,
+              padding: '14px 20px', marginBottom: 20, textAlign: 'center',
+            }}>
+              <p style={{ color: '#DC2626', fontSize: '0.9rem', fontWeight: 500 }}>
+                {locale === 'de' ? 'Fehler: ' : 'Error: '}{genError}
+              </p>
+            </div>
+          )}
 
           {/* Generate preview button */}
           <button
