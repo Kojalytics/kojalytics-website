@@ -21,7 +21,9 @@ export async function POST(request: NextRequest) {
     }
 
     const uploadedPaths: string[] = [];
+    const thumbnailUrls: string[] = [];
 
+    // Upload directly to reference-images bucket (same as desktop upload)
     for (let i = 0; i < Math.min(files.length, 10); i++) {
       const file = files[i];
       const ext = file.name.split('.').pop() || 'jpg';
@@ -30,7 +32,7 @@ export async function POST(request: NextRequest) {
       const buffer = Buffer.from(await file.arrayBuffer());
 
       const { error: uploadErr } = await supabase.storage
-        .from('mobile-uploads')
+        .from('reference-images')
         .upload(path, buffer, { contentType: file.type, upsert: false });
 
       if (uploadErr) {
@@ -38,15 +40,27 @@ export async function POST(request: NextRequest) {
         continue;
       }
       uploadedPaths.push(path);
+
+      // Generate a signed URL for thumbnail preview on desktop
+      const { data: signedData } = await supabase.storage
+        .from('reference-images')
+        .createSignedUrl(path, 3600); // 1 hour
+      if (signedData?.signedUrl) {
+        thumbnailUrls.push(signedData.signedUrl);
+      }
     }
 
-    // Broadcast to desktop via Realtime
+    // Broadcast to desktop via Realtime — send paths AND thumbnail URLs
     const channel = supabase.channel(`mobile-upload:${uid}`);
     await channel.subscribe();
     await channel.send({
       type: 'broadcast',
       event: 'files_ready',
-      payload: { paths: uploadedPaths, count: uploadedPaths.length },
+      payload: {
+        paths: uploadedPaths,
+        thumbnails: thumbnailUrls,
+        count: uploadedPaths.length,
+      },
     });
     channel.unsubscribe();
 

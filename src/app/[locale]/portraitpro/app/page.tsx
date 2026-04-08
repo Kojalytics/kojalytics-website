@@ -98,39 +98,36 @@ export default function PortraitProApp() {
     ? `${window.location.origin}/${locale}/portraitpro/app/mobile-upload?uid=${user.id}`
     : '';
 
+  // Track reference image paths already in Storage (from mobile upload)
+  const [mobileRefPaths, setMobileRefPaths] = useState<string[]>([]);
+
   // Listen for mobile uploads via Supabase Realtime
   useEffect(() => {
     if (!user || !session) return;
 
     const channel = supabase.channel(`mobile-upload:${user.id}`);
     channel.on('broadcast', { event: 'files_ready' }, async (payload) => {
-      const { paths } = payload.payload as { paths: string[]; count: number };
+      const { paths, thumbnails, count } = payload.payload as {
+        paths: string[]; thumbnails: string[]; count: number;
+      };
       if (!paths?.length) return;
 
-      // Download files from Supabase Storage using authenticated client
-      for (const path of paths) {
-        try {
-          const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/mobile-uploads/${path}`;
-          const res = await fetch(url, {
-            headers: { Authorization: `Bearer ${session.access_token}` },
-          });
-          if (!res.ok) continue;
-          const blob = await res.blob();
+      // Store the Storage paths — these are already in reference-images bucket
+      setMobileRefPaths(prev => [...prev, ...paths]);
 
-          const filename = path.split('/').pop() || `mobile-${Date.now()}.jpg`;
-          const file = new File([blob], filename, { type: blob.type || 'image/jpeg' });
+      // Create placeholder File objects so the file count is correct
+      paths.forEach((path, i) => {
+        const filename = path.split('/').pop() || `mobile-${i}.jpg`;
+        const placeholder = new File([new Blob([''])], filename, { type: 'image/jpeg' });
+        setFiles(prev => {
+          if (prev.length >= 10) return prev;
+          return [...prev, placeholder];
+        });
+      });
 
-          setFiles(prev => {
-            if (prev.length >= 10) return prev;
-            return [...prev, file];
-          });
-
-          const reader = new FileReader();
-          reader.onload = (e) => setPreviews(prev => [...prev, e.target?.result as string]);
-          reader.readAsDataURL(blob);
-        } catch (e) {
-          console.error('Failed to download mobile upload:', e);
-        }
+      // Use signed URLs as thumbnails
+      if (thumbnails?.length) {
+        setPreviews(prev => [...prev, ...thumbnails]);
       }
     });
 
@@ -271,9 +268,28 @@ export default function PortraitProApp() {
     setGenError('');
 
     try {
-      // 1. Upload reference images to Storage
+      // 1. Upload reference images to Storage (skip if already uploaded from mobile)
       setProgress(10);
-      const storagePaths = await uploadReferenceImages();
+      let storagePaths: string[];
+      if (mobileRefPaths.length >= 5) {
+        storagePaths = mobileRefPaths.slice(0, 5);
+      } else if (mobileRefPaths.length > 0) {
+        // Mix mobile + desktop uploads
+        storagePaths = [...mobileRefPaths];
+        const desktopFiles = files.filter(f => f.size > 1); // skip placeholders
+        for (let i = 0; storagePaths.length < 5 && i < desktopFiles.length; i++) {
+          const file = desktopFiles[i];
+          const ext = file.name.split('.').pop() || 'jpg';
+          const path = `${user!.id}/${Date.now()}-desktop-${i}.${ext}`;
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/reference-images/${path}`,
+            { method: 'POST', headers: { 'Authorization': `Bearer ${session.access_token}`, 'Content-Type': file.type, 'x-upsert': 'false' }, body: file }
+          );
+          if (res.ok) storagePaths.push(path);
+        }
+      } else {
+        storagePaths = await uploadReferenceImages();
+      }
       setRefPaths(storagePaths);
       setProgress(30);
 
