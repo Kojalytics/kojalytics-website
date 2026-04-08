@@ -94,8 +94,42 @@ export default function PortraitProApp() {
 
   // QR upload URL
   const uploadUrl = typeof window !== 'undefined'
-    ? `${window.location.origin}/${locale}/portraitpro/app/mobile-upload?session=${session?.access_token || ''}`
+    ? `${window.location.origin}/${locale}/portraitpro/app/mobile-upload?session=${session?.access_token || ''}&uid=${user?.id || ''}`
     : '';
+
+  // Listen for mobile uploads via Supabase Realtime
+  useEffect(() => {
+    if (!user || !session) return;
+
+    const channel = supabase.channel(`mobile-upload:${user.id}`);
+    channel.on('broadcast', { event: 'files_ready' }, async (payload) => {
+      const { paths, count } = payload.payload as { paths: string[]; count: number };
+      if (!paths?.length) return;
+
+      // Download files from Supabase Storage and add to local state
+      for (const path of paths) {
+        if (files.length >= 10) break;
+        const { data, error } = await supabase.storage.from('mobile-uploads').download(path);
+        if (error || !data) continue;
+
+        const filename = path.split('/').pop() || `mobile-${Date.now()}.jpg`;
+        const file = new File([data], filename, { type: data.type || 'image/jpeg' });
+
+        setFiles(prev => {
+          if (prev.length >= 10) return prev;
+          return [...prev, file];
+        });
+
+        // Create preview
+        const reader = new FileReader();
+        reader.onload = (e) => setPreviews(prev => [...prev, e.target?.result as string]);
+        reader.readAsDataURL(data);
+      }
+    });
+
+    channel.subscribe();
+    return () => { channel.unsubscribe(); };
+  }, [user?.id, session?.access_token]);
 
   // File handling
   const handleFiles = useCallback((newFiles: FileList | File[]) => {

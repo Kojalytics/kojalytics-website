@@ -1,23 +1,48 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { useParams } from 'next/navigation';
+import { Suspense, useState, useRef, useEffect } from 'react';
+import { useParams, useSearchParams } from 'next/navigation';
+import { createClient } from '@supabase/supabase-js';
 
-export default function MobileUpload() {
+const MAX_FILES = 10;
+
+export default function MobileUploadPage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>}>
+      <MobileUpload />
+    </Suspense>
+  );
+}
+
+function MobileUpload() {
   const params = useParams();
+  const searchParams = useSearchParams();
   const locale = params.locale as string;
+  const sessionToken = searchParams.get('session') || '';
+  const userId = searchParams.get('uid') || '';
+
   const [files, setFiles] = useState<File[]>([]);
   const [previews, setPreviews] = useState<string[]>([]);
+  const [uploading, setUploading] = useState(false);
   const [uploaded, setUploaded] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [error, setError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const isDe = locale === 'de';
 
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { global: { headers: { Authorization: `Bearer ${sessionToken}` } } }
+  );
+
   const handleFiles = (newFiles: FileList) => {
-    const fileArray = Array.from(newFiles).filter(f => f.type.startsWith('image/'));
-    const toAdd = fileArray.slice(0, 10 - files.length);
-    setFiles(prev => [...prev, ...toAdd]);
-    toAdd.forEach(file => {
+    const remaining = MAX_FILES - files.length;
+    if (remaining <= 0) return;
+    const fileArray = Array.from(newFiles).filter(f => f.type.startsWith('image/')).slice(0, remaining);
+    setFiles(prev => [...prev, ...fileArray]);
+    fileArray.forEach(file => {
       const reader = new FileReader();
       reader.onload = (e) => setPreviews(prev => [...prev, e.target?.result as string]);
       reader.readAsDataURL(file);
@@ -30,10 +55,47 @@ export default function MobileUpload() {
   };
 
   const handleUpload = async () => {
-    // In production: upload to Supabase storage and link to session
-    // For now: show success
-    setUploaded(true);
+    if (!userId || !sessionToken || files.length < 1) return;
+    setUploading(true);
+    setError('');
+
+    try {
+      const uploadedPaths: string[] = [];
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const ext = file.name.split('.').pop() || 'jpg';
+        const path = `${userId}/${Date.now()}-${i}.${ext}`;
+
+        const { error: uploadErr } = await supabase.storage
+          .from('mobile-uploads')
+          .upload(path, file, { contentType: file.type, upsert: false });
+
+        if (uploadErr) throw uploadErr;
+        uploadedPaths.push(path);
+        setUploadProgress(Math.round(((i + 1) / files.length) * 100));
+      }
+
+      // Notify desktop via Realtime broadcast
+      const channel = supabase.channel(`mobile-upload:${userId}`);
+      await channel.subscribe();
+      await channel.send({
+        type: 'broadcast',
+        event: 'files_ready',
+        payload: { paths: uploadedPaths, count: uploadedPaths.length },
+      });
+      channel.unsubscribe();
+
+      setUploaded(true);
+    } catch (err: unknown) {
+      console.error('Upload failed:', err);
+      setError(isDe ? 'Upload fehlgeschlagen. Bitte versuche es erneut.' : 'Upload failed. Please try again.');
+    } finally {
+      setUploading(false);
+    }
   };
+
+  const atLimit = files.length >= MAX_FILES;
 
   if (uploaded) {
     return (
@@ -44,7 +106,7 @@ export default function MobileUpload() {
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '4rem', marginBottom: 16 }}>✅</div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 8, color: '#1A1A2E' }}>
-            {isDe ? 'Fotos hochgeladen!' : 'Photos uploaded!'}
+            {isDe ? `${files.length} Fotos hochgeladen!` : `${files.length} Photos uploaded!`}
           </h1>
           <p style={{ color: '#6b7280' }}>
             {isDe ? 'Du kannst dieses Fenster jetzt schließen und am Computer weitermachen.' : 'You can close this window and continue on your computer.'}
@@ -78,7 +140,9 @@ export default function MobileUpload() {
       {/* Camera / Upload buttons */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24 }}>
         <button
+          disabled={atLimit || uploading}
           onClick={() => {
+            if (atLimit) return;
             const input = document.createElement('input');
             input.type = 'file';
             input.accept = 'image/*';
@@ -91,20 +155,22 @@ export default function MobileUpload() {
           }}
           style={{
             padding: '16px 24px', borderRadius: 14,
-            background: 'linear-gradient(135deg, #E94560, #F27121)',
+            background: atLimit ? '#ccc' : 'linear-gradient(135deg, #E94560, #F27121)',
             color: 'white', fontWeight: 700, fontSize: '1rem',
-            border: 'none', cursor: 'pointer',
+            border: 'none', cursor: atLimit ? 'not-allowed' : 'pointer',
           }}
         >
           📸 {isDe ? 'Kamera öffnen' : 'Open Camera'}
         </button>
 
         <button
+          disabled={atLimit || uploading}
           onClick={() => fileInputRef.current?.click()}
           style={{
             padding: '16px 24px', borderRadius: 14,
-            background: 'white', color: '#1A1A2E', fontWeight: 600,
-            fontSize: '1rem', border: '2px solid #E8E6E1', cursor: 'pointer',
+            background: 'white', color: atLimit ? '#aaa' : '#1A1A2E', fontWeight: 600,
+            fontSize: '1rem', border: '2px solid #E8E6E1',
+            cursor: atLimit ? 'not-allowed' : 'pointer',
           }}
         >
           🖼️ {isDe ? 'Aus Galerie wählen' : 'Choose from Gallery'}
@@ -119,6 +185,13 @@ export default function MobileUpload() {
         />
       </div>
 
+      {/* Limit hint */}
+      {atLimit && (
+        <p style={{ textAlign: 'center', fontSize: '0.85rem', color: '#E94560', marginBottom: 16, fontWeight: 600 }}>
+          {isDe ? 'Maximum erreicht (10 Fotos)' : 'Maximum reached (10 photos)'}
+        </p>
+      )}
+
       {/* Thumbnails */}
       {previews.length > 0 && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 24 }}>
@@ -128,30 +201,58 @@ export default function MobileUpload() {
               position: 'relative', border: '2px solid #E8E6E1',
             }}>
               <img src={p} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <button onClick={() => removeFile(i)} style={{
-                position: 'absolute', top: 4, right: 4, width: 24, height: 24, borderRadius: '50%',
-                background: 'rgba(0,0,0,0.6)', color: 'white', border: 'none', fontSize: '0.8rem',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>✕</button>
+              {!uploading && (
+                <button onClick={() => removeFile(i)} style={{
+                  position: 'absolute', top: 4, right: 4, width: 24, height: 24, borderRadius: '50%',
+                  background: 'rgba(0,0,0,0.6)', color: 'white', border: 'none', fontSize: '0.8rem',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>✕</button>
+              )}
             </div>
           ))}
         </div>
       )}
 
       <p style={{ textAlign: 'center', fontSize: '0.9rem', color: files.length >= 5 ? '#16a34a' : '#888', marginBottom: 24 }}>
-        {files.length}/10 {isDe ? 'Fotos' : 'photos'}
+        {files.length}/{MAX_FILES} {isDe ? 'Fotos' : 'photos'}
+        {files.length > 0 && files.length < 5 && ` — ${isDe ? 'mindestens 5 nötig' : 'at least 5 needed'}`}
       </p>
 
+      {/* Upload progress */}
+      {uploading && (
+        <div style={{ marginBottom: 24 }}>
+          <div style={{ width: '100%', height: 8, borderRadius: 4, background: '#E8E6E1', overflow: 'hidden' }}>
+            <div style={{
+              width: `${uploadProgress}%`, height: '100%', borderRadius: 4,
+              background: 'linear-gradient(90deg, #E94560, #F27121)',
+              transition: 'width 0.3s ease',
+            }} />
+          </div>
+          <p style={{ textAlign: 'center', fontSize: '0.85rem', color: '#888', marginTop: 8 }}>
+            {isDe ? `Hochladen... ${uploadProgress}%` : `Uploading... ${uploadProgress}%`}
+          </p>
+        </div>
+      )}
+
+      {/* Error */}
+      {error && (
+        <p style={{ textAlign: 'center', fontSize: '0.9rem', color: '#ef4444', marginBottom: 16 }}>{error}</p>
+      )}
+
       {/* Upload button */}
-      {files.length >= 5 && (
+      {files.length >= 1 && !uploading && (
         <button
           onClick={handleUpload}
           style={{
             width: '100%', padding: '18px 24px', borderRadius: 14,
-            background: 'linear-gradient(135deg, #E94560, #F27121)',
+            background: files.length >= 5
+              ? 'linear-gradient(135deg, #E94560, #F27121)'
+              : '#ccc',
             color: 'white', fontWeight: 700, fontSize: '1.05rem',
-            border: 'none', cursor: 'pointer',
+            border: 'none', cursor: files.length >= 5 ? 'pointer' : 'not-allowed',
+            opacity: files.length >= 5 ? 1 : 0.6,
           }}
+          disabled={files.length < 5}
         >
           ✨ {isDe ? `${files.length} Fotos hochladen` : `Upload ${files.length} photos`}
         </button>
