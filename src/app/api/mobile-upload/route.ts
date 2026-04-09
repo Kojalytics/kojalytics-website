@@ -24,6 +24,7 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const uid = formData.get('uid') as string;
+    const isFirst = formData.get('first') === '1';
     const isFinal = formData.get('final') === '1';
 
     if (!uid) {
@@ -33,6 +34,17 @@ export async function POST(request: NextRequest) {
     const files = formData.getAll('files') as File[];
     if (!files.length) {
       return NextResponse.json({ error: 'No files' }, { status: 400 });
+    }
+
+    // On first batch: delete all old files for this user
+    if (isFirst) {
+      const { data: oldFiles } = await supabase.storage
+        .from('reference-images')
+        .list(uid, { limit: 100 });
+      if (oldFiles?.length) {
+        const oldPaths = oldFiles.map(f => `${uid}/${f.name}`);
+        await supabase.storage.from('reference-images').remove(oldPaths);
+      }
     }
 
     cleanupOld();

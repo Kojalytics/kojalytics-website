@@ -118,7 +118,8 @@ function MobileUpload() {
         formData.append('uid', userId);
         batchFiles.forEach(f => formData.append('files', f));
 
-        // Add flag for last batch to trigger realtime broadcast
+        // Add flags: first batch clears old files, last batch triggers broadcast
+        if (batch === 0) formData.append('first', '1');
         const isLastBatch = batch + batchSize >= compressed.length;
         formData.append('final', isLastBatch ? '1' : '0');
 
