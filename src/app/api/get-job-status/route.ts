@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Missing jobId' }, { status: 400 });
     }
 
-    const res = await fetch(`${SUPABASE_URL}/functions/v1/get-job-status?jobId=${jobId}`, {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/get-job-status?job_id=${jobId}`, {
       headers: {
         'Authorization': `Bearer ${SERVICE_KEY}`,
         'apikey': SERVICE_KEY,

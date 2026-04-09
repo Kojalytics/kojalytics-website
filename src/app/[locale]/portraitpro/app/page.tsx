@@ -313,10 +313,10 @@ export default function PortraitProApp() {
 
         if (isPreview) {
           // Get preview images (watermarked)
-          setPreviewImages(data.portraits?.map((p: { url: string }) => p.url) || []);
+          setPreviewImages(data.portraits?.map((p: { imageUrl?: string; url?: string }) => p.imageUrl || p.url).filter(Boolean) || []);
           setStep('preview');
         } else {
-          setGalleryImages(data.portraits?.map((p: { url: string }) => p.url) || []);
+          setGalleryImages(data.portraits?.map((p: { imageUrl?: string; url?: string }) => p.imageUrl || p.url).filter(Boolean) || []);
           setStep('gallery');
         }
         return;
