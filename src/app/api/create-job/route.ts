@@ -26,31 +26,30 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(data, { status: res.status });
     }
 
-    // 2. Trigger process-portrait workers from here (fire-and-forget in Edge Functions is unreliable)
+    // 2. Trigger process-portrait workers
+    // Workers take 30+ seconds (AI generation), so we fire them and DON'T await responses.
+    // We just need to ensure the HTTP requests leave before we return.
     const jobId = data.jobId;
     const totalPortraits = body.prompts?.length || 0;
     const concurrency = totalPortraits <= 12 ? 3 : totalPortraits <= 24 ? 4 : 5;
     const workersToStart = Math.min(concurrency, totalPortraits);
 
-    const workerPromises = [];
     for (let i = 0; i < workersToStart; i++) {
-      workerPromises.push(
-        fetch(`${SUPABASE_URL}/functions/v1/process-portrait`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${SERVICE_KEY}`,
-            'apikey': SERVICE_KEY,
-          },
-          body: JSON.stringify({ jobId, index: i }),
-        }).catch((err) => {
-          console.error(`Failed to trigger process-portrait worker ${i}:`, err);
-        })
-      );
+      fetch(`${SUPABASE_URL}/functions/v1/process-portrait`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${SERVICE_KEY}`,
+          'apikey': SERVICE_KEY,
+        },
+        body: JSON.stringify({ jobId, index: i }),
+      }).catch((err) => {
+        console.error(`Failed to trigger process-portrait worker ${i}:`, err);
+      });
     }
 
-    // Wait for all worker triggers to be dispatched (not for them to complete)
-    await Promise.allSettled(workerPromises);
+    // Brief pause to ensure HTTP requests are dispatched before function terminates
+    await new Promise(r => setTimeout(r, 2000));
 
     return NextResponse.json(data);
   } catch (err) {
