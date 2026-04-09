@@ -190,53 +190,24 @@ export default function PortraitProApp() {
   // Error state for user feedback
   const [genError, setGenError] = useState('');
 
-  const ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-
-  // Get a fresh access token (force refresh if expired)
-  const getFreshToken = async (): Promise<string> => {
-    // First try cached session
-    const { data: { session: cached } } = await supabase.auth.getSession();
-    if (cached) {
-      setSession(cached);
-      return cached.access_token;
-    }
-    // Force refresh if no cached session
-    const { data: { session: refreshed } } = await supabase.auth.refreshSession();
-    if (!refreshed) throw new Error('Not authenticated — please log in again');
-    setSession(refreshed);
-    return refreshed.access_token;
-  };
-
-  // Upload reference images to Supabase Storage via direct fetch with auth token
+  // Upload reference images via the mobile-upload API route (uses service role key server-side)
   const uploadReferenceImages = async (): Promise<string[]> => {
-    const paths: string[] = [];
-    const uid = user!.id;
-    const token = await getFreshToken();
-    for (let i = 0; i < Math.min(files.length, 5); i++) {
-      const file = files[i];
-      const ext = file.name.split('.').pop() || 'jpg';
-      const path = `${uid}/${Date.now()}-${i}.${ext}`;
+    const desktopFiles = files.filter(f => f.size > 1).slice(0, 5);
+    const formData = new FormData();
+    formData.append('uid', user!.id);
+    formData.append('first', '1');
+    formData.append('final', '1');
+    desktopFiles.forEach(f => formData.append('files', f));
 
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/reference-images/${path}`,
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': file.type,
-            'x-upsert': 'false',
-          },
-          body: file,
-        }
-      );
+    const res = await fetch('/api/mobile-upload', { method: 'POST', body: formData });
+    if (!res.ok) throw new Error('Upload failed');
 
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({ error: res.statusText }));
-        throw new Error(`Upload failed: ${err.error || err.message || res.statusText}`);
-      }
-      paths.push(path);
-    }
-    return paths;
+    // List the uploaded files from storage via a quick status check
+    const data = await res.json();
+    // The paths are in storage as {uid}/{timestamp}-{index}.ext — we need to list them
+    const listRes = await fetch(`/api/list-reference-images?uid=${user!.id}`);
+    const listData = await listRes.json();
+    return listData.paths || [];
   };
 
   // Build prompts matching the iOS app format
@@ -280,28 +251,13 @@ export default function PortraitProApp() {
     setGenError('');
 
     try {
-      // Get fresh token (auto-refreshes if expired)
-      const token = await getFreshToken();
-
-      // 1. Upload reference images to Storage (skip if already uploaded from mobile)
+      // 1. Get reference image paths (skip upload if already from mobile)
       setProgress(10);
       let storagePaths: string[];
       if (mobileRefPaths.length >= 5) {
         storagePaths = mobileRefPaths.slice(0, 5);
       } else if (mobileRefPaths.length > 0) {
-        // Mix mobile + desktop uploads
-        storagePaths = [...mobileRefPaths];
-        const desktopFiles = files.filter(f => f.size > 1); // skip placeholders
-        for (let i = 0; storagePaths.length < 5 && i < desktopFiles.length; i++) {
-          const file = desktopFiles[i];
-          const ext = file.name.split('.').pop() || 'jpg';
-          const path = `${user!.id}/${Date.now()}-desktop-${i}.${ext}`;
-          const res = await fetch(
-            `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/reference-images/${path}`,
-            { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': file.type, 'x-upsert': 'false' }, body: file }
-          );
-          if (res.ok) storagePaths.push(path);
-        }
+        storagePaths = mobileRefPaths;
       } else {
         storagePaths = await uploadReferenceImages();
       }
@@ -311,14 +267,10 @@ export default function PortraitProApp() {
       // 2. Build prompts
       const prompts = buildPreviewPrompts();
 
-      // 3. Call create-job with correct format
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/create-job`, {
+      // 3. Call create-job via server-side proxy (no JWT needed)
+      const res = await fetch('/api/create-job', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-          'apikey': ANON_KEY,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
           prompts,
@@ -352,10 +304,7 @@ export default function PortraitProApp() {
     for (let i = 0; i < maxAttempts; i++) {
       await new Promise(r => setTimeout(r, 3000));
 
-      const pollToken = await getFreshToken();
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/get-job-status?jobId=${id}`, {
-        headers: { 'Authorization': `Bearer ${pollToken}`, 'apikey': ANON_KEY },
-      });
+      const res = await fetch(`/api/get-job-status?jobId=${id}`);
       const data = await res.json();
 
       if (data.status === 'completed') {
@@ -418,8 +367,6 @@ export default function PortraitProApp() {
     setProgress(0);
 
     try {
-      const token = await getFreshToken();
-
       // Use previously uploaded reference paths, or upload fresh
       let storagePaths = refPaths;
       if (!storagePaths.length) {
@@ -431,13 +378,9 @@ export default function PortraitProApp() {
       const planData = PLANS[plan];
       const prompts = buildFullPrompts(planData.portraits);
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/create-job`, {
+      const res = await fetch('/api/create-job', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-          'apikey': ANON_KEY,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
           prompts,
