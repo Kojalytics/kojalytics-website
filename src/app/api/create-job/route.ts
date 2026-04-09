@@ -9,6 +9,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
+    // 1. Create the job via Edge Function
     const res = await fetch(`${SUPABASE_URL}/functions/v1/create-job`, {
       method: 'POST',
       headers: {
@@ -24,6 +25,32 @@ export async function POST(request: NextRequest) {
     if (!res.ok) {
       return NextResponse.json(data, { status: res.status });
     }
+
+    // 2. Trigger process-portrait workers from here (fire-and-forget in Edge Functions is unreliable)
+    const jobId = data.jobId;
+    const totalPortraits = body.prompts?.length || 0;
+    const concurrency = totalPortraits <= 12 ? 3 : totalPortraits <= 24 ? 4 : 5;
+    const workersToStart = Math.min(concurrency, totalPortraits);
+
+    const workerPromises = [];
+    for (let i = 0; i < workersToStart; i++) {
+      workerPromises.push(
+        fetch(`${SUPABASE_URL}/functions/v1/process-portrait`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SERVICE_KEY}`,
+            'apikey': SERVICE_KEY,
+          },
+          body: JSON.stringify({ jobId, index: i }),
+        }).catch((err) => {
+          console.error(`Failed to trigger process-portrait worker ${i}:`, err);
+        })
+      );
+    }
+
+    // Wait for all worker triggers to be dispatched (not for them to complete)
+    await Promise.allSettled(workerPromises);
 
     return NextResponse.json(data);
   } catch (err) {
