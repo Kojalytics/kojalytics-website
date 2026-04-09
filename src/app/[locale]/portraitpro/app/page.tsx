@@ -190,12 +190,21 @@ export default function PortraitProApp() {
   // Error state for user feedback
   const [genError, setGenError] = useState('');
 
-  // Get a fresh access token (auto-refreshes if expired)
+  const ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+  // Get a fresh access token (force refresh if expired)
   const getFreshToken = async (): Promise<string> => {
-    const { data: { session: freshSession } } = await supabase.auth.getSession();
-    if (!freshSession) throw new Error('Not authenticated');
-    setSession(freshSession);
-    return freshSession.access_token;
+    // First try cached session
+    const { data: { session: cached } } = await supabase.auth.getSession();
+    if (cached) {
+      setSession(cached);
+      return cached.access_token;
+    }
+    // Force refresh if no cached session
+    const { data: { session: refreshed } } = await supabase.auth.refreshSession();
+    if (!refreshed) throw new Error('Not authenticated — please log in again');
+    setSession(refreshed);
+    return refreshed.access_token;
   };
 
   // Upload reference images to Supabase Storage via direct fetch with auth token
@@ -308,6 +317,7 @@ export default function PortraitProApp() {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
+          'apikey': ANON_KEY,
         },
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
@@ -344,7 +354,7 @@ export default function PortraitProApp() {
 
       const pollToken = await getFreshToken();
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/get-job-status?jobId=${id}`, {
-        headers: { 'Authorization': `Bearer ${pollToken}` },
+        headers: { 'Authorization': `Bearer ${pollToken}`, 'apikey': ANON_KEY },
       });
       const data = await res.json();
 
@@ -426,6 +436,7 @@ export default function PortraitProApp() {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
+          'apikey': ANON_KEY,
         },
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
