@@ -31,6 +31,15 @@ const appLabels: Record<string, Record<string, string>> = {
   buyStarter: { de: '12 Portraits — €9,99', en: '12 Portraits — €9.99' },
   buyPremium: { de: '24 Portraits — €20,99', en: '24 Portraits — €20.99' },
   paymentSoon: { de: 'Zahlung wird bald verfügbar sein! Wir richten gerade Stripe ein.', en: 'Payment coming soon! We are setting up Stripe.' },
+  couponTitle: { de: 'Gutschein-Code einlösen', en: 'Redeem coupon code' },
+  couponPlaceholder: { de: 'Code eingeben (z. B. FREE50)', en: 'Enter code (e.g. FREE50)' },
+  couponRedeem: { de: 'Einlösen', en: 'Redeem' },
+  couponChoosePlan: { de: 'Wähle zuerst ein Paket', en: 'Select a plan first' },
+  couponSuccess: { de: '✓ Code akzeptiert — Paket wird kostenlos freigeschaltet', en: '✓ Code accepted — unlocking your package for free' },
+  couponInvalid: { de: 'Code ungültig', en: 'Invalid code' },
+  couponExhausted: { de: 'Code wurde bereits zu oft verwendet', en: 'Code has already been used too many times' },
+  couponExpired: { de: 'Code ist abgelaufen', en: 'Code has expired' },
+  couponError: { de: 'Einlösen fehlgeschlagen', en: 'Redemption failed' },
   processing: { de: 'Deine Portraits werden generiert...', en: 'Your portraits are being generated...' },
   done: { de: 'Fertig! Deine Portraits sind bereit.', en: 'Done! Your portraits are ready.' },
   download: { de: 'Alle herunterladen', en: 'Download All' },
@@ -72,6 +81,12 @@ export default function PortraitProApp() {
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
   const [selectedPlan, setSelectedPlan] = useState<PlanId | null>(null);
+
+  // Coupon state
+  const [couponCode, setCouponCode] = useState('');
+  const [couponPlan, setCouponPlan] = useState<PlanId>('premium');
+  const [couponStatus, setCouponStatus] = useState<'idle' | 'redeeming' | 'success' | 'error'>('idle');
+  const [couponMessage, setCouponMessage] = useState('');
 
   const supabase = createClient();
 
@@ -359,6 +374,50 @@ export default function PortraitProApp() {
 
   // Store reference paths for reuse after payment
   const [refPaths, setRefPaths] = useState<string[]>([]);
+
+  // Redeem coupon — bypasses Stripe entirely when discount == 100
+  const handleRedeemCoupon = async () => {
+    if (!session || !couponCode.trim()) return;
+    setCouponStatus('redeeming');
+    setCouponMessage('');
+    try {
+      const res = await fetch('/api/redeem-coupon', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          code: couponCode.trim(),
+          plan: couponPlan,
+          jobId,
+        }),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        setCouponStatus('error');
+        if (data.error === 'invalid') setCouponMessage(t('couponInvalid'));
+        else if (data.error === 'exhausted') setCouponMessage(t('couponExhausted'));
+        else if (data.error === 'expired') setCouponMessage(t('couponExpired'));
+        else setCouponMessage(t('couponError'));
+        return;
+      }
+
+      setCouponStatus('success');
+      setCouponMessage(t('couponSuccess'));
+
+      if (data.discountPercent === 100) {
+        // Full discount → skip Stripe, generate full set immediately
+        setSelectedPlan(couponPlan);
+        generateFull(couponPlan);
+      }
+    } catch (err) {
+      console.error('Coupon redeem failed:', err);
+      setCouponStatus('error');
+      setCouponMessage(t('couponError'));
+    }
+  };
 
   // Generate full set after payment
   const generateFull = async (plan: PlanId) => {
@@ -745,6 +804,87 @@ export default function PortraitProApp() {
                 <span>{t('buyPremium')}</span>
               </button>
             </div>
+          </div>
+
+          {/* Coupon code input */}
+          <div style={{
+            maxWidth: 520, margin: '40px auto 0', padding: '24px 28px',
+            background: 'white', borderRadius: 16, border: '1px solid #E8E6E1',
+          }}>
+            <h4 style={{
+              fontFamily: 'var(--font-pp-heading)', fontSize: '1rem', fontWeight: 700,
+              marginBottom: 16, color: '#1A1A2E', textAlign: 'center',
+            }}>
+              🎟️ {t('couponTitle')}
+            </h4>
+
+            <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+              <button
+                onClick={() => setCouponPlan('starter')}
+                style={{
+                  flex: 1, padding: '8px 12px', borderRadius: 8,
+                  border: couponPlan === 'starter' ? '2px solid var(--pp-accent)' : '1px solid #E8E6E1',
+                  background: couponPlan === 'starter' ? 'var(--pp-accent-soft)' : 'white',
+                  color: couponPlan === 'starter' ? 'var(--pp-accent)' : '#666',
+                  fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
+                }}
+              >
+                Starter (12)
+              </button>
+              <button
+                onClick={() => setCouponPlan('premium')}
+                style={{
+                  flex: 1, padding: '8px 12px', borderRadius: 8,
+                  border: couponPlan === 'premium' ? '2px solid var(--pp-accent)' : '1px solid #E8E6E1',
+                  background: couponPlan === 'premium' ? 'var(--pp-accent-soft)' : 'white',
+                  color: couponPlan === 'premium' ? 'var(--pp-accent)' : '#666',
+                  fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
+                }}
+              >
+                Premium (24)
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', gap: 8 }}>
+              <input
+                type="text"
+                value={couponCode}
+                onChange={(e) => {
+                  setCouponCode(e.target.value.toUpperCase());
+                  if (couponStatus !== 'idle') {
+                    setCouponStatus('idle');
+                    setCouponMessage('');
+                  }
+                }}
+                onKeyDown={(e) => { if (e.key === 'Enter') handleRedeemCoupon(); }}
+                placeholder={t('couponPlaceholder')}
+                disabled={couponStatus === 'redeeming' || couponStatus === 'success'}
+                style={{
+                  flex: 1, padding: '10px 14px', borderRadius: 8,
+                  border: '1px solid #E8E6E1', fontSize: '0.95rem',
+                  fontFamily: 'monospace', letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                }}
+              />
+              <button
+                onClick={handleRedeemCoupon}
+                disabled={!couponCode.trim() || couponStatus === 'redeeming' || couponStatus === 'success'}
+                className="pp-btn-primary"
+                style={{ padding: '10px 20px', fontSize: '0.9rem' }}
+              >
+                {couponStatus === 'redeeming' ? '...' : t('couponRedeem')}
+              </button>
+            </div>
+
+            {couponMessage && (
+              <p style={{
+                marginTop: 12, fontSize: '0.85rem', textAlign: 'center',
+                color: couponStatus === 'success' ? '#059669' : '#DC2626',
+                fontWeight: 600,
+              }}>
+                {couponMessage}
+              </p>
+            )}
           </div>
         </div>
       )}
