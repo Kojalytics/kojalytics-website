@@ -118,7 +118,7 @@ export default function PPComparisons({ t }: { t: Translations }) {
           align-items: center;
           gap: var(--gap);
           padding: 0 calc(var(--gap) * 2);
-          animation: ppTickerScroll 80s linear infinite reverse;
+          animation: ppTickerScroll 45s linear infinite reverse;
           will-change: transform;
         }
 
@@ -199,10 +199,6 @@ export default function PPComparisons({ t }: { t: Translations }) {
           100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
 
-        /* Pause on hover */
-        .pp-ticker-wrap:hover .pp-ticker {
-          animation-play-state: paused;
-        }
       `}</style>
     </section>
   );
