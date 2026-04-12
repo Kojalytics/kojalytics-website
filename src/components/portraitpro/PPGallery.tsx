@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import type { Translations } from '@/i18n/translations/de';
 
 const examples = [
@@ -74,12 +73,14 @@ export default function PPGallery({ t }: { t: Translations }) {
               borderRadius: 12, overflow: 'hidden', position: 'relative',
               background: 'linear-gradient(135deg, #D4D2CD 0%, #C4C2BD 100%)',
             }}>
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/portraitpro/examples/before.webp"
                 alt="Before — casual selfie"
-                fill
-                sizes="180px"
-                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                width={360}
+                height={480}
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
               />
             </div>
             <span style={{
@@ -118,12 +119,14 @@ export default function PPGallery({ t }: { t: Translations }) {
               width: 180, height: 240, margin: '0 auto 12px',
               borderRadius: 12, overflow: 'hidden', position: 'relative',
             }}>
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/portraitpro/examples/after.webp"
                 alt="After — AI professional portrait"
-                fill
-                sizes="180px"
-                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                width={360}
+                height={480}
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
               />
             </div>
             <span className="pp-gradient-text" style={{
@@ -157,13 +160,15 @@ export default function PPGallery({ t }: { t: Translations }) {
                 boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
               }}
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={ex.src}
                 alt={ex.style}
-                fill
-                sizes="(max-width: 768px) 50vw, 170px"
-                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                width={340}
+                height={453}
                 loading="lazy"
+                decoding="async"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
               />
               <div style={{
                 position: 'absolute', bottom: 0, left: 0, right: 0,

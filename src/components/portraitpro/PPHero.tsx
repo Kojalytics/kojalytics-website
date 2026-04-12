@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import type { Translations } from '@/i18n/translations/de';
 
 const portraits = [
@@ -149,14 +148,15 @@ export default function PPHero({ t, locale }: { t: Translations; locale: string 
                   boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
                 }}
               >
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={p.src}
                   alt={`${p.style} Portrait`}
-                  fill
-                  sizes="(max-width: 768px) 25vw, 120px"
-                  style={{ objectFit: 'cover', objectPosition: 'top center' }}
-                  priority={i < 4}
+                  width={400}
+                  height={533}
                   loading={i < 4 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
                 />
                 <div style={{
                   position: 'absolute', bottom: 0, left: 0, right: 0,
