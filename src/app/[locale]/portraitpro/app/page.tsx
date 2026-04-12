@@ -981,8 +981,25 @@ export default function PortraitProApp() {
                 aspectRatio: '3/4', borderRadius: 16, overflow: 'hidden',
                 background: 'linear-gradient(135deg, #E8E6E1, #D4D2CD)',
                 position: 'relative', border: '1px solid #E8E6E1',
-                cursor: 'pointer',
-              }}>
+                cursor: typeof img === 'string' && img.startsWith('http') ? 'pointer' : 'default',
+              }}
+              onClick={async () => {
+                if (typeof img !== 'string' || !img.startsWith('http')) return;
+                try {
+                  const res = await fetch(img);
+                  const blob = await res.blob();
+                  const a = document.createElement('a');
+                  a.href = URL.createObjectURL(blob);
+                  a.download = `portrait-${i + 1}.png`;
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
+                  URL.revokeObjectURL(a.href);
+                } catch (err) {
+                  console.error(`Download failed:`, err);
+                }
+              }}
+              >
                 {typeof img === 'string' && img.startsWith('http') ? (
                   <img src={img} alt={`Portrait ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 ) : (
@@ -998,7 +1015,30 @@ export default function PortraitProApp() {
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <button className="pp-btn-primary" style={{ padding: '18px 48px', fontSize: '1.1rem' }}>
+            <button
+              className="pp-btn-primary"
+              style={{ padding: '18px 48px', fontSize: '1.1rem' }}
+              onClick={async () => {
+                const urls = galleryImages.filter(u => typeof u === 'string' && u.startsWith('http'));
+                for (let i = 0; i < urls.length; i++) {
+                  try {
+                    const res = await fetch(urls[i]);
+                    const blob = await res.blob();
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = `portrait-${i + 1}.png`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(a.href);
+                    // Small delay between downloads to avoid browser throttling
+                    if (i < urls.length - 1) await new Promise(r => setTimeout(r, 300));
+                  } catch (err) {
+                    console.error(`Download portrait ${i + 1} failed:`, err);
+                  }
+                }
+              }}
+            >
               <span>⬇️ {t('download')}</span>
             </button>
           </div>
