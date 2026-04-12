@@ -1,185 +1,278 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import type { Translations } from '@/i18n/translations/de';
 
-const portraits = [
-  { id: 1, style: 'Business',   src: '/portraitpro/examples/hero-1.webp' },
-  { id: 2, style: 'Corporate',  src: '/portraitpro/examples/hero-2.webp' },
-  { id: 3, style: 'Executive',  src: '/portraitpro/examples/hero-3.webp' },
-  { id: 4, style: 'Modern',     src: '/portraitpro/examples/hero-4.webp' },
-  { id: 5, style: 'Natural',    src: '/portraitpro/examples/hero-5.webp' },
-  { id: 6, style: 'Creative',   src: '/portraitpro/examples/hero-6.webp' },
-  { id: 7, style: 'LinkedIn',   src: '/portraitpro/examples/hero-7.webp' },
-  { id: 8, style: 'Classic',    src: '/portraitpro/examples/hero-8.webp' },
-];
+const COUNT = 10;
+const PAIRS = Array.from({ length: COUNT }, (_, i) => ({
+  id: i + 1,
+  before: `/portraitpro/comparisons/before-${i + 1}.webp`,
+  after: `/portraitpro/comparisons/after-${i + 1}.webp`,
+}));
+const DOUBLED = [...PAIRS, ...PAIRS];
 
 export default function PPHero({ t, locale }: { t: Translations; locale: string }) {
   const appUrl = `/${locale}/portraitpro/app`;
+
   return (
     <section style={{
-      paddingTop: 120,
-      paddingBottom: 80,
+      paddingTop: 100,
       position: 'relative',
       overflow: 'hidden',
-      background: 'linear-gradient(180deg, var(--pp-bg) 0%, var(--pp-bg-warm) 100%)',
+      background: 'var(--pp-bg)',
     }}>
-      {/* Decorative orbs */}
-      <div className="pp-orb pp-orb-1" />
-      <div className="pp-orb pp-orb-2" />
-
-      <div className="pp-container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 60, alignItems: 'center' }}
-          className="lg:grid-cols-2-custom"
-        >
-          {/* Left: Text */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="pp-badge" style={{ marginBottom: 24, display: 'inline-flex' }}>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M8 1L10.1 5.9L15 6.5L11.5 9.9L12.4 15L8 12.6L3.6 15L4.5 9.9L1 6.5L5.9 5.9L8 1Z" fill="currentColor"/>
+      {/* Centered text content */}
+      <div className="pp-container" style={{
+        position: 'relative',
+        zIndex: 1,
+        textAlign: 'center',
+        maxWidth: 860,
+        margin: '0 auto',
+        padding: '0 24px',
+      }}>
+        {/* Trustpilot-style rating bar */}
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 10,
+          background: 'white',
+          border: '1px solid #E8E6E1',
+          borderRadius: 100,
+          padding: '8px 20px',
+          marginBottom: 32,
+          boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
+        }}>
+          <div style={{ display: 'flex', gap: 2 }}>
+            {[1,2,3,4,5].map(i => (
+              <div key={i} style={{
+                width: 20, height: 20,
+                background: '#00B67A',
+                borderRadius: 2,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1L8.8 4.8L13 5.4L10 8.3L10.7 12.5L7 10.5L3.3 12.5L4 8.3L1 5.4L5.2 4.8L7 1Z" fill="white" />
                 </svg>
-                {t.hero.badge}
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              style={{
-                fontFamily: 'var(--font-pp-heading)',
-                fontSize: 'clamp(2.2rem, 5vw, 3.6rem)',
-                fontWeight: 700,
-                lineHeight: 1.12,
-                letterSpacing: '-0.03em',
-                marginBottom: 24,
-                color: 'var(--pp-text)',
-              }}
-            >
-              {t.hero.title}{' '}
-              <span className="pp-gradient-text">{t.hero.titleHighlight}</span>{' '}
-              {t.hero.titleEnd}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              style={{
-                fontSize: '1.15rem',
-                lineHeight: 1.7,
-                color: 'var(--pp-text-secondary)',
-                marginBottom: 36,
-                maxWidth: 520,
-              }}
-            >
-              {t.hero.subtitle}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}
-            >
-              <a href={appUrl} className="pp-btn-primary" style={{ textDecoration: 'none' }}>
-                <span>{t.hero.cta}</span>
-                <span style={{ position: 'relative', zIndex: 1 }}>→</span>
-              </a>
-              <a href="#beispiele" className="pp-btn-secondary" style={{ textDecoration: 'none' }}>
-                {t.hero.ctaSecondary}
-              </a>
-            </motion.div>
-
-            {/* Trust logos */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}
-            >
-              <span style={{ fontSize: '0.85rem', color: 'var(--pp-text-muted)' }}>{t.hero.trustLine}</span>
-              <div style={{ display: 'flex', gap: 20, alignItems: 'center', opacity: 0.4 }}>
-                {['LinkedIn', 'Xing', 'Indeed', 'StepStone'].map(brand => (
-                  <span key={brand} style={{
-                    fontSize: '0.85rem', fontWeight: 700, color: 'var(--pp-text)',
-                    fontFamily: 'var(--font-pp-heading)',
-                    letterSpacing: '0.02em',
-                  }}>
-                    {brand}
-                  </span>
-                ))}
               </div>
-            </motion.div>
+            ))}
           </div>
+          <span style={{
+            fontSize: '0.82rem',
+            color: 'var(--pp-text-secondary)',
+          }}>
+            4,9/5 bei <strong>312</strong> Bewertungen
+          </span>
+        </div>
 
-          {/* Right: Portrait Grid */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: 12,
-              maxWidth: 480,
-              margin: '0 auto',
-            }}
-          >
-            {portraits.map((p, i) => (
-              <motion.div
-                key={p.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
-                style={{
-                  aspectRatio: '3/4',
-                  borderRadius: i === 0 ? '16px 8px 8px 8px' :
-                    i === 3 ? '8px 16px 8px 8px' :
-                    i === 4 ? '8px 8px 8px 16px' :
-                    i === 7 ? '8px 8px 16px 8px' : '8px',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-                }}
-              >
+        {/* Main headline */}
+        <h1 style={{
+          fontFamily: 'var(--font-pp-heading)',
+          fontSize: 'clamp(2.4rem, 6vw, 4.2rem)',
+          fontWeight: 800,
+          lineHeight: 1.08,
+          letterSpacing: '-0.03em',
+          marginBottom: 20,
+          color: 'var(--pp-text)',
+        }}>
+          {t.hero.title}{' '}
+          <span className="pp-gradient-text">{t.hero.titleHighlight}</span>{' '}
+          {t.hero.titleEnd}
+        </h1>
+
+        {/* Subtitle */}
+        <p style={{
+          fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+          lineHeight: 1.65,
+          color: 'var(--pp-text-secondary)',
+          marginBottom: 36,
+          maxWidth: 620,
+          margin: '0 auto 36px',
+        }}>
+          {t.hero.subtitle}
+        </p>
+
+        {/* CTA Button */}
+        <div style={{ marginBottom: 16 }}>
+          <a href={appUrl} className="pp-btn-primary" style={{
+            textDecoration: 'none',
+            padding: '18px 44px',
+            fontSize: '1.1rem',
+          }}>
+            <span>{t.hero.cta}</span>
+            <span style={{ position: 'relative', zIndex: 1 }}>→</span>
+          </a>
+        </div>
+
+        {/* No credit card text */}
+        <p style={{
+          fontSize: '0.78rem',
+          fontWeight: 600,
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+          color: 'var(--pp-text-muted)',
+          marginBottom: 48,
+        }}>
+          Kein Abo · Kein Fotograf · Sofort fertig
+        </p>
+      </div>
+
+      {/* Ticker Animation — directly below hero text, no gap */}
+      <div className="pp-ticker-wrap">
+        {/* Left half — before images */}
+        <div className="pp-ticker-clip-left">
+          <div className="pp-ticker">
+            {DOUBLED.map((pair, i) => (
+              <div key={`b-${i}`} className="pp-ticker-tile">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={p.src}
-                  alt={`${p.style} Portrait`}
-                  width={400}
-                  height={533}
-                  loading={i < 4 ? 'eager' : 'lazy'}
+                  src={pair.before}
+                  alt={`Selfie ${pair.id}`}
+                  width={320}
+                  height={427}
+                  loading={i < 6 ? 'eager' : 'lazy'}
                   decoding="async"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
                 />
-                <div style={{
-                  position: 'absolute', bottom: 0, left: 0, right: 0,
-                  background: 'linear-gradient(transparent, rgba(0,0,0,0.5))',
-                  padding: '16px 8px 6px',
-                }}>
-                  <span style={{
-                    fontSize: '0.6rem', fontWeight: 600, color: 'white',
-                    textTransform: 'uppercase', letterSpacing: '0.05em',
-                  }}>{p.style}</span>
-                </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
+        </div>
+
+        {/* Right half — after images */}
+        <div className="pp-ticker-clip-right">
+          <div className="pp-ticker">
+            {DOUBLED.map((pair, i) => (
+              <div key={`a-${i}`} className="pp-ticker-tile">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={pair.after}
+                  alt={`AI Portrait ${pair.id}`}
+                  width={320}
+                  height={427}
+                  loading={i < 6 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Center overlay — divider line + generating pill */}
+        <div className="pp-ticker-center">
+          <div className="pp-ticker-divider" />
+          <div className="pp-ticker-pill">
+            <span className="pp-ticker-dot" />
+            Generating...
+          </div>
         </div>
       </div>
 
-      {/* Custom breakpoint style */}
       <style>{`
-        @media (min-width: 1024px) {
-          .lg\\:grid-cols-2-custom {
-            grid-template-columns: 1.1fr 0.9fr !important;
-          }
+        .pp-ticker-wrap {
+          --tile: clamp(160px, 17vw, 320px);
+          --gap: 20px;
+          position: relative;
+          overflow: hidden;
+          height: clamp(300px, calc(var(--tile) * 1.45), 520px);
+        }
+
+        .pp-ticker-clip-left {
+          position: absolute;
+          inset: 0;
+          clip-path: inset(0 50% 0 0);
+        }
+
+        .pp-ticker-clip-right {
+          position: absolute;
+          inset: 0;
+          clip-path: inset(0 0 0 50%);
+        }
+
+        .pp-ticker {
+          position: absolute;
+          inset: 0 auto 0 0;
+          width: max-content;
+          display: flex;
+          align-items: center;
+          gap: var(--gap);
+          padding: 0 calc(var(--gap) * 2);
+          animation: ppTickerScroll 45s linear infinite reverse;
+          will-change: transform;
+        }
+
+        .pp-ticker-tile {
+          position: relative;
+          width: var(--tile);
+          aspect-ratio: 3 / 4;
+          overflow: hidden;
+          border-radius: 20px;
+          background: #f0ede8;
+          flex: 0 0 auto;
+        }
+
+        .pp-ticker-tile img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top center;
+          display: block;
+        }
+
+        .pp-ticker-center {
+          pointer-events: none;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          z-index: 5;
+        }
+
+        .pp-ticker-divider {
+          width: 2px;
+          height: calc(var(--tile) * 1.5);
+          background: linear-gradient(to bottom, transparent, rgba(26,26,46,0.6) 20%, rgba(26,26,46,0.6) 80%, transparent);
+        }
+
+        .pp-ticker-pill {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: white;
+          border-radius: 100px;
+          padding: 7px 18px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.78rem;
+          font-weight: 600;
+          color: #333;
+          white-space: nowrap;
+          font-family: var(--font-pp-sans);
+        }
+
+        .pp-ticker-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #22C55E;
+          display: inline-block;
+          animation: ppTickerPulse 1.6s ease infinite;
+        }
+
+        @keyframes ppTickerScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        @keyframes ppTickerPulse {
+          0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+          70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
       `}</style>
     </section>

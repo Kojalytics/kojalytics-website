@@ -4,7 +4,7 @@ import PPNavigation from '@/components/portraitpro/PPNavigation';
 import PPHero from '@/components/portraitpro/PPHero';
 import PPSocialProof from '@/components/portraitpro/PPSocialProof';
 import PPHowItWorks from '@/components/portraitpro/PPHowItWorks';
-import PPComparisons from '@/components/portraitpro/PPComparisons';
+
 import PPGallery from '@/components/portraitpro/PPGallery';
 import PPFeatures from '@/components/portraitpro/PPFeatures';
 import PPPricing from '@/components/portraitpro/PPPricing';
@@ -32,7 +32,6 @@ export default async function PortraitProPage({
         <PPSocialProof t={t} />
         <PPTrustLogos />
         <PPHowItWorks t={t} />
-        <PPComparisons t={t} />
         <PPGallery t={t} />
         <PPReviews t={t} />
         <PPFeatures t={t} />
