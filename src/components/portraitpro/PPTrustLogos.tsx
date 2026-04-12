@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 
 /* 25 brand logos: 22 SVG files + 3 inline SVGs (Microsoft, Amazon, Adobe) */
 /* All SVG files from Simple Icons (MIT licensed), ~1-5KB each, zero network overhead */
@@ -82,12 +82,7 @@ export default function PPTrustLogos() {
       background: 'var(--pp-bg)',
     }}>
       <div className="pp-container">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(24px, 4vw, 36px)' }}
-        >
+        <FadeIn style={{ textAlign: 'center', marginBottom: 'clamp(24px, 4vw, 36px)' }}>
           <p style={{
             fontSize: '0.85rem',
             fontWeight: 500,
@@ -104,13 +99,9 @@ export default function PPTrustLogos() {
           }}>
             Mitarbeiter der erfolgreichsten Unternehmen nutzen PortraitPro AI
           </p>
-        </motion.div>
+        </FadeIn>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <FadeIn
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(5, 1fr)',
@@ -122,13 +113,9 @@ export default function PPTrustLogos() {
           }}
           className="pp-logo-grid"
         >
-          {BRANDS.map((brand, i) => (
-            <motion.div
+          {BRANDS.map((brand) => (
+            <div
               key={brand.name}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.02 }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -139,7 +126,6 @@ export default function PPTrustLogos() {
                 padding: '8px',
                 minHeight: 44,
               }}
-              whileHover={{ opacity: 1, filter: 'grayscale(0)' }}
               title={brand.name}
             >
               {brand.inline ? (
@@ -163,9 +149,9 @@ export default function PPTrustLogos() {
                   }}
                 />
               )}
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </FadeIn>
       </div>
 
       <style>{`

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 export default function PPCTA({ t, locale }: { t: Translations; locale: string }) {
@@ -24,11 +24,7 @@ export default function PPCTA({ t, locale }: { t: Translations; locale: string }
       }} />
 
       <div className="pp-container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <FadeIn>
           <h2 style={{
             fontFamily: 'var(--font-pp-heading)',
             fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
@@ -52,7 +48,7 @@ export default function PPCTA({ t, locale }: { t: Translations; locale: string }
             <span>{t.cta.button}</span>
             <span style={{ position: 'relative', zIndex: 1 }}>→</span>
           </a>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );

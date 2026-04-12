@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 const examples = [
@@ -16,12 +16,7 @@ export default function PPGallery({ t }: { t: Translations }) {
   return (
     <section id="beispiele" className="pp-section">
       <div className="pp-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}
-        >
+        <FadeIn style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}>
           <span className="pp-badge">{t.gallery.badge}</span>
           <h2 style={{
             fontFamily: 'var(--font-pp-heading)',
@@ -42,7 +37,7 @@ export default function PPGallery({ t }: { t: Translations }) {
           }}>
             {t.gallery.subtitle}
           </p>
-        </motion.div>
+        </FadeIn>
 
         {/* Style Grid */}
         <div style={{
@@ -51,12 +46,12 @@ export default function PPGallery({ t }: { t: Translations }) {
           gap: 16,
         }}>
           {examples.map((ex, i) => (
-            <motion.div
+            <FadeIn
               key={ex.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              delay={i * 0.06}
+              duration={0.4}
+              scale={0.95}
+              y={0}
               style={{
                 aspectRatio: '3/4',
                 borderRadius: 'var(--pp-radius-sm)',
@@ -90,7 +85,7 @@ export default function PPGallery({ t }: { t: Translations }) {
                   {ex.style}
                 </span>
               </div>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 export default function PPSocialProof({ t }: { t: Translations }) {
@@ -13,7 +13,7 @@ export default function PPSocialProof({ t }: { t: Translations }) {
 
   return (
     <section style={{
-      padding: '48px 0',
+      padding: '40px 0',
       background: 'var(--pp-bg-white)',
       borderTop: '1px solid var(--pp-border-light)',
       borderBottom: '1px solid var(--pp-border-light)',
@@ -26,25 +26,31 @@ export default function PPSocialProof({ t }: { t: Translations }) {
           textAlign: 'center',
         }}>
           {stats.map((stat, i) => (
-            <motion.div
+            <FadeIn
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
+              delay={i * 0.08}
+              duration={0.5}
+              y={15}
+              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}
             >
-              <span style={{ fontSize: '1.5rem' }}>{stat.icon}</span>
+              <span style={{ fontSize: '1.4rem' }}>{stat.icon}</span>
               <span style={{
-                fontSize: 'clamp(1.3rem, 4vw, 1.8rem)', fontWeight: 700, color: 'var(--pp-text)',
+                fontSize: 'clamp(1.3rem, 4vw, 1.8rem)',
+                fontWeight: 800,
+                color: 'var(--pp-text)',
                 fontFamily: 'var(--font-pp-heading)',
+                letterSpacing: '-0.02em',
               }}>
                 {stat.value}
               </span>
-              <span style={{ fontSize: '0.9rem', color: 'var(--pp-text-muted)' }}>
+              <span style={{
+                fontSize: '0.85rem',
+                color: 'var(--pp-text-muted)',
+                fontWeight: 500,
+              }}>
                 {stat.label}
               </span>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

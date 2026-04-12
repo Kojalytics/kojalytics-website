@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 export default function PPPricing({ t, locale }: { t: Translations; locale: string }) {
@@ -29,12 +29,7 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
   return (
     <section id="preise" className="pp-section">
       <div className="pp-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}
-        >
+        <FadeIn style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}>
           <span className="pp-badge">{t.pricing.badge}</span>
           <h2 style={{
             fontFamily: 'var(--font-pp-heading)',
@@ -53,7 +48,7 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
           }}>
             {t.pricing.subtitle}
           </p>
-        </motion.div>
+        </FadeIn>
 
         <div style={{
           display: 'grid',
@@ -64,12 +59,9 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
           margin: '0 auto',
         }}>
           {plans.map((plan, i) => (
-            <motion.div
+            <FadeIn
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
+              delay={i * 0.1}
               className={`pp-card ${plan.highlighted ? 'pp-pricing-popular' : ''}`}
               style={{
                 padding: 'clamp(24px, 4vw, 40px) clamp(20px, 3vw, 32px)',
@@ -183,7 +175,7 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
                   <span>{plan.cta}</span>
                 </a>
               )}
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

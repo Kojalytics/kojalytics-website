@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 export default function PPHowItWorks({ t }: { t: Translations }) {
@@ -46,12 +46,7 @@ export default function PPHowItWorks({ t }: { t: Translations }) {
   return (
     <section id="so-funktionierts" className="pp-section" style={{ background: 'var(--pp-bg-warm)' }}>
       <div className="pp-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}
-        >
+        <FadeIn style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}>
           <span className="pp-badge">{t.howItWorks.badge}</span>
           <h2 style={{
             fontFamily: 'var(--font-pp-heading)',
@@ -63,7 +58,7 @@ export default function PPHowItWorks({ t }: { t: Translations }) {
           }}>
             {t.howItWorks.title}
           </h2>
-        </motion.div>
+        </FadeIn>
 
         <div style={{
           display: 'grid',
@@ -84,12 +79,9 @@ export default function PPHowItWorks({ t }: { t: Translations }) {
           }} className="lg:block-custom" />
 
           {steps.map((step, i) => (
-            <motion.div
+            <FadeIn
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              delay={i * 0.12}
               className="pp-card"
               style={{
                 textAlign: 'center',
@@ -118,7 +110,7 @@ export default function PPHowItWorks({ t }: { t: Translations }) {
               }}>
                 {step.desc}
               </p>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

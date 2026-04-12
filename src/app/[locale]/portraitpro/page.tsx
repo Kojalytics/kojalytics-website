@@ -14,6 +14,7 @@ import PPCTA from '@/components/portraitpro/PPCTA';
 import PPTrustLogos from '@/components/portraitpro/PPTrustLogos';
 import PPReviews from '@/components/portraitpro/PPReviews';
 import PPFooter from '@/components/portraitpro/PPFooter';
+import PPFloatingCTA from '@/components/portraitpro/PPFloatingCTA';
 
 export default async function PortraitProPage({
   params,
@@ -41,6 +42,7 @@ export default async function PortraitProPage({
         <PPCTA t={t} locale={locale} />
       </main>
       <PPFooter t={t} locale={locale} />
+      <PPFloatingCTA t={t} locale={locale} />
     </>
   );
 }

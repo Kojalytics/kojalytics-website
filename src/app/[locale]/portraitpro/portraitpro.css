@@ -25,6 +25,11 @@
   --pp-gold: #FFD700;
 }
 
+/* Smooth scroll for anchor links */
+html:has(.pp-page) {
+  scroll-behavior: smooth;
+}
+
 /* Base styles for portraitpro pages — override root dark theme */
 .pp-page {
   background: var(--pp-bg);
@@ -34,6 +39,8 @@
   overflow-x: hidden;
   position: relative;
   z-index: 20;
+  /* Space for floating CTA bar at bottom */
+  padding-bottom: 72px;
 }
 
 /* Hide root dark-mode overlays when PortraitPro is active */
@@ -133,12 +140,19 @@ html:has(.pp-page) {
   border-radius: var(--pp-radius);
   padding: 32px;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(26, 26, 46, 0.04);
 }
 
 .pp-card:hover {
-  box-shadow: var(--pp-shadow-lg);
-  border-color: rgba(233, 69, 96, 0.2);
-  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(26, 26, 46, 0.1), 0 1px 3px rgba(26, 26, 46, 0.04);
+  border-color: rgba(233, 69, 96, 0.15);
+  transform: translateY(-3px);
+}
+
+/* Logo hover effect in trust grid */
+.pp-logo-grid > div:hover {
+  opacity: 0.9 !important;
+  filter: grayscale(0) !important;
 }
 
 /* Badge */

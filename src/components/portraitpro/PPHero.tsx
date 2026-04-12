@@ -104,17 +104,34 @@ export default function PPHero({ t, locale }: { t: Translations; locale: string 
           </a>
         </div>
 
-        {/* No credit card text */}
-        <p style={{
-          fontSize: '0.78rem',
-          fontWeight: 600,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-          color: 'var(--pp-text-muted)',
+        {/* Trust signals */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 24,
+          flexWrap: 'wrap',
           marginBottom: 48,
         }}>
-          Kein Abo · Kein Fotograf · Sofort fertig
-        </p>
+          {['Kein Abo', 'Kein Fotograf', 'Sofort fertig'].map((text, i) => (
+            <span key={i} style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              fontSize: '0.8rem',
+              fontWeight: 600,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: 'var(--pp-text-muted)',
+            }}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="7" fill="#22C55E" opacity="0.15"/>
+                <path d="M4 7L6 9L10 5" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              {text}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Ticker Animation — directly below hero text, no gap */}
@@ -174,6 +191,26 @@ export default function PPHero({ t, locale }: { t: Translations; locale: string 
           position: relative;
           overflow: hidden;
           height: clamp(300px, calc(var(--tile) * 1.45), 520px);
+        }
+
+        /* Edge fade overlays */
+        .pp-ticker-wrap::before,
+        .pp-ticker-wrap::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: clamp(60px, 10vw, 160px);
+          z-index: 4;
+          pointer-events: none;
+        }
+        .pp-ticker-wrap::before {
+          left: 0;
+          background: linear-gradient(to right, var(--pp-bg), transparent);
+        }
+        .pp-ticker-wrap::after {
+          right: 0;
+          background: linear-gradient(to left, var(--pp-bg), transparent);
         }
 
         .pp-ticker-clip-left {

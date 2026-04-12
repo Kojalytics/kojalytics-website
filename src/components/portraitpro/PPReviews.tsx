@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 const REVIEWS = [
@@ -94,12 +94,7 @@ export default function PPReviews({ t }: { t: Translations }) {
   return (
     <section className="pp-section" style={{ background: 'var(--pp-bg)' }}>
       <div className="pp-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 56px)' }}
-        >
+        <FadeIn style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 56px)' }}>
           <span className="pp-badge">Kundenstimmen</span>
           <h2 style={{
             fontFamily: 'var(--font-pp-heading)',
@@ -120,7 +115,7 @@ export default function PPReviews({ t }: { t: Translations }) {
           }}>
             Echte Bewertungen von Profis, die PortraitPro AI täglich nutzen
           </p>
-        </motion.div>
+        </FadeIn>
 
         <div style={{
           display: 'grid',
@@ -128,12 +123,9 @@ export default function PPReviews({ t }: { t: Translations }) {
           gap: 20,
         }}>
           {REVIEWS.map((review, i) => (
-            <motion.div
+            <FadeIn
               key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: (i % 3) * 0.1 }}
+              delay={(i % 3) * 0.08}
               style={{
                 background: 'white',
                 borderRadius: 16,
@@ -184,7 +176,7 @@ export default function PPReviews({ t }: { t: Translations }) {
                   {review.name}
                 </span>
               </div>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

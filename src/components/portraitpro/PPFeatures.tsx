@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 export default function PPFeatures({ t }: { t: Translations }) {
@@ -70,12 +70,7 @@ export default function PPFeatures({ t }: { t: Translations }) {
   return (
     <section id="funktionen" className="pp-section" style={{ background: 'var(--pp-bg-warm)' }}>
       <div className="pp-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}
-        >
+        <FadeIn style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}>
           <span className="pp-badge">{t.features.badge}</span>
           <h2 style={{
             fontFamily: 'var(--font-pp-heading)',
@@ -87,7 +82,7 @@ export default function PPFeatures({ t }: { t: Translations }) {
           }}>
             {t.features.title}
           </h2>
-        </motion.div>
+        </FadeIn>
 
         <div style={{
           display: 'grid',
@@ -95,12 +90,9 @@ export default function PPFeatures({ t }: { t: Translations }) {
           gap: 24,
         }}>
           {features.map((f, i) => (
-            <motion.div
+            <FadeIn
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              delay={i * 0.06}
               className="pp-card"
               style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}
             >
@@ -135,7 +127,7 @@ export default function PPFeatures({ t }: { t: Translations }) {
                   {f.desc}
                 </p>
               </div>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

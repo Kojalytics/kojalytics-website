@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 import type { Locale } from '@/i18n/config';
 
@@ -40,12 +41,7 @@ export default function PPFAQ({ t, locale }: { t: Translations; locale: Locale }
       />
 
       <div className="pp-container" style={{ maxWidth: 800 }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 48 }}
-        >
+        <FadeIn style={{ textAlign: 'center', marginBottom: 48 }}>
           <span className="pp-badge">{t.faq.badge}</span>
           <h2 style={{
             fontFamily: 'var(--font-pp-heading)',
@@ -56,16 +52,14 @@ export default function PPFAQ({ t, locale }: { t: Translations; locale: Locale }
           }}>
             {t.faq.title}
           </h2>
-        </motion.div>
+        </FadeIn>
 
         <div>
           {faqs.map((faq, i) => (
-            <motion.div
+            <FadeIn
               key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
+              delay={i * 0.04}
+              y={10}
               className="pp-faq-item"
             >
               <button
@@ -100,7 +94,7 @@ export default function PPFAQ({ t, locale }: { t: Translations; locale: Locale }
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

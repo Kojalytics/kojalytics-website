@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 export default function PPUpload({ t, locale }: { t: Translations; locale: string }) {
@@ -89,12 +89,7 @@ export default function PPUpload({ t, locale }: { t: Translations; locale: strin
   return (
     <section id="upload" className="pp-section" style={{ background: 'var(--pp-bg-warm)' }}>
       <div className="pp-container" style={{ maxWidth: 800 }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 48 }}
-        >
+        <FadeIn style={{ textAlign: 'center', marginBottom: 48 }}>
           <span className="pp-badge">{t.upload.badge}</span>
           <h2 style={{
             fontFamily: 'var(--font-pp-heading)',
@@ -108,14 +103,9 @@ export default function PPUpload({ t, locale }: { t: Translations; locale: strin
           <p style={{ color: 'var(--pp-text-secondary)', marginTop: 8 }}>
             {t.upload.subtitle}
           </p>
-        </motion.div>
+        </FadeIn>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-        >
+        <FadeIn delay={0.1}>
           {/* Dropzone */}
           <div
             className={`pp-dropzone ${dragOver ? 'dragover' : ''}`}
@@ -254,17 +244,13 @@ export default function PPUpload({ t, locale }: { t: Translations; locale: strin
 
           {/* Generate button */}
           {files.length >= 5 && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              style={{ textAlign: 'center', marginTop: 32 }}
-            >
+            <div style={{ textAlign: 'center', marginTop: 32 }}>
               <button className="pp-btn-primary" style={{ padding: '18px 48px', fontSize: '1.1rem' }}>
                 <span>✨ {t.upload.startGeneration}</span>
               </button>
-            </motion.div>
+            </div>
           )}
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );
