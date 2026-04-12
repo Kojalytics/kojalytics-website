@@ -25,13 +25,32 @@
   --pp-gold: #FFD700;
 }
 
-/* Base styles for portraitpro pages */
+/* Base styles for portraitpro pages — override root dark theme */
 .pp-page {
   background: var(--pp-bg);
   color: var(--pp-text);
   font-family: var(--font-pp-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  position: relative;
+  z-index: 20;
+}
+
+/* Hide root dark-mode overlays when PortraitPro is active */
+.pp-page ~ .aurora-bg,
+.pp-page ~ .grid-pattern,
+body:has(.pp-page) > .aurora-bg,
+body:has(.pp-page) > .grid-pattern {
+  display: none !important;
+}
+
+body:has(.pp-page) {
+  background: var(--pp-bg) !important;
+  color: var(--pp-text) !important;
+}
+
+html:has(.pp-page) {
+  color-scheme: light !important;
 }
 
 /* Gradient text */
