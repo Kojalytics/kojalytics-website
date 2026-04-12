@@ -1,12 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import type { Translations } from '@/i18n/translations/de';
 
-const portraits = Array.from({ length: 8 }, (_, i) => ({
-  id: i + 1,
-  style: ['Business', 'Creative', 'LinkedIn', 'Corporate', 'Startup', 'Executive', 'Modern', 'Classic'][i],
-}));
+const portraits = [
+  { id: 1, style: 'Business',   src: '/portraitpro/examples/hero-1.webp' },
+  { id: 2, style: 'Corporate',  src: '/portraitpro/examples/hero-2.webp' },
+  { id: 3, style: 'Executive',  src: '/portraitpro/examples/hero-3.webp' },
+  { id: 4, style: 'Modern',     src: '/portraitpro/examples/hero-4.webp' },
+  { id: 5, style: 'Natural',    src: '/portraitpro/examples/hero-5.webp' },
+  { id: 6, style: 'Creative',   src: '/portraitpro/examples/hero-6.webp' },
+  { id: 7, style: 'LinkedIn',   src: '/portraitpro/examples/hero-7.webp' },
+  { id: 8, style: 'Classic',    src: '/portraitpro/examples/hero-8.webp' },
+];
 
 export default function PPHero({ t, locale }: { t: Translations; locale: string }) {
   const appUrl = `/${locale}/portraitpro/app`;
@@ -131,20 +138,35 @@ export default function PPHero({ t, locale }: { t: Translations; locale: string 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
-                className="pp-portrait-placeholder"
                 style={{
+                  aspectRatio: '3/4',
                   borderRadius: i === 0 ? '16px 8px 8px 8px' :
                     i === 3 ? '8px 16px 8px 8px' :
                     i === 4 ? '8px 8px 8px 16px' :
                     i === 7 ? '8px 8px 16px 8px' : '8px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
                 }}
               >
-                <div style={{ textAlign: 'center', padding: 8 }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--pp-text-muted)" strokeWidth="1.5" style={{ opacity: 0.4 }}>
-                    <circle cx="12" cy="8" r="4" />
-                    <path d="M5 20c0-4 3.5-7 7-7s7 3 7 7" />
-                  </svg>
-                  <div style={{ fontSize: '0.65rem', marginTop: 4, opacity: 0.6 }}>{p.style}</div>
+                <Image
+                  src={p.src}
+                  alt={`${p.style} Portrait`}
+                  fill
+                  sizes="(max-width: 768px) 25vw, 120px"
+                  style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                  priority={i < 4}
+                  loading={i < 4 ? 'eager' : 'lazy'}
+                />
+                <div style={{
+                  position: 'absolute', bottom: 0, left: 0, right: 0,
+                  background: 'linear-gradient(transparent, rgba(0,0,0,0.5))',
+                  padding: '16px 8px 6px',
+                }}>
+                  <span style={{
+                    fontSize: '0.6rem', fontWeight: 600, color: 'white',
+                    textTransform: 'uppercase', letterSpacing: '0.05em',
+                  }}>{p.style}</span>
                 </div>
               </motion.div>
             ))}

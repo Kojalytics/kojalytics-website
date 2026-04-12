@@ -1,15 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import type { Translations } from '@/i18n/translations/de';
 
 const examples = [
-  { id: 1, style: 'Business Formal' },
-  { id: 2, style: 'LinkedIn Professional' },
-  { id: 3, style: 'Creative Modern' },
-  { id: 4, style: 'Corporate Classic' },
-  { id: 5, style: 'Startup Casual' },
-  { id: 6, style: 'Executive Premium' },
+  { id: 1, style: 'Business Formal',       src: '/portraitpro/examples/style-business.webp' },
+  { id: 2, style: 'LinkedIn Professional',  src: '/portraitpro/examples/style-linkedin.webp' },
+  { id: 3, style: 'Creative Modern',        src: '/portraitpro/examples/style-creative.webp' },
+  { id: 4, style: 'Corporate Classic',      src: '/portraitpro/examples/style-corporate.webp' },
+  { id: 5, style: 'Startup Casual',         src: '/portraitpro/examples/style-startup.webp' },
+  { id: 6, style: 'Executive Premium',      src: '/portraitpro/examples/style-executive.webp' },
 ];
 
 export default function PPGallery({ t }: { t: Translations }) {
@@ -58,6 +59,7 @@ export default function PPGallery({ t }: { t: Translations }) {
             flexWrap: 'wrap',
           }}
         >
+          {/* Before */}
           <div style={{
             background: 'var(--pp-bg-white)',
             borderRadius: 'var(--pp-radius)',
@@ -67,19 +69,18 @@ export default function PPGallery({ t }: { t: Translations }) {
             textAlign: 'center',
             maxWidth: 220,
           }}>
-            <div className="pp-portrait-placeholder" style={{
-              width: 180,
-              height: 240,
-              margin: '0 auto 12px',
-              borderRadius: 12,
+            <div style={{
+              width: 180, height: 240, margin: '0 auto 12px',
+              borderRadius: 12, overflow: 'hidden', position: 'relative',
               background: 'linear-gradient(135deg, #D4D2CD 0%, #C4C2BD 100%)',
             }}>
-              <div style={{ textAlign: 'center' }}>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--pp-text-muted)" strokeWidth="1.5" style={{ opacity: 0.3 }}>
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M5 20c0-4 3.5-7 7-7s7 3 7 7" />
-                </svg>
-              </div>
+              <Image
+                src="/portraitpro/examples/before.webp"
+                alt="Before — casual selfie"
+                fill
+                sizes="180px"
+                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+              />
             </div>
             <span style={{
               fontSize: '0.85rem',
@@ -100,6 +101,7 @@ export default function PPGallery({ t }: { t: Translations }) {
             </svg>
           </div>
 
+          {/* After */}
           <div style={{
             background: 'var(--pp-bg-white)',
             borderRadius: 'var(--pp-radius)',
@@ -112,20 +114,17 @@ export default function PPGallery({ t }: { t: Translations }) {
             textAlign: 'center',
             maxWidth: 220,
           }}>
-            <div className="pp-portrait-placeholder" style={{
-              width: 180,
-              height: 240,
-              margin: '0 auto 12px',
-              borderRadius: 12,
-              background: 'linear-gradient(135deg, #E8E6E1 0%, #D4D2CD 100%)',
+            <div style={{
+              width: 180, height: 240, margin: '0 auto 12px',
+              borderRadius: 12, overflow: 'hidden', position: 'relative',
             }}>
-              <div style={{ textAlign: 'center' }}>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--pp-accent)" strokeWidth="1.5" style={{ opacity: 0.5 }}>
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M5 20c0-4 3.5-7 7-7s7 3 7 7" />
-                </svg>
-                <div style={{ fontSize: '0.6rem', color: 'var(--pp-accent)', fontWeight: 600, marginTop: 4 }}>AI Enhanced</div>
-              </div>
+              <Image
+                src="/portraitpro/examples/after.webp"
+                alt="After — AI professional portrait"
+                fill
+                sizes="180px"
+                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+              />
             </div>
             <span className="pp-gradient-text" style={{
               fontSize: '0.85rem',
@@ -149,25 +148,36 @@ export default function PPGallery({ t }: { t: Translations }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="pp-portrait-placeholder"
               style={{
+                aspectRatio: '3/4',
                 borderRadius: 'var(--pp-radius-sm)',
+                overflow: 'hidden',
+                position: 'relative',
                 cursor: 'pointer',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
               }}
             >
-              <div style={{ textAlign: 'center', padding: 12 }}>
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--pp-text-muted)" strokeWidth="1.5" style={{ opacity: 0.3 }}>
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M5 20c0-4 3.5-7 7-7s7 3 7 7" />
-                </svg>
-                <div style={{
+              <Image
+                src={ex.src}
+                alt={ex.style}
+                fill
+                sizes="(max-width: 768px) 50vw, 170px"
+                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                loading="lazy"
+              />
+              <div style={{
+                position: 'absolute', bottom: 0, left: 0, right: 0,
+                background: 'linear-gradient(transparent, rgba(0,0,0,0.55))',
+                padding: '24px 12px 10px',
+              }}>
+                <span style={{
                   fontSize: '0.75rem',
                   fontWeight: 600,
-                  color: 'var(--pp-text-muted)',
-                  marginTop: 8,
+                  color: 'white',
+                  letterSpacing: '0.02em',
                 }}>
                   {ex.style}
-                </div>
+                </span>
               </div>
             </motion.div>
           ))}
