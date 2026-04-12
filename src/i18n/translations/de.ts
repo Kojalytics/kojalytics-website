@@ -2,8 +2,8 @@ const de = {
   meta: {
     title: 'KI Bewerbungsfoto Generator | Professionelle Bewerbungsfotos in Minuten',
     description: 'Erstelle professionelle Bewerbungsfotos mit KI — in unter 5 Minuten. Studio-Qualität ohne Fotograf. Ab 4,99 €. Über 10.000 zufriedene Nutzer.',
-    ogTitle: 'PortraitPro AI — Dein KI Bewerbungsfoto Generator',
-    ogDescription: 'Professionelle Bewerbungsfotos in Studio-Qualität. KI-generiert in Minuten, nicht Stunden.',
+    ogTitle: 'Bewerbungsfoto in 5 Min. erstellen — PortraitPro AI',
+    ogDescription: 'Lade ein Selfie hoch, erhalte ein professionelles Bewerbungsfoto in Studio-Qualität. Kein Fotograf, kein Termin. Ab 4,99 €. Jetzt testen!',
   },
   nav: {
     features: 'Funktionen',

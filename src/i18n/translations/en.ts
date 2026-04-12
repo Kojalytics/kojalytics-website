@@ -4,8 +4,8 @@ const en: Translations = {
   meta: {
     title: 'AI Headshot Generator | Professional Business Photos in Minutes',
     description: 'Create professional AI headshots in under 5 minutes. Studio-quality without a photographer. From $4.99. Trusted by 10,000+ professionals.',
-    ogTitle: 'PortraitPro AI — Your AI Headshot Generator',
-    ogDescription: 'Professional business headshots in studio quality. AI-generated in minutes, not hours.',
+    ogTitle: 'Professional Headshot in 5 Min. — PortraitPro AI',
+    ogDescription: 'Upload a selfie, get a studio-quality professional headshot. No photographer, no appointment. From €4.99. Try it now!',
   },
   nav: {
     features: 'Features',

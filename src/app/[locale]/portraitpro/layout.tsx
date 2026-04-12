@@ -58,20 +58,13 @@ export async function generateMetadata({
       siteName: 'PortraitPro AI by Kojalytics',
       type: 'website',
       locale: locale === 'de' ? 'de_DE' : locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : locale === 'fr' ? 'fr_FR' : locale === 'da' ? 'da_DK' : locale === 'nl' ? 'nl_NL' : 'sv_SE',
-      images: [
-        {
-          url: `${baseUrl}/og-portraitpro.jpg`,
-          width: 1200,
-          height: 630,
-          alt: t.meta.ogTitle,
-        },
-      ],
+      // images auto-discovered from opengraph-image.tsx
     },
     twitter: {
       card: 'summary_large_image',
       title: t.meta.ogTitle,
       description: t.meta.ogDescription,
-      images: [`${baseUrl}/og-portraitpro.jpg`],
+      // images auto-discovered from twitter-image.tsx
     },
     robots: {
       index: true,
