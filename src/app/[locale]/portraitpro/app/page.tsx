@@ -225,35 +225,86 @@ export default function PortraitProApp() {
     return listData.paths || [];
   };
 
+  // Identity and quality clauses (matching iOS PromptBuilder)
+  const IDENTITY_ANCHOR = 'This must be the SAME person as in the reference photos — same face, same features, same identity.';
+  const FIDELITY_CLAUSE = 'Closed-mouth expression, no teeth visible. Professional retouching — smooth, healthy skin. Photorealistic, 8K quality, Canon EOS R5, 85mm f/1.4.';
+
+  // Full 12-prompt mix matching iOS PromptBuilder.buildMixPrompts
+  const MIX_PROMPTS: { category: string; prompt: string }[] = [
+    // 2x Schwarzweiß (Black & White)
+    {
+      category: 'Schwarzweiß',
+      prompt: `Professional black and white headshot of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} High contrast monochrome, dramatic studio shadows, deep blacks and bright highlights. Direct eye contact, confident expression, frontal pose. Grey studio backdrop. ${FIDELITY_CLAUSE}`,
+    },
+    {
+      category: 'Schwarzweiß',
+      prompt: `Black and white portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Fine art monochrome, Rembrandt side lighting, elegant shadow on one cheek. Three-quarter profile, slightly turned right. Dark backdrop. ${FIDELITY_CLAUSE}`,
+    },
+    // 2x Outdoor (Natural Light)
+    {
+      category: 'Outdoor',
+      prompt: `Professional outdoor portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Golden hour sunlight, warm tones. Soft green bokeh background, shallow depth of field. Direct eye contact, relaxed confident expression, frontal pose. ${FIDELITY_CLAUSE}`,
+    },
+    {
+      category: 'Outdoor',
+      prompt: `Professional outdoor portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft overcast daylight, cool natural tones. Blurred urban background. Approachable expression, slight head tilt, three-quarter angle. ${FIDELITY_CLAUSE}`,
+    },
+    // 2x Ganzkörper (Upper Body)
+    {
+      category: 'Ganzkörper',
+      prompt: `Professional upper body portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Arms crossed, head to waist visible. 3-point studio lighting, grey backdrop. Direct eye contact, confident expression. ${FIDELITY_CLAUSE}`,
+    },
+    {
+      category: 'Ganzkörper',
+      prompt: `Professional upper body portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Relaxed pose, one hand in pocket, head to waist visible, slightly turned left. Modern office, blurred background. Natural lighting. ${FIDELITY_CLAUSE}`,
+    },
+    // 2x Studio (Classic Professional)
+    {
+      category: 'Studio',
+      prompt: `Classic studio headshot of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} 3-point lighting, key light at 45°, fill light, hair light. Grey seamless backdrop. Head and shoulders, direct eye contact. Corporate LinkedIn headshot. ${FIDELITY_CLAUSE}`,
+    },
+    {
+      category: 'Studio',
+      prompt: `Professional studio portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft butterfly lighting, clean white backdrop with gradient. Head and shoulders. Confident expression, slightly turned right. Modern professional. ${FIDELITY_CLAUSE}`,
+    },
+    // 2x Natürlich (Natural/Window Light)
+    {
+      category: 'Natürlich',
+      prompt: `Natural light portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft window light from the side, warm golden tones. Relaxed approachable expression, frontal pose. Blurred interior background. ${FIDELITY_CLAUSE}`,
+    },
+    {
+      category: 'Natürlich',
+      prompt: `Natural light portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Diffused daylight, bright airy feel, light neutral background. Thoughtful expression, slight head tilt, looking slightly off-camera. ${FIDELITY_CLAUSE}`,
+    },
+    // 2x Dramatisch (Dramatic/Artistic)
+    {
+      category: 'Dramatisch',
+      prompt: `Dramatic portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Rembrandt lighting, deep shadows, low-key studio, dark moody backdrop. Intense direct eye contact, confident expression, frontal pose. ${FIDELITY_CLAUSE}`,
+    },
+    {
+      category: 'Dramatisch',
+      prompt: `Dramatic portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Split lighting, one side illuminated, high contrast, edge light on hair. Three-quarter profile, contemplative expression, dark background. ${FIDELITY_CLAUSE}`,
+    },
+  ];
+
   // Build prompts matching the iOS app format
   const buildPreviewPrompts = (): { index: number; prompt: string; category: string }[] => {
-    const categories = [
-      { category: 'Studio', fragment: 'elegant formal style, refined classic lighting, timeless look, clean studio background' },
-      { category: 'Modern', fragment: 'modern contemporary style, clean crisp look, minimalist aesthetic, subtle gradient background' },
-      { category: 'Natural', fragment: 'natural authentic style, relaxed warm atmosphere, genuine expression, soft window light' },
-    ];
-    return categories.map((cat, i) => ({
+    // Pick 3 diverse categories for preview: Studio, Outdoor, Dramatisch
+    const previewIndices = [6, 2, 10]; // Studio classic, Outdoor golden hour, Dramatic Rembrandt
+    return previewIndices.map((mixIdx, i) => ({
       index: i,
-      prompt: `Ultra-realistic professional headshot portrait of a professional. This must be the SAME person as in the reference photos — same face, same features, same identity. ${cat.fragment}. Professional business attire. Shot with Canon EOS R5, 85mm f/1.4 lens, shallow depth of field. Keep the face identical to the reference photos. Closed-mouth expression, no teeth visible, confident and approachable look.`,
-      category: cat.category,
+      prompt: MIX_PROMPTS[mixIdx].prompt,
+      category: MIX_PROMPTS[mixIdx].category,
     }));
   };
 
   const buildFullPrompts = (count: number): { index: number; prompt: string; category: string }[] => {
-    const categories = [
-      { category: 'Studio', fragment: 'elegant formal style, refined classic lighting, timeless look, clean studio background' },
-      { category: 'Modern', fragment: 'modern contemporary style, clean crisp look, minimalist aesthetic, subtle gradient background' },
-      { category: 'Natural', fragment: 'natural authentic style, relaxed warm atmosphere, genuine expression, soft window light' },
-      { category: 'Outdoor', fragment: 'natural outdoor light, urban environment, blurred city background, golden hour warmth' },
-      { category: 'Schwarzweiß', fragment: 'black and white photography, high contrast monochrome, dramatic shadows, timeless elegance' },
-      { category: 'Dramatisch', fragment: 'dramatic artistic lighting, bold rim light, deep shadows, cinematic mood' },
-    ];
     return Array.from({ length: count }, (_, i) => {
-      const cat = categories[i % categories.length];
+      const mix = MIX_PROMPTS[i % MIX_PROMPTS.length];
       return {
         index: i,
-        prompt: `Ultra-realistic professional headshot portrait of a professional. This must be the SAME person as in the reference photos — same face, same features, same identity. ${cat.fragment}. Professional business attire. Shot with Canon EOS R5, 85mm f/1.4 lens, shallow depth of field. Keep the face identical to the reference photos. Closed-mouth expression, no teeth visible, confident and approachable look.`,
-        category: cat.category,
+        prompt: mix.prompt,
+        category: mix.category,
       };
     });
   };
