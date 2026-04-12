@@ -50,7 +50,7 @@ export default function PPHowItWorks({ t }: { t: Translations }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 64 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}
         >
           <span className="pp-badge">{t.howItWorks.badge}</span>
           <h2 style={{
@@ -67,7 +67,7 @@ export default function PPHowItWorks({ t }: { t: Translations }) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
           gap: 32,
           position: 'relative',
         }}>
@@ -97,7 +97,7 @@ export default function PPHowItWorks({ t }: { t: Translations }) {
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: 20,
-                padding: '40px 32px',
+                padding: 'clamp(24px, 4vw, 40px) clamp(20px, 3vw, 32px)',
               }}
             >
               <div className="pp-step-number">

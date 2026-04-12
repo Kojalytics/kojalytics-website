@@ -15,8 +15,8 @@ export default function PPFooter({ t, locale }: { t: Translations; locale: Local
       <div className="pp-container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: 40,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+          gap: 'clamp(24px, 4vw, 40px)',
           marginBottom: 48,
         }}>
           {/* Brand */}

@@ -15,7 +15,7 @@ export default function PPHero({ t, locale }: { t: Translations; locale: string 
 
   return (
     <section style={{
-      paddingTop: 100,
+      paddingTop: 'clamp(80px, 12vw, 100px)',
       position: 'relative',
       overflow: 'hidden',
       background: 'var(--pp-bg)',
@@ -96,8 +96,8 @@ export default function PPHero({ t, locale }: { t: Translations; locale: string 
         <div style={{ marginBottom: 16 }}>
           <a href={appUrl} className="pp-btn-primary" style={{
             textDecoration: 'none',
-            padding: '18px 44px',
-            fontSize: '1.1rem',
+            padding: 'clamp(14px, 3vw, 18px) clamp(28px, 5vw, 44px)',
+            fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
           }}>
             <span>{t.hero.cta}</span>
             <span style={{ position: 'relative', zIndex: 1 }}>→</span>

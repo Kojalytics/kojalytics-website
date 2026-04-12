@@ -74,7 +74,7 @@ export default function PPFeatures({ t }: { t: Translations }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 64 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}
         >
           <span className="pp-badge">{t.features.badge}</span>
           <h2 style={{
@@ -91,7 +91,7 @@ export default function PPFeatures({ t }: { t: Translations }) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
           gap: 24,
         }}>
           {features.map((f, i) => (

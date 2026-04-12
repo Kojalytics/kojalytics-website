@@ -21,8 +21,8 @@ export default function PPSocialProof({ t }: { t: Translations }) {
       <div className="pp-container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: 32,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
+          gap: '24px 16px',
           textAlign: 'center',
         }}>
           {stats.map((stat, i) => (
@@ -36,7 +36,7 @@ export default function PPSocialProof({ t }: { t: Translations }) {
             >
               <span style={{ fontSize: '1.5rem' }}>{stat.icon}</span>
               <span style={{
-                fontSize: '1.8rem', fontWeight: 700, color: 'var(--pp-text)',
+                fontSize: 'clamp(1.3rem, 4vw, 1.8rem)', fontWeight: 700, color: 'var(--pp-text)',
                 fontFamily: 'var(--font-pp-heading)',
               }}>
                 {stat.value}

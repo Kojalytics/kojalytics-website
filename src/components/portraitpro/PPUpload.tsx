@@ -234,7 +234,7 @@ export default function PPUpload({ t, locale }: { t: Translations; locale: strin
           {/* Tips */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
             gap: 12,
             marginTop: 24,
           }}>

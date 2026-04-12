@@ -98,7 +98,7 @@ export default function PPReviews({ t }: { t: Translations }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 56 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 56px)' }}
         >
           <span className="pp-badge">Kundenstimmen</span>
           <h2 style={{

@@ -385,10 +385,21 @@ html:has(.pp-page) {
 .pp-delay-5 { animation-delay: 0.5s; }
 .pp-delay-6 { animation-delay: 0.6s; }
 
-/* Responsive */
+/* Utility classes for responsive show/hide (nav uses these) */
+.pp-page .hidden { display: none !important; }
+@media (min-width: 769px) {
+  .pp-page .hidden.md\:flex { display: flex !important; }
+  .pp-page .md\:hidden { display: none !important; }
+}
+@media (max-width: 768px) {
+  .pp-page .hidden.md\:flex { display: none !important; }
+  .pp-page .md\:hidden { display: block !important; }
+}
+
+/* Responsive — Tablet */
 @media (max-width: 768px) {
   .pp-section {
-    padding: 64px 0;
+    padding: 56px 0;
   }
 
   .pp-card {
@@ -403,5 +414,72 @@ html:has(.pp-page) {
 
   .pp-pricing-popular {
     transform: scale(1);
+  }
+
+  .pp-container {
+    padding: 0 16px;
+  }
+
+  .pp-step-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+  }
+
+  .pp-dropzone {
+    padding: 36px 20px;
+  }
+
+  .pp-orb {
+    display: none;
+  }
+}
+
+/* Responsive — Mobile */
+@media (max-width: 480px) {
+  .pp-section {
+    padding: 40px 0;
+  }
+
+  .pp-card {
+    padding: 18px;
+  }
+
+  .pp-btn-primary,
+  .pp-btn-secondary {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pp-badge {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+  }
+
+  .pp-container {
+    padding: 0 14px;
+  }
+
+  .pp-step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .pp-dropzone {
+    padding: 28px 16px;
+  }
+
+  .pp-faq-question {
+    font-size: 0.95rem;
+    padding: 18px 0;
+  }
+
+  .pp-faq-answer {
+    padding-bottom: 16px;
+    font-size: 0.9rem;
   }
 }

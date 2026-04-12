@@ -71,7 +71,7 @@ export default function PPTrustLogos() {
             flexWrap: 'wrap',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '20px 32px',
+            gap: 'clamp(12px, 2vw, 20px) clamp(16px, 3vw, 32px)',
             maxWidth: 900,
             margin: '0 auto',
           }}

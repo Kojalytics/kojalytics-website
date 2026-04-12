@@ -6,7 +6,7 @@ import type { Translations } from '@/i18n/translations/de';
 export default function PPCTA({ t, locale }: { t: Translations; locale: string }) {
   return (
     <section style={{
-      padding: '80px 0',
+      padding: 'clamp(48px, 8vw, 80px) 0',
       background: 'linear-gradient(135deg, #1A1A2E 0%, #0F0F1A 100%)',
       position: 'relative',
       overflow: 'hidden',
@@ -48,7 +48,7 @@ export default function PPCTA({ t, locale }: { t: Translations; locale: string }
           }}>
             {t.cta.subtitle}
           </p>
-          <a href={`/${locale}/portraitpro/app`} className="pp-btn-primary" style={{ textDecoration: 'none', fontSize: '1.1rem', padding: '18px 48px' }}>
+          <a href={`/${locale}/portraitpro/app`} className="pp-btn-primary" style={{ textDecoration: 'none', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', padding: 'clamp(14px, 3vw, 18px) clamp(28px, 5vw, 48px)' }}>
             <span>{t.cta.button}</span>
             <span style={{ position: 'relative', zIndex: 1 }}>→</span>
           </a>

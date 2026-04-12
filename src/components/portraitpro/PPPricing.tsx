@@ -33,7 +33,7 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 64 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}
         >
           <span className="pp-badge">{t.pricing.badge}</span>
           <h2 style={{
@@ -57,7 +57,7 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
           gap: 24,
           alignItems: 'start',
           maxWidth: 1000,
@@ -72,7 +72,7 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className={`pp-card ${plan.highlighted ? 'pp-pricing-popular' : ''}`}
               style={{
-                padding: '40px 32px',
+                padding: 'clamp(24px, 4vw, 40px) clamp(20px, 3vw, 32px)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 24,
@@ -123,7 +123,7 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
 
               <div style={{ textAlign: 'center' }}>
                 <span style={{
-                  fontSize: '2.8rem',
+                  fontSize: 'clamp(2rem, 5vw, 2.8rem)',
                   fontWeight: 800,
                   color: 'var(--pp-text)',
                   fontFamily: 'var(--font-pp-heading)',

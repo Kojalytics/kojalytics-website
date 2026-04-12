@@ -20,7 +20,7 @@ export default function PPGallery({ t }: { t: Translations }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 64 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 6vw, 64px)' }}
         >
           <span className="pp-badge">{t.gallery.badge}</span>
           <h2 style={{
@@ -47,7 +47,7 @@ export default function PPGallery({ t }: { t: Translations }) {
         {/* Style Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(48%, 170px), 1fr))',
           gap: 16,
         }}>
           {examples.map((ex, i) => (
