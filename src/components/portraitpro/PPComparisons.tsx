@@ -1,211 +1,207 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useState } from 'react';
 import type { Translations } from '@/i18n/translations/de';
 
-const PAIRS = Array.from({ length: 10 }, (_, i) => ({
+const COUNT = 10;
+const PAIRS = Array.from({ length: COUNT }, (_, i) => ({
   id: i + 1,
   before: `/portraitpro/comparisons/before-${i + 1}.webp`,
   after: `/portraitpro/comparisons/after-${i + 1}.webp`,
 }));
 
+// Duplicate for seamless infinite scroll (needs 2× so translateX(-50%) loops)
+const DOUBLED = [...PAIRS, ...PAIRS];
+
 export default function PPComparisons({ t }: { t: Translations }) {
-  const [activeHover, setActiveHover] = useState<number | null>(null);
-
   return (
-    <section className="pp-section" style={{ overflow: 'hidden' }}>
-      <div className="pp-container">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: 56 }}
-        >
-          <span className="pp-badge">Echte Ergebnisse</span>
-          <h2 style={{
-            fontFamily: 'var(--font-pp-heading)',
-            fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
-            fontWeight: 700,
-            marginTop: 16,
-            letterSpacing: '-0.02em',
-            color: 'var(--pp-text)',
-          }}>
-            Von Selfie zu Studio-Qualität
-          </h2>
-          <p style={{
-            color: 'var(--pp-text-secondary)',
-            fontSize: '1.1rem',
-            marginTop: 12,
-            maxWidth: 600,
-            margin: '12px auto 0',
-          }}>
-            Echte Fotos, echte Ergebnisse — perfekte Gesichtserkennung mit ultra-realistischen Details
-          </p>
-        </motion.div>
-
-        {/* Comparison Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 460px), 1fr))',
-          gap: 24,
+    <section style={{ padding: '80px 0 0', overflow: 'hidden' }}>
+      {/* Header */}
+      <div className="pp-container" style={{ textAlign: 'center', marginBottom: 48 }}>
+        <span className="pp-badge">Echte Ergebnisse</span>
+        <h2 style={{
+          fontFamily: 'var(--font-pp-heading)',
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          fontWeight: 700,
+          marginTop: 16,
+          letterSpacing: '-0.02em',
+          color: 'var(--pp-text)',
         }}>
-          {PAIRS.map((pair, i) => (
-            <motion.div
-              key={pair.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.45, delay: (i % 4) * 0.08 }}
-              style={{
-                borderRadius: 20,
-                overflow: 'hidden',
-                background: 'white',
-                border: '1px solid #E8E6E1',
-                boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
-                cursor: 'pointer',
-                position: 'relative',
-              }}
-              onMouseEnter={() => setActiveHover(pair.id)}
-              onMouseLeave={() => setActiveHover(null)}
-            >
-              {/* Split View Container */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                aspectRatio: '5/3',
-                position: 'relative',
-              }}>
-                {/* Before half */}
-                <div style={{ position: 'relative', overflow: 'hidden' }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={pair.before}
-                    alt={`Selfie ${pair.id}`}
-                    width={500}
-                    height={600}
-                    loading={i < 4 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'top center',
-                      display: 'block',
-                      transition: 'transform 0.4s ease',
-                      transform: activeHover === pair.id ? 'scale(1.03)' : 'scale(1)',
-                    }}
-                  />
-                  {/* Before label */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 10,
-                    left: 10,
-                    background: 'rgba(0,0,0,0.55)',
-                    backdropFilter: 'blur(8px)',
-                    color: 'white',
-                    padding: '4px 12px',
-                    borderRadius: 100,
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                  }}>
-                    Vorher
-                  </div>
-                </div>
+          Von Selfie zu Studio-Qualität
+        </h2>
+        <p style={{
+          color: 'var(--pp-text-secondary)',
+          fontSize: '1.1rem',
+          marginTop: 12,
+          maxWidth: 600,
+          margin: '12px auto 0',
+        }}>
+          Echte Fotos, echte Ergebnisse — perfekte Gesichtserkennung mit ultra-realistischen Details
+        </p>
+      </div>
 
-                {/* Center divider */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  bottom: 0,
-                  left: '50%',
-                  width: 3,
-                  background: 'white',
-                  zIndex: 2,
-                  transform: 'translateX(-50%)',
-                  boxShadow: '0 0 8px rgba(0,0,0,0.15)',
-                }} />
-
-                {/* Generating pill — center overlay */}
-                <div style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  zIndex: 3,
-                  background: 'white',
-                  borderRadius: 100,
-                  padding: '6px 16px',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  color: '#333',
-                  whiteSpace: 'nowrap',
-                }}>
-                  <span style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: '50%',
-                    background: '#34D399',
-                    display: 'inline-block',
-                    animation: 'ppPulse 1.5s ease-in-out infinite',
-                  }} />
-                  Generating...
-                </div>
-
-                {/* After half */}
-                <div style={{ position: 'relative', overflow: 'hidden' }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={pair.after}
-                    alt={`AI Portrait ${pair.id}`}
-                    width={500}
-                    height={600}
-                    loading={i < 4 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'top center',
-                      display: 'block',
-                      transition: 'transform 0.4s ease',
-                      transform: activeHover === pair.id ? 'scale(1.03)' : 'scale(1)',
-                    }}
-                  />
-                  {/* After label */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 10,
-                    right: 10,
-                    background: 'linear-gradient(135deg, #E94560, #F27121)',
-                    color: 'white',
-                    padding: '4px 12px',
-                    borderRadius: 100,
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                  }}>
-                    AI Generated ✨
-                  </div>
-                </div>
+      {/* Ticker Animation */}
+      <div className="pp-ticker-wrap">
+        {/* Left half — before images */}
+        <div className="pp-ticker-clip-left">
+          <div className="pp-ticker">
+            {DOUBLED.map((pair, i) => (
+              <div key={`b-${i}`} className="pp-ticker-tile">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={pair.before}
+                  alt={`Selfie ${pair.id}`}
+                  width={320}
+                  height={427}
+                  loading={i < 6 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Right half — after images */}
+        <div className="pp-ticker-clip-right">
+          <div className="pp-ticker">
+            {DOUBLED.map((pair, i) => (
+              <div key={`a-${i}`} className="pp-ticker-tile">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={pair.after}
+                  alt={`AI Portrait ${pair.id}`}
+                  width={320}
+                  height={427}
+                  loading={i < 6 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Center overlay — divider line + generating pill */}
+        <div className="pp-ticker-center">
+          <div className="pp-ticker-divider" />
+          <div className="pp-ticker-pill">
+            <span className="pp-ticker-dot" />
+            Generating...
+          </div>
         </div>
       </div>
 
       <style>{`
-        @keyframes ppPulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(0.85); }
+        .pp-ticker-wrap {
+          --tile: clamp(160px, 17vw, 320px);
+          --gap: 20px;
+          position: relative;
+          overflow: hidden;
+          height: clamp(300px, calc(var(--tile) * 1.45), 520px);
+        }
+
+        .pp-ticker-clip-left {
+          position: absolute;
+          inset: 0;
+          clip-path: inset(0 50% 0 0);
+        }
+
+        .pp-ticker-clip-right {
+          position: absolute;
+          inset: 0;
+          clip-path: inset(0 0 0 50%);
+        }
+
+        .pp-ticker {
+          position: absolute;
+          inset: 0 auto 0 0;
+          width: max-content;
+          display: flex;
+          align-items: center;
+          gap: var(--gap);
+          padding: 0 calc(var(--gap) * 2);
+          animation: ppTickerScroll 80s linear infinite reverse;
+          will-change: transform;
+        }
+
+        .pp-ticker-tile {
+          position: relative;
+          width: var(--tile);
+          aspect-ratio: 3 / 4;
+          overflow: hidden;
+          border-radius: 20px;
+          background: #f0ede8;
+          flex: 0 0 auto;
+        }
+
+        .pp-ticker-tile img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top center;
+          display: block;
+        }
+
+        /* Center overlay */
+        .pp-ticker-center {
+          pointer-events: none;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          z-index: 5;
+        }
+
+        .pp-ticker-divider {
+          width: 2px;
+          height: calc(var(--tile) * 1.5);
+          background: linear-gradient(to bottom, transparent, var(--pp-text) 20%, var(--pp-text) 80%, transparent);
+          opacity: 0.7;
+        }
+
+        .pp-ticker-pill {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: white;
+          border-radius: 100px;
+          padding: 7px 18px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.78rem;
+          font-weight: 600;
+          color: #333;
+          white-space: nowrap;
+          font-family: var(--font-pp-sans);
+        }
+
+        .pp-ticker-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #22C55E;
+          display: inline-block;
+          animation: ppTickerPulse 1.6s ease infinite;
+        }
+
+        @keyframes ppTickerScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        @keyframes ppTickerPulse {
+          0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+          70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Pause on hover */
+        .pp-ticker-wrap:hover .pp-ticker {
+          animation-play-state: paused;
         }
       `}</style>
     </section>
