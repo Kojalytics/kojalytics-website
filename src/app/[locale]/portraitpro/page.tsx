@@ -7,6 +7,7 @@ import PPHowItWorks from '@/components/portraitpro/PPHowItWorks';
 
 import PPGallery from '@/components/portraitpro/PPGallery';
 import PPFeatures from '@/components/portraitpro/PPFeatures';
+import PPAppPromo from '@/components/portraitpro/PPAppPromo';
 import PPPricing from '@/components/portraitpro/PPPricing';
 import PPUpload from '@/components/portraitpro/PPUpload';
 import PPFAQ from '@/components/portraitpro/PPFAQ';
@@ -36,6 +37,7 @@ export default async function PortraitProPage({
         <PPGallery t={t} />
         <PPReviews t={t} />
         <PPFeatures t={t} />
+        <PPAppPromo t={t} />
         <PPPricing t={t} locale={locale} />
         <PPUpload t={t} locale={locale} />
         <PPFAQ t={t} locale={locale} />
