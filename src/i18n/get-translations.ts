@@ -6,6 +6,7 @@ const translationModules: Record<Locale, () => Promise<{ default: Translations }
   en: () => import('./translations/en'),
   es: () => import('./translations/es'),
   fr: () => import('./translations/fr'),
+  it: () => import('./translations/it'),
   da: () => import('./translations/da'),
   nl: () => import('./translations/nl'),
   sv: () => import('./translations/sv'),

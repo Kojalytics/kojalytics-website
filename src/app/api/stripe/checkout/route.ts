@@ -25,9 +25,9 @@ export async function POST(request: NextRequest) {
           price_data: {
             currency: planData.currency,
             product_data: {
-              name: `PortraitPro AI — ${planData.portraits} Portraits (${plan === 'starter' ? 'Starter' : 'Premium'})`,
+              name: `AI Headshot — ${planData.portraits} Portraits (${plan === 'starter' ? 'Starter' : 'Premium'})`,
               description: `${planData.portraits} professionelle KI-generierte Bewerbungsfotos`,
-              images: ['https://kojalytics.com/og-portraitpro.jpg'],
+              images: ['https://kojalytics.com/og-aiheadshot.jpg'],
             },
             unit_amount: planData.price,
           },
@@ -35,8 +35,8 @@ export async function POST(request: NextRequest) {
         },
       ],
       mode: 'payment',
-      success_url: `${origin}/${locale || 'de'}/portraitpro/app?payment=success&plan=${plan}&jobId=${jobId}`,
-      cancel_url: `${origin}/${locale || 'de'}/portraitpro/app?payment=cancelled`,
+      success_url: `${origin}/${locale || 'de'}/aiheadshot/app?payment=success&plan=${plan}&jobId=${jobId}`,
+      cancel_url: `${origin}/${locale || 'de'}/aiheadshot/app?payment=cancelled`,
       metadata: {
         plan,
         jobId: jobId || '',

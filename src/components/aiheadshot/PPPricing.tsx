@@ -168,7 +168,7 @@ export default function PPPricing({ t, locale }: { t: Translations; locale: stri
                 </button>
               ) : (
                 <a
-                  href={`/${locale}/portraitpro/app`}
+                  href={`/${locale}/aiheadshot/app`}
                   className={plan.highlighted ? 'pp-btn-primary' : 'pp-btn-secondary'}
                   style={{ width: '100%', justifyContent: 'center', marginTop: 'auto', textDecoration: 'none' }}
                 >

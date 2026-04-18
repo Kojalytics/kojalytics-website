@@ -7,7 +7,7 @@ import FadeIn from './FadeIn';
 
 type Brand = {
   name: string;
-  file?: string;      // path to SVG in /portraitpro/logos/
+  file?: string;      // path to SVG in /aiheadshot/logos/
   inline?: true;       // render inline SVG instead
   h?: number;          // display height override (default 28)
 };
@@ -97,7 +97,7 @@ export default function PPTrustLogos() {
             fontSize: '0.95rem',
             color: 'var(--pp-text-secondary)',
           }}>
-            Mitarbeiter der erfolgreichsten Unternehmen nutzen PortraitPro AI
+            Mitarbeiter der erfolgreichsten Unternehmen nutzen AI Headshot
           </p>
         </FadeIn>
 
@@ -135,7 +135,7 @@ export default function PPTrustLogos() {
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={`/portraitpro/logos/${brand.file}`}
+                  src={`/aiheadshot/logos/${brand.file}`}
                   alt={brand.name}
                   height={brand.h || 28}
                   width="auto"

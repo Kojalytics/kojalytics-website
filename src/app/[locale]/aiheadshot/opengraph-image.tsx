@@ -1,10 +1,10 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'PortraitPro AI — Professionelle Bewerbungsfotos mit KI';
+export const alt = 'AI Headshot — Professionelle Bewerbungsfotos mit KI';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export default async function TwitterImage() {
+export default async function OGImage() {
   return new ImageResponse(
     (
       <div
@@ -80,7 +80,7 @@ export default async function TwitterImage() {
               P
             </div>
             <span style={{ fontWeight: 700, fontSize: 20, color: '#1A1A2E' }}>
-              PortraitPro AI
+              AI Headshot
             </span>
             <span style={{ fontSize: 16, color: '#8888A0', marginLeft: 4 }}>
               by Kojalytics

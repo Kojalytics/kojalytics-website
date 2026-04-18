@@ -54,7 +54,7 @@ export default function PPFloatingCTA({ t, locale }: { t: Translations; locale: 
         {t.hero.title} {t.hero.titleHighlight}
       </span>
       <a
-        href={`/${locale}/portraitpro/app`}
+        href={`/${locale}/aiheadshot/app`}
         className="pp-btn-primary"
         style={{
           padding: '10px 28px',

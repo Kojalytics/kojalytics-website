@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { DM_Sans, Space_Grotesk } from 'next/font/google';
 import { locales, seoKeywords, type Locale } from '@/i18n/config';
 import { getTranslations } from '@/i18n/get-translations';
-import './portraitpro.css';
+import './aiheadshot.css';
 
 const dmSans = DM_Sans({
   variable: '--font-pp-sans',
@@ -36,7 +36,7 @@ export async function generateMetadata({
 
   const alternateLanguages: Record<string, string> = {};
   for (const loc of locales) {
-    alternateLanguages[loc] = `${baseUrl}/${loc}/portraitpro`;
+    alternateLanguages[loc] = `${baseUrl}/${loc}/aiheadshot`;
   }
 
   return {
@@ -48,14 +48,14 @@ export async function generateMetadata({
     publisher: 'Kojalytics',
     metadataBase: new URL(baseUrl),
     alternates: {
-      canonical: `${baseUrl}/${locale}/portraitpro`,
+      canonical: `${baseUrl}/${locale}/aiheadshot`,
       languages: alternateLanguages,
     },
     openGraph: {
       title: t.meta.ogTitle,
       description: t.meta.ogDescription,
-      url: `${baseUrl}/${locale}/portraitpro`,
-      siteName: 'PortraitPro AI by Kojalytics',
+      url: `${baseUrl}/${locale}/aiheadshot`,
+      siteName: 'AI Headshot by Kojalytics',
       type: 'website',
       locale: locale === 'de' ? 'de_DE' : locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : locale === 'fr' ? 'fr_FR' : locale === 'da' ? 'da_DK' : locale === 'nl' ? 'nl_NL' : 'sv_SE',
       // images auto-discovered from opengraph-image.tsx
@@ -80,7 +80,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function PortraitProLayout({
+export default async function AIHeadshotLayout({
   children,
   params,
 }: {
@@ -93,7 +93,7 @@ export default async function PortraitProLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'PortraitPro AI',
+    name: 'AI Headshot',
     applicationCategory: 'PhotographyApplication',
     operatingSystem: 'Web, iOS',
     offers: [
@@ -117,7 +117,7 @@ export default async function PortraitProLayout({
       bestRating: '5',
     },
     description: 'AI-powered professional headshot generator. Create studio-quality business photos in minutes.',
-    url: `https://kojalytics.com/${locale}/portraitpro`,
+    url: `https://kojalytics.com/${locale}/aiheadshot`,
     publisher: {
       '@type': 'Organization',
       name: 'Kojalytics',

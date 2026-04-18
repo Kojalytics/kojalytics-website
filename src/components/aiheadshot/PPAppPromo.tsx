@@ -36,7 +36,7 @@ export default function PPAppPromo({ t }: { t: Translations }) {
                       </svg>
                     </div>
                     <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'white', letterSpacing: '-0.01em' }}>
-                      PortraitPro AI
+                      AI Headshot
                     </span>
                   </div>
                   {/* Mock portrait grid */}
@@ -45,7 +45,7 @@ export default function PPAppPromo({ t }: { t: Translations }) {
                       <div key={i} className="pp-app-promo-portrait-thumb">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={`/portraitpro/comparisons/after-${i}.webp`}
+                          src={`/aiheadshot/comparisons/after-${i}.webp`}
                           alt={`Portrait ${i}`}
                           width={120}
                           height={160}
@@ -133,7 +133,7 @@ export default function PPAppPromo({ t }: { t: Translations }) {
 
             {/* App Store button */}
             <a
-              href="https://apps.apple.com/app/portraitpro-ai/id6743597845"
+              href="https://apps.apple.com/app/aiheadshot-ai/id6743597845"
               target="_blank"
               rel="noopener noreferrer"
               className="pp-app-promo-store-btn"

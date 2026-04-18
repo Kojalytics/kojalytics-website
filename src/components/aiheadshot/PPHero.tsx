@@ -5,13 +5,13 @@ import type { Translations } from '@/i18n/translations/de';
 const COUNT = 10;
 const PAIRS = Array.from({ length: COUNT }, (_, i) => ({
   id: i + 1,
-  before: `/portraitpro/comparisons/before-${i + 1}.webp`,
-  after: `/portraitpro/comparisons/after-${i + 1}.webp`,
+  before: `/aiheadshot/comparisons/before-${i + 1}.webp`,
+  after: `/aiheadshot/comparisons/after-${i + 1}.webp`,
 }));
 const DOUBLED = [...PAIRS, ...PAIRS];
 
 export default function PPHero({ t, locale }: { t: Translations; locale: string }) {
-  const appUrl = `/${locale}/portraitpro/app`;
+  const appUrl = `/${locale}/aiheadshot/app`;
 
   return (
     <section style={{

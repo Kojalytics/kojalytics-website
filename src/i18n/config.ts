@@ -1,4 +1,4 @@
-export const locales = ['de', 'en', 'es', 'fr', 'da', 'nl', 'sv'] as const;
+export const locales = ['de', 'en', 'es', 'fr', 'it', 'da', 'nl', 'sv'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'de';
 
@@ -7,6 +7,7 @@ export const localeNames: Record<Locale, string> = {
   en: 'English',
   es: 'Español',
   fr: 'Français',
+  it: 'Italiano',
   da: 'Dansk',
   nl: 'Nederlands',
   sv: 'Svenska',
@@ -17,6 +18,7 @@ export const localeFlags: Record<Locale, string> = {
   en: '🇬🇧',
   es: '🇪🇸',
   fr: '🇫🇷',
+  it: '🇮🇹',
   da: '🇩🇰',
   nl: '🇳🇱',
   sv: '🇸🇪',
@@ -28,6 +30,7 @@ export const seoKeywords: Record<Locale, string[]> = {
   en: ['AI Headshot', 'AI Headshot Generator', 'Professional Headshot', 'Business Photo AI', 'LinkedIn Photo Generator', 'Corporate Headshot AI'],
   es: ['Foto de currículum IA', 'Generador de fotos profesionales', 'Foto profesional IA', 'Foto de CV con inteligencia artificial'],
   fr: ['Photo CV IA', 'Générateur de photo professionnelle', 'Photo de candidature IA', 'Photo professionnelle intelligence artificielle'],
+  it: ['Foto CV IA', 'Generatore foto professionali', 'Foto curriculum IA', 'Ritratto professionale IA', 'Foto LinkedIn IA'],
   da: ['Ansøgningsfoto AI', 'Professionelt ansøgningsfoto', 'AI pasfoto generator', 'CV foto kunstig intelligens'],
   nl: ['Sollicitatiefoto AI', 'Professionele pasfoto generator', 'AI bewerbingsfoto', 'Pasfoto generator kunstmatige intelligentie'],
   sv: ['CV-foto AI', 'Professionellt ansökningsfoto', 'AI porträttfoto generator', 'Passfoto artificiell intelligens'],

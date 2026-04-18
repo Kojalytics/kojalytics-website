@@ -5,8 +5,8 @@ import type { Translations } from '@/i18n/translations/de';
 const COUNT = 10;
 const PAIRS = Array.from({ length: COUNT }, (_, i) => ({
   id: i + 1,
-  before: `/portraitpro/comparisons/before-${i + 1}.webp`,
-  after: `/portraitpro/comparisons/after-${i + 1}.webp`,
+  before: `/aiheadshot/comparisons/before-${i + 1}.webp`,
+  after: `/aiheadshot/comparisons/after-${i + 1}.webp`,
 }));
 
 // Duplicate for seamless infinite scroll (needs 2× so translateX(-50%) loops)

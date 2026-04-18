@@ -2,9 +2,11 @@
 
 import type { Translations } from '@/i18n/translations/de';
 import type { Locale } from '@/i18n/config';
+import { privacyUrl } from '@/lib/privacy-slugs';
 
 export default function PPFooter({ t, locale }: { t: Translations; locale: Locale }) {
   const year = new Date().getFullYear();
+  const privacyHref = privacyUrl(locale);
 
   return (
     <footer style={{
@@ -28,12 +30,12 @@ export default function PPFooter({ t, locale }: { t: Translations; locale: Local
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: 'white', fontWeight: 800, fontSize: '1rem',
                 fontFamily: 'var(--font-pp-heading)',
-              }}>P</div>
+              }}>AI</div>
               <span style={{
                 fontWeight: 700, fontSize: '1.1rem', color: 'var(--pp-text)',
                 fontFamily: 'var(--font-pp-heading)',
               }}>
-                Portrait<span className="pp-gradient-text">Pro</span> AI
+                <span className="pp-gradient-text">AI</span> Headshot
               </span>
             </div>
             <p style={{ color: 'var(--pp-text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>
@@ -74,7 +76,7 @@ export default function PPFooter({ t, locale }: { t: Translations; locale: Local
               {t.footer.legal}
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <a href="/datenschutz" style={{ color: 'var(--pp-text-muted)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}
+              <a href={privacyHref} style={{ color: 'var(--pp-text-muted)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--pp-accent)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--pp-text-muted)')}
               >{t.footer.privacy}</a>

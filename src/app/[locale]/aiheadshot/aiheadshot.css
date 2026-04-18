@@ -804,3 +804,57 @@ html:has(.pp-page) {
     display: none;
   }
 }
+
+/* ===== Privacy page typography ===== */
+.pp-privacy-content {
+  color: var(--pp-text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.pp-privacy-content p {
+  margin: 0 0 12px;
+}
+.pp-privacy-content p:last-child {
+  margin-bottom: 0;
+}
+.pp-privacy-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pp-privacy-content ul ul {
+  margin: 8px 0 0 16px;
+  gap: 6px;
+}
+.pp-privacy-content li {
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.65;
+}
+.pp-privacy-content li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pp-gradient, linear-gradient(135deg, #6366f1, #a855f7));
+}
+.pp-privacy-content strong {
+  color: var(--pp-text);
+  font-weight: 600;
+}
+.pp-privacy-content a {
+  color: var(--pp-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.pp-privacy-content a:hover {
+  color: var(--pp-accent-dark, var(--pp-accent));
+  text-decoration: underline;
+}

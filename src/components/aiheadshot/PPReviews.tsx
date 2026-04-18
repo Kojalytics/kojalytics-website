@@ -113,7 +113,7 @@ export default function PPReviews({ t }: { t: Translations }) {
             maxWidth: 600,
             margin: '12px auto 0',
           }}>
-            Echte Bewertungen von Profis, die PortraitPro AI täglich nutzen
+            Echte Bewertungen von Profis, die AI Headshot täglich nutzen
           </p>
         </FadeIn>
 

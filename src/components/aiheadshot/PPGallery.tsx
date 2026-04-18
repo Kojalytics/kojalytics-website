@@ -4,12 +4,12 @@ import FadeIn from './FadeIn';
 import type { Translations } from '@/i18n/translations/de';
 
 const examples = [
-  { id: 1, style: 'Business Formal',       src: '/portraitpro/examples/style-business.webp' },
-  { id: 2, style: 'LinkedIn Professional',  src: '/portraitpro/examples/style-linkedin.webp' },
-  { id: 3, style: 'Creative Modern',        src: '/portraitpro/examples/style-creative.webp' },
-  { id: 4, style: 'Corporate Classic',      src: '/portraitpro/examples/style-corporate.webp' },
-  { id: 5, style: 'Startup Casual',         src: '/portraitpro/examples/style-startup.webp' },
-  { id: 6, style: 'Executive Premium',      src: '/portraitpro/examples/style-executive.webp' },
+  { id: 1, style: 'Business Formal',       src: '/aiheadshot/examples/style-business.webp' },
+  { id: 2, style: 'LinkedIn Professional',  src: '/aiheadshot/examples/style-linkedin.webp' },
+  { id: 3, style: 'Creative Modern',        src: '/aiheadshot/examples/style-creative.webp' },
+  { id: 4, style: 'Corporate Classic',      src: '/aiheadshot/examples/style-corporate.webp' },
+  { id: 5, style: 'Startup Casual',         src: '/aiheadshot/examples/style-startup.webp' },
+  { id: 6, style: 'Executive Premium',      src: '/aiheadshot/examples/style-executive.webp' },
 ];
 
 export default function PPGallery({ t }: { t: Translations }) {

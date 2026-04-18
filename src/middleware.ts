@@ -6,6 +6,7 @@ const localeMap: Record<string, Locale> = {
   'en': 'en', 'en-us': 'en', 'en-gb': 'en', 'en-au': 'en',
   'es': 'es', 'es-es': 'es', 'es-mx': 'es', 'es-ar': 'es',
   'fr': 'fr', 'fr-fr': 'fr', 'fr-be': 'fr', 'fr-ca': 'fr',
+  'it': 'it', 'it-it': 'it', 'it-ch': 'it',
   'da': 'da', 'da-dk': 'da',
   'nl': 'nl', 'nl-nl': 'nl', 'nl-be': 'nl',
   'sv': 'sv', 'sv-se': 'sv',
@@ -20,6 +21,7 @@ function getPreferredLocale(request: NextRequest): Locale {
       'us': 'en', 'gb': 'en', 'au': 'en', 'ca': 'en', 'ie': 'en',
       'es': 'es', 'mx': 'es', 'ar': 'es', 'co': 'es',
       'fr': 'fr', 'be': 'fr',
+      'it': 'it',
       'dk': 'da',
       'nl': 'nl',
       'se': 'sv',
@@ -51,16 +53,16 @@ function getPreferredLocale(request: NextRequest): Locale {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Only handle /portraitpro routes
-  if (pathname === '/portraitpro' || pathname === '/portraitpro/') {
+  // Only handle /aiheadshot routes
+  if (pathname === '/aiheadshot' || pathname === '/aiheadshot/') {
     const locale = getPreferredLocale(request);
     const url = request.nextUrl.clone();
-    url.pathname = `/${locale}/portraitpro`;
+    url.pathname = `/${locale}/aiheadshot`;
     return NextResponse.redirect(url);
   }
 
-  // Check if it's a locale + portraitpro route — let it through
-  const localeMatch = pathname.match(/^\/(de|en|es|fr|da|nl|sv)\/portraitpro/);
+  // Check if it's a locale + aiheadshot route — let it through
+  const localeMatch = pathname.match(/^\/(de|en|es|fr|it|da|nl|sv)\/aiheadshot/);
   if (localeMatch) {
     return NextResponse.next();
   }
@@ -69,5 +71,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/portraitpro', '/portraitpro/', '/:locale/portraitpro', '/:locale/portraitpro/:path*'],
+  matcher: ['/aiheadshot', '/aiheadshot/', '/:locale/aiheadshot', '/:locale/aiheadshot/:path*'],
 };

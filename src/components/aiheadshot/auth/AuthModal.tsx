@@ -5,14 +5,14 @@ import { createClient } from '@/lib/supabase';
 import type { Locale } from '@/i18n/config';
 
 const labels: Record<string, Record<Locale, string>> = {
-  title: { de: 'Anmelden', en: 'Sign In', es: 'Iniciar sesión', fr: 'Se connecter', da: 'Log ind', nl: 'Inloggen', sv: 'Logga in' },
-  subtitle: { de: 'Melde dich an um deine Bewerbungsfotos zu erstellen', en: 'Sign in to create your professional headshots', es: 'Inicia sesión para crear tus fotos profesionales', fr: 'Connectez-vous pour créer vos photos professionnelles', da: 'Log ind for at oprette dine ansøgningsfotos', nl: 'Log in om je sollicitatiefoto\'s te maken', sv: 'Logga in för att skapa dina CV-foton' },
-  email: { de: 'E-Mail-Adresse', en: 'Email address', es: 'Correo electrónico', fr: 'Adresse email', da: 'E-mailadresse', nl: 'E-mailadres', sv: 'E-postadress' },
-  sendLink: { de: 'Anmeldelink senden', en: 'Send sign-in link', es: 'Enviar enlace', fr: 'Envoyer le lien', da: 'Send login-link', nl: 'Stuur inloglink', sv: 'Skicka inloggningslänk' },
-  orContinue: { de: 'Oder weiter mit', en: 'Or continue with', es: 'O continuar con', fr: 'Ou continuer avec', da: 'Eller fortsæt med', nl: 'Of ga verder met', sv: 'Eller fortsätt med' },
-  checkEmail: { de: 'Prüfe dein Postfach! Wir haben dir einen Anmeldelink gesendet.', en: 'Check your inbox! We sent you a sign-in link.', es: '¡Revisa tu correo! Te enviamos un enlace.', fr: 'Vérifiez votre boîte mail !', da: 'Tjek din indbakke!', nl: 'Check je inbox!', sv: 'Kolla din inkorg!' },
-  error: { de: 'Fehler beim Senden. Bitte versuche es erneut.', en: 'Error sending link. Please try again.', es: 'Error al enviar. Inténtalo de nuevo.', fr: 'Erreur d\'envoi. Réessayez.', da: 'Fejl ved afsendelse. Prøv igen.', nl: 'Fout bij verzenden. Probeer opnieuw.', sv: 'Fel vid sändning. Försök igen.' },
-  close: { de: 'Schließen', en: 'Close', es: 'Cerrar', fr: 'Fermer', da: 'Luk', nl: 'Sluiten', sv: 'Stäng' },
+  title: { de: 'Anmelden', en: 'Sign In', es: 'Iniciar sesión', fr: 'Se connecter', it: 'Accedi', da: 'Log ind', nl: 'Inloggen', sv: 'Logga in' },
+  subtitle: { de: 'Melde dich an um deine Bewerbungsfotos zu erstellen', en: 'Sign in to create your professional headshots', es: 'Inicia sesión para crear tus fotos profesionales', fr: 'Connectez-vous pour créer vos photos professionnelles', it: 'Accedi per creare le tue foto professionali', da: 'Log ind for at oprette dine ansøgningsfotos', nl: 'Log in om je sollicitatiefoto\'s te maken', sv: 'Logga in för att skapa dina CV-foton' },
+  email: { de: 'E-Mail-Adresse', en: 'Email address', es: 'Correo electrónico', fr: 'Adresse email', it: 'Indirizzo e-mail', da: 'E-mailadresse', nl: 'E-mailadres', sv: 'E-postadress' },
+  sendLink: { de: 'Anmeldelink senden', en: 'Send sign-in link', es: 'Enviar enlace', fr: 'Envoyer le lien', it: 'Invia link di accesso', da: 'Send login-link', nl: 'Stuur inloglink', sv: 'Skicka inloggningslänk' },
+  orContinue: { de: 'Oder weiter mit', en: 'Or continue with', es: 'O continuar con', fr: 'Ou continuer avec', it: 'Oppure continua con', da: 'Eller fortsæt med', nl: 'Of ga verder met', sv: 'Eller fortsätt med' },
+  checkEmail: { de: 'Prüfe dein Postfach! Wir haben dir einen Anmeldelink gesendet.', en: 'Check your inbox! We sent you a sign-in link.', es: '¡Revisa tu correo! Te enviamos un enlace.', fr: 'Vérifiez votre boîte mail !', it: 'Controlla la tua casella di posta!', da: 'Tjek din indbakke!', nl: 'Check je inbox!', sv: 'Kolla din inkorg!' },
+  error: { de: 'Fehler beim Senden. Bitte versuche es erneut.', en: 'Error sending link. Please try again.', es: 'Error al enviar. Inténtalo de nuevo.', fr: 'Erreur d\'envoi. Réessayez.', it: 'Errore di invio. Riprova.', da: 'Fejl ved afsendelse. Prøv igen.', nl: 'Fout bij verzenden. Probeer opnieuw.', sv: 'Fel vid sändning. Försök igen.' },
+  close: { de: 'Schließen', en: 'Close', es: 'Cerrar', fr: 'Fermer', it: 'Chiudi', da: 'Luk', nl: 'Sluiten', sv: 'Stäng' },
 };
 
 export default function AuthModal({
@@ -40,7 +40,7 @@ export default function AuthModal({
     const { error: err } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${window.location.origin}/${locale}/portraitpro/app`,
+        emailRedirectTo: `${window.location.origin}/${locale}/aiheadshot/app`,
       },
     });
 
@@ -56,7 +56,7 @@ export default function AuthModal({
     await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/${locale}/portraitpro/app`,
+        redirectTo: `${window.location.origin}/${locale}/aiheadshot/app`,
       },
     });
   };

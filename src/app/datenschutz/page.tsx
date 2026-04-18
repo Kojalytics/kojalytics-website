@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung — Kojalytics",
-  description: "Datenschutzerklärung für PortraitPro AI und die Dienste von Kojalytics.",
+  description: "Datenschutzerklärung für AI Headshot und die Dienste von Kojalytics.",
 };
 
 export default function DatenschutzPage() {
@@ -14,7 +14,7 @@ export default function DatenschutzPage() {
       <main className="pt-32 pb-20 px-6">
         <div className="max-w-3xl mx-auto">
           <p className="text-accent-light text-sm font-medium tracking-wide uppercase mb-3">
-            PortraitPro AI
+            AI Headshot
           </p>
           <h1 className="text-4xl font-bold tracking-tight mb-3">
             Datenschutzerklärung
@@ -27,7 +27,7 @@ export default function DatenschutzPage() {
             {/* Highlight box */}
             <div className="bg-accent/10 border border-accent/20 rounded-xl p-5">
               <p className="text-accent-light font-medium text-sm leading-relaxed">
-                PortraitPro AI erfasst keine persönlichen Daten, erstellt keine
+                AI Headshot erfasst keine persönlichen Daten, erstellt keine
                 Nutzerprofile und verwendet keinerlei Tracking oder
                 Analyse-Tools.
               </p>
@@ -57,7 +57,7 @@ export default function DatenschutzPage() {
 
             <Section title="2. Welche Daten werden verarbeitet?">
               <p className="text-muted leading-relaxed mb-3">
-                PortraitPro AI verarbeitet ausschließlich die Daten, die für die
+                AI Headshot verarbeitet ausschließlich die Daten, die für die
                 Erstellung von KI-generierten Portraits notwendig sind:
               </p>
               <ul className="text-muted space-y-2 list-disc list-inside leading-relaxed">
@@ -334,7 +334,7 @@ export default function DatenschutzPage() {
 
             <Section title="10. Kinder">
               <p className="text-muted leading-relaxed">
-                PortraitPro AI richtet sich nicht an Kinder unter 16 Jahren. Wir
+                AI Headshot richtet sich nicht an Kinder unter 16 Jahren. Wir
                 erheben wissentlich keine Daten von Kindern.
               </p>
             </Section>

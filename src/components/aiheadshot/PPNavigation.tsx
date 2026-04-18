@@ -20,19 +20,19 @@ export default function PPNavigation({ t, locale }: { t: Translations; locale: L
       <div className="pp-container">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
           {/* Logo */}
-          <a href={`/${locale}/portraitpro`} style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <a href={`/${locale}/aiheadshot`} style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <div style={{
               width: 38, height: 38, borderRadius: 10,
               background: 'var(--pp-gradient)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               color: 'white', fontWeight: 800, fontSize: '1.1rem',
               fontFamily: 'var(--font-pp-heading)',
-            }}>P</div>
+            }}>AI</div>
             <span style={{
               fontWeight: 700, fontSize: '1.15rem', color: 'var(--pp-text)',
               fontFamily: 'var(--font-pp-heading)',
             }}>
-              Portrait<span className="pp-gradient-text">Pro</span> AI
+              <span className="pp-gradient-text">AI</span> Headshot
             </span>
           </a>
 
@@ -81,7 +81,7 @@ export default function PPNavigation({ t, locale }: { t: Translations; locale: L
                   {locales.map(loc => (
                     <a
                       key={loc}
-                      href={`/${loc}/portraitpro`}
+                      href={`/${loc}/aiheadshot`}
                       style={{
                         display: 'flex', alignItems: 'center', gap: 8,
                         padding: '10px 16px', textDecoration: 'none',
@@ -101,7 +101,7 @@ export default function PPNavigation({ t, locale }: { t: Translations; locale: L
               )}
             </div>
 
-            <a href={`/${locale}/portraitpro/app`} className="pp-btn-primary" style={{ padding: '10px 24px', fontSize: '0.9rem' }}>
+            <a href={`/${locale}/aiheadshot/app`} className="pp-btn-primary" style={{ padding: '10px 24px', fontSize: '0.9rem' }}>
               <span>{t.nav.cta}</span>
             </a>
           </div>
@@ -143,7 +143,7 @@ export default function PPNavigation({ t, locale }: { t: Translations; locale: L
             <a href="#faq" onClick={() => setMobileOpen(false)} style={{ color: 'var(--pp-text-secondary)', textDecoration: 'none', fontWeight: 500 }}>{t.nav.faq}</a>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, paddingTop: 8 }}>
               {locales.map(loc => (
-                <a key={loc} href={`/${loc}/portraitpro`} style={{
+                <a key={loc} href={`/${loc}/aiheadshot`} style={{
                   padding: '6px 12px', borderRadius: 8,
                   border: loc === locale ? '2px solid var(--pp-accent)' : '1px solid var(--pp-border)',
                   textDecoration: 'none', fontSize: '0.85rem',
@@ -154,7 +154,7 @@ export default function PPNavigation({ t, locale }: { t: Translations; locale: L
                 </a>
               ))}
             </div>
-            <a href={`/${locale}/portraitpro/app`} className="pp-btn-primary" style={{ textAlign: 'center', textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
+            <a href={`/${locale}/aiheadshot/app`} className="pp-btn-primary" style={{ textAlign: 'center', textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
               <span>{t.nav.cta}</span>
             </a>
           </div>

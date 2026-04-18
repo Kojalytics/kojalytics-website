@@ -1,4 +1,4 @@
-import '../portraitpro.css';
+import '../aiheadshot.css';
 import { DM_Sans, Space_Grotesk } from 'next/font/google';
 
 const dmSans = DM_Sans({

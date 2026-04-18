@@ -21,7 +21,7 @@ import Link from "next/link";
 const faqs = [
   {
     icon: ImageIcon,
-    question: "How does PortraitPro AI work?",
+    question: "How does AI Headshot work?",
     answer:
       "Upload 5-10 selfies and our AI creates professional, studio-quality portraits in various styles. The process takes just a few minutes, and you'll receive high-resolution images ready for LinkedIn, resumes, or social media.",
   },
@@ -47,7 +47,7 @@ const faqs = [
     icon: Smartphone,
     question: "Which devices are supported?",
     answer:
-      "PortraitPro AI is available on iPhone (iOS 16+). We're working on expanding to iPad and Android in future updates.",
+      "AI Headshot is available on iPhone (iOS 16+). We're working on expanding to iPad and Android in future updates.",
   },
   {
     icon: Trash2,
@@ -107,7 +107,7 @@ export default function SupportPage() {
               How can we <span className="gradient-text">help?</span>
             </h1>
             <p className="mt-6 text-muted text-lg max-w-xl mx-auto">
-              Find answers to common questions about PortraitPro AI, or reach
+              Find answers to common questions about AI Headshot, or reach
               out to our team directly.
             </p>
           </motion.div>
@@ -182,13 +182,13 @@ export default function SupportPage() {
             transition={{ duration: 0.6 }}
             className="mt-20 glass-card rounded-2xl p-10 text-center"
           >
-            <h3 className="text-2xl font-bold mb-4">PortraitPro AI</h3>
+            <h3 className="text-2xl font-bold mb-4">AI Headshot</h3>
             <p className="text-muted max-w-lg mx-auto">
               Professional AI portraits in minutes. Available on the App Store.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="mailto:support@kojalytics.com?subject=PortraitPro%20AI%20Support"
+                href="mailto:support@kojalytics.com?subject=AI%20Headshot%20Support"
                 className="btn-gradient text-sm"
               >
                 <span>Contact Support</span>

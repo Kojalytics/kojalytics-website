@@ -5,13 +5,13 @@ import { useParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase';
 import { PLANS, type PlanId } from '@/lib/stripe';
 import { locales, type Locale } from '@/i18n/config';
-import AuthModal from '@/components/portraitpro/auth/AuthModal';
+import AuthModal from '@/components/aiheadshot/auth/AuthModal';
 import { QRCodeSVG } from 'qrcode.react';
 import type { User, Session } from '@supabase/supabase-js';
 
 // Inline translations for app page
 const appLabels: Record<string, Record<string, string>> = {
-  welcome: { de: 'Willkommen bei PortraitPro AI', en: 'Welcome to PortraitPro AI' },
+  welcome: { de: 'Willkommen bei AI Headshot', en: 'Welcome to AI Headshot' },
   step1Title: { de: '1. Selfies hochladen', en: '1. Upload Selfies' },
   step1Desc: { de: 'Lade 5–10 Selfies hoch (gutes Licht, verschiedene Winkel)', en: 'Upload 5–10 selfies (good light, different angles)' },
   step2Title: { de: '2. Vorschau generieren', en: '2. Generate Preview' },
@@ -53,7 +53,7 @@ const appLabels: Record<string, Record<string, string>> = {
 
 type AppStep = 'upload' | 'generating-preview' | 'preview' | 'checkout' | 'generating-full' | 'gallery';
 
-export default function PortraitProApp() {
+export default function AIHeadshotApp() {
   const params = useParams();
   const locale = (locales.includes(params.locale as Locale) ? params.locale : 'de') as Locale;
   const t = (key: string) => appLabels[key]?.[locale] || appLabels[key]?.['en'] || key;
@@ -110,7 +110,7 @@ export default function PortraitProApp() {
   // QR upload URL — only pass uid (short), no JWT (too long for QR code)
   // Mobile uploads via API route which uses service role key
   const uploadUrl = typeof window !== 'undefined' && user
-    ? `${window.location.origin}/${locale}/portraitpro/app/mobile-upload?uid=${user.id}`
+    ? `${window.location.origin}/${locale}/aiheadshot/app/mobile-upload?uid=${user.id}`
     : '';
 
   // Track reference image paths already in Storage (from mobile upload)

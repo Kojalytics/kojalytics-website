@@ -44,7 +44,7 @@ export default function PPCTA({ t, locale }: { t: Translations; locale: string }
           }}>
             {t.cta.subtitle}
           </p>
-          <a href={`/${locale}/portraitpro/app`} className="pp-btn-primary" style={{ textDecoration: 'none', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', padding: 'clamp(14px, 3vw, 18px) clamp(28px, 5vw, 48px)' }}>
+          <a href={`/${locale}/aiheadshot/app`} className="pp-btn-primary" style={{ textDecoration: 'none', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', padding: 'clamp(14px, 3vw, 18px) clamp(28px, 5vw, 48px)' }}>
             <span>{t.cta.button}</span>
             <span style={{ position: 'relative', zIndex: 1 }}>→</span>
           </a>
