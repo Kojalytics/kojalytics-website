@@ -680,7 +680,117 @@ const nl: PrivacyContent = {
   contactEmail: commonContact,
 };
 
-// For locales not yet directly supported (da, sv), fall back to English.
+const sv: PrivacyContent = {
+  pageTitle: 'Integritetspolicy',
+  lastUpdated: 'Senast uppdaterad: 19 april 2026',
+  productLabel: 'AI HEADSHOT',
+  highlight:
+    'AI Headshot samlar inte in personlig information, skapar inte användarprofiler och använder inga spårnings- eller analysverktyg.',
+  sections: [
+    {
+      title: '1. Personuppgiftsansvarig',
+      content: `<p>Kojalytics<br/>Farzad Khojazada, enskild firma<br/>Am Diggen 40i, 21077 Hamburg, Tyskland<br/>E-post: <a href="mailto:${commonContact}">${commonContact}</a><br/>Webbplats: <a href="https://kojalytics.com">kojalytics.com</a></p>`,
+    },
+    {
+      title: '2. Vilka data behandlas?',
+      content: `<p>AI Headshot behandlar endast data som är strikt nödvändig för att generera AI-porträtt:</p>
+<ul>
+  <li><strong>Referensfoton:</strong> Fotona du väljer (max 10) skickas till vår server och vidarebefordras till tredjepartstjänsten Google Gemini API för generering.</li>
+  <li><strong>Porträttinställningar:</strong> Dina valda stilalternativ (stil, beskärning, bakgrund).</li>
+  <li><strong>Köpdata:</strong> Transaktions-ID:n för in-app-köp lagras lokalt på din enhet. Betalningshantering hanteras uteslutande av Apple.</li>
+</ul>
+<p><strong>Viktigt:</strong> Innan dina foton för första gången överförs till AI-tjänsten, ber appen om ditt uttryckliga samtycke. Utan ditt godkännande skickas inga foton till tredje part.</p>`,
+    },
+    {
+      title: '3. Vad samlas INTE in?',
+      content: `<ul>
+  <li>Inga användarkonton eller registrering krävs</li>
+  <li>Inga e-postadresser, namn eller telefonnummer</li>
+  <li>Inga platsdata</li>
+  <li>Inga analysverktyg eller spårning (inget Google Analytics, Firebase, etc.)</li>
+  <li>Inga annonser eller annonsnätverk</li>
+  <li>Ingen delning av data med tredje part i marknadsföringssyfte</li>
+</ul>`,
+    },
+    {
+      title: '4. Hur behandlas dina foton?',
+      content: `<ul>
+  <li>Krypterad HTTPS/TLS-överföring till vår server (Supabase, EU-region).</li>
+  <li><strong>Tredjeparts AI-tjänst:</strong> Dina referensfoton vidarebefordras till Google Gemini API (Google Ireland Limited) för bildgenerering.</li>
+  <li>Rättslig grund: art. 6.1.a och art. 9.2.a GDPR (uttryckligt samtycke).</li>
+  <li>Efter genereringen raderas referensfotona både från vår server och från Google.</li>
+  <li>Genererade porträtt levereras via tidsbegränsade, signerade URL:er.</li>
+</ul>`,
+    },
+    {
+      title: '5. Datalagring',
+      content: `<p><strong>På din enhet:</strong></p>
+<ul>
+  <li>Genererade porträtt och förhandsvisningar i app-lagringen</li>
+  <li>Köpbevis och inställningar i den krypterade iOS Keychain</li>
+  <li>Valvdata med automatisk utgång (24 timmar till 30 dagar per paket)</li>
+</ul>
+<p><strong>På vår server:</strong></p>
+<ul>
+  <li>Referensfoton raderas efter behandling</li>
+  <li>Genererade porträtt lagras tillfälligt, tillgängliga endast via tidsbegränsade URL:er</li>
+  <li>Uppgiftsmetadata (status, tidsstämplar) utan personliga referenser</li>
+</ul>`,
+    },
+    {
+      title: '6. Tredjepartstjänster',
+      content: `<ul>
+  <li><strong>Google Gemini API:</strong> AI-bildgenerering. Dina foton överförs för generering endast efter ditt samtycke. Google behandlar data enligt <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Googles integritetspolicy</a>. Fotona raderas hos Google efter behandling.</li>
+  <li><strong>Supabase:</strong> Backend-infrastruktur för säker datahantering. Servrar i EU (Frankfurt).</li>
+  <li><strong>Apple StoreKit:</strong> För in-app-köp. Apple behandlar betalningsuppgifter enligt <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apples integritetspolicy</a>.</li>
+</ul>`,
+    },
+    {
+      title: '7. Datasäkerhet',
+      content: `<ul>
+  <li>Alla dataöverföringar krypterade via HTTPS</li>
+  <li>Lokal data krypterad i iOS Keychain</li>
+  <li>Tillgång till porträtt endast via tidsbegränsade, signerade URL:er</li>
+  <li>Skydd via unika, icke-gissningsbara uppgifts-ID:n</li>
+</ul>`,
+    },
+    {
+      title: '8. Dina rättigheter (GDPR)',
+      content: `<p>Som användare i EU har du följande rättigheter:</p>
+<ul>
+  <li><strong>Insyn:</strong> information om lagrade data</li>
+  <li><strong>Radering:</strong> radering av dina data</li>
+  <li><strong>Invändning:</strong> invändning mot behandling</li>
+  <li><strong>Dataportabilitet:</strong> data i ett vanligt format</li>
+</ul>
+<p>Eftersom AI Headshot inte använder användarkonton lagras inga personliga data permanent. För frågor, kontakta: <a href="mailto:${commonContact}">${commonContact}</a></p>`,
+    },
+    {
+      title: '9. Enhetsrättigheter',
+      content: `<ul>
+  <li><strong>Fotobibliotek (läsa):</strong> För att välja referensfoton</li>
+  <li><strong>Fotobibliotek (skriva):</strong> För att spara genererade porträtt</li>
+</ul>
+<p>Inga ytterligare behörigheter krävs (ingen kamera, mikrofon, plats eller kontakter).</p>`,
+    },
+    {
+      title: '10. Barn',
+      content: `<p>AI Headshot är inte riktad till barn under 16 år. Vi samlar inte medvetet in data från barn.</p>`,
+    },
+    {
+      title: '11. Ändringar i denna integritetspolicy',
+      content: `<p>Vi förbehåller oss rätten att uppdatera denna policy. Aktuell version finns alltid på denna URL.</p>`,
+    },
+    {
+      title: '12. Kontakt',
+      content: `<p>För integritetsrelaterade frågor: <a href="mailto:${commonContact}">${commonContact}</a></p>`,
+    },
+  ],
+  footerQuestions: 'Frågor om integritet?',
+  contactEmail: commonContact,
+};
+
+// For locales not yet directly supported (da), fall back to English.
 export const privacyContent: Record<Locale, PrivacyContent> = {
   de,
   en,
@@ -688,6 +798,6 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
   es,
   it,
   nl,
+  sv,
   da: en,
-  sv: en,
 };
