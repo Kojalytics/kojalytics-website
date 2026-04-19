@@ -570,14 +570,124 @@ const it: PrivacyContent = {
   contactEmail: commonContact,
 };
 
-// For locales not directly supported (da, nl, sv), fall back to English.
+const nl: PrivacyContent = {
+  pageTitle: 'Privacybeleid',
+  lastUpdated: 'Laatst bijgewerkt: 19 april 2026',
+  productLabel: 'AI HEADSHOT',
+  highlight:
+    'AI Headshot verzamelt geen persoonlijke gegevens, maakt geen gebruikersprofielen aan en gebruikt geen tracking- of analysetools.',
+  sections: [
+    {
+      title: '1. Verwerkingsverantwoordelijke',
+      content: `<p>Kojalytics<br/>Farzad Khojazada, eenmanszaak<br/>Am Diggen 40i, 21077 Hamburg, Duitsland<br/>E-mail: <a href="mailto:${commonContact}">${commonContact}</a><br/>Website: <a href="https://kojalytics.com">kojalytics.com</a></p>`,
+    },
+    {
+      title: '2. Welke gegevens worden verwerkt?',
+      content: `<p>AI Headshot verwerkt alleen gegevens die strikt noodzakelijk zijn voor het genereren van AI-portretten:</p>
+<ul>
+  <li><strong>Referentiefoto's:</strong> De foto's die je selecteert (max. 10) worden naar onze server verzonden en doorgestuurd naar de AI-dienst van derden, Google Gemini API, voor generatie.</li>
+  <li><strong>Portretinstellingen:</strong> Je gekozen stijlopties (stijl, uitsnede, achtergrond).</li>
+  <li><strong>Aankoopgegevens:</strong> Transactie-ID's voor in-app-aankopen worden lokaal op je apparaat opgeslagen. Betalingsverwerking wordt uitsluitend door Apple afgehandeld.</li>
+</ul>
+<p><strong>Belangrijk:</strong> Voordat je foto's voor de eerste keer naar de AI-dienst worden verzonden, vraagt de app om je uitdrukkelijke toestemming. Zonder je goedkeuring worden er geen foto's naar derden gestuurd.</p>`,
+    },
+    {
+      title: '3. Wat wordt NIET verzameld?',
+      content: `<ul>
+  <li>Geen gebruikersaccounts of registratie vereist</li>
+  <li>Geen e-mailadressen, namen of telefoonnummers</li>
+  <li>Geen locatiegegevens</li>
+  <li>Geen analytics of tracking (geen Google Analytics, Firebase, enz.)</li>
+  <li>Geen advertenties of advertentienetwerken</li>
+  <li>Geen delen van gegevens met derden voor marketing</li>
+</ul>`,
+    },
+    {
+      title: "4. Hoe worden je foto's verwerkt?",
+      content: `<ul>
+  <li>Versleutelde HTTPS/TLS-verzending naar onze server (Supabase, EU-regio).</li>
+  <li><strong>AI-dienst van derden:</strong> Je referentiefoto's worden doorgestuurd naar de Google Gemini API (Google Ireland Limited) voor beeldgeneratie.</li>
+  <li>Juridische grondslag: art. 6, lid 1, onder a en art. 9, lid 2, onder a AVG (uitdrukkelijke toestemming).</li>
+  <li>Na generatie worden de referentiefoto's verwijderd, zowel op onze server als bij Google.</li>
+  <li>Gegenereerde portretten worden geleverd via tijdelijk gesigneerde URL's.</li>
+</ul>`,
+    },
+    {
+      title: '5. Gegevensopslag',
+      content: `<p><strong>Op je apparaat:</strong></p>
+<ul>
+  <li>Gegenereerde portretten en voorbeelden in app-opslag</li>
+  <li>Aankoopbewijzen en instellingen in de versleutelde iOS Keychain</li>
+  <li>Kluisgegevens met automatische vervaldatum (24 uur tot 30 dagen per pakket)</li>
+</ul>
+<p><strong>Op onze server:</strong></p>
+<ul>
+  <li>Referentiefoto's worden na verwerking verwijderd</li>
+  <li>Gegenereerde portretten worden tijdelijk opgeslagen, alleen toegankelijk via tijdelijk geldige URL's</li>
+  <li>Taakmetadata (status, tijdstempels) zonder persoonlijke verwijzing</li>
+</ul>`,
+    },
+    {
+      title: '6. Diensten van derden',
+      content: `<ul>
+  <li><strong>Google Gemini API:</strong> AI-beeldgeneratie. Je foto's worden alleen na je toestemming verzonden voor generatie. Google verwerkt gegevens volgens het <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google-privacybeleid</a>. Foto's worden bij Google verwijderd na verwerking.</li>
+  <li><strong>Supabase:</strong> Backend-infrastructuur voor veilige gegevensverwerking. Servers in de EU (Frankfurt).</li>
+  <li><strong>Apple StoreKit:</strong> Voor in-app-aankopen. Apple verwerkt betaalgegevens volgens het <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple-privacybeleid</a>.</li>
+</ul>`,
+    },
+    {
+      title: '7. Gegevensbeveiliging',
+      content: `<ul>
+  <li>Alle gegevensoverdrachten versleuteld via HTTPS</li>
+  <li>Lokale gegevens versleuteld in iOS Keychain</li>
+  <li>Toegang tot portretten alleen via tijdelijk gesigneerde URL's</li>
+  <li>Bescherming door unieke, niet-raadbare taak-ID's</li>
+</ul>`,
+    },
+    {
+      title: '8. Jouw rechten (AVG)',
+      content: `<p>Als gebruiker in de EU heb je de volgende rechten:</p>
+<ul>
+  <li><strong>Inzage:</strong> informatie over opgeslagen gegevens</li>
+  <li><strong>Verwijdering:</strong> verwijdering van je gegevens</li>
+  <li><strong>Bezwaar:</strong> bezwaar maken tegen verwerking</li>
+  <li><strong>Gegevensoverdraagbaarheid:</strong> gegevens in een gangbaar formaat</li>
+</ul>
+<p>Omdat AI Headshot geen gebruikersaccounts gebruikt, worden er geen persoonlijke gegevens permanent opgeslagen. Voor vragen: <a href="mailto:${commonContact}">${commonContact}</a></p>`,
+    },
+    {
+      title: '9. Apparaatrechten',
+      content: `<ul>
+  <li><strong>Fotobibliotheek (lezen):</strong> Om referentiefoto's te selecteren</li>
+  <li><strong>Fotobibliotheek (schrijven):</strong> Om gegenereerde portretten op te slaan</li>
+</ul>
+<p>Er zijn geen andere rechten nodig (geen camera, microfoon, locatie of contactpersonen).</p>`,
+    },
+    {
+      title: '10. Kinderen',
+      content: `<p>AI Headshot is niet bedoeld voor kinderen onder de 16 jaar. We verzamelen niet bewust gegevens van kinderen.</p>`,
+    },
+    {
+      title: '11. Wijzigingen in dit privacybeleid',
+      content: `<p>We behouden ons het recht voor om dit beleid bij te werken. De huidige versie is altijd beschikbaar op deze URL.</p>`,
+    },
+    {
+      title: '12. Contact',
+      content: `<p>Voor privacy-gerelateerde vragen: <a href="mailto:${commonContact}">${commonContact}</a></p>`,
+    },
+  ],
+  footerQuestions: 'Vragen over privacy?',
+  contactEmail: commonContact,
+};
+
+// For locales not yet directly supported (da, sv), fall back to English.
 export const privacyContent: Record<Locale, PrivacyContent> = {
   de,
   en,
   fr,
   es,
   it,
+  nl,
   da: en,
-  nl: en,
   sv: en,
 };
