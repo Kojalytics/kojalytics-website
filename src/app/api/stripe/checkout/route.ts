@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
         },
       ],
       mode: 'payment',
-      success_url: `${origin}/${locale || 'de'}/aiheadshot/app?payment=success&plan=${plan}&jobId=${jobId}`,
+      success_url: `${origin}/${locale || 'de'}/aiheadshot/app?payment=success&plan=${plan}&jobId=${jobId}&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/${locale || 'de'}/aiheadshot/app?payment=cancelled`,
       metadata: {
         plan,

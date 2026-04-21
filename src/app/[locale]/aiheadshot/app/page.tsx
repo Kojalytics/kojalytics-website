@@ -495,12 +495,19 @@ export default function AIHeadshotApp() {
     setProgress(0);
 
     try {
-      // Use previously uploaded reference paths, or upload fresh
-      let storagePaths = refPaths;
-      if (!storagePaths.length) {
+      // Prefer paths we already have — either from the preview step (refPaths) or
+      // from a mobile upload (mobileRefPaths). Only re-upload from desktop files
+      // as a last resort, since after the Stripe redirect the page reloads and
+      // refPaths is empty but mobileRefPaths gets rehydrated via the realtime channel.
+      let storagePaths: string[] = refPaths;
+      if (!storagePaths.length && mobileRefPaths.length >= 5) {
+        storagePaths = mobileRefPaths.slice(0, 5);
+      } else if (!storagePaths.length && mobileRefPaths.length > 0) {
+        storagePaths = mobileRefPaths;
+      } else if (!storagePaths.length) {
         storagePaths = await uploadReferenceImages();
-        setRefPaths(storagePaths);
       }
+      setRefPaths(storagePaths);
       setProgress(20);
 
       const planData = PLANS[plan];
@@ -536,15 +543,38 @@ export default function AIHeadshotApp() {
     }
   };
 
-  // Check for payment success from URL
+  // Check for payment success from URL. We confirm the session server-side first
+  // (belt-and-suspenders with the async webhook) so entitlement is guaranteed
+  // before kicking off the paid generation.
+  const [paymentHandled, setPaymentHandled] = useState(false);
   useEffect(() => {
+    if (paymentHandled || !session) return;
     const searchParams = new URLSearchParams(window.location.search);
     const paymentSuccess = searchParams.get('payment');
     const plan = searchParams.get('plan') as PlanId;
-    if (paymentSuccess === 'success' && plan && uploads.length >= 5) {
+    const sessionId = searchParams.get('session_id');
+    if (paymentSuccess !== 'success' || !plan || uploads.length < 5) return;
+
+    setPaymentHandled(true);
+    (async () => {
+      if (sessionId) {
+        try {
+          await fetch('/api/stripe/confirm-session', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${session.access_token}`,
+            },
+            body: JSON.stringify({ sessionId }),
+          });
+        } catch (err) {
+          console.error('confirm-session failed:', err);
+          // Fall through — webhook may still deliver; generateFull will return 402 if not.
+        }
+      }
       generateFull(plan);
-    }
-  }, [uploads.length]);
+    })();
+  }, [uploads.length, session, paymentHandled]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
