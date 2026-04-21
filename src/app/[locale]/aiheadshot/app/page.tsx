@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase';
 import { PLANS, type PlanId } from '@/lib/stripe';
@@ -64,8 +64,14 @@ export default function AIHeadshotApp() {
   const [loading, setLoading] = useState(true);
 
   // Upload state
-  const [files, setFiles] = useState<File[]>([]);
-  const [previews, setPreviews] = useState<string[]>([]);
+  // Single source of truth so file and preview counts cannot drift apart.
+  // Prior bug: separate `files` and `previews` states + async FileReader +
+  // mobile-upload broadcast racing against drag-drop uploads produced >10
+  // preview thumbnails while files stayed at 10.
+  type Upload = { file: File; preview: string };
+  const [uploads, setUploads] = useState<Upload[]>([]);
+  const files = useMemo(() => uploads.map(u => u.file), [uploads]);
+  const previews = useMemo(() => uploads.map(u => u.preview), [uploads]);
   const [dragOver, setDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -130,39 +136,45 @@ export default function AIHeadshotApp() {
       // Store the Storage paths — replace (not append) since server sends ALL paths from Storage
       setMobileRefPaths(paths);
 
-      // Create placeholder File objects so the file count is correct
-      const placeholders = paths.map((path, i) => {
+      // Rebuild uploads atomically so files and thumbnails are always paired and
+      // capped at 10 together — never partially applied.
+      const thumbs = thumbnails || [];
+      const next: Upload[] = paths.slice(0, 10).map((path, i) => {
         const filename = path.split('/').pop() || `mobile-${i}.jpg`;
-        return new File([new Blob([''])], filename, { type: 'image/jpeg' });
+        return {
+          file: new File([new Blob([''])], filename, { type: 'image/jpeg' }),
+          preview: thumbs[i] || '',
+        };
       });
-      setFiles(placeholders.slice(0, 10));
-
-      // Use signed URLs as thumbnails
-      setPreviews(thumbnails?.length ? thumbnails : []);
+      setUploads(next);
     });
 
     channel.subscribe();
     return () => { channel.unsubscribe(); };
   }, [user?.id, session?.access_token]);
 
-  // File handling
+  // File handling — synchronous preview via URL.createObjectURL so file + preview
+  // arrays stay pinned to the same length even if the user drops files faster
+  // than an async FileReader could update state.
   const handleFiles = useCallback((newFiles: FileList | File[]) => {
-    const maxFiles = 10;
     const fileArray = Array.from(newFiles).filter(f => f.type.startsWith('image/'));
-    const remaining = maxFiles - files.length;
-    const toAdd = fileArray.slice(0, remaining);
-
-    setFiles(prev => [...prev, ...toAdd]);
-    toAdd.forEach(file => {
-      const reader = new FileReader();
-      reader.onload = (e) => setPreviews(prev => [...prev, e.target?.result as string]);
-      reader.readAsDataURL(file);
+    setUploads(prev => {
+      const remaining = 10 - prev.length;
+      if (remaining <= 0) return prev;
+      const toAdd = fileArray.slice(0, remaining).map(file => ({
+        file,
+        preview: URL.createObjectURL(file),
+      }));
+      return [...prev, ...toAdd];
     });
-  }, [files.length]);
+  }, []);
 
   const removeFile = (index: number) => {
-    setFiles(prev => prev.filter((_, i) => i !== index));
-    setPreviews(prev => prev.filter((_, i) => i !== index));
+    setUploads(prev => {
+      const removed = prev[index];
+      if (removed?.preview.startsWith('blob:')) URL.revokeObjectURL(removed.preview);
+      return prev.filter((_, i) => i !== index);
+    });
   };
 
   const handleDrop = useCallback((e: React.DragEvent) => {
@@ -185,15 +197,18 @@ export default function AIHeadshotApp() {
   };
 
   const capturePhoto = () => {
-    if (!videoRef.current || files.length >= 10) return;
+    if (!videoRef.current || uploads.length >= 10) return;
     const canvas = document.createElement('canvas');
     canvas.width = videoRef.current.videoWidth;
     canvas.height = videoRef.current.videoHeight;
     canvas.getContext('2d')?.drawImage(videoRef.current, 0, 0);
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
-    setPreviews(prev => [...prev, dataUrl]);
     canvas.toBlob(blob => {
-      if (blob) setFiles(prev => [...prev, new File([blob], `cam-${Date.now()}.jpg`, { type: 'image/jpeg' })]);
+      if (!blob) return;
+      setUploads(prev => {
+        if (prev.length >= 10) return prev;
+        const file = new File([blob], `cam-${Date.now()}.jpg`, { type: 'image/jpeg' });
+        return [...prev, { file, preview: URL.createObjectURL(blob) }];
+      });
     }, 'image/jpeg', 0.9);
   };
 
@@ -526,10 +541,10 @@ export default function AIHeadshotApp() {
     const searchParams = new URLSearchParams(window.location.search);
     const paymentSuccess = searchParams.get('payment');
     const plan = searchParams.get('plan') as PlanId;
-    if (paymentSuccess === 'success' && plan && files.length >= 5) {
+    if (paymentSuccess === 'success' && plan && uploads.length >= 5) {
       generateFull(plan);
     }
-  }, [files]);
+  }, [uploads.length]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
