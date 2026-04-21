@@ -488,18 +488,16 @@ export default function AIHeadshotApp() {
     }
   };
 
-  // Generate full set after payment
-  const generateFull = async (plan: PlanId) => {
+  // Generate full set after payment. `prefetchedPaths` lets the Stripe redirect
+  // handler hand in paths it just fetched from Storage — setRefPaths is async so
+  // we cannot rely on reading it back inside this same call.
+  const generateFull = async (plan: PlanId, prefetchedPaths?: string[]) => {
     if (!session) return;
     setStep('generating-full');
     setProgress(0);
 
     try {
-      // Prefer paths we already have — either from the preview step (refPaths) or
-      // from a mobile upload (mobileRefPaths). Only re-upload from desktop files
-      // as a last resort, since after the Stripe redirect the page reloads and
-      // refPaths is empty but mobileRefPaths gets rehydrated via the realtime channel.
-      let storagePaths: string[] = refPaths;
+      let storagePaths: string[] = prefetchedPaths || refPaths;
       if (!storagePaths.length && mobileRefPaths.length >= 5) {
         storagePaths = mobileRefPaths.slice(0, 5);
       } else if (!storagePaths.length && mobileRefPaths.length > 0) {
@@ -543,17 +541,19 @@ export default function AIHeadshotApp() {
     }
   };
 
-  // Check for payment success from URL. We confirm the session server-side first
-  // (belt-and-suspenders with the async webhook) so entitlement is guaranteed
-  // before kicking off the paid generation.
+  // Check for payment success from URL. After Stripe redirects the browser
+  // back, the page reloads fresh — the uploads state is gone, so we reach into
+  // Storage directly for the reference paths the user just uploaded before
+  // checkout. Also confirms the Stripe session server-side so the purchase row
+  // is guaranteed to exist before generateFull calls /api/create-job.
   const [paymentHandled, setPaymentHandled] = useState(false);
   useEffect(() => {
-    if (paymentHandled || !session) return;
+    if (paymentHandled || !session || !user) return;
     const searchParams = new URLSearchParams(window.location.search);
     const paymentSuccess = searchParams.get('payment');
     const plan = searchParams.get('plan') as PlanId;
     const sessionId = searchParams.get('session_id');
-    if (paymentSuccess !== 'success' || !plan || uploads.length < 5) return;
+    if (paymentSuccess !== 'success' || !plan) return;
 
     setPaymentHandled(true);
     (async () => {
@@ -569,12 +569,30 @@ export default function AIHeadshotApp() {
           });
         } catch (err) {
           console.error('confirm-session failed:', err);
-          // Fall through — webhook may still deliver; generateFull will return 402 if not.
         }
       }
-      generateFull(plan);
+
+      // Fetch reference paths from Storage. The user uploaded these before
+      // clicking Buy; they survive the page reload where client state does not.
+      // list-reference-images sorts ascending by created_at, so the tail is the
+      // most recent batch — take up to the last 10.
+      try {
+        const listRes = await fetch(`/api/list-reference-images?uid=${user.id}`);
+        const listData = await listRes.json();
+        const allPaths: string[] = listData.paths || [];
+        const paths = allPaths.slice(-10);
+        if (paths.length < 5) {
+          setGenError('Reference images missing. Please upload again.');
+          setPaymentHandled(false);
+          return;
+        }
+        generateFull(plan, paths);
+      } catch (err) {
+        console.error('Post-payment rehydrate failed:', err);
+        setGenError(err instanceof Error ? err.message : 'Post-payment load failed');
+      }
     })();
-  }, [uploads.length, session, paymentHandled]);
+  }, [session, user, paymentHandled]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
