@@ -333,10 +333,13 @@ export default function AIHeadshotApp() {
       // 2. Build prompts
       const prompts = buildPreviewPrompts();
 
-      // 3. Call create-job via server-side proxy (no JWT needed)
+      // 3. Call create-job (preview path — no purchase required, but JWT is required server-side)
       const res = await fetch('/api/create-job', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
           prompts,
@@ -490,7 +493,10 @@ export default function AIHeadshotApp() {
 
       const res = await fetch('/api/create-job', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
           prompts,
