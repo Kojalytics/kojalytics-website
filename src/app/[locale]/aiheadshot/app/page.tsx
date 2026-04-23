@@ -240,69 +240,65 @@ export default function AIHeadshotApp() {
     return listData.paths || [];
   };
 
-  // Identity and quality clauses (mirrored in iOS PromptBuilder.swift — keep in sync).
-  // Each scene prompt specifies its own framing; this clause covers identity-grade
-  // expression + photographic quality only.
-  const IDENTITY_ANCHOR = 'Preserve the exact face, facial structure, skin tone, eye shape, and hair of the person in the reference photos — identical identity, no face changes.';
-  const FIDELITY_CLAUSE = 'Gentle warm closed-mouth smile, friendly approachable expression. Professional retouching — smooth, healthy skin. Photorealistic, 8K quality, Canon EOS R5, 85mm f/1.4.';
-  const MEDIUM_SHOT = 'Medium shot — chest and head visible, subject approximately 1 meter from camera, background softly blurred.';
-  const WAIST_UP = 'Waist-up portrait — head, torso, and arms visible, subject approximately 1.5 meters from camera.';
+  // Identity and quality clauses (matching iOS PromptBuilder)
+  const IDENTITY_ANCHOR = 'This must be the SAME person as in the reference photos — same face, same features, same identity.';
+  const FIDELITY_CLAUSE = 'Closed-mouth expression, no teeth visible. Professional retouching — smooth, healthy skin. Photorealistic, 8K quality, Canon EOS R5, 85mm f/1.4.';
 
   // Full 12-prompt mix matching iOS PromptBuilder.buildMixPrompts
   const MIX_PROMPTS: { category: string; prompt: string }[] = [
     // 2x Schwarzweiß (Black & White)
     {
       category: 'Schwarzweiß',
-      prompt: `Professional black and white portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} High contrast monochrome, soft studio shadows, deep blacks and bright highlights. Frontal pose, direct eye contact. Grey studio backdrop. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional black and white headshot of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} High contrast monochrome, dramatic studio shadows, deep blacks and bright highlights. Direct eye contact, confident expression, frontal pose. Grey studio backdrop. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Schwarzweiß',
-      prompt: `Black and white portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} Fine art monochrome, Rembrandt side lighting, elegant shadow on one cheek. Three-quarter profile, slightly turned right. Dark backdrop. ${FIDELITY_CLAUSE}`,
+      prompt: `Black and white portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Fine art monochrome, Rembrandt side lighting, elegant shadow on one cheek. Three-quarter profile, slightly turned right. Dark backdrop. ${FIDELITY_CLAUSE}`,
     },
     // 2x Outdoor (Natural Light)
     {
       category: 'Outdoor',
-      prompt: `Professional outdoor portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} Golden hour sunlight, warm tones. Soft green bokeh background, shallow depth of field. Frontal pose, direct eye contact. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional outdoor portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Golden hour sunlight, warm tones. Soft green bokeh background, shallow depth of field. Direct eye contact, relaxed confident expression, frontal pose. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Outdoor',
-      prompt: `Professional outdoor portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} Soft overcast daylight, cool natural tones. Blurred urban background. Slight head tilt, three-quarter angle. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional outdoor portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft overcast daylight, cool natural tones. Blurred urban background. Approachable expression, slight head tilt, three-quarter angle. ${FIDELITY_CLAUSE}`,
     },
-    // 2x Ganzkörper (Upper Body — wider framing)
+    // 2x Ganzkörper (Upper Body)
     {
       category: 'Ganzkörper',
-      prompt: `Professional upper body portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${WAIST_UP} Arms crossed. 3-point studio lighting, grey backdrop. Frontal pose, direct eye contact. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional upper body portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Arms crossed, head to waist visible. 3-point studio lighting, grey backdrop. Direct eye contact, confident expression. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Ganzkörper',
-      prompt: `Professional upper body portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${WAIST_UP} Relaxed pose, one hand in pocket, slightly turned left. Modern office, blurred background. Natural lighting. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional upper body portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Relaxed pose, one hand in pocket, head to waist visible, slightly turned left. Modern office, blurred background. Natural lighting. ${FIDELITY_CLAUSE}`,
     },
     // 2x Studio (Classic Professional)
     {
       category: 'Studio',
-      prompt: `Classic studio portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} 3-point lighting, key light at 45°, fill light, hair light. Grey seamless backdrop. Direct eye contact. Corporate LinkedIn-style portrait. ${FIDELITY_CLAUSE}`,
+      prompt: `Classic studio headshot of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} 3-point lighting, key light at 45°, fill light, hair light. Grey seamless backdrop. Head and shoulders, direct eye contact. Corporate LinkedIn headshot. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Studio',
-      prompt: `Professional studio portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} Soft butterfly lighting, clean white backdrop with gradient. Slightly turned right. Modern professional. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional studio portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft butterfly lighting, clean white backdrop with gradient. Head and shoulders. Confident expression, slightly turned right. Modern professional. ${FIDELITY_CLAUSE}`,
     },
     // 2x Natürlich (Natural/Window Light)
     {
       category: 'Natürlich',
-      prompt: `Natural light portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} Soft window light from the side, warm golden tones. Frontal pose. Blurred interior background. ${FIDELITY_CLAUSE}`,
+      prompt: `Natural light portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft window light from the side, warm golden tones. Relaxed approachable expression, frontal pose. Blurred interior background. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Natürlich',
-      prompt: `Natural light portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} Diffused daylight, bright airy feel, light neutral background. Slight head tilt, looking slightly off-camera. ${FIDELITY_CLAUSE}`,
+      prompt: `Natural light portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Diffused daylight, bright airy feel, light neutral background. Thoughtful expression, slight head tilt, looking slightly off-camera. ${FIDELITY_CLAUSE}`,
     },
-    // 2x Dramatisch (Dramatic/Artistic — still friendly, dramatic refers to lighting only)
+    // 2x Dramatisch (Dramatic/Artistic)
     {
       category: 'Dramatisch',
-      prompt: `Portrait of this professional person with dramatic studio lighting, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} Rembrandt lighting, sculpted shadows, dark backdrop. Frontal pose, direct eye contact. ${FIDELITY_CLAUSE}`,
+      prompt: `Dramatic portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Rembrandt lighting, deep shadows, low-key studio, dark moody backdrop. Intense direct eye contact, confident expression, frontal pose. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Dramatisch',
-      prompt: `Portrait of this professional person with dramatic studio lighting, wearing professional business attire. ${IDENTITY_ANCHOR} ${MEDIUM_SHOT} Split lighting, one side illuminated, edge light on hair. Three-quarter profile, dark background. ${FIDELITY_CLAUSE}`,
+      prompt: `Dramatic portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Split lighting, one side illuminated, high contrast, edge light on hair. Three-quarter profile, contemplative expression, dark background. ${FIDELITY_CLAUSE}`,
     },
   ];
 
