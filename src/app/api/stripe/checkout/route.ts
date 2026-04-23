@@ -19,7 +19,10 @@ export async function POST(request: NextRequest) {
     const origin = request.headers.get('origin') || 'https://kojalytics.com';
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      // Omitting payment_method_types lets Stripe dynamically offer every
+      // method enabled in the dashboard that matches the customer's country,
+      // locale, and cart amount (card, Apple/Google Pay, Klarna, PayPal, SEPA,
+      // Giropay, Link, ...). Replaces the old hard-coded ['card'] list.
       line_items: [
         {
           price_data: {
