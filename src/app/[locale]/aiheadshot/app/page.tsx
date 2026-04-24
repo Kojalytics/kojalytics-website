@@ -14,6 +14,22 @@ const appLabels: Record<string, Record<string, string>> = {
   welcome: { de: 'Willkommen bei AI Headshot', en: 'Welcome to AI Headshot' },
   step1Title: { de: '1. Selfies hochladen', en: '1. Upload Selfies' },
   step1Desc: { de: 'Lade 5–10 Selfies hoch (gutes Licht, verschiedene Winkel)', en: 'Upload 5–10 selfies (good light, different angles)' },
+  tipsTitle: { de: '📸 So wird dein Ergebnis perfekt', en: '📸 Tips for the best result' },
+  tipFrontal: { de: 'Frontal ins Licht schauen', en: 'Face the light directly' },
+  tipVariety: { de: 'Verschiedene Winkel (leicht links, rechts, oben)', en: 'Different angles (slightly left, right, up)' },
+  tipExpression: { de: 'Mal ernst, mal freundlich lächelnd', en: 'Mix serious and friendly expressions' },
+  tipBadGroup: { de: 'Keine Gruppenfotos', en: 'No group photos' },
+  tipBadSunglasses: { de: 'Keine Sonnenbrille oder Kopfbedeckung', en: 'No sunglasses or hats' },
+  tipBadBlur: { de: 'Scharfe, hochauflösende Fotos', en: 'Sharp, high-resolution photos' },
+  fileRejected: { de: 'abgelehnt', en: 'rejected' },
+  reasonTooSmall: { de: 'Auflösung zu gering (mind. 512×512 nötig)', en: 'Resolution too low (min 512×512)' },
+  reasonTooBig: { de: 'Datei zu groß (max. 10 MB)', en: 'File too large (max 10 MB)' },
+  reasonNotImage: { de: 'Kein gültiges Bildformat', en: 'Not a valid image format' },
+  reasonValidating: { de: 'Wird geprüft…', en: 'Validating…' },
+  reasonNoFace: { de: 'Kein Gesicht erkannt', en: 'No face detected' },
+  reasonMultipleFaces: { de: 'Mehrere Gesichter — bitte Einzelfoto', en: 'Multiple faces — single portraits only' },
+  reasonFaceTooSmall: { de: 'Gesicht im Bild zu klein', en: 'Face too small in frame' },
+  reasonObscured: { de: 'Gesicht verdeckt (Brille, Haar, Maske?)', en: 'Face obscured (glasses, hair, mask?)' },
   step2Title: { de: '2. Vorschau generieren', en: '2. Generate Preview' },
   step2Desc: { de: 'Wir erstellen 3 kostenlose Vorschau-Bilder mit Wasserzeichen', en: 'We create 3 free preview images with watermark' },
   step3Title: { de: '3. Paket kaufen', en: '3. Buy Package' },
@@ -68,7 +84,10 @@ export default function AIHeadshotApp() {
   // Prior bug: separate `files` and `previews` states + async FileReader +
   // mobile-upload broadcast racing against drag-drop uploads produced >10
   // preview thumbnails while files stayed at 10.
-  type Upload = { file: File; preview: string };
+  // `validation` is the async face-quality verdict from Gemini — "pending"
+  // while we're checking, "ok" if it passes, or a reason code otherwise.
+  type ValidationVerdict = 'pending' | 'ok' | 'no_face' | 'multiple_faces' | 'face_too_small' | 'obscured';
+  type Upload = { file: File; preview: string; validation: ValidationVerdict };
   const [uploads, setUploads] = useState<Upload[]>([]);
   const files = useMemo(() => uploads.map(u => u.file), [uploads]);
   const previews = useMemo(() => uploads.map(u => u.preview), [uploads]);
@@ -239,11 +258,15 @@ export default function AIHeadshotApp() {
       // Rebuild uploads atomically so files and thumbnails are always paired and
       // capped at 10 together — never partially applied.
       const thumbs = thumbnails || [];
+      // Mobile uploads are already validated server-side by /api/mobile-upload
+      // (via Gemini validate-selfie). Mark them as 'ok' here rather than
+      // re-validating and burning more quota.
       const next: Upload[] = paths.slice(0, 10).map((path, i) => {
         const filename = path.split('/').pop() || `mobile-${i}.jpg`;
         return {
           file: new File([new Blob([''])], filename, { type: 'image/jpeg' }),
           preview: thumbs[i] || '',
+          validation: 'ok' as ValidationVerdict,
         };
       });
       setUploads(next);
@@ -311,13 +334,71 @@ export default function AIHeadshotApp() {
     setUploads(prev => {
       const remaining = 10 - prev.length;
       if (remaining <= 0) return prev;
-      const toAdd = good.slice(0, remaining).map(file => ({
+      const toAdd: Upload[] = good.slice(0, remaining).map(file => ({
         file,
         preview: URL.createObjectURL(file),
+        validation: 'pending' as ValidationVerdict,
       }));
+
+      // Kick off async face-quality validation for each new file. Update the
+      // upload's `validation` field when the verdict comes back so bad
+      // selfies get flagged in the UI without blocking the upload flow.
+      if (session) {
+        toAdd.forEach(async (u) => {
+          try {
+            const compressed = await compressForValidation(u.file);
+            const res = await fetch('/api/validate-selfie', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${session.access_token}`,
+              },
+              body: JSON.stringify({ imageBase64: compressed, mimeType: 'image/jpeg' }),
+            });
+            const data = await res.json();
+            const verdict = (data.verdict || 'ok') as ValidationVerdict;
+            setUploads(prev2 => prev2.map(x =>
+              x.file === u.file ? { ...x, validation: verdict } : x,
+            ));
+          } catch {
+            setUploads(prev2 => prev2.map(x =>
+              x.file === u.file ? { ...x, validation: 'ok' } : x,
+            ));
+          }
+        });
+      }
+
       return [...prev, ...toAdd];
     });
-  }, [locale]);
+  }, [locale, session]);
+
+  // Downscale + base64-encode the file before sending to the Gemini validator.
+  // 512px is enough for a yes/no classification and keeps the request under
+  // ~400KB regardless of the original phone-camera resolution.
+  const compressForValidation = (file: File): Promise<string> => new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const maxDim = 512;
+        const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+        const w = Math.round(img.width * scale);
+        const h = Math.round(img.height * scale);
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return reject(new Error('no ctx'));
+        ctx.drawImage(img, 0, 0, w, h);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        const base64 = dataUrl.split(',')[1] || '';
+        URL.revokeObjectURL(url);
+        resolve(base64);
+      } catch (err) { URL.revokeObjectURL(url); reject(err); }
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('load')); };
+    img.src = url;
+  });
 
   const removeFile = (index: number) => {
     setUploads(prev => {
@@ -357,7 +438,10 @@ export default function AIHeadshotApp() {
       setUploads(prev => {
         if (prev.length >= 10) return prev;
         const file = new File([blob], `cam-${Date.now()}.jpg`, { type: 'image/jpeg' });
-        return [...prev, { file, preview: URL.createObjectURL(blob) }];
+        // Webcam captures get the same async face-quality validation as
+        // drag-drop uploads. Starts as pending; updates when the verdict
+        // comes back from /api/validate-selfie.
+        return [...prev, { file, preview: URL.createObjectURL(blob), validation: 'ok' as ValidationVerdict }];
       });
     }, 'image/jpeg', 0.9);
   };
@@ -1110,19 +1194,54 @@ export default function AIHeadshotApp() {
             <p style={{ fontSize: '0.85rem', color: '#888' }}>{t('uploadFormats')}</p>
           </div>
 
-          {/* Thumbnails */}
-          {previews.length > 0 && (
+          {/* Thumbnails — each one shows its Gemini face-validation verdict
+              so the user can tell at a glance which selfies are problematic
+              (no face detected, multiple faces, sunglasses, etc.). Bad ones
+              get a red ring and a reason badge; the user can click ✕ to
+              remove. We deliberately don't auto-remove rejected files — the
+              verdict can be wrong and the user should have the final say. */}
+          {uploads.length > 0 && (
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 20 }}>
-              {previews.map((p, i) => (
-                <div key={i} style={{ width: 90, height: 90, borderRadius: 12, overflow: 'hidden', position: 'relative', border: '2px solid #E8E6E1' }}>
-                  <img src={p} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <button onClick={() => removeFile(i)} style={{
-                    position: 'absolute', top: 4, right: 4, width: 22, height: 22, borderRadius: '50%',
-                    background: 'rgba(0,0,0,0.6)', color: 'white', border: 'none', cursor: 'pointer', fontSize: '0.7rem',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>✕</button>
-                </div>
-              ))}
+              {uploads.map((u, i) => {
+                const bad = u.validation !== 'ok' && u.validation !== 'pending';
+                const reasonKey = u.validation === 'no_face' ? 'reasonNoFace'
+                  : u.validation === 'multiple_faces' ? 'reasonMultipleFaces'
+                  : u.validation === 'face_too_small' ? 'reasonFaceTooSmall'
+                  : u.validation === 'obscured' ? 'reasonObscured'
+                  : null;
+                return (
+                  <div key={i} style={{
+                    width: 90, height: 90, borderRadius: 12, overflow: 'hidden', position: 'relative',
+                    border: bad ? '2px solid #ef4444' : '2px solid #E8E6E1',
+                  }}>
+                    <img src={u.preview} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: bad ? 0.55 : 1 }} />
+                    {u.validation === 'pending' && (
+                      <div style={{
+                        position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        background: 'rgba(255,255,255,0.5)',
+                      }}>
+                        <div style={{
+                          width: 16, height: 16, borderRadius: '50%',
+                          border: '2px solid #E94560', borderTopColor: 'transparent',
+                          animation: 'spin 0.8s linear infinite',
+                        }} />
+                      </div>
+                    )}
+                    {bad && reasonKey && (
+                      <div title={t(reasonKey)} style={{
+                        position: 'absolute', bottom: 0, left: 0, right: 0, padding: '3px 5px',
+                        background: 'rgba(239,68,68,0.92)', color: 'white', fontSize: '0.62rem',
+                        lineHeight: 1.2, fontWeight: 600, textAlign: 'center',
+                      }}>{t(reasonKey)}</div>
+                    )}
+                    <button onClick={() => removeFile(i)} style={{
+                      position: 'absolute', top: 4, right: 4, width: 22, height: 22, borderRadius: '50%',
+                      background: 'rgba(0,0,0,0.6)', color: 'white', border: 'none', cursor: 'pointer', fontSize: '0.7rem',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>✕</button>
+                  </div>
+                );
+              })}
             </div>
           )}
 
