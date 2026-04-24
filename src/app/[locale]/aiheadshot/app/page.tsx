@@ -100,6 +100,13 @@ export default function AIHeadshotApp() {
   const [couponStatus, setCouponStatus] = useState<'idle' | 'redeeming' | 'success' | 'error'>('idle');
   const [couponMessage, setCouponMessage] = useState('');
 
+  // ZIP download + format variant state
+  const [zipBuilding, setZipBuilding] = useState(false);
+  // Per-portrait regeneration state — indexes currently being regenerated and
+  // a reg-count cap hint so we can grey out the button at max.
+  const [regeneratingIdx, setRegeneratingIdx] = useState<Set<number>>(new Set());
+  const [regenBlockedIdx, setRegenBlockedIdx] = useState<Set<number>>(new Set());
+
   const supabase = createClient();
 
   // Auth check
@@ -249,18 +256,68 @@ export default function AIHeadshotApp() {
   // File handling — synchronous preview via URL.createObjectURL so file + preview
   // arrays stay pinned to the same length even if the user drops files faster
   // than an async FileReader could update state.
-  const handleFiles = useCallback((newFiles: FileList | File[]) => {
-    const fileArray = Array.from(newFiles).filter(f => f.type.startsWith('image/'));
+  // Basic quality check that runs before we accept a file. This is a fast
+  // lightweight gate (no ML) that catches the obvious "garbage in" cases:
+  // non-images, oversized files, and tiny thumbnails. Proper face detection
+  // would need face-api.js (~5MB) and most users' selfies are reasonable, so
+  // we lean on the selfie guidance UI for the rest.
+  const MIN_DIM = 400; // px — anything smaller won't produce sharp portraits
+  const MAX_FILE_SIZE = 12 * 1024 * 1024; // 12MB — matches server cap
+
+  const checkImage = (file: File): Promise<string | null> => new Promise((resolve) => {
+    if (!file.type.startsWith('image/')) return resolve('not_image');
+    if (file.size > MAX_FILE_SIZE) return resolve('too_large');
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      if (img.width < MIN_DIM || img.height < MIN_DIM) resolve('too_small');
+      else resolve(null);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); resolve('broken'); };
+    img.src = url;
+  });
+
+  const [uploadWarn, setUploadWarn] = useState('');
+
+  const handleFiles = useCallback(async (newFiles: FileList | File[]) => {
+    const candidates = Array.from(newFiles).filter(f => f.type.startsWith('image/'));
+    if (candidates.length === 0) return;
+
+    // Validate in parallel and filter out bad ones.
+    const results = await Promise.all(candidates.map(async f => ({
+      file: f, err: await checkImage(f),
+    })));
+    const good = results.filter(r => !r.err).map(r => r.file);
+    const rejected = results.filter(r => r.err);
+    if (rejected.length) {
+      const msg = rejected.map(r => {
+        const reason = r.err === 'too_small'
+          ? (locale === 'de' ? `zu klein (min. ${MIN_DIM}px)` : `too small (min ${MIN_DIM}px)`)
+          : r.err === 'too_large'
+            ? (locale === 'de' ? 'zu groß (max. 12 MB)' : 'too large (max 12MB)')
+            : r.err === 'broken'
+              ? (locale === 'de' ? 'defekt' : 'broken')
+              : (locale === 'de' ? 'kein Bild' : 'not an image');
+        return `${r.file.name}: ${reason}`;
+      }).join(' · ');
+      setUploadWarn(msg);
+      // Auto-clear warning after 6s.
+      setTimeout(() => setUploadWarn(''), 6000);
+    } else {
+      setUploadWarn('');
+    }
+
     setUploads(prev => {
       const remaining = 10 - prev.length;
       if (remaining <= 0) return prev;
-      const toAdd = fileArray.slice(0, remaining).map(file => ({
+      const toAdd = good.slice(0, remaining).map(file => ({
         file,
         preview: URL.createObjectURL(file),
       }));
       return [...prev, ...toAdd];
     });
-  }, []);
+  }, [locale]);
 
   const removeFile = (index: number) => {
     setUploads(prev => {
@@ -466,7 +523,10 @@ export default function AIHeadshotApp() {
         body: JSON.stringify({
           referenceImagePaths: storagePaths,
           prompts,
-          imageSize: '1K',
+          // Preview now renders at 2K so it routes to Gemini Pro instead of
+          // Flash. The teaser looks like the final quality — conversion bump
+          // is worth the ~20-30s extra wait vs Flash's 5-10s.
+          imageSize: '2K',
           aspectRatio: '1:1',
         }),
       });
@@ -743,6 +803,151 @@ export default function AIHeadshotApp() {
     setSession(null);
   };
 
+  // Canvas-based center-crop — writes `source` into a new canvas of size
+  // `width`×`height` and returns a blob. Used for LinkedIn-profile (square)
+  // and 16:9 banner variants so users get ready-to-upload assets.
+  const centerCropToBlob = (
+    source: HTMLImageElement,
+    width: number,
+    height: number,
+    mimeType = 'image/jpeg',
+    quality = 0.92,
+  ): Promise<Blob | null> => {
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return Promise.resolve(null);
+    // "Cover" fit — scale so the shorter side fills the target, then center-crop.
+    const scale = Math.max(width / source.width, height / source.height);
+    const drawW = source.width * scale;
+    const drawH = source.height * scale;
+    const dx = (width - drawW) / 2;
+    const dy = (height - drawH) / 2;
+    ctx.drawImage(source, dx, dy, drawW, drawH);
+    return new Promise(resolve => canvas.toBlob(resolve, mimeType, quality));
+  };
+
+  const loadImage = (url: string): Promise<HTMLImageElement | null> => new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = url;
+  });
+
+  // Re-generates a single portrait the user is unhappy with. Capped at 3
+  // retries per portrait server-side; on success the polling loop picks up
+  // the new imageUrl and the grid re-renders that tile.
+  const regeneratePortrait = async (index: number) => {
+    if (!session || !jobId) return;
+    if (regeneratingIdx.has(index) || regenBlockedIdx.has(index)) return;
+
+    setRegeneratingIdx(prev => new Set(prev).add(index));
+    // Clear the old image from the grid so the user sees a loading state.
+    setGalleryImages(prev => {
+      const next = [...prev];
+      next[index] = '';
+      return next;
+    });
+
+    try {
+      const res = await fetch('/api/regenerate-portrait', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ jobId, index }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        if (data.error === 'regen_limit') {
+          setRegenBlockedIdx(prev => new Set(prev).add(index));
+        }
+        setRegeneratingIdx(prev => { const next = new Set(prev); next.delete(index); return next; });
+        return;
+      }
+      // Poll for just this portrait to come back completed.
+      for (let i = 0; i < 60; i++) {
+        await new Promise(r => setTimeout(r, 3000));
+        const statusRes = await fetch(`/api/get-job-status?jobId=${jobId}`, {
+          headers: { 'Authorization': `Bearer ${session.access_token}` },
+        });
+        const statusData = await statusRes.json();
+        const p = (statusData.portraits || []).find((x: { index: number }) => x.index === index);
+        if (p?.status === 'completed' && p.imageUrl) {
+          setGalleryImages(prev => {
+            const next = [...prev];
+            next[index] = p.imageUrl;
+            return next;
+          });
+          break;
+        }
+        if (p?.status === 'failed') break;
+      }
+    } catch (err) {
+      console.error('regenerate failed:', err);
+    } finally {
+      setRegeneratingIdx(prev => { const next = new Set(prev); next.delete(index); return next; });
+    }
+  };
+
+  // Bundles all completed portraits plus square LinkedIn and 16:9 banner
+  // variants into a single ZIP. Runs fully client-side; the signed URLs are
+  // already scoped to this user via the get-job-status endpoint.
+  const downloadAllAsZip = async () => {
+    if (zipBuilding) return;
+    const urls = galleryImages.filter(u => typeof u === 'string' && u.startsWith('http'));
+    if (urls.length === 0) return;
+
+    setZipBuilding(true);
+    try {
+      const { default: JSZip } = await import('jszip');
+      const zip = new JSZip();
+      const originalFolder = zip.folder('original') ?? zip;
+      const squareFolder = zip.folder('linkedin-profile-square') ?? zip;
+      const bannerFolder = zip.folder('linkedin-banner-16x9') ?? zip;
+
+      for (let i = 0; i < urls.length; i++) {
+        const url = urls[i];
+        try {
+          // Original — fetch the bytes and add as-is so we don't re-encode /
+          // lose quality from Gemini's output.
+          const res = await fetch(url);
+          const blob = await res.blob();
+          const ext = blob.type.includes('png') ? 'png' : 'jpg';
+          originalFolder.file(`portrait-${String(i + 1).padStart(2, '0')}.${ext}`, blob);
+
+          // Decode once for the crop variants.
+          const img = await loadImage(url);
+          if (!img) continue;
+
+          const square = await centerCropToBlob(img, 1024, 1024);
+          if (square) squareFolder.file(`portrait-${String(i + 1).padStart(2, '0')}-square.jpg`, square);
+
+          const banner = await centerCropToBlob(img, 1584, 396);
+          if (banner) bannerFolder.file(`portrait-${String(i + 1).padStart(2, '0')}-banner.jpg`, banner);
+        } catch (err) {
+          console.error(`Zip: portrait ${i + 1} failed`, err);
+        }
+      }
+
+      const content = await zip.generateAsync({ type: 'blob' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(content);
+      a.download = `ai-headshot-portraits-${Date.now()}.zip`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+    } catch (err) {
+      console.error('ZIP build failed:', err);
+    } finally {
+      setZipBuilding(false);
+    }
+  };
+
   // Loading
   if (loading) {
     return (
@@ -833,7 +1038,48 @@ export default function AIHeadshotApp() {
           <h2 style={{ fontFamily: 'var(--font-pp-heading)', fontSize: '1.6rem', fontWeight: 700, marginBottom: 8 }}>
             {t('step1Title')}
           </h2>
-          <p style={{ color: '#6b7280', marginBottom: 32 }}>{t('step1Desc')}</p>
+          <p style={{ color: '#6b7280', marginBottom: 24 }}>{t('step1Desc')}</p>
+
+          {/* Selfie guidance — shows the poses/variations the user should
+              shoot so Gemini has enough angle variety for a solid identity
+              lock. Vague instructions ("verschiedene Winkel") left users
+              uploading 5 near-identical selfies, which was a root cause of
+              identity drift in outputs. */}
+          <div style={{
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+            gap: 10, marginBottom: 20,
+          }}>
+            {([
+              { emoji: '😊', de: 'Frontal, leichtes Lächeln', en: 'Front-facing, slight smile' },
+              { emoji: '↩️', de: 'Kopf leicht nach links', en: 'Head slightly left' },
+              { emoji: '↪️', de: 'Kopf leicht nach rechts', en: 'Head slightly right' },
+              { emoji: '😐', de: 'Neutral frontal', en: 'Neutral front' },
+              { emoji: '☀️', de: 'Tageslicht, nah am Fenster', en: 'Daylight, near window' },
+            ] as const).map((hint, i) => (
+              <div key={i} style={{
+                padding: '12px 10px', textAlign: 'center',
+                background: '#FAFAF8', borderRadius: 10,
+                border: '1px solid #EFECE6',
+              }}>
+                <div style={{ fontSize: '1.5rem', marginBottom: 4 }}>{hint.emoji}</div>
+                <div style={{ fontSize: '0.75rem', color: '#555', lineHeight: 1.3 }}>
+                  {locale === 'de' ? hint.de : hint.en}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Don't-dos — the other half of garbage-in prevention */}
+          <div style={{
+            padding: '10px 14px', marginBottom: 24, borderRadius: 10,
+            background: '#FFF8F0', border: '1px solid #F5DDB8',
+            fontSize: '0.82rem', color: '#8A6B2F', lineHeight: 1.5,
+          }}>
+            <strong>{locale === 'de' ? 'Bitte vermeiden: ' : 'Please avoid: '}</strong>
+            {locale === 'de'
+              ? 'Sonnenbrillen · Hüte · Gruppenfotos · stark gefilterte Bilder · unscharfe Fotos · verdecktes Gesicht'
+              : 'sunglasses · hats · group photos · heavily filtered shots · blurry images · covered face'}
+          </div>
 
           {/* Dropzone */}
           <div
@@ -1247,71 +1493,105 @@ export default function AIHeadshotApp() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16, marginBottom: 40 }}>
-            {(galleryImages.length > 0 ? galleryImages : Array.from({ length: 12 }, (_, i) => i)).map((img, i) => (
-              <div key={i} style={{
-                aspectRatio: '3/4', borderRadius: 16, overflow: 'hidden',
-                background: 'linear-gradient(135deg, #E8E6E1, #D4D2CD)',
-                position: 'relative', border: '1px solid #E8E6E1',
-                cursor: typeof img === 'string' && img.startsWith('http') ? 'pointer' : 'default',
-              }}
-              onClick={async () => {
-                if (typeof img !== 'string' || !img.startsWith('http')) return;
-                try {
-                  const res = await fetch(img);
-                  const blob = await res.blob();
-                  const a = document.createElement('a');
-                  a.href = URL.createObjectURL(blob);
-                  a.download = `portrait-${i + 1}.png`;
-                  document.body.appendChild(a);
-                  a.click();
-                  document.body.removeChild(a);
-                  URL.revokeObjectURL(a.href);
-                } catch (err) {
-                  console.error(`Download failed:`, err);
-                }
-              }}
-              >
-                {typeof img === 'string' && img.startsWith('http') ? (
-                  <img src={img} alt={`Portrait ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                ) : (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', flexDirection: 'column', gap: 8 }}>
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="1.5" style={{ opacity: 0.3 }}>
-                      <circle cx="12" cy="8" r="4" /><path d="M5 20c0-4 3.5-7 7-7s7 3 7 7" />
-                    </svg>
-                    <span style={{ fontSize: '0.7rem', color: '#888' }}>Portrait {i + 1}</span>
-                  </div>
-                )}
-              </div>
-            ))}
+            {(galleryImages.length > 0 ? galleryImages : Array.from({ length: 12 }, (_, i) => i)).map((img, i) => {
+              const isRegenerating = regeneratingIdx.has(i);
+              const isRegenBlocked = regenBlockedIdx.has(i);
+              const hasImage = typeof img === 'string' && img.startsWith('http');
+              return (
+                <div key={i} style={{
+                  aspectRatio: '3/4', borderRadius: 16, overflow: 'hidden',
+                  background: 'linear-gradient(135deg, #E8E6E1, #D4D2CD)',
+                  position: 'relative', border: '1px solid #E8E6E1',
+                }}>
+                  {hasImage && !isRegenerating ? (
+                    <img
+                      src={img as string}
+                      alt={`Portrait ${i + 1}`}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
+                      onClick={async () => {
+                        try {
+                          const res = await fetch(img as string);
+                          const blob = await res.blob();
+                          const a = document.createElement('a');
+                          a.href = URL.createObjectURL(blob);
+                          a.download = `portrait-${i + 1}.png`;
+                          document.body.appendChild(a);
+                          a.click();
+                          document.body.removeChild(a);
+                          URL.revokeObjectURL(a.href);
+                        } catch (err) {
+                          console.error('Download failed:', err);
+                        }
+                      }}
+                    />
+                  ) : isRegenerating ? (
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', flexDirection: 'column', gap: 10 }}>
+                      <div style={{
+                        width: 28, height: 28, borderRadius: '50%',
+                        border: '2.5px solid #E94560', borderTopColor: 'transparent',
+                        animation: 'spin 0.8s linear infinite',
+                      }} />
+                      <span style={{ fontSize: '0.75rem', color: '#666' }}>
+                        {locale === 'de' ? 'Neu generieren…' : 'Regenerating…'}
+                      </span>
+                    </div>
+                  ) : (
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', flexDirection: 'column', gap: 8 }}>
+                      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="1.5" style={{ opacity: 0.3 }}>
+                        <circle cx="12" cy="8" r="4" /><path d="M5 20c0-4 3.5-7 7-7s7 3 7 7" />
+                      </svg>
+                      <span style={{ fontSize: '0.7rem', color: '#888' }}>Portrait {i + 1}</span>
+                    </div>
+                  )}
+
+                  {/* Regenerate — only shown on completed tiles */}
+                  {hasImage && !isRegenerating && (
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); regeneratePortrait(i); }}
+                      disabled={isRegenBlocked}
+                      title={isRegenBlocked
+                        ? (locale === 'de' ? 'Maximum erreicht (3×)' : 'Max regenerations reached (3)')
+                        : (locale === 'de' ? 'Neu generieren' : 'Regenerate')}
+                      style={{
+                        position: 'absolute', top: 8, right: 8,
+                        width: 36, height: 36, borderRadius: 18,
+                        background: 'rgba(255,255,255,0.92)', border: 'none',
+                        cursor: isRegenBlocked ? 'not-allowed' : 'pointer',
+                        opacity: isRegenBlocked ? 0.45 : 0.92,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                        transition: 'transform 0.15s',
+                      }}
+                      onMouseEnter={e => !isRegenBlocked && (e.currentTarget.style.transform = 'scale(1.1)')}
+                      onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="23 4 23 10 17 10" /><polyline points="1 20 1 14 7 14" />
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+              );
+            })}
           </div>
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
 
           <div style={{ textAlign: 'center' }}>
             <button
               className="pp-btn-primary"
               style={{ padding: '18px 48px', fontSize: '1.1rem' }}
-              onClick={async () => {
-                const urls = galleryImages.filter(u => typeof u === 'string' && u.startsWith('http'));
-                for (let i = 0; i < urls.length; i++) {
-                  try {
-                    const res = await fetch(urls[i]);
-                    const blob = await res.blob();
-                    const a = document.createElement('a');
-                    a.href = URL.createObjectURL(blob);
-                    a.download = `portrait-${i + 1}.png`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(a.href);
-                    // Small delay between downloads to avoid browser throttling
-                    if (i < urls.length - 1) await new Promise(r => setTimeout(r, 300));
-                  } catch (err) {
-                    console.error(`Download portrait ${i + 1} failed:`, err);
-                  }
-                }
-              }}
+              disabled={zipBuilding}
+              onClick={() => downloadAllAsZip()}
             >
-              <span>⬇️ {t('download')}</span>
+              <span>{zipBuilding ? (locale === 'de' ? 'Wird vorbereitet...' : 'Preparing...') : `⬇️ ${t('download')}`}</span>
             </button>
+            <p style={{ fontSize: '0.82rem', color: '#888', marginTop: 12 }}>
+              {locale === 'de'
+                ? 'ZIP enthält Original-Portraits (3:4), LinkedIn-Profil-Zuschnitt (quadratisch) und Banner-Zuschnitt (16:9)'
+                : 'ZIP contains original portraits (3:4), LinkedIn profile crop (square), and banner crop (16:9)'}
+            </p>
           </div>
         </div>
       )}
