@@ -36,10 +36,23 @@ export async function POST(request: NextRequest) {
     const plan = session.metadata?.plan;
     const userId = session.metadata?.userId;
 
-    if (!userId || !plan || (plan !== 'starter' && plan !== 'premium')) {
-      console.error('Webhook: missing/invalid metadata', { sessionId: session.id, plan, userId });
+    // Only honour sessions that actually paid. Stripe signature validates the
+    // event is authentic, but a pending/unpaid session should never mint a
+    // purchase. If someone somehow gets a test webhook delivery for a pending
+    // session, we refuse to grant entitlement.
+    if (session.payment_status !== 'paid') {
+      console.warn('Webhook: session not paid', { sessionId: session.id, status: session.payment_status });
+      return NextResponse.json({ received: true, warning: 'session not paid' });
+    }
+
+    if (!userId || typeof userId !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId)) {
+      console.error('Webhook: missing/invalid userId', { sessionId: session.id, userId });
       // Still return 200 so Stripe stops retrying — this is a bug in checkout creation, not a transient failure.
-      return NextResponse.json({ received: true, warning: 'invalid metadata' });
+      return NextResponse.json({ received: true, warning: 'invalid userId' });
+    }
+    if (!plan || (plan !== 'starter' && plan !== 'premium')) {
+      console.error('Webhook: missing/invalid plan', { sessionId: session.id, plan });
+      return NextResponse.json({ received: true, warning: 'invalid plan' });
     }
 
     const admin = createClient(SUPABASE_URL, SERVICE_KEY);
