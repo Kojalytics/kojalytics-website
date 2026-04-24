@@ -226,9 +226,11 @@ export default function AIHeadshotApp() {
   // Error state for user feedback
   const [genError, setGenError] = useState('');
 
-  // Upload reference images via the mobile-upload API route (uses service role key server-side)
+  // Upload reference images via the mobile-upload API route (uses service role key server-side).
+  // Cap at 10 (was 5) — more reference images give Gemini a stronger identity
+  // signal and cut down the "drift to generic stock face" failures.
   const uploadReferenceImages = async (): Promise<string[]> => {
-    const desktopFiles = files.filter(f => f.size > 1).slice(0, 5);
+    const desktopFiles = files.filter(f => f.size > 1).slice(0, 10);
     const formData = new FormData();
     formData.append('uid', user!.id);
     formData.append('first', '1');
@@ -246,9 +248,12 @@ export default function AIHeadshotApp() {
     return listData.paths || [];
   };
 
-  // Identity and quality clauses (matching iOS PromptBuilder)
-  const IDENTITY_ANCHOR = 'This must be the SAME person as in the reference photos — same face, same features, same identity.';
-  const FIDELITY_CLAUSE = 'Closed-mouth expression, no teeth visible. Professional retouching — smooth, healthy skin. Photorealistic, 8K quality, Canon EOS R5, 85mm f/1.4.';
+  // Identity anchors — stronger, trait-specific phrasing. In production we saw
+  // ~33% of generations drift to a generic stock-businessman face (rounder
+  // face, fuller beard, wavier hair). Naming concrete traits tells Gemini
+  // what to extract from the references instead of leaning on a prior.
+  const IDENTITY_ANCHOR = 'Show the EXACT person from the reference photos — identical face shape, skin tone, eye shape and color, eyebrows, nose, hair, and beard. Do NOT invent or alter facial features.';
+  const FIDELITY_CLAUSE = 'Face must match the reference photos exactly. Closed-mouth expression, no teeth visible. Professional retouching — smooth, healthy skin. Photorealistic, 8K quality, Canon EOS R5, 85mm f/1.4.';
 
   // Full 12-prompt mix matching iOS PromptBuilder.buildMixPrompts
   const MIX_PROMPTS: { category: string; prompt: string }[] = [
@@ -342,7 +347,7 @@ export default function AIHeadshotApp() {
       setProgress(10);
       let storagePaths: string[];
       if (mobileRefPaths.length >= 5) {
-        storagePaths = mobileRefPaths.slice(0, 5);
+        storagePaths = mobileRefPaths.slice(0, 10); // up to 10 refs for stronger identity lock
       } else if (mobileRefPaths.length > 0) {
         storagePaths = mobileRefPaths;
       } else {
@@ -527,7 +532,7 @@ export default function AIHeadshotApp() {
     try {
       let storagePaths: string[] = prefetchedPaths || refPaths;
       if (!storagePaths.length && mobileRefPaths.length >= 5) {
-        storagePaths = mobileRefPaths.slice(0, 5);
+        storagePaths = mobileRefPaths.slice(0, 10); // up to 10 refs for stronger identity lock
       } else if (!storagePaths.length && mobileRefPaths.length > 0) {
         storagePaths = mobileRefPaths;
       } else if (!storagePaths.length) {
