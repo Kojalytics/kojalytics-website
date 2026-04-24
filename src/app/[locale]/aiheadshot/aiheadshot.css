@@ -1,4 +1,4 @@
-/* PortraitPro AI — Light Theme with App Brand Colors */
+/* AI Headshot — Light Theme with App Brand Colors */
 
 :root {
   --pp-bg: #FAFAF8;
@@ -30,7 +30,7 @@ html:has(.pp-page) {
   scroll-behavior: smooth;
 }
 
-/* Base styles for portraitpro pages — override root dark theme */
+/* Base styles for aiheadshot pages — override root dark theme */
 .pp-page {
   background: var(--pp-bg);
   color: var(--pp-text);
@@ -43,7 +43,7 @@ html:has(.pp-page) {
   padding-bottom: 72px;
 }
 
-/* Hide root dark-mode overlays when PortraitPro is active */
+/* Hide root dark-mode overlays when AI Headshot is active */
 .pp-page ~ .aurora-bg,
 .pp-page ~ .grid-pattern,
 body:has(.pp-page) > .aurora-bg,

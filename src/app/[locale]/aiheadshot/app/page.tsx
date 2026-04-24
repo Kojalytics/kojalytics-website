@@ -119,6 +119,76 @@ export default function AIHeadshotApp() {
     return () => subscription.unsubscribe();
   }, []);
 
+  // Flush a pending marketing opt-in intent once we have an authenticated
+  // session. The AuthModal can't persist consent pre-auth (no user id yet,
+  // and client-side data is untrusted) so it stashes it in localStorage and
+  // we post it here tied to the real JWT.
+  useEffect(() => {
+    if (!session) return;
+    if (typeof window === 'undefined') return;
+    const raw = window.localStorage.getItem('aih_marketing_opt_in_intent');
+    if (!raw) return;
+    try {
+      const intent = JSON.parse(raw) as { opted_in?: boolean; locale?: string };
+      fetch('/api/marketing/opt-in', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          opted_in: !!intent.opted_in,
+          locale: intent.locale || locale,
+          source: 'signup_modal',
+        }),
+      }).finally(() => {
+        window.localStorage.removeItem('aih_marketing_opt_in_intent');
+      });
+    } catch {
+      window.localStorage.removeItem('aih_marketing_opt_in_intent');
+    }
+  }, [session, locale]);
+
+  // Keep the screen awake while the user is waiting on a generation. Mobile
+  // browsers would otherwise dim/sleep after ~30s of no touches, which scared
+  // users into thinking the app had frozen. Wake Lock is released once we
+  // land on 'preview' or 'gallery' (or leave the page). Best-effort only —
+  // Safari iOS added support in 16.4, still missing in some in-app browsers.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const awakeSteps: AppStep[] = ['generating-preview', 'generating-full'];
+    if (!awakeSteps.includes(step)) return;
+
+    let sentinel: WakeLockSentinel | null = null;
+    let cancelled = false;
+    const request = async () => {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const wl = (navigator as any).wakeLock;
+        if (!wl?.request) return;
+        const s = await wl.request('screen');
+        if (cancelled) { s.release?.(); return; }
+        sentinel = s;
+        s.addEventListener?.('release', () => { sentinel = null; });
+      } catch {
+        // Permission denied or not supported — fall through silently.
+      }
+    };
+    request();
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'visible' && !sentinel) request();
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    return () => {
+      cancelled = true;
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      sentinel?.release?.().catch(() => {});
+      sentinel = null;
+    };
+  }, [step]);
+
   // QR upload URL — only pass uid (short), no JWT (too long for QR code)
   // Mobile uploads via API route which uses service role key
   const uploadUrl = typeof window !== 'undefined' && user
@@ -253,63 +323,68 @@ export default function AIHeadshotApp() {
   // face, fuller beard, wavier hair). Naming concrete traits tells Gemini
   // what to extract from the references instead of leaning on a prior.
   const IDENTITY_ANCHOR = 'Show the EXACT person from the reference photos — identical face shape, skin tone, eye shape and color, eyebrows, nose, hair, and beard. Do NOT invent or alter facial features.';
-  const FIDELITY_CLAUSE = 'Face must match the reference photos exactly. Closed-mouth expression, no teeth visible. Professional retouching — smooth, healthy skin. Photorealistic, 8K quality, Canon EOS R5, 85mm f/1.4.';
+  // FIDELITY_CLAUSE now enforces direct eye contact — every scene prompt inherits it,
+  // so no more side-glances or off-camera looks. Individual prompts must NOT add
+  // conflicting pose directives like "three-quarter profile" or "looking off-camera".
+  const FIDELITY_CLAUSE = 'Looking directly at the camera with eye contact, head facing the camera. Face must match the reference photos exactly. Closed-mouth expression, no teeth visible. Professional retouching — smooth, healthy skin. Photorealistic, 8K quality, Canon EOS R5, 85mm f/1.4.';
 
-  // Full 12-prompt mix matching iOS PromptBuilder.buildMixPrompts
+  // 12 prompts across 6 categories. All enforce direct camera contact via
+  // FIDELITY_CLAUSE — no side profiles, no off-camera gazes. Visual variety
+  // lives in lighting, background, outfit color, and accessory choices.
   const MIX_PROMPTS: { category: string; prompt: string }[] = [
-    // 2x Schwarzweiß (Black & White)
+    // 2x Schwarzweiß — studio vs. fine-art monochrome, both facing camera
     {
       category: 'Schwarzweiß',
-      prompt: `Professional black and white headshot of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} High contrast monochrome, dramatic studio shadows, deep blacks and bright highlights. Direct eye contact, confident expression, frontal pose. Grey studio backdrop. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional black and white headshot of this professional person, wearing a navy blue suit with white shirt. ${IDENTITY_ANCHOR} High contrast monochrome, dramatic studio shadows, deep blacks and bright highlights. Confident expression. Grey studio backdrop. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Schwarzweiß',
-      prompt: `Black and white portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Fine art monochrome, Rembrandt side lighting, elegant shadow on one cheek. Three-quarter profile, slightly turned right. Dark backdrop. ${FIDELITY_CLAUSE}`,
+      prompt: `Fine art black and white portrait of this professional person, wearing a charcoal grey suit with open-collar white shirt. ${IDENTITY_ANCHOR} Rembrandt lighting, elegant shadow on one cheek, soft tonal range. Dark backdrop. ${FIDELITY_CLAUSE}`,
     },
-    // 2x Outdoor (Natural Light)
+    // 2x Outdoor — golden hour vs. overcast urban
     {
       category: 'Outdoor',
-      prompt: `Professional outdoor portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Golden hour sunlight, warm tones. Soft green bokeh background, shallow depth of field. Direct eye contact, relaxed confident expression, frontal pose. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional outdoor portrait of this professional person, wearing a dark navy blazer with light blue shirt. ${IDENTITY_ANCHOR} Golden hour sunlight, warm tones, soft green bokeh background, shallow depth of field. Relaxed confident expression. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Outdoor',
-      prompt: `Professional outdoor portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft overcast daylight, cool natural tones. Blurred urban background. Approachable expression, slight head tilt, three-quarter angle. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional outdoor portrait of this professional person, wearing a grey wool coat over a white shirt. ${IDENTITY_ANCHOR} Soft overcast daylight, cool natural tones, blurred modern urban background. Approachable expression. ${FIDELITY_CLAUSE}`,
     },
-    // 2x Ganzkörper (Upper Body)
+    // 2x Ganzkörper — arms crossed vs. relaxed office, both camera-facing
     {
       category: 'Ganzkörper',
-      prompt: `Professional upper body portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Arms crossed, head to waist visible. 3-point studio lighting, grey backdrop. Direct eye contact, confident expression. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional upper body portrait of this professional person, wearing a tailored navy suit and patterned tie. ${IDENTITY_ANCHOR} Arms crossed confidently, head to waist visible. 3-point studio lighting, grey backdrop. Confident expression. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Ganzkörper',
-      prompt: `Professional upper body portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Relaxed pose, one hand in pocket, head to waist visible, slightly turned left. Modern office, blurred background. Natural lighting. ${FIDELITY_CLAUSE}`,
+      prompt: `Professional upper body portrait of this professional person, wearing a dark blazer with no tie and open-collar white shirt. ${IDENTITY_ANCHOR} Relaxed standing pose, head to waist visible, hands relaxed. Modern office, blurred background bokeh. Natural lighting. ${FIDELITY_CLAUSE}`,
     },
-    // 2x Studio (Classic Professional)
+    // 2x Studio — 3-point classic vs. clean butterfly
     {
       category: 'Studio',
-      prompt: `Classic studio headshot of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} 3-point lighting, key light at 45°, fill light, hair light. Grey seamless backdrop. Head and shoulders, direct eye contact. Corporate LinkedIn headshot. ${FIDELITY_CLAUSE}`,
+      prompt: `Classic studio headshot of this professional person, wearing a dark charcoal suit with white shirt and burgundy tie. ${IDENTITY_ANCHOR} Traditional 3-point lighting, key light at 45°, fill light, hair light. Grey seamless backdrop. Head and shoulders. Corporate LinkedIn-style portrait. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Studio',
-      prompt: `Professional studio portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft butterfly lighting, clean white backdrop with gradient. Head and shoulders. Confident expression, slightly turned right. Modern professional. ${FIDELITY_CLAUSE}`,
+      prompt: `Clean modern studio portrait of this professional person, wearing a medium blue suit with crisp white shirt, no tie. ${IDENTITY_ANCHOR} Soft butterfly lighting, clean white backdrop with subtle gradient. Head and shoulders. Modern professional. ${FIDELITY_CLAUSE}`,
     },
-    // 2x Natürlich (Natural/Window Light)
+    // 2x Natürlich — warm window vs. bright diffused
     {
       category: 'Natürlich',
-      prompt: `Natural light portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Soft window light from the side, warm golden tones. Relaxed approachable expression, frontal pose. Blurred interior background. ${FIDELITY_CLAUSE}`,
+      prompt: `Natural light portrait of this professional person, wearing a dark navy blazer and light blue dress shirt. ${IDENTITY_ANCHOR} Soft window light from the side, warm golden tones, approachable expression. Blurred interior café background. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Natürlich',
-      prompt: `Natural light portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Diffused daylight, bright airy feel, light neutral background. Thoughtful expression, slight head tilt, looking slightly off-camera. ${FIDELITY_CLAUSE}`,
+      prompt: `Natural light portrait of this professional person, wearing a soft grey blazer with pale blue shirt. ${IDENTITY_ANCHOR} Diffused daylight, bright airy feel, light neutral background, friendly expression. ${FIDELITY_CLAUSE}`,
     },
-    // 2x Dramatisch (Dramatic/Artistic)
+    // 2x Dramatisch — Rembrandt vs. split lighting, both facing camera
     {
       category: 'Dramatisch',
-      prompt: `Dramatic portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Rembrandt lighting, deep shadows, low-key studio, dark moody backdrop. Intense direct eye contact, confident expression, frontal pose. ${FIDELITY_CLAUSE}`,
+      prompt: `Dramatic editorial portrait of this professional person, wearing a black suit with black tie. ${IDENTITY_ANCHOR} Rembrandt lighting, deep shadows, low-key studio, dark moody backdrop. Confident expression. ${FIDELITY_CLAUSE}`,
     },
     {
       category: 'Dramatisch',
-      prompt: `Dramatic portrait of this professional person, wearing professional business attire. ${IDENTITY_ANCHOR} Split lighting, one side illuminated, high contrast, edge light on hair. Three-quarter profile, contemplative expression, dark background. ${FIDELITY_CLAUSE}`,
+      prompt: `Cinematic portrait of this professional person, wearing a deep blue suit with white shirt. ${IDENTITY_ANCHOR} Split lighting, one side illuminated, high contrast, edge light on hair, dark background. ${FIDELITY_CLAUSE}`,
     },
   ];
 
@@ -404,23 +479,32 @@ export default function AIHeadshotApp() {
     let lastProgress = -1;
     let stableSince = Date.now();
 
+    // Streaming: as portraits come back completed we surface them immediately
+    // instead of making the user stare at a progress bar until all 12 are done.
+    // Keyed by portrait index so order stays stable even when workers finish
+    // out of order.
+    const setImagesByIndex = (portraits: Array<{ index: number; imageUrl?: string; status?: string }>) => {
+      const ready = portraits
+        .filter(p => p.status === 'completed' && p.imageUrl)
+        .sort((a, b) => a.index - b.index)
+        .map(p => p.imageUrl as string);
+      if (isPreview) setPreviewImages(ready);
+      else setGalleryImages(ready);
+    };
+
     for (let i = 0; i < maxAttempts; i++) {
       await new Promise(r => setTimeout(r, 3000));
 
       const res = await fetch(`/api/get-job-status?jobId=${id}`);
       const data = await res.json();
 
+      // Stream completed portraits each poll — don't wait for all.
+      if (Array.isArray(data.portraits)) setImagesByIndex(data.portraits);
+
       if (data.status === 'completed') {
         setProgress(100);
         setSlowGeneration(false);
-
-        if (isPreview) {
-          setPreviewImages(data.portraits?.map((p: { imageUrl?: string; url?: string }) => p.imageUrl || p.url).filter(Boolean) || []);
-          setStep('preview');
-        } else {
-          setGalleryImages(data.portraits?.map((p: { imageUrl?: string; url?: string }) => p.imageUrl || p.url).filter(Boolean) || []);
-          setStep('gallery');
-        }
+        setStep(isPreview ? 'preview' : 'gallery');
         return;
       } else if (data.status === 'failed') {
         throw new Error(data.error || 'Job failed');
@@ -642,9 +726,9 @@ export default function AIHeadshotApp() {
             width: 48, height: 48, borderRadius: 14, margin: '0 auto 16px',
             background: 'linear-gradient(135deg, #E94560, #F27121)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'white', fontWeight: 800, fontSize: '1.3rem',
+            color: 'white', fontWeight: 800, fontSize: '1.1rem',
             animation: 'pulse 1.5s ease-in-out infinite',
-          }}>P</div>
+          }}>AI</div>
           <style>{`@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`}</style>
         </div>
       </div>
@@ -678,9 +762,9 @@ export default function AIHeadshotApp() {
             background: 'linear-gradient(135deg, #E94560, #F27121)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: 'white', fontWeight: 800, fontSize: '1rem',
-          }}>P</div>
+          }}>AI</div>
           <span style={{ fontWeight: 700, fontSize: '1.1rem', color: '#1A1A2E' }}>
-            Portrait<span className="pp-gradient-text">Pro</span> AI
+            <span className="pp-gradient-text">AI</span> Headshot
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -886,7 +970,7 @@ export default function AIHeadshotApp() {
                     fontSize: '1.5rem', fontWeight: 800, letterSpacing: '0.05em',
                     fontFamily: 'var(--font-pp-heading)',
                   }}>
-                    PORTRAITPRO
+                    AI HEADSHOT
                   </div>
                 </div>
               </div>
@@ -1076,6 +1160,52 @@ export default function AIHeadshotApp() {
                 ? 'Das letzte Bild dauert diesmal etwas länger als üblich. Unser System erkennt das automatisch und startet es neu — kein Grund zur Sorge, deine Portraits kommen gleich.'
                 : 'The last image is taking a bit longer than usual. Our system detects this automatically and retries it — no worries, your portraits are on their way.'}
             </p>
+          )}
+
+          {/* Streaming grid — portraits appear here as each one completes,
+              so the user sees progress instead of staring at a percentage bar. */}
+          {galleryImages.length > 0 && (
+            <div style={{
+              display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+              gap: 14, marginTop: 40, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto',
+              textAlign: 'left',
+            }}>
+              {Array.from({ length: jobTotal || 12 }).map((_, i) => {
+                const img = galleryImages[i];
+                return (
+                  <div key={i} style={{
+                    aspectRatio: '3/4', borderRadius: 12, overflow: 'hidden',
+                    background: img ? 'transparent' : 'linear-gradient(135deg, #E8E6E1, #D4D2CD)',
+                    border: '1px solid #E8E6E1', position: 'relative',
+                  }}>
+                    {img ? (
+                      <img src={img} alt={`Portrait ${i + 1}`} style={{
+                        width: '100%', height: '100%', objectFit: 'cover',
+                        animation: 'fadeIn 0.4s ease-out',
+                      }} />
+                    ) : (
+                      <div style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        height: '100%', flexDirection: 'column', gap: 6,
+                      }}>
+                        <div style={{
+                          width: 22, height: 22, borderRadius: '50%',
+                          border: '2px solid #E94560', borderTopColor: 'transparent',
+                          animation: 'spin 1s linear infinite',
+                        }} />
+                        <span style={{ fontSize: '0.7rem', color: '#888' }}>
+                          {locale === 'de' ? 'Generiert...' : 'Generating...'}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+              <style>{`
+                @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+                @keyframes spin { to { transform: rotate(360deg); } }
+              `}</style>
+            </div>
           )}
         </div>
       )}

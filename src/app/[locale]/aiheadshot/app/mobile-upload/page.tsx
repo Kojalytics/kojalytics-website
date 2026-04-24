@@ -198,8 +198,8 @@ function MobileUpload() {
           width: 48, height: 48, borderRadius: 14, margin: '0 auto 12px',
           background: 'linear-gradient(135deg, #E94560, #F27121)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          color: 'white', fontWeight: 800, fontSize: '1.3rem',
-        }}>P</div>
+          color: 'white', fontWeight: 800, fontSize: '1.1rem',
+        }}>AI</div>
         <h1 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#1A1A2E' }}>
           {isDe ? 'Selfies hochladen' : 'Upload Selfies'}
         </h1>
