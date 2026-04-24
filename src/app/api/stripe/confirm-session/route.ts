@@ -28,8 +28,15 @@ export async function POST(request: NextRequest) {
     if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
     const { sessionId } = await request.json();
-    if (!sessionId || typeof sessionId !== 'string') {
-      return NextResponse.json({ error: 'sessionId required' }, { status: 400 });
+    // Stripe Checkout Session IDs always start with cs_test_ or cs_live_ plus
+    // a Stripe base62 ID. Reject anything else early so we don't burn Stripe
+    // API calls on attacker-supplied garbage / enumeration attempts.
+    if (
+      !sessionId ||
+      typeof sessionId !== 'string' ||
+      !/^cs_(test|live)_[a-zA-Z0-9]{20,}$/.test(sessionId)
+    ) {
+      return NextResponse.json({ error: 'Invalid sessionId' }, { status: 400 });
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);

@@ -23,17 +23,56 @@ function cleanupOld() {
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    const uid = formData.get('uid') as string;
+    const clientUid = formData.get('uid') as string | null;
+    const uploadToken = formData.get('token') as string | null;
     const isFirst = formData.get('first') === '1';
     const isFinal = formData.get('final') === '1';
 
+    // Resolve the real uid. Two accepted paths:
+    // 1) Authenticated request: use user.id from the JWT, ignore the form uid.
+    // 2) Unauthenticated mobile-QR: require a valid upload token minted by
+    //    /api/mobile-upload/token — the token carries the user_id.
+    let uid: string | null = null;
+    const authHeader = request.headers.get('authorization') || '';
+    const token = authHeader.replace('Bearer ', '').trim();
+    if (token) {
+      const userClient = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        { global: { headers: { Authorization: `Bearer ${token}` } } },
+      );
+      const { data: { user } } = await userClient.auth.getUser();
+      if (user) uid = user.id;
+    }
+
+    if (!uid && uploadToken) {
+      const { data: tokenRow } = await supabase
+        .from('mobile_upload_tokens')
+        .select('user_id, expires_at')
+        .eq('token', uploadToken)
+        .single();
+      if (tokenRow && new Date(tokenRow.expires_at) > new Date()) {
+        uid = tokenRow.user_id;
+      }
+    }
+
     if (!uid) {
-      return NextResponse.json({ error: 'Missing uid' }, { status: 400 });
+      return NextResponse.json({ error: 'Not authorized' }, { status: 401 });
+    }
+
+    // Sanity: reject a form uid that tries to override the authenticated one.
+    if (clientUid && clientUid !== uid) {
+      return NextResponse.json({ error: 'uid mismatch' }, { status: 403 });
     }
 
     const files = formData.getAll('files') as File[];
     if (!files.length) {
       return NextResponse.json({ error: 'No files' }, { status: 400 });
+    }
+    // Cap total request size by rejecting oversized file lists. Each single
+    // file is also inherently limited by Next's max body size.
+    if (files.length > 15) {
+      return NextResponse.json({ error: 'Too many files' }, { status: 400 });
     }
 
     // On first batch: delete all old files for this user

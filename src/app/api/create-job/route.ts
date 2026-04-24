@@ -28,12 +28,24 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
     const promptCount = Array.isArray(body.prompts) ? body.prompts.length : 0;
-    if (promptCount === 0) {
-      return NextResponse.json({ error: 'No prompts' }, { status: 400 });
+
+    // Whitelist the only valid sizes up front: 3 (preview), 12 (starter), 24
+    // (premium). An attacker with a JWT could otherwise spam thousands of
+    // prompts to drain our Gemini quota.
+    const VALID_COUNTS = new Set([3, 12, 24]);
+    if (!VALID_COUNTS.has(promptCount)) {
+      return NextResponse.json({ error: 'Invalid prompt count' }, { status: 400 });
+    }
+
+    // Also bound each prompt string length so the model input stays sane.
+    for (const p of body.prompts) {
+      if (typeof p?.prompt !== 'string' || p.prompt.length > 2000) {
+        return NextResponse.json({ error: 'Invalid prompt content' }, { status: 400 });
+      }
     }
 
     const admin = createClient(SUPABASE_URL, SERVICE_KEY);
-    const isPreview = promptCount <= 3;
+    const isPreview = promptCount === 3;
 
     // 2. For full-generation jobs, claim a purchase up-front. If nothing is claimed,
     //    the user has not paid (or redeemed a full-discount coupon) → 402.
@@ -71,7 +83,9 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 3. Create the job via Edge Function.
+    // 3. Create the job via Edge Function. Forward the authenticated user_id
+    //    so generation_jobs.user_id is stamped correctly and RLS can enforce
+    //    read-own-jobs. Never trust body.userId from the client.
     const createRes = await fetch(`${SUPABASE_URL}/functions/v1/create-job`, {
       method: 'POST',
       headers: {
@@ -79,7 +93,7 @@ export async function POST(request: NextRequest) {
         'Authorization': `Bearer ${SERVICE_KEY}`,
         'apikey': SERVICE_KEY,
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ ...body, userId: user.id }),
     });
     const createData = await createRes.json();
 

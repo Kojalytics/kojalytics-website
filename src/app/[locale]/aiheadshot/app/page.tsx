@@ -191,8 +191,25 @@ export default function AIHeadshotApp() {
 
   // QR upload URL — only pass uid (short), no JWT (too long for QR code)
   // Mobile uploads via API route which uses service role key
-  const uploadUrl = typeof window !== 'undefined' && user
-    ? `${window.location.origin}/${locale}/aiheadshot/app/mobile-upload?uid=${user.id}`
+  // Short-lived signed token for the mobile-QR upload flow. Minted server-side
+  // via /api/mobile-upload/token so the mobile browser can upload into the
+  // right account without exposing a raw user id that anyone could guess.
+  const [uploadToken, setUploadToken] = useState<string | null>(null);
+  useEffect(() => {
+    if (!session) { setUploadToken(null); return; }
+    let aborted = false;
+    fetch('/api/mobile-upload/token', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${session.access_token}` },
+    })
+      .then(r => r.json())
+      .then(d => { if (!aborted && d.token) setUploadToken(d.token); })
+      .catch(() => {});
+    return () => { aborted = true; };
+  }, [session?.access_token]);
+
+  const uploadUrl = typeof window !== 'undefined' && user && uploadToken
+    ? `${window.location.origin}/${locale}/aiheadshot/app/mobile-upload?token=${uploadToken}`
     : '';
 
   // Track reference image paths already in Storage (from mobile upload)
@@ -307,13 +324,18 @@ export default function AIHeadshotApp() {
     formData.append('final', '1');
     desktopFiles.forEach(f => formData.append('files', f));
 
-    const res = await fetch('/api/mobile-upload', { method: 'POST', body: formData });
+    const res = await fetch('/api/mobile-upload', {
+      method: 'POST',
+      body: formData,
+      headers: session ? { 'Authorization': `Bearer ${session.access_token}` } : undefined,
+    });
     if (!res.ok) throw new Error('Upload failed');
 
-    // List the uploaded files from storage via a quick status check
-    const data = await res.json();
-    // The paths are in storage as {uid}/{timestamp}-{index}.ext — we need to list them
-    const listRes = await fetch(`/api/list-reference-images?uid=${user!.id}`);
+    // List the uploaded files from storage via a quick status check.
+    // /api/list-reference-images now requires a JWT and ignores query uids.
+    const listRes = await fetch('/api/list-reference-images', {
+      headers: session ? { 'Authorization': `Bearer ${session.access_token}` } : undefined,
+    });
     const listData = await listRes.json();
     return listData.paths || [];
   };
@@ -495,7 +517,9 @@ export default function AIHeadshotApp() {
     for (let i = 0; i < maxAttempts; i++) {
       await new Promise(r => setTimeout(r, 3000));
 
-      const res = await fetch(`/api/get-job-status?jobId=${id}`);
+      const res = await fetch(`/api/get-job-status?jobId=${id}`, {
+        headers: session ? { 'Authorization': `Bearer ${session.access_token}` } : undefined,
+      });
       const data = await res.json();
 
       // Stream completed portraits each poll — don't wait for all.
@@ -694,7 +718,9 @@ export default function AIHeadshotApp() {
       // list-reference-images sorts ascending by created_at, so the tail is the
       // most recent batch — take up to the last 10.
       try {
-        const listRes = await fetch(`/api/list-reference-images?uid=${user.id}`);
+        const listRes = await fetch('/api/list-reference-images', {
+          headers: { 'Authorization': `Bearer ${session.access_token}` },
+        });
         const listData = await listRes.json();
         const allPaths: string[] = listData.paths || [];
         const paths = allPaths.slice(-10);

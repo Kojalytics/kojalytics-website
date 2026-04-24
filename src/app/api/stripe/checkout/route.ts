@@ -16,7 +16,17 @@ export async function POST(request: NextRequest) {
     }
 
     const planData = PLANS[plan as PlanId];
-    const origin = request.headers.get('origin') || 'https://kojalytics.com';
+
+    // Whitelist origins to prevent open redirect / phishing: an attacker can
+    // set Origin: https://evil.com and Stripe will redirect users there after
+    // payment. Only accept our known production domains and localhost for dev.
+    const ALLOWED_ORIGINS = new Set([
+      'https://www.kojalytics.com',
+      'https://kojalytics.com',
+      'http://localhost:3000',
+    ]);
+    const rawOrigin = request.headers.get('origin') || '';
+    const origin = ALLOWED_ORIGINS.has(rawOrigin) ? rawOrigin : 'https://www.kojalytics.com';
 
     const session = await stripe.checkout.sessions.create({
       // Omitting payment_method_types lets Stripe dynamically offer every

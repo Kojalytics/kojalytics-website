@@ -67,7 +67,10 @@ function MobileUpload() {
   const params = useParams();
   const searchParams = useSearchParams();
   const locale = params.locale as string;
-  const userId = searchParams.get('uid') || '';
+  // QR URLs now carry a short-lived signed `token` minted server-side
+  // (see /api/mobile-upload/token). Raw `uid` is no longer accepted because
+  // it could be guessed to hijack another user's uploads.
+  const uploadToken = searchParams.get('token') || '';
 
   const [files, setFiles] = useState<File[]>([]);
   const [previews, setPreviews] = useState<string[]>([]);
@@ -97,7 +100,7 @@ function MobileUpload() {
   };
 
   const handleUpload = async () => {
-    if (!userId || files.length < 5) return;
+    if (!uploadToken || files.length < 5) return;
     setUploading(true);
     setError('');
     setUploadProgress(5);
@@ -115,7 +118,7 @@ function MobileUpload() {
       for (let batch = 0; batch < compressed.length; batch += batchSize) {
         const batchFiles = compressed.slice(batch, batch + batchSize);
         const formData = new FormData();
-        formData.append('uid', userId);
+        formData.append('token', uploadToken);
         batchFiles.forEach(f => formData.append('files', f));
 
         // Add flags: first batch clears old files, last batch triggers broadcast
@@ -168,7 +171,7 @@ function MobileUpload() {
     );
   }
 
-  if (!userId) {
+  if (!uploadToken) {
     return (
       <div style={{
         minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
