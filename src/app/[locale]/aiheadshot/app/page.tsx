@@ -1069,6 +1069,18 @@ export default function AIHeadshotApp() {
             ))}
           </div>
 
+          {/* Validation warnings (too small, too large, broken files) */}
+          {uploadWarn && (
+            <div style={{
+              padding: '10px 14px', marginBottom: 16, borderRadius: 10,
+              background: '#FFF0F0', border: '1px solid #F5B8B8',
+              fontSize: '0.82rem', color: '#8A2F2F', lineHeight: 1.5,
+            }}>
+              <strong>{locale === 'de' ? 'Übersprungen: ' : 'Skipped: '}</strong>
+              {uploadWarn}
+            </div>
+          )}
+
           {/* Don't-dos — the other half of garbage-in prevention */}
           <div style={{
             padding: '10px 14px', marginBottom: 24, borderRadius: 10,
