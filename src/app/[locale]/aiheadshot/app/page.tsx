@@ -86,6 +86,12 @@ export default function AIHeadshotApp() {
   const [previewImages, setPreviewImages] = useState<string[]>([]);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
+  // Extra polling state so the UI can show "X von Y fertig" and a reassurance
+  // message when generation is taking unusually long (the server auto-heals
+  // stuck portraits, but the user shouldn't stare at an unchanging 90%).
+  const [jobCompleted, setJobCompleted] = useState(0);
+  const [jobTotal, setJobTotal] = useState(0);
+  const [slowGeneration, setSlowGeneration] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<PlanId | null>(null);
 
   // Coupon state
@@ -384,7 +390,15 @@ export default function AIHeadshotApp() {
 
   // Poll job status
   const pollJob = async (id: string, isPreview: boolean) => {
-    const maxAttempts = 120;
+    // ~10 min cap (200 * 3s). Previously 6 min, which was too tight when the
+    // last portrait stalled and the server's 3-min auto-heal then retried.
+    const maxAttempts = 200;
+    setJobCompleted(0);
+    setJobTotal(0);
+    setSlowGeneration(false);
+    let lastProgress = -1;
+    let stableSince = Date.now();
+
     for (let i = 0; i < maxAttempts; i++) {
       await new Promise(r => setTimeout(r, 3000));
 
@@ -392,11 +406,10 @@ export default function AIHeadshotApp() {
       const data = await res.json();
 
       if (data.status === 'completed') {
-        const pct = isPreview ? 100 : 100;
-        setProgress(pct);
+        setProgress(100);
+        setSlowGeneration(false);
 
         if (isPreview) {
-          // Get preview images (watermarked)
           setPreviewImages(data.portraits?.map((p: { imageUrl?: string; url?: string }) => p.imageUrl || p.url).filter(Boolean) || []);
           setStep('preview');
         } else {
@@ -410,7 +423,22 @@ export default function AIHeadshotApp() {
 
       const completedCount = data.completedCount || 0;
       const total = data.totalPortraits || 1;
-      setProgress(40 + Math.round((completedCount / total) * 55));
+      setJobCompleted(completedCount);
+      setJobTotal(total);
+      const nextProgress = 40 + Math.round((completedCount / total) * 55);
+      setProgress(nextProgress);
+
+      // If progress hasn't advanced for 45s, flag it so we can tell the user
+      // the server is retrying the stuck portrait. The server-side auto-heal
+      // kicks in at 180s, so the client banner gives them confidence before
+      // the actual recovery.
+      if (nextProgress !== lastProgress) {
+        lastProgress = nextProgress;
+        stableSince = Date.now();
+        setSlowGeneration(false);
+      } else if (Date.now() - stableSince > 45_000) {
+        setSlowGeneration(true);
+      }
     }
   };
 
@@ -1030,7 +1058,20 @@ export default function AIHeadshotApp() {
               transition: 'width 0.5s ease',
             }} />
           </div>
-          <p style={{ color: '#888' }}>{progress}%</p>
+          <p style={{ color: '#555', fontWeight: 600, marginBottom: 4 }}>
+            {jobTotal > 0 ? `${jobCompleted} / ${jobTotal} ${locale === 'de' ? 'Portraits fertig' : 'portraits ready'}` : `${progress}%`}
+          </p>
+          <p style={{ color: '#888', fontSize: '0.85rem' }}>{progress}%</p>
+          {slowGeneration && (
+            <p style={{
+              color: '#888', fontSize: '0.9rem', marginTop: 20, maxWidth: 480,
+              marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.5,
+            }}>
+              {locale === 'de'
+                ? 'Das letzte Bild dauert diesmal etwas länger als üblich. Unser System erkennt das automatisch und startet es neu — kein Grund zur Sorge, deine Portraits kommen gleich.'
+                : 'The last image is taking a bit longer than usual. Our system detects this automatically and retries it — no worries, your portraits are on their way.'}
+            </p>
+          )}
         </div>
       )}
 
