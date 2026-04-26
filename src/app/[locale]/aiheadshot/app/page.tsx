@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase';
 import { PLANS, type PlanId } from '@/lib/stripe';
+import { trackPurchase } from '@/lib/gtag';
 import { locales, type Locale } from '@/i18n/config';
 import AuthModal from '@/components/aiheadshot/auth/AuthModal';
 import { QRCodeSVG } from 'qrcode.react';
@@ -844,7 +845,7 @@ export default function AIHeadshotApp() {
     (async () => {
       if (sessionId) {
         try {
-          await fetch('/api/stripe/confirm-session', {
+          const res = await fetch('/api/stripe/confirm-session', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -852,6 +853,15 @@ export default function AIHeadshotApp() {
             },
             body: JSON.stringify({ sessionId }),
           });
+          // Fire Google Ads conversion only on confirmed-paid sessions.
+          // transaction_id = Stripe session ID dedupes if the user reloads.
+          if (res.ok) {
+            trackPurchase({
+              value: PLANS[plan].price / 100,
+              currency: PLANS[plan].currency.toUpperCase(),
+              transactionId: sessionId,
+            });
+          }
         } catch (err) {
           console.error('confirm-session failed:', err);
         }
