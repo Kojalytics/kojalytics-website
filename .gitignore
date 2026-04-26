@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Python (Google Ads scripts)
+**/__pycache__/
+scripts/**/.venv/
+scripts/google-ads/google-ads.yaml
+scripts/google-ads/client_secret*.json
+client_secret*.json

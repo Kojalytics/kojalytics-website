@@ -58,7 +58,7 @@ export default async function OGImage() {
 
           {/* Subtitle */}
           <p style={{ fontSize: 24, lineHeight: 1.5, color: '#4A4A68', marginBottom: 36, maxWidth: 700 }}>
-            Lade ein Selfie hoch — erhalte ein Studio-Foto. Kein Fotograf, kein Termin, kein Abo. Ab 4,99 €.
+            Lade ein Selfie hoch — erhalte ein Studio-Foto. Kein Fotograf, kein Termin, kein Abo. Ab 9,99 €.
           </p>
 
           {/* Trust row */}

@@ -1,9 +1,9 @@
 const de = {
   meta: {
     title: 'KI Bewerbungsfoto Generator | Professionelle Bewerbungsfotos in Minuten',
-    description: 'Erstelle professionelle Bewerbungsfotos mit KI — in unter 5 Minuten. Studio-Qualität ohne Fotograf. Ab 4,99 €. Über 10.000 zufriedene Nutzer.',
+    description: 'Erstelle professionelle Bewerbungsfotos mit KI — in unter 5 Minuten. Studio-Qualität ohne Fotograf. Ab 9,99 €. Über 10.000 zufriedene Nutzer.',
     ogTitle: 'Bewerbungsfoto in 5 Min. erstellen — AI Headshot',
-    ogDescription: 'Lade ein Selfie hoch, erhalte ein professionelles Bewerbungsfoto in Studio-Qualität. Kein Fotograf, kein Termin. Ab 4,99 €. Jetzt testen!',
+    ogDescription: 'Lade ein Selfie hoch, erhalte ein professionelles Bewerbungsfoto in Studio-Qualität. Kein Fotograf, kein Termin. Ab 9,99 €. Jetzt testen!',
   },
   nav: {
     features: 'Funktionen',
@@ -59,7 +59,7 @@ const de = {
     f3Title: 'Verschiedene Styles',
     f3Desc: 'Business, Kreativ, LinkedIn — wähle aus verschiedenen professionellen Styles für jeden Zweck.',
     f4Title: 'Bis zu 90% günstiger',
-    f4Desc: 'Ein Fotograf kostet 80–200 €. Mit AI Headshot bekommst du bessere Ergebnisse ab nur 4,99 €.',
+    f4Desc: 'Ein Fotograf kostet 80–200 €. Mit AI Headshot bekommst du bessere Ergebnisse ab nur 9,99 €.',
     f5Title: 'Datenschutz-konform',
     f5Desc: 'Deine Fotos werden verschlüsselt übertragen und nach der Verarbeitung automatisch gelöscht. DSGVO-konform.',
     f6Title: 'Webcam-Aufnahme',
@@ -71,7 +71,7 @@ const de = {
     subtitle: 'Kein Abo. Einmal zahlen, Fotos behalten.',
     starter: {
       name: 'Starter',
-      price: '4,99',
+      price: '9,99',
       period: 'einmalig',
       desc: 'Perfekt für eine einzelne Bewerbung',
       features: ['12 KI-generierte Portraits', '3 verschiedene Styles', 'HD-Qualität Download', 'Fertig in 5 Minuten'],
@@ -79,7 +79,7 @@ const de = {
     },
     premium: {
       name: 'Premium',
-      price: '9,99',
+      price: '19,99',
       period: 'einmalig',
       desc: 'Für alle die mehr Auswahl wollen',
       features: ['24 KI-generierte Portraits', '6 verschiedene Styles', 'Ultra-HD Download', 'Prioritäts-Verarbeitung', 'Hintergrund-Anpassung', '30 Tage Speicherung'],
@@ -122,7 +122,7 @@ const de = {
     q3: 'Kann ich die Bewerbungsfotos für LinkedIn und Lebenslauf verwenden?',
     a3: 'Absolut! Unsere KI-generierten Bewerbungsfotos sind perfekt optimiert für LinkedIn-Profilfotos, Lebensläufe, Bewerbungsunterlagen, Xing-Profile und jede andere professionelle Verwendung.',
     q4: 'Wie viel kostet ein professionelles Bewerbungsfoto bei einem Fotografen?',
-    a4: 'Ein professionelles Bewerbungsfoto beim Fotografen kostet in Deutschland typischerweise 80–200 €, plus Anfahrt und Wartezeit. Mit AI Headshot bekommst du vergleichbare Qualität ab nur 4,99 € — sofort und ohne Termin.',
+    a4: 'Ein professionelles Bewerbungsfoto beim Fotografen kostet in Deutschland typischerweise 80–200 €, plus Anfahrt und Wartezeit. Mit AI Headshot bekommst du vergleichbare Qualität ab nur 9,99 € — sofort und ohne Termin.',
     q5: 'Sind meine Daten sicher? Ist der Service DSGVO-konform?',
     a5: 'Ja, absolut. Alle Fotos werden verschlüsselt übertragen und nach der Verarbeitung automatisch von unseren Servern gelöscht. Wir sind vollständig DSGVO-konform und speichern keine persönlichen Daten ohne deine Zustimmung.',
     q6: 'Welche Selfies soll ich hochladen für das beste Ergebnis?',

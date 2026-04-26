@@ -3,9 +3,9 @@ import type { Translations } from './de';
 const en: Translations = {
   meta: {
     title: 'AI Headshot Generator | Professional Business Photos in Minutes',
-    description: 'Create professional AI headshots in under 5 minutes. Studio-quality without a photographer. From $4.99. Trusted by 10,000+ professionals.',
+    description: 'Create professional AI headshots in under 5 minutes. Studio-quality without a photographer. From $9.99. Trusted by 10,000+ professionals.',
     ogTitle: 'Professional Headshot in 5 Min. — AI Headshot',
-    ogDescription: 'Upload a selfie, get a studio-quality professional headshot. No photographer, no appointment. From €4.99. Try it now!',
+    ogDescription: 'Upload a selfie, get a studio-quality professional headshot. No photographer, no appointment. From €9.99. Try it now!',
   },
   nav: {
     features: 'Features',
@@ -61,7 +61,7 @@ const en: Translations = {
     f3Title: 'Multiple Styles',
     f3Desc: 'Business, Creative, LinkedIn — choose from various professional styles for every purpose.',
     f4Title: 'Up to 90% Cheaper',
-    f4Desc: 'A photographer costs $100–300. With AI Headshot, you get better results from just $4.99.',
+    f4Desc: 'A photographer costs $100–300. With AI Headshot, you get better results from just $9.99.',
     f5Title: 'Privacy-First',
     f5Desc: 'Your photos are encrypted in transit and automatically deleted after processing. GDPR compliant.',
     f6Title: 'Webcam Capture',
@@ -73,7 +73,7 @@ const en: Translations = {
     subtitle: 'No subscription. Pay once, keep your photos.',
     starter: {
       name: 'Starter',
-      price: '4.99',
+      price: '9.99',
       period: 'one-time',
       desc: 'Perfect for a single application',
       features: ['12 AI-generated portraits', '3 different styles', 'HD quality download', 'Ready in 5 minutes'],
@@ -81,7 +81,7 @@ const en: Translations = {
     },
     premium: {
       name: 'Premium',
-      price: '9.99',
+      price: '19.99',
       period: 'one-time',
       desc: 'For those who want more variety',
       features: ['24 AI-generated portraits', '6 different styles', 'Ultra-HD download', 'Priority processing', 'Background customization', '30-day storage'],
@@ -124,7 +124,7 @@ const en: Translations = {
     q3: 'Can I use the headshots for LinkedIn and resumes?',
     a3: 'Absolutely! Our AI-generated headshots are perfectly optimized for LinkedIn profile photos, resumes, CVs, professional networking profiles, and any other professional use.',
     q4: 'How much does a professional headshot cost at a photographer?',
-    a4: 'A professional headshot typically costs $100–300 at a photographer, plus travel time and waiting. With AI Headshot, you get comparable quality from just $4.99 — instantly and without an appointment.',
+    a4: 'A professional headshot typically costs $100–300 at a photographer, plus travel time and waiting. With AI Headshot, you get comparable quality from just $9.99 — instantly and without an appointment.',
     q5: 'Is my data secure? Is the service GDPR compliant?',
     a5: 'Yes, absolutely. All photos are encrypted in transit and automatically deleted from our servers after processing. We are fully GDPR compliant and do not store personal data without your consent.',
     q6: 'What kind of selfies should I upload for the best results?',

@@ -29,7 +29,7 @@ const faqs = [
     icon: CreditCard,
     question: "What are the pricing plans?",
     answer:
-      "We offer two plans: Starter (€4.99) includes 12 AI-generated portraits, and Premium (€9.99) includes 24 portraits with more style options. Both are one-time purchases — no subscriptions.",
+      "We offer two plans: Starter (€9.99) includes 12 AI-generated portraits, and Premium (€19.99) includes 24 portraits with more style options. Both are one-time purchases — no subscriptions.",
   },
   {
     icon: RefreshCw,

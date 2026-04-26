@@ -3,7 +3,7 @@ import type { Translations } from './de';
 const nl: Translations = {
   meta: {
     title: 'AI Sollicitatiefoto Generator | Professionele Pasfoto\'s in Minuten',
-    description: 'Maak professionele sollicitatiefoto\'s met AI — in minder dan 5 minuten. Studiokwaliteit zonder fotograaf. Vanaf € 4,99. Meer dan 10.000 tevreden gebruikers.',
+    description: 'Maak professionele sollicitatiefoto\'s met AI — in minder dan 5 minuten. Studiokwaliteit zonder fotograaf. Vanaf € 9,99. Meer dan 10.000 tevreden gebruikers.',
     ogTitle: 'AI Headshot — Jouw AI Sollicitatiefoto Generator',
     ogDescription: 'Professionele sollicitatiefoto\'s in studiokwaliteit. AI-gegenereerd in minuten, niet uren.',
   },
@@ -61,7 +61,7 @@ const nl: Translations = {
     f3Title: 'Meerdere stijlen',
     f3Desc: 'Business, Creatief, LinkedIn — kies uit verschillende professionele stijlen voor elk doel.',
     f4Title: 'Tot 90% goedkoper',
-    f4Desc: 'Een fotograaf kost € 80–200. Met AI Headshot krijg je betere resultaten vanaf slechts € 4,99.',
+    f4Desc: 'Een fotograaf kost € 80–200. Met AI Headshot krijg je betere resultaten vanaf slechts € 9,99.',
     f5Title: 'Privacy-proof',
     f5Desc: 'Je foto\'s worden versleuteld verzonden en automatisch verwijderd na verwerking. AVG-conform.',
     f6Title: 'Webcam-opname',
@@ -73,7 +73,7 @@ const nl: Translations = {
     subtitle: 'Geen abonnement. Eenmalig betalen, foto\'s behouden.',
     starter: {
       name: 'Starter',
-      price: '4,99',
+      price: '9,99',
       period: 'eenmalig',
       desc: 'Perfect voor een enkele sollicitatie',
       features: ['12 AI-gegenereerde portretten', '3 verschillende stijlen', 'HD-kwaliteit download', 'Klaar in 5 minuten'],
@@ -81,7 +81,7 @@ const nl: Translations = {
     },
     premium: {
       name: 'Premium',
-      price: '9,99',
+      price: '19,99',
       period: 'eenmalig',
       desc: 'Voor wie meer keuze wil',
       features: ['24 AI-gegenereerde portretten', '6 verschillende stijlen', 'Ultra-HD download', 'Prioriteitsverwerking', 'Achtergrond aanpassing', '30 dagen opslag'],
@@ -124,7 +124,7 @@ const nl: Translations = {
     q3: 'Kan ik de sollicitatiefoto\'s gebruiken voor LinkedIn en CV?',
     a3: 'Absoluut! Onze AI-gegenereerde sollicitatiefoto\'s zijn perfect geoptimaliseerd voor LinkedIn-profielfoto\'s, CV\'s, sollicitaties en elk ander professioneel gebruik.',
     q4: 'Hoeveel kost een professionele sollicitatiefoto bij een fotograaf?',
-    a4: 'Een professionele sollicitatiefoto kost bij een fotograaf doorgaans € 80–200. Met AI Headshot krijg je vergelijkbare kwaliteit vanaf slechts € 4,99 — direct en zonder afspraak.',
+    a4: 'Een professionele sollicitatiefoto kost bij een fotograaf doorgaans € 80–200. Met AI Headshot krijg je vergelijkbare kwaliteit vanaf slechts € 9,99 — direct en zonder afspraak.',
     q5: 'Zijn mijn gegevens veilig? Is de dienst AVG-conform?',
     a5: 'Ja, absoluut. Alle foto\'s worden versleuteld verzonden en automatisch verwijderd van onze servers na verwerking. We zijn volledig AVG-conform.',
     q6: 'Welke selfies moet ik uploaden voor het beste resultaat?',

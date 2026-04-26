@@ -16,8 +16,8 @@ export const PLANS = {
   },
   premium: {
     portraits: 24,
-    price: 2099, // cents
-    priceFormatted: '20,99',
+    price: 1999, // cents
+    priceFormatted: '19,99',
     currency: 'eur',
     styles: 2,
     features: ['24 KI-Portraits', '12 Styles', 'Ultra-HD Download', 'Priorität', 'Hintergrund-Anpassung', '30 Tage Speicher'],

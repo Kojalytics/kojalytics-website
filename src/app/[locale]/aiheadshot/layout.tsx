@@ -100,13 +100,13 @@ export default async function AIHeadshotLayout({
       {
         '@type': 'Offer',
         name: 'Starter',
-        price: '4.99',
+        price: '9.99',
         priceCurrency: 'EUR',
       },
       {
         '@type': 'Offer',
         name: 'Premium',
-        price: '9.99',
+        price: '19.99',
         priceCurrency: 'EUR',
       },
     ],

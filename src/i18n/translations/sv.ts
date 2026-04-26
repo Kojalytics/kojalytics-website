@@ -3,7 +3,7 @@ import type { Translations } from './de';
 const sv: Translations = {
   meta: {
     title: 'AI CV-foto Generator | Professionella Porträttfoton på Minuter',
-    description: 'Skapa professionella CV-foton med AI — på under 5 minuter. Studiokvalitet utan fotograf. Från 4,99 €. Över 10 000 nöjda användare.',
+    description: 'Skapa professionella CV-foton med AI — på under 5 minuter. Studiokvalitet utan fotograf. Från 9,99 €. Över 10 000 nöjda användare.',
     ogTitle: 'AI Headshot — Din AI CV-foto Generator',
     ogDescription: 'Professionella CV-foton i studiokvalitet. AI-genererade på minuter, inte timmar.',
   },
@@ -61,7 +61,7 @@ const sv: Translations = {
     f3Title: 'Flera stilar',
     f3Desc: 'Business, Kreativ, LinkedIn — välj mellan olika professionella stilar för varje ändamål.',
     f4Title: 'Upp till 90% billigare',
-    f4Desc: 'En fotograf kostar 800–2 000 kr. Med AI Headshot får du bättre resultat från bara 4,99 €.',
+    f4Desc: 'En fotograf kostar 800–2 000 kr. Med AI Headshot får du bättre resultat från bara 9,99 €.',
     f5Title: 'Integritetsskydd',
     f5Desc: 'Dina foton krypteras under överföring och raderas automatiskt efter bearbetning. GDPR-kompatibel.',
     f6Title: 'Webbkamerafångst',
@@ -73,7 +73,7 @@ const sv: Translations = {
     subtitle: 'Inget abonnemang. Betala en gång, behåll dina foton.',
     starter: {
       name: 'Starter',
-      price: '4,99',
+      price: '9,99',
       period: 'engångsbetalning',
       desc: 'Perfekt för en enskild ansökan',
       features: ['12 AI-genererade porträtt', '3 olika stilar', 'HD-kvalitet nedladdning', 'Klart på 5 minuter'],
@@ -81,7 +81,7 @@ const sv: Translations = {
     },
     premium: {
       name: 'Premium',
-      price: '9,99',
+      price: '19,99',
       period: 'engångsbetalning',
       desc: 'För dig som vill ha mer urval',
       features: ['24 AI-genererade porträtt', '6 olika stilar', 'Ultra-HD nedladdning', 'Prioritetsbearbetning', 'Bakgrundsanpassning', '30 dagars lagring'],
@@ -124,7 +124,7 @@ const sv: Translations = {
     q3: 'Kan jag använda CV-fotona för LinkedIn och CV?',
     a3: 'Absolut! Våra AI-genererade CV-foton är perfekt optimerade för LinkedIn-profilfoton, CV:n, ansökningar och all annan professionell användning.',
     q4: 'Vad kostar ett professionellt CV-foto hos en fotograf?',
-    a4: 'Ett professionellt CV-foto kostar vanligtvis 800–2 000 kr hos en fotograf. Med AI Headshot får du jämförbar kvalitet från bara 4,99 € — omedelbart.',
+    a4: 'Ett professionellt CV-foto kostar vanligtvis 800–2 000 kr hos en fotograf. Med AI Headshot får du jämförbar kvalitet från bara 9,99 € — omedelbart.',
     q5: 'Är mina uppgifter säkra? Är tjänsten GDPR-kompatibel?',
     a5: 'Ja, absolut. Alla foton krypteras under överföring och raderas automatiskt från våra servrar efter bearbetning. Vi är fullt GDPR-kompatibla.',
     q6: 'Vilka selfies ska jag ladda upp för bästa resultat?',

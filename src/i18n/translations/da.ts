@@ -3,7 +3,7 @@ import type { Translations } from './de';
 const da: Translations = {
   meta: {
     title: 'AI Ansøgningsfoto Generator | Professionelle Portrætfotos på Minutter',
-    description: 'Lav professionelle ansøgningsfotos med AI — på under 5 minutter. Studiokvalitet uden fotograf. Fra 4,99 €. Over 10.000 tilfredse brugere.',
+    description: 'Lav professionelle ansøgningsfotos med AI — på under 5 minutter. Studiokvalitet uden fotograf. Fra 9,99 €. Over 10.000 tilfredse brugere.',
     ogTitle: 'AI Headshot — Din AI Ansøgningsfoto Generator',
     ogDescription: 'Professionelle ansøgningsfotos i studiokvalitet. AI-genereret på minutter, ikke timer.',
   },
@@ -61,7 +61,7 @@ const da: Translations = {
     f3Title: 'Flere stilarter',
     f3Desc: 'Business, Kreativ, LinkedIn — vælg mellem forskellige professionelle stilarter til ethvert formål.',
     f4Title: 'Op til 90% billigere',
-    f4Desc: 'En fotograf koster 800–2.000 kr. Med AI Headshot får du bedre resultater fra kun 4,99 €.',
+    f4Desc: 'En fotograf koster 800–2.000 kr. Med AI Headshot får du bedre resultater fra kun 9,99 €.',
     f5Title: 'Databeskyttelse',
     f5Desc: 'Dine fotos krypteres under overførsel og slettes automatisk efter behandling. GDPR-kompatibel.',
     f6Title: 'Webcam-optagelse',
@@ -73,7 +73,7 @@ const da: Translations = {
     subtitle: 'Intet abonnement. Betal én gang, behold dine fotos.',
     starter: {
       name: 'Starter',
-      price: '4,99',
+      price: '9,99',
       period: 'engangsbetaling',
       desc: 'Perfekt til en enkelt ansøgning',
       features: ['12 AI-genererede portrætter', '3 forskellige stilarter', 'HD-kvalitet download', 'Klar på 5 minutter'],
@@ -81,7 +81,7 @@ const da: Translations = {
     },
     premium: {
       name: 'Premium',
-      price: '9,99',
+      price: '19,99',
       period: 'engangsbetaling',
       desc: 'For dem der vil have mere udvalg',
       features: ['24 AI-genererede portrætter', '6 forskellige stilarter', 'Ultra-HD download', 'Prioritetsbehandling', 'Baggrundsindstilling', '30 dages opbevaring'],
@@ -124,7 +124,7 @@ const da: Translations = {
     q3: 'Kan jeg bruge ansøgningsfotos til LinkedIn og CV?',
     a3: 'Absolut! Vores AI-genererede ansøgningsfotos er perfekt optimeret til LinkedIn-profilfotos, CV\'er, ansøgninger og enhver anden professionel brug.',
     q4: 'Hvad koster et professionelt ansøgningsfoto hos en fotograf?',
-    a4: 'Et professionelt ansøgningsfoto koster typisk 800–2.000 kr hos en fotograf. Med AI Headshot får du sammenlignelig kvalitet fra kun 4,99 € — øjeblikkeligt.',
+    a4: 'Et professionelt ansøgningsfoto koster typisk 800–2.000 kr hos en fotograf. Med AI Headshot får du sammenlignelig kvalitet fra kun 9,99 € — øjeblikkeligt.',
     q5: 'Er mine data sikre? Er tjenesten GDPR-kompatibel?',
     a5: 'Ja, absolut. Alle fotos krypteres under overførsel og slettes automatisk fra vores servere efter behandling. Vi er fuldt GDPR-kompatible.',
     q6: 'Hvilke selfies skal jeg uploade for det bedste resultat?',

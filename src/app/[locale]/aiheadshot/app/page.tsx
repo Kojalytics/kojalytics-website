@@ -45,7 +45,7 @@ const appLabels: Record<string, Record<string, string>> = {
   previewReady: { de: 'Deine Vorschau ist fertig!', en: 'Your preview is ready!' },
   previewWatermark: { de: 'Vorschau mit Wasserzeichen — kaufe ein Paket für volle Qualität', en: 'Preview with watermark — buy a package for full quality' },
   buyStarter: { de: '12 Portraits — €9,99', en: '12 Portraits — €9.99' },
-  buyPremium: { de: '24 Portraits — €20,99', en: '24 Portraits — €20.99' },
+  buyPremium: { de: '24 Portraits — €19,99', en: '24 Portraits — €19.99' },
   paymentSoon: { de: 'Zahlung wird bald verfügbar sein! Wir richten gerade Stripe ein.', en: 'Payment coming soon! We are setting up Stripe.' },
   couponTitle: { de: 'Gutschein-Code einlösen', en: 'Redeem coupon code' },
   couponPlaceholder: { de: 'Code eingeben (z. B. FREE50)', en: 'Enter code (e.g. FREE50)' },
@@ -1431,7 +1431,7 @@ export default function AIHeadshotApp() {
                 padding: '4px 16px', borderRadius: 100, fontSize: '0.75rem', fontWeight: 700,
               }}>Beliebt</div>
               <h3 style={{ fontFamily: 'var(--font-pp-heading)', fontSize: '1.2rem', fontWeight: 700, marginBottom: 8 }}>Premium</h3>
-              <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#1A1A2E', marginBottom: 4 }}>€20,99</div>
+              <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#1A1A2E', marginBottom: 4 }}>€19,99</div>
               <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: 20 }}>24 Portraits</p>
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: 24, textAlign: 'left' }}>
                 {PLANS.premium.features.map((f, i) => (

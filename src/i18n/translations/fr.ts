@@ -3,7 +3,7 @@ import type { Translations } from './de';
 const fr: Translations = {
   meta: {
     title: 'Générateur de Photos CV IA | Photos Professionnelles en Minutes',
-    description: 'Créez des photos professionnelles pour votre CV avec l\'IA — en moins de 5 minutes. Qualité studio sans photographe. À partir de 4,99 €. Plus de 10 000 utilisateurs satisfaits.',
+    description: 'Créez des photos professionnelles pour votre CV avec l\'IA — en moins de 5 minutes. Qualité studio sans photographe. À partir de 9,99 €. Plus de 10 000 utilisateurs satisfaits.',
     ogTitle: 'AI Headshot — Votre Générateur de Photos Professionnelles IA',
     ogDescription: 'Photos professionnelles de qualité studio. Générées par IA en minutes, pas en heures.',
   },
@@ -61,7 +61,7 @@ const fr: Translations = {
     f3Title: 'Plusieurs styles',
     f3Desc: 'Business, Créatif, LinkedIn — choisissez parmi différents styles professionnels pour chaque usage.',
     f4Title: 'Jusqu\'à 90% moins cher',
-    f4Desc: 'Un photographe coûte 80–200 €. Avec AI Headshot, vous obtenez de meilleurs résultats à partir de 4,99 €.',
+    f4Desc: 'Un photographe coûte 80–200 €. Avec AI Headshot, vous obtenez de meilleurs résultats à partir de 9,99 €.',
     f5Title: 'Respect de la vie privée',
     f5Desc: 'Vos photos sont chiffrées en transit et automatiquement supprimées après traitement. Conforme RGPD.',
     f6Title: 'Capture webcam',
@@ -73,7 +73,7 @@ const fr: Translations = {
     subtitle: 'Sans abonnement. Payez une fois, gardez vos photos.',
     starter: {
       name: 'Starter',
-      price: '4,99',
+      price: '9,99',
       period: 'paiement unique',
       desc: 'Parfait pour une candidature',
       features: ['12 portraits générés par IA', '3 styles différents', 'Téléchargement HD', 'Prêt en 5 minutes'],
@@ -81,7 +81,7 @@ const fr: Translations = {
     },
     premium: {
       name: 'Premium',
-      price: '9,99',
+      price: '19,99',
       period: 'paiement unique',
       desc: 'Pour ceux qui veulent plus de choix',
       features: ['24 portraits générés par IA', '6 styles différents', 'Téléchargement Ultra-HD', 'Traitement prioritaire', 'Personnalisation du fond', 'Stockage 30 jours'],
@@ -124,7 +124,7 @@ const fr: Translations = {
     q3: 'Puis-je utiliser les photos pour LinkedIn et mon CV ?',
     a3: 'Absolument ! Nos photos générées par IA sont parfaitement optimisées pour les photos de profil LinkedIn, CV, candidatures et tout autre usage professionnel.',
     q4: 'Combien coûte une photo professionnelle chez un photographe ?',
-    a4: 'Une photo professionnelle chez un photographe coûte typiquement 80–200 €. Avec AI Headshot, vous obtenez une qualité comparable à partir de 4,99 € — instantanément.',
+    a4: 'Une photo professionnelle chez un photographe coûte typiquement 80–200 €. Avec AI Headshot, vous obtenez une qualité comparable à partir de 9,99 € — instantanément.',
     q5: 'Mes données sont-elles sécurisées ? Le service est-il conforme au RGPD ?',
     a5: 'Oui, absolument. Toutes les photos sont chiffrées en transit et automatiquement supprimées de nos serveurs après traitement. Nous sommes entièrement conformes au RGPD.',
     q6: 'Quels selfies dois-je télécharger pour le meilleur résultat ?',
