@@ -1,7 +1,7 @@
 // Google Ads tracking — load via <GoogleTag /> in root layout, fire
 // conversions via trackPurchase() from any client component.
 
-export const GOOGLE_ADS_ID = 'AW-10821780615';
+export const GOOGLE_ADS_ID = 'AW-17685521393';
 
 // Conversion label for the "Purchase - AIHeadshot" action.
 // Generated in Google Ads → Conversions → Purchase → Tag-Snippet.
