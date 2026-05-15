@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { GoogleTag } from "@/components/GoogleTag";
+import { MicrosoftClarity } from "@/components/MicrosoftClarity";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head>
         <GoogleTag />
+        <MicrosoftClarity />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         <div className="aurora-bg" />
