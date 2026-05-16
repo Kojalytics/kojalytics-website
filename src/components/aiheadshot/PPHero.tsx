@@ -69,7 +69,7 @@ export default function PPHero({ t, locale }: { t: Translations; locale: string 
         <h1 style={{
           fontFamily: 'var(--font-pp-heading)',
           fontSize: 'clamp(2.4rem, 6vw, 4.2rem)',
-          fontWeight: 800,
+          fontWeight: 700,
           lineHeight: 1.08,
           letterSpacing: '-0.03em',
           marginBottom: 20,
