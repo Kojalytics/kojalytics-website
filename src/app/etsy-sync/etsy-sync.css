@@ -1,0 +1,81 @@
+/* Hero fade-in animations */
+@keyframes esFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes esNavSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes esSyncPulse {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+@keyframes esSyncPulseReverse {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-6px); }
+}
+
+@keyframes esSpinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.es-nav {
+  animation: esNavSlide 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.es-fade-in {
+  animation: esFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.es-delay-1 { animation-delay: 0.1s; }
+.es-delay-2 { animation-delay: 0.2s; }
+.es-delay-3 { animation-delay: 0.35s; }
+.es-delay-4 { animation-delay: 0.5s; }
+.es-delay-5 { animation-delay: 0.7s; }
+
+.es-sync-line {
+  animation: esSyncPulse 2s ease-in-out infinite;
+}
+
+.es-sync-line-reverse {
+  animation: esSyncPulseReverse 2s ease-in-out infinite;
+}
+
+.es-spin {
+  animation: esSpinSlow 8s linear infinite;
+}
+
+/* Cards with scroll-triggered animation */
+.es-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: esFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+/* Fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline: view()) {
+  .es-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
