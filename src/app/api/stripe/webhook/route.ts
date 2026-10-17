@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
+import { LICENSE_PRODUCT, issueLicenseForSession } from '@/lib/license-sales';
 
 export const maxDuration = 30;
 
@@ -43,6 +44,17 @@ export async function POST(request: NextRequest) {
     if (session.payment_status !== 'paid') {
       console.warn('Webhook: session not paid', { sessionId: session.id, status: session.payment_status });
       return NextResponse.json({ received: true, warning: 'session not paid' });
+    }
+
+    // Koja app license: create the key and email it (idempotent per session).
+    if (session.metadata?.product === LICENSE_PRODUCT) {
+      try {
+        await issueLicenseForSession(session);
+      } catch (err) {
+        console.error('Webhook: failed to issue license', err);
+        return NextResponse.json({ error: 'License error' }, { status: 500 });
+      }
+      return NextResponse.json({ received: true });
     }
 
     if (!userId || typeof userId !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId)) {

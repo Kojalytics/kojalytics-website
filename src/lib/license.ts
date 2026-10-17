@@ -1,4 +1,4 @@
-import { createHash, createPrivateKey, randomBytes, sign } from 'crypto';
+import { createCipheriv, createDecipheriv, createHash, createPrivateKey, randomBytes, sign } from 'crypto';
 
 // Crockford base32: no I, L, O or U, so keys survive being read aloud or retyped.
 const ALPHABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
@@ -27,6 +27,26 @@ export function generateKey(): string {
 
 export function hashKey(body: string): string {
   return createHash('sha256').update(body).digest('hex');
+}
+
+/** AES-256-GCM key for stored license keys, derived from the signing key (one secret to manage). */
+function storageKey(signingKeyB64: string): Buffer {
+  return createHash('sha256').update(`koja-license-storage:${signingKeyB64}`).digest();
+}
+
+/** `iv.tag.ciphertext`, all base64url. */
+export function encryptKey(key: string, signingKeyB64: string): string {
+  const iv = randomBytes(12);
+  const cipher = createCipheriv('aes-256-gcm', storageKey(signingKeyB64), iv);
+  const data = Buffer.concat([cipher.update(key, 'utf8'), cipher.final()]);
+  return [iv, cipher.getAuthTag(), data].map((b) => b.toString('base64url')).join('.');
+}
+
+export function decryptKey(stored: string, signingKeyB64: string): string {
+  const [iv, tag, data] = stored.split('.').map((s) => Buffer.from(s, 'base64url'));
+  const decipher = createDecipheriv('aes-256-gcm', storageKey(signingKeyB64), iv);
+  decipher.setAuthTag(tag);
+  return Buffer.concat([decipher.update(data), decipher.final()]).toString('utf8');
 }
 
 /**
