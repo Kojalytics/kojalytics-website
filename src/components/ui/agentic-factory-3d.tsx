@@ -83,37 +83,29 @@ export default function AgenticFactory3D({
       <div
         id="scene"
         role="img"
-        aria-label="Interactive 3D machine with five stations: Engine, Admin, Storefront, Cabinet and Checkout. Drag to rotate, scroll or pinch to zoom. Hover or tap a station to take a closer look."
+        aria-label="Interactive 3D model of the Kojalytics software store with five stations: Licenses, Admin, Storefront, Orders and Checkout. Drag to rotate, scroll or pinch to zoom. Hover or tap a station to take a closer look."
       />
       <div className="vignette" />
       <header className="topbar debug-ui">
         <div className="identity">
           <div className="mark">
-            <svg width="17" height="17" viewBox="0 0 20 20" fill="none">
-              <path
-                d="M3 5l7 11 7-11M7 5l3 5 3-5"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <span className="mark-k">K</span>
           </div>
           <div>
-            <strong>Agentic Factory</strong>
-            <small>Interactive workshop</small>
+            <strong>Kojalytics</strong>
+            <small>Software store</small>
           </div>
         </div>
         <div className="status" id="status">
           <i />
-          <span id="status-text">Machine running</span>
-          <span>SERIES 001</span>
+          <span id="status-text">Store online</span>
+          <span>KOJALYTICS.COM</span>
         </div>
       </header>
       <div className="scene-heading debug-ui">
-        The machine you will build <span className="index">5 MODULES / 1 SYSTEM</span>
+        How your order works <span className="index">5 STATIONS / 1 STORE</span>
       </div>
-      <div className="coordinates debug-ui">PROTOTYPE 01 — FROM IDEA TO PAYMENT</div>
+      <div className="coordinates debug-ui">FROM ORDER TO LICENSE KEY</div>
       <div id="journey" className="debug-ui">
         <div className="journey-icon">
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
@@ -122,7 +114,7 @@ export default function AgenticFactory3D({
         </div>
         <div>
           <strong id="journey-title">New order</strong>
-          <small id="journey-detail">Cabinet · an order from Anna</small>
+          <small id="journey-detail">Orders · Anna buys Microsoft Office</small>
         </div>
         <div className="track">
           <i id="journey-progress" />
@@ -203,7 +195,7 @@ export default function AgenticFactory3D({
         <a className="wordmark" href="https://vibecoding.tech" target="_blank" rel="noopener">
           made with AI agents · <span>vibecoding.tech</span>
         </a>
-        <span className="footer-center debug-ui">DESIGNED BY YOU</span>
+        <span className="footer-center debug-ui">BUILT BY KOJALYTICS</span>
         <span className="hint debug-ui">
           <svg width="13" height="16" viewBox="0 0 13 16" fill="none">
             <rect x="2" y="1" width="9" height="14" rx="4.5" stroke="currentColor" />
@@ -214,7 +206,7 @@ export default function AgenticFactory3D({
       </footer>
       <div id="loading">
         <i />
-        <span>Assembling your machine</span>
+        <span>Opening the store</span>
       </div>
       <div id="error" role="alert">
         <strong>Could not start the 3D scene</strong>
@@ -296,7 +288,7 @@ function initMachineScene(
     const TAU = Math.PI * 2
     const embedded = options.embedded
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
-    const palette = { amber: 0xff7a1a, white: 0xf4f1ea, dark: 0x171b21, steel: 0x59616b }
+    const palette = { amber: 0x6366f1, white: 0xf4f1ea, dark: 0x171b21, steel: 0x59616b }
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(33, frameWidth() / frameHeight(), 0.1, 150)
     let renderer: THREE.WebGLRenderer
@@ -351,7 +343,7 @@ function initMachineScene(
     room.dispose()
     pmrem.dispose()
     scene.add(new THREE.HemisphereLight(0xdbe5f4, 0x29211a, 2))
-    const key = new THREE.DirectionalLight(0xfff1d8, 4.2)
+    const key = new THREE.DirectionalLight(0xeef0ff, 4.2)
     key.position.set(-4, 12, 7)
     key.castShadow = true
     key.shadow.mapSize.set(2048, 2048)
@@ -370,7 +362,7 @@ function initMachineScene(
     const rim = new THREE.DirectionalLight(0xc4d4ed, 3.1)
     rim.position.set(3, 7, -8)
     scene.add(rim)
-    const warm = new THREE.PointLight(0xffbd42, 28, 20, 2)
+    const warm = new THREE.PointLight(0x9fa2ff, 28, 20, 2)
     warm.position.set(-4, 5, 3)
     scene.add(warm)
     const front = new THREE.DirectionalLight(0xffffff, 1)
@@ -392,9 +384,9 @@ function initMachineScene(
       rubber: mat(0x0b1015, 0.1, 0.6),
       amber: mat(palette.amber, 0.52, 0.28),
       ivory: mat(0xe0ded4, 0.48, 0.26),
-      copper: mat(0xc57e45, 0.85, 0.3),
+      copper: mat(0x8b5cf6, 0.85, 0.3),
       black: mat(0x050909, 0, 0.6),
-      light: mat(0xff7a1a, 0.2, 0.25, { emissive: 0xff7a1a, emissiveIntensity: 1.5 }),
+      light: mat(0x6366f1, 0.2, 0.25, { emissive: 0x6366f1, emissiveIntensity: 1.5 }),
       whiteLight: mat(0xfff3d7, 0.1, 0.3, { emissive: 0xfff0d0, emissiveIntensity: 1.8 }),
       green: mat(0xc6d9a1, 0.1, 0.3, { emissive: 0x91b364, emissiveIntensity: 0.7 }),
       glass: mat(0x81949e, 0.45, 0.16, { transparent: true, opacity: 0.19, depthWrite: false }),
@@ -575,10 +567,10 @@ function initMachineScene(
       c.strokeStyle = '#4d545c'
       c.lineWidth = 2
       c.strokeRect(2, 2, w - 4, h - 4)
-      print(c, 'STARTER', 45, 79, 40, '#d9d8cd', 650)
-      print(c, '·  site  ·  database  ·  admin in 35 minutes', 285, 79, 34, '#b8bdc1', 450)
-      print(c, 'AGENTIC ENGINEERING    /    YOUR FIRST PRODUCT', 47, 133, 19, '#737e88', 500)
-      print(c, 'No. 001', 1360, 130, 23, '#c57e45')
+      print(c, 'KOJALYTICS', 45, 79, 40, '#d9d8cd', 650)
+      print(c, '·  shop  ·  licenses  ·  instant delivery', 340, 79, 34, '#b8bdc1', 450)
+      print(c, 'SOFTWARE STORE    /    OFFICE  ·  ADOBE  ·  KOJA APPS', 47, 133, 19, '#737e88', 500)
+      print(c, 'No. 001', 1360, 130, 23, '#8b5cf6')
     })
     const plate = screen(machine, 7.35, 0.84, -0.4, 0.25, 3.51, engraving)
     plate.rotation.x = -Math.PI / 2
@@ -636,35 +628,35 @@ function initMachineScene(
     const definitions: StationDef[] = [
       {
         id: 'engine',
-        name: 'Engine',
+        name: 'Licenses',
         step: 2,
-        output: 'script',
+        output: 'key',
         pos: [-4.15, 0.29, -0.65],
-        desc: 'Script, voice, subtitles, and a finished video.',
+        desc: 'Issues a genuine license key for every order.',
       },
       {
         id: 'admin',
         name: 'Admin',
         step: 3,
-        output: 'video',
+        output: 'activation',
         pos: [-1.65, 0.29, -2.03],
-        desc: 'The video queue and control over the whole system.',
+        desc: 'Verifies each key and tracks every activation.',
       },
       {
         id: 'storefront',
         name: 'Storefront',
         step: 4,
-        output: 'post',
+        output: 'delivery',
         pos: [1.5, 0.29, -2.08],
-        desc: 'The finished video becomes part of the product.',
+        desc: 'The shop: Office, Adobe and Koja Apps, delivered instantly.',
       },
       {
         id: 'cabinet',
-        name: 'Cabinet',
+        name: 'Orders',
         step: 1,
         output: 'order',
         pos: [4.03, 0.29, 0.12],
-        desc: 'Customers, new orders and the work history.',
+        desc: 'Customers, new orders and purchase history.',
       },
       {
         id: 'cashdesk',
@@ -672,7 +664,7 @@ function initMachineScene(
         step: 5,
         output: 'payment',
         pos: [0.93, 0.29, 1.85],
-        desc: 'Payment received. Receipt printed. The machine runs.',
+        desc: 'Paid securely via Stripe. Receipt sent. The store runs.',
       },
     ]
     const stations: Station[] = [],
@@ -747,7 +739,7 @@ function initMachineScene(
       const plaque = canvasTexture(512, 116, (c, w, h) => {
         c.fillStyle = '#151a20'
         c.fillRect(0, 0, w, h)
-        print(c, String(i + 1).padStart(2, '0'), 24, 76, 42, '#ff7a1a', 550)
+        print(c, String(i + 1).padStart(2, '0'), 24, 76, 42, '#6366f1', 550)
         print(c, d.name.toUpperCase(), 111, 73, 35, '#d7d9d7', 550)
       })
       screen(group, 1.54, 0.345, 0, 0.27, 0.891, plaque)
@@ -843,9 +835,9 @@ function initMachineScene(
       const c = videoTexture.ctx,
         w = 384,
         h = 640
-      c.fillStyle = '#ff7a1a'
+      c.fillStyle = '#6366f1'
       c.fillRect(0, 0, w, h)
-      c.fillStyle = '#c57e45'
+      c.fillStyle = '#8b5cf6'
       c.beginPath()
       c.arc(330, 205, 210, 0, TAU)
       c.fill()
@@ -856,13 +848,13 @@ function initMachineScene(
         c.ellipse(194, 270, 90 - i * 21, 111, Math.sin(t * 0.25) * 0.3 + 0.4, 0, TAU)
         c.stroke()
       }
-      print(c, 'MADE', 28, 57, 24, '#242320', 650)
-      print(c, 'BY YOU.', 24, 103, 42, '#242320', 700)
+      print(c, 'KOJA', 28, 57, 24, '#0f0f1e', 650)
+      print(c, 'APPS.', 24, 103, 42, '#0f0f1e', 700)
       c.fillStyle = '#171b20'
       c.beginPath()
       c.roundRect(25, 465, 334, 123, 12)
       c.fill()
-      const texts = ['From an idea —', 'to a real product.', 'Your agent', 'is already at work.']
+      const texts = ['Office. Adobe.', 'Koja Apps.', 'Your license key', 'is on its way.']
       const n = Math.floor(t * 0.7) % 4
       print(c, texts[n], 45, 505, 25, '#f4f1ea', 550)
       print(c, texts[(n + 1) % 4], 45, 547, 25, '#f4f1ea', 550)
@@ -896,28 +888,28 @@ function initMachineScene(
       const c = queue.ctx
       c.fillStyle = '#111b20'
       c.fillRect(0, 0, 640, 340)
-      print(c, 'VIDEO QUEUE', 25, 45, 21, '#acb9b8', 550)
-      print(c, '03 / 08', 497, 45, 20, '#ff7a1a', 500)
+      print(c, 'LICENSE QUEUE', 25, 45, 21, '#acb9b8', 550)
+      print(c, '03 / 08', 497, 45, 20, '#6366f1', 500)
       for (let i = 0; i < 3; i++) {
         const y = 74 + i * 76
         c.fillStyle = '#202c30'
         c.beginPath()
         c.roundRect(21, y, 598, 61, 6)
         c.fill()
-        c.fillStyle = i === 0 ? '#c57e45' : '#626f69'
+        c.fillStyle = i === 0 ? '#8b5cf6' : '#626f69'
         c.fillRect(34, y + 10, 27, 41)
         print(
           c,
-          ['Product overview', 'Brand story', 'New collection'][i],
+          ['Microsoft Office 2024', 'Adobe Acrobat Pro', 'Koja Apps'][i],
           77,
           y + 29,
           19,
           '#d4d8cc'
         )
-        print(c, i === 0 ? 'RENDERING' : 'QUEUED', 77, y + 49, 11, i === 0 ? '#c57e45' : '#81948f')
+        print(c, i === 0 ? 'ISSUING' : 'QUEUED', 77, y + 49, 11, i === 0 ? '#8b5cf6' : '#81948f')
         c.fillStyle = '#334348'
         c.fillRect(377, y + 26, 214, 7)
-        c.fillStyle = i === 0 ? '#ff7a1a' : '#607475'
+        c.fillStyle = i === 0 ? '#6366f1' : '#607475'
         c.fillRect(377, y + 26, i === 0 ? ((t * 0.15) % 1) * 214 : 41 + i * 27, 7)
       }
     }
@@ -955,9 +947,9 @@ function initMachineScene(
         c.arc(26 + i * 19, 27, 4, 0, TAU)
         c.fill()
       }
-      print(c, 'YOUR PRODUCT', 33, 100, 22, '#22282b', 650)
-      print(c, 'Home    Catalog    Account', 535, 98, 14, '#6a7271')
-      c.fillStyle = '#ff7a1a'
+      print(c, 'KOJALYTICS', 33, 100, 22, '#22282b', 650)
+      print(c, 'Shop    Apps    Support', 560, 98, 14, '#6a7271')
+      c.fillStyle = '#6366f1'
       c.beginPath()
       c.roundRect(32, 131, 287, 401, 10)
       c.fill()
@@ -968,12 +960,12 @@ function initMachineScene(
         c.ellipse(175, 320, 75 - i * 17, 94, 0.4, 0, TAU)
         c.stroke()
       }
-      print(c, 'FROM IDEA', 52, 181, 29, '#242827', 700)
-      print(c, 'TO PRODUCT.', 52, 220, 29, '#242827', 700)
-      print(c, 'Your idea.', 359, 197, 41, '#22282b', 600)
-      print(c, 'Already live.', 359, 252, 41, '#22282b', 600)
-      print(c, 'A video that tells people', 362, 300, 19, '#77807b')
-      print(c, 'what matters most.', 362, 329, 19, '#77807b')
+      print(c, 'SOFTWARE', 52, 181, 29, '#242827', 700)
+      print(c, 'STORE.', 52, 220, 29, '#242827', 700)
+      print(c, 'Genuine keys.', 359, 197, 41, '#22282b', 600)
+      print(c, 'Instant delivery.', 359, 252, 41, '#22282b', 600)
+      print(c, 'Office, Adobe and Koja Apps,', 362, 300, 19, '#77807b')
+      print(c, 'your key by email in minutes.', 362, 329, 19, '#77807b')
       for (let i = 0; i < 3; i++) {
         c.fillStyle = '#d1d5cd'
         c.fillRect(362, 363 + i * 16, 400 - i * 43, 5)
@@ -982,8 +974,8 @@ function initMachineScene(
       c.beginPath()
       c.roundRect(359, 447, 279, 62, 7)
       c.fill()
-      print(c, 'Order a video  ↗', 390, 486, 22, '#f4f1ea', 500)
-      print(c, 'BUILT BY YOUR AGENTS', 33, 571, 12, '#879088')
+      print(c, 'Shop now  ↗', 420, 486, 22, '#f4f1ea', 500)
+      print(c, 'KOJALYTICS.COM', 33, 571, 12, '#879088')
     })
     screen(storefront, 2.16, 1.43, 0, 1.95, 0.011, webTexture)
     ball(storefront, 0.024, 0, 2.747, -0.05, M.dark)
@@ -996,15 +988,18 @@ function initMachineScene(
     const postTex = canvasTexture(220, 290, (c, w, h) => {
       c.fillStyle = '#f4f1ea'
       c.fillRect(0, 0, w, h)
-      c.fillStyle = '#ff7a1a'
+      c.fillStyle = '#6366f1'
       c.fillRect(15, 16, 190, 168)
-      c.fillStyle = '#272e30'
+      c.strokeStyle = '#f4f1ea'
+      c.lineWidth = 14
+      c.lineCap = 'round'
+      c.lineJoin = 'round'
       c.beginPath()
-      c.moveTo(94, 66)
-      c.lineTo(140, 100)
-      c.lineTo(94, 134)
-      c.fill()
-      print(c, 'CHANNEL', 17, 225, 23, '#283030', 600)
+      c.moveTo(70, 102)
+      c.lineTo(99, 130)
+      c.lineTo(152, 72)
+      c.stroke()
+      print(c, 'DELIVERED', 17, 225, 23, '#283030', 600)
       c.fillStyle = '#b0b5b0'
       c.fillRect(17, 244, 153, 6)
       c.fillRect(17, 258, 104, 5)
@@ -1026,14 +1021,14 @@ function initMachineScene(
         c.beginPath()
         c.roundRect(22, y, 436, 83, 8)
         c.fill()
-        c.fillStyle = ['#ff7a1a', '#bdbf9c', '#7d938e'][i]
+        c.fillStyle = ['#6366f1', '#bdbf9c', '#7d938e'][i]
         c.beginPath()
         c.arc(58, y + 40, 19, 0, TAU)
         c.fill()
         print(c, n[0], 49, y + 47, 20, '#1b2828', 600)
         print(c, n, 93, y + 33, 23, '#e6e8dc', 550)
-        print(c, ['New order', 'In production', 'Video ready'][i], 93, y + 58, 15, '#94a59b')
-        print(c, '↗', 410, y + 49, 25, '#c57e45')
+        print(c, ['New order', 'Key issued', 'Delivered'][i], 93, y + 58, 15, '#94a59b')
+        print(c, '↗', 410, y + 49, 25, '#8b5cf6')
       })
     })
     screen(cabinet, 1.31, 1.255, 0, 1.37, 0.44, orderTex)
@@ -1056,15 +1051,15 @@ function initMachineScene(
     cabinet.add(incoming)
     box(incoming, 0.86, 0.42, 0.043, 0, 0, 0, M.light, 0.035)
     const nameTex = canvasTexture(432, 204, (c, w, h) => {
-      c.fillStyle = '#ff7a1a'
+      c.fillStyle = '#6366f1'
       c.fillRect(0, 0, w, h)
       c.fillStyle = '#2a2e26'
       c.beginPath()
       c.arc(58, 98, 32, 0, TAU)
       c.fill()
-      print(c, 'A', 42, 112, 34, '#ff7a1a', 550)
+      print(c, 'A', 42, 112, 34, '#6366f1', 550)
       print(c, 'Anna', 108, 91, 38, '#222822', 600)
-      print(c, 'New order  +', 108, 138, 23, '#5b4c22', 500)
+      print(c, 'New order  +', 108, 138, 23, '#1e1b4b', 500)
     })
     screen(incoming, 0.82, 0.39, 0, 0, 0.026, nameTex)
 
@@ -1097,7 +1092,7 @@ function initMachineScene(
       c.fillStyle = '#12231e'
       c.fillRect(0, 0, 512, 176)
       print(c, 'PAYMENT RECEIVED', 22, 44, 23, '#9cae91', 500)
-      print(c, '+ $29', 26, 131, 66, '#ecedc7', 500)
+      print(c, '+ 39,95 €', 26, 131, 66, '#ecedc7', 500)
     }
     drawCash()
     screen(cashdesk, 1.015, 0.349, -0.35, 1.98, -0.459, cashTex)
@@ -1108,16 +1103,16 @@ function initMachineScene(
     const receiptTex = canvasTexture(280, 540, (c, w, h) => {
       c.fillStyle = '#f4f1ea'
       c.fillRect(0, 0, w, h)
-      print(c, 'YOUR PRODUCT', 25, 52, 24, '#333d36', 650)
-      print(c, 'SALES RECEIPT', 32, 87, 19, '#566059')
+      print(c, 'KOJALYTICS', 25, 52, 24, '#333d36', 650)
+      print(c, 'RECEIPT', 25, 87, 19, '#566059')
       c.strokeStyle = '#8a9189'
       c.setLineDash([5, 6])
       c.beginPath()
       c.moveTo(22, 115)
       c.lineTo(258, 115)
       c.stroke()
-      print(c, 'Video', 25, 154, 22, '#333d36')
-      print(c, '1 × $29', 25, 190, 21, '#333d36')
+      print(c, 'Koja Apps', 25, 154, 22, '#333d36')
+      print(c, '1 × 39,95 €', 25, 190, 21, '#333d36')
       print(c, 'PAID', 25, 263, 31, '#333d36', 650)
       print(c, 'Thank you!', 25, 317, 24, '#687067')
       for (let i = 0; i < 44; i++) {
@@ -1140,7 +1135,7 @@ function initMachineScene(
     const rubleTex = canvasTexture(128, 128, (c, w, h) => {
       c.clearRect(0, 0, w, h)
       c.textAlign = 'center'
-      print(c, '$', 64, 95, 91, '#80561c', 650)
+      print(c, '€', 64, 95, 91, '#1e1b4b', 650)
     })
     const ruble = screen(coin, 0.28, 0.28, 0, 0, 0.04, rubleTex)
     ruble.material.transparent = true
@@ -1235,24 +1230,24 @@ function initMachineScene(
     const scriptTex = canvasTexture(256, 352, (c, w, h) => {
       c.fillStyle = '#eeeae0'
       c.fillRect(0, 0, w, h)
-      print(c, 'SCRIPT', 24, 47, 22, '#3b403a', 650)
-      print(c, '01 / Opening', 24, 85, 15, '#8b8d80')
+      print(c, 'LICENSE KEY', 24, 47, 22, '#3b403a', 650)
+      print(c, 'KOJA-7F3Q-XM2P', 24, 85, 15, '#8b8d80')
       for (let i = 0; i < 9; i++) {
-        c.fillStyle = i === 4 ? '#c57e45' : '#aeb2a5'
+        c.fillStyle = i === 4 ? '#8b5cf6' : '#aeb2a5'
         c.fillRect(24, 111 + i * 21, 190 - (i % 3) * 24, 6)
       }
-      print(c, 'DONE  ✓', 24, 327, 17, '#786124', 600)
+      print(c, 'SIGNED  ✓', 24, 327, 17, '#1e1b4b', 600)
     })
     const orderCardTex = canvasTexture(256, 352, (c, w, h) => {
-      c.fillStyle = '#c57e45'
+      c.fillStyle = '#8b5cf6'
       c.fillRect(0, 0, w, h)
       print(c, 'NEW', 21, 48, 24, '#30362d', 650)
       print(c, 'ORDER', 21, 79, 24, '#30362d', 650)
-      c.strokeStyle = '#716431'
+      c.strokeStyle = '#c7d2fe'
       c.lineWidth = 2
       c.strokeRect(23, 112, 210, 139)
       print(c, 'Anna', 42, 190, 37, '#30362d', 550)
-      print(c, 'VIDEO / 01', 23, 320, 17, '#635728')
+      print(c, 'OFFICE / 01', 23, 320, 17, '#1e1b4b')
     })
     const packetTextures = [orderCardTex, scriptTex, videoTexture, postTex, receiptTex]
     const packets: Array<{
@@ -1276,7 +1271,7 @@ function initMachineScene(
       const halo = new THREE.Mesh(
         new THREE.RingGeometry(0.4, 0.414, 40),
         new THREE.MeshBasicMaterial({
-          color: 0xff7a1a,
+          color: 0x6366f1,
           transparent: true,
           opacity: 0.8,
           side: THREE.DoubleSide,
@@ -1522,7 +1517,7 @@ function initMachineScene(
         ? '<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><rect x="2" y="1" width="2.5" height="10" rx=".5"/><rect x="7.5" y="1" width="2.5" height="10" rx=".5"/></svg>'
         : '<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M3 1l8 5-8 5z"/></svg>'
       $('status').classList.toggle('paused', !playing)
-      $('status-text').textContent = playing ? 'Machine running' : 'Machine paused'
+      $('status-text').textContent = playing ? 'Store online' : 'Store paused'
     }
     function play() {
       playing = true
@@ -1638,11 +1633,11 @@ function initMachineScene(
     const scratch = new THREE.Vector3(),
       anchor = new THREE.Vector3()
     const journeySteps = [
-      ['New order', 'Cabinet · an order from Anna'],
-      ['Writing the script', 'Engine · the idea becomes a story'],
-      ['Assembling the video', 'Admin · voice, video and subtitles'],
-      ['Publishing the product', 'Storefront · the video on your page'],
-      ['Payment received', 'Checkout · receipt printed, coin in'],
+      ['New order', 'Orders · Anna buys Microsoft Office'],
+      ['Issuing the key', 'Licenses · a genuine key is generated'],
+      ['Activating', 'Admin · key verified and registered'],
+      ['Delivering', 'Storefront · the key goes out to Anna'],
+      ['Payment received', 'Checkout · receipt sent, coin in'],
     ]
     let prevJourney = -1,
       lastFrame = performance.now(),
@@ -1930,7 +1925,7 @@ const STYLES = String.raw`
   color-scheme: dark;
   --bg: #000000;
   --white: #f4f1ea;
-  --amber: #ff7a1a;
+  --amber: #6366f1;
   --muted: #81848b;
   --line: rgba(244, 241, 234, 0.11);
 }
@@ -2003,6 +1998,11 @@ const STYLES = String.raw`
   align-items: center;
   pointer-events: none;
 }
+.agentic-factory-3d .mark-k {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+}
 .agentic-factory-3d .identity {
   display: flex;
   gap: 13px;
@@ -2011,12 +2011,12 @@ const STYLES = String.raw`
 .agentic-factory-3d .mark {
   width: 30px;
   height: 30px;
-  border: 1px solid #55502f;
+  border: 1px solid #3b3a8f;
   border-radius: 9px;
   display: grid;
   place-items: center;
   color: var(--amber);
-  background: #1c1b14;
+  background: #16162a;
 }
 .agentic-factory-3d .identity strong {
   display: block;
@@ -2045,7 +2045,7 @@ const STYLES = String.raw`
   height: 5px;
   border-radius: 50%;
   background: var(--amber);
-  box-shadow: 0 0 10px #ff7a1a60;
+  box-shadow: 0 0 10px #6366f160;
 }
 .agentic-factory-3d .status.paused i {
   background: #777;
@@ -2142,8 +2142,8 @@ const STYLES = String.raw`
 }
 .agentic-factory-3d .mode-bar button[aria-pressed='true'] {
   background: var(--amber);
-  color: #211c0d;
-  box-shadow: 0 2px 12px #ff7a1a12;
+  color: #ffffff;
+  box-shadow: 0 2px 12px #6366f112;
 }
 .agentic-factory-3d svg {
   flex-shrink: 0;
@@ -2264,13 +2264,13 @@ const STYLES = String.raw`
 .agentic-factory-3d .station-label .stem {
   height: 26px;
   width: 1px;
-  background: linear-gradient(#ff7a1a00, #ff7a1a70);
+  background: linear-gradient(#6366f100, #6366f170);
   margin: 0 0 0 10px;
 }
 .agentic-factory-3d .station-label .label-card {
   background: #14171bee;
   backdrop-filter: blur(10px);
-  border: 1px solid #ff7a1a40;
+  border: 1px solid #6366f140;
   border-radius: 6px;
   padding: 10px 13px;
   box-shadow: 0 4px 20px #0003;
@@ -2348,7 +2348,7 @@ const STYLES = String.raw`
 .agentic-factory-3d .journey-icon {
   width: 28px;
   height: 28px;
-  border: 1px solid #ff7a1a40;
+  border: 1px solid #6366f140;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -2393,7 +2393,7 @@ const STYLES = String.raw`
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  border: 1px solid #ff7a1a22;
+  border: 1px solid #6366f122;
   border-top-color: var(--amber);
   animation: agentic-factory-3d-spin 1s linear infinite;
 }
@@ -2411,7 +2411,7 @@ const STYLES = String.raw`
   left: 27.5%;
   right: 27.5%;
   top: 40%;
-  border: 1px solid #ff7a1a30;
+  border: 1px solid #6366f130;
   background: #191b1f;
   padding: 24px;
   border-radius: 12px;
