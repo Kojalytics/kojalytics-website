@@ -16,9 +16,11 @@
     "jszip": "^3.10.1",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",
+    "postal-mime": "^2.7.6",
     "qrcode.react": "^4.2.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "resend": "^6.34.1",
     "stripe": "^22.0.0"
   },
   "devDependencies": {
