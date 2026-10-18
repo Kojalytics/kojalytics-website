@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import MachineShowcase from "@/components/MachineShowcase";
 import Services from "@/components/Services";
 import Work from "@/components/Work";
 import About from "@/components/About";
@@ -11,6 +12,7 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
+        <MachineShowcase />
         <div className="section-divider" />
         <Services />
         <div className="section-divider" />

@@ -209,7 +209,7 @@ export default function AgenticFactory3D({
             <rect x="2" y="1" width="9" height="14" rx="4.5" stroke="currentColor" />
             <path d="M6.5 4v3" stroke="currentColor" strokeLinecap="round" />
           </svg>
-          Rotate. Zoom. Explore.
+          Drag to rotate. Click, then scroll to zoom.
         </span>
       </footer>
       <div id="loading">
@@ -336,6 +336,12 @@ function initMachineScene(
     if (embedded) {
       controls.enableZoom = false
       if (matchMedia('(pointer:coarse)').matches) controls.enableRotate = false
+    } else {
+      // Inside a scrolling page: the wheel zooms only after a click into the scene,
+      // and scrolls the page again once the pointer leaves it.
+      controls.enableZoom = false
+      listen(renderer.domElement, 'pointerdown', () => (controls.enableZoom = true))
+      listen(renderer.domElement, 'pointerleave', () => (controls.enableZoom = false))
     }
     const pmrem = new THREE.PMREMGenerator(renderer),
       room = new RoomEnvironment()
