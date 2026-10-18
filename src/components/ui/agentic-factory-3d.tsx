@@ -34,6 +34,12 @@ export type AgenticFactory3DProps = {
   className?: string
   /** Clean hero mode: no panels, the machine on the right of a wide frame. */
   embed?: boolean
+  /**
+   * Landing hero with full controls: the machine on the right of a wide frame (lower on phones)
+   * leaves room for a headline, the scene's own top bar is hidden, and on touch screens the
+   * finger scrolls the page while the buttons still switch modes and cameras.
+   */
+  hero?: boolean
   /** A station was clicked: 'engine' | 'admin' | 'storefront' | 'cabinet' | 'cashdesk'. */
   onStation?: (id: StationId) => void
   /** The first real frame is drawn. */
@@ -44,6 +50,7 @@ export default function AgenticFactory3D({
   height = '100vh',
   className,
   embed = false,
+  hero = false,
   onStation,
   onReady,
 }: AgenticFactory3DProps) {
@@ -63,6 +70,7 @@ export default function AgenticFactory3D({
       if (cancelled) return
       dispose = initMachineScene(root, getComputedStyle(root).fontFamily, {
         embedded: embed,
+        hero,
         onStation: (id) => handlers.current.onStation?.(id),
         onReady: () => handlers.current.onReady?.(),
       })
@@ -71,12 +79,14 @@ export default function AgenticFactory3D({
       cancelled = true
       dispose?.()
     }
-  }, [embed])
+  }, [embed, hero])
 
   return (
     <div
       ref={rootRef}
-      className={['agentic-factory-3d', embed && 'embed', className].filter(Boolean).join(' ')}
+      className={['agentic-factory-3d', embed && 'embed', hero && 'hero', className]
+        .filter(Boolean)
+        .join(' ')}
       style={{ height }}
     >
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
@@ -251,6 +261,8 @@ declare global {
 export type MachineSceneOptions = {
   /** Clean hero: panels hidden, wheel and touch scroll the page. */
   embedded: boolean
+  /** Landing hero: machine framed beside the headline, full controls. */
+  hero?: boolean
   onStation?: (id: StationId) => void
   onReady?: () => void
 }
@@ -287,6 +299,9 @@ function initMachineScene(
   try {
     const TAU = Math.PI * 2
     const embedded = options.embedded
+    const hero = !embedded && !!options.hero
+    // Both leave the left of a wide frame to the host page's headline.
+    const shifted = embedded || hero
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
     const palette = { amber: 0x6366f1, white: 0xf4f1ea, dark: 0x171b21, steel: 0x59616b }
     const scene = new THREE.Scene()
@@ -334,6 +349,13 @@ function initMachineScene(
       controls.enableZoom = false
       listen(renderer.domElement, 'pointerdown', () => (controls.enableZoom = true))
       listen(renderer.domElement, 'pointerleave', () => (controls.enableZoom = false))
+      // A full-screen hero on a phone must not trap the page: the finger scrolls, the buttons explore.
+      if (hero && matchMedia('(pointer:coarse)').matches) {
+        controls.enableRotate = false
+        renderer.domElement.style.touchAction = 'pan-y'
+        const hint = root.querySelector('.hint')?.lastChild
+        if (hint) hint.textContent = 'Tap a view or station to explore.'
+      }
     }
     const pmrem = new THREE.PMREMGenerator(renderer),
       room = new RoomEnvironment()
@@ -1395,11 +1417,12 @@ function initMachineScene(
       // Embedded in a wide landing hero, a shifted frustum centers the object in the right 58%
       // (the host page's headline goes on the left), without moving the orbit target. The full
       // page and narrow frames keep the machine in the middle.
+      // The hero on a phone puts the machine in the lower part, under the headline.
       camera.setViewOffset(
         width,
         height,
-        mobile || !embedded ? 0 : -width * 0.21,
-        mobile || embedded ? 0 : height * 0.025,
+        mobile || !shifted ? 0 : -width * 0.21,
+        hero ? (mobile ? -height * 0.2 : 0) : mobile || embedded ? 0 : height * 0.025,
         width,
         height
       )
@@ -1408,10 +1431,10 @@ function initMachineScene(
       const horizontalFit =
         17.3 / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * aspect * availableWidth)
       const verticalFit =
-        11.5 / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * (embedded ? 0.85 : 0.62))
+        11.5 / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * (shifted ? 0.85 : 0.62))
       baseDistance =
         (Math.max(horizontalFit, verticalFit) * (mobile ? 0.97 : 1)) /
-        (embedded ? (mobile ? 1.15 : 1.45) : 1)
+        (embedded ? (mobile ? 1.15 : 1.45) : hero ? (mobile ? 1.05 : 1.3) : 1)
       controls.maxDistance = Math.max(55, baseDistance * 1.6)
       camera.updateProjectionMatrix()
       setCameraGoal()
@@ -1818,7 +1841,7 @@ function initMachineScene(
         // Embedded in a wide hero the callouts stay out of the headline side (the left 42.5%).
         x = THREE.MathUtils.clamp(
           x,
-          mobile || !embedded ? 9 : width * 0.425,
+          mobile || !shifted ? 9 : width * 0.425,
           width - (mobile ? 123 : 165)
         )
         y = THREE.MathUtils.clamp(y, 130, height - 200)
@@ -2451,9 +2474,35 @@ const STYLES = String.raw`
 .agentic-factory-3d.embed .wordmark {
   opacity: 0.65;
 }
+.agentic-factory-3d.hero .topbar,
+.agentic-factory-3d.hero .scene-heading {
+  display: none;
+}
+.agentic-factory-3d.hero .vignette {
+  background: radial-gradient(
+    ellipse at 71% 48%,
+    transparent 30%,
+    rgba(0, 0, 0, 0.1) 65%,
+    rgba(0, 0, 0, 0.6)
+  );
+}
+@media (pointer: coarse) {
+.agentic-factory-3d.hero #scene {
+    touch-action: pan-y;
+  }
+}
 @media (min-width: 901px) {
-.agentic-factory-3d.embed #loading {
+.agentic-factory-3d.embed #loading,
+.agentic-factory-3d.hero #loading {
     left: 71%;
+  }
+.agentic-factory-3d.hero .controls {
+    left: 42%;
+  }
+.agentic-factory-3d.hero #journey {
+    left: 50%;
+    right: 6%;
+    top: 120px;
   }
 .agentic-factory-3d.embed #error {
     left: 48%;
@@ -2600,8 +2649,16 @@ const STYLES = String.raw`
 .agentic-factory-3d .station-label .stem {
     height: 17px;
   }
-.agentic-factory-3d.embed .vignette {
+.agentic-factory-3d.embed .vignette,
+.agentic-factory-3d.hero .vignette {
     background: radial-gradient(ellipse at center, transparent 30%, #00000060 100%);
+  }
+.agentic-factory-3d.hero #loading {
+    top: 66%;
+  }
+.agentic-factory-3d.hero #journey {
+    top: auto;
+    bottom: 200px;
   }
 }
 @media (max-width: 360px) {

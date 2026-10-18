@@ -23,6 +23,9 @@
   --pp-radius-sm: 10px;
   --pp-radius-lg: 24px;
   --pp-gold: #FFD700;
+  /* The site-wide typeface (see globals.css) */
+  --font-pp-sans: var(--font-system-sans);
+  --font-pp-heading: var(--font-system-sans);
 }
 
 /* Smooth scroll for anchor links */

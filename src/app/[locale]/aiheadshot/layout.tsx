@@ -1,22 +1,7 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Space_Grotesk } from 'next/font/google';
 import { locales, seoKeywords, type Locale } from '@/i18n/config';
 import { getTranslations } from '@/i18n/get-translations';
 import './aiheadshot.css';
-
-const dmSans = DM_Sans({
-  variable: '--font-pp-sans',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: '--font-pp-heading',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['500', '600', '700'],
-});
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -126,7 +111,7 @@ export default async function AIHeadshotLayout({
   };
 
   return (
-    <div className={`${dmSans.variable} ${spaceGrotesk.variable} pp-page`}>
+    <div className="pp-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

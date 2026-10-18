@@ -27,7 +27,7 @@
 }
 
 .koja-eyebrow {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-system-mono);
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -203,7 +203,7 @@
   border-radius: 16px;
   border: 1px solid rgba(129, 140, 248, 0.45);
   background: var(--k-surface);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-system-mono);
   font-size: clamp(16px, 4vw, 24px);
   letter-spacing: 0.06em;
   user-select: all;
