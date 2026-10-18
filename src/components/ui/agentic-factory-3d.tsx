@@ -202,9 +202,6 @@ export default function AgenticFactory3D({
         </nav>
       </div>
       <footer className="footer">
-        <a className="wordmark" href="https://vibecoding.tech" target="_blank" rel="noopener">
-          made with AI agents · <span>vibecoding.tech</span>
-        </a>
         <span className="footer-center debug-ui">BUILT BY KOJALYTICS</span>
         <span className="hint debug-ui">
           <svg width="13" height="16" viewBox="0 0 13 16" fill="none">
@@ -2229,19 +2226,9 @@ const STYLES = String.raw`
   right: 32px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 12px;
   pointer-events: none;
-}
-.agentic-factory-3d .wordmark {
-  font-size: 11px;
-  letter-spacing: -0.1px;
-  color: #6d7178;
-  text-decoration: none;
-  pointer-events: auto;
-}
-.agentic-factory-3d .wordmark span {
-  color: #a1a49f;
 }
 .agentic-factory-3d .hint {
   display: flex;
@@ -2467,12 +2454,6 @@ const STYLES = String.raw`
     rgba(0, 0, 0, 0.1) 65%,
     rgba(0, 0, 0, 0.55)
   );
-}
-.agentic-factory-3d.embed .footer {
-  justify-content: flex-end;
-}
-.agentic-factory-3d.embed .wordmark {
-  opacity: 0.65;
 }
 .agentic-factory-3d.hero .topbar,
 .agentic-factory-3d.hero .scene-heading {
