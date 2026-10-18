@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
 import { GoogleTag } from "@/components/GoogleTag";
 import { MicrosoftClarity } from "@/components/MicrosoftClarity";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Kojalytics — Software That Moves",
@@ -41,7 +28,7 @@ export default function RootLayout({
         <GoogleTag />
         <MicrosoftClarity />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body className="antialiased">
         <div className="aurora-bg" />
         <div className="grid-pattern" />
         <div className="relative z-10">{children}</div>
