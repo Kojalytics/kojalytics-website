@@ -209,6 +209,12 @@
   user-select: all;
 }
 
+.koja-download {
+  display: inline-block;
+  margin-top: 28px;
+  text-decoration: none;
+}
+
 .koja-steps {
   text-align: left;
   color: var(--k-muted);

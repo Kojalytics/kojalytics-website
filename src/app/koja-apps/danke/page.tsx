@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 import Link from "next/link";
-import { issueLicenseForSession, LICENSE_DEVICES } from "@/lib/license-sales";
+import { issueLicenseForSession, LAUNCHER_DOWNLOAD_URL, LICENSE_DEVICES } from "@/lib/license-sales";
 import "../koja-apps.css";
 
 export const dynamic = "force-dynamic";
@@ -37,10 +37,14 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
                 ? `Wir haben ihn auch an ${license.email} geschickt.`
                 : "Bitte kopiere ihn jetzt und bewahre ihn gut auf."}
             </p>
+            <a className="koja-buy koja-download" href={LAUNCHER_DOWNLOAD_URL}>
+              Kojalytics Launcher laden · macOS
+            </a>
             <ol className="koja-steps">
-              <li>Öffne den Kojalytics Launcher.</li>
-              <li>Gehe zu Einstellungen › Lizenz.</li>
+              <li>Öffne die Datei und ziehe den Launcher in den Programme-Ordner.</li>
+              <li>Starte den Launcher und gehe zu Einstellungen › Lizenz.</li>
               <li>Füge den Schlüssel ein und klicke auf „Aktivieren“.</li>
+              <li>Installiere WordKoja, GridKoja und DeckKoja direkt im Launcher.</li>
             </ol>
             <p className="koja-fine">Gilt lebenslang für alle Koja-Apps auf bis zu {LICENSE_DEVICES} Geräten.</p>
           </>

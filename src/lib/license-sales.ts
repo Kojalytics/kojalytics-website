@@ -6,6 +6,8 @@ export const LICENSE_PRODUCT = 'koja_license';
 export const LICENSE_PRICE_CENTS = 3995;
 export const LICENSE_PRICE_LABEL = '39,95 €';
 export const LICENSE_DEVICES = 3;
+export const LAUNCHER_DOWNLOAD_URL =
+  'https://github.com/Kojalytics/craft-launcher/releases/latest/download/Kojalytics-Launcher.dmg';
 
 const admin = () => createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
 
@@ -83,9 +85,11 @@ async function sendLicenseEmail(to: string, key: string) {
     `Dein Kojalytics-Lizenzschlüssel: ${key}`,
     '',
     'So aktivierst du ihn:',
-    '1. Öffne den Kojalytics Launcher.',
-    '2. Gehe zu Einstellungen › Lizenz.',
-    '3. Füge den Schlüssel ein und klicke auf „Aktivieren“.',
+    `1. Lade den Kojalytics Launcher für den Mac herunter: ${LAUNCHER_DOWNLOAD_URL}`,
+    '2. Öffne die Datei und ziehe den Launcher in den Programme-Ordner.',
+    '3. Starte den Launcher und gehe zu Einstellungen › Lizenz.',
+    '4. Füge den Schlüssel ein und klicke auf „Aktivieren“.',
+    '5. Installiere WordKoja, GridKoja und DeckKoja direkt im Launcher.',
     '',
     `Der Schlüssel gilt lebenslang für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten.`,
     'Bewahre diese E-Mail gut auf.',
