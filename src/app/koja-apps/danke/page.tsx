@@ -44,7 +44,7 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
               <li>Öffne die Datei und ziehe den Launcher in den Programme-Ordner.</li>
               <li>Starte den Launcher und gehe zu Einstellungen › Lizenz.</li>
               <li>Füge den Schlüssel ein und klicke auf „Aktivieren“.</li>
-              <li>Installiere WordKoja, GridKoja und DeckKoja direkt im Launcher.</li>
+              <li>Installiere deine Koja-Apps direkt im Launcher.</li>
             </ol>
             <p className="koja-fine">Gilt lebenslang für alle Koja-Apps auf bis zu {LICENSE_DEVICES} Geräten.</p>
           </>

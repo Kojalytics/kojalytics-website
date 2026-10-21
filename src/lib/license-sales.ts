@@ -89,7 +89,7 @@ async function sendLicenseEmail(to: string, key: string) {
     '2. Öffne die Datei und ziehe den Launcher in den Programme-Ordner.',
     '3. Starte den Launcher und gehe zu Einstellungen › Lizenz.',
     '4. Füge den Schlüssel ein und klicke auf „Aktivieren“.',
-    '5. Installiere WordKoja, GridKoja und DeckKoja direkt im Launcher.',
+    '5. Installiere deine Koja-Apps direkt im Launcher.',
     '',
     `Der Schlüssel gilt lebenslang für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten.`,
     'Bewahre diese E-Mail gut auf.',
