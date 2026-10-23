@@ -1,17 +1,33 @@
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { decryptKey, encryptKey, generateKey, hashKey, normalizeKey } from '@/lib/license';
+import { LAUNCHER_DOWNLOAD_URL } from '@/lib/pricing';
 
+export { LAUNCHER_DOWNLOAD_URL };
 export const LICENSE_PRODUCT = 'koja_license';
-export const LICENSE_PRICE_CENTS = 3995;
-export const LICENSE_PRICE_LABEL = '39,95 €';
 export const LICENSE_DEVICES = 3;
-export const LAUNCHER_DOWNLOAD_URL =
-  'https://github.com/Kojalytics/craft-launcher/releases/latest/download/Kojalytics-Launcher.dmg';
 
 const admin = () => createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
 
-export type IssuedLicense = { key: string; email: string | null };
+export type IssuedLicense = { key: string; email: string | null; subscription: boolean };
+
+/**
+ * A cancelled subscription ends: the key bought with its first checkout stops activating.
+ * Returns how many keys were revoked.
+ */
+export async function revokeLicenseForSubscription(stripe: Stripe, subscriptionId: string): Promise<number> {
+  const sessions = await stripe.checkout.sessions.list({ subscription: subscriptionId, limit: 5 });
+  const ids = sessions.data.filter((s) => s.metadata?.product === LICENSE_PRODUCT).map((s) => s.id);
+  if (!ids.length) return 0;
+  const { data, error } = await admin()
+    .from('koja_licenses')
+    .update({ revoked_at: new Date().toISOString() })
+    .in('stripe_session_id', ids)
+    .is('revoked_at', null)
+    .select('id');
+  if (error) throw error;
+  return data?.length ?? 0;
+}
 
 /**
  * The license bought in `session`: created on first call (webhook or success page, whichever
@@ -56,7 +72,7 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
     }
   }
 
-  const issued = { key: decryptKey(row.key_encrypted, secret), email: row.email };
+  const issued = { key: decryptKey(row.key_encrypted, secret), email: row.email, subscription: session.mode === 'subscription' };
   if (!row.emailed_at && issued.email && process.env.RESEND_API_KEY) {
     // Claim the email first so a parallel call doesn't send it twice.
     const claimed = await db
@@ -67,7 +83,7 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
       .select('id');
     if (claimed.data?.length) {
       try {
-        await sendLicenseEmail(issued.email, issued.key);
+        await sendLicenseEmail(issued.email, issued.key, issued.subscription);
       } catch (e) {
         console.error('License email failed', e);
         await db.from('koja_licenses').update({ emailed_at: null }).eq('stripe_session_id', session.id);
@@ -77,30 +93,36 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
   return issued;
 }
 
-async function sendLicenseEmail(to: string, key: string) {
-  const from = process.env.LICENSE_EMAIL_FROM || 'Kojalytics <license@kojalytics.com>';
+async function sendLicenseEmail(to: string, key: string, subscription: boolean) {
   const text = [
-    'Danke für deinen Kauf!',
+    'Thanks for your purchase!',
     '',
-    `Dein Kojalytics-Lizenzschlüssel: ${key}`,
+    `Your Kojalytics license key: ${key}`,
     '',
-    'So aktivierst du ihn:',
-    `1. Lade den Kojalytics Launcher für den Mac herunter: ${LAUNCHER_DOWNLOAD_URL}`,
-    '2. Öffne die Datei und ziehe den Launcher in den Programme-Ordner.',
-    '3. Starte den Launcher und gehe zu Einstellungen › Lizenz.',
-    '4. Füge den Schlüssel ein und klicke auf „Aktivieren“.',
-    '5. Installiere deine Koja-Apps direkt im Launcher.',
+    'How to activate it:',
+    `1. Download the Kojalytics Launcher for Mac: ${LAUNCHER_DOWNLOAD_URL}`,
+    '2. Open the file and drag the Launcher into your Applications folder.',
+    '3. Start the Launcher and go to Settings › License.',
+    '4. Paste the key and click "Activate".',
+    '5. Install your Koja apps right in the Launcher.',
     '',
-    `Der Schlüssel gilt lebenslang für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten.`,
-    'Bewahre diese E-Mail gut auf.',
+    subscription
+      ? `Your monthly plan covers all Koja apps on up to ${LICENSE_DEVICES} Macs. Cancel any time in one click: https://www.kojalytics.com/cancel`
+      : `Your lifetime license covers all Koja apps on up to ${LICENSE_DEVICES} Macs.`,
+    'Please keep this email.',
     '',
-    'Fragen? Antworte einfach auf diese E-Mail.',
+    'Questions? Just reply to this email.',
     'Kojalytics · https://www.kojalytics.com',
   ].join('\n');
+  await sendEmail(to, 'Your Kojalytics license key', text);
+}
+
+export async function sendEmail(to: string, subject: string, text: string) {
+  const from = process.env.LICENSE_EMAIL_FROM || 'Kojalytics <license@kojalytics.com>';
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from, to, subject: 'Dein Kojalytics-Lizenzschlüssel', text }),
+    body: JSON.stringify({ from, to, subject, text }),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
 }

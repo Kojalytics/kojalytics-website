@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung — Kojalytics",
+  title: "Datenschutzerklärung",
   description: "Datenschutzerklärung für AI Headshot und die Dienste von Kojalytics.",
 };
 

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
-import { LICENSE_PRODUCT, issueLicenseForSession } from '@/lib/license-sales';
+import { LICENSE_PRODUCT, issueLicenseForSession, revokeLicenseForSubscription } from '@/lib/license-sales';
 
 export const maxDuration = 30;
 
@@ -30,6 +30,20 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     console.error('Webhook signature verification failed:', err);
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
+  }
+
+  // A Koja subscription ended (cancelled at period end, or unpaid): its key stops working.
+  if (event.type === 'customer.subscription.deleted') {
+    const subscription = event.data.object as Stripe.Subscription;
+    if (subscription.metadata?.product === LICENSE_PRODUCT) {
+      try {
+        await revokeLicenseForSubscription(stripe, subscription.id);
+      } catch (err) {
+        console.error('Webhook: failed to revoke license', err);
+        return NextResponse.json({ error: 'License error' }, { status: 500 });
+      }
+    }
+    return NextResponse.json({ received: true });
   }
 
   if (event.type === 'checkout.session.completed') {

@@ -15,42 +15,36 @@ const privacySlugs: Record<string, string> = {
 
 const nextConfig: NextConfig = {
   async redirects() {
+    // Exact paths come before the :path* rules: the first match wins, so nothing redirects twice.
     return [
-      // ---- Legacy /portraitpro → /aiheadshot ----
+      // ---- Relaunch 2026-10: Koja apps live under /software ----
+      { source: '/koja-apps', destination: '/software', permanent: true },
+      { source: '/koja-apps/danke', destination: '/software/thanks', permanent: true },
+
+      // ---- AI Headshot is a case study now. The web app (/:locale/aiheadshot/app) and the
+      //      privacy pages linked from the App Store stay where they are. ----
+      { source: '/aiheadshot', destination: '/work/ai-headshot', permanent: true },
+      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/aiheadshot', destination: '/work/ai-headshot', permanent: true },
+
+      // ---- Legacy /portraitpro ----
       {
         source: '/portraitpro/privacy',
         destination: '/en/aiheadshot/privacypolicy',
         permanent: true,
       },
-      {
-        source: '/portraitpro',
-        destination: '/aiheadshot',
-        permanent: true,
-      },
+      { source: '/portraitpro', destination: '/work/ai-headshot', permanent: true },
+      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/portraitpro', destination: '/work/ai-headshot', permanent: true },
       {
         source: '/:locale(de|en|es|fr|it|da|nl|sv)/portraitpro/:path*',
         destination: '/:locale/aiheadshot/:path*',
         permanent: true,
       },
-      {
-        source: '/:locale(de|en|es|fr|it|da|nl|sv)/portraitpro',
-        destination: '/:locale/aiheadshot',
-        permanent: true,
-      },
-      // ---- Legacy /ai-headshot → /aiheadshot (dash-less) ----
-      {
-        source: '/ai-headshot',
-        destination: '/aiheadshot',
-        permanent: true,
-      },
+      // ---- Legacy /ai-headshot (with dash) ----
+      { source: '/ai-headshot', destination: '/work/ai-headshot', permanent: true },
+      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/ai-headshot', destination: '/work/ai-headshot', permanent: true },
       {
         source: '/:locale(de|en|es|fr|it|da|nl|sv)/ai-headshot/:path*',
         destination: '/:locale/aiheadshot/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:locale(de|en|es|fr|it|da|nl|sv)/ai-headshot',
-        destination: '/:locale/aiheadshot',
         permanent: true,
       },
     ];
