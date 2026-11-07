@@ -4,17 +4,17 @@
     {
       "label": "Preis pro Monat",
       "values": [
-        "2,99 € für alle 13 Apps, auf bis zu 3 Macs",
-        "77,99 € im Jahres-Abo mit monatlicher Abrechnung, 116,99 € im flexiblen Monats-Abo",
-        "10,00 € für 1 Person, auf bis zu 5 Geräten gleichzeitig"
+        "2,99 € für alle 13 Apps, auf bis zu 3 Macs",
+        "77,99 € im Jahres-Abo mit monatlicher Abrechnung, 116,99 € im flexiblen Monats-Abo",
+        "10 € für 1 Person, auf bis zu 5 Geräten gleichzeitig"
       ]
     },
     {
       "label": "Kosten im ersten Jahr",
       "values": [
-        "35,88 € (12 × 2,99 €) oder einmalig 79 € für eine dauerhafte Lizenz",
-        "935,88 € (12 × 77,99 €) oder 905,92 € bei Zahlung im Voraus",
-        "99,00 € bei jährlicher Zahlung oder 120,00 € (12 × 10,00 €)"
+        "35,88 € (12 × 2,99 €) oder einmalig 79 € für eine dauerhafte Lizenz",
+        "935,88 € (12 × 77,99 €) oder 905,92 € bei Zahlung im Voraus",
+        "99 € bei jährlicher Zahlung oder 120 € (12 × 10 €)"
       ]
     },
     {
@@ -28,8 +28,8 @@
     {
       "label": "Kündigung",
       "values": [
-        "Jederzeit mit einem Klick auf kojalytics.com/kuendigen, ohne Gebühr. Die Lizenz für 79 € ist kein Abo.",
-        "Kündigst du das Jahres-Abo mit monatlicher Abrechnung nach den ersten 14 Tagen, zahlst du einmalig 50 % des restlichen Vertragswerts. Das Monats-Abo ist ohne Gebühr kündbar. Jahres-Abos verlängern sich automatisch.",
+        "Jederzeit online kündbar auf kojalytics.com/kuendigen, ohne Gebühr. Die Lizenz für 79 € ist kein Abo.",
+        "Kündigst du das Jahres-Abo mit monatlicher Abrechnung nach den ersten 14 Tagen, zahlst du einmalig 50 % des restlichen Vertragswerts. Das Monats-Abo ist ohne Gebühr kündbar. Jahres-Abos verlängern sich automatisch, für Verbraucher in Deutschland nach dem ersten Jahr aber nur mit höchstens einem Monat Kündigungsfrist (§ 309 Nr. 9 BGB).",
         "Das Abo verlängert sich automatisch zum normalen Preis, wenn du nicht kündigst."
       ]
     },

@@ -1,6 +1,7 @@
 import Stripe from "stripe";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import DownloadButton from "@/components/software/DownloadButton";
@@ -16,7 +17,11 @@ async function purchaseFor(sessionId: string | undefined) {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     const session = await stripe.checkout.sessions.retrieve(sessionId);
     const license = await issueLicenseForSession(session);
-    return license ? { license, amount: (session.amount_total ?? 0) / 100 } : null;
+    if (!license) return null;
+    // A non-secret order id for the ad reports (never the session id, which unlocks this page).
+    const ref = license.subscription ? session.subscription : session.payment_intent;
+    const orderId = typeof ref === "string" ? ref : (ref?.id ?? license.key.slice(0, 8));
+    return { license, orderId, amount: (session.amount_total ?? 0) / 100 };
   } catch (e) {
     console.error("Success page: license lookup failed", e);
     return null;
@@ -31,19 +36,20 @@ const steps = [
 ];
 
 export default async function ThanksPage({ searchParams }: { searchParams: Promise<{ session_id?: string }> }) {
-  const { session_id } = await searchParams;
+  // Set by /software/danke/start; the query parameter only covers links from before that route existed.
+  const session_id = (await cookies()).get("kj_session")?.value ?? (await searchParams).session_id;
   const purchase = await purchaseFor(session_id);
 
   return (
     <>
       <Navigation />
       <main className="mx-auto max-w-3xl px-5 pb-24 pt-28 md:pt-36">
-        {purchase && session_id ? (
+        {purchase ? (
           <>
-            <TrackPurchase sessionId={session_id} value={purchase.amount} subscription={purchase.license.subscription} />
+            <TrackPurchase orderId={purchase.orderId} value={purchase.amount} subscription={purchase.license.subscription} />
             <p className="eyebrow text-success">Zahlung erfolgreich</p>
             <h1 className="display mt-3 text-5xl sm:text-6xl">Danke! Hier ist dein Schlüssel.</h1>
-            <div className="mt-8 select-all break-all rounded-[16px] border border-border bg-surface p-5 font-mono text-lg tracking-wider">
+            <div data-clarity-mask="true" className="mt-8 select-all break-all rounded-[16px] border border-border bg-surface p-5 font-mono text-lg tracking-wider">
               {purchase.license.key}
             </div>
             <p className="mt-3 text-sm text-muted">
@@ -62,7 +68,7 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
             </ol>
             <p className="mt-8 text-sm leading-relaxed text-muted">
               {purchase.license.subscription
-                ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit mit einem Klick unter `
+                ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit online unter `
                 : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs.`}
               {purchase.license.subscription && (
                 <Link href="/kuendigen" className="text-foreground underline underline-offset-2">

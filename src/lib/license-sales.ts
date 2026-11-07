@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { decryptKey, encryptKey, generateKey, hashKey, normalizeKey } from '@/lib/license';
-import { LAUNCHER_DOWNLOAD_URL } from '@/lib/pricing';
+import { DOWNLOAD_PATH, LAUNCHER_DOWNLOAD_URL, PLANS } from '@/lib/pricing';
 
 export { LAUNCHER_DOWNLOAD_URL };
 export const LICENSE_PRODUCT = 'koja_license';
@@ -100,15 +100,30 @@ async function sendLicenseEmail(to: string, key: string, subscription: boolean) 
     `Dein Kojalytics-Lizenzschlüssel: ${key}`,
     '',
     'So aktivierst du ihn:',
-    `1. Lade den Kojalytics Launcher für den Mac: ${LAUNCHER_DOWNLOAD_URL}`,
+    `1. Lade den Kojalytics Launcher für den Mac: https://www.kojalytics.com${DOWNLOAD_PATH}`,
     '2. Öffne die Datei und ziehe den Launcher in den Ordner „Programme“.',
     '3. Starte den Launcher und gehe zu Einstellungen › Lizenz.',
     '4. Füge den Schlüssel ein und klicke auf „Aktivieren“.',
     '5. Installiere deine Koja-Apps direkt im Launcher.',
     '',
     subscription
-      ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit mit einem Klick: https://www.kojalytics.com/kuendigen`
+      ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit online: https://www.kojalytics.com/kuendigen`
       : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs.`,
+    '',
+    // Contract confirmation (§ 312f BGB), including the declarations given before the purchase.
+    'Deine Bestellung',
+    subscription
+      ? `Koja-Apps · Monatlich: alle 13 Koja-Apps für den Mac, ${PLANS.monthly.label} pro Monat inkl. MwSt., monatlich kündbar.`
+      : `Koja-Apps · Dauerhaft: alle 13 Koja-Apps für den Mac, einmalig ${PLANS.lifetime.label} inkl. MwSt., ohne Ablaufdatum.`,
+    '',
+    'Vor dem Kauf hast du',
+    '- ausdrücklich verlangt, dass wir vor Ablauf der Widerrufsfrist mit der Ausführung des Vertrags beginnen und dir den Lizenzschlüssel sofort liefern, und bestätigt, dass du dadurch dein Widerrufsrecht verlierst,',
+    '- zugestimmt, dass die Koja-Apps frühe Versionen (Alpha, teils Pre-Alpha) sind, bei denen einzelne Funktionen fehlen und Fehler auftreten können.',
+    '',
+    'Es gelten unsere AGB mit Widerrufsbelehrung: https://www.kojalytics.com/agb',
+    'Widerruf erklären: https://www.kojalytics.com/widerrufen',
+    'Anbieter: Kojalytics, Farzad Khojazada, Am Diggen 40i, 21077 Hamburg, support@kojalytics.com',
+    '',
     'Bitte bewahre diese E-Mail gut auf.',
     '',
     'Fragen? Antworte einfach auf diese E-Mail.',

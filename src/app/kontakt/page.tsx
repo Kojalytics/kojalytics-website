@@ -22,7 +22,7 @@ export default function ContactPage() {
                 <Mail size={22} className="mt-0.5 shrink-0" aria-hidden />
                 <div>
                   <h2 className="font-semibold">E-Mail</h2>
-                  <p className="mt-1 select-all text-muted">support@kojalytics.com</p>
+                  <a href="mailto:support@kojalytics.com" className="mt-1 block text-muted underline-offset-4 hover:text-foreground hover:underline">support@kojalytics.com</a>
                 </div>
               </div>
               <div className="flex items-start gap-4 rounded-[22px] bg-surface p-6">

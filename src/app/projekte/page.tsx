@@ -4,13 +4,13 @@ import Footer from "@/components/Footer";
 import ProjectCard from "@/components/studio/ProjectCard";
 import ContactCta from "@/components/studio/ContactCta";
 import { PROJECTS } from "@/lib/studio";
-import { DEFAULT_OG_IMAGE } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, OG_BASE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projekte: Apps, die wir gebaut haben",
   description: "Apps, die wir entworfen, entwickelt und veröffentlicht haben: die Koja-Apps für den Mac, AI Headshot für iOS und Web sowie Etsy Sync für Shopify.",
   alternates: { canonical: "/projekte" },
-  openGraph: { url: "/projekte", images: [DEFAULT_OG_IMAGE] },
+  openGraph: { ...OG_BASE, url: "/projekte", images: [DEFAULT_OG_IMAGE] },
 };
 
 export default function WorkPage() {

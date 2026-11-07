@@ -8,7 +8,7 @@
   "updated": "2026-11-07",
   "readingMinutes": 13,
   "intro": [
-    "Lightroom gibt es nur noch im Abo: Adobe verkauft keine Kaufversion mehr, Lightroom 6 wurde eingestellt. Eine Lightroom-Alternative ohne Abo findest du am Mac trotzdem: **darktable** ist kostenlos und Open Source, **Apple Fotos** ist schon installiert, und **Affinity** ist für Einzelpersonen kostenlos. Zum Festpreis bekommst du unter anderem **Pixelmator Pro** für 59,99 €, **DxO PhotoLab 10 Elite** für 249,99 € und **Capture One Pro** als Lizenz für 391,00 €.",
+    "Lightroom gibt es nur noch im Abo: Adobe verkauft keine Kaufversion mehr, Lightroom 6 wurde eingestellt. Eine Lightroom-Alternative ohne Abo findest du am Mac trotzdem: **darktable** ist kostenlos und Open Source, **Apple Fotos** ist schon installiert, und **Affinity** ist für Einzelpersonen kostenlos. Zum Festpreis bekommst du unter anderem **Pixelmator Pro** für 59,99 €, **DxO PhotoLab 10 Elite** für 249,99 € und **Capture One Pro** als Lizenz für 391 €.",
     "In diesem Ratgeber erfährst du, was mit deinem Lightroom-Katalog nach der Kündigung passiert, worauf es bei der Wahl ankommt und wie du ohne Datenverlust umziehst. Dazu gibt es eine Vergleichstabelle und Empfehlungen je nach Fotografen-Typ. Auch unsere eigene App LightKoja kommt vor, mit einem klaren Hinweis: Sie ist noch in früher Entwicklung."
   ],
   "sections": [
@@ -27,13 +27,13 @@
         {
           "type": "ul",
           "items": [
-            "**Lightroom mit 1 TB Cloud-Speicher:** 14,49 € pro Monat im Jahresabo mit monatlicher Zahlung, 141,94 € pro Jahr bei Vorauszahlung oder 19,99 € im flexiblen Monats-Abo.",
-            "**Fotografie-Abo** mit Lightroom, Lightroom Classic, Photoshop und 1 TB Cloud-Speicher: 23,79 € pro Monat im Jahresabo mit monatlicher Zahlung."
+            "**Lightroom mit 1 TB Cloud-Speicher:** 14,49 € pro Monat im Jahresabo mit monatlicher Zahlung, 141,94 € pro Jahr bei Vorauszahlung oder 19,99 € im flexiblen Monats-Abo.",
+            "**Fotografie-Abo** mit Lightroom, Lightroom Classic, Photoshop und 1 TB Cloud-Speicher: 23,79 € pro Monat im Jahresabo mit monatlicher Zahlung."
           ]
         },
         {
           "type": "p",
-          "text": "Bei den Jahresabos lohnt ein Blick in die Bedingungen. Laut Adobe verlängern sie sich automatisch um ein weiteres Jahr, wenn du nicht kündigst. Kündigst du ein Jahresabo mit monatlicher Abrechnung nach den ersten 14 Tagen, berechnet Adobe einmalig 50 % des restlichen Vertragswerts. Grob gerechnet: Wer Lightroom für 14,49 € im Monat nach vier Monaten kündigt, zahlt für die übrigen acht Monate etwa 57,96 € Gebühr. Was du beim Kündigen beachten solltest, steht in unserem Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+          "text": "Bei den Jahresabos lohnt ein Blick in die Bedingungen. Laut Adobe verlängern sie sich automatisch, wenn du nicht kündigst. Für Verbraucher in Deutschland darf sich ein Abo nach § 309 Nr. 9 BGB aber nach der ersten Laufzeit nur noch auf unbestimmte Zeit verlängern und muss dann jederzeit mit einer Frist von höchstens einem Monat kündbar sein. Das gilt für Verträge, die seit dem 1. März 2022 geschlossen wurden. Kündigst du ein Jahresabo mit monatlicher Abrechnung nach den ersten 14 Tagen, berechnet Adobe einmalig 50 % des restlichen Vertragswerts. Grob gerechnet: Wer Lightroom für 14,49 € im Monat nach vier Monaten kündigt, zahlt für die übrigen acht Monate etwa 57,96 € Gebühr. Was du beim Kündigen beachten solltest, steht in unserem Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
         }
       ]
     },
@@ -141,7 +141,7 @@
         },
         {
           "type": "p",
-          "text": "Pixelmator Pro wird inzwischen von Apple angeboten und kostet im Mac App Store einmalig 59,99 €. Es läuft ab macOS 12. Laut App-Store-Beschreibung unterstützt es RAW-Fotos von über 750 Digitalkameras und arbeitet mit Ebenen für Farbkorrekturen. Wie bei Affinity steht die Bildbearbeitung im Vordergrund, eine Bibliothek für große Fotosammlungen nennt die Beschreibung nicht. Zum Ordnen bietet sich die Kombination mit Apple Fotos an."
+          "text": "Pixelmator Pro wird inzwischen von Apple angeboten und kostet im Mac App Store einmalig 59,99 €. Es läuft ab macOS 12. Laut App-Store-Beschreibung unterstützt es RAW-Fotos von über 750 Digitalkameras und arbeitet mit Ebenen für Farbkorrekturen. Wie bei Affinity steht die Bildbearbeitung im Vordergrund, eine Bibliothek für große Fotosammlungen nennt die Beschreibung nicht. Zum Ordnen bietet sich die Kombination mit Apple Fotos an."
         },
         {
           "type": "h3",
@@ -149,7 +149,7 @@
         },
         {
           "type": "p",
-          "text": "DxO verkauft PhotoLab als lebenslange Lizenz ohne Abo, für Mac und Windows. PhotoLab 10 Elite kostet im deutschen DxO-Shop 249,99 €. DxO beschreibt das Programm als Software für die RAW-Bearbeitung mit Rauschreduzierung (DeepPRIME), automatischen optischen Korrekturen und Bildverwaltung. Eine kostenlose Testversion bietet DxO ebenfalls an."
+          "text": "DxO verkauft PhotoLab als lebenslange Lizenz ohne Abo, für Mac und Windows. PhotoLab 10 Elite kostet im deutschen DxO-Shop 249,99 €. DxO beschreibt das Programm als Software für die RAW-Bearbeitung mit Rauschreduzierung (DeepPRIME), automatischen optischen Korrekturen und Bildverwaltung. Eine kostenlose Testversion bietet DxO ebenfalls an."
         },
         {
           "type": "h3",
@@ -157,7 +157,7 @@
         },
         {
           "type": "p",
-          "text": "Capture One bietet neben mehreren Abos auch eine Pro-Lizenz als Einmalkauf für 391,00 € an. Sie unterstützt laut Hersteller über 550 Kameras und bringt Tethering und eine Dateiverwaltung mit. Capture One schreibt selbst, die Lizenz sei für Fotografen gedacht, die nicht auf die neuesten Updates oder Hardwareunterstützung angewiesen sind. Wer öfter eine neue Kamera kauft, sollte das einplanen."
+          "text": "Capture One bietet neben mehreren Abos auch eine Pro-Lizenz als Einmalkauf für 391 € an. Sie unterstützt laut Hersteller über 550 Kameras und bringt Tethering und eine Dateiverwaltung mit. Capture One schreibt selbst, die Lizenz sei für Fotografen gedacht, die nicht auf die neuesten Updates oder Hardwareunterstützung angewiesen sind. Wer öfter eine neue Kamera kauft, sollte das einplanen."
         }
       ]
     },
@@ -183,7 +183,7 @@
         },
         {
           "type": "p",
-          "text": "Dazu gehört eine ehrliche Einordnung: LightKoja ist noch in früher Entwicklung (Early Access). Das zugrunde liegende Open-Source-Projekt schätzt selbst, dass nach Anzahl rund 82 % der Funktionen umgesetzt sind. Die Alltagstauglichkeit für typische Berufsfotografen beziffert es auf etwa 51 %. Für Sony, Nikon, Panasonic, Fujifilm und Canon CR3 sind die Kamerafarben noch geschätzt statt gemessen, eigene Objektivprofile gibt es noch nicht, und KI-Entrauschen braucht separat installierte Modelle. Generatives Füllen, Super-Auflösung, Videobearbeitung und die Module Karte und Buch fehlen."
+          "text": "Dazu gehört eine ehrliche Einordnung: LightKoja ist noch in früher Entwicklung (Alpha). Das zugrunde liegende Open-Source-Projekt schätzt selbst, dass nach Anzahl rund 82 % der Funktionen umgesetzt sind. Die Alltagstauglichkeit für typische Berufsfotografen beziffert es auf etwa 51 %. Für Sony, Nikon, Panasonic, Fujifilm und Canon CR3 sind die Kamerafarben noch geschätzt statt gemessen, eigene Objektivprofile gibt es noch nicht, und KI-Entrauschen braucht separat installierte Modelle. Generatives Füllen, Super-Auflösung, Videobearbeitung und die Module Karte und Buch fehlen."
         },
         {
           "type": "app",
@@ -192,7 +192,7 @@
         },
         {
           "type": "p",
-          "text": "LightKoja ist eine von 13 Koja-Apps für macOS. Nach 3 kostenlosen Testtagen zahlst du 2,99 € pro Monat inkl. MwSt. für alle 13 Apps, jederzeit mit einem Klick auf [kojalytics.com/kuendigen](/kuendigen) kündbar und ohne Gebühr. Alternativ gibt es für einmalig 79 € eine dauerhafte Lizenz, siehe [Preise](/software#preise). Beides gilt auf bis zu 3 Macs, ein Konto brauchst du nicht. Internet ist nur für Download und Aktivierung nötig. Windows oder eine Web-Version gibt es nicht."
+          "text": "LightKoja ist eine von 13 Koja-Apps für macOS. Nach 3 kostenlosen Testtagen zahlst du 2,99 € pro Monat inkl. MwSt. für alle 13 Apps, jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar und ohne Gebühr. Alternativ gibt es für einmalig 79 € eine dauerhafte Lizenz, siehe [Preise](/software#preise). Beides gilt auf bis zu 3 Macs, ein Konto brauchst du nicht. Internet ist nur für Download und Aktivierung nötig. Windows oder eine Web-Version gibt es nicht."
         },
         {
           "type": "p",
@@ -238,25 +238,25 @@
             ],
             [
               "Pixelmator Pro",
-              "59,99 € einmalig",
+              "59,99 € einmalig",
               "RAW von über 750 Kameras, Ebenen",
               "Keine Bibliothek für große Sammlungen beschrieben"
             ],
             [
               "DxO PhotoLab 10 Elite",
-              "249,99 € einmalig",
+              "249,99 € einmalig",
               "RAW-Bearbeitung mit Rauschreduzierung, optische Korrekturen, Bildverwaltung",
               "Höherer Preis"
             ],
             [
               "Capture One Pro (Lizenz)",
-              "391,00 € einmalig",
+              "391 € einmalig",
               "Über 550 Kameras, Tethering, Dateiverwaltung",
               "Laut Anbieter für alle, die nicht auf die neuesten Updates angewiesen sind"
             ],
             [
               "LightKoja",
-              "2,99 € im Monat für 13 Apps oder 79 € einmalig",
+              "2,99 € im Monat für 13 Apps oder 79 € einmalig",
               "Bibliothek und RAW-Entwicklung mit Masken, Presets und XMP-Unterstützung",
               "Frühe Version, Kamerafarben teils geschätzt, keine eigenen Objektivprofile"
             ]
@@ -272,7 +272,7 @@
           "items": [
             "**Du fotografierst gelegentlich:** Starte mit Apple Fotos. Es kostet nichts und reicht für viele Urlaubs- und Familienfotos.",
             "**Du willst viel Kontrolle, aber kein Geld ausgeben:** darktable, sofern dein Mac einen Apple-Chip hat. Plane etwas Einarbeitung ein.",
-            "**Du retuschierst viel und brauchst Ebenen:** Affinity kostenlos oder Pixelmator Pro für 59,99 €, ergänzt um Apple Fotos zum Ordnen.",
+            "**Du retuschierst viel und brauchst Ebenen:** Affinity kostenlos oder Pixelmator Pro für 59,99 €, ergänzt um Apple Fotos zum Ordnen.",
             "**Du fotografierst beruflich:** DxO PhotoLab oder Capture One. Beide sind auf RAW-Entwicklung spezialisiert. Teste vor dem Kauf mit Dateien deiner eigenen Kamera, bei DxO zum Beispiel mit der kostenlosen Testversion.",
             "**Du willst Bibliothek und RAW-Entwicklung in einer App und weitere Kreativ-Apps im selben günstigen Paket:** LightKoja testen, im Wissen, dass es eine frühe Version ist."
           ]
@@ -312,7 +312,7 @@
   "faq": [
     {
       "q": "Kann man Lightroom noch ohne Abo kaufen?",
-      "a": "Nein. Adobe verkauft Lightroom nur noch im Abo, die Kaufversion Lightroom 6 wurde eingestellt und ist auf Adobe.com nicht mehr erhältlich. Lightroom mit 1 TB Cloud-Speicher kostet 14,49 € pro Monat im Jahresabo oder 141,94 € pro Jahr bei Vorauszahlung. Ohne Abo musst du auf ein anderes Programm umsteigen."
+      "a": "Nein. Adobe verkauft Lightroom nur noch im Abo, die Kaufversion Lightroom 6 wurde eingestellt und ist auf Adobe.com nicht mehr erhältlich. Lightroom mit 1 TB Cloud-Speicher kostet 14,49 € pro Monat im Jahresabo oder 141,94 € pro Jahr bei Vorauszahlung. Ohne Abo musst du auf ein anderes Programm umsteigen."
     },
     {
       "q": "Was ist die beste kostenlose Lightroom-Alternative für den Mac?",
@@ -328,7 +328,7 @@
     },
     {
       "q": "Was kostet Lightroom im Monat?",
-      "a": "In Deutschland kostet Lightroom mit 1 TB Cloud-Speicher 14,49 € pro Monat im Jahresabo mit monatlicher Zahlung und 19,99 € im flexiblen Monats-Abo. Das Fotografie-Abo mit Lightroom, Lightroom Classic und Photoshop kostet 23,79 € pro Monat im Jahresabo. Alle Preise gelten laut Adobe inklusive MwSt."
+      "a": "In Deutschland kostet Lightroom mit 1 TB Cloud-Speicher 14,49 € pro Monat im Jahresabo mit monatlicher Zahlung und 19,99 € im flexiblen Monats-Abo. Das Fotografie-Abo mit Lightroom, Lightroom Classic und Photoshop kostet 23,79 € pro Monat im Jahresabo. Alle Preise gelten laut Adobe inklusive MwSt."
     },
     {
       "q": "Ist LightKoja ein vollwertiger Ersatz für Lightroom?",
@@ -427,6 +427,10 @@
     {
       "label": "Capture One: Tarife und Preise",
       "url": "https://www.captureone.com/de/pricing/capture-one-pro"
+    },
+    {
+      "label": "§ 309 BGB: Klauselverbote ohne Wertungsmöglichkeit (Nr. 9: Laufzeit bei Dauerschuldverhältnissen)",
+      "url": "https://www.gesetze-im-internet.de/bgb/__309.html"
     }
   ]
 }

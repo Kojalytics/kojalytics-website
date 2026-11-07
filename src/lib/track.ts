@@ -7,7 +7,8 @@ declare global {
   }
 }
 
-type Event = "ViewContent" | "Lead" | "InitiateCheckout" | "Subscribe" | "Purchase";
+// SendToMac is our own event: a phone or PC visitor sends the page to their Mac (no download possible there).
+type Event = "ViewContent" | "Lead" | "InitiateCheckout" | "Subscribe" | "Purchase" | "SendToMac";
 
 // Google's recommended event names for the same moments.
 const GOOGLE_NAMES: Record<Event, string> = {
@@ -16,10 +17,15 @@ const GOOGLE_NAMES: Record<Event, string> = {
   InitiateCheckout: "begin_checkout",
   Subscribe: "purchase",
   Purchase: "purchase",
+  SendToMac: "share",
 };
 
-export function track(event: Event, params: { value?: number; currency?: string; content_name?: string } = {}) {
+export function track(
+  event: Event,
+  params: { value?: number; currency?: string; content_name?: string; transaction_id?: string } = {},
+  options: { eventID?: string } = {},
+) {
   if (typeof window === "undefined") return;
-  window.fbq?.("track", event, params);
+  window.fbq?.(event === "SendToMac" ? "trackCustom" : "track", event, params, options);
   window.gtag?.("event", GOOGLE_NAMES[event], params);
 }

@@ -1,11 +1,11 @@
 {
   "kind": "Bildbearbeitung",
-  "benefit": "Bearbeite Fotos und PSD-Dateien mit Ebenen und Masken, so wie du es aus Photoshop kennst.",
-  "keyword": "photoshop alternative ohne abo",
-  "metaTitle": "PhotoKoja: Photoshop-Alternative ohne Abo (Mac)",
-  "metaDescription": "Photoshop-Alternative ohne Abo für den Mac: PhotoKoja bearbeitet PSD-Dateien mit Ebenen und Masken. 3 Tage kostenlos testen, dann 79 € einmalig.",
-  "h1": "Photoshop-Alternative für den Mac, auch ohne Abo",
-  "lead": "PhotoKoja ist eine Photoshop-Alternative für den Mac, auch ohne Abo. Du arbeitest mit Ebenen, Masken, Einstellungsebenen und PSD-Dateien, Menüs und Kürzel liegen dort, wo du sie aus Photoshop kennst. Noch ist es eine frühe Version, also teste 3 Tage kostenlos und zahl danach 79 € einmalig oder 2,99 € im Monat.",
+  "benefit": "Bearbeite Fotos und PSD-Dateien mit Ebenen, Masken und Einstellungsebenen.",
+  "keyword": "photoshop alternative mac",
+  "metaTitle": "PhotoKoja: Photoshop-Alternative für den Mac",
+  "metaDescription": "PhotoKoja ist eine Photoshop-Alternative für den Mac: PSD-Dateien mit Ebenen und Masken bearbeiten. 3 Tage kostenlos testen, dann 79 € einmalig.",
+  "h1": "Photoshop-Alternative für den Mac: PSD, Ebenen und Masken",
+  "lead": "PhotoKoja ist eine Photoshop-Alternative für den Mac, die offline und ohne Konto läuft. Du bearbeitest Fotos und PSD-Dateien mit Ebenen, Masken, Einstellungsebenen und Ebenenstilen. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "Öffnet und speichert PSD/PSB",
     "16 Einstellungsebenen",
@@ -13,8 +13,8 @@
   ],
   "features": [
     {
-      "title": "Bedienung wie in Photoshop",
-      "text": "Menüs, Kürzel, Bedienfelder und Werkzeuge liegen dort, wo Photoshop-Nutzer sie erwarten, etwa ⌘J oder ⇧⌘D. Auch „Frei transformieren“, das Protokoll und der Protokollpinsel sind dabei."
+      "title": "Kürzel, Transformieren, Protokoll",
+      "text": "Viele Photoshop-Tastenkürzel funktionieren auch hier, etwa ⌘J oder ⇧⌘D. Dazu kommen „Frei transformieren“ mit Skalieren, Drehen, Neigen, Verzerren und Perspektive, das vollständige Protokoll und der Protokollpinsel."
     },
     {
       "title": "Korrekturen, die nichts zerstören",
@@ -33,7 +33,7 @@
     },
     {
       "title": "PSD und PSB mit Ebenen",
-      "text": "PhotoKoja öffnet, bearbeitet und speichert Photoshop-Dateien mit Ebenen. In den Tests des Open-Source-Projekts sahen 307 von 309 Testdateien nach dem erneuten Speichern aus wie vorher, und alle 116 Formebenen stimmten pixelgenau mit Photoshop überein. Daten, die PhotoKoja nicht kennt, werden mitgespeichert statt verworfen."
+      "text": "PhotoKoja öffnet, bearbeitet und speichert Photoshop-Dateien mit Ebenen. Laut Projektangaben (Stand: November 2026) sahen in den Tests des zugrunde liegenden Open-Source-Projekts 307 von 309 Testdateien nach dem erneuten Speichern aus wie vorher. Daten, die PhotoKoja nicht kennt, werden mitgespeichert statt verworfen."
     },
     {
       "title": "Filter mit Live-Vorschau",
@@ -52,7 +52,7 @@
     {
       "file": "hero.webp",
       "alt": "PhotoKoja: Hokusais „Große Welle“ mit Gradationskurven, Ebenen-Bedienfeld und editierbaren Textebenen",
-      "caption": "Wer Photoshop kennt, findet sich schnell zurecht: Menüs, Werkzeuge, Ebenen und Einstellungsebenen sitzen dort, wo du sie erwartest."
+      "caption": "Gradationskurven und Dynamik als Einstellungsebenen, darüber editierbare Textebenen und eine Form mit Schlagschatten."
     },
     {
       "file": "adjustments.webp",
@@ -71,11 +71,11 @@
     }
   ],
   "switching": {
-    "title": "Von Photoshop zu PhotoKoja wechseln: so testest du die Alternative ohne Abo",
+    "title": "Von Photoshop zu PhotoKoja wechseln: so testest du die Alternative",
     "paragraphs": [
       "Das meiste kennst du schon: die Werkzeugleiste links, Ebenen und Eigenschaften in Bedienfeldern, Einstellungsebenen, Masken, Smartobjekte und Ebenenstile nach demselben Prinzip. Kürzel wie ⌘J, ⇧⌘D oder ⌘Y liegen dort, wo du sie erwartest. Die Oberfläche ist derzeit englisch beschriftet (File, Edit, Image, Layer …), die Begriffe entsprechen also der englischen Photoshop-Ausgabe.",
       "Deine PSD- und PSB-Dateien öffnest du direkt, mit Ebenen, Textebenen, Ebenenstilen und Formebenen. Dateien aus GIMP, Krita und Affinity kann PhotoKoja lesen, aber nicht in diesen Formaten speichern. Zum Weitergeben gibt es „Export As“ mit Format, Qualität, Transparenz, Skalierung, Vorschau und Schätzung der Dateigröße.",
-      "Was noch fehlt: generative KI, Photoshop-Plug-ins und 15 Photoshop-Werkzeuge. Auch bei Typografie und Profi-Workflows ist Photoshop weiter. PhotoKoja ist noch in früher Entwicklung (Early Access), rechne also mit Ecken und Kanten.",
+      "Was noch fehlt: generative KI, Photoshop-Plug-ins und 15 Photoshop-Werkzeuge. Auch bei Typografie und Profi-Workflows ist Photoshop weiter. PhotoKoja ist noch eine frühe Version (Alpha), rechne also mit Ecken und Kanten.",
       "So testest du in 3 Tagen, ob es für dich reicht: Lade den Kojalytics Launcher herunter, installiere PhotoKoja und öffne zwei, drei echte PSD-Dateien aus deinen Projekten. Prüf, ob Ebenen, Text und Stile so aussehen wie in Photoshop, und mach eine typische Bearbeitung von Anfang bis Ende. Kündige dein Adobe-Abo erst, wenn du sicher bist. Wie das ohne böse Überraschung klappt, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
@@ -83,13 +83,13 @@
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
-        "other": "25,99 € im Monat (Jahres-Abo, monatliche Zahlung) oder 311,73 € pro Jahr im Voraus"
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "25,99 € im Monat (Jahres-Abo, monatliche Zahlung) oder 311,73 € pro Jahr im Voraus"
       },
       {
         "label": "Abrechnung und Kündigung",
-        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen.",
-        "other": "Jahres-Abo, verlängert sich automatisch. Wer es bei monatlicher Zahlung nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. Flexibles Monats-Abo: 38,98 € im Monat."
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen.",
+        "other": "Jahres-Abo, verlängert sich automatisch. Wer es bei monatlicher Zahlung nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. Flexibles Monats-Abo: 38,98 € im Monat."
       },
       {
         "label": "Konto nötig",
@@ -113,7 +113,7 @@
       },
       {
         "label": "Entwicklungsstand",
-        "koja": "Frühe Version (Early Alpha), einige Werkzeuge fehlen noch",
+        "koja": "Frühe Version (Alpha), einige Werkzeuge fehlen noch",
         "other": "Ausgereift, mit generativer KI"
       }
     ],
@@ -126,7 +126,7 @@
     "du neben der Bildbearbeitung auch Layout, Vektorgrafik oder Office-Apps brauchst, denn alle 13 Koja-Apps sind im Preis enthalten"
   ],
   "notFor": [
-    "du täglich beruflich mit Photoshop arbeitest und dich auf jede Funktion verlassen musst: PhotoKoja ist noch eine frühe Version, 15 Photoshop-Werkzeuge fehlen",
+    "du täglich beruflich mit Photoshop arbeitest und dich auf jede Funktion verlassen musst: PhotoKoja ist noch eine frühe Version (Alpha), 15 Photoshop-Werkzeuge fehlen",
     "du generative KI oder Photoshop-Plug-ins brauchst",
     "du unter Windows, auf dem iPad oder im Browser arbeitest"
   ],
@@ -147,19 +147,19 @@
   "faq": [
     {
       "q": "Ist PhotoKoja eine vollwertige Photoshop-Alternative?",
-      "a": "Noch nicht. PhotoKoja ist eine frühe Version (Early Alpha) und ersetzt Photoshop nicht für die tägliche Profiarbeit: Es fehlen 15 Photoshop-Werkzeuge, generative KI und Plug-ins. Ebenen, Masken, 16 Einstellungsebenen, Ebenenstile, Text und PSD-Dateien sind aber schon da. Ob das für deine Arbeit reicht, findest du in den 3 kostenlosen Testtagen mit deinen eigenen Dateien heraus."
+      "a": "Noch nicht. PhotoKoja ist eine frühe Version (Alpha) und ersetzt Photoshop nicht für die tägliche Profiarbeit: Es fehlen 15 Photoshop-Werkzeuge, generative KI und Plug-ins. Ebenen, Masken, 16 Einstellungsebenen, Ebenenstile, Text und PSD-Dateien sind aber schon da. Ob das für deine Arbeit reicht, findest du in den 3 kostenlosen Testtagen mit deinen eigenen Dateien heraus."
     },
     {
       "q": "Kann ich mit PhotoKoja PSD-Dateien auf dem Mac öffnen und bearbeiten?",
-      "a": "Ja. PhotoKoja öffnet, bearbeitet und speichert PSD- und PSB-Dateien mit Ebenen; Textebenen, Ebenenstile und Formebenen übernimmt es beim Öffnen. In den Tests des Open-Source-Projekts sahen 307 von 309 Dateien nach dem erneuten Speichern aus wie vorher. Außerdem liest PhotoKoja Dateien aus GIMP, Krita und Affinity und exportiert unter anderem PNG, JPEG, WebP und TIFF."
+      "a": "Ja. PhotoKoja öffnet, bearbeitet und speichert PSD- und PSB-Dateien mit Ebenen; Textebenen, Ebenenstile und Formebenen übernimmt es beim Öffnen. Laut Projektangaben (Stand: November 2026) sahen in den Tests des zugrunde liegenden Open-Source-Projekts 307 von 309 Dateien nach dem erneuten Speichern aus wie vorher. Außerdem liest PhotoKoja Dateien aus GIMP, Krita und Affinity und exportiert unter anderem PNG, JPEG, WebP und TIFF."
     },
     {
       "q": "Gibt es PhotoKoja ohne Abo?",
-      "a": "Ja. Nach 3 kostenlosen Testtagen zahlst du einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Macs, darunter auch [LightKoja](/software/light-koja) für deine Fotobibliothek und RAW-Dateien. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit mit einem Klick kündbar. Mehr Hintergrund liefert der Ratgeber [Photoshop ohne Abo](/ratgeber/photoshop-ohne-abo)."
+      "a": "Ja. Nach 3 kostenlosen Testtagen zahlst du einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Macs, darunter auch [LightKoja](/software/light-koja) für deine Fotobibliothek und RAW-Dateien. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit online kündbar. Mehr Hintergrund liefert der Ratgeber [Photoshop ohne Abo: alle Optionen](/ratgeber/photoshop-ohne-abo)."
     },
     {
       "q": "Funktionieren meine Photoshop-Tastenkürzel?",
-      "a": "Viele ja. Menüs, Kürzel, Bedienfelder und Werkzeuge sind so angelegt, wie Photoshop-Nutzer sie erwarten, zum Beispiel ⌘J, ⇧⌘D oder ⌘Y für den Farb-Proof. Findest du einen Befehl nicht, öffnest du mit ⌘F eine Befehlspalette und suchst ihn dort. Aktionen kannst du aufzeichnen und wieder abspielen."
+      "a": "Viele ja, zum Beispiel ⌘J, ⇧⌘D oder ⌘Y für den Farb-Proof. Findest du einen Befehl nicht, öffnest du mit ⌘F eine Befehlspalette und suchst ihn dort. Aktionen kannst du aufzeichnen und wieder abspielen."
     },
     {
       "q": "PhotoKoja basiert auf Open Source. Warum kostet es Geld?",

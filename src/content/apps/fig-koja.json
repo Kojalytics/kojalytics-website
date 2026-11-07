@@ -3,9 +3,9 @@
   "benefit": "Gestalte App- und Web-Oberflächen mit Auto Layout, Komponenten und Prototypen, offline auf deinem Mac.",
   "keyword": "figma alternative mac",
   "metaTitle": "Figma-Alternative für Mac: FigKoja, offline",
-  "metaDescription": "FigKoja ist eine Figma-Alternative für den Mac: Auto Layout, Komponenten, Prototypen, offline, ohne Konto. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "metaDescription": "FigKoja ist eine Figma-Alternative für den Mac: Auto Layout, Komponenten, Prototypen, offline, ohne Konto. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
   "h1": "Figma-Alternative für den Mac: offline und ohne Konto",
-  "lead": "FigKoja ist eine Figma-Alternative für App- und Web-Design, die direkt auf deinem Mac läuft. Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode sind dabei, Panels und Menüs liegen, wo du sie aus Figma kennst. Die App ist noch in früher Entwicklung: Teste sie 3 Tage kostenlos mit deinen eigenen Entwürfen.",
+  "lead": "FigKoja ist eine Figma-Alternative für den Mac, mit der du App- und Web-Oberflächen direkt auf deinem Rechner gestaltest. Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode sind dabei. Die App ist eine frühe Version (Alpha): Teste sie 3 Tage kostenlos mit deinen eigenen Entwürfen.",
   "highlights": [
     "Offline und ohne Konto",
     "Auto Layout und Komponenten",
@@ -90,20 +90,20 @@
     "paragraphs": [
       "**Was gleich bleibt:** Werkzeugleiste, Ebenen-Panel, Design-Panel und Menüs liegen dort, wo du sie aus Figma erwartest, und auch die Tastenkürzel sind so angelegt. Die Begriffe kennst du ebenfalls: Frames, Auto Layout mit Hug, Fill und Fixed, Komponenten mit Varianten, Variablen mit Modi, Prototyp-Verbindungen und Dev Mode. Du lernst also keine neue Denkweise, sondern nur ein paar neue Handgriffe.",
       "**Deine Dateien:** Figma-Dateien im .fig-Format öffnet FigKoja bisher nur eingeschränkt, rechne also mit Abweichungen. Alternativ importierst du Designs als JSON aus der öffentlichen REST-API von Figma, inklusive Prototypen und Variablen. SVG, PDF, PNG, JPG und WebP holst du direkt herein. FigKoja speichert lokal auf deinem Mac und exportiert jede Ebene als PNG, JPG, WebP, SVG oder PDF.",
-      "**Was noch fehlt:** FigKoja ist eine frühe Version (Early Alpha) und hat noch Ecken und Kanten. Live-Zusammenarbeit gibt es erst als Vorschau, ohne Konten, Teams und Cloud. Figma-Plugins laufen nicht, denn FigKoja hat ein eigenes Plugin-System auf WebAssembly-Basis. Die deutsche Oberfläche ist noch ein Entwurf, und an echten Projektdateien wurde die App laut den Entwicklern noch nicht geprüft.",
-      "**So testest du in 3 Tagen:** Am ersten Tag lädst du den Kojalytics Launcher, installierst FigKoja und öffnest eine der acht Startvorlagen, etwa für eine Mobile App, ein Dashboard oder ein Wireframe-Kit. Am zweiten Tag holst du ein echtes Projekt herein und baust deine wichtigsten Komponenten nach. Am dritten Tag klickst du dich durch einen Prototyp und prüfst den Code im Dev Mode. Danach entscheidest du dich für [2,99 € im Monat oder 79 € einmalig](/software#preise), beides für alle 13 Apps; das Monatsabo kündigst du mit einem Klick unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "**Was noch fehlt:** FigKoja ist eine frühe Version (Alpha) und hat noch Ecken und Kanten. Live-Zusammenarbeit gibt es erst als Vorschau, ohne Konten, Teams und Cloud. Figma-Plugins laufen nicht, denn FigKoja hat ein eigenes Plugin-System auf WebAssembly-Basis. Die deutsche Oberfläche ist noch ein Entwurf, und an echten Projektdateien wurde die App laut Projektangaben noch nicht geprüft.",
+      "**So testest du in 3 Tagen:** Am ersten Tag lädst du den Kojalytics Launcher, installierst FigKoja und öffnest eine der acht Startvorlagen, etwa für eine Mobile App, ein Dashboard oder ein Wireframe-Kit. Am zweiten Tag holst du ein echtes Projekt herein und baust deine wichtigsten Komponenten nach. Am dritten Tag klickst du dich durch einen Prototyp und prüfst den Code im Dev Mode. Danach entscheidest du dich für [2,99 € im Monat oder 79 € einmalig](/software#preise), beides für alle 13 Apps; das Monatsabo kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     ]
   },
   "comparison": {
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
         "other": "Starter kostenlos (im Team nur 3 Dateien). Professional: Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung"
       },
       {
         "label": "Abrechnung und Kündigung",
-        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen",
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen",
         "other": "Pro Lizenz, jährlich oder (teurer) monatlich abgerechnet"
       },
       {
@@ -128,7 +128,7 @@
       },
       {
         "label": "Entwicklungsstand",
-        "koja": "Frühe Version (Early Alpha), noch mit Lücken",
+        "koja": "Frühe Version (Alpha), noch mit Lücken",
         "other": "Ausgereift"
       }
     ],
@@ -141,7 +141,7 @@
     "du Klick-Prototypen baust und Code für React, SwiftUI oder CSS als Startpunkt für die Entwicklung brauchst."
   ],
   "notFor": [
-    "du ein ausgereiftes Werkzeug für laufende Kundenprojekte brauchst: FigKoja ist noch in früher Entwicklung (Early Alpha).",
+    "du ein ausgereiftes Werkzeug für laufende Kundenprojekte brauchst: FigKoja ist noch in früher Entwicklung (Alpha).",
     "dein Team täglich live in denselben Dateien arbeitet oder du auf Figma-Plugins angewiesen bist.",
     "du auch unter Windows oder im Browser arbeiten musst: FigKoja gibt es nur für macOS."
   ],
@@ -162,7 +162,7 @@
   "faq": [
     {
       "q": "Ist FigKoja eine vollwertige Figma-Alternative?",
-      "a": "Noch nicht. FigKoja ist eine frühe Version (Early Alpha): Der Kern des Editors funktioniert bereits durchgängig, mit Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode, aber es gibt noch Ecken und Kanten. Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen selbst, dass sie etwa 49 % des Wegs geschafft haben, kommerzielle Design-Tools im Arbeitsalltag zu ersetzen. Teste FigKoja deshalb 3 Tage kostenlos mit deinen eigenen Entwürfen, bevor du dich entscheidest."
+      "a": "Noch nicht. FigKoja ist eine frühe Version (Alpha): Der Kern des Editors funktioniert bereits durchgängig, mit Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode, aber es gibt noch Ecken und Kanten. Laut Projektangaben (Stand: November 2026) hat das zugrunde liegende Open-Source-Projekt nach eigener Schätzung etwa 49 % des Wegs geschafft, kommerzielle Design-Tools im Arbeitsalltag zu ersetzen. Teste FigKoja deshalb 3 Tage kostenlos mit deinen eigenen Entwürfen, bevor du dich entscheidest."
     },
     {
       "q": "Kann ich meine Figma-Dateien in FigKoja öffnen?",
@@ -178,7 +178,7 @@
     },
     {
       "q": "Was kostet FigKoja im Vergleich zu Figma?",
-      "a": "Nach 3 kostenlosen Testtagen kostet FigKoja 2,99 € im Monat inkl. MwSt., und darin sind alle 13 Koja-Apps enthalten. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Macs. Bei Figma ist der Tarif Starter kostenlos, erlaubt im Team aber nur 3 Dateien; im Tarif Professional kostet eine Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung. Das Monatsabo von FigKoja kündigst du mit einem Klick unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "a": "Nach 3 kostenlosen Testtagen kostet FigKoja 2,99 € im Monat inkl. MwSt., und darin sind alle 13 Koja-Apps enthalten. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Macs. Bei Figma ist der Tarif Starter kostenlos, erlaubt im Team aber nur 3 Dateien; im Tarif Professional kostet eine Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung. Das Monatsabo von FigKoja kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     },
     {
       "q": "Ist FigKoja Open Source?",

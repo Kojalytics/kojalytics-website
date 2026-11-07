@@ -46,6 +46,20 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ received: true });
   }
 
+  // Delayed payment methods (e.g. SEPA Direct Debit) complete the session unpaid and pay later.
+  if (event.type === 'checkout.session.async_payment_succeeded') {
+    const session = event.data.object as Stripe.Checkout.Session;
+    if (session.metadata?.product === LICENSE_PRODUCT) {
+      try {
+        await issueLicenseForSession(session);
+      } catch (err) {
+        console.error('Webhook: failed to issue license', err);
+        return NextResponse.json({ error: 'License error' }, { status: 500 });
+      }
+    }
+    return NextResponse.json({ received: true });
+  }
+
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
     const plan = session.metadata?.plan;

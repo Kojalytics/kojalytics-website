@@ -1,14 +1,14 @@
 {
   "slug": "adobe-abo-kuendigen",
   "navTitle": "Adobe-Abo kündigen",
-  "h1": "Adobe-Abo kündigen: Anleitung, 50-%-Gebühr und was mit deinen Dateien passiert",
-  "metaTitle": "Adobe-Abo kündigen: Anleitung, Gebühr und Fristen",
-  "metaDescription": "So kündigst du dein Adobe-Abo Schritt für Schritt: wann die 50-%-Gebühr anfällt, wann nicht und was danach mit Dateien und Cloud-Speicher passiert.",
+  "h1": "Adobe-Abo kündigen: Anleitung, 50 % Gebühr und was mit deinen Dateien passiert",
+  "metaTitle": "Adobe-Abo kündigen: Anleitung, Gebühr, Fristen",
+  "metaDescription": "So kündigst du dein Adobe-Abo Schritt für Schritt: wann die Gebühr von 50 % anfällt, wann nicht und was danach mit Dateien und Cloud-Speicher passiert.",
   "primaryKeyword": "adobe abo kündigen",
   "updated": "2026-11-07",
   "readingMinutes": 13,
   "intro": [
-    "Dein Adobe-Abo kündigen kannst du direkt in deinem Adobe-Konto, wenn du es bei Adobe gekauft hast: Melde dich an, wähle unter „Abo-Optionen und Zahlung“ bei deinem Abo „Abo verwalten“, dann „Abo kündigen“, und folge den Schritten bis „Kündigung bestätigen“. Innerhalb von 14 Tagen nach dem ursprünglichen Kauf bekommst du laut Adobe bei den meisten Abos dein Geld vollständig zurück. Danach kommt es auf die Abo-Art an: Beim Jahres-Abo mit monatlicher Zahlung verlangt Adobe eine einmalige Gebühr von 50 % des restlichen Vertragswerts, beim Monats-Abo und beim vorausbezahlten Jahres-Abo nicht.",
+    "Dein Adobe-Abo kündigen kannst du direkt in deinem Adobe-Konto, wenn du es bei Adobe gekauft hast: Melde dich an, wähle unter „Abo-Optionen und Zahlung“ bei deinem Abo „Abo verwalten“, dann „Abo kündigen“, und folge den Schritten bis „Kündigung bestätigen“. Innerhalb von 14 Tagen nach dem ursprünglichen Kauf bekommst du laut Adobe bei den meisten Abos dein Geld vollständig zurück. Danach kommt es auf die Abo-Art an: Beim Jahres-Abo mit monatlicher Zahlung verlangt Adobe eine einmalige Gebühr von 50 % des restlichen Vertragswerts, beim Monats-Abo und beim vorausbezahlten Jahres-Abo nicht.",
     "Hier findest du die Anleitung, eine Beispielrechnung für die Gebühr, den besten Zeitpunkt zum Kündigen und was danach mit Cloud-Speicher, Lightroom-Fotos und Credits passiert. Die Angaben zu Adobe stammen aus Adobes Hilfeseiten, Abobedingungen und Preisseiten, Stand: 7. November 2026. Rechtsberatung ist das nicht."
   ],
   "sections": [
@@ -78,22 +78,22 @@
           "rows": [
             [
               "Monats-Abo",
-              "38,98 € pro Monat",
-              "116,99 € pro Monat",
+              "38,98 € pro Monat",
+              "116,99 € pro Monat",
               "keine Gebühr, keine Rückerstattung",
               "am Ende des Abrechnungsmonats"
             ],
             [
               "Jahres-Abo mit monatlicher Zahlung",
-              "25,99 € pro Monat",
-              "77,99 € pro Monat",
-              "einmalige Gebühr von 50 % des restlichen Vertragswerts",
+              "25,99 € pro Monat",
+              "77,99 € pro Monat",
+              "einmalige Gebühr von 50 % des restlichen Vertragswerts",
               "am Ende des Abrechnungsmonats"
             ],
             [
               "Jahres-Abo mit Vorauszahlung",
-              "311,73 € pro Jahr",
-              "905,92 € pro Jahr",
+              "311,73 € pro Jahr",
+              "905,92 € pro Jahr",
               "keine Gebühr, keine Rückerstattung",
               "am Ende der Vertragslaufzeit"
             ]
@@ -102,7 +102,7 @@
         },
         {
           "type": "p",
-          "text": "Welche Variante du hast, siehst du im Adobe-Konto bei „Abo verwalten“ in den Details deiner Abo-Option. Ein Anhaltspunkt ist auch der Preis: Zahlst du für Photoshop 25,99 € im Monat, entspricht das nach Adobes aktueller Preisliste dem Jahres-Abo mit monatlicher Zahlung. 38,98 € entsprechen dem flexiblen Monats-Abo. Bei älteren Verträgen oder Rabattaktionen können die Beträge abweichen."
+          "text": "Welche Variante du hast, siehst du im Adobe-Konto bei „Abo verwalten“ in den Details deiner Abo-Option. Ein Anhaltspunkt ist auch der Preis: Zahlst du für Photoshop 25,99 € im Monat, entspricht das nach Adobes aktueller Preisliste dem Jahres-Abo mit monatlicher Zahlung. 38,98 € entsprechen dem flexiblen Monats-Abo. Bei älteren Verträgen oder Rabattaktionen können die Beträge abweichen."
         }
       ]
     },
@@ -126,11 +126,11 @@
     },
     {
       "id": "kuendigungsgebuehr",
-      "h2": "Die 50-%-Kündigungsgebühr: wann sie anfällt und was sie kostet",
+      "h2": "Die Kündigungsgebühr von 50 %: wann sie anfällt und was sie kostet",
       "blocks": [
         {
           "type": "p",
-          "text": "Die Gebühr betrifft nur das Jahres-Abo mit monatlicher Zahlung. Kündigst du es nach Ablauf der ersten 14 Tage, verlangt Adobe laut seinen Abobedingungen „eine einmalige Kündigungsgebühr in Höhe von 50 % des restlichen Vertragswerts“. Das Abo läuft dann noch bis zum Ende des aktuellen Abrechnungsmonats."
+          "text": "Die Gebühr betrifft nur das Jahres-Abo mit monatlicher Zahlung. Kündigst du es nach Ablauf der ersten 14 Tage, verlangt Adobe laut seinen Abobedingungen „eine einmalige Kündigungsgebühr in Höhe von 50 % des restlichen Vertragswerts“. Das Abo läuft dann noch bis zum Ende des aktuellen Abrechnungsmonats."
         },
         {
           "type": "p",
@@ -146,29 +146,29 @@
           ],
           "rows": [
             [
-              "Photoshop, Illustrator, InDesign, Premiere oder After Effects (25,99 €)",
-              "ca. 142,95 €",
-              "ca. 77,97 €",
-              "ca. 25,99 €"
+              "Photoshop, Illustrator, InDesign, Premiere oder After Effects (25,99 €)",
+              "ca. 142,95 €",
+              "ca. 77,97 €",
+              "ca. 25,99 €"
             ],
             [
-              "Creative Cloud Standard (61,95 €)",
-              "ca. 340,73 €",
-              "ca. 185,85 €",
-              "ca. 61,95 €"
+              "Creative Cloud Standard (61,95 €)",
+              "ca. 340,73 €",
+              "ca. 185,85 €",
+              "ca. 61,95 €"
             ],
             [
-              "Creative Cloud Pro (77,99 €)",
-              "ca. 428,95 €",
-              "ca. 233,97 €",
-              "ca. 77,99 €"
+              "Creative Cloud Pro (77,99 €)",
+              "ca. 428,95 €",
+              "ca. 233,97 €",
+              "ca. 77,99 €"
             ]
           ],
           "caption": "Eigene Beispielrechnung auf Basis der Adobe-Preise im Jahres-Abo mit monatlicher Zahlung, inkl. MwSt., Stand: 7. November 2026. Maßgeblich ist der Betrag, den Adobe dir berechnet."
         },
         {
           "type": "p",
-          "text": "Je früher im Vertragsjahr du kündigst, desto teurer wird es. Trotzdem kann sich eine Kündigung mitten im Jahr lohnen: Bei 6 Restmonaten Photoshop stehen rund 78 € Gebühr 155,94 € an restlichen Monatsraten gegenüber. Nutzt du Photoshop nicht mehr, sparst du also die Hälfte. Brauchst du es bis zum Schluss, kündigst du besser kurz vor der Verlängerung."
+          "text": "Je früher im Vertragsjahr du kündigst, desto teurer wird es. Trotzdem kann sich eine Kündigung mitten im Jahr lohnen: Bei 6 Restmonaten Photoshop stehen rund 78 € Gebühr 155,94 € an restlichen Monatsraten gegenüber. Nutzt du Photoshop nicht mehr, sparst du also die Hälfte. Brauchst du es bis zum Schluss, kündigst du besser kurz vor der Verlängerung."
         }
       ]
     },
@@ -178,7 +178,7 @@
       "blocks": [
         {
           "type": "p",
-          "text": "Jahres-Abos verlängern sich laut Adobe jedes Jahr am Abschlusstag automatisch. Außerhalb der USA verlängert sich auch das Jahres-Abo mit monatlicher Zahlung nach dem ersten Jahr um ein weiteres Jahr, nicht nur um einen Monat. Verpasst du das Datum, steckst du wieder zwölf Monate im Vertrag."
+          "text": "Jahres-Abos verlängern sich laut Adobe jedes Jahr am Abschlusstag automatisch. In Adobes allgemeinen Abonnementbedingungen steht für das Jahres-Abo mit monatlicher Zahlung außerhalb der USA, dass es sich nach dem ersten Jahr um ein weiteres Jahr verlängert. Für Verbraucher in Deutschland darf sich ein Abo nach § 309 Nr. 9 BGB aber nach der ersten Laufzeit nur noch auf unbestimmte Zeit verlängern und muss dann jederzeit mit einer Frist von höchstens einem Monat kündbar sein. Das gilt für Verträge, die seit dem 1. März 2022 geschlossen wurden."
         },
         {
           "type": "p",
@@ -355,13 +355,13 @@
             ],
             [
               "Koja-Apps (13 Apps)",
-              "2,99 € pro Monat oder 79 € einmalig",
+              "2,99 € pro Monat oder 79 € einmalig",
               "nur macOS, bis zu 3 Macs",
               "viele Adobe-Bereiche in einem Paket, aber frühe Versionen in Entwicklung"
             ],
             [
               "Zum Vergleich: Adobe Creative Cloud Pro",
-              "77,99 € pro Monat im Jahres-Abo mit monatlicher Zahlung",
+              "77,99 € pro Monat im Jahres-Abo mit monatlicher Zahlung",
               "–",
               "laut Adobe mehr als 20 Programme inklusive Adobe Firefly"
             ]
@@ -375,7 +375,7 @@
         {
           "type": "app",
           "app": "photo-koja",
-          "text": "Für alle, die Photoshop gewohnt sind: PhotoKoja öffnet und speichert Photoshop-Dateien (PSD/PSB) mit Ebenen und bringt 16 Einstellungsebenen, Ebenenstile und Masken mit. Noch Early Alpha, ohne generative KI, und laut den Entwicklern fehlen noch 15 Photoshop-Werkzeuge."
+          "text": "Für alle, die Photoshop gewohnt sind: PhotoKoja öffnet und speichert Photoshop-Dateien (PSD/PSB) mit Ebenen und bringt 16 Einstellungsebenen, Ebenenstile und Masken mit. Noch eine frühe Alpha-Version, ohne generative KI, und laut den Entwicklern fehlen noch 15 Photoshop-Werkzeuge."
         },
         {
           "type": "app",
@@ -388,7 +388,7 @@
         },
         {
           "type": "p",
-          "text": "Alle 13 Apps lädst du kostenlos über den Kojalytics Launcher herunter und kannst sie 3 Tage lang gratis testen. Danach kosten sie zusammen 2,99 € pro Monat (inkl. MwSt.), jederzeit mit einem Klick auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr, oder 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs, ohne Konto. Die Apps laufen offline, Internet brauchst du nur für Download und Aktivierung. Windows und eine Web-Version gibt es nicht. Details stehen in der [Preisübersicht](/software#preise)."
+          "text": "Alle 13 Apps lädst du kostenlos über den Kojalytics Launcher herunter und kannst sie 3 Tage lang gratis testen. Danach kosten sie zusammen 2,99 € pro Monat (inkl. MwSt.), jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr, oder 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs, ohne Konto. Die Apps laufen offline, Internet brauchst du nur für Download und Aktivierung. Windows und eine Web-Version gibt es nicht. Details stehen in der [Preisübersicht](/software#preise)."
         },
         {
           "type": "p",
@@ -404,11 +404,11 @@
     },
     {
       "q": "Wie hoch ist die Kündigungsgebühr bei Adobe?",
-      "a": "Beim Jahres-Abo mit monatlicher Zahlung verlangt Adobe nach den ersten 14 Tagen einmalig 50 % des restlichen Vertragswerts. Bei Photoshop für 25,99 € im Monat und 6 verbleibenden Monaten sind das grob gerechnet rund 78 €. Je näher das Ende des Vertragsjahres, desto niedriger die Gebühr."
+      "a": "Beim Jahres-Abo mit monatlicher Zahlung verlangt Adobe nach den ersten 14 Tagen einmalig 50 % des restlichen Vertragswerts. Bei Photoshop für 25,99 € im Monat und 6 verbleibenden Monaten sind das grob gerechnet rund 78 €. Je näher das Ende des Vertragsjahres, desto niedriger die Gebühr."
     },
     {
       "q": "Verlängert sich ein Adobe-Jahresabo automatisch?",
-      "a": "Ja. Jahres-Abos verlängern sich laut Adobe jedes Jahr am Abschlusstag automatisch, außerhalb der USA auch das Jahres-Abo mit monatlicher Zahlung um ein ganzes weiteres Jahr. Die automatische Verlängerung lässt sich laut Adobe derzeit nicht ausschalten, du musst dafür kündigen. Vor dem Verlängerungsdatum schickt Adobe eine Benachrichtigung."
+      "a": "Ja. Jahres-Abos verlängern sich laut Adobe jedes Jahr am Abschlusstag automatisch. Ausschalten lässt sich das laut Adobe derzeit nicht, du musst dafür kündigen. Vor dem Verlängerungsdatum schickt Adobe eine Benachrichtigung. Für Verbraucher in Deutschland gilt bei Verträgen seit dem 1. März 2022 aber § 309 Nr. 9 BGB: Nach der ersten Laufzeit darf sich ein Abo nur noch auf unbestimmte Zeit verlängern und muss dann mit höchstens einem Monat Frist kündbar sein."
     },
     {
       "q": "Was passiert mit meinen Dateien, wenn ich Adobe kündige?",
@@ -519,6 +519,10 @@
     {
       "label": "§ 312k BGB: Kündigung von Verbraucherverträgen im elektronischen Geschäftsverkehr",
       "url": "https://www.gesetze-im-internet.de/bgb/__312k.html"
+    },
+    {
+      "label": "§ 309 BGB: Klauselverbote ohne Wertungsmöglichkeit (Nr. 9: Laufzeit bei Dauerschuldverhältnissen)",
+      "url": "https://www.gesetze-im-internet.de/bgb/__309.html"
     },
     {
       "label": "Affinity: Get Affinity",

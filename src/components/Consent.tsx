@@ -38,8 +38,11 @@ export function openConsent() {
 }
 
 export default function Consent() {
-  // "unknown" on the server and during hydration, so nothing renders until we know the choice.
+  // "unknown" on the server and during hydration. The banner is then already in the HTML, so first-time
+  // visitors see it with the first paint; for visitors who already chose, the inline script in the root
+  // layout marks <html> and CSS hides it until hydration removes it.
   const choice = useSyncExternalStore(subscribe, readChoice, () => "unknown" as const);
+  const pending = choice === "unknown";
   const [reopened, setReopened] = useState(false);
 
   useEffect(() => {
@@ -59,28 +62,48 @@ export default function Consent() {
     if (before === "granted" && next === "denied") window.location.reload();
   };
 
-  const open = choice === null || (choice !== "unknown" && reopened);
+  const open = pending || choice === null || reopened;
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Move keyboard and screen-reader focus to the banner when it appears, and back when it closes.
+  useEffect(() => {
+    if (!open || pending) return;
+    const previous = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus({ preventScroll: true });
+    return () => {
+      if (previous && previous !== document.body && previous.isConnected) previous.focus({ preventScroll: true });
+    };
+  }, [open, pending]);
 
   return (
     <>
       {choice === "granted" && <TrackingScripts />}
       {open && (
         <div
+          ref={dialogRef}
           role="dialog"
-          aria-label="Cookie-Einstellungen"
-          className="fixed inset-x-0 bottom-0 z-[60] p-3 sm:p-4"
+          aria-labelledby="kj-consent-title"
+          aria-describedby="kj-consent-text"
+          tabIndex={-1}
+          className={`fixed inset-x-0 bottom-0 z-[60] p-3 outline-none sm:p-4 ${pending ? "kj-consent-pending" : ""}`}
           style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
         >
-          <div className="mx-auto flex max-w-3xl flex-col gap-3 rounded-[18px] border border-border bg-white p-4 shadow-[0_20px_50px_-20px_rgba(17,17,19,0.35)] sm:flex-row sm:items-center sm:gap-4 sm:p-5">
-            <p className="flex-1 text-[13px] leading-snug text-muted sm:text-sm sm:leading-relaxed">
-              Mit deiner Einwilligung nutzen wir Cookies von Google, Meta und Microsoft, um unsere Werbung zu messen. Du kannst das
-              jederzeit im Footer ändern.{" "}
+          <div className="mx-auto flex max-w-5xl flex-col gap-3 rounded-[18px] border border-border bg-white p-4 shadow-[0_20px_50px_-20px_rgba(17,17,19,0.35)] sm:flex-row sm:items-center sm:gap-4 sm:p-5">
+            <h2 id="kj-consent-title" className="sr-only">
+              Cookie-Einstellungen
+            </h2>
+            <p id="kj-consent-text" className="flex-1 text-[13px] leading-snug text-muted md:leading-normal">
+              Mit deiner Einwilligung nutzen wir Google Ads und das Meta-Pixel, um den Erfolg unserer Anzeigen zu messen und dir
+              passende Werbung zu zeigen, sowie Microsoft Clarity, um mit Heatmaps und Sitzungsaufzeichnungen zu verstehen, wie
+              unsere Website genutzt wird. Dabei können Daten in die USA übertragen werden. Du kannst deine Einwilligung jederzeit
+              unter „Cookie-Einstellungen“ im Footer widerrufen. Mehr in der{" "}
               <Link href="/datenschutz" className="text-foreground underline underline-offset-2">
-                Datenschutz
+                Datenschutzerklärung
               </Link>
+              .
             </p>
             <div className="grid shrink-0 grid-cols-2 gap-2">
-              <button onClick={() => decide("denied")} className="btn-secondary text-sm !px-5 !py-2.5">
+              <button onClick={() => decide("denied")} className="btn-primary text-sm !px-5 !py-2.5">
                 Ablehnen
               </button>
               <button onClick={() => decide("granted")} className="btn-primary text-sm !px-5 !py-2.5">

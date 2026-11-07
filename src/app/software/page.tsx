@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CloudOff, FileText, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, Check, CloudOff, FileText, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PerspectiveTunnelHero from "@/components/ui/perspective-tunnel-hero";
@@ -14,17 +14,18 @@ import { APPS, APP_GROUPS, getApp, shotFor } from "@/lib/apps";
 import { ARTICLES } from "@/lib/ratgeber";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import { SOFTWARE_FAQ } from "@/lib/software-faq";
-import { SITE_URL, jsonLd } from "@/lib/site";
+import { OG_BASE, SITE_URL, jsonLd } from "@/lib/site";
 import compare from "@/content/software-compare.json";
 
 export const metadata: Metadata = {
   title: "Koja-Apps: 13 Mac-Apps statt Adobe-Abo",
   description:
-    "Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD für den Mac. Offline, ohne Konto. 2,99 € im Monat, mit einem Klick kündbar. 3 Tage kostenlos testen.",
+    "Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD für den Mac. Offline, ohne Konto. 2,99 € im Monat, jederzeit online kündbar. 3 Tage kostenlos testen.",
   alternates: { canonical: "/software" },
   openGraph: {
-    title: "Foto, Video und Office: 13 Mac-Apps für 2,99 € im Monat.",
-    description: "Foto, Video, Design, Audio, Office, PDF und CAD. Offline, ohne Konto, mit einem Klick kündbar. 3 Tage kostenlos testen.",
+    ...OG_BASE,
+    title: "Foto, Video und Office: 13 Mac-Apps für 2,99 € im Monat.",
+    description: "Foto, Video, Design, Audio, Office, PDF und CAD. Offline, ohne Konto, jederzeit online kündbar. 3 Tage kostenlos testen.",
     url: "/software",
     images: [{ url: "/og/software.jpg", width: 1200, height: 630, alt: "Die Koja-Apps auf dem Mac" }],
   },
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 const problems = [
   {
     pain: "Monatliche Abo-Kosten, die nie enden, und eine Gebühr, wenn du vorzeitig gehst.",
-    fix: "2,99 € im Monat und mit einem Klick gekündigt. Oder einmal 79 € zahlen und behalten.",
+    fix: "2,99 € im Monat und jederzeit online kündbar. Oder einmal 79 € zahlen und behalten.",
   },
   {
     pain: "Erst Konto, Cloud und Anmeldung, bevor du eine Datei öffnen darfst.",
@@ -47,28 +48,32 @@ const problems = [
 
 const benefits = [
   { icon: Zap, title: "Echte Mac-Apps", text: "Native Programme, die schnell starten und ohne Internet weiterlaufen." },
-  { icon: FileText, title: "Deine Dateien öffnen sich", text: ".docx, .xlsx, .pptx und PDF von Kunden und Kollegen öffnen sich wie gewohnt." },
+  {
+    icon: FileText,
+    title: "Gängige Dateiformate",
+    text: ".docx, .xlsx, .pptx, .psd und PDF öffnest du direkt, ohne Umwandeln. Layout und Umbrüche können noch abweichen, teste deshalb mit Kopien deiner Dateien.",
+  },
   { icon: CloudOff, title: "Kein Konto, keine Cloud", text: "Nichts anmelden, nichts hochladen. Deine Arbeit bleibt auf deinem Mac." },
-  { icon: MousePointerClick, title: "Kündigen mit einem Klick", text: "Auf unserer Website, ohne Gebühr, ohne Anruf, ohne Kündigungsschreiben." },
+  { icon: MousePointerClick, title: "Online kündigen, jederzeit", text: "Name und E-Mail eingeben, „Jetzt kündigen“ klicken. Ohne Gebühr, ohne Anruf, ohne Kündigungsschreiben." },
   { icon: Lock, title: "Offener Quellcode", text: "Die Apps basieren auf offenem Code (MIT / Apache-2.0), den jeder prüfen kann." },
-  { icon: ShieldCheck, title: "Ein echtes Unternehmen", text: "Kojalytics, Software-Studio aus Deutschland. DSGVO, Impressum, Support per E-Mail." },
+  { icon: ShieldCheck, title: "Ein echtes Unternehmen", text: "Kojalytics, Software-Studio aus Hamburg. Mit Impressum und Support per E-Mail, von Menschen beantwortet." },
 ];
 
 const showcase = [
   {
     app: "word-koja",
-    title: "Deine Office-Dateien öffnen sich einfach",
-    text: "WordKoja, GridKoja und DeckKoja lesen und speichern .docx, .xlsx und .pptx. Das Angebot vom Kunden, die Tabelle aus der Buchhaltung, die Präsentation der Kollegin: Sie öffnen sich ohne Umweg über ein Microsoft-Konto.",
+    title: "Deine Office-Dateien am Mac",
+    text: "WordKoja, GridKoja und DeckKoja lesen und speichern .docx, .xlsx und .pptx, ohne Microsoft-Konto. Das Angebot vom Kunden, die Tabelle aus der Buchhaltung, die Präsentation der Kollegin. Aufwendige Layouts können noch abweichen: Teste deine wichtigsten Dateien in den 3 Tagen.",
   },
   {
     app: "photo-koja",
-    title: "Werkzeuge, die du schon kennst",
-    text: "Ebenen, Masken, Ebenenstile und Pinsel in PhotoKoja. Pfade und Formen in VectorKoja. Musterseiten und Textrahmen in DesignKoja. Wer aus der Adobe-Welt kommt, findet sich in Minuten zurecht.",
+    title: "Vertraute Werkzeuge",
+    text: "Ebenen, Masken, Ebenenstile und Pinsel in PhotoKoja. Pfade und Formen in VectorKoja. Musterseiten und Textrahmen in DesignKoja. Die Werkzeuge liegen dort, wo du sie aus anderen Programmen erwartest.",
   },
   {
-    app: "film-koja",
+    app: "effect-koja",
     title: "Auch für Video, Effekte und Audio",
-    text: "Schneide Videos auf einer Mehrspur-Zeitleiste in FilmKoja, animiere Titel in EffectKoja und mische deinen Podcast in SoundKoja. Alles im selben Abo.",
+    text: "Schneide Videos auf einer Mehrspur-Zeitleiste in FilmKoja, animiere Titel in EffectKoja und mische deinen Podcast in SoundKoja. Alles im selben Paket.",
   },
 ];
 
@@ -90,9 +95,11 @@ const productJsonLd = {
       name: "Monatlich",
       price: (PLANS.monthly.cents / 100).toFixed(2),
       priceCurrency: "EUR",
+      url: `${SITE_URL}/software#preise`,
+      availability: "https://schema.org/InStock",
       priceSpecification: { "@type": "UnitPriceSpecification", price: (PLANS.monthly.cents / 100).toFixed(2), priceCurrency: "EUR", billingDuration: "P1M", unitCode: "MON" },
     },
-    { "@type": "Offer", name: "Dauerhaft", price: (PLANS.lifetime.cents / 100).toFixed(2), priceCurrency: "EUR" },
+    { "@type": "Offer", name: "Dauerhaft", price: (PLANS.lifetime.cents / 100).toFixed(2), priceCurrency: "EUR", url: `${SITE_URL}/software#preise`, availability: "https://schema.org/InStock" },
   ],
 };
 
@@ -105,7 +112,8 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const tunnelItems = APPS.map((a) => {
+// FilmKoja's screenshots show stills from third-party films; they stay off the most-seen surfaces.
+const tunnelItems = APPS.filter((a) => a.slug !== "film-koja").map((a) => {
   const s = a.shots[0];
   return { src: s?.src ?? "", alt: s?.alt ?? a.name, label: a.name, icon: `/apps/${a.slug}/icon.webp` };
 }).filter((i) => i.src);
@@ -125,13 +133,13 @@ export default function SoftwarePage() {
       <main>
         <PerspectiveTunnelHero items={tunnelItems}>
           <div className="flex max-w-3xl flex-col items-center text-center">
-            <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted">Koja-Apps für den Mac · Early Access</p>
+            <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted">Koja-Apps für den Mac · frühe Alpha-Versionen</p>
             <h1 className="display mt-5 text-[clamp(2.4rem,5.6vw,4.6rem)]">
-              Foto, Video und Office: 13 <span className="whitespace-nowrap">Mac-Apps</span> für{" "}
-              <span className="whitespace-nowrap text-highlight">2,99 €</span> im Monat.
+              Foto, Video und Office: <span className="whitespace-nowrap">13 Mac-Apps</span> für{" "}
+              <span className="whitespace-nowrap text-highlight">2,99 €</span> im Monat.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              Fotos bearbeiten, Layouts setzen, Videos schneiden, Texte schreiben und PDFs bearbeiten: in echten Mac-Apps, die
+              Fotos bearbeiten, Layouts setzen, Videos schneiden, Texte schreiben und PDFs ordnen: in echten Mac-Apps, die
               offline laufen und kein Konto brauchen. Teste alle Apps {TRIAL_DAYS} Tage kostenlos.
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
@@ -140,11 +148,11 @@ export default function SoftwarePage() {
                 Preise ansehen
               </Link>
             </div>
-            <p className="mt-4 text-sm text-muted">macOS · ohne Konto · jederzeit mit einem Klick kündbar</p>
+            <p className="mt-4 text-sm text-foreground/70">macOS · ohne Konto · jederzeit online kündbar</p>
             <ul className="mt-7 flex max-w-[600px] flex-wrap justify-center gap-2" aria-label="Alle 13 Apps">
               {APPS.map((a) => (
                 <li key={a.slug}>
-                  <Link href={`/software/${a.slug}`} title={`${a.name}: ${a.kind}`} className="block transition-transform hover:-translate-y-0.5">
+                  <Link href={`/software/${a.slug}`} prefetch={false} title={`${a.name}: ${a.kind}`} className="block transition-transform hover:-translate-y-0.5">
                     <AppIcon slug={a.slug} name={a.name} size={34} />
                   </Link>
                 </li>
@@ -154,7 +162,8 @@ export default function SoftwarePage() {
         </PerspectiveTunnelHero>
 
         {/* Problem → solution */}
-        <section className="mx-auto max-w-7xl px-5 py-20 md:px-6 md:py-28">
+        <section className="px-5 py-20 md:px-6 md:py-28">
+          <div className="mx-auto max-w-7xl">
           <p className="eyebrow">Warum Leute wechseln</p>
           <h2 className="display mt-3 max-w-4xl text-4xl sm:text-5xl md:text-6xl">
             Du willst etwas erschaffen. <span className="text-muted">Keine Abos verwalten.</span>
@@ -170,6 +179,7 @@ export default function SoftwarePage() {
               </div>
             ))}
           </div>
+          </div>
         </section>
 
         {/* App gallery */}
@@ -178,10 +188,11 @@ export default function SoftwarePage() {
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
                 <p className="eyebrow">Die Apps</p>
-                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Apps. Ein Abo.</h2>
+                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Apps. Ein Preis.</h2>
               </div>
               <p className="max-w-md text-muted">
-                Vom schnellen PDF bis zum fertigen Film. Installiere nur die Apps, die du brauchst. Alle sind im selben Abo enthalten.
+                Vom schnellen PDF bis zum fertigen Film. Installiere nur die Apps, die du brauchst. Alle sind enthalten, ob im Monatsabo
+                oder mit der Einmal-Lizenz.
               </p>
             </div>
 
@@ -190,18 +201,23 @@ export default function SoftwarePage() {
               return (
                 <div key={group} className="mt-14">
                   <h3 className="mb-5 text-lg font-semibold">{group}</h3>
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {apps.map((app) => {
+                  {/* Phones: one swipeable row per group. Desktop: 3 per row; with 5 apps the last two share the row. */}
+                  <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6">
+                    {apps.map((app, i) => {
                       const shot = app.shots[0];
+                      const wide = apps.length % 3 === 2 && i >= apps.length - 2;
                       return (
                         <Link
                           key={app.slug}
                           href={`/software/${app.slug}`}
-                          className="group flex flex-col overflow-hidden rounded-[22px] border border-border bg-white transition-[box-shadow,border-color] hover:border-[#d6d3d1] hover:shadow-[0_20px_40px_-24px_rgba(17,17,19,0.3)]"
+                          prefetch={false}
+                          className={`group flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-[22px] border border-border bg-white transition-[box-shadow,border-color] hover:border-[#d6d3d1] hover:shadow-[0_20px_40px_-24px_rgba(17,17,19,0.3)] sm:w-auto ${
+                            wide ? "lg:col-span-3" : "lg:col-span-2"
+                          } ${apps.length % 2 === 1 && i === apps.length - 1 ? "sm:max-lg:col-span-2" : ""}`}
                         >
                           {shot && (
                             <div className="bg-[linear-gradient(160deg,var(--c)_0%,transparent_75%)] p-5 pb-0" style={{ ["--c" as string]: `${app.color}22` }}>
-                              <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw" fixedRatio className="translate-y-2 transition-transform duration-500 group-hover:translate-y-0" />
+                              <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 640px) 70vw, (max-width: 1024px) 45vw, 30vw" fixedRatio className="translate-y-2 transition-transform duration-500 group-hover:translate-y-0" />
                             </div>
                           )}
                           <div className="flex flex-1 flex-col border-t border-border p-5">
@@ -224,6 +240,14 @@ export default function SoftwarePage() {
                 </div>
               );
             })}
+
+            <div className="mt-14 flex flex-col items-start justify-between gap-5 rounded-[22px] bg-white p-6 sm:flex-row sm:items-center sm:p-8">
+              <div>
+                <p className="text-xl font-semibold">Probier es mit deinen eigenen Dateien.</p>
+                <p className="mt-1 text-muted">Alle 13 Apps {TRIAL_DAYS} Tage kostenlos, ohne Zahlungsdaten.</p>
+              </div>
+              <DownloadButton source="software-mid" />
+            </div>
           </div>
         </section>
 
@@ -234,7 +258,7 @@ export default function SoftwarePage() {
               const app = getApp(s.app);
               const shot = app && shotFor(app);
               return (
-                <div key={s.title} className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+                <div key={s.title} className={`grid gap-10 lg:items-center ${i % 2 ? "lg:grid-cols-[1.2fr_0.8fr]" : "lg:grid-cols-[0.8fr_1.2fr]"}`}>
                   <div className={i % 2 ? "lg:order-2" : ""}>
                     <h2 className="display text-4xl sm:text-5xl">{s.title}</h2>
                     <p className="mt-5 text-lg leading-relaxed text-muted">{s.text}</p>
@@ -273,8 +297,23 @@ export default function SoftwarePage() {
           <div className="mx-auto max-w-5xl">
             <p className="eyebrow">Preisvergleich</p>
             <h2 className="display mt-3 text-4xl sm:text-5xl">Was du im Jahr zahlst</h2>
-            <div className="mt-10 overflow-x-auto rounded-[22px] border border-border">
-              <table className="w-full min-w-[560px] text-left text-[15px]">
+            <div className="mt-10 grid gap-3 md:hidden">
+              {compare.rows.map((r) => (
+                <div key={r.label} className="rounded-[18px] border border-border p-4">
+                  <p className="text-sm font-medium text-muted">{r.label}</p>
+                  <dl className="mt-2 grid gap-1.5 text-[15px]">
+                    {r.values.map((v, i) => (
+                      <div key={i}>
+                        <dt className={`font-semibold ${i === 0 ? "text-accent" : ""}`}>{compare.columns[i]}</dt>
+                        <dd className={i === 0 ? "font-semibold" : ""}>{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 hidden overflow-x-auto rounded-[22px] border border-border md:block">
+              <table className="w-full text-left text-[15px]">
                 <thead className="bg-surface text-sm">
                   <tr>
                     <th scope="col" className="p-4"></th>
@@ -319,8 +358,8 @@ export default function SoftwarePage() {
         </section>
 
         {/* Trust */}
-        <section className="mx-auto max-w-7xl px-5 py-20 md:px-6 md:py-28">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <section className="px-5 py-20 md:px-6 md:py-28">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="eyebrow">Wer hinter Koja steht</p>
               <h2 className="display mt-3 text-4xl sm:text-5xl">Ein kleines Studio. Offener Code.</h2>
@@ -330,10 +369,22 @@ export default function SoftwarePage() {
                 beantworten deine E-Mails selbst. Die Apps sind frühe Versionen und werden laufend weiterentwickelt. Deshalb
                 testest du alles {TRIAL_DAYS} Tage kostenlos, bevor du zahlst.
               </p>
-              <ul className="mt-6 grid gap-2">
-                <li>Sichere Zahlung über Stripe</li>
-                <li>DSGVO-konform, Unternehmen mit Sitz in Deutschland</li>
-                <li>Support unter support@kojalytics.com</li>
+              <ul className="mt-6 grid gap-2.5">
+                {["Sichere Zahlung über Stripe", "Unternehmen mit Sitz in Hamburg"].map((t) => (
+                  <li key={t} className="flex gap-3">
+                    <Check size={18} strokeWidth={2.6} className="mt-1 shrink-0 text-success" aria-hidden />
+                    {t}
+                  </li>
+                ))}
+                <li className="flex gap-3">
+                  <Check size={18} strokeWidth={2.6} className="mt-1 shrink-0 text-success" aria-hidden />
+                  <span>
+                    Support unter{" "}
+                    <a href="mailto:support@kojalytics.com" className="underline underline-offset-4">
+                      support@kojalytics.com
+                    </a>
+                  </span>
+                </li>
               </ul>
               {showPlaceholders && (
                 <div className="mt-8 rounded-[18px] border border-dashed border-accent p-5 text-sm text-accent">
@@ -394,8 +445,10 @@ export default function SoftwarePage() {
                 <AppIcon key={a.slug} slug={a.slug} name={a.name} size={52} />
               ))}
             </div>
-            <h2 className="display mt-8 text-5xl sm:text-6xl md:text-7xl">Dein ganzes Studio für 2,99 €.</h2>
-            <p className="mt-5 max-w-xl text-lg text-muted">13 Apps, {TRIAL_DAYS} Tage kostenlos, mit einem Klick kündbar.</p>
+            <h2 className="display mt-8 text-5xl sm:text-6xl md:text-7xl">
+              Dein Kreativ- und Büro-Paket für <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg text-muted">13 Apps, {TRIAL_DAYS} Tage kostenlos, jederzeit online kündbar.</p>
             <div className="mt-8">
               <DownloadButton source="software-final-cta" />
             </div>

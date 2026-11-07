@@ -13,7 +13,7 @@ export default function RichText({ text }: { text: string }) {
     if (link) {
       const [, label, href] = link;
       return href.startsWith("/") ? (
-        <Link key={i} href={href}>
+        <Link key={i} href={href} className="text-accent underline underline-offset-[3px] hover:text-foreground">
           {label}
         </Link>
       ) : (

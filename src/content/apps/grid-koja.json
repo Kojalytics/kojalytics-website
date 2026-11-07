@@ -2,10 +2,10 @@
   "kind": "Tabellenkalkulation",
   "benefit": "Bearbeite Excel-Tabellen auf dem Mac mit Formeln, Pivot-Tabellen und Diagrammen, ohne Microsoft-Abo.",
   "keyword": "excel alternative mac",
-  "metaTitle": "GridKoja: Excel-Alternative für Mac ohne Abo",
-  "metaDescription": "Excel-Alternative für den Mac: GridKoja bearbeitet XLSX mit Formeln und Pivot-Tabellen. 3 Tage kostenlos testen, dann 2,99 €/Monat oder 79 € einmalig.",
-  "h1": "Excel-Alternative für den Mac, auch ohne Abo",
-  "lead": "GridKoja ist eine Excel-Alternative für den Mac, mit Menüband, Bearbeitungsleiste, über 500 Funktionen und Pivot-Tabellen, wie du sie aus Excel kennst. XLSX-Dateien öffnest und speicherst du direkt. Die App ist noch in früher Entwicklung: Teste sie 3 Tage kostenlos, danach 2,99 € im Monat oder 79 € einmalig.",
+  "metaTitle": "GridKoja: Excel-Alternative für den Mac",
+  "metaDescription": "Excel-Alternative für den Mac: GridKoja bearbeitet XLSX mit Formeln und Pivot-Tabellen. 3 Tage kostenlos testen, dann 2,99 € im Monat oder 79 € einmalig.",
+  "h1": "Excel-Alternative für den Mac: Formeln, Pivot-Tabellen, XLSX",
+  "lead": "GridKoja ist eine Excel-Alternative für den Mac, die XLSX-Dateien direkt öffnet und speichert. Du rechnest mit über 500 Funktionen und wertest mit Pivot-Tabellen, Diagrammen und bedingter Formatierung aus. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "XLSX öffnen und speichern",
     "500+ Funktionen, Pivot-Tabellen",
@@ -13,8 +13,8 @@
   ],
   "features": [
     {
-      "title": "Menüband wie in Excel",
-      "text": "Menüband, Bearbeitungsleiste, Namenfeld, Blattregister und Ausfüllkästchen sitzen dort, wo du sie erwartest. Beim Eingeben einer Formel klickst du Zellen an und siehst die Bezüge farbig markiert. „Zellen formatieren“, „Inhalte einfügen“ und viele bekannte Tastenkürzel sind ebenfalls dabei."
+      "title": "Menüband mit Registerkarten",
+      "text": "Du arbeitest mit Menüband, Bearbeitungsleiste, Namenfeld, Blattregistern und Ausfüllkästchen. Beim Eingeben einer Formel klickst du Zellen an und siehst die Bezüge farbig markiert. „Zellen formatieren“, „Inhalte einfügen“ und viele bekannte Tastenkürzel sind ebenfalls dabei."
     },
     {
       "title": "Über 500 Funktionen",
@@ -52,7 +52,7 @@
     {
       "file": "hero.webp",
       "alt": "GridKoja auf dem Mac: Umsatz-Dashboard mit Tabelle, Datenbalken, Sparklines, Säulen- und Kreisdiagramm",
-      "caption": "Tabellen, Diagramme und Sparklines mit vertrautem Menüband: Wer Excel kennt, findet sich schnell zurecht."
+      "caption": "Umsatz-Dashboard mit Datenbalken, Sparklines, Säulen- und Kreisdiagramm, darüber das Menüband mit Registerkarten."
     },
     {
       "file": "budget.webp",
@@ -88,12 +88,12 @@
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
-        "other": "Microsoft 365 Single: 99 € pro Jahr oder 10 € im Monat. Office Home 2024: 149 € einmalig für 1 PC oder Mac"
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "Microsoft 365 Single: 99 € pro Jahr oder 10 € im Monat. Office Home 2024: 149 € einmalig für 1 PC oder Mac"
       },
       {
         "label": "Abrechnung und Kündigung",
-        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen.",
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen.",
         "other": "Das Abo verlängert sich automatisch zum normalen Preis, wenn du nicht kündigst. Office Home 2024 ist ein Einmalkauf."
       },
       {
@@ -127,7 +127,7 @@
   "forWho": [
     "du Excel-Dateien auf dem Mac öffnen und bearbeiten willst, ohne ein Microsoft-365-Abo abzuschließen",
     "du mit Formeln, bedingter Formatierung, Pivot-Tabellen und Diagrammen arbeitest und keine Makros brauchst",
-    "du lieber einmal 79 € zahlst, statt jedes Jahr ein Abo zu verlängern",
+    "du lieber einmal 79 € zahlst, statt jedes Jahr ein Abo zu verlängern",
     "du offline und ohne Konto arbeiten willst und auch Apps für Texte, Präsentationen und PDFs gebrauchen kannst, denn alle 13 Koja-Apps sind im Preis enthalten"
   ],
   "notFor": [
@@ -147,7 +147,7 @@
   "faq": [
     {
       "q": "Ist GridKoja eine vollwertige Excel-Alternative?",
-      "a": "Noch nicht. GridKoja ist eine frühe Version (Alpha), und das Open-Source-Projekt dahinter schätzt selbst, dass es erst zu etwa 50 % bereit für echte Arbeit ist. Es fehlen unter anderem Makros (VBA), große Teile von Power Query und die Unterstützung sehr großer Arbeitsmappen. Formeln, Pivot-Tabellen, bedingte Formatierung, 17 Diagrammtypen und XLSX als Standardformat sind aber schon da, und ob das für deine Tabellen reicht, zeigt dir der kostenlose Test mit deinen eigenen Dateien."
+      "a": "Noch nicht. GridKoja ist eine frühe Version (Alpha), und laut Projektangaben (Stand: November 2026) ist es nach eigener Schätzung des Open-Source-Projekts dahinter erst zu etwa 50 % bereit für echte Arbeit. Es fehlen unter anderem Makros (VBA), große Teile von Power Query und die Unterstützung sehr großer Arbeitsmappen. Formeln, Pivot-Tabellen, bedingte Formatierung, 17 Diagrammtypen und XLSX als Standardformat sind aber schon da, und ob das für deine Tabellen reicht, zeigt dir der kostenlose Test mit deinen eigenen Dateien."
     },
     {
       "q": "Kann ich XLSX-Dateien auf dem Mac ohne Excel öffnen und bearbeiten?",
@@ -155,7 +155,7 @@
     },
     {
       "q": "Ist GridKoja kostenlos, und geht es auch ohne Abo?",
-      "a": "Du kannst GridKoja 3 Tage kostenlos testen. Willst du es danach weiter nutzen, zahlst du entweder 79 € einmalig für alle 13 Koja-Apps auf bis zu 3 Macs, ganz ohne Abo, oder 2,99 € im Monat, jederzeit mit einem Klick kündbar. Im Preis stecken auch [WordKoja](/software/word-koja) für Texte und [DeckKoja](/software/deck-koja) für Präsentationen. Zum Vergleich: Microsoft 365 Single kostet 99 € im Jahr, Office Home 2024 einmalig 149 € für einen Mac."
+      "a": "Du kannst GridKoja 3 Tage kostenlos testen. Willst du es danach weiter nutzen, zahlst du entweder 79 € einmalig für alle 13 Koja-Apps auf bis zu 3 Macs, ganz ohne Abo, oder 2,99 € im Monat, jederzeit online kündbar. Im Preis stecken auch [WordKoja](/software/word-koja) für Texte und [DeckKoja](/software/deck-koja) für Präsentationen. Zum Vergleich: Microsoft 365 Single kostet 99 € im Jahr, Office Home 2024 einmalig 149 € für einen Mac."
     },
     {
       "q": "Kann ich mit GridKoja Pivot-Tabellen auf dem Mac erstellen?",

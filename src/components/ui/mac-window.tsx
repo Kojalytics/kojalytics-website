@@ -34,10 +34,10 @@ export default function MacWindow({
       </div>
       {fixedRatio ? (
         <div className="relative aspect-[16/10] bg-white">
-          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover object-left-top" />
+          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} fetchPriority={priority ? "high" : undefined} className="object-cover object-left-top" />
         </div>
       ) : (
-        <Image src={src} alt={alt} width={width} height={height} sizes={sizes} priority={priority} className="block h-auto w-full" />
+        <Image src={src} alt={alt} width={width} height={height} sizes={sizes} priority={priority} fetchPriority={priority ? "high" : undefined} className="block h-auto w-full" />
       )}
     </div>
   );

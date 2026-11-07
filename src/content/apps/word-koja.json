@@ -1,20 +1,20 @@
 {
   "kind": "Textverarbeitung",
-  "benefit": "Briefe, Berichte und Hausarbeiten am Mac schreiben, mit dem Menüband und den .docx-Dateien, die du aus Word kennst.",
+  "benefit": "Briefe, Berichte und Hausarbeiten am Mac schreiben, mit Menüband und direkter Bearbeitung von .docx-Dateien.",
   "keyword": "word alternative mac",
-  "metaTitle": "WordKoja: Word-Alternative für Mac, ohne Abo",
-  "metaDescription": "Word-Alternative für den Mac: WordKoja öffnet und speichert .docx, mit Menüband wie in Word. 3 Tage kostenlos testen, dann 79 € einmalig oder 2,99 €/Monat.",
+  "metaTitle": "WordKoja: Word-Alternative für den Mac",
+  "metaDescription": "WordKoja ist eine Word-Alternative für den Mac: .docx öffnen und speichern, offline und ohne Konto. 3 Tage kostenlos testen, dann 79 € einmalig.",
   "h1": "Word-Alternative für den Mac, mit Menüband und .docx",
-  "lead": "WordKoja ist eine Word-Alternative für den Mac mit dem vertrauten Menüband: Formatvorlagen, Tabellen, „Änderungen nachverfolgen“ und Inhaltsverzeichnis. Deine .docx-Dateien öffnest und speicherst du direkt. Teste die frühe Version 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig für alle 13 Apps.",
+  "lead": "WordKoja ist eine Word-Alternative für den Mac, die .docx-Dateien direkt öffnet und speichert. Du schreibst mit Formatvorlagen, Tabellen, „Änderungen nachverfolgen“ und Inhaltsverzeichnis, offline und ohne Konto. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "Öffnet und speichert .docx",
-    "Menüband wie in Word",
+    "Menüband mit Registerkarten",
     "Offline, ohne Konto"
   ],
   "features": [
     {
-      "title": "Menüband und Kürzel wie in Word",
-      "text": "Registerkarten, Gruppen und die Formatvorlagen-Galerie liegen dort, wo du sie aus Word erwartest. Auch viele Handgriffe sind gleich: Enter setzt eine Liste fort, Tab rückt sie eine Ebene ein, ⌘B macht das Wort unter dem Cursor fett, F4 wiederholt die letzte Aktion und F7 startet die Rechtschreibprüfung."
+      "title": "Menüband mit Registerkarten und Kürzeln",
+      "text": "Registerkarten und Gruppen ordnen die Befehle, Formatvorlagen wählst du aus einer Galerie. Viele gängige Handgriffe funktionieren: Enter setzt eine Liste fort, Tab rückt sie eine Ebene ein, ⌘B macht das Wort unter dem Cursor fett, F4 wiederholt die letzte Aktion und F7 startet die Rechtschreibprüfung."
     },
     {
       "title": ".docx öffnen und speichern",
@@ -45,14 +45,14 @@
     },
     {
       "title": "Schnell, nativ und offline",
-      "text": "WordKoja ist eine native Mac-App ohne Electron und läuft auf Macs mit Apple-Chip und mit Intel. Laut den Entwicklern wird das Layout eines 188-seitigen Dokuments beim Tippen in etwa **1,4 ms** neu berechnet. Alles funktioniert offline, und der Text deiner Dokumente landet nie in Protokolldateien."
+      "text": "WordKoja ist eine native Mac-App ohne Electron und läuft auf Macs mit Apple-Chip und mit Intel. Laut Projektangaben (Stand: November 2026) wird das Layout eines 188-seitigen Dokuments beim Tippen in etwa **1,4 ms** neu berechnet. Alles funktioniert offline, und der Text deiner Dokumente landet nie in Protokolldateien."
     }
   ],
   "screenshots": [
     {
       "file": "hero.webp",
       "alt": "WordKoja: Menüband mit Formatvorlagen-Galerie, Navigationsbereich mit Überschriften und geöffnetem Dokument",
-      "caption": "Schrift, Absatz und Formatvorlagen findest du im Menüband dort, wo du sie aus Word kennst, und musst kaum umlernen."
+      "caption": "Englische Oberfläche abgebildet, die App gibt es auch auf Deutsch. Cloud-Speicher und Zusammenarbeit in Echtzeit fehlen noch."
     },
     {
       "file": "references.webp",
@@ -79,8 +79,8 @@
     "title": "Von Word zu WordKoja: so testest du die Word-Alternative am Mac",
     "paragraphs": [
       "Vieles kennst du schon: das Menüband mit Registerkarten für Einfügen, Layout, Referenzen und Überprüfen, die Formatvorlagen-Galerie, den Navigationsbereich und Kürzel wie ⌘B, F4 oder F7. Noch sind aber nicht alle Kürzel aus Word dabei: Ab Werk bringt WordKoja 140 Tastenkürzel mit. Die Oberfläche gibt es auf Deutsch, und sie folgt der Sprache deines Macs. Die Screenshots auf dieser Seite zeigen die englische Oberfläche.",
-      "Deine .docx-Dateien öffnest du direkt und speicherst sie auch wieder als .docx. Laut den Entwicklern ist der .docx-Import aber noch nicht systematisch mit echten Dateien aus Word, Google Docs oder Pages getestet. Alte .doc-Dateien kannst du öffnen, aber nicht wieder als .doc speichern. Rechne damit, dass Zeilen- und Seitenumbrüche von Word abweichen können, etwa weil es für die Schrift Aptos noch keinen maßgleichen Ersatz gibt. Diagramme aus Word kannst du ansehen, aber nicht bearbeiten, und Makros in .docm-Dateien werden mitgespeichert, aber nicht ausgeführt.",
-      "Was noch fehlt: eine deutsche Rechtschreib- und Grammatikprüfung (für Deutsch gibt es bisher nur die Silbentrennung), Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit, VBA-Makros, Office-Add-ins und ein KI-Schreibassistent. Serienbriefe kannst du nicht aus Outlook-Kontakten, Access oder anderen Datenbanken erstellen, und Serien-E-Mails gibt es noch nicht. WordKoja ist noch in früher Entwicklung (Alpha): Die Entwickler des Open-Source-Projekts schätzen selbst, dass es für etwa 60 % der echten Arbeit reicht, und es gibt noch offene Fehlerberichte zu Abstürzen.",
+      "Deine .docx-Dateien öffnest du direkt und speicherst sie auch wieder als .docx. Laut Projektangaben ist der .docx-Import aber noch nicht systematisch mit echten Dateien aus Word, Google Docs oder Pages getestet. Alte .doc-Dateien kannst du öffnen, aber nicht wieder als .doc speichern. Rechne damit, dass Zeilen- und Seitenumbrüche von Word abweichen können, etwa weil es für die Schrift Aptos noch keinen maßgleichen Ersatz gibt. Diagramme aus Word kannst du ansehen, aber nicht bearbeiten, und Makros in .docm-Dateien werden mitgespeichert, aber nicht ausgeführt.",
+      "Was noch fehlt: eine deutsche Rechtschreib- und Grammatikprüfung (für Deutsch gibt es bisher nur die Silbentrennung), Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit, VBA-Makros, Office-Add-ins und ein KI-Schreibassistent. Serienbriefe kannst du nicht aus Outlook-Kontakten, Access oder anderen Datenbanken erstellen, und Serien-E-Mails gibt es noch nicht. WordKoja ist noch eine frühe Version (Alpha): Laut Projektangaben (Stand: November 2026) reicht es nach eigener Schätzung für etwa 60 % der echten Arbeit, und es gibt noch offene Fehlerberichte zu Abstürzen.",
       "So testest du in 3 Tagen, ob es für dich passt: Lade den Kojalytics Launcher, installiere WordKoja und öffne drei echte Dateien, zum Beispiel einen Brief, ein langes Dokument mit Inhaltsverzeichnis und eines mit Kommentaren. Vergleiche die Seitenumbrüche, speichere als .docx, exportiere ein PDF und arbeite dabei mit Kopien. Kündige Microsoft 365 erst, wenn du sicher bist. Welche Wege es zu Office ohne Abo gibt, steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
     ]
   },
@@ -88,12 +88,12 @@
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
-        "other": "Microsoft 365 Single: 99 € pro Jahr oder 10 € im Monat. Office Home 2024: 149 € einmalig für 1 Mac. Word für das Web: kostenlos"
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "Microsoft 365 Single: 99 € pro Jahr oder 10 € im Monat. Office Home 2024: 149 € einmalig für 1 Mac. Word für das Web: kostenlos"
       },
       {
         "label": "Abrechnung und Kündigung",
-        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen.",
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen.",
         "other": "Microsoft-365-Abos verlängern sich automatisch zum normalen Preis, wenn du nicht kündigst. Office Home 2024 ist ein Einmalkauf."
       },
       {
@@ -152,7 +152,7 @@
   "faq": [
     {
       "q": "Ist WordKoja eine vollwertige Microsoft-Word-Alternative?",
-      "a": "Noch nicht: WordKoja ist eine frühe Version (Alpha), und die Entwickler schätzen selbst, dass es für etwa 60 % der echten Arbeit reicht. Es fehlen unter anderem eine deutsche Rechtschreibprüfung, Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit und VBA-Makros, außerdem können Seitenumbrüche von Word abweichen. Menüband, Formatvorlagen, Tabellen, „Änderungen nachverfolgen“, Verzeichnisse und Serienbriefe sind aber schon da. Ob das für dich reicht, prüfst du im kostenlosen Test mit deinen eigenen Dateien."
+      "a": "Noch nicht: WordKoja ist eine frühe Version (Alpha), und laut Projektangaben (Stand: November 2026) reicht es nach eigener Schätzung für etwa 60 % der echten Arbeit. Es fehlen unter anderem eine deutsche Rechtschreibprüfung, Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit und VBA-Makros, außerdem können Seitenumbrüche von Word abweichen. Menüband, Formatvorlagen, Tabellen, „Änderungen nachverfolgen“, Verzeichnisse und Serienbriefe sind aber schon da. Ob das für dich reicht, prüfst du im kostenlosen Test mit deinen eigenen Dateien."
     },
     {
       "q": "Kann ich mit WordKoja .docx-Dateien auf dem Mac öffnen und bearbeiten?",
@@ -164,7 +164,7 @@
     },
     {
       "q": "Kann ich WordKoja ohne Abo kaufen?",
-      "a": "Ja. Du zahlst einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Macs, darunter auch [GridKoja](/software/grid-koja) für Tabellen und [DeckKoja](/software/deck-koja) für Präsentationen. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit mit einem Klick kündbar. Zum Vergleich: Office Home 2024 kostet bei Microsoft 149 € einmalig für einen Mac, Microsoft 365 Single 99 € pro Jahr."
+      "a": "Ja. Du zahlst einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Macs, darunter auch [GridKoja](/software/grid-koja) für Tabellen und [DeckKoja](/software/deck-koja) für Präsentationen. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit online kündbar. Zum Vergleich: Office Home 2024 kostet bei Microsoft 149 € einmalig für einen Mac, Microsoft 365 Single 99 € pro Jahr."
     },
     {
       "q": "Word gibt es im Browser kostenlos. Warum WordKoja?",

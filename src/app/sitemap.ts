@@ -3,9 +3,12 @@ import { APPS } from '@/lib/apps';
 import { ARTICLES } from '@/lib/ratgeber';
 import { SITE_URL } from '@/lib/site';
 
+// Date of the last real content change of the non-article pages. Update it when they change, so
+// lastModified stays meaningful instead of moving with every deploy.
+const PAGES_UPDATED = new Date('2026-11-07');
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  const page = (path: string, priority: number, changeFrequency: 'weekly' | 'monthly' | 'yearly' = 'monthly', lastModified: Date = now) => ({
+  const page = (path: string, priority: number, changeFrequency: 'weekly' | 'monthly' | 'yearly' = 'monthly', lastModified: Date = PAGES_UPDATED) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
     changeFrequency,

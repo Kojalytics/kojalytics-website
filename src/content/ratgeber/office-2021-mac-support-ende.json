@@ -2,7 +2,7 @@
   "slug": "office-2021-mac-support-ende",
   "navTitle": "Office 2021 Mac: Support-Ende",
   "h1": "Office 2021 für Mac: Support-Ende – was jetzt gilt und was du tun kannst",
-  "metaTitle": "Office 2021 Mac Support-Ende: Was jetzt zu tun ist",
+  "metaTitle": "Office 2021 Mac Support-Ende: Was jetzt gilt",
   "metaDescription": "Der Support für Office 2021 auf dem Mac endete am 13. Oktober 2026. Was noch geht, wie du den Lizenzfehler behebst und welche Optionen du jetzt hast.",
   "primaryKeyword": "office 2021 mac support ende",
   "updated": "2026-11-07",
@@ -24,7 +24,7 @@
             "Meldet Word oder Excel seit Ende Oktober, dass deine Office-2021-Lizenz nicht unterstützt wird: Aktualisiere auf Version 16.114.3 oder neuer. Damit hat Microsoft den Fehler laut eigenen Versionshinweisen behoben.",
             "Auf Macs mit macOS 11 Big Sur oder älter kann Office 2021 seit dem 13. Juli 2026 nur noch Dateien öffnen, anzeigen und drucken, aber nicht mehr bearbeiten oder speichern.",
             "Office 2019 für Mac ist schon seit dem 10. Oktober 2023 ohne Support und lässt sich nicht mehr auf die zum Bearbeiten nötige Version bringen.",
-            "Wechseln kannst du zu Office Home 2024 (einmalig 149,00 €, braucht macOS Sonoma oder neuer), zu Microsoft 365 Single (99,00 € pro Jahr) oder zu kostenlosen Programmen wie Pages, Numbers, Keynote und LibreOffice."
+            "Wechseln kannst du zu Office Home 2024 (einmalig 149 €, braucht macOS Sonoma oder neuer), zu Microsoft 365 Single (99 € pro Jahr) oder zu kostenlosen Programmen wie Pages, Numbers, Keynote und LibreOffice."
           ]
         }
       ]
@@ -221,22 +221,22 @@
           "rows": [
             [
               "Office 2021 weiter nutzen",
-              "0 €",
+              "0 €",
               "Keine Sicherheitsupdates; keine Zusage, dass künftige App-Versionen die Lizenz annehmen"
             ],
             [
               "Office Home 2024",
-              "149,00 € einmalig, 1 PC oder Mac",
+              "149 € einmalig, 1 PC oder Mac",
               "Word, Excel, PowerPoint, OneNote; Support bis 9. Oktober 2029; Installation braucht macOS Sonoma oder neuer; kein Upgrade auf die nächste Version enthalten"
             ],
             [
               "Microsoft 365 Single",
-              "99,00 € pro Jahr oder 10,00 € pro Monat",
+              "99 € pro Jahr oder 10 € pro Monat",
               "1 Person, bis zu 5 Geräte gleichzeitig, 1 TB Cloud-Speicher; verlängert sich automatisch"
             ],
             [
               "Microsoft 365 Family",
-              "129,00 € pro Jahr oder 13,00 € pro Monat",
+              "129 € pro Jahr oder 13 € pro Monat",
               "1 bis 6 Personen, bis zu 2 TB geteilter Speicher"
             ],
             [
@@ -256,7 +256,7 @@
             ],
             [
               "Koja-Apps (13 Mac-Apps, darunter WordKoja, GridKoja, DeckKoja)",
-              "2,99 € pro Monat oder 79 € einmalig für alle 13 Apps",
+              "2,99 € pro Monat oder 79 € einmalig für alle 13 Apps",
               "Frühe Versionen (Alpha); nur macOS; bis zu 3 Macs; kein Konto nötig"
             ]
           ],
@@ -268,7 +268,7 @@
         },
         {
           "type": "p",
-          "text": "Wer Office 2021 als Einmalkauf mochte, findet in Office Home 2024 das Gegenstück. Es kostet bei Microsoft 149,00 € für einen PC oder Mac und wird bis zum 9. Oktober 2029 unterstützt. Enthalten sind Word, Excel, PowerPoint und OneNote. Für Outlook nennt Microsofts Vergleichstabelle bei Office Home 2024 nur die kostenlose Version mit Werbung. Zwei Haken: Ein Upgrade auf die nächste Hauptversion ist nicht enthalten, die kaufst du später wieder zum vollen Preis. Und eine Neuinstallation von Office 2024 für Mac setzt macOS Sonoma oder neuer voraus. Auf einem Mac, der bei Monterey oder Ventura stehen bleibt, hilft dir Office 2024 also nicht."
+          "text": "Wer Office 2021 als Einmalkauf mochte, findet in Office Home 2024 das Gegenstück. Es kostet bei Microsoft 149 € für einen PC oder Mac und wird bis zum 9. Oktober 2029 unterstützt. Enthalten sind Word, Excel, PowerPoint und OneNote. Für Outlook nennt Microsofts Vergleichstabelle bei Office Home 2024 nur die kostenlose Version mit Werbung. Zwei Haken: Ein Upgrade auf die nächste Hauptversion ist nicht enthalten, die kaufst du später wieder zum vollen Preis. Und eine Neuinstallation von Office 2024 für Mac setzt macOS Sonoma oder neuer voraus. Auf einem Mac, der bei Monterey oder Ventura stehen bleibt, hilft dir Office 2024 also nicht."
         },
         {
           "type": "h3",
@@ -318,7 +318,7 @@
         },
         {
           "type": "p",
-          "text": "Wir bei Kojalytics bieten 13 Mac-Apps an, darunter drei Office-Programme mit einem Menüband, wie du es aus Word, Excel und PowerPoint kennst. Alle drei sind noch in früher Entwicklung (Alpha). Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen selbst, dass sie zu etwa 50 bis 60 Prozent für echte Arbeit bereit sind. Sie ersetzen Microsoft Office also nicht vollständig. Dafür sind sie günstig: Alle 13 Apps kosten zusammen 2,99 € pro Monat oder einmalig 79 €."
+          "text": "Wir bei Kojalytics bieten 13 Mac-Apps an, darunter drei Office-Programme mit einem Menüband, wie du es aus Word, Excel und PowerPoint kennst. Alle drei sind noch in früher Entwicklung (Alpha). Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen selbst, dass sie zu etwa 50 bis 60 Prozent für echte Arbeit bereit sind. Sie ersetzen Microsoft Office also nicht vollständig. Dafür sind sie günstig: Alle 13 Apps kosten zusammen 2,99 € pro Monat oder einmalig 79 €."
         },
         {
           "type": "app",
@@ -336,7 +336,7 @@
         },
         {
           "type": "p",
-          "text": "Alle Koja-Apps laufen nur auf macOS, offline und ohne Konto; Internet brauchst du nur für Download und Aktivierung. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos, am besten mit deinen eigenen Dateien. Danach zahlst du 2,99 € pro Monat, jederzeit ohne Gebühr kündbar auf [kojalytics.com/kuendigen](/kuendigen), oder einmalig 79 € für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. Details stehen unter [Preise](/software#preise)."
+          "text": "Alle Koja-Apps laufen nur auf macOS, offline und ohne Konto; Internet brauchst du nur für Download und Aktivierung. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos, am besten mit deinen eigenen Dateien. Danach zahlst du 2,99 € pro Monat, jederzeit ohne Gebühr kündbar auf [kojalytics.com/kuendigen](/kuendigen), oder einmalig 79 € für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. Details stehen unter [Preise](/software#preise)."
         }
       ]
     },
@@ -378,7 +378,7 @@
     },
     {
       "q": "Kann ich Office 2021 günstig auf Office 2024 upgraden?",
-      "a": "Nein. Bei Einmalkäufen ist laut Microsoft keine Upgrade-Option enthalten, die nächste Version kaufst du zum vollen Preis. Office Home 2024 kostet bei Microsoft 149,00 € für einen PC oder Mac. Für die Installation auf dem Mac brauchst du macOS Sonoma oder neuer."
+      "a": "Nein. Bei Einmalkäufen ist laut Microsoft keine Upgrade-Option enthalten, die nächste Version kaufst du zum vollen Preis. Office Home 2024 kostet bei Microsoft 149 € für einen PC oder Mac. Für die Installation auf dem Mac brauchst du macOS Sonoma oder neuer."
     },
     {
       "q": "Gehen meine Dateien verloren, wenn Office 2021 nicht mehr funktioniert?",

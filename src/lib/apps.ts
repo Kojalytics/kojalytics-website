@@ -16,7 +16,7 @@ import deck from "@/content/apps/deck-koja.json";
 import pdf from "@/content/apps/pdf-koja.json";
 import cad from "@/content/apps/cad-koja.json";
 
-export type AppGroup = "Foto & Design" | "Video & Audio" | "Büro" | "Technik";
+export type AppGroup = "Foto & Design" | "Video & Audio" | "Büro & Technik";
 
 /** German page copy, one JSON file per app. */
 export type AppContent = {
@@ -57,11 +57,11 @@ const BASE: AppBase[] = [
   { slug: "film-koja", name: "FilmKoja", upstream: "FilmCraft", group: "Video & Audio", color: "#8a5cf6", familiar: { product: "Premiere Pro", owner: "Adobe Inc." } },
   { slug: "effect-koja", name: "EffectKoja", upstream: "EffectCraft", group: "Video & Audio", color: "#e03690", familiar: { product: "After Effects", owner: "Adobe Inc." } },
   { slug: "sound-koja", name: "SoundKoja", upstream: "SoundCraft", group: "Video & Audio", color: "#2fa8c0", familiar: { product: "Pro Tools", owner: "Avid Technology, Inc." } },
-  { slug: "word-koja", name: "WordKoja", upstream: "WordCraft", group: "Büro", color: "#3c5bdc", familiar: { product: "Microsoft Word", owner: "Microsoft Corporation" } },
-  { slug: "grid-koja", name: "GridKoja", upstream: "GridCraft", group: "Büro", color: "#1d9d54", familiar: { product: "Microsoft Excel", owner: "Microsoft Corporation" } },
-  { slug: "deck-koja", name: "DeckKoja", upstream: "DeckCraft", group: "Büro", color: "#ef641b", familiar: { product: "Microsoft PowerPoint", owner: "Microsoft Corporation" } },
-  { slug: "pdf-koja", name: "PdfKoja", upstream: "PdfCraft", group: "Büro", color: "#11a58a", familiar: { product: "Adobe Acrobat", owner: "Adobe Inc." } },
-  { slug: "cad-koja", name: "CADKoja", upstream: "CADCraft", group: "Technik", color: "#13a4c7", familiar: { product: "AutoCAD", owner: "Autodesk, Inc." } },
+  { slug: "word-koja", name: "WordKoja", upstream: "WordCraft", group: "Büro & Technik", color: "#3c5bdc", familiar: { product: "Microsoft Word", owner: "Microsoft Corporation" } },
+  { slug: "grid-koja", name: "GridKoja", upstream: "GridCraft", group: "Büro & Technik", color: "#1d9d54", familiar: { product: "Microsoft Excel", owner: "Microsoft Corporation" } },
+  { slug: "deck-koja", name: "DeckKoja", upstream: "DeckCraft", group: "Büro & Technik", color: "#ef641b", familiar: { product: "Microsoft PowerPoint", owner: "Microsoft Corporation" } },
+  { slug: "pdf-koja", name: "PdfKoja", upstream: "PdfCraft", group: "Büro & Technik", color: "#11a58a", familiar: { product: "Adobe Acrobat", owner: "Adobe Inc." } },
+  { slug: "cad-koja", name: "CADKoja", upstream: "CADCraft", group: "Büro & Technik", color: "#13a4c7", familiar: { product: "AutoCAD", owner: "Autodesk, Inc." } },
 ];
 
 const CONTENT: Record<string, AppContent> = {
@@ -100,7 +100,7 @@ function withShots(base: AppBase): KojaApp {
 
 export const APPS: KojaApp[] = BASE.map(withShots);
 
-export const APP_GROUPS: AppGroup[] = ["Foto & Design", "Video & Audio", "Büro", "Technik"];
+export const APP_GROUPS: AppGroup[] = ["Foto & Design", "Video & Audio", "Büro & Technik"];
 
 export function getApp(slug: string) {
   return APPS.find((a) => a.slug === slug);

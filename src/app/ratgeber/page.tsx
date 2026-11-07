@@ -5,14 +5,14 @@ import Footer from "@/components/Footer";
 import AppIcon from "@/components/ui/app-icon";
 import { ARTICLES } from "@/lib/ratgeber";
 import { getApp } from "@/lib/apps";
-import { SITE_URL, jsonLd } from "@/lib/site";
+import { OG_BASE, SITE_URL, jsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Ratgeber: Adobe- und Office-Alternativen für den Mac",
+  title: "Ratgeber: Adobe- & Office-Alternativen am Mac",
   description:
     "Ehrliche Ratgeber zu Alternativen für Photoshop, Illustrator, InDesign, Word, Excel und Acrobat auf dem Mac. Mit Preisen, Vergleichen und Anleitungen.",
   alternates: { canonical: "/ratgeber" },
-  openGraph: { url: "/ratgeber", images: [{ url: "/og/kojalytics.jpg", width: 1200, height: 630, alt: "Kojalytics Ratgeber" }] },
+  openGraph: { ...OG_BASE, url: "/ratgeber", images: [{ url: "/og/kojalytics.jpg", width: 1200, height: 630, alt: "Kojalytics Ratgeber" }] },
 };
 
 export default function RatgeberIndex() {
@@ -28,8 +28,8 @@ export default function RatgeberIndex() {
       <Navigation />
       <main className="px-5 pb-24 pt-24 md:px-6 md:pt-32">
         <div className="mx-auto max-w-7xl">
-          <p className="eyebrow">Ratgeber</p>
-          <h1 className="display mt-3 max-w-4xl text-[clamp(2.5rem,6vw,4.75rem)]">Raus aus dem Abo, rein in die Arbeit.</h1>
+          <p className="eyebrow">Raus aus dem Abo, rein in die Arbeit</p>
+          <h1 className="display mt-3 max-w-4xl text-[clamp(2.5rem,6vw,4.75rem)]">Ratgeber: Adobe- und Office-Alternativen für den Mac</h1>
           <p className="mt-5 max-w-2xl text-lg text-muted">
             Ehrliche Anleitungen und Vergleiche für alle, die Adobe- oder Office-Programme auf dem Mac ersetzen wollen. Mit echten
             Preisen und Quellen, ohne Werbeversprechen.

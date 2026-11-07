@@ -1,11 +1,11 @@
 {
   "kind": "Vektorgrafik",
-  "benefit": "Logos, Icons und Illustrationen am Mac zeichnen, mit Werkzeugen wie in Illustrator und ohne Adobe-Abo.",
+  "benefit": "Logos, Icons und Illustrationen am Mac zeichnen, mit Zeichenstift, Pathfinder und Formerstellung.",
   "keyword": "illustrator alternative mac",
   "metaTitle": "Illustrator-Alternative für Mac: VectorKoja",
-  "metaDescription": "VectorKoja ist eine Illustrator-Alternative für den Mac: Zeichenstift, Pathfinder, SVG, PDF und .ai. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
-  "h1": "Illustrator-Alternative für den Mac: Vektorgrafik ohne Adobe-Abo",
-  "lead": "VectorKoja ist eine Illustrator-Alternative für den Mac mit Zeichenstift, Direktauswahl, Pathfinder und Ebenen sowie vertrauten Menüs, Panels und Tastenkürzeln. Sie öffnet SVG, PDF und PDF-kompatible .ai-Dateien. Die App ist noch in früher Entwicklung, teste sie also 3 Tage kostenlos mit deinen eigenen Dateien.",
+  "metaDescription": "VectorKoja ist eine Illustrator-Alternative für den Mac: Zeichenstift, Pathfinder, SVG, PDF und .ai. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "Illustrator-Alternative für den Mac: Vektorgrafik mit SVG, PDF und .ai",
+  "lead": "VectorKoja ist eine Illustrator-Alternative für den Mac, mit Zeichenstift, Direktauswahl, Pathfinder, Ebenen und deutscher Oberfläche. Die App ist eine frühe Version (Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Dateien.",
   "highlights": [
     "Zeichenstift, Pathfinder, Ebenen",
     "SVG, PDF, .ai: Import und Export",
@@ -14,7 +14,7 @@
   "features": [
     {
       "title": "Zeichenstift, Pathfinder, Formerstellung",
-      "text": "Du arbeitest mit Werkzeugen, die du aus Illustrator kennst: Zeichenstift, Direktauswahl, Pathfinder, Formerstellung, intelligente Hilfslinien, Aussehen, Farbfelder und Ebenen. Pathfinder rechnet exakt mit Kurven, und Rückgängig ist unbegrenzt.",
+      "text": "Du arbeitest mit Zeichenstift, Direktauswahl, Pathfinder, Formerstellung, intelligenten Hilfslinien, Aussehen, Farbfeldern und Ebenen. Pathfinder rechnet exakt mit Kurven, und Rückgängig ist unbegrenzt.",
       "screenshot": "bezier.webp"
     },
     {
@@ -41,7 +41,7 @@
     },
     {
       "title": "Flüssig auch bei vielen Formen",
-      "text": "Das Rendern läuft auf mehreren Kernen und getrennt von der Oberfläche. Laut Angaben der Entwickler zeichnet die App 20.000 Formen in etwa 27 ms in voller Retina-Auflösung, während die Oberfläche mit 120 Bildern pro Sekunde weiterläuft."
+      "text": "Das Rendern läuft auf mehreren Kernen und getrennt von der Oberfläche. Laut Projektangaben (Stand: November 2026) zeichnet die App 20.000 Formen in etwa 27 ms in voller Retina-Auflösung, während die Oberfläche mit 120 Bildern pro Sekunde weiterläuft."
     },
     {
       "title": "Zeichenflächen, Export und Druck",
@@ -91,20 +91,20 @@
       "Vieles bleibt, wie du es kennst: Zeichenstift, Direktauswahl, Pathfinder, Formerstellung, intelligente Hilfslinien, Aussehen, Farbfelder und Ebenen, dazu vertraute Menüs, Panels und Tastenkürzel. Auch Zeichenflächen, Textformate und verkettete Textrahmen sind dabei, und die Oberfläche gibt es auf Deutsch.",
       "Zu deinen Dateien: SVG und PDF importierst und exportierst du, PDF auch als PDF/X. Illustrator-Dateien öffnet VectorKoja, wenn sie PDF-kompatibel gespeichert sind, und das alte .ai-Format von Illustrator 7 wird mit Ebenen, Gruppen und Text unterstützt. Auch EPS, DXF und EMF/WMF werden unterstützt. Affinity-Dateien kannst du öffnen und platzieren, aber nicht im Affinity-Format speichern.",
       "Was noch fehlt: VectorKoja ist eine frühe Version (Alpha). Der Austausch von .ai-Dateien ist noch nicht zuverlässig, weil die Ebenenstruktur echter Dateien nicht vollständig ankommt und Illustrator-eigene Bearbeitungsdaten nicht geschrieben werden. Bei 3D gibt es bisher nur Kreiseln; Extrudieren und Materialien fehlen. Skripte und die meisten Variablen fehlen ebenfalls, generative KI gibt es nicht, und manche Werkzeuge verhalten sich im Detail noch anders als gewohnt.",
-      "So testest du in 3 Tagen: Lade den Kojalytics Launcher kostenlos herunter, installiere VectorKoja und öffne zwei, drei echte Dateien aus deinem Alltag, etwa ein Logo als SVG und eine .ai-Datei. Baue eine Form mit Zeichenstift und Pathfinder nach und exportiere sie. Passt es, nutzt du VectorKoja für 2,99 € im Monat weiter, [jederzeit kündbar](/kuendigen), oder holst dir die dauerhafte Lizenz für 79 € einmalig. Kündige dein Adobe-Abo erst, wenn du sicher bist, und prüfe vorher die Kosten: Beim Jahres-Abo mit monatlicher Abrechnung kostet eine Kündigung nach den ersten 14 Tagen 50 % des restlichen Vertragswerts. Mehr dazu im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+      "So testest du in 3 Tagen: Lade den Kojalytics Launcher kostenlos herunter, installiere VectorKoja und öffne zwei, drei echte Dateien aus deinem Alltag, etwa ein Logo als SVG und eine .ai-Datei. Baue eine Form mit Zeichenstift und Pathfinder nach und exportiere sie. Passt es, nutzt du VectorKoja für 2,99 € im Monat weiter, [jederzeit kündbar](/kuendigen), oder holst dir die dauerhafte Lizenz für 79 € einmalig. Kündige dein Adobe-Abo erst, wenn du sicher bist, und prüfe vorher die Kosten: Beim Jahres-Abo mit monatlicher Abrechnung kostet eine Kündigung nach den ersten 14 Tagen 50 % des restlichen Vertragswerts. Mehr dazu im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
   "comparison": {
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
-        "other": "25,99 € im Monat im Jahres-Abo mit monatlicher Zahlung, 38,98 € im Monats-Abo"
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "25,99 € im Monat im Jahres-Abo mit monatlicher Zahlung, 38,98 € im Monats-Abo"
       },
       {
         "label": "Abrechnung und Kündigung",
-        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr (oder einmalig 79 €)",
-        "other": "Jahres-Abo verlängert sich automatisch. Bei monatlicher Abrechnung kostet eine Kündigung nach 14 Tagen 50 % des restlichen Vertragswerts"
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr (oder einmalig 79 €)",
+        "other": "Jahres-Abo verlängert sich automatisch. Bei monatlicher Abrechnung kostet eine Kündigung nach 14 Tagen 50 % des restlichen Vertragswerts"
       },
       {
         "label": "Konto nötig",
@@ -135,7 +135,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du Logos, Icons und Illustrationen am Mac zeichnest und Werkzeuge suchst, die du aus Illustrator kennst",
+    "du Logos, Icons und Illustrationen am Mac zeichnest und dafür Zeichenstift, Pathfinder und Formerstellung brauchst",
     "du dein Adobe-Abo nur noch für gelegentliche Vektorarbeiten bezahlst",
     "du Scans, Skizzen oder Pixel-Logos in Vektorpfade umwandeln willst",
     "du technische Skizzen mit Maßen oder Zeichnungen im Perspektivenraster anlegst"
@@ -162,7 +162,7 @@
   "faq": [
     {
       "q": "Ist VectorKoja eine vollwertige Illustrator-Alternative?",
-      "a": "Noch nicht. VectorKoja ist eine frühe Version (Alpha): Der Austausch von .ai-Dateien ist noch nicht zuverlässig, bei 3D gibt es nur Kreiseln, und Skripte fehlen. Die Entwickler des Open-Source-Projekts, auf dem VectorKoja basiert, nennen die App für alltägliche Vektorillustration fast einsatzbereit und schätzen ihren Reifegrad für typische Illustrationsarbeit selbst auf etwa 65 %. Teste sie 3 Tage kostenlos mit deinen eigenen Dateien, bevor du dich entscheidest."
+      "a": "Noch nicht. VectorKoja ist eine frühe Version (Alpha): Der Austausch von .ai-Dateien ist noch nicht zuverlässig, bei 3D gibt es nur Kreiseln, und Skripte fehlen. Laut Projektangaben (Stand: November 2026) ist die App für alltägliche Vektorillustration fast einsatzbereit, ihren Reifegrad für typische Illustrationsarbeit schätzt das zugrunde liegende Open-Source-Projekt selbst auf etwa 65 %. Teste sie 3 Tage kostenlos mit deinen eigenen Dateien, bevor du dich entscheidest."
     },
     {
       "q": "Kann ich mit VectorKoja .ai-Dateien auf dem Mac öffnen?",
@@ -174,7 +174,7 @@
     },
     {
       "q": "Kann ich VectorKoja ohne Abo kaufen?",
-      "a": "Ja, neben dem Abo für 2,99 € im Monat gibt es eine dauerhafte Lizenz für 79 € einmalig. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Macs. Zum Vergleich: Illustrator allein kostet bei Adobe 25,99 € im Monat im Jahres-Abo mit monatlicher Zahlung. Alle Optionen findest du unter [Preise](/software#preise)."
+      "a": "Ja, neben dem Abo für 2,99 € im Monat gibt es eine dauerhafte Lizenz für 79 € einmalig. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Macs. Zum Vergleich: Illustrator allein kostet bei Adobe 25,99 € im Monat im Jahres-Abo mit monatlicher Zahlung. Alle Optionen findest du unter [Preise](/software#preise)."
     },
     {
       "q": "Öffnet VectorKoja auch Affinity-Dateien?",

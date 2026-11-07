@@ -3,9 +3,9 @@
   "benefit": "PowerPoint-Dateien im PPTX-Format auf dem Mac öffnen, bearbeiten und präsentieren, mit Morph und Referentenansicht.",
   "keyword": "PowerPoint Alternative Mac",
   "metaTitle": "PowerPoint-Alternative für den Mac: DeckKoja",
-  "metaDescription": "DeckKoja ist eine PowerPoint-Alternative für den Mac: PPTX öffnen und speichern, Morph, Referentenansicht. 3 Tage gratis testen, dann 2,99 € im Monat.",
-  "h1": "PowerPoint-Alternative für den Mac: PPTX bearbeiten ohne Office-Abo",
-  "lead": "DeckKoja ist eine PowerPoint-Alternative für den Mac mit Menüband, Folienmastern, Morph-Übergängen und Referentenansicht. Es öffnet und speichert PPTX-Dateien, ist aber noch in früher Entwicklung (Alpha) und bisher nur auf Englisch. Teste es 3 Tage kostenlos mit deinen eigenen Folien.",
+  "metaDescription": "DeckKoja ist eine PowerPoint-Alternative für den Mac: PPTX öffnen und speichern, Morph, Referentenansicht. 3 Tage gratis testen, dann 2,99 € im Monat.",
+  "h1": "PowerPoint-Alternative für den Mac: PPTX öffnen, bearbeiten, präsentieren",
+  "lead": "DeckKoja ist eine PowerPoint-Alternative für den Mac, mit Folienmastern, Morph-Übergängen und Referentenansicht. Die App ist eine frühe Version (Alpha) und bisher nur auf Englisch. Teste sie 3 Tage kostenlos mit deinen eigenen Folien.",
   "highlights": [
     "PPTX öffnen und speichern",
     "Übergänge inklusive Morph",
@@ -52,7 +52,7 @@
     {
       "file": "hero.webp",
       "alt": "DeckKoja auf dem Mac: Folie mit farbigem Ablaufdiagramm, Menüband und Folienleiste mit Abschnitten",
-      "caption": "Menüband, Folienleiste mit Abschnitten und Notizleiste sind wie in PowerPoint aufgebaut und erleichtern dir den Umstieg."
+      "caption": "Folie mit Ablaufdiagramm, darüber das Menüband mit Registerkarten, links die Folienleiste mit Abschnitten."
     },
     {
       "file": "dark-mode.webp",
@@ -73,7 +73,7 @@
   "switching": {
     "title": "Von PowerPoint zu DeckKoja wechseln: die Alternative für deinen Mac",
     "paragraphs": [
-      "Der Aufbau ist dir vertraut: ein Menüband mit Registern, eine Folienleiste mit Abschnitten, eine Notizleiste und ein Formatbereich für Formen. Folienmaster, Layouts, Übergänge und die Referentenansicht funktionieren nach demselben Prinzip wie in PowerPoint. Die Oberfläche ist allerdings bisher nur auf Englisch, die Register heißen also „Home“ statt „Start“ und „Shape Format“ statt „Formformat“. Für Texte und Tabellen gibt es [WordKoja](/software/word-koja) und [GridKoja](/software/grid-koja) im selben Abo.",
+      "Der Aufbau ist dir vertraut: ein Menüband mit Registern, eine Folienleiste mit Abschnitten, eine Notizleiste und ein Formatbereich für Formen. Folienmaster, Layouts, Übergänge und die Referentenansicht funktionieren nach demselben Prinzip. Die Oberfläche ist allerdings bisher nur auf Englisch, die Register heißen also „Home“ statt „Start“ und „Shape Format“ statt „Formformat“. Für Texte und Tabellen sind [WordKoja](/software/word-koja) und [GridKoja](/software/grid-koja) im Preis enthalten, ob im Monatsabo oder mit der Einmal-Lizenz.",
       "Deine Präsentationen nimmst du als PPTX mit: DeckKoja öffnet sie direkt und speichert sie auch wieder als PPTX, damit du sie mit Leuten austauschen kannst, die PowerPoint nutzen. Ältere PPT-Dateien, ODP und Präsentationen mit Makros (PPTM) öffnet DeckKoja nicht, speichere sie deshalb als PPTX, solange du PowerPoint noch hast. Beim Speichern gehen derzeit die Wiedergabeoptionen von Audio und Video und das Zurückspulen von Animationen verloren, und Schriften nutzt DeckKoja bisher nur in den Schnitten Normal, Fett und Kursiv. Wie zuverlässig aufwendige Firmenvorlagen, SmartArt und eingebettete Schriften ankommen, ist noch kaum getestet.",
       "Was noch fehlt, solltest du vor dem Wechsel kennen. DeckKoja ist eine frühe Version (Alpha): Drucken geht noch nicht, ein Export als MP4- oder MOV-Video fehlt, und das animierte GIF zeigt keine Übergänge. Für SmartArt gibt es erst 15 Layouts, der Formatbereich bietet weniger Optionen als in PowerPoint, und es gibt keine Grammatikprüfung, keine Add-ins, keine VBA-Makros und kein Copilot. Wichtig im Alltag: Schließt du eine geänderte Präsentation, verwirft DeckKoja die Änderungen bisher ohne Nachfrage, nur beim Beenden der App wird gefragt. Speichere also regelmäßig.",
       "So testest du in 3 Tagen: Lade den Kojalytics Launcher, installiere DeckKoja und schau dir zuerst eine der sechs mitgelieferten Beispielpräsentationen an. Danach öffnest du eine echte PPTX-Datei aus deinem Alltag, prüfst Layout, Schriften, Diagramme und Animationen, speicherst sie als PPTX und öffnest sie dort, wo sie später gezeigt wird. Zum Schluss probst du einen Vortrag mit Referentenansicht am zweiten Bildschirm. Passt es nicht, zahlst du nichts."
@@ -83,12 +83,12 @@
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
-        "other": "Microsoft 365 Single: 99,00 € im Jahr oder 10,00 € im Monat (mit Word, Excel, Outlook und OneNote); Office Home 2024 einmalig 149,00 € für einen Mac"
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "Microsoft 365 Single: 99 € im Jahr oder 10 € im Monat (mit Word, Excel, Outlook und OneNote); Office Home 2024 einmalig 149 € für einen Mac"
       },
       {
         "label": "Abrechnung und Kündigung",
-        "koja": "monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr; oder einmal zahlen und dauerhaft nutzen",
+        "koja": "monatlich, jederzeit online kündbar, ohne Gebühr; oder einmal zahlen und dauerhaft nutzen",
         "other": "Jahres- oder Monatsabo, verlängert sich automatisch zum normalen Preis, wenn du nicht kündigst"
       },
       {
@@ -121,9 +121,9 @@
   },
   "forWho": [
     "du auf dem Mac PPTX-Dateien öffnen, bearbeiten und wieder als PPTX weitergeben willst, ohne ein Microsoft-365-Abo abzuschließen",
-    "du die Arbeitsweise von PowerPoint kennst und Menüband, Folienmaster, Formatbereich und Referentenansicht nicht missen willst",
+    "du mit Menüband, Folienmastern, Formatbereich und Referentenansicht arbeiten willst",
     "du Präsentationen mit Übergängen wie Morph, Animationen, Diagrammen und eingebetteten Videos gestalten willst",
-    "du neben Präsentationen auch Texte, Tabellen und PDFs bearbeitest: Alle 13 Koja-Apps kosten zusammen 2,99 € im Monat"
+    "du neben Präsentationen auch Texte, Tabellen und PDFs bearbeitest: Alle 13 Koja-Apps kosten zusammen 2,99 € im Monat oder 79 € einmalig"
   ],
   "notFor": [
     "du schon heute wichtige Vorträge oder Kundenpräsentationen zuverlässig damit halten musst: DeckKoja ist noch in früher Entwicklung (Alpha)",
@@ -154,7 +154,7 @@
     },
     {
       "q": "Kann ich PowerPoint auf dem Mac ohne Abo nutzen?",
-      "a": "Bei Microsoft geht das auf zwei Wegen: mit einem Einmalkauf wie Office Home 2024 (149,00 € für einen Mac) oder kostenlos im Browser mit einem Microsoft-Konto. Die Mac-App aus dem App Store lässt sich dagegen nur mit einem Microsoft-365-Abo aktivieren, Microsoft 365 Single kostet 99,00 € im Jahr oder 10,00 € im Monat. DeckKoja gibt es für 79 € einmalig als dauerhafte Lizenz für alle 13 Koja-Apps auf bis zu 3 Macs, ohne Konto, oder für 2,99 € im Monat. Mehr dazu steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
+      "a": "Bei Microsoft geht das auf zwei Wegen: mit einem Einmalkauf wie Office Home 2024 (149 € für einen Mac) oder kostenlos im Browser mit einem Microsoft-Konto. Die Mac-App aus dem App Store lässt sich dagegen nur mit einem Microsoft-365-Abo aktivieren, Microsoft 365 Single kostet 99 € im Jahr oder 10 € im Monat. DeckKoja gibt es für 79 € einmalig als dauerhafte Lizenz für alle 13 Koja-Apps auf bis zu 3 Macs, ohne Konto, oder für 2,99 € im Monat. Mehr dazu steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
     },
     {
       "q": "Kann ich mit DeckKoja präsentieren wie mit PowerPoint?",
@@ -166,7 +166,7 @@
     },
     {
       "q": "Gibt es DeckKoja kostenlos?",
-      "a": "Du kannst DeckKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DeckKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0). Du bezahlst uns für die fertige, signierte Mac-Version, den Launcher, der sie installiert und aktualisiert, und den Support. Das Abo für 2,99 € im Monat kündigst du jederzeit mit einem Klick unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "a": "Du kannst DeckKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DeckKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0). Du bezahlst uns für die fertige, signierte Mac-Version, den Launcher, der sie installiert und aktualisiert, und den Support. Das Abo für 2,99 € im Monat kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     }
   ]
 }

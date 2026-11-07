@@ -125,7 +125,9 @@ export default function TunnelCards({ items }: { items: TunnelItem[] }) {
     section.current = root.current?.closest("section") ?? null;
   }, []);
 
-  const { scrollYProgress } = useScroll({ target: section, offset: ["start start", "end end"] });
+  // Desktop pins the stage, so the flight runs while the section scrolls by under it. Phones don't pin:
+  // there the flight runs while the hero scrolls out of view.
+  const { scrollYProgress } = useScroll({ target: section, offset: mobile ? ["start start", "end start"] : ["start start", "end end"] });
   // Start a little into the flight so windows are already on screen when they appear.
   const progress = useSpring(useTransform(scrollYProgress, [0, 1], [0.3, 1]), {
     stiffness: 120,

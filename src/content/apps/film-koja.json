@@ -1,11 +1,11 @@
 {
   "kind": "Videoschnitt",
-  "benefit": "Schneide, grade und mische Videos am Mac in einem Layout, wie du es aus Premiere Pro kennst.",
+  "benefit": "Schneide, grade und mische Videos am Mac mit Quell- und Programmmonitor, Effekteinstellungen und Mehrspur-Timeline.",
   "keyword": "premiere pro alternative mac",
   "metaTitle": "Premiere-Pro-Alternative für den Mac: FilmKoja",
-  "metaDescription": "Premiere-Pro-Alternative für den Mac: FilmKoja mit Timeline, Trimmen, Farbe und Ton. 3 Tage kostenlos testen, dann 2,99 € im Monat. Jetzt laden.",
-  "h1": "Premiere-Pro-Alternative für den Mac, ohne teures Abo",
-  "lead": "FilmKoja ist ein Videoschnittprogramm für den Mac und eine Alternative zu Premiere Pro, mit Quell- und Programmmonitor, Mehrspur-Timeline, Farbkorrektur und Audiomischer. Sequenzen aus Premiere Pro holst du per XML oder AAF herüber. FilmKoja ist noch eine frühe Version: Teste es 3 Tage kostenlos mit eigenem Material.",
+  "metaDescription": "Premiere-Pro-Alternative für den Mac: FilmKoja mit Timeline, Trimmen, Farbe und Ton. 3 Tage kostenlos testen, dann 2,99 € im Monat. Jetzt laden.",
+  "h1": "Premiere-Pro-Alternative für den Mac: schneiden, graden, mischen",
+  "lead": "FilmKoja ist eine Premiere-Pro-Alternative für den Mac, mit Quell- und Programmmonitor, Mehrspur-Timeline, Farbkorrektur und Audiomischer. Sequenzen aus Premiere Pro holst du per XML oder AAF herüber. Die App ist eine frühe Version (Alpha), teste sie also 3 Tage kostenlos mit eigenem Material.",
   "highlights": [
     "Alle Trimm-Modi inkl. J/K/L",
     "Import per FCP XML, AAF, OTIO",
@@ -13,7 +13,7 @@
   ],
   "features": [
     {
-      "title": "Vertrautes Schnitt-Layout",
+      "title": "Monitore, Bins und Mehrspur-Timeline",
       "text": "Du arbeitest mit Quell- und Programmmonitor, Bins mit Vorschaubildern und einer Mehrspur-Timeline mit Patch- und Ziel-Schaltern, Sync-Lock und verknüpfter Auswahl. Dazu kommen Multicam, Verschachteln, farbige Marker (als CSV exportierbar) und unbegrenztes Rückgängigmachen. Im Tastaturkürzel-Editor wählst du die Standardbelegung professioneller Schnittprogramme oder legst eigene Kürzel an."
     },
     {
@@ -52,7 +52,7 @@
     {
       "file": "hero.webp",
       "alt": "FilmKoja: Effekteinstellungen, Programmmonitor, Projekt-Bins, Mehrspur-Timeline und Lautheitsmeter",
-      "caption": "Monitore, Effekteinstellungen, Bins und Mehrspur-Timeline sind ähnlich angeordnet wie in Premiere Pro, so findest du dich schnell zurecht."
+      "caption": "Effekteinstellungen, Programmmonitor, Bins und Mehrspur-Timeline in einem Fenster, dazu ein Lautheitsmeter."
     },
     {
       "file": "color.webp",
@@ -76,20 +76,20 @@
       "Das Grundprinzip bleibt gleich: Quell- und Programmmonitor, Bins und eine Mehrspur-Timeline mit Patch- und Ziel-Schaltern. Du setzt In- und Out-Punkte, fügst ein oder überschreibst und trimmst mit Ripple und Roll oder dynamisch mit J, K und L. Im Tastaturkürzel-Editor wählst du die Standardbelegung professioneller Schnittprogramme, Konflikte zeigt er dir direkt an.",
       "Premiere-Projektdateien (.prproj) kann FilmKoja noch nicht öffnen. Exportiere deine Sequenz in Premiere Pro deshalb als Final-Cut-Pro-XML oder AAF und importiere sie in FilmKoja, das außerdem FCPXML, OpenTimelineIO, EDL und OMF liest. Deine Mediendateien, etwa MP4 oder MOV mit H.264, HEVC oder ProRes sowie MXF mit DNxHR, öffnest du direkt. Prüfe nach dem Import Effekte und Farbkorrekturen genau, denn Austauschformate nehmen nicht jede Einstellung mit.",
       "Was noch fehlt: FilmKoja ist noch in früher Entwicklung (Alpha). Es gibt keine Plugins (VST3, Audio Units, OpenFX), kein Kamera-RAW und keinen AV1-Export. H.265 exportierst du nur über den Hardware-Encoder deines Macs in 8 Bit SDR. Farbkorrektur und Export-Rendering laufen noch auf dem Prozessor, was bei großem Material bremst. KI-Funktionen gibt es bisher kaum.",
-      "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere FilmKoja und importiere eine Sequenz aus einem echten Projekt, am besten mit Originaldateien aus deiner Kamera oder deinem Smartphone. Schneide, grade und mische ein kurzes Stück und exportiere es in deinem Zielformat. Danach entscheidest du: 2,99 € im Monat für alle 13 Apps, jederzeit mit einem Klick [kündbar](/kuendigen), oder 79 € einmalig. Wie du ein laufendes Adobe-Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+      "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere FilmKoja und importiere eine Sequenz aus einem echten Projekt, am besten mit Originaldateien aus deiner Kamera oder deinem Smartphone. Schneide, grade und mische ein kurzes Stück und exportiere es in deinem Zielformat. Danach entscheidest du: 2,99 € im Monat für alle 13 Apps, jederzeit online [kündbar](/kuendigen), oder 79 € einmalig. Wie du ein laufendes Adobe-Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
   "comparison": {
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
-        "other": "25,99 € im Monat als Einzel-App, 77,99 € im Monat mit Creative Cloud Pro (jeweils Jahres-Abo, monatliche Zahlung)"
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "25,99 € im Monat als Einzel-App, 77,99 € im Monat mit Creative Cloud Pro (jeweils Jahres-Abo, monatliche Zahlung)"
       },
       {
         "label": "Abrechnung und Kündigung",
-        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr; oder einmal zahlen und behalten",
-        "other": "Jahres-Abo verlängert sich automatisch; bei monatlicher Zahlung kostet eine Kündigung nach 14 Tagen 50 % des restlichen Vertragswerts"
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr; oder einmal zahlen und behalten",
+        "other": "Jahres-Abo verlängert sich automatisch; bei monatlicher Zahlung kostet eine Kündigung nach 14 Tagen 50 % des restlichen Vertragswerts"
       },
       {
         "label": "Konto nötig",
@@ -120,7 +120,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du am Mac schneidest und die Arbeitsweise mit Quell- und Programmmonitor, Bins und Timeline aus Premiere Pro behalten willst",
+    "du am Mac schneidest und mit Quell- und Programmmonitor, Bins und Mehrspur-Timeline arbeiten willst",
     "du für deine Schnittprojekte kein Jahresabo mit Kündigungsgebühr mehr abschließen willst",
     "du Videos für YouTube oder Social Media schneidest und als H.264-MP4 oder ProRes ausgibst",
     "du ohne Konto und offline arbeiten willst und mit Lücken einer frühen Version umgehen kannst"
@@ -147,7 +147,7 @@
   "faq": [
     {
       "q": "Ist FilmKoja eine vollwertige Premiere-Pro-Alternative?",
-      "a": "Noch nicht. FilmKoja ist eine frühe Version (Alpha): Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen die Funktionsbreite selbst auf rund 86 %, die Reife für echte Produktionsarbeit aber erst auf etwa 56 % (Stand Oktober 2026). Schnitt, Trimmen, Multicam, Farbkorrektur, Keyframes, Titel, Untertitel, Audiomischung und Export funktionieren schon, es fehlen aber unter anderem Plugins, Kamera-RAW und das direkte Öffnen von .prproj-Dateien. Teste FilmKoja deshalb mit deinem eigenen Material, bevor du dich festlegst."
+      "a": "Noch nicht. FilmKoja ist eine frühe Version (Alpha): Laut Projektangaben (Stand: November 2026) liegt die Funktionsbreite nach eigener Schätzung des zugrunde liegenden Open-Source-Projekts bei rund 86 %, die Reife für echte Produktionsarbeit aber erst bei etwa 56 %. Schnitt, Trimmen, Multicam, Farbkorrektur, Keyframes, Titel, Untertitel, Audiomischung und Export funktionieren schon, es fehlen aber unter anderem Plugins, Kamera-RAW und das direkte Öffnen von .prproj-Dateien. Teste FilmKoja deshalb mit deinem eigenen Material, bevor du dich festlegst."
     },
     {
       "q": "Kann ich meine Premiere-Pro-Projekte in FilmKoja öffnen?",
@@ -159,11 +159,11 @@
     },
     {
       "q": "Was kostet FilmKoja im Vergleich zu Premiere Pro?",
-      "a": "Adobe Premiere (früher Premiere Pro) kostet als Einzel-App 25,99 € im Monat inkl. MwSt. im Jahres-Abo mit monatlicher Zahlung, und wer nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. FilmKoja kostet nach 3 kostenlosen Testtagen 2,99 € im Monat, darin sind alle 13 Koja-Apps enthalten. Du kündigst jederzeit mit einem Klick ohne Gebühr oder zahlst einmalig 79 € für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Macs. Alle Details findest du bei den [Preisen](/software#preise)."
+      "a": "Adobe Premiere (früher Premiere Pro) kostet als Einzel-App 25,99 € im Monat inkl. MwSt. im Jahres-Abo mit monatlicher Zahlung, und wer nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. FilmKoja kostet nach 3 kostenlosen Testtagen 2,99 € im Monat, darin sind alle 13 Koja-Apps enthalten. Du kündigst jederzeit online ohne Gebühr oder zahlst einmalig 79 € für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Macs. Alle Details findest du bei den [Preisen](/software#preise)."
     },
     {
       "q": "Gibt es Premiere Pro ohne Abo?",
-      "a": "Nein. Adobe bietet Premiere nur im Abo an, als Monats-Abo oder als Jahres-Abo mit monatlicher Zahlung oder Vorauszahlung, und Jahresabos verlängern sich automatisch, wenn du nicht kündigst. Für FilmKoja kannst du stattdessen einmalig 79 € zahlen und die Lizenz dauerhaft behalten. Weitere Alternativen zu Adobe-Programmen findest du im Ratgeber [Adobe-Alternativen für den Mac](/ratgeber/adobe-alternative-mac)."
+      "a": "Nein. Adobe bietet Premiere nur im Abo an, als Monats-Abo oder als Jahres-Abo mit monatlicher Zahlung oder Vorauszahlung, und Jahresabos verlängern sich automatisch, wenn du nicht kündigst. Für FilmKoja kannst du stattdessen einmalig 79 € zahlen und die Lizenz dauerhaft behalten. Weitere Alternativen zu Adobe-Programmen findest du im Ratgeber [Adobe-Alternativen für den Mac](/ratgeber/adobe-alternative-mac)."
     },
     {
       "q": "Läuft FilmKoja ohne Internet und ohne Konto?",

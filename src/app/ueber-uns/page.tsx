@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactCta from "@/components/studio/ContactCta";
-import { DEFAULT_OG_IMAGE } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, OG_BASE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Über Kojalytics: Software-Studio aus Deutschland",
   description:
-    "Kojalytics ist ein kleines Software-Studio aus Deutschland. Wir bauen Apps für Kunden und betreiben eigene Produkte, von AI Headshot bis zu den Koja-Apps für den Mac.",
+    "Kojalytics ist ein kleines Software-Studio aus Hamburg. Wir bauen Apps für Kunden und betreiben eigene Produkte wie AI Headshot und die Koja-Apps für den Mac.",
   alternates: { canonical: "/ueber-uns" },
-  openGraph: { url: "/ueber-uns", images: [DEFAULT_OG_IMAGE] },
+  openGraph: { ...OG_BASE, url: "/ueber-uns", images: [DEFAULT_OG_IMAGE] },
 };
 
 const principles = [

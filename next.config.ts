@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { DOWNLOAD_PATH, LAUNCHER_DOWNLOAD_URL } from "./src/lib/pricing";
 
 // Locale-specific URL slugs for the privacy page.
 // All slugs map internally to /[locale]/aiheadshot/privacy.
@@ -14,10 +15,14 @@ const privacySlugs: Record<string, string> = {
 };
 
 const nextConfig: NextConfig = {
+  // Screenshots rarely change: cache optimised images for 31 days. A replaced screenshot needs a new file name.
+  images: { minimumCacheTTL: 2678400 },
   async redirects() {
     // Exact paths come before the :path* rules: the first match wins, so nothing redirects twice.
     return [
       // ---- Relaunch 2026-10: Koja apps live under /software ----
+      // Our own download address, so buttons and e-mails show kojalytics.com instead of the GitHub file.
+      { source: DOWNLOAD_PATH, destination: LAUNCHER_DOWNLOAD_URL, permanent: false },
       { source: '/koja-apps', destination: '/software', permanent: true },
       { source: '/koja-apps/danke', destination: '/software/danke', permanent: true },
 

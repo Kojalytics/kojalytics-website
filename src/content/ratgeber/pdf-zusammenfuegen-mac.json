@@ -2,7 +2,7 @@
   "slug": "pdf-zusammenfuegen-mac",
   "navTitle": "PDF zusammenfügen am Mac",
   "h1": "PDF zusammenfügen am Mac: 3 Wege ohne Upload (Finder, Vorschau, App)",
-  "metaTitle": "PDF zusammenfügen am Mac: kostenlos, ohne Upload",
+  "metaTitle": "PDF zusammenfügen am Mac: gratis, ohne Upload",
   "metaDescription": "Mehrere PDFs am Mac zu einer Datei zusammenfügen: per Finder-Schnellaktion oder mit Vorschau, kostenlos und ohne Upload. Mit Tipps für typische Probleme.",
   "primaryKeyword": "pdf zusammenfügen mac",
   "updated": "2026-11-07",
@@ -53,10 +53,10 @@
             ],
             [
               "PdfKoja",
-              "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig",
+              "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig",
               "nein",
               "regelmäßiges Zusammenfügen mit Lesezeichen pro Datei, Teilen, Seiten ordnen",
-              "noch in früher Entwicklung (Early Alpha)"
+              "noch in früher Entwicklung (Alpha)"
             ],
             [
               "Adobe Acrobat online",
@@ -67,7 +67,7 @@
             ],
             [
               "Adobe Acrobat Standard oder Pro",
-              "17,99 € bzw. 23,79 € pro Monat im Jahres-Abo",
+              "17,99 € bzw. 23,79 € pro Monat im Jahres-Abo",
               "nein, Desktop-App",
               "umfangreiche PDF-Bearbeitung",
               "Abo-Kosten für eine Aufgabe, die macOS kostenlos erledigt"
@@ -244,11 +244,11 @@
         },
         {
           "type": "p",
-          "text": "**Ehrlich gesagt:** PdfKoja ist noch in früher Entwicklung (Early Alpha) und ersetzt Adobe Acrobat nicht vollständig. Office-Dokumente kann die App nicht in PDF umwandeln, die Texterkennung (OCR) funktioniert nur für lateinische Schrift, und das Bearbeiten von vorhandenem Text ist noch schwach. Bei absichtlich beschädigten Testdateien finden die Entwickler noch Abstürze und Hänger, die sie nach und nach beheben. Für wichtige Dokumente gilt deshalb: Originale aufbewahren und das Ergebnis kurz prüfen."
+          "text": "**Ehrlich gesagt:** PdfKoja ist noch in früher Entwicklung (Alpha) und ersetzt Adobe Acrobat nicht vollständig. Office-Dokumente kann die App nicht in PDF umwandeln, die Texterkennung (OCR) funktioniert nur für lateinische Schrift, und das Bearbeiten von vorhandenem Text ist noch schwach. Bei absichtlich beschädigten Testdateien finden die Entwickler noch Abstürze und Hänger, die sie nach und nach beheben. Für wichtige Dokumente gilt deshalb: Originale aufbewahren und das Ergebnis kurz prüfen."
         },
         {
           "type": "p",
-          "text": "PdfKoja gehört zu den 13 Koja-Apps für macOS. Du lädst sie kostenlos über den Kojalytics Launcher und kannst alle Apps 3 Tage kostenlos testen. Danach kostet das Paket 2,99 € pro Monat (inkl. MwSt.), jederzeit mit einem Klick auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs, ein Konto brauchst du nicht. Details stehen in der [Preisübersicht](/software#preise). Kombinierst du nur ein- oder zweimal im Jahr zwei PDFs, reicht der Finder völlig."
+          "text": "PdfKoja gehört zu den 13 Koja-Apps für macOS. Du lädst sie kostenlos über den Kojalytics Launcher und kannst alle Apps 3 Tage kostenlos testen. Danach kostet das Paket 2,99 € pro Monat (inkl. MwSt.), jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs, ein Konto brauchst du nicht. Details stehen in der [Preisübersicht](/software#preise). Kombinierst du nur ein- oder zweimal im Jahr zwei PDFs, reicht der Finder völlig."
         }
       ]
     },
@@ -270,11 +270,11 @@
         },
         {
           "type": "p",
-          "text": "Den Acrobat Reader bietet Adobe kostenlos an, beschreibt ihn aber als Programm zum Öffnen und Anzeigen von PDFs. Das Zusammenführen mehrerer Dokumente führt Adobe bei Acrobat Standard (17,99 € pro Monat) und Acrobat Pro (23,79 € pro Monat) auf, jeweils im Jahres-Abo mit monatlicher Abrechnung inkl. MwSt. Im flexiblen Monats-Abo kosten Acrobat Standard 29,99 € und Acrobat Pro 35,69 € pro Monat."
+          "text": "Den Acrobat Reader bietet Adobe kostenlos an, beschreibt ihn aber als Programm zum Öffnen und Anzeigen von PDFs. Das Zusammenführen mehrerer Dokumente führt Adobe bei Acrobat Standard (17,99 € pro Monat) und Acrobat Pro (23,79 € pro Monat) auf, jeweils im Jahres-Abo mit monatlicher Abrechnung inkl. MwSt. Im flexiblen Monats-Abo kosten Acrobat Standard 29,99 € und Acrobat Pro 35,69 € pro Monat."
         },
         {
           "type": "p",
-          "text": "Hast du Acrobat nur zum Zusammenfügen abonniert, lohnt ein Blick auf die Kündigungsregeln: Beim Jahres-Abo mit monatlicher Abrechnung verlangt Adobe nach Ablauf der ersten 14 Tage eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Wie du die Kündigung am besten planst, erklärt der Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+          "text": "Hast du Acrobat nur zum Zusammenfügen abonniert, lohnt ein Blick auf die Kündigungsregeln: Beim Jahres-Abo mit monatlicher Abrechnung verlangt Adobe nach Ablauf der ersten 14 Tage eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Wie du die Kündigung am besten planst, erklärt der Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
         }
       ]
     },
@@ -416,7 +416,7 @@
     },
     {
       "q": "Kann ich PDFs ohne Adobe Acrobat zusammenfügen?",
-      "a": "Ja. Am Mac erledigen Finder und Vorschau das kostenlos. Für mehr Funktionen gibt es lokale Programme wie PDFsam Basic oder PdfKoja, das allerdings noch in früher Entwicklung ist. Acrobat Standard und Pro kosten im Jahres-Abo mit monatlicher Abrechnung 17,99 € bzw. 23,79 € pro Monat."
+      "a": "Ja. Am Mac erledigen Finder und Vorschau das kostenlos. Für mehr Funktionen gibt es lokale Programme wie PDFsam Basic oder PdfKoja, das allerdings noch in früher Entwicklung ist. Acrobat Standard und Pro kosten im Jahres-Abo mit monatlicher Abrechnung 17,99 € bzw. 23,79 € pro Monat."
     }
   ],
   "apps": [

@@ -22,27 +22,27 @@ const kojaFaq = [
 const headshotFaq = [
   {
     q: "Wie funktioniert AI Headshot?",
-    a: "Du lädst 5 bis 10 Selfies hoch, und unsere KI erstellt daraus professionelle Porträts in verschiedenen Stilen. Das dauert nur wenige Minuten. Du bekommst hochauflösende Bilder für LinkedIn, Lebenslauf oder Social Media.",
+    a: "Du wählst bis zu 5 Fotos von dir aus, und unsere KI erstellt daraus professionelle Porträts in verschiedenen Stilen. Das dauert nur wenige Minuten. Du bekommst hochauflösende Bilder für LinkedIn, Lebenslauf oder Social Media.",
   },
   {
     q: "Welche Pakete gibt es?",
-    a: "Starter (9,99 €) mit 12 KI-Porträts und Premium (19,99 €) mit 24 Porträts und mehr Stilen. Beides sind Einmalkäufe, kein Abo.",
+    a: "Starter (9,99 €) mit 12 KI-Porträts und Premium (19,99 €) mit 24 Porträts und mehr Stilen. Beides sind Einmalkäufe, kein Abo.",
   },
   {
     q: "Kann ich mein Geld zurückbekommen?",
-    a: "Wenn du mit deinen Porträts nicht zufrieden bist, schreib uns innerhalb von 14 Tagen nach dem Kauf an support@kojalytics.com. Wir prüfen deinen Fall und erstatten den Betrag, wenn die Qualität nicht den Erwartungen entsprach.",
+    a: "Käufe in der App laufen über Apple, deshalb erstattet auch Apple: Fordere die Erstattung unter reportaproblem.apple.com an. Wenn du mit deinen Porträts nicht zufrieden bist, schreib uns außerdem an support@kojalytics.com, wir helfen dir gern weiter.",
   },
   {
     q: "Sind meine Fotos sicher?",
-    a: "Deine Fotos werden sicher verarbeitet und nach der Erstellung der Porträts automatisch von unseren Servern gelöscht. Wir geben sie nie weiter, verkaufen sie nicht und nutzen sie nicht zum Training.",
+    a: "Deine Fotos werden verschlüsselt übertragen und nur zur Erstellung deiner Porträts an unseren KI-Dienstleister Google (Gemini API) übermittelt, und zwar erst, nachdem du in der App eingewilligt hast. Nach der Erstellung werden sie auf unserem Server und bei Google gelöscht. Wir verkaufen deine Fotos nicht und nutzen sie nicht zum Training. Mehr dazu in der [Datenschutzerklärung](/datenschutz#ai-headshot).",
   },
   {
     q: "Auf welchen Geräten läuft AI Headshot?",
-    a: "AI Headshot gibt es für das iPhone (ab iOS 16). iPad und Android sind in Planung.",
+    a: "AI Headshot gibt es für das iPhone (ab iOS 17). iPad und Android sind in Planung.",
   },
   {
-    q: "Wie lösche ich mein Konto und meine Daten?",
-    a: "Direkt in der App unter Einstellungen › Konto › Konto löschen. Alle Daten werden innerhalb von 48 Stunden dauerhaft entfernt. Du kannst uns auch an support@kojalytics.com schreiben.",
+    q: "Brauche ich ein Konto, und wie lösche ich meine Daten?",
+    a: "AI Headshot funktioniert ohne Konto, es gibt also keins zu löschen. Deine Fotos werden nach der Erstellung der Porträts automatisch von unserem Server gelöscht. Porträts, Tresor-Einträge und Einstellungen auf deinem iPhone löschst du in der App unter Einstellungen › „Alle meine Daten löschen“. Bei Fragen zu deinen Daten schreib an support@kojalytics.com.",
   },
 ];
 

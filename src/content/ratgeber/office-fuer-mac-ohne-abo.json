@@ -2,13 +2,13 @@
   "slug": "office-fuer-mac-ohne-abo",
   "navTitle": "Office für Mac ohne Abo",
   "h1": "Office für Mac ohne Abo: Alle Möglichkeiten im Vergleich (2026)",
-  "metaTitle": "Office für Mac ohne Abo: Einmalkauf & Alternativen",
+  "metaTitle": "Office für Mac ohne Abo: Kauf & Alternativen",
   "metaDescription": "Word, Excel und PowerPoint am Mac ohne Microsoft-365-Abo: Office 2024 als Einmalkauf, kostenlose Apple-Apps, LibreOffice und günstige Alternativen.",
   "primaryKeyword": "office für mac ohne abo",
   "updated": "2026-11-07",
   "readingMinutes": 13,
   "intro": [
-    "Ja, du kannst Office für Mac ohne Abo kaufen. Microsoft verkauft Office Home 2024 für 149 € als Einmalkauf für einen Mac, mit Word, Excel, PowerPoint und OneNote. Wer zusätzlich Outlook braucht, nimmt Office Home & Business 2024 für 299 €. Beide Versionen bekommen bis Oktober 2029 Updates, aber keine neuen Funktionen. Kostenlos geht es mit Pages, Numbers und Keynote von Apple, mit LibreOffice oder mit Word, Excel und PowerPoint im Browser.",
+    "Ja, du kannst Office für Mac ohne Abo kaufen. Microsoft verkauft Office Home 2024 für 149 € als Einmalkauf für einen Mac, mit Word, Excel, PowerPoint und OneNote. Wer zusätzlich Outlook braucht, nimmt Office Home & Business 2024 für 299 €. Beide Versionen bekommen bis Oktober 2029 Updates, aber keine neuen Funktionen. Kostenlos geht es mit Pages, Numbers und Keynote von Apple, mit LibreOffice oder mit Word, Excel und PowerPoint im Browser.",
     "In diesem Ratgeber findest du alle Wege mit Preisen (Stand 7. November 2026), den macOS-Voraussetzungen und den Haken, die du vor dem Kauf kennen solltest. Wir stellen auch unsere eigenen Apps WordKoja, GridKoja und DeckKoja vor. Sie sind günstig, aber noch in früher Entwicklung, und wir sagen dir offen, wofür sie heute taugen und wofür noch nicht."
   ],
   "sections": [
@@ -24,12 +24,12 @@
           "type": "table",
           "head": ["Option", "Kosten", "Was du bekommst", "Größter Haken"],
           "rows": [
-            ["Office Home 2024", "149 € einmalig", "Word, Excel, PowerPoint und OneNote für 1 Mac", "Keine neuen Funktionen, Updates nur bis Oktober 2029"],
-            ["Office Home & Business 2024", "299 € einmalig", "Wie Home, dazu Outlook, auch für die Arbeit gedacht", "Doppelter Preis bei gleicher Supportfrist"],
+            ["Office Home 2024", "149 € einmalig", "Word, Excel, PowerPoint und OneNote für 1 Mac", "Keine neuen Funktionen, Updates nur bis Oktober 2029"],
+            ["Office Home & Business 2024", "299 € einmalig", "Wie Home, dazu Outlook, auch für die Arbeit gedacht", "Doppelter Preis bei gleicher Supportfrist"],
             ["Microsoft 365 für das Web", "kostenlos", "Word, Excel und PowerPoint im Browser, 5 GB OneDrive", "Microsoft-Konto nötig, keine installierten Apps"],
             ["Pages, Numbers, Keynote", "kostenlos", "Apples Office-Apps mit Export als .docx, .xlsx und .pptx", "Andere Bedienung, Layout kann abweichen"],
             ["LibreOffice", "kostenlos", "Sechs quelloffene Programme, lädt und speichert .docx, .xlsx und .pptx", "Komplexe Office-Dateien brauchen oft Nacharbeit"],
-            ["WordKoja, GridKoja, DeckKoja", "2,99 € pro Monat oder 79 € einmalig", "Office-ähnliches Menüband, .docx, .xlsx und .pptx, 13 Apps auf bis zu 3 Macs", "Frühe Versionen (Alpha), teils englische Oberfläche"]
+            ["WordKoja, GridKoja, DeckKoja", "2,99 € pro Monat oder 79 € einmalig", "Office-ähnliches Menüband, .docx, .xlsx und .pptx, 13 Apps auf bis zu 3 Macs", "Frühe Versionen (Alpha), teils englische Oberfläche"]
           ],
           "caption": "Preise inkl. MwSt., Stand 7. November 2026."
         }
@@ -41,7 +41,7 @@
       "blocks": [
         {
           "type": "p",
-          "text": "Microsoft bietet zwei Kaufversionen an, die auf dem Mac laufen. Office Home 2024 kostet 149 € und enthält Word, Excel, PowerPoint und OneNote. Microsoft beschreibt sie als Version für Studenten und Familien, zur Nutzung zu Hause oder in der Schule. Office Home & Business 2024 kostet 299 €, bringt zusätzlich Outlook mit und ist ausdrücklich auch für die Arbeit gedacht. Beide sind ein einmaliger Kauf für einen PC oder Mac."
+          "text": "Microsoft bietet zwei Kaufversionen an, die auf dem Mac laufen. Office Home 2024 kostet 149 € und enthält Word, Excel, PowerPoint und OneNote. Microsoft beschreibt sie als Version für Studenten und Familien, zur Nutzung zu Hause oder in der Schule. Office Home & Business 2024 kostet 299 €, bringt zusätzlich Outlook mit und ist ausdrücklich auch für die Arbeit gedacht. Beide sind ein einmaliger Kauf für einen PC oder Mac."
         },
         {
           "type": "h3",
@@ -111,7 +111,7 @@
       "blocks": [
         {
           "type": "p",
-          "text": "Apples eigene Office-Apps sind die naheliegendste Lösung, denn sie kosten nichts. Laut Apple bleiben Keynote, Pages, Numbers und Freeform für alle kostenlos. Nur Premium-Vorlagen, eine Bibliothek mit lizenzfreien Fotos und Grafiken sowie KI-Funktionen gehören zum kostenpflichtigen Apple Creator Studio (12,99 € pro Monat oder 129 € pro Jahr). Für normale Dokumente brauchst du das nicht."
+          "text": "Apples eigene Office-Apps sind die naheliegendste Lösung, denn sie kosten nichts. Laut Apple bleiben Keynote, Pages, Numbers und Freeform für alle kostenlos. Nur Premium-Vorlagen, eine Bibliothek mit lizenzfreien Fotos und Grafiken sowie KI-Funktionen gehören zum kostenpflichtigen Apple Creator Studio (12,99 € pro Monat oder 129 € pro Jahr). Für normale Dokumente brauchst du das nicht."
         },
         {
           "type": "h3",
@@ -167,7 +167,7 @@
     },
     {
       "id": "koja-apps",
-      "h2": "WordKoja, GridKoja und DeckKoja: Office-Dateien für 2,99 € im Monat",
+      "h2": "WordKoja, GridKoja und DeckKoja: Office-Dateien für 2,99 € im Monat",
       "blocks": [
         {
           "type": "p",
@@ -175,7 +175,7 @@
         },
         {
           "type": "p",
-          "text": "Wichtig vorab: Alle drei Apps sind frühe Versionen und noch in Entwicklung (Alpha). Sie ersetzen Microsoft Office heute nicht vollständig. Die Entwickler der zugrunde liegenden Projekte schätzen selbst, dass WordKoja zu etwa 60 %, GridKoja zu etwa 50 % und DeckKoja zu etwa 55 % bereit für echte Arbeit ist."
+          "text": "Wichtig vorab: Alle drei Apps sind frühe Versionen und noch in Entwicklung (Alpha). Sie ersetzen Microsoft Office heute nicht vollständig. Die Entwickler der zugrunde liegenden Projekte schätzen selbst, dass WordKoja zu etwa 60 %, GridKoja zu etwa 50 % und DeckKoja zu etwa 55 % bereit für echte Arbeit ist."
         },
         {
           "type": "app",
@@ -210,7 +210,7 @@
         },
         {
           "type": "p",
-          "text": "Du lädst die Apps kostenlos über den Kojalytics Launcher und kannst alle Apps 3 Tage lang kostenlos testen. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt. Kündigen kannst du jederzeit mit einem Klick auf [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs. Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Es gibt sie nur für macOS, nicht für Windows und nicht im Browser. Alle Details stehen auf der [Preisseite](/software#preise)."
+          "text": "Du lädst die Apps kostenlos über den Kojalytics Launcher und kannst alle Apps 3 Tage lang kostenlos testen. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt. Kündigen kannst du jederzeit online auf [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs. Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Es gibt sie nur für macOS, nicht für Windows und nicht im Browser. Alle Details stehen auf der [Preisseite](/software#preise)."
         },
         {
           "type": "p",
@@ -261,14 +261,14 @@
           "type": "table",
           "head": ["Option", "Preis", "Nach 3 Jahren", "Nach 5 Jahren", "Geräte"],
           "rows": [
-            ["Microsoft 365 Single (Jahresabo)", "99 € pro Jahr", "297 €", "495 €", "1 Person, bis zu 5 Geräte gleichzeitig"],
-            ["Microsoft 365 Single (Monatsabo)", "10 € pro Monat", "360 €", "600 €", "1 Person, bis zu 5 Geräte gleichzeitig"],
-            ["Microsoft 365 Family (Jahresabo)", "129 € pro Jahr", "387 €", "645 €", "bis zu 6 Personen"],
-            ["Office Home 2024", "149 € einmalig", "149 €", "149 € plus Nachfolger*", "1 Mac"],
-            ["Office Home & Business 2024", "299 € einmalig", "299 €", "299 € plus Nachfolger*", "1 Mac"],
-            ["Koja-Apps (monatlich)", "2,99 € pro Monat", "107,64 €", "179,40 €", "bis zu 3 Macs"],
-            ["Koja-Apps (Dauerlizenz)", "79 € einmalig", "79 €", "79 €", "bis zu 3 Macs"],
-            ["Pages, Numbers, Keynote, LibreOffice, Microsoft 365 für das Web", "kostenlos", "0 €", "0 €", "je nach Angebot"]
+            ["Microsoft 365 Single (Jahresabo)", "99 € pro Jahr", "297 €", "495 €", "1 Person, bis zu 5 Geräte gleichzeitig"],
+            ["Microsoft 365 Single (Monatsabo)", "10 € pro Monat", "360 €", "600 €", "1 Person, bis zu 5 Geräte gleichzeitig"],
+            ["Microsoft 365 Family (Jahresabo)", "129 € pro Jahr", "387 €", "645 €", "bis zu 6 Personen"],
+            ["Office Home 2024", "149 € einmalig", "149 €", "149 € plus Nachfolger*", "1 Mac"],
+            ["Office Home & Business 2024", "299 € einmalig", "299 €", "299 € plus Nachfolger*", "1 Mac"],
+            ["Koja-Apps (monatlich)", "2,99 € pro Monat", "107,64 €", "179,40 €", "bis zu 3 Macs"],
+            ["Koja-Apps (Dauerlizenz)", "79 € einmalig", "79 €", "79 €", "bis zu 3 Macs"],
+            ["Pages, Numbers, Keynote, LibreOffice, Microsoft 365 für das Web", "kostenlos", "0 €", "0 €", "je nach Angebot"]
           ],
           "caption": "* Office 2024 bekommt nur bis Oktober 2029 Updates. Wer danach ein unterstütztes Office will, kauft die nächste Version zum vollen Preis. Preise inkl. MwSt., Stand 7. November 2026."
         },
@@ -285,7 +285,7 @@
         {
           "type": "ul",
           "items": [
-            "Du brauchst echtes Word und Excel, weil Kunden, Schule oder Arbeitgeber es erwarten: Nimm Office Home 2024 für 149 €, mit Outlook Office Home & Business 2024 für 299 €. Voraussetzung ist macOS Sonoma oder neuer.",
+            "Du brauchst echtes Word und Excel, weil Kunden, Schule oder Arbeitgeber es erwarten: Nimm Office Home 2024 für 149 €, mit Outlook Office Home & Business 2024 für 299 €. Voraussetzung ist macOS Sonoma oder neuer.",
             "Du öffnest nur gelegentlich eine Office-Datei: Pages, Numbers und Keynote oder die kostenlose Webversion von Microsoft reichen meist aus.",
             "Du arbeitest viel mit Office-Dateien, willst aber nichts bezahlen: LibreOffice ist eine umfangreiche kostenlose Lösung zum Installieren.",
             "Du willst in Echtzeit mit anderen an Dateien arbeiten oder mehrere Personen und Geräte versorgen: Dann ist Microsoft 365 trotz Abo die passende Wahl.",
@@ -302,7 +302,7 @@
   "faq": [
     {
       "q": "Kann man Microsoft Office für Mac ohne Abo kaufen?",
-      "a": "Ja. Office Home 2024 kostet bei Microsoft 149 € einmalig und enthält Word, Excel, PowerPoint und OneNote für einen Mac. Office Home & Business 2024 mit Outlook kostet 299 €. Beide bekommen bis Oktober 2029 Updates, aber keine neuen Funktionen."
+      "a": "Ja. Office Home 2024 kostet bei Microsoft 149 € einmalig und enthält Word, Excel, PowerPoint und OneNote für einen Mac. Office Home & Business 2024 mit Outlook kostet 299 €. Beide bekommen bis Oktober 2029 Updates, aber keine neuen Funktionen."
     },
     {
       "q": "Ist Word auf dem Mac kostenlos?",
@@ -322,7 +322,7 @@
     },
     {
       "q": "Ersetzen WordKoja, GridKoja und DeckKoja Microsoft Office?",
-      "a": "Nein, noch nicht. Die drei Apps sind frühe Versionen (Alpha) und arbeiten mit .docx, .xlsx und .pptx, Layout und Formatierung können aber abweichen. WordKoja hat zum Beispiel noch keine deutsche Rechtschreibprüfung. Du kannst alle 13 Apps 3 Tage kostenlos testen und danach für 2,99 € im Monat nutzen, jederzeit ohne Gebühr kündbar."
+      "a": "Nein, noch nicht. Die drei Apps sind frühe Versionen (Alpha) und arbeiten mit .docx, .xlsx und .pptx, Layout und Formatierung können aber abweichen. WordKoja hat zum Beispiel noch keine deutsche Rechtschreibprüfung. Du kannst alle 13 Apps 3 Tage kostenlos testen und danach für 2,99 € im Monat nutzen, jederzeit ohne Gebühr kündbar."
     }
   ],
   "apps": ["word-koja", "grid-koja", "deck-koja", "pdf-koja"],

@@ -12,7 +12,7 @@ import Faq, { faqJsonLd } from "@/components/software/Faq";
 import { ARTICLES, getArticle, type Block } from "@/lib/ratgeber";
 import { getApp, shotFor } from "@/lib/apps";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
-import { SITE_URL, jsonLd } from "@/lib/site";
+import { OG_BASE, SITE_URL, jsonLd } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -25,19 +25,18 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getArticle((await params).slug);
   if (!article) return {};
-  const app = article.apps[0] ? getApp(article.apps[0]) : undefined;
-  const shot = app && shotFor(app);
   return {
     title: article.metaTitle,
     description: article.metaDescription,
     alternates: { canonical: `/ratgeber/${article.slug}` },
     openGraph: {
+      ...OG_BASE,
       type: "article",
       title: article.h1,
       description: article.metaDescription,
       url: `/ratgeber/${article.slug}`,
       modifiedTime: article.updated,
-      images: shot ? [{ url: shot.src, width: shot.width, height: shot.height, alt: shot.alt }] : undefined,
+      images: [{ url: `/og/ratgeber/${article.slug}.jpg`, width: 1200, height: 630, alt: article.h1 }],
     },
   };
 }
@@ -108,9 +107,26 @@ function BlockView({ block }: { block: Block }) {
       );
     case "table":
       return (
-        <div className="not-prose my-6 overflow-x-auto rounded-[18px] border border-border">
-          <table className="w-full min-w-[480px] text-left text-[15px]">
-            {block.caption && <caption className="p-4 text-left text-sm text-muted">{block.caption}</caption>}
+        <div className="my-6">
+          {block.caption && <p className="mb-2 !text-sm !leading-relaxed !text-muted">{block.caption}</p>}
+          {/* Phones: one card per row, so no column is hidden off-screen */}
+          <div className="grid gap-3 sm:hidden">
+            {block.rows.map((r, i) => (
+              <dl key={i} className="rounded-[18px] border border-border p-4 text-[15px]">
+                <dt className="font-semibold">
+                  <RichText text={r[0]} />
+                </dt>
+                {r.slice(1).map((c, j) => (
+                  <dd key={j} className="mt-1.5">
+                    <span className="text-sm text-muted">{block.head[j + 1]}: </span>
+                    <RichText text={c} />
+                  </dd>
+                ))}
+              </dl>
+            ))}
+          </div>
+          <div className="hidden overflow-x-auto rounded-[18px] border border-border sm:block">
+          <table className="w-full text-left text-[15px]">
             <thead className="bg-surface">
               <tr>
                 {block.head.map((h) => (
@@ -132,6 +148,7 @@ function BlockView({ block }: { block: Block }) {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       );
     case "tip":
@@ -166,6 +183,7 @@ export default async function ArticlePage({ params }: Props) {
     author: { "@type": "Organization", name: "Kojalytics", url: SITE_URL },
     publisher: { "@type": "Organization", name: "Kojalytics", logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` } },
     mainEntityOfPage: `${SITE_URL}/ratgeber/${article.slug}`,
+    image: [`${SITE_URL}/og/ratgeber/${article.slug}.jpg`],
     abstract: plainIntro.slice(0, 300),
   };
   const breadcrumb = {
@@ -235,7 +253,7 @@ export default async function ArticlePage({ params }: Props) {
           <div className="mt-14 rounded-[24px] bg-foreground p-8 text-white sm:p-10">
             <p className="display text-3xl sm:text-4xl">Alle 13 Koja-Apps {TRIAL_DAYS} Tage kostenlos testen</p>
             <p className="mt-3 text-white/75">
-              Danach {PLANS.monthly.label} im Monat, mit einem Klick kündbar. Oder einmalig {PLANS.lifetime.label}. Für macOS, ohne Konto.
+              Danach {PLANS.monthly.label} im Monat, jederzeit online kündbar. Oder einmalig {PLANS.lifetime.label}. Für macOS, ohne Konto.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <DownloadButton source={`ratgeber-${article.slug}`} className="!bg-white !text-foreground hover:!bg-white/90" />
@@ -262,7 +280,7 @@ export default async function ArticlePage({ params }: Props) {
               <ul className="mt-3 grid gap-1.5">
                 {article.sources.map((s) => (
                   <li key={s.url}>
-                    {s.label}: <span className="break-all">{s.url.replace(/^https?:\/\//, "")}</span>
+                    {s.label} <span className="text-muted/80">({new URL(s.url).hostname.replace(/^www\./, "")})</span>
                   </li>
                 ))}
               </ul>

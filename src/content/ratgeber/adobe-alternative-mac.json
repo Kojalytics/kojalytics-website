@@ -2,13 +2,13 @@
   "slug": "adobe-alternative-mac",
   "navTitle": "Adobe-Alternativen für den Mac",
   "h1": "Adobe-Alternative für Mac: Ersatz für Photoshop, Premiere, Acrobat & Co.",
-  "metaTitle": "Adobe-Alternative für Mac: Ersatz für jedes Programm",
+  "metaTitle": "Adobe-Alternative für Mac: Ersatz für jede App",
   "metaDescription": "Photoshop, Lightroom, Illustrator, InDesign, Premiere, Acrobat: kostenlose Mac-Alternativen, Einmalkäufe und günstige Abos, mit aktuellen Adobe-Preisen.",
   "primaryKeyword": "adobe alternative mac",
   "updated": "2026-11-07",
   "readingMinutes": 11,
   "intro": [
-    "Eine einzige Adobe-Alternative für den Mac, die alles ersetzt, gibt es nicht. Für jedes einzelne Adobe-Programm gibt es aber Alternativen: Affinity deckt Bildbearbeitung, Vektorgrafik und Layout in einer App ab, ist für Einzelpersonen kostenlos und importiert PSD-, AI- und IDML-Dateien. Statt Premiere nimmst du das kostenlose DaVinci Resolve oder Final Cut Pro für 349,99 € einmalig. Für RAW-Fotos gibt es darktable, für viele PDF-Aufgaben reicht die Vorschau-App von macOS. Zum Vergleich: Creative Cloud Pro kostet im Jahres-Abo regulär 77,99 € pro Monat.",
+    "Eine einzige Adobe-Alternative für den Mac, die alles ersetzt, gibt es nicht. Für jedes einzelne Adobe-Programm gibt es aber Alternativen: Affinity deckt Bildbearbeitung, Vektorgrafik und Layout in einer App ab, ist für Einzelpersonen kostenlos und importiert PSD-, AI- und IDML-Dateien. Statt Premiere nimmst du das kostenlose DaVinci Resolve oder Final Cut Pro für 349,99 € einmalig. Für RAW-Fotos gibt es darktable, für viele PDF-Aufgaben reicht die Vorschau-App von macOS. Zum Vergleich: Creative Cloud Pro kostet im Jahres-Abo regulär 77,99 € pro Monat.",
     "Hier findest du die aktuellen Adobe-Preise, eine Übersicht mit kostenlosen Programmen und Einmalkäufen für jedes Adobe-Programm und eine Anleitung für den Umstieg ohne Datenverlust. Auch unsere eigenen Koja-Apps ordnen wir ehrlich ein: günstig und alle in einem Abo, aber noch in früher Entwicklung. Alle Preise inkl. MwSt., Stand: 7. November 2026."
   ],
   "sections": [
@@ -30,49 +30,49 @@
           "rows": [
             [
               "Creative Cloud Pro (mehr als 20 Programme, inkl. Firefly)",
-              "77,99 €",
-              "935,88 €"
+              "77,99 €",
+              "935,88 €"
             ],
             [
               "Creative Cloud Standard (u. a. Photoshop, Illustrator, Acrobat Pro)",
-              "61,95 €",
-              "743,40 €"
+              "61,95 €",
+              "743,40 €"
             ],
             [
               "Photoshop, Illustrator, InDesign, Premiere, After Effects oder Audition (je eine App)",
-              "25,99 €",
-              "311,88 €"
+              "25,99 €",
+              "311,88 €"
             ],
             [
               "Fotografie (Lightroom, Lightroom Classic, Photoshop, 1 TB Speicher)",
-              "23,79 €",
-              "285,48 €"
+              "23,79 €",
+              "285,48 €"
             ],
             [
               "Acrobat Pro",
-              "23,79 €",
-              "285,48 €"
+              "23,79 €",
+              "285,48 €"
             ],
             [
               "Acrobat Standard",
-              "17,99 €",
-              "215,88 €"
+              "17,99 €",
+              "215,88 €"
             ],
             [
               "Lightroom (1 TB Cloud-Speicher)",
-              "14,49 €",
-              "173,88 €"
+              "14,49 €",
+              "173,88 €"
             ]
           ],
           "caption": "Jahres-Abo mit monatlicher Abrechnung, inkl. MwSt., laut Adobe. Den Jahresbetrag haben wir hochgerechnet. Stand: 7. November 2026."
         },
         {
           "type": "p",
-          "text": "Neukunden bekommen Creative Cloud Pro derzeit in einer zeitlich begrenzten Aktion für 38,98 € pro Monat in den ersten 3 Monaten, danach gilt der reguläre Preis von 77,99 €. Bei Zahlung im Voraus kostet Creative Cloud Pro 905,92 € und Photoshop 311,73 € pro Jahr, also kaum weniger. Deutlich teurer ist das flexible Monats-Abo, das du laut Adobe jederzeit ohne Zusatzgebühren kündigen kannst: Photoshop kostet darin 38,98 €, Creative Cloud Pro 116,99 € pro Monat."
+          "text": "Neukunden bekommen Creative Cloud Pro derzeit in einer zeitlich begrenzten Aktion für 38,98 € pro Monat in den ersten 3 Monaten, danach gilt der reguläre Preis von 77,99 €. Bei Zahlung im Voraus kostet Creative Cloud Pro 905,92 € und Photoshop 311,73 € pro Jahr, also kaum weniger. Deutlich teurer ist das flexible Monats-Abo, das du laut Adobe jederzeit ohne Zusatzgebühren kündigen kannst: Photoshop kostet darin 38,98 €, Creative Cloud Pro 116,99 € pro Monat."
         },
         {
           "type": "tip",
-          "text": "Prüfe vor dem Wechsel deine Vertragsart. Kündigst du ein Jahres-Abo mit monatlicher Abrechnung nach den ersten 14 Tagen, verlangt Adobe eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Wann und wie du am günstigsten aussteigst, erklärt unser Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+          "text": "Prüfe vor dem Wechsel deine Vertragsart. Kündigst du ein Jahres-Abo mit monatlicher Abrechnung nach den ersten 14 Tagen, verlangt Adobe eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Wann und wie du am günstigsten aussteigst, erklärt unser Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
         }
       ]
     },
@@ -96,8 +96,8 @@
             [
               "Photoshop",
               "Affinity, GIMP",
-              "Pixelmator Pro (59,99 €)",
-              "PhotoKoja (Early Alpha)"
+              "Pixelmator Pro (59,99 €)",
+              "PhotoKoja (Alpha)"
             ],
             [
               "Lightroom",
@@ -120,33 +120,33 @@
             [
               "Premiere",
               "DaVinci Resolve",
-              "Final Cut Pro (349,99 €)",
+              "Final Cut Pro (349,99 €)",
               "FilmKoja (Alpha)"
             ],
             [
               "After Effects",
               "DaVinci Resolve (Effekte, Motion Graphics)",
-              "Motion (59,99 €)",
+              "Motion (59,99 €)",
               "EffectKoja (Alpha)"
             ],
             [
               "Audition",
               "Audacity, GarageBand",
-              "Logic Pro (229,99 €)",
+              "Logic Pro (229,99 €)",
               "SoundKoja (Pre-Alpha)"
             ],
             [
               "Acrobat",
               "Vorschau (in macOS), Acrobat Reader zum Anzeigen",
               "–",
-              "PdfKoja (Early Alpha)"
+              "PdfKoja (Alpha)"
             ]
           ],
-          "caption": "Preise inkl. MwSt. laut Mac App Store bzw. Hersteller, Stand: 7. November 2026. Alle 13 Koja-Apps kosten zusammen 2,99 € pro Monat oder 79 € einmalig und sind frühe Versionen."
+          "caption": "Preise inkl. MwSt. laut Mac App Store bzw. Hersteller, Stand: 7. November 2026. Alle 13 Koja-Apps kosten zusammen 2,99 € pro Monat oder 79 € einmalig und sind frühe Versionen."
         },
         {
           "type": "p",
-          "text": "Brauchst du mehrere Apple-Programme, gibt es statt der Einzelkäufe auch Apple Creator Studio: Das Abo enthält Final Cut Pro, Logic Pro, Pixelmator Pro, Motion, Compressor und MainStage für 12,99 € pro Monat oder 129 € pro Jahr. Neue Abonnenten können es einen Monat kostenlos testen. Alle Funktionen gibt es laut Apple ab macOS 26."
+          "text": "Brauchst du mehrere Apple-Programme, gibt es statt der Einzelkäufe auch Apple Creator Studio: Das Abo enthält Final Cut Pro, Logic Pro, Pixelmator Pro, Motion, Compressor und MainStage für 12,99 € pro Monat oder 129 € pro Jahr. Neue Abonnenten können es einen Monat kostenlos testen. Alle Funktionen gibt es laut Apple ab macOS 26."
         },
         {
           "type": "h3",
@@ -178,15 +178,15 @@
         },
         {
           "type": "p",
-          "text": "GIMP ist ein kostenloses, quelloffenes Bildbearbeitungsprogramm. Es gibt eigene Versionen für Intel-Macs und für Apple silicon, Voraussetzung ist macOS 11 Big Sur oder neuer. Pixelmator Pro kostet im Mac App Store einmalig 59,99 €. Laut App-Beschreibung öffnet und exportiert es Photoshop-Bilder mit Ebenen, bearbeitet RAW-Fotos von über 750 Kameras und bringt Vektorwerkzeuge mit."
+          "text": "GIMP ist ein kostenloses, quelloffenes Bildbearbeitungsprogramm. Es gibt eigene Versionen für Intel-Macs und für Apple silicon, Voraussetzung ist macOS 11 Big Sur oder neuer. Pixelmator Pro kostet im Mac App Store einmalig 59,99 €. Laut App-Beschreibung öffnet und exportiert es Photoshop-Bilder mit Ebenen, bearbeitet RAW-Fotos von über 750 Kameras und bringt Vektorwerkzeuge mit."
         },
         {
           "type": "p",
-          "text": "Vorsicht bei Photoshop Elements 2027: Adobe verkauft es für 98,98 € als 3-Jahreslizenz. Die Lizenz läuft 3 Jahre nach der Aktivierung ab und lässt sich nicht verlängern. Am Mac setzt Adobe laut Systemanforderungen einen Apple-Chip voraus, Intel-Prozessoren werden nicht unterstützt. Mehr Wege ohne Abo findest du in unserem Ratgeber [Photoshop ohne Abo](/ratgeber/photoshop-ohne-abo)."
+          "text": "Vorsicht bei Photoshop Elements 2027: Adobe verkauft es für 98,98 € als 3-Jahreslizenz. Die Lizenz läuft 3 Jahre nach der Aktivierung ab und lässt sich nicht verlängern. Am Mac setzt Adobe laut Systemanforderungen einen Apple-Chip voraus, Intel-Prozessoren werden nicht unterstützt. Mehr Wege ohne Abo findest du in unserem Ratgeber [Photoshop ohne Abo](/ratgeber/photoshop-ohne-abo)."
         },
         {
           "type": "p",
-          "text": "[PhotoKoja](/software/photo-koja) ist unsere Photoshop-Alternative. Menüs, Kurzbefehle und Werkzeuge liegen dort, wo Photoshop-Nutzer sie erwarten. Die App öffnet und speichert PSD- und PSB-Dateien mit Ebenen und bietet 16 nicht-destruktive Einstellungsebenen. Sie ist aber noch eine frühe Version (Early Alpha): 15 Photoshop-Werkzeuge fehlen, generative KI und Photoshop-Plug-ins gibt es nicht."
+          "text": "[PhotoKoja](/software/photo-koja) ist unsere Photoshop-Alternative. Menüs, Kurzbefehle und Werkzeuge liegen dort, wo Photoshop-Nutzer sie erwarten. Die App öffnet und speichert PSD- und PSB-Dateien mit Ebenen und bietet 16 nicht-destruktive Einstellungsebenen. Sie ist aber noch eine frühe Version (Alpha): 15 Photoshop-Werkzeuge fehlen, generative KI und Photoshop-Plug-ins gibt es nicht."
         },
         {
           "type": "app",
@@ -199,7 +199,7 @@
         },
         {
           "type": "p",
-          "text": "darktable ist ein kostenloses, quelloffenes Programm für den Foto-Workflow und die RAW-Entwicklung (Lizenz GPL 3.0). Der Haken für ältere Macs: Die macOS-Version gibt es nur für Apple silicon, offizielle Versionen für Intel-Macs bietet das Projekt derzeit nicht an. Pixelmator Pro bearbeitet ebenfalls RAW-Fotos."
+          "text": "darktable ist ein kostenloses, quelloffenes Programm für den Foto-Workflow und die RAW-Entwicklung (Lizenz GPL 3.0). Der Haken für ältere Macs: Die macOS-Version gibt es nur für Apple silicon, offizielle Versionen für Intel-Macs bietet das Projekt derzeit nicht an. Pixelmator Pro bearbeitet ebenfalls RAW-Fotos. Alle Lightroom-Alternativen mit Preisen vergleicht der Ratgeber [Lightroom-Alternative ohne Abo](/ratgeber/lightroom-alternative-ohne-abo)."
         },
         {
           "type": "p",
@@ -231,11 +231,11 @@
       "blocks": [
         {
           "type": "p",
-          "text": "DaVinci Resolve gibt es kostenlos für Mac, Windows und Linux. Laut Blackmagic Design vereint es Schnitt, Farbkorrektur, visuelle Effekte, Motion Graphics und Audio in einer Anwendung und kann so Aufgaben aus mehreren Adobe-Programmen übernehmen. Die erweiterte Version DaVinci Resolve Studio kostet derzeit 245 € statt zuvor 305 € (unverbindliche Preisempfehlung inkl. MwSt.)."
+          "text": "DaVinci Resolve gibt es kostenlos für Mac, Windows und Linux. Laut Blackmagic Design vereint es Schnitt, Farbkorrektur, visuelle Effekte, Motion Graphics und Audio in einer Anwendung und kann so Aufgaben aus mehreren Adobe-Programmen übernehmen. Die erweiterte Version DaVinci Resolve Studio kostet derzeit 245 € statt zuvor 305 € (unverbindliche Preisempfehlung inkl. MwSt.)."
         },
         {
           "type": "p",
-          "text": "Final Cut Pro kostet im Mac App Store einmalig 349,99 € und setzt macOS 26.6 oder neuer voraus. Für Titel, Übergänge und Effekte gibt es dazu Motion für 59,99 €. Als Ersatz für Audition ist Audacity kostenlos und quelloffen, GarageBand bietet Apple kostenlos an, und Logic Pro kostet einmalig 229,99 €."
+          "text": "Final Cut Pro kostet im Mac App Store einmalig 349,99 € und setzt macOS 26.6 oder neuer voraus. Für Titel, Übergänge und Effekte gibt es dazu Motion für 59,99 €. Als Ersatz für Audition ist Audacity kostenlos und quelloffen, GarageBand bietet Apple kostenlos an, und Logic Pro kostet einmalig 229,99 €."
         },
         {
           "type": "p",
@@ -258,7 +258,7 @@
         },
         {
           "type": "p",
-          "text": "[PdfKoja](/software/pdf-koja) bündelt die typischen Aufgaben in einer App: Es fügt beliebig viele PDFs zusammen, teilt sie auf, ordnet Seiten, füllt Formulare aus und schützt Dokumente mit Passwörtern bis AES-256. Alles läuft offline und ohne Konto. Die App ist noch eine frühe Version (Early Alpha). Office-Dateien wandelt sie nicht in PDF um, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt."
+          "text": "[PdfKoja](/software/pdf-koja) bündelt die typischen Aufgaben in einer App: Es fügt beliebig viele PDFs zusammen, teilt sie auf, ordnet Seiten, füllt Formulare aus und schützt Dokumente mit Passwörtern bis AES-256. Alles läuft offline und ohne Konto. Die App ist noch eine frühe Version (Alpha). Office-Dateien wandelt sie nicht in PDF um, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt."
         },
         {
           "type": "app",
@@ -273,11 +273,11 @@
       "blocks": [
         {
           "type": "p",
-          "text": "Kojalytics bietet 13 Koja-Apps für macOS an, darunter die oben genannten Alternativen zu Photoshop, Lightroom, Illustrator, InDesign, Premiere, After Effects, Audition und Acrobat. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt., jederzeit mit einem Klick auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs."
+          "text": "Kojalytics bietet 13 Koja-Apps für macOS an, darunter die oben genannten Alternativen zu Photoshop, Lightroom, Illustrator, InDesign, Premiere, After Effects, Audition und Acrobat. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt., jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs."
         },
         {
           "type": "p",
-          "text": "Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Die Apps gibt es nur für macOS, nicht für Windows und nicht im Browser. Technisch sind es macOS-Builds quelloffener Projekte (MIT/Apache-2.0), die sich in Early Alpha, Alpha oder Pre-Alpha befinden. Keine Koja-App ersetzt ein Adobe-Programm vollständig."
+          "text": "Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Die Apps gibt es nur für macOS, nicht für Windows und nicht im Browser. Technisch sind es macOS-Builds quelloffener Projekte (MIT/Apache-2.0), die sich im Alpha- oder Pre-Alpha-Stadium befinden. Keine Koja-App ersetzt ein Adobe-Programm vollständig."
         },
         {
           "type": "h3",
@@ -305,7 +305,7 @@
         },
         {
           "type": "p",
-          "text": "Zum Vergleich: Creative Cloud Pro kostet aufs Jahr gerechnet 935,88 €, die Koja-Apps 35,88 €. Der Preisunterschied ist groß, der Unterschied in Reife und Funktionsumfang aber auch. Teste deshalb in den 3 Tagen mit deinen eigenen Dateien. Alle Details findest du auf der [Preisseite](/software#preise) und in der [Übersicht aller Koja-Apps](/software)."
+          "text": "Zum Vergleich: Creative Cloud Pro kostet aufs Jahr gerechnet 935,88 €, die Koja-Apps 35,88 €. Der Preisunterschied ist groß, der Unterschied in Reife und Funktionsumfang aber auch. Teste deshalb in den 3 Tagen mit deinen eigenen Dateien. Alle Details findest du auf der [Preisseite](/software#preise) und in der [Übersicht aller Koja-Apps](/software)."
         }
       ]
     },
@@ -324,7 +324,7 @@
             "Dateien sichern, solange das Abo läuft: Speichere InDesign-Dokumente zusätzlich als IDML über „Datei“ > „Speichern“ und das Format „InDesign CS4 oder später (IDML)“. Premiere-Projekte exportierst du über „Datei“ > „Exportieren“ > „Final Cut Pro XML“. Laut Adobe werden dabei nur wenige Effekte übertragen.",
             "Cloud-Dateien herunterladen: Lade alles, was in der Creative Cloud liegt, vorsorglich auf deinen Mac oder eine externe Festplatte.",
             "Mit eigenen Dateien testen: Affinity, DaVinci Resolve, GIMP und darktable sind kostenlos, Apple Creator Studio kannst du als neuer Abonnent einen Monat gratis testen, die Koja-Apps 3 Tage. Öffne dabei deine komplexesten PSD-, AI- und IDML-Dateien.",
-            "Zum richtigen Zeitpunkt kündigen: Innerhalb von 14 Tagen nach der Erstbestellung erstattet Adobe alle Zahlungen. Danach kostet der vorzeitige Ausstieg aus dem Jahres-Abo mit monatlicher Abrechnung 50 % des restlichen Vertragswerts. Beim Jahres-Abo mit Vorauszahlung gibt es nach 14 Tagen kein Geld zurück. Ohne Kündigung verlängern sich Jahres-Abos automatisch um ein weiteres Jahr."
+            "Zum richtigen Zeitpunkt kündigen: Innerhalb von 14 Tagen nach der Erstbestellung erstattet Adobe alle Zahlungen. Danach kostet der vorzeitige Ausstieg aus dem Jahres-Abo mit monatlicher Abrechnung 50 % des restlichen Vertragswerts. Beim Jahres-Abo mit Vorauszahlung gibt es nach 14 Tagen kein Geld zurück. Ohne Kündigung verlängern sich Jahres-Abos laut Adobe automatisch. Für Verbraucher in Deutschland darf sich ein Abo nach § 309 Nr. 9 BGB aber nach der ersten Laufzeit nur noch auf unbestimmte Zeit verlängern und muss dann jederzeit mit einer Frist von höchstens einem Monat kündbar sein. Das gilt für Verträge, die seit dem 1. März 2022 geschlossen wurden."
           ]
         },
         {
@@ -341,7 +341,7 @@
     },
     {
       "q": "Gibt es Photoshop für den Mac ohne Abo?",
-      "a": "Auf seinen Preisseiten bietet Adobe Photoshop nur im Abo an, als Einzel-App für 25,99 € pro Monat im Jahres-Abo. Photoshop Elements 2027 kostet 98,98 €, ist aber eine 3-Jahreslizenz, die danach abläuft. Einen echten Einmalkauf bietet zum Beispiel Pixelmator Pro für 59,99 €, kostenlos sind Affinity und GIMP."
+      "a": "Auf seinen Preisseiten bietet Adobe Photoshop nur im Abo an, als Einzel-App für 25,99 € pro Monat im Jahres-Abo. Photoshop Elements 2027 kostet 98,98 €, ist aber eine 3-Jahreslizenz, die danach abläuft. Einen echten Einmalkauf bietet zum Beispiel Pixelmator Pro für 59,99 €, kostenlos sind Affinity und GIMP."
     },
     {
       "q": "Ist Affinity wirklich kostenlos?",
@@ -349,11 +349,11 @@
     },
     {
       "q": "Was kostet Adobe Creative Cloud im Monat?",
-      "a": "Creative Cloud Pro mit mehr als 20 Programmen kostet regulär 77,99 € pro Monat im Jahres-Abo mit monatlicher Abrechnung. Creative Cloud Standard kostet 61,95 €, eine Einzel-App wie Photoshop oder Illustrator 25,99 €. Im flexiblen Monats-Abo zahlst du für Creative Cloud Pro 116,99 € pro Monat."
+      "a": "Creative Cloud Pro mit mehr als 20 Programmen kostet regulär 77,99 € pro Monat im Jahres-Abo mit monatlicher Abrechnung. Creative Cloud Standard kostet 61,95 €, eine Einzel-App wie Photoshop oder Illustrator 25,99 €. Im flexiblen Monats-Abo zahlst du für Creative Cloud Pro 116,99 € pro Monat."
     },
     {
       "q": "Kann ich mein Adobe-Abo vorzeitig kündigen?",
-      "a": "Ja. Innerhalb von 14 Tagen nach der Erstbestellung bekommst du dein Geld vollständig zurück. Danach wird beim Jahres-Abo mit monatlicher Abrechnung eine einmalige Gebühr von 50 % des restlichen Vertragswerts fällig. Das flexible Monats-Abo kannst du laut Adobe jederzeit ohne Zusatzgebühren kündigen."
+      "a": "Ja. Innerhalb von 14 Tagen nach der Erstbestellung bekommst du dein Geld vollständig zurück. Danach wird beim Jahres-Abo mit monatlicher Abrechnung eine einmalige Gebühr von 50 % des restlichen Vertragswerts fällig. Das flexible Monats-Abo kannst du laut Adobe jederzeit ohne Zusatzgebühren kündigen."
     },
     {
       "q": "Kann ich PSD- und InDesign-Dateien ohne Adobe öffnen?",
@@ -502,6 +502,10 @@
     {
       "label": "Apple Vorschau-Handbuch: PDF-Formulare ausfüllen und unterschreiben",
       "url": "https://support.apple.com/de-de/guide/preview/prvw35725/mac"
+    },
+    {
+      "label": "§ 309 BGB: Klauselverbote ohne Wertungsmöglichkeit (Nr. 9: Laufzeit bei Dauerschuldverhältnissen)",
+      "url": "https://www.gesetze-im-internet.de/bgb/__309.html"
     }
   ]
 }

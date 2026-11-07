@@ -11,14 +11,14 @@ import { APPS, getApp, shotFor } from "@/lib/apps";
 import { ARTICLES } from "@/lib/ratgeber";
 import { PROJECTS, SERVICES } from "@/lib/studio";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
-import { DEFAULT_OG_IMAGE } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, OG_BASE, WEBSITE_JSON_LD, jsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Kojalytics: Mac-Apps statt Abo und App-Entwicklung" },
   description:
     "Kojalytics ist ein Software-Studio aus Deutschland. Wir machen die Koja-Apps für den Mac und entwickeln iOS-Apps, Web-Plattformen und KI-Funktionen.",
   alternates: { canonical: "/" },
-  openGraph: { url: "/", title: "Kojalytics: Software-Studio aus Deutschland", images: [DEFAULT_OG_IMAGE] },
+  openGraph: { ...OG_BASE, url: "/", title: "Kojalytics: Software-Studio aus Deutschland", images: [DEFAULT_OG_IMAGE] },
 };
 
 function Shot({ slug, className, priority = false, sizes }: { slug: string; className?: string; priority?: boolean; sizes: string }) {
@@ -31,6 +31,7 @@ function Shot({ slug, className, priority = false, sizes }: { slug: string; clas
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(WEBSITE_JSON_LD)} />
       <Navigation />
       <main>
         {/* Hero */}
@@ -38,7 +39,9 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
               <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted w-fit">Software-Studio aus Deutschland</p>
-              <h1 className="display mt-6 text-[clamp(2.75rem,6.5vw,5.25rem)]">Wir bauen Apps. Für Kunden und für deinen Mac.</h1>
+              <h1 className="display mt-6 text-[clamp(2.75rem,5.6vw,4.75rem)]">
+                Wir bauen Apps. <span className="whitespace-nowrap">Für Kunden</span> und für deinen Mac.
+              </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 Kojalytics entwickelt iOS-Apps, Web-Plattformen und KI-Funktionen für Unternehmen und Gründer. Und wir machen die
                 Koja-Apps: 13 Mac-Apps für Kreativ- und Büroarbeit, für {PLANS.monthly.label} im Monat.
@@ -55,7 +58,7 @@ export default function Home() {
             <div className="relative">
               <Shot slug="photo-koja" priority sizes="(max-width: 1024px) 92vw, 50vw" className="relative z-10" />
               <Shot slug="grid-koja" sizes="(max-width: 1024px) 50vw, 26vw" className="absolute -bottom-10 -left-6 z-20 hidden w-[46%] sm:block" />
-              <Shot slug="film-koja" sizes="(max-width: 1024px) 50vw, 26vw" className="absolute -right-6 -top-8 z-0 hidden w-[44%] sm:block" />
+              <Shot slug="design-koja" sizes="(max-width: 1024px) 50vw, 26vw" className="absolute -right-4 -top-16 z-0 hidden w-[44%] sm:block lg:-right-10 lg:-top-20" />
             </div>
           </div>
         </section>
@@ -69,18 +72,18 @@ export default function Home() {
                 <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Mac-Apps. {PLANS.monthly.label} im Monat.</h2>
               </div>
               <p className="text-lg leading-relaxed text-muted">
-                Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD. Offline, ohne Konto, mit einem Klick kündbar. Teste alle Apps{" "}
+                Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD. Offline, ohne Konto, jederzeit online kündbar. Teste alle Apps{" "}
                 {TRIAL_DAYS} Tage kostenlos oder zahle einmalig {PLANS.lifetime.label}.
               </p>
             </div>
             <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
               {APPS.map((a) => (
                 <li key={a.slug}>
-                  <Link href={`/software/${a.slug}`} className="flex h-full items-center gap-3 rounded-[16px] border border-border p-3 transition-colors hover:border-foreground/40">
+                  <Link href={`/software/${a.slug}`} prefetch={false} className="flex h-full items-center gap-3 rounded-[16px] border border-border p-3 transition-colors hover:border-foreground/40">
                     <AppIcon slug={a.slug} name={a.name} size={40} />
                     <span className="min-w-0">
                       <span className="block truncate font-semibold">{a.name}</span>
-                      <span className="block truncate text-sm text-muted">{a.kind}</span>
+                      <span className="block text-sm leading-snug text-muted hyphens-auto">{a.kind}</span>
                     </span>
                   </Link>
                 </li>

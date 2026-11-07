@@ -4,14 +4,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactCta from "@/components/studio/ContactCta";
 import { SERVICES } from "@/lib/studio";
-import { DEFAULT_OG_IMAGE } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, OG_BASE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "App-Entwicklung aus Deutschland: iOS, Web und KI",
   description:
     "Kojalytics entwickelt iOS-Apps, Web-Apps mit Next.js, KI-Funktionen und Backends für Unternehmen und Gründer. Ein kleines Software-Studio aus Deutschland.",
   alternates: { canonical: "/leistungen" },
-  openGraph: { url: "/leistungen", images: [DEFAULT_OG_IMAGE] },
+  openGraph: { ...OG_BASE, url: "/leistungen", images: [DEFAULT_OG_IMAGE] },
 };
 
 export default function ServicesPage() {

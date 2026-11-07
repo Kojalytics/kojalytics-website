@@ -40,8 +40,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${heading.variable} ${body.variable}`}>
+    // suppressHydrationWarning: the inline script below may add data-kj-consent to <html> before hydration.
+    <html lang="de" className={`${heading.variable} ${body.variable}`} suppressHydrationWarning>
       <body className="antialiased">
+        {/* Hides the server-rendered cookie banner before the first paint for visitors who already chose. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{if(localStorage.getItem('kj-consent-v1'))document.documentElement.setAttribute('data-kj-consent','')}catch(e){}",
+          }}
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ORGANIZATION_JSON_LD)} />
         {children}
         <Consent />

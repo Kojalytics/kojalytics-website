@@ -8,7 +8,7 @@
   "updated": "2026-11-07",
   "readingMinutes": 13,
   "intro": [
-    "Wenn du ein PDF am Mac bearbeiten willst, brauchst du für die meisten Aufgaben kein Zusatzprogramm. Die vorinstallierte App Vorschau fügt Text, Markierungen und Notizen hinzu, setzt deine Unterschrift ein, schwärzt Textstellen, löscht, dreht und sortiert Seiten, fügt PDFs zusammen, verkleinert Dateien und schützt sie mit einem Passwort. Eines kann Vorschau nicht: vorhandenen Text im PDF umschreiben. Das sagt Apple im Vorschau-Handbuch selbst. Dafür brauchst du die Originaldatei, LibreOffice Draw für kleine Korrekturen oder einen PDF-Editor wie Adobe Acrobat Standard (17,99 € pro Monat inkl. MwSt. im Jahresabo mit monatlicher Abrechnung).",
+    "Wenn du ein PDF am Mac bearbeiten willst, brauchst du für die meisten Aufgaben kein Zusatzprogramm. Die vorinstallierte App Vorschau fügt Text, Markierungen und Notizen hinzu, setzt deine Unterschrift ein, schwärzt Textstellen, löscht, dreht und sortiert Seiten, fügt PDFs zusammen, verkleinert Dateien und schützt sie mit einem Passwort. Eines kann Vorschau nicht: vorhandenen Text im PDF umschreiben. Das sagt Apple im Vorschau-Handbuch selbst. Dafür brauchst du die Originaldatei, LibreOffice Draw für kleine Korrekturen oder einen PDF-Editor wie Adobe Acrobat Standard (17,99 € pro Monat inkl. MwSt. im Jahresabo mit monatlicher Abrechnung).",
     "Hier findest du die Schritte mit den Menünamen aus Apples Vorschau-Handbuch (Stand Oktober 2026) und die Warnungen, die oft fehlen: Vorschau sichert automatisch, Schwärzungen werden erst beim Schließen endgültig, und Komprimieren kann Bildqualität kosten. Am Ende vergleichen wir Programme für alles, was Vorschau nicht schafft, darunter unsere eigene App PdfKoja, die noch in früher Entwicklung ist."
   ],
   "sections": [
@@ -111,7 +111,7 @@
         },
         {
           "type": "p",
-          "text": "Mit Adobe Acrobat Standard und Acrobat Pro bearbeitest du laut Adobe PDF-Dateien direkt, also auch Text und Bilder. Acrobat Standard kostet 17,99 € pro Monat im Jahresabo mit monatlicher Abrechnung, Acrobat Pro 23,79 € (jeweils inkl. MwSt.). Den kostenlosen Acrobat Reader beschreibt Adobe als Programm zum Ansehen, Kommentieren und Unterzeichnen. Das Bearbeiten von PDFs führt Adobe erst ab Acrobat Standard auf."
+          "text": "Mit Adobe Acrobat Standard und Acrobat Pro bearbeitest du laut Adobe PDF-Dateien direkt, also auch Text und Bilder. Acrobat Standard kostet 17,99 € pro Monat im Jahresabo mit monatlicher Abrechnung, Acrobat Pro 23,79 € (jeweils inkl. MwSt.). Den kostenlosen Acrobat Reader beschreibt Adobe als Programm zum Ansehen, Kommentieren und Unterzeichnen. Das Bearbeiten von PDFs führt Adobe erst ab Acrobat Standard auf."
         },
         {
           "type": "tip",
@@ -268,10 +268,10 @@
           "rows": [
             ["Vorschau (Apple)", "auf dem Mac vorinstalliert", "Anmerkungen, Unterschrift, Schwärzen, Seiten, Zusammenfügen, Verkleinern, Passwort", "Vorhandener Text lässt sich nicht bearbeiten"],
             ["Adobe Acrobat Reader", "kostenlos", "Ansehen, Kommentieren, Unterzeichnen", "PDF-Bearbeitung erst ab Acrobat Standard"],
-            ["Adobe Acrobat Standard", "17,99 € pro Monat im Jahresabo (monatlich abgerechnet), 29,99 € im Monatsabo", "PDFs bearbeiten und organisieren, umwandeln, Formulare, Signaturen, Passwortschutz", "Schwärzen, Scans umwandeln und Vergleichen nur in Pro"],
-            ["Adobe Acrobat Pro", "23,79 € pro Monat im Jahresabo (monatlich abgerechnet), 35,69 € im Monatsabo", "Alles aus Standard plus Schwärzen, Scans in bearbeitbare PDFs, Vergleichen", "Jahresabo mit monatlicher Abrechnung nach 14 Tagen nur gegen Gebühr vorzeitig kündbar (wie bei Standard)"],
+            ["Adobe Acrobat Standard", "17,99 € pro Monat im Jahresabo (monatlich abgerechnet), 29,99 € im Monatsabo", "PDFs bearbeiten und organisieren, umwandeln, Formulare, Signaturen, Passwortschutz", "Schwärzen, Scans umwandeln und Vergleichen nur in Pro"],
+            ["Adobe Acrobat Pro", "23,79 € pro Monat im Jahresabo (monatlich abgerechnet), 35,69 € im Monatsabo", "Alles aus Standard plus Schwärzen, Scans in bearbeitbare PDFs, Vergleichen", "Jahresabo mit monatlicher Abrechnung nach 14 Tagen nur gegen Gebühr vorzeitig kündbar (wie bei Standard)"],
             ["LibreOffice Draw", "kostenlos", "Kleine Korrekturen in fremden PDFs", "Zeichenprogramm, kein reiner PDF-Editor; Ergebnis genau prüfen"],
-            ["PdfKoja", "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig", "Seiten ordnen, Zusammenfügen und Teilen, Passwortschutz, Formulare, Kommentare, offline", "Frühe Alpha-Version, Bearbeiten von vorhandenem Text noch lückenhaft"]
+            ["PdfKoja", "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig", "Seiten ordnen, Zusammenfügen und Teilen, Passwortschutz, Formulare, Kommentare, offline", "Frühe Alpha-Version, Bearbeiten von vorhandenem Text noch lückenhaft"]
           ],
           "caption": "Preise inkl. MwSt. laut Anbieterseiten, Stand 7. November 2026"
         },
@@ -281,7 +281,7 @@
         },
         {
           "type": "p",
-          "text": "Unbefristete Acrobat-Lizenzen verkauft Adobe nach Acrobat 2020 nicht mehr. Als Alternative nennt Adobe Acrobat Pro 2024: Gegen eine einmalige Zahlung bekommst du drei Jahre Zugriff auf die Desktop-Version, mit vierteljährlichen Sicherheits-Updates, aber ohne neue Funktionen und ohne Adobes Online-Dienste. Wer ein Jahresabo mit monatlicher Zahlung nach den ersten 14 Tagen kündigt, zahlt laut Adobes Abobedingungen eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Mehr dazu im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+          "text": "Unbefristete Acrobat-Lizenzen verkauft Adobe nach Acrobat 2020 nicht mehr. Als Alternative nennt Adobe Acrobat Pro 2024: Gegen eine einmalige Zahlung bekommst du drei Jahre Zugriff auf die Desktop-Version, mit vierteljährlichen Sicherheits-Updates, aber ohne neue Funktionen und ohne Adobes Online-Dienste. Wer ein Jahresabo mit monatlicher Zahlung nach den ersten 14 Tagen kündigt, zahlt laut Adobes Abobedingungen eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Mehr dazu im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
         },
         {
           "type": "h3",
@@ -297,7 +297,7 @@
         },
         {
           "type": "p",
-          "text": "[PdfKoja](/software/pdf-koja) ist unsere PDF-App für macOS, ein Build eines quelloffenen Projekts, dessen Entwickler es selbst als Early Alpha einstufen. Enthalten sind das Ordnen von Seiten (drehen, löschen, einfügen, verschieben, mit Rückgängig-Verlauf auch nach dem Sichern), das Zusammenfügen beliebig vieler PDFs mit je einem Lesezeichen pro Datei sowie Extrahieren und Aufteilen, etwa alle n Seiten. Dazu kommen Verschlüsselung mit Benutzer- und Eigentümerpasswort (von RC4 mit 40 Bit bis AES-256), das Ausfüllen von Formularen und Kommentare als Unterhaltungen."
+          "text": "[PdfKoja](/software/pdf-koja) ist unsere PDF-App für macOS, ein Build eines quelloffenen Projekts, dessen Entwickler es selbst als frühe Alpha-Version einstufen. Enthalten sind das Ordnen von Seiten (drehen, löschen, einfügen, verschieben, mit Rückgängig-Verlauf auch nach dem Sichern), das Zusammenfügen beliebig vieler PDFs mit je einem Lesezeichen pro Datei sowie Extrahieren und Aufteilen, etwa alle n Seiten. Dazu kommen Verschlüsselung mit Benutzer- und Eigentümerpasswort (von RC4 mit 40 Bit bis AES-256), das Ausfüllen von Formularen und Kommentare als Unterhaltungen."
         },
         {
           "type": "p",
@@ -305,16 +305,16 @@
         },
         {
           "type": "p",
-          "text": "Die Grenzen solltest du kennen: Vorhandenen Text zu bearbeiten ist laut den Entwicklern noch dünn, Office-Dateien lassen sich nicht in PDF umwandeln, und die Texterkennung (OCR) funktioniert nur für lateinische Schrift. In ihrem eigenen Abgleich mit Acrobat Pro kommen die Entwickler auf eine Abdeckung von rund 57 % der 808 erfassten Funktionen. PdfKoja ersetzt Acrobat also nicht vollständig. Prüfe Ergebnisse bei wichtigen Dokumenten deshalb immer."
+          "text": "Die Grenzen solltest du kennen: Vorhandenen Text zu bearbeiten ist laut den Entwicklern noch dünn, Office-Dateien lassen sich nicht in PDF umwandeln, und die Texterkennung (OCR) funktioniert nur für lateinische Schrift. In ihrem eigenen Abgleich mit Acrobat Pro kommen die Entwickler auf eine Abdeckung von rund 57 % der 808 erfassten Funktionen. PdfKoja ersetzt Acrobat also nicht vollständig. Prüfe Ergebnisse bei wichtigen Dokumenten deshalb immer."
         },
         {
           "type": "app",
           "app": "pdf-koja",
-          "text": "PdfKoja ergänzt Vorschau beim Ordnen, Aufteilen und Schützen von PDFs und läuft offline ohne Konto. Die App ist noch in früher Entwicklung (Early Alpha), teste sie deshalb zuerst 3 Tage kostenlos."
+          "text": "PdfKoja ergänzt Vorschau beim Ordnen, Aufteilen und Schützen von PDFs und läuft offline ohne Konto. Die App ist noch in früher Entwicklung (Alpha), teste sie deshalb zuerst 3 Tage kostenlos."
         },
         {
           "type": "p",
-          "text": "Alle 13 Koja-Apps lädst du kostenlos über den Kojalytics Launcher und testest sie 3 Tage. Danach kosten sie zusammen 2,99 € pro Monat inkl. MwSt., jederzeit ohne Gebühr kündbar, oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. Die Apps gibt es nur für macOS. Details stehen unter [Preise](/software#preise)."
+          "text": "Alle 13 Koja-Apps lädst du kostenlos über den Kojalytics Launcher und testest sie 3 Tage. Danach kosten sie zusammen 2,99 € pro Monat inkl. MwSt., jederzeit ohne Gebühr kündbar, oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. Die Apps gibt es nur für macOS. Details stehen unter [Preise](/software#preise)."
         }
       ]
     }
@@ -342,7 +342,7 @@
     },
     {
       "q": "Brauche ich Adobe Acrobat auf dem Mac?",
-      "a": "Für Anmerkungen, Unterschriften, Seitenarbeit, Schwärzen und Passwortschutz reicht Vorschau. Acrobat lohnt sich, wenn du regelmäßig vorhandenen Text änderst oder Scans in bearbeitbare PDFs umwandeln willst; Letzteres gibt es erst in Acrobat Pro. Standard kostet 17,99 €, Pro 23,79 € pro Monat im Jahresabo mit monatlicher Abrechnung."
+      "a": "Für Anmerkungen, Unterschriften, Seitenarbeit, Schwärzen und Passwortschutz reicht Vorschau. Acrobat lohnt sich, wenn du regelmäßig vorhandenen Text änderst oder Scans in bearbeitbare PDFs umwandeln willst; Letzteres gibt es erst in Acrobat Pro. Standard kostet 17,99 €, Pro 23,79 € pro Monat im Jahresabo mit monatlicher Abrechnung."
     }
   ],
   "apps": ["pdf-koja", "word-koja"],
