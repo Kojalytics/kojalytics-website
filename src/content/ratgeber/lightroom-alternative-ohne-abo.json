@@ -1,0 +1,432 @@
+{
+  "slug": "lightroom-alternative-ohne-abo",
+  "navTitle": "Lightroom-Alternative ohne Abo",
+  "h1": "Lightroom-Alternative ohne Abo: RAW-Fotos am Mac entwickeln und verwalten",
+  "metaTitle": "Lightroom-Alternative ohne Abo für Mac (2026)",
+  "metaDescription": "Lightroom gibt es nur noch im Abo. Diese Mac-Programme bearbeiten RAW-Fotos ohne Abo, kostenlos oder zum Festpreis. Plus: Umzug ohne Datenverlust.",
+  "primaryKeyword": "lightroom alternative ohne abo",
+  "updated": "2026-11-07",
+  "readingMinutes": 13,
+  "intro": [
+    "Lightroom gibt es nur noch im Abo: Adobe verkauft keine Kaufversion mehr, Lightroom 6 wurde eingestellt. Eine Lightroom-Alternative ohne Abo findest du am Mac trotzdem: **darktable** ist kostenlos und Open Source, **Apple Fotos** ist schon installiert, und **Affinity** ist für Einzelpersonen kostenlos. Zum Festpreis bekommst du unter anderem **Pixelmator Pro** für 59,99 €, **DxO PhotoLab 10 Elite** für 249,99 € und **Capture One Pro** als Lizenz für 391,00 €.",
+    "In diesem Ratgeber erfährst du, was mit deinem Lightroom-Katalog nach der Kündigung passiert, worauf es bei der Wahl ankommt und wie du ohne Datenverlust umziehst. Dazu gibt es eine Vergleichstabelle und Empfehlungen je nach Fotografen-Typ. Auch unsere eigene App LightKoja kommt vor, mit einem klaren Hinweis: Sie ist noch in früher Entwicklung."
+  ],
+  "sections": [
+    {
+      "id": "lightroom-ohne-abo-kaufen",
+      "h2": "Gibt es Lightroom noch ohne Abo?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Nein. Adobe beantwortet die Frage „Kann ich Lightroom ohne Creative Cloud erwerben?“ in seiner eigenen Hilfe mit „Nein“. Lightroom 6 wurde eingestellt und ist auf Adobe.com nicht mehr zu kaufen. Stattdessen verweist Adobe auf das Foto-Abo: Damit bekommst du laut Adobe die aktuellen Updates und kannst RAW-Dateien der neuesten Kameras verarbeiten."
+        },
+        {
+          "type": "p",
+          "text": "Wenn dir irgendwo eine „Lightroom-Kauflizenz“ angeboten wird, ist das also kein aktuelles Angebot von Adobe. Das sind die regulären Preise in Deutschland, jeweils inklusive MwSt.:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "**Lightroom mit 1 TB Cloud-Speicher:** 14,49 € pro Monat im Jahresabo mit monatlicher Zahlung, 141,94 € pro Jahr bei Vorauszahlung oder 19,99 € im flexiblen Monats-Abo.",
+            "**Fotografie-Abo** mit Lightroom, Lightroom Classic, Photoshop und 1 TB Cloud-Speicher: 23,79 € pro Monat im Jahresabo mit monatlicher Zahlung."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Bei den Jahresabos lohnt ein Blick in die Bedingungen. Laut Adobe verlängern sie sich automatisch um ein weiteres Jahr, wenn du nicht kündigst. Kündigst du ein Jahresabo mit monatlicher Abrechnung nach den ersten 14 Tagen, berechnet Adobe einmalig 50 % des restlichen Vertragswerts. Grob gerechnet: Wer Lightroom für 14,49 € im Monat nach vier Monaten kündigt, zahlt für die übrigen acht Monate etwa 57,96 € Gebühr. Was du beim Kündigen beachten solltest, steht in unserem Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+        }
+      ]
+    },
+    {
+      "id": "katalog-nach-kuendigung",
+      "h2": "Was mit deinem Katalog und deinen Fotos nach der Kündigung passiert",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Vor dem Wechsel stellt sich die Frage, was aus deinem Katalog mit jahrelanger Arbeit wird. Adobe beantwortet die wichtigsten Punkte dazu in seiner Hilfe recht klar."
+        },
+        {
+          "type": "h3",
+          "text": "Lightroom Classic"
+        },
+        {
+          "type": "p",
+          "text": "Dein Lightroom-Classic-Katalog läuft laut Adobe nicht ab, wenn du kündigst. Du verlierst auch keine Fotos, denn Lightroom Classic ändert ihren Speicherort nicht. Sie bleiben in den Ordnern, in die du sie importiert hast."
+        },
+        {
+          "type": "p",
+          "text": "Nach dem Abo-Ende kannst du Lightroom Classic eingeschränkt weiter nutzen. Du kannst Fotos importieren und organisieren und bearbeitete Fotos exportieren, veröffentlichen, drucken oder als Web-Galerie und Diashow ausgeben. Nicht mehr verfügbar sind die Module „Entwickeln“ und „Karte“ sowie Lightroom for mobile. Du kommst also weiter an alle Fotos heran, kannst sie aber nicht mehr im Modul „Entwickeln“ bearbeiten."
+        },
+        {
+          "type": "h3",
+          "text": "Lightroom (Cloud-Version)"
+        },
+        {
+          "type": "p",
+          "text": "Hast du mit dem cloudbasierten Lightroom gearbeitet, liegen deine Originale bei Adobe. Nach dem Ende des Abos speichert Adobe sie noch ein Jahr lang, und du kannst Lightroom weiter starten, um sie herunterzuladen. Gleichzeitig sinkt dein Cloud-Speicher nach der Kündigung auf 5 GB. Liegst du darüber, hast du laut Adobe 30 Tage Zeit, deine Online-Nutzung zu reduzieren. Danach kann dir der Zugriff auf einige oder alle Dateien in der Cloud entzogen werden. Verlass dich deshalb nicht auf die Jahresfrist, sondern lade deine Originale vor der Kündigung herunter."
+        },
+        {
+          "type": "tip",
+          "text": "Nach einer Kündigung endet der Zugriff auf die Adobe-Apps erst am Ende des aktuellen Abrechnungszeitraums. Nutze die Zeit bis dahin, um Bearbeitungen zu sichern. Wie das geht, steht unten im Abschnitt zum Umzug."
+        }
+      ]
+    },
+    {
+      "id": "worauf-es-ankommt",
+      "h2": "Worauf es bei einer Lightroom-Alternative ohne Abo ankommt",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Lightroom vereint zwei Dinge: eine Bibliothek, in der du Tausende Fotos ordnest, und einen RAW-Entwickler. Viele Alternativen können nur eines davon gut. Prüfe deshalb vor dem Wechsel diese Punkte:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "**RAW-Unterstützung für deine Kamera:** Jedes Programm entwickelt RAW-Dateien mit eigener Technik. Teste mit Dateien deiner eigenen Kamera, ob sie sich öffnen lassen und wie die Farben aussehen.",
+            "**Bibliothek statt Einzelbilder:** Wenn du mit Sternen, Stichwörtern und Alben arbeitest, brauchst du eine echte Fotoverwaltung. Ein reiner Bildbearbeiter öffnet Fotos nur einzeln.",
+            "**Nicht-destruktive Bearbeitung:** Deine Originale sollten unverändert bleiben, damit du jede Bearbeitung zurücknehmen kannst.",
+            "**Masken und lokale Korrekturen:** Himmel abdunkeln, Gesicht aufhellen. Schau, welche Maskenarten es gibt.",
+            "**Übernahme per XMP:** Bewertungen, Farbetiketten und Stichwörter wandern über XMP-Dateien am einfachsten mit. Bearbeitungen lassen sich dagegen kaum 1:1 übertragen.",
+            "**Updates beim Einmalkauf:** Neue Kameras brauchen neue RAW-Unterstützung. Kläre, ob ein Kaufpreis künftige Updates einschließt.",
+            "**Dein Mac:** Manche Programme gibt es offiziell nur für Macs mit Apple-Chip."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kostenlose-alternativen",
+      "h2": "Kostenlose Lightroom-Alternativen für den Mac",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "darktable: Open Source mit Bibliothek und Dunkelkammer"
+        },
+        {
+          "type": "p",
+          "text": "darktable nennt sich selbst einen quelloffenen digitalen Leuchttisch und eine Dunkelkammer. Es steht unter der GPL 3.0 und ist kostenlos. Die Bibliothek verwaltet deine Bilder, die Bearbeitung ist durchgehend nicht-destruktiv. Aktuell ist Version 5.6.2."
+        },
+        {
+          "type": "p",
+          "text": "Für Mac-Nutzer gibt es einen Haken: Das offizielle Paket gibt es nur für Macs mit Apple-Chip. Für Intel-Macs bietet darktable laut Downloadseite derzeit keine offiziellen Versionen an. Praktisch für Umsteiger: darktable liest beim Import die XMP-Dateien von Lightroom und übernimmt Stichwörter, Farbetiketten, Bewertungen und GPS-Daten. Einige Entwicklungsschritte wie Zuschnitt, Belichtung, Vignette, Gradationskurve oder Fleckentfernung versucht es ebenfalls zu übertragen. Das Handbuch stellt aber klar, dass der Import nie identische Ergebnisse liefert und oft Nacharbeit nötig ist."
+        },
+        {
+          "type": "p",
+          "text": "Ein weiterer kostenloser RAW-Entwickler ist RawTherapee (GPLv3, Version 5.13 vom Juli 2026) mit einem Download für macOS. Eine Fotobibliothek wie in Lightroom beschreibt die Projektseite allerdings nicht."
+        },
+        {
+          "type": "h3",
+          "text": "Apple Fotos: schon auf deinem Mac"
+        },
+        {
+          "type": "p",
+          "text": "Die Fotos-App gehört zu macOS. RAW-Bilder in deiner Mediathek kannst du laut Apple darin anzeigen und bearbeiten. Welche Kameras macOS Tahoe 26 unterstützt, zeigt eine Apple-Liste mit Stand September 2026, darunter Modelle von Canon, Nikon, Sony und Fujifilm. Zum Bearbeiten gibt es Anpassungen für Licht, Belichtung, Farbe, Weißabgleich, Kurven, Tonwerte, Schärfe und Vignette, dazu Retusche und Filter. Mit „Zurück zum Original“ machst du alle Änderungen rückgängig. Für schnelle Korrekturen und das Ordnen deiner Fotos reicht das oft. Masken für lokale Korrekturen wie in Lightroom zählt Apple dort aber nicht auf."
+        },
+        {
+          "type": "h3",
+          "text": "Affinity: kostenlos, aber Bildbearbeiter statt Bibliothek"
+        },
+        {
+          "type": "p",
+          "text": "Affinity von Canva ist für Einzelpersonen kostenlos. Zum Herunterladen brauchst du ein kostenloses Canva-Konto. Die App läuft nativ auf Macs mit Apple-Chip und Intel. Zur Fotobearbeitung gehören laut Affinity eine RAW-Entwicklung mit Objektivprofilen und Rauschminderung, Retusche, HDR-Zusammenfügung und Stapelverarbeitung. KI-Werkzeuge gibt es nur mit einem Canva-Premium-Abo. Eine Katalogverwaltung wie in Lightroom gehört nicht zu den Funktionen, die Affinity beschreibt. Affinity ist deshalb eher eine Alternative zu Photoshop als zu Lightroom."
+        }
+      ]
+    },
+    {
+      "id": "alternativen-zum-festpreis",
+      "h2": "Zum Festpreis: Pixelmator Pro, DxO PhotoLab und Capture One",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Pixelmator Pro"
+        },
+        {
+          "type": "p",
+          "text": "Pixelmator Pro wird inzwischen von Apple angeboten und kostet im Mac App Store einmalig 59,99 €. Es läuft ab macOS 12. Laut App-Store-Beschreibung unterstützt es RAW-Fotos von über 750 Digitalkameras und arbeitet mit Ebenen für Farbkorrekturen. Wie bei Affinity steht die Bildbearbeitung im Vordergrund, eine Bibliothek für große Fotosammlungen nennt die Beschreibung nicht. Zum Ordnen bietet sich die Kombination mit Apple Fotos an."
+        },
+        {
+          "type": "h3",
+          "text": "DxO PhotoLab 10"
+        },
+        {
+          "type": "p",
+          "text": "DxO verkauft PhotoLab als lebenslange Lizenz ohne Abo, für Mac und Windows. PhotoLab 10 Elite kostet im deutschen DxO-Shop 249,99 €. DxO beschreibt das Programm als Software für die RAW-Bearbeitung mit Rauschreduzierung (DeepPRIME), automatischen optischen Korrekturen und Bildverwaltung. Eine kostenlose Testversion bietet DxO ebenfalls an."
+        },
+        {
+          "type": "h3",
+          "text": "Capture One Pro als Lizenz"
+        },
+        {
+          "type": "p",
+          "text": "Capture One bietet neben mehreren Abos auch eine Pro-Lizenz als Einmalkauf für 391,00 € an. Sie unterstützt laut Hersteller über 550 Kameras und bringt Tethering und eine Dateiverwaltung mit. Capture One schreibt selbst, die Lizenz sei für Fotografen gedacht, die nicht auf die neuesten Updates oder Hardwareunterstützung angewiesen sind. Wer öfter eine neue Kamera kauft, sollte das einplanen."
+        }
+      ]
+    },
+    {
+      "id": "lightkoja",
+      "h2": "LightKoja: Bibliothek und RAW-Entwicklung, aber noch früh",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "[LightKoja](/software/light-koja) ist unsere App für Fotobibliothek und RAW-Entwicklung auf dem Mac, ein macOS-Build eines quelloffenen Projekts. Zu den Grundreglern gehören Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz. Alles läuft lokal, ohne Konto und ohne Cloud, und deine Originale bleiben unverändert."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Bibliothek mit Alben in Ordnern, intelligenten Alben, Stapeln, 0 bis 5 Sternen, Markierungen und Farbetiketten, dazu eine Suche wie „rating:>3 iso:>800“",
+            "Weißabgleich, HSL-Farbmischer mit 8 Bereichen, drei Color-Grading-Räder und Gradationskurven",
+            "Masken mit Pinsel, linearen und radialen Verläufen, nach Helligkeit und Farbe sowie für Himmel, Motiv und Hintergrund (per klassischer Bildanalyse, nicht per KI)",
+            "Retusche, Presets mit Stärke-Regler, HDR-Zusammenfügung und Panoramen",
+            "RAW von Canon (CR2, CR3 teilweise), Nikon (NEF ohne HE), Sony (ARW), Fujifilm (RAF inkl. X-Trans), Panasonic, Pentax, Olympus (nur unkomprimiert) sowie DNG",
+            "Liest und schreibt XMP-Dateien und liest die darin gespeicherten Camera-Raw-Entwicklungseinstellungen (crs:)",
+            "Export als JPEG, PNG, TIFF, PSD (flach), WebP, AVIF, JPEG XL und DNG, deutsche Oberfläche, für Macs mit Apple-Chip und Intel"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Dazu gehört eine ehrliche Einordnung: LightKoja ist noch in früher Entwicklung (Early Access). Das zugrunde liegende Open-Source-Projekt schätzt selbst, dass nach Anzahl rund 82 % der Funktionen umgesetzt sind. Die Alltagstauglichkeit für typische Berufsfotografen beziffert es auf etwa 51 %. Für Sony, Nikon, Panasonic, Fujifilm und Canon CR3 sind die Kamerafarben noch geschätzt statt gemessen, eigene Objektivprofile gibt es noch nicht, und KI-Entrauschen braucht separat installierte Modelle. Generatives Füllen, Super-Auflösung, Videobearbeitung und die Module Karte und Buch fehlen."
+        },
+        {
+          "type": "app",
+          "app": "light-koja",
+          "text": "Wenn du Bibliothek und RAW-Entwicklung in einer App suchst und mit einer frühen Version leben kannst, ist LightKoja einen Test wert. Probier es mit der Kopie eines echten Shootings deiner Kamera aus."
+        },
+        {
+          "type": "p",
+          "text": "LightKoja ist eine von 13 Koja-Apps für macOS. Nach 3 kostenlosen Testtagen zahlst du 2,99 € pro Monat inkl. MwSt. für alle 13 Apps, jederzeit mit einem Klick auf [kojalytics.com/kuendigen](/kuendigen) kündbar und ohne Gebühr. Alternativ gibt es für einmalig 79 € eine dauerhafte Lizenz, siehe [Preise](/software#preise). Beides gilt auf bis zu 3 Macs, ein Konto brauchst du nicht. Internet ist nur für Download und Aktivierung nötig. Windows oder eine Web-Version gibt es nicht."
+        },
+        {
+          "type": "p",
+          "text": "Im Fotografie-Abo steckt auch Photoshop. Wenn du dafür ebenfalls eine Alternative suchst, schau dir [PhotoKoja](/software/photo-koja) an und lies unseren Ratgeber [Photoshop ohne Abo](/ratgeber/photoshop-ohne-abo)."
+        },
+        {
+          "type": "app",
+          "app": "photo-koja",
+          "text": "PhotoKoja öffnet und speichert Photoshop-Dateien mit Ebenen und bietet Einstellungsebenen, Ebenenstile und Masken. Auch PhotoKoja ist noch eine frühe Version und kein vollständiger Photoshop-Ersatz für die tägliche Profiarbeit."
+        }
+      ]
+    },
+    {
+      "id": "vergleich",
+      "h2": "Vergleich: Lightroom-Alternativen ohne Abo im Überblick",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Programm",
+            "Preis",
+            "Stärken",
+            "Einschränkungen"
+          ],
+          "rows": [
+            [
+              "darktable",
+              "Kostenlos (Open Source)",
+              "Bibliothek und RAW-Entwicklung, übernimmt Teile von Lightroom-XMP",
+              "Offiziell nur für Macs mit Apple-Chip, eigene Bedienlogik"
+            ],
+            [
+              "Apple Fotos",
+              "In macOS enthalten",
+              "Fotos ordnen, schnelle Korrekturen, RAW anzeigen und bearbeiten",
+              "Keine Masken für lokale Korrekturen beschrieben"
+            ],
+            [
+              "Affinity",
+              "Kostenlos, Canva-Konto nötig",
+              "RAW-Entwicklung, Retusche, Ebenen, HDR",
+              "Keine Katalogverwaltung beschrieben, KI nur mit Canva-Premium"
+            ],
+            [
+              "Pixelmator Pro",
+              "59,99 € einmalig",
+              "RAW von über 750 Kameras, Ebenen",
+              "Keine Bibliothek für große Sammlungen beschrieben"
+            ],
+            [
+              "DxO PhotoLab 10 Elite",
+              "249,99 € einmalig",
+              "RAW-Bearbeitung mit Rauschreduzierung, optische Korrekturen, Bildverwaltung",
+              "Höherer Preis"
+            ],
+            [
+              "Capture One Pro (Lizenz)",
+              "391,00 € einmalig",
+              "Über 550 Kameras, Tethering, Dateiverwaltung",
+              "Laut Anbieter für alle, die nicht auf die neuesten Updates angewiesen sind"
+            ],
+            [
+              "LightKoja",
+              "2,99 € im Monat für 13 Apps oder 79 € einmalig",
+              "Bibliothek und RAW-Entwicklung mit Masken, Presets und XMP-Unterstützung",
+              "Frühe Version, Kamerafarben teils geschätzt, keine eigenen Objektivprofile"
+            ]
+          ],
+          "caption": "Preise laut Hersteller-Websites (Herbst 2026), ohne Gewähr."
+        },
+        {
+          "type": "h3",
+          "text": "Welche Alternative passt zu dir?"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "**Du fotografierst gelegentlich:** Starte mit Apple Fotos. Es kostet nichts und reicht für viele Urlaubs- und Familienfotos.",
+            "**Du willst viel Kontrolle, aber kein Geld ausgeben:** darktable, sofern dein Mac einen Apple-Chip hat. Plane etwas Einarbeitung ein.",
+            "**Du retuschierst viel und brauchst Ebenen:** Affinity kostenlos oder Pixelmator Pro für 59,99 €, ergänzt um Apple Fotos zum Ordnen.",
+            "**Du fotografierst beruflich:** DxO PhotoLab oder Capture One. Beide sind auf RAW-Entwicklung spezialisiert. Teste vor dem Kauf mit Dateien deiner eigenen Kamera, bei DxO zum Beispiel mit der kostenlosen Testversion.",
+            "**Du willst Bibliothek und RAW-Entwicklung in einer App und weitere Kreativ-Apps im selben günstigen Paket:** LightKoja testen, im Wissen, dass es eine frühe Version ist."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "umzug",
+      "h2": "Umzug ohne Datenverlust: So wechselst du von Lightroom Classic",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Plane den Wechsel, solange dein Abo noch läuft. Dann kannst du alles in Ruhe sichern und das neue Programm testen."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "**Katalog und Fotos sichern:** Kopiere deinen Lightroom-Classic-Katalog und deine Fotoordner auf eine externe Festplatte. So hast du einen Stand, zu dem du jederzeit zurückkannst.",
+            "**Metadaten in Dateien schreiben:** Wähle die Fotos in der Rasteransicht der Bibliothek aus und klicke auf „Metadaten > Metadaten in Dateien speichern“ (Befehl + S). Dauerhaft geht das unter „Lightroom Classic > Katalogeinstellungen > Metadaten“ mit „Änderungen automatisch in XMP speichern“. Bei RAW-Dateien legt Lightroom eine XMP-Filialdatei neben das Foto, bei JPEG, TIFF, PSD und DNG landen die Daten direkt in der Datei.",
+            "**Fertige Bilder exportieren:** Exportiere deine wichtigsten bearbeiteten Fotos als JPEG oder TIFF in voller Größe. Laut Adobe geht das zwar auch nach der Kündigung. Solange du noch im Modul „Entwickeln“ nachbessern kannst, ist es aber bequemer.",
+            "**Cloud-Originale herunterladen:** Wenn du das cloudbasierte Lightroom nutzt, lade deine Originale vor der Kündigung auf deinen Mac.",
+            "**Neues Programm mit einer Kopie testen:** Importiere die Kopie eines aktuellen Shootings. Prüfe, ob deine RAWs sauber öffnen und ob Sterne, Farbetiketten und Stichwörter ankommen.",
+            "**Erst dann kündigen:** Achte auf die Laufzeit deines Jahresabos. Die Kündigungsgebühr richtet sich nach dem restlichen Vertragswert: Je kürzer die Restlaufzeit, desto niedriger fällt sie aus."
+          ]
+        },
+        {
+          "type": "tip",
+          "text": "Seit Version 15.0 schreibt Lightroom Classic umfangreiche Bearbeitungen wie Masken oder KI-Einstellungen in eine zusätzliche ACR-Filialdatei neben dem Foto. Kopiere beim Umzug deshalb immer ganze Ordner und nicht nur die RAW-Dateien."
+        },
+        {
+          "type": "p",
+          "text": "Rechne nicht damit, dass deine Lightroom-Bearbeitungen in einem anderen Programm genauso aussehen. Selbst darktable, das gezielt Lightroom-Einstellungen übernimmt, weist darauf hin, dass die Ergebnisse nie identisch sind. Für alte Projekte sind die exportierten JPEGs oder TIFFs dein sicherster Stand. Neue Fotos bearbeitest du direkt im neuen Programm."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Kann man Lightroom noch ohne Abo kaufen?",
+      "a": "Nein. Adobe verkauft Lightroom nur noch im Abo, die Kaufversion Lightroom 6 wurde eingestellt und ist auf Adobe.com nicht mehr erhältlich. Lightroom mit 1 TB Cloud-Speicher kostet 14,49 € pro Monat im Jahresabo oder 141,94 € pro Jahr bei Vorauszahlung. Ohne Abo musst du auf ein anderes Programm umsteigen."
+    },
+    {
+      "q": "Was ist die beste kostenlose Lightroom-Alternative für den Mac?",
+      "a": "Das hängt von deinem Mac und deinen Ansprüchen ab. darktable bietet Bibliothek und RAW-Entwicklung, läuft offiziell aber nur auf Macs mit Apple-Chip. Apple Fotos ist bereits installiert und reicht für einfache Korrekturen. Affinity ist kostenlos und bietet RAW-Entwicklung und Retusche, eine Katalogverwaltung wie in Lightroom beschreibt es aber nicht."
+    },
+    {
+      "q": "Kann ich Lightroom Classic nach der Kündigung weiter nutzen?",
+      "a": "Eingeschränkt ja. Laut Adobe kannst du weiter Fotos importieren, organisieren, exportieren, drucken oder als Diashow ausgeben. Die Module „Entwickeln“ und „Karte“ sowie Lightroom for mobile sind nach dem Abo-Ende nicht mehr verfügbar. Dein Katalog läuft nicht ab, und deine Fotos bleiben, wo sie sind."
+    },
+    {
+      "q": "Kann ich meine Lightroom-Bearbeitungen in ein anderes Programm übernehmen?",
+      "a": "Teilweise. Speichere in Lightroom Classic vorher die Metadaten in die Dateien, dann liegen Bewertungen, Stichwörter und Bearbeitungen in Filialdateien neben deinen RAWs. darktable übernimmt daraus Bewertungen, Farbetiketten, Stichwörter, GPS und einige Entwicklungsschritte, LightKoja liest XMP-Dateien und die darin gespeicherten Camera-Raw-Einstellungen. Ein identisches Ergebnis darfst du nicht erwarten, exportiere wichtige Bilder deshalb zusätzlich als JPEG oder TIFF."
+    },
+    {
+      "q": "Was kostet Lightroom im Monat?",
+      "a": "In Deutschland kostet Lightroom mit 1 TB Cloud-Speicher 14,49 € pro Monat im Jahresabo mit monatlicher Zahlung und 19,99 € im flexiblen Monats-Abo. Das Fotografie-Abo mit Lightroom, Lightroom Classic und Photoshop kostet 23,79 € pro Monat im Jahresabo. Alle Preise gelten laut Adobe inklusive MwSt."
+    },
+    {
+      "q": "Ist LightKoja ein vollwertiger Ersatz für Lightroom?",
+      "a": "Noch nicht. LightKoja ist eine frühe Version: Bibliothek, RAW-Entwicklung, Masken, Presets und Export funktionieren, aber gemessene Kamerafarben, eigene Objektivprofile, Super-Auflösung und generatives Füllen fehlen. Teste es 3 Tage kostenlos mit deinen eigenen RAW-Dateien, bevor du dich entscheidest."
+    }
+  ],
+  "apps": [
+    "light-koja",
+    "photo-koja"
+  ],
+  "sources": [
+    {
+      "label": "Adobe Hilfe: Häufig gestellte Fragen zu Lightroom Classic und Creative Cloud",
+      "url": "https://helpx.adobe.com/de/lightroom-classic/desktop/kb/lightroom-creative-cloud-faq.html"
+    },
+    {
+      "label": "Adobe Hilfe: Kontozugriff nach Kündigung der Abo-Option",
+      "url": "https://helpx.adobe.com/de/account/individual/subscriptions-and-plans/renewals-and-cancellations/account-access-after-plan-cancellation.html"
+    },
+    {
+      "label": "Adobe Hilfe: Speichern von Metadaten in externen Filialdateien (Lightroom Classic)",
+      "url": "https://helpx.adobe.com/de/lightroom-classic/desktop/organize-photos-in-lightroom-classic/create-xmp-acr-files.html"
+    },
+    {
+      "label": "Adobe Hilfe: Grundlagen und Aktionen zu Metadaten in Lightroom Classic",
+      "url": "https://helpx.adobe.com/de/lightroom-classic/desktop/organize-photos-in-lightroom-classic/metadata-basics-actions.html"
+    },
+    {
+      "label": "Adobe: Lightroom-Abos und Preise",
+      "url": "https://www.adobe.com/de/products/photoshop-lightroom/plans.html"
+    },
+    {
+      "label": "Adobe: Abo-Optionen für Lightroom (Jahres-Abo mit Vorauszahlung)",
+      "url": "https://www.adobe.com/de/plans-fragments/modals/individual/modals-content-rich/lightroom/master.modal.html"
+    },
+    {
+      "label": "Adobe: Abo-Optionen für Einzel-Apps (Monats-Abo)",
+      "url": "https://www.adobe.com/de/plans-fragments/modals/individual/modals-content-rich/photoshop/master.modal.html"
+    },
+    {
+      "label": "Adobe: Abonnementbedingungen",
+      "url": "https://www.adobe.com/de/legal/subscription-terms.html"
+    },
+    {
+      "label": "darktable: Projektseite",
+      "url": "https://www.darktable.org/"
+    },
+    {
+      "label": "darktable: Installation",
+      "url": "https://www.darktable.org/install/"
+    },
+    {
+      "label": "darktable-Handbuch: Import von XMP-Dateien anderer Programme",
+      "url": "https://docs.darktable.org/usermanual/development/en/overview/sidecar-files/sidecar-import/"
+    },
+    {
+      "label": "RawTherapee: Projektseite",
+      "url": "https://www.rawtherapee.com/"
+    },
+    {
+      "label": "Apple Support: RAW-Formate, die von macOS 26 unterstützt werden",
+      "url": "https://support.apple.com/de-de/122870"
+    },
+    {
+      "label": "Apple Support: RAW-Bilder in der Fotos-App und in iCloud-Fotos",
+      "url": "https://support.apple.com/de-de/104964"
+    },
+    {
+      "label": "Apple Support: Grundlagen der Bearbeitung in der App „Fotos“ auf dem Mac",
+      "url": "https://support.apple.com/de-de/guide/photos/pht304c2ace6/mac"
+    },
+    {
+      "label": "Affinity: Startseite",
+      "url": "https://www.affinity.studio/"
+    },
+    {
+      "label": "Affinity: Affinity herunterladen (Canva-Konto, KI-Werkzeuge)",
+      "url": "https://www.affinity.studio/get-affinity"
+    },
+    {
+      "label": "Affinity: Fotobearbeitung",
+      "url": "https://www.affinity.studio/photo-editing-software"
+    },
+    {
+      "label": "Mac App Store: Pixelmator Pro",
+      "url": "https://apps.apple.com/de/app/pixelmator-pro/id1289583905?mt=12"
+    },
+    {
+      "label": "DxO: PhotoLab 10",
+      "url": "https://www.dxo.com/de/dxo-photolab/"
+    },
+    {
+      "label": "DxO-Shop: PhotoLab 10 Elite",
+      "url": "https://shop.dxo.com/de/dxo-photolab-10-elite.html"
+    },
+    {
+      "label": "Capture One: Tarife und Preise",
+      "url": "https://www.captureone.com/de/pricing/capture-one-pro"
+    }
+  ]
+}

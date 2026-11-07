@@ -1,18 +1,188 @@
 {
-  "kind": "STUB",
-  "benefit": "STUB",
-  "keyword": "STUB",
-  "metaTitle": "STUB",
-  "metaDescription": "STUB",
-  "h1": "STUB",
-  "lead": "STUB",
-  "highlights": ["STUB"],
-  "features": [{ "title": "STUB", "text": "STUB", "screenshot": "hero.webp" }],
-  "screenshots": [{ "file": "hero.webp", "alt": "STUB", "caption": "STUB" }],
-  "switching": { "title": "STUB", "paragraphs": ["STUB"] },
-  "comparison": { "rows": [{ "label": "STUB", "koja": "STUB", "other": "STUB" }], "note": "STUB" },
-  "forWho": ["STUB"],
-  "notFor": ["STUB"],
-  "formats": ["STUB"],
-  "faq": [{ "q": "STUB", "a": "STUB" }]
+  "kind": "Interface-Design",
+  "benefit": "Gestalte App- und Web-Oberflächen mit Auto Layout, Komponenten und Prototypen, offline auf deinem Mac.",
+  "keyword": "figma alternative mac",
+  "metaTitle": "Figma-Alternative für Mac: FigKoja, offline",
+  "metaDescription": "FigKoja ist eine Figma-Alternative für den Mac: Auto Layout, Komponenten, Prototypen, offline, ohne Konto. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "Figma-Alternative für den Mac: offline und ohne Konto",
+  "lead": "FigKoja ist eine Figma-Alternative für App- und Web-Design, die direkt auf deinem Mac läuft. Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode sind dabei, Panels und Menüs liegen, wo du sie aus Figma kennst. Die App ist noch in früher Entwicklung: Teste sie 3 Tage kostenlos mit deinen eigenen Entwürfen.",
+  "highlights": [
+    "Offline und ohne Konto",
+    "Auto Layout und Komponenten",
+    "Code für React, SwiftUI, CSS"
+  ],
+  "features": [
+    {
+      "title": "Auto Layout und Layout-Grids",
+      "text": "Auto Layout arbeitet horizontal und vertikal, mit Umbruch, Abständen, Innenabständen und den Größen Hug, Fill und Fixed. Dazu kommen Mindest- und Höchstmaße, Constraints und Layout-Grids, damit deine Screens beim Ändern der Größe sauber mitwachsen."
+    },
+    {
+      "title": "Komponenten mit Varianten",
+      "text": "Lege Hauptkomponenten an und fasse sie zu Sets mit Varianten und Eigenschaften zusammen. Überschreibungen in Instanzen bleiben erhalten, wenn du die Hauptkomponente änderst. Im Assets-Panel findest du alles per Suche und ziehst es direkt auf die Arbeitsfläche.",
+      "screenshot": "components.webp"
+    },
+    {
+      "title": "Variablen mit Modi für Hell und Dunkel",
+      "text": "Lege lokale Stile und Variablen für Farben, Zahlen, Texte und Ja/Nein-Werte an, mit Modi wie Hell und Dunkel, Aliassen und Geltungsbereichen. Du bearbeitest sie in einer Tabelle und verknüpfst sie mit Füllungen, Konturen, Effekten, Layout-Grids und Instanz-Eigenschaften."
+    },
+    {
+      "title": "Klickbare Prototypen",
+      "text": "Verbinde Screens mit Auslösern, Aktionen und animierten Übergängen. Mit Variablen und Wenn-dann-Bedingungen baust du auch Abläufe mit Logik. Die Präsentationsansicht zeigt deinen App-Prototyp im Geräterahmen, eine Live-Vorschau läuft beim Arbeiten mit.",
+      "screenshot": "prototype.webp"
+    },
+    {
+      "title": "Dev Mode mit Code-Export",
+      "text": "Im Inspektionsmodus siehst du Maße, farbige Annotationen und eine Liste der Frames, die bereit für die Entwicklung sind, samt Vergleich der Änderungen. FigKoja erzeugt Code für CSS, HTML, React, SwiftUI und Compose, Komponenten-Eigenschaften werden dabei zu Parametern.",
+      "screenshot": "dev-mode.webp"
+    },
+    {
+      "title": "Vektornetzwerke und Boolean-Operationen",
+      "text": "Zeichne mit Zeichenstift und Bleistift, bearbeite Pfade im Vektor-Modus und kombiniere Formen mit dem Shape Builder. Boolean-Gruppen (Vereinigen, Subtrahieren, Schneiden, Ausschließen) bleiben editierbar, und Konturen können eine variable Breite haben. Für reine Illustrationen ist im selben Paket auch [VectorKoja](/software/vector-koja) enthalten."
+    },
+    {
+      "title": "Offline, ohne Konto, ohne Telemetrie",
+      "text": "FigKoja ist ein natives Programm, ohne Browser im Hintergrund. Es braucht kein Konto und sendet keine Nutzungsdaten. Deine Dokumente liegen als Dateien auf deinem Mac und verlassen ihn nur, wenn du sie selbst teilst."
+    },
+    {
+      "title": "Export in jeder Größe",
+      "text": "Exportiere jede Ebene in beliebiger Skalierung als PNG, JPG, WebP, SVG oder PDF. Die Dateien tragen das Farbprofil deines Dokuments, sRGB oder Display P3."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "FigKoja im Dark Mode: drei App-Screens in Hell und Dunkel, links das Ebenen-Panel, rechts die Auto-Layout-Einstellungen",
+      "caption": "Gestalte komplette App-Screens mit Auto Layout und schalte per Variablen-Modus zwischen Hell und Dunkel um, ohne jeden Screen doppelt zu bauen."
+    },
+    {
+      "file": "components.webp",
+      "alt": "FigKoja mit Designsystem: Button-Set mit neun Varianten, Assets-Panel mit Toggles, Badges und Icons",
+      "caption": "Baue ein Designsystem aus Komponenten mit Varianten und ziehe sie aus dem Assets-Panel direkt in deine Layouts."
+    },
+    {
+      "file": "prototype.webp",
+      "alt": "FigKoja im Prototyp-Modus: vier Onboarding-Screens mit Verbindungslinien, rechts die Klick-Interaktion",
+      "caption": "Verknüpfe Screens zu einem klickbaren Prototyp und prüfe den Ablauf, bevor jemand eine Zeile Code schreibt."
+    },
+    {
+      "file": "dev-mode.webp",
+      "alt": "FigKoja Dev Mode: App-Screen mit Annotation und ausgewählter Listenzeile, rechts erzeugter React- und CSS-Code",
+      "caption": "Übergib Designs mit Annotationen, Maßen und generiertem Code für CSS, HTML, React, SwiftUI und Compose an die Entwicklung."
+    },
+    {
+      "file": "dashboard.webp",
+      "alt": "FigKoja im hellen Theme: Web-Dashboard mit KPI-Karten, Balken- und Donut-Diagramm auf einem 12-Spalten-Raster",
+      "caption": "Entwirf Web-Dashboards auf Layout-Grids und halte Farben und Texte mit wiederverwendbaren Stilen einheitlich."
+    },
+    {
+      "file": "vector.webp",
+      "alt": "FigKoja Vektor-Bearbeitung: Wellenpfad mit Ankerpunkten und Farbverlauf, Berg aus Boolean-Formen, Ring-Grafik",
+      "caption": "Zeichne Icons und Illustrationen mit Vektornetzwerken, variabler Strichstärke und Boolean-Formen, die editierbar bleiben."
+    },
+    {
+      "file": "collab.webp",
+      "alt": "FigKoja Live-Session: Cursor und Auswahl zweier Teammitglieder auf App-Screens, dazu Cursor-Chat und Folgen-Banner",
+      "caption": "Sieh Cursor, Auswahl und Cursor-Chat deiner Kollegen live in derselben Datei (diese Funktion ist noch eine Vorschau)."
+    }
+  ],
+  "switching": {
+    "title": "Von Figma zu FigKoja wechseln: so testest du die Mac-Alternative",
+    "paragraphs": [
+      "**Was gleich bleibt:** Werkzeugleiste, Ebenen-Panel, Design-Panel und Menüs liegen dort, wo du sie aus Figma erwartest, und auch die Tastenkürzel sind so angelegt. Die Begriffe kennst du ebenfalls: Frames, Auto Layout mit Hug, Fill und Fixed, Komponenten mit Varianten, Variablen mit Modi, Prototyp-Verbindungen und Dev Mode. Du lernst also keine neue Denkweise, sondern nur ein paar neue Handgriffe.",
+      "**Deine Dateien:** Figma-Dateien im .fig-Format öffnet FigKoja bisher nur eingeschränkt, rechne also mit Abweichungen. Alternativ importierst du Designs als JSON aus der öffentlichen REST-API von Figma, inklusive Prototypen und Variablen. SVG, PDF, PNG, JPG und WebP holst du direkt herein. FigKoja speichert lokal auf deinem Mac und exportiert jede Ebene als PNG, JPG, WebP, SVG oder PDF.",
+      "**Was noch fehlt:** FigKoja ist eine frühe Version (Early Alpha) und hat noch Ecken und Kanten. Live-Zusammenarbeit gibt es erst als Vorschau, ohne Konten, Teams und Cloud. Figma-Plugins laufen nicht, denn FigKoja hat ein eigenes Plugin-System auf WebAssembly-Basis. Die deutsche Oberfläche ist noch ein Entwurf, und an echten Projektdateien wurde die App laut den Entwicklern noch nicht geprüft.",
+      "**So testest du in 3 Tagen:** Am ersten Tag lädst du den Kojalytics Launcher, installierst FigKoja und öffnest eine der acht Startvorlagen, etwa für eine Mobile App, ein Dashboard oder ein Wireframe-Kit. Am zweiten Tag holst du ein echtes Projekt herein und baust deine wichtigsten Komponenten nach. Am dritten Tag klickst du dich durch einen Prototyp und prüfst den Code im Dev Mode. Danach entscheidest du dich für [2,99 € im Monat oder 79 € einmalig](/software#preise), beides für alle 13 Apps; das Monatsabo kündigst du mit einem Klick unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Preis",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "Starter kostenlos (im Team nur 3 Dateien). Professional: Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung"
+      },
+      {
+        "label": "Abrechnung und Kündigung",
+        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen",
+        "other": "Pro Lizenz, jährlich oder (teurer) monatlich abgerechnet"
+      },
+      {
+        "label": "Konto nötig",
+        "koja": "Nein",
+        "other": "Ja"
+      },
+      {
+        "label": "Offline nutzbar",
+        "koja": "Ja, Internet nur für Download und Aktivierung",
+        "other": "Eingeschränkt, Dateien liegen in der Figma-Cloud"
+      },
+      {
+        "label": "Wichtige Dateiformate",
+        "koja": "Import: SVG, PDF, PNG, JPG, WebP, .fig (eingeschränkt). Export: PNG, JPG, WebP, SVG, PDF",
+        "other": ".fig, Export: PNG, JPG, SVG, PDF"
+      },
+      {
+        "label": "Plattformen",
+        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "other": "Browser sowie Desktop-Apps für macOS und Windows"
+      },
+      {
+        "label": "Entwicklungsstand",
+        "koja": "Frühe Version (Early Alpha), noch mit Lücken",
+        "other": "Ausgereift"
+      }
+    ],
+    "note": "Stand: November 2026. Preise laut Hersteller-Website, ohne Gewähr. Koja-Preise inkl. MwSt., Figma nennt seine Preise in US-Dollar ohne Angabe zur MwSt."
+  },
+  "forWho": [
+    "du Apps, Websites oder Wireframes auf dem Mac gestalten willst, ohne ein Konto anzulegen.",
+    "deine Entwürfe auf deinem eigenen Rechner bleiben sollen, etwa wegen Datenschutz-Vorgaben deiner Kunden.",
+    "du oft ohne Internet arbeitest, zum Beispiel im Zug oder beim Kunden vor Ort.",
+    "du Klick-Prototypen baust und Code für React, SwiftUI oder CSS als Startpunkt für die Entwicklung brauchst."
+  ],
+  "notFor": [
+    "du ein ausgereiftes Werkzeug für laufende Kundenprojekte brauchst: FigKoja ist noch in früher Entwicklung (Early Alpha).",
+    "dein Team täglich live in denselben Dateien arbeitet oder du auf Figma-Plugins angewiesen bist.",
+    "du auch unter Windows oder im Browser arbeiten musst: FigKoja gibt es nur für macOS."
+  ],
+  "formats": [
+    "SVG (Import und Export)",
+    "PDF (Import und Export)",
+    "PNG (Import und Export)",
+    "JPG (Import und Export)",
+    "WebP (Import und Export)",
+    ".fig (Import, eingeschränkt)",
+    "Figma-REST-API-JSON (Import)",
+    "CSS (Code-Export)",
+    "HTML (Code-Export)",
+    "React (Code-Export)",
+    "SwiftUI (Code-Export)",
+    "Compose (Code-Export)"
+  ],
+  "faq": [
+    {
+      "q": "Ist FigKoja eine vollwertige Figma-Alternative?",
+      "a": "Noch nicht. FigKoja ist eine frühe Version (Early Alpha): Der Kern des Editors funktioniert bereits durchgängig, mit Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode, aber es gibt noch Ecken und Kanten. Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen selbst, dass sie etwa 49 % des Wegs geschafft haben, kommerzielle Design-Tools im Arbeitsalltag zu ersetzen. Teste FigKoja deshalb 3 Tage kostenlos mit deinen eigenen Entwürfen, bevor du dich entscheidest."
+    },
+    {
+      "q": "Kann ich meine Figma-Dateien in FigKoja öffnen?",
+      "a": "Nur eingeschränkt: Figma-Dateien im .fig-Format öffnet FigKoja bisher ohne Garantie auf Vollständigkeit, rechne also mit Abweichungen. Zusätzlich kannst du Designs als JSON aus der öffentlichen REST-API von Figma importieren, inklusive Prototypen und Variablen, außerdem SVG, PDF, PNG, JPG und WebP. Exportieren kannst du jede Ebene in beliebiger Größe als PNG, JPG, WebP, SVG oder PDF."
+    },
+    {
+      "q": "Kann ich FigKoja offline nutzen?",
+      "a": "Ja. FigKoja läuft direkt auf deinem Mac, braucht kein Konto und sendet keine Nutzungsdaten. Deine Dokumente liegen als Dateien auf deiner Festplatte und verlassen den Mac nur, wenn du sie selbst teilst. Internet brauchst du nur für den Download und die Aktivierung."
+    },
+    {
+      "q": "Kann ich mit FigKoja im Team arbeiten?",
+      "a": "Teilweise. Kommentare mit Antworten, @-Erwähnungen und Reaktionen sowie ein Versionsverlauf mit benannten Versionen sind eingebaut. Live-Sessions mit Cursor, Auswahl und Cursor-Chat gibt es erst als Vorschau, per Beitrittscode oder Einladungslink über das Internet oder im lokalen Netzwerk, ohne Konten, Teams und Cloud. Wichtig: Über den öffentlichen Server geteilte Dateien liegen dort unverschlüsselt und werden nach 30 Tagen ohne Aufruf gelöscht."
+    },
+    {
+      "q": "Was kostet FigKoja im Vergleich zu Figma?",
+      "a": "Nach 3 kostenlosen Testtagen kostet FigKoja 2,99 € im Monat inkl. MwSt., und darin sind alle 13 Koja-Apps enthalten. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Macs. Bei Figma ist der Tarif Starter kostenlos, erlaubt im Team aber nur 3 Dateien; im Tarif Professional kostet eine Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung. Das Monatsabo von FigKoja kündigst du mit einem Klick unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+    },
+    {
+      "q": "Ist FigKoja Open Source?",
+      "a": "FigKoja ist der macOS-Build eines quelloffenen Projekts unter MIT- und Apache-2.0-Lizenz. Bei Kojalytics bezahlst du für die fertige Mac-Version, den Kojalytics Launcher, der sie installiert und aktualisiert, und den Support. Erweiterungen laufen als WebAssembly-Plugins in einer abgeschotteten Umgebung, standardmäßig ohne Zugriff auf deine Dateien und das Netzwerk."
+    }
+  ]
 }

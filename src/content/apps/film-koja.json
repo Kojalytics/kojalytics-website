@@ -1,18 +1,173 @@
 {
-  "kind": "STUB",
-  "benefit": "STUB",
-  "keyword": "STUB",
-  "metaTitle": "STUB",
-  "metaDescription": "STUB",
-  "h1": "STUB",
-  "lead": "STUB",
-  "highlights": ["STUB"],
-  "features": [{ "title": "STUB", "text": "STUB", "screenshot": "hero.webp" }],
-  "screenshots": [{ "file": "hero.webp", "alt": "STUB", "caption": "STUB" }],
-  "switching": { "title": "STUB", "paragraphs": ["STUB"] },
-  "comparison": { "rows": [{ "label": "STUB", "koja": "STUB", "other": "STUB" }], "note": "STUB" },
-  "forWho": ["STUB"],
-  "notFor": ["STUB"],
-  "formats": ["STUB"],
-  "faq": [{ "q": "STUB", "a": "STUB" }]
+  "kind": "Videoschnitt",
+  "benefit": "Schneide, grade und mische Videos am Mac in einem Layout, wie du es aus Premiere Pro kennst.",
+  "keyword": "premiere pro alternative mac",
+  "metaTitle": "Premiere-Pro-Alternative für den Mac: FilmKoja",
+  "metaDescription": "Premiere-Pro-Alternative für den Mac: FilmKoja mit Timeline, Trimmen, Farbe und Ton. 3 Tage kostenlos testen, dann 2,99 € im Monat. Jetzt laden.",
+  "h1": "Premiere-Pro-Alternative für den Mac, ohne teures Abo",
+  "lead": "FilmKoja ist ein Videoschnittprogramm für den Mac und eine Alternative zu Premiere Pro, mit Quell- und Programmmonitor, Mehrspur-Timeline, Farbkorrektur und Audiomischer. Sequenzen aus Premiere Pro holst du per XML oder AAF herüber. FilmKoja ist noch eine frühe Version: Teste es 3 Tage kostenlos mit eigenem Material.",
+  "highlights": [
+    "Alle Trimm-Modi inkl. J/K/L",
+    "Import per FCP XML, AAF, OTIO",
+    "Export: H.264, ProRes, DNxHR"
+  ],
+  "features": [
+    {
+      "title": "Vertrautes Schnitt-Layout",
+      "text": "Du arbeitest mit Quell- und Programmmonitor, Bins mit Vorschaubildern und einer Mehrspur-Timeline mit Patch- und Ziel-Schaltern, Sync-Lock und verknüpfter Auswahl. Dazu kommen Multicam, Verschachteln, farbige Marker (als CSV exportierbar) und unbegrenztes Rückgängigmachen. Im Tastaturkürzel-Editor wählst du die Standardbelegung professioneller Schnittprogramme oder legst eigene Kürzel an."
+    },
+    {
+      "title": "3-Punkt-Schnitt und Trimmen",
+      "text": "Du setzt In- und Out-Punkte im Quellmonitor und fügst per Tastaturkürzel auf den gepatchten Spuren ein oder überschreibst. Dazu kommen Ripple, Roll, Slip, Slide, Rate Stretch und Rasierklinge sowie ein Trim-Monitor, der beide Seiten des Schnitts zeigt. Beim dynamischen Trimmen trimmst du mit J, K und L direkt während der Wiedergabe."
+    },
+    {
+      "title": "Farbkorrektur mit Scopes",
+      "text": "Zur Verfügung stehen Grundkorrektur, acht kreative Looks, RGB- und Farbtonkurven, Farbräder für Tiefen, Mitten und Lichter, HSL-Sekundärkorrektur und Vignette. Gerechnet wird in linearem Licht mit 32-Bit-Gleitkomma. Waveform und Vektorskop messen das fertig gegradete Bild, LUTs kannst du ebenfalls verwenden.",
+      "screenshot": "color.webp"
+    },
+    {
+      "title": "Keyframes mit Geschwindigkeitskurve",
+      "text": "Position, Skalierung, Drehung, Ankerpunkt und Deckkraft animierst du auf jedem Clip, dazu kommen 26 Mischmodi. Keyframes gibt es linear, als Bezier, gehalten oder mit Ease, und jede Eigenschaft hat ihre eigene Spur mit Wert- und Geschwindigkeitskurve. Für aufwendige Motion Graphics gibt es [EffectKoja](/software/effect-koja).",
+      "screenshot": "keyframes.webp"
+    },
+    {
+      "title": "Ton nach EBU R128",
+      "text": "FilmKoja misst Lautheit (momentan, kurzzeitig, integriert) und True Peak nach ITU-R BS.1770 und EBU R128. Dazu kommen Clip-Effekte wie parametrischer EQ, Dynamik, Limiter, Hall, DeNoise und DeHummer sowie ein Spurmischer mit fünf Insert-Slots pro Spur, Sends, Submixen und Automation. Für größere Audioprojekte gibt es [SoundKoja](/software/sound-koja)."
+    },
+    {
+      "title": "Export im Hintergrund",
+      "text": "Exportiere als H.264-MP4 mit AAC, als ProRes 422 HQ, als DNxHR in MOV oder MXF, als PNG-Sequenz, animiertes GIF oder WAV. Der Export läuft als Hintergrundauftrag mit Fortschrittsanzeige, sodass du währenddessen weiterschneiden kannst. H.264 und H.265 kann der Hardware-Encoder deines Macs übernehmen.",
+      "screenshot": "export.webp"
+    },
+    {
+      "title": "Titel und Untertitel",
+      "text": "Titel gestaltest du mit einer OpenType-Text-Engine samt Unterschneidung, Ligaturen und bidirektionalem Text, dazu gibt es Text-, Form- und Zeichenstift-Werkzeug direkt im Programmmonitor. Untertitel importierst und exportierst du als SRT, WebVTT oder SCC mit bildgenauem Timing. Auf Wunsch brennst du sie beim Export ins Bild."
+    },
+    {
+      "title": "Schutz vor Datenverlust",
+      "text": "FilmKoja speichert atomar, hält mehrere automatische Sicherungsversionen vor und schreibt etwa eine Sekunde nach jeder Änderung ein Wiederherstellungsprotokoll. Nach einem Absturz oder Stromausfall bekommst du ungesicherte Änderungen so zurück."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "FilmKoja: Effekteinstellungen, Programmmonitor, Projekt-Bins, Mehrspur-Timeline und Lautheitsmeter",
+      "caption": "Monitore, Effekteinstellungen, Bins und Mehrspur-Timeline sind ähnlich angeordnet wie in Premiere Pro, so findest du dich schnell zurecht."
+    },
+    {
+      "file": "color.webp",
+      "alt": "FilmKoja Farbkorrektur: Waveform und Vektorskop neben dem Programmmonitor, darunter die Timeline mit Musikspur",
+      "caption": "Waveform und Vektorskop messen das fertig gegradete Bild, so beurteilst du Belichtung und Farbe nach Messwerten statt nach Gefühl."
+    },
+    {
+      "file": "keyframes.webp",
+      "alt": "FilmKoja Keyframes: Wert- und Geschwindigkeitskurve einer Skalierung auf einer Titelkarte, daneben die Timeline",
+      "caption": "Mit Wert- und Geschwindigkeitskurve steuerst du Zooms und Bewegungen genau und lässt sie weich ein- und auslaufen."
+    },
+    {
+      "file": "export.webp",
+      "alt": "FilmKoja Export: Ziele wie YouTube, Vimeo, TikTok und Instagram, H.264 in 1440 × 1080 bei 23,976 fps",
+      "caption": "Wähle eine Export-Vorgabe wie YouTube oder Instagram und rendere als H.264-MP4 im Hintergrund, während du weiterschneidest."
+    }
+  ],
+  "switching": {
+    "title": "Von Premiere Pro zu FilmKoja auf dem Mac wechseln",
+    "paragraphs": [
+      "Das Grundprinzip bleibt gleich: Quell- und Programmmonitor, Bins und eine Mehrspur-Timeline mit Patch- und Ziel-Schaltern. Du setzt In- und Out-Punkte, fügst ein oder überschreibst und trimmst mit Ripple und Roll oder dynamisch mit J, K und L. Im Tastaturkürzel-Editor wählst du die Standardbelegung professioneller Schnittprogramme, Konflikte zeigt er dir direkt an.",
+      "Premiere-Projektdateien (.prproj) kann FilmKoja noch nicht öffnen. Exportiere deine Sequenz in Premiere Pro deshalb als Final-Cut-Pro-XML oder AAF und importiere sie in FilmKoja, das außerdem FCPXML, OpenTimelineIO, EDL und OMF liest. Deine Mediendateien, etwa MP4 oder MOV mit H.264, HEVC oder ProRes sowie MXF mit DNxHR, öffnest du direkt. Prüfe nach dem Import Effekte und Farbkorrekturen genau, denn Austauschformate nehmen nicht jede Einstellung mit.",
+      "Was noch fehlt: FilmKoja ist noch in früher Entwicklung (Alpha). Es gibt keine Plugins (VST3, Audio Units, OpenFX), kein Kamera-RAW und keinen AV1-Export. H.265 exportierst du nur über den Hardware-Encoder deines Macs in 8 Bit SDR. Farbkorrektur und Export-Rendering laufen noch auf dem Prozessor, was bei großem Material bremst. KI-Funktionen gibt es bisher kaum.",
+      "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere FilmKoja und importiere eine Sequenz aus einem echten Projekt, am besten mit Originaldateien aus deiner Kamera oder deinem Smartphone. Schneide, grade und mische ein kurzes Stück und exportiere es in deinem Zielformat. Danach entscheidest du: 2,99 € im Monat für alle 13 Apps, jederzeit mit einem Klick [kündbar](/kuendigen), oder 79 € einmalig. Wie du ein laufendes Adobe-Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Preis",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "25,99 € im Monat als Einzel-App, 77,99 € im Monat mit Creative Cloud Pro (jeweils Jahres-Abo, monatliche Zahlung)"
+      },
+      {
+        "label": "Abrechnung und Kündigung",
+        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr; oder einmal zahlen und behalten",
+        "other": "Jahres-Abo verlängert sich automatisch; bei monatlicher Zahlung kostet eine Kündigung nach 14 Tagen 50 % des restlichen Vertragswerts"
+      },
+      {
+        "label": "Konto nötig",
+        "koja": "Nein",
+        "other": "Ja, Adobe-Konto"
+      },
+      {
+        "label": "Offline nutzbar",
+        "koja": "Ja, Internet nur für Download und Aktivierung",
+        "other": "Ja, für begrenzte Zeit; die Lizenz wird regelmäßig online geprüft"
+      },
+      {
+        "label": "Wichtige Dateiformate",
+        "koja": "MP4, MOV, MXF mit H.264, HEVC, ProRes, DNxHR; Austausch per XML, AAF, OTIO; kein .prproj",
+        "other": ".prproj, gängige Videoformate, Austausch per XML, AAF und EDL"
+      },
+      {
+        "label": "Plattformen",
+        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "other": "macOS und Windows"
+      },
+      {
+        "label": "Entwicklungsstand",
+        "koja": "Frühe Version (Alpha), noch in Entwicklung",
+        "other": "Ausgereift, seit vielen Jahren im Profi-Einsatz"
+      }
+    ],
+    "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
+  },
+  "forWho": [
+    "du am Mac schneidest und die Arbeitsweise mit Quell- und Programmmonitor, Bins und Timeline aus Premiere Pro behalten willst",
+    "du für deine Schnittprojekte kein Jahresabo mit Kündigungsgebühr mehr abschließen willst",
+    "du Videos für YouTube oder Social Media schneidest und als H.264-MP4 oder ProRes ausgibst",
+    "du ohne Konto und offline arbeiten willst und mit Lücken einer frühen Version umgehen kannst"
+  ],
+  "notFor": [
+    "du gerade ein Projekt mit festem Abgabetermin schneidest: FilmKoja ist noch in früher Entwicklung (Alpha)",
+    "du auf Plugins wie VST3, Audio Units oder OpenFX oder auf Kamera-RAW angewiesen bist",
+    "du unter Windows arbeitest oder bestehende .prproj-Projekte direkt öffnen musst"
+  ],
+  "formats": [
+    "MP4 / MOV (lesen und schreiben)",
+    "H.264 (lesen und exportieren)",
+    "HEVC / H.265 (lesen, Export per Hardware)",
+    "ProRes (lesen, Export 422 HQ)",
+    "DNxHD / DNxHR (lesen, Export DNxHR)",
+    "MXF OP1a / OP-Atom (lesen und schreiben)",
+    "VP9, AV1 (nur lesen)",
+    "MKV / WebM, AVI, MPEG-TS (nur lesen)",
+    "AAC, MP3, FLAC (lesen), WAV (Export)",
+    "SRT, WebVTT, SCC (Untertitel)",
+    "FCP 7 XML, FCPXML, OTIO (Austausch)",
+    "AAF, OMF, EDL (Austausch)"
+  ],
+  "faq": [
+    {
+      "q": "Ist FilmKoja eine vollwertige Premiere-Pro-Alternative?",
+      "a": "Noch nicht. FilmKoja ist eine frühe Version (Alpha): Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen die Funktionsbreite selbst auf rund 86 %, die Reife für echte Produktionsarbeit aber erst auf etwa 56 % (Stand Oktober 2026). Schnitt, Trimmen, Multicam, Farbkorrektur, Keyframes, Titel, Untertitel, Audiomischung und Export funktionieren schon, es fehlen aber unter anderem Plugins, Kamera-RAW und das direkte Öffnen von .prproj-Dateien. Teste FilmKoja deshalb mit deinem eigenen Material, bevor du dich festlegst."
+    },
+    {
+      "q": "Kann ich meine Premiere-Pro-Projekte in FilmKoja öffnen?",
+      "a": "Nicht direkt: .prproj-Dateien öffnet FilmKoja noch nicht. Exportiere die Sequenz in Premiere Pro als Final-Cut-Pro-XML oder AAF und importiere sie in FilmKoja, das außerdem FCPXML, OpenTimelineIO, EDL und OMF liest. Mediendateien wie MP4, MOV und MXF mit H.264, HEVC, ProRes oder DNxHR öffnest du direkt, Kamera-RAW wird noch nicht unterstützt."
+    },
+    {
+      "q": "In welche Formate exportiert FilmKoja?",
+      "a": "FilmKoja exportiert H.264 als MP4 mit AAC-Ton, Apple ProRes 422 HQ und Motion JPEG als QuickTime sowie DNxHR, ProRes oder H.264 in MXF, außerdem PNG-Sequenzen, animierte GIFs und WAV. H.265 exportierst du über den Hardware-Encoder deines Macs (8 Bit, SDR), AV1 noch gar nicht. Der Export läuft im Hintergrund, du kannst währenddessen weiterschneiden."
+    },
+    {
+      "q": "Was kostet FilmKoja im Vergleich zu Premiere Pro?",
+      "a": "Adobe Premiere (früher Premiere Pro) kostet als Einzel-App 25,99 € im Monat inkl. MwSt. im Jahres-Abo mit monatlicher Zahlung, und wer nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. FilmKoja kostet nach 3 kostenlosen Testtagen 2,99 € im Monat, darin sind alle 13 Koja-Apps enthalten. Du kündigst jederzeit mit einem Klick ohne Gebühr oder zahlst einmalig 79 € für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Macs. Alle Details findest du bei den [Preisen](/software#preise)."
+    },
+    {
+      "q": "Gibt es Premiere Pro ohne Abo?",
+      "a": "Nein. Adobe bietet Premiere nur im Abo an, als Monats-Abo oder als Jahres-Abo mit monatlicher Zahlung oder Vorauszahlung, und Jahresabos verlängern sich automatisch, wenn du nicht kündigst. Für FilmKoja kannst du stattdessen einmalig 79 € zahlen und die Lizenz dauerhaft behalten. Weitere Alternativen zu Adobe-Programmen findest du im Ratgeber [Adobe-Alternativen für den Mac](/ratgeber/adobe-alternative-mac)."
+    },
+    {
+      "q": "Läuft FilmKoja ohne Internet und ohne Konto?",
+      "a": "Ja. Du brauchst kein Konto, und nach Download und Aktivierung läuft FilmKoja offline auf deinem Mac. Videos dekodiert die App mit der Hardware deines Macs (VideoToolbox), Farbkorrektur und Export-Rendering laufen aber noch auf dem Prozessor und können bei großem Material bremsen. FilmKoja läuft nur unter macOS, eine Windows- oder Web-Version gibt es nicht."
+    }
+  ]
 }

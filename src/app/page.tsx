@@ -66,7 +66,7 @@ export default function Home() {
             <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
               <div>
                 <p className="eyebrow">Koja-Apps für den Mac</p>
-                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Profi-Apps. {PLANS.monthly.label} im Monat.</h2>
+                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Mac-Apps. {PLANS.monthly.label} im Monat.</h2>
               </div>
               <p className="text-lg leading-relaxed text-muted">
                 Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD. Offline, ohne Konto, mit einem Klick kündbar. Teste alle Apps{" "}

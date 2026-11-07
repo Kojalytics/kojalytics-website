@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD für den Mac. Offline, ohne Konto. 2,99 € im Monat, mit einem Klick kündbar. 3 Tage kostenlos testen.",
   alternates: { canonical: "/software" },
   openGraph: {
-    title: "13 Profi-Apps für deinen Mac. 2,99 € im Monat.",
+    title: "Foto, Video und Office: 13 Mac-Apps für 2,99 € im Monat.",
     description: "Foto, Video, Design, Audio, Office, PDF und CAD. Offline, ohne Konto, mit einem Klick kündbar. 3 Tage kostenlos testen.",
     url: "/software",
     images: [{ url: "/og/software.jpg", width: 1200, height: 630, alt: "Die Koja-Apps auf dem Mac" }],
@@ -62,7 +62,7 @@ const showcase = [
   },
   {
     app: "photo-koja",
-    title: "Profi-Werkzeuge, die du schon kennst",
+    title: "Werkzeuge, die du schon kennst",
     text: "Ebenen, Masken, Ebenenstile und Pinsel in PhotoKoja. Pfade und Formen in VectorKoja. Musterseiten und Textrahmen in DesignKoja. Wer aus der Adobe-Welt kommt, findet sich in Minuten zurecht.",
   },
   {
@@ -125,9 +125,10 @@ export default function SoftwarePage() {
       <main>
         <PerspectiveTunnelHero items={tunnelItems}>
           <div className="flex max-w-3xl flex-col items-center text-center">
-            <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted">Koja-Apps für den Mac</p>
-            <h1 className="display mt-5 text-[clamp(2.6rem,7.5vw,5.75rem)]">
-              13 Profi-Apps für deinen Mac. <span className="text-highlight">2,99 €</span> im Monat.
+            <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted">Koja-Apps für den Mac · Early Access</p>
+            <h1 className="display mt-5 text-[clamp(2.4rem,5.6vw,4.6rem)]">
+              Foto, Video und Office: 13 <span className="whitespace-nowrap">Mac-Apps</span> für{" "}
+              <span className="whitespace-nowrap text-highlight">2,99 €</span> im Monat.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
               Fotos bearbeiten, Layouts setzen, Videos schneiden, Texte schreiben und PDFs bearbeiten: in echten Mac-Apps, die
@@ -140,7 +141,7 @@ export default function SoftwarePage() {
               </Link>
             </div>
             <p className="mt-4 text-sm text-muted">macOS · ohne Konto · jederzeit mit einem Klick kündbar</p>
-            <ul className="mt-7 flex max-w-md flex-wrap justify-center gap-2" aria-label="Alle 13 Apps">
+            <ul className="mt-7 flex max-w-[600px] flex-wrap justify-center gap-2" aria-label="Alle 13 Apps">
               {APPS.map((a) => (
                 <li key={a.slug}>
                   <Link href={`/software/${a.slug}`} title={`${a.name}: ${a.kind}`} className="block transition-transform hover:-translate-y-0.5">
@@ -200,7 +201,7 @@ export default function SoftwarePage() {
                         >
                           {shot && (
                             <div className="bg-[linear-gradient(160deg,var(--c)_0%,transparent_75%)] p-5 pb-0" style={{ ["--c" as string]: `${app.color}22` }}>
-                              <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw" className="translate-y-2 transition-transform duration-500 group-hover:translate-y-0" />
+                              <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw" fixedRatio className="translate-y-2 transition-transform duration-500 group-hover:translate-y-0" />
                             </div>
                           )}
                           <div className="flex flex-1 flex-col border-t border-border p-5">
@@ -324,9 +325,10 @@ export default function SoftwarePage() {
               <p className="eyebrow">Wer hinter Koja steht</p>
               <h2 className="display mt-3 text-4xl sm:text-5xl">Ein kleines Studio. Offener Code.</h2>
               <p className="mt-6 text-lg leading-relaxed text-muted">
-                Kojalytics ist ein Software-Studio aus Deutschland. Die Koja-Apps basieren auf den quelloffenen Craft-Apps des
+                Kojalytics ist ein Software-Studio aus Deutschland. Die Koja-Apps basieren auf quelloffener Software des
                 ArtCraft-Teams. Wir liefern sie als signierte Mac-Apps aus, halten sie über den Kojalytics Launcher aktuell und
-                beantworten deine E-Mails selbst.
+                beantworten deine E-Mails selbst. Die Apps sind frühe Versionen und werden laufend weiterentwickelt. Deshalb
+                testest du alles {TRIAL_DAYS} Tage kostenlos, bevor du zahlst.
               </p>
               <ul className="mt-6 grid gap-2">
                 <li>Sichere Zahlung über Stripe</li>
@@ -345,7 +347,7 @@ export default function SoftwarePage() {
                 const app = getApp(slug);
                 const shot = app && shotFor(app);
                 return shot && app ? (
-                  <MacWindow key={slug} src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 1024px) 45vw, 25vw" />
+                  <MacWindow key={slug} src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 1024px) 45vw, 25vw" fixedRatio />
                 ) : null;
               })}
             </div>

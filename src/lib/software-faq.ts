@@ -16,7 +16,7 @@ export const SOFTWARE_FAQ: FaqItem[] = [
   },
   {
     q: "Ersetzen die Koja-Apps Adobe Creative Cloud oder Microsoft Office?",
-    a: "Für viele alltägliche Aufgaben ja: Die Apps folgen den Arbeitsweisen, die du kennst, und öffnen gängige Dateien wie .docx, .xlsx und .pptx. Die Apps sind noch jung und haben nicht jede Profi-Funktion. Teste sie deshalb kostenlos mit deinen eigenen Dateien, bevor du zahlst.",
+    a: "Noch nicht vollständig. Die Koja-Apps sind frühe Versionen (Early Access): Sie folgen den Arbeitsweisen, die du kennst, und öffnen gängige Dateien wie .docx, .xlsx, .pptx und .psd, aber manche Profi-Funktionen fehlen noch. Für viele alltägliche Aufgaben reichen sie schon. Teste sie kostenlos mit deinen eigenen Dateien, bevor du zahlst.",
   },
   {
     q: "Auf welchen Computern laufen die Apps?",
@@ -24,7 +24,7 @@ export const SOFTWARE_FAQ: FaqItem[] = [
   },
   {
     q: "Der Quellcode ist offen. Warum kostet es Geld?",
-    a: "Die Koja-Apps basieren auf den quelloffenen Craft-Apps des ArtCraft-Teams. Du bezahlst uns für fertige, signierte Mac-Versionen, den Launcher, der sie installiert und aktualisiert, und Support von einem echten Studio aus Deutschland.",
+    a: "Die Koja-Apps basieren auf quelloffener Software des ArtCraft-Teams. Du bezahlst uns für fertige, signierte Mac-Versionen, den Launcher, der sie installiert und aktualisiert, und Support von einem echten Studio aus Deutschland.",
   },
   {
     q: "Brauche ich ein Konto oder Internet?",

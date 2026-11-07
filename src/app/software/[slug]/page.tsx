@@ -339,7 +339,7 @@ export default async function AppPage({ params }: Props) {
             )}
             <p className="mt-12 text-xs leading-relaxed text-muted">
               {app.familiar.product} ist eine Marke von {app.familiar.owner}. {app.name} steht in keiner Verbindung zu {app.familiar.owner} und wird
-              von {app.familiar.owner} weder unterstützt noch empfohlen. {app.name} basiert auf {app.upstream} vom ArtCraft-Team.
+              von {app.familiar.owner} weder unterstützt noch empfohlen. {app.name} basiert auf quelloffener Software des ArtCraft-Teams.
             </p>
           </div>
         </section>

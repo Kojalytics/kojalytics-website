@@ -30,5 +30,6 @@ export default function EtsySyncLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  // This page stays in English for the Shopify app audience; the rest of the site is German.
+  return <div lang="en">{children}</div>;
 }

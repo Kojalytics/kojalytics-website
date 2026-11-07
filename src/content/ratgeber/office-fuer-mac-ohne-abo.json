@@ -1,0 +1,407 @@
+{
+  "slug": "office-fuer-mac-ohne-abo",
+  "navTitle": "Office für Mac ohne Abo",
+  "h1": "Office für Mac ohne Abo: Alle Möglichkeiten im Vergleich (2026)",
+  "metaTitle": "Office für Mac ohne Abo: Einmalkauf & Alternativen",
+  "metaDescription": "Word, Excel und PowerPoint am Mac ohne Microsoft-365-Abo: Office 2024 als Einmalkauf, kostenlose Apple-Apps, LibreOffice und günstige Alternativen.",
+  "primaryKeyword": "office für mac ohne abo",
+  "updated": "2026-11-07",
+  "readingMinutes": 13,
+  "intro": [
+    "Ja, du kannst Office für Mac ohne Abo kaufen. Microsoft verkauft Office Home 2024 für 149 € als Einmalkauf für einen Mac, mit Word, Excel, PowerPoint und OneNote. Wer zusätzlich Outlook braucht, nimmt Office Home & Business 2024 für 299 €. Beide Versionen bekommen bis Oktober 2029 Updates, aber keine neuen Funktionen. Kostenlos geht es mit Pages, Numbers und Keynote von Apple, mit LibreOffice oder mit Word, Excel und PowerPoint im Browser.",
+    "In diesem Ratgeber findest du alle Wege mit Preisen (Stand 7. November 2026), den macOS-Voraussetzungen und den Haken, die du vor dem Kauf kennen solltest. Wir stellen auch unsere eigenen Apps WordKoja, GridKoja und DeckKoja vor. Sie sind günstig, aber noch in früher Entwicklung, und wir sagen dir offen, wofür sie heute taugen und wofür noch nicht."
+  ],
+  "sections": [
+    {
+      "id": "alle-wege-im-ueberblick",
+      "h2": "Office für Mac ohne Abo: alle Wege im Überblick",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Diese Optionen hast du, wenn du am Mac mit Word-, Excel- und PowerPoint-Dateien arbeiten willst, ohne ein Microsoft-365-Abo abzuschließen."
+        },
+        {
+          "type": "table",
+          "head": ["Option", "Kosten", "Was du bekommst", "Größter Haken"],
+          "rows": [
+            ["Office Home 2024", "149 € einmalig", "Word, Excel, PowerPoint und OneNote für 1 Mac", "Keine neuen Funktionen, Updates nur bis Oktober 2029"],
+            ["Office Home & Business 2024", "299 € einmalig", "Wie Home, dazu Outlook, auch für die Arbeit gedacht", "Doppelter Preis bei gleicher Supportfrist"],
+            ["Microsoft 365 für das Web", "kostenlos", "Word, Excel und PowerPoint im Browser, 5 GB OneDrive", "Microsoft-Konto nötig, keine installierten Apps"],
+            ["Pages, Numbers, Keynote", "kostenlos", "Apples Office-Apps mit Export als .docx, .xlsx und .pptx", "Andere Bedienung, Layout kann abweichen"],
+            ["LibreOffice", "kostenlos", "Sechs quelloffene Programme, lädt und speichert .docx, .xlsx und .pptx", "Komplexe Office-Dateien brauchen oft Nacharbeit"],
+            ["WordKoja, GridKoja, DeckKoja", "2,99 € pro Monat oder 79 € einmalig", "Office-ähnliches Menüband, .docx, .xlsx und .pptx, 13 Apps auf bis zu 3 Macs", "Frühe Versionen (Alpha), teils englische Oberfläche"]
+          ],
+          "caption": "Preise inkl. MwSt., Stand 7. November 2026."
+        }
+      ]
+    },
+    {
+      "id": "office-2024-einmalkauf",
+      "h2": "Office 2024 als Einmalkauf: Preis, Umfang und Support",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Microsoft bietet zwei Kaufversionen an, die auf dem Mac laufen. Office Home 2024 kostet 149 € und enthält Word, Excel, PowerPoint und OneNote. Microsoft beschreibt sie als Version für Studenten und Familien, zur Nutzung zu Hause oder in der Schule. Office Home & Business 2024 kostet 299 €, bringt zusätzlich Outlook mit und ist ausdrücklich auch für die Arbeit gedacht. Beide sind ein einmaliger Kauf für einen PC oder Mac."
+        },
+        {
+          "type": "h3",
+          "text": "Was „ohne Abo“ bei Office 2024 genau heißt"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Du zahlst einmal und nutzt diese Version dauerhaft. Ein Upgrade auf die nächste Hauptversion ist nicht enthalten. Die müsstest du laut Microsoft zum vollen Preis neu kaufen.",
+            "Office 2024 bekommt Sicherheits- und Qualitätsupdates, aber keine neuen Funktionen. Wer laufend neue Funktionen will, dem empfiehlt Microsoft ein Microsoft-365-Abo.",
+            "Dienste aus dem Abo, etwa 1 TB Cloud-Speicher, sind beim Einmalkauf nicht dabei.",
+            "Für Kauf, Installation und Aktivierung brauchst du ein Microsoft-Konto und Internet. Laut Microsoft ist auch danach regelmäßig eine Internetverbindung nötig, damit die Apps aktiviert bleiben und Updates bekommen.",
+            "Die Lizenz gilt für ein Gerät. Für einen zweiten Mac brauchst du eine zweite Lizenz."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Office 2024 folgt Microsofts Modern-Lifecycle-Richtlinie. Der Support endet im Oktober 2029. Wer heute kauft, bekommt also noch rund drei Jahre Updates. Microsoft hat bestätigt, dass nach Office 2024 noch eine weitere lokal installierte Version kommen soll. Preis und Termin nennt Microsoft noch nicht."
+        },
+        {
+          "type": "p",
+          "text": "Zum Vergleich: Für Office 2021, also auch Home & Student und Home & Business für Mac, ist der Support Mitte Oktober 2026 ausgelaufen. Was das für dich bedeutet, erklärt unser Ratgeber [Office 2021 für Mac: Support-Ende](/ratgeber/office-2021-mac-support-ende)."
+        },
+        {
+          "type": "h3",
+          "text": "Welche macOS-Version du brauchst"
+        },
+        {
+          "type": "p",
+          "text": "Office für Mac unterstützt immer die drei neuesten macOS-Hauptversionen. Seit September 2026 sind das laut Microsoft macOS Golden Gate 27, macOS Tahoe 26 und macOS Sequoia 15. Für eine Neuinstallation von Office 2024 brauchst du mindestens macOS Sonoma. Auf älteren macOS-Versionen laufen bereits installierte Office-Apps zwar weiter, bekommen aber keine Updates mehr, auch keine Sicherheitsupdates. Außerdem nennt Microsoft für den Mac 4 GB Arbeitsspeicher und 10 GB freien Speicherplatz."
+        },
+        {
+          "type": "tip",
+          "text": "Welche macOS-Version du hast, siehst du im Apple-Menü unter „Über diesen Mac“. Läuft dein Mac mit einer Version vor Sonoma und lässt sich nicht aktualisieren, ist Office 2024 keine gute Wahl. Schau dir dann die kostenlosen Alternativen weiter unten an. LibreOffice läuft zum Beispiel ab macOS 11."
+        }
+      ]
+    },
+    {
+      "id": "microsoft-kostenlos-im-browser",
+      "h2": "Kostenlos von Microsoft: Word, Excel und PowerPoint im Browser",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Wenn du nur ab und zu eine Word- oder Excel-Datei bearbeiten musst, reicht oft die kostenlose Webversion. Microsoft bietet Word, Excel und PowerPoint als „Microsoft 365 für das Web“ im Browser an. Du brauchst dafür ein kostenloses Microsoft-Konto und bekommst 5 GB OneDrive-Speicher dazu. Zum gemeinsamen Bearbeiten müssen die Dateien auf OneDrive liegen und von dort freigegeben werden."
+        },
+        {
+          "type": "p",
+          "text": "Der Haken: Du arbeitest im Browser und mit Dateien in Microsofts Cloud. Wer offline arbeiten möchte, ist mit einer installierten App besser bedient."
+        },
+        {
+          "type": "h3",
+          "text": "Vorsicht beim Mac App Store"
+        },
+        {
+          "type": "p",
+          "text": "Word, Excel und PowerPoint findest du auch im Mac App Store. Das sieht nach einem kostenlosen Download aus, zum Aktivieren brauchst du laut Microsoft aber ein Microsoft-365-Abo. Ältere Kauflizenzen wie Office 2019 funktionieren mit den App-Store-Versionen nicht. Office 2024 installierst du stattdessen über dein Microsoft-Konto."
+        },
+        {
+          "type": "p",
+          "text": "Anders auf iPhone und kleinen Tablets: Auf iOS- und Android-Geräten mit einem Bildschirm bis 10,1 Zoll ist die Grundbearbeitung kostenlos. Auf größeren Geräten wie dem iPad Pro brauchst du zum Bearbeiten ein Abo."
+        }
+      ]
+    },
+    {
+      "id": "pages-numbers-keynote",
+      "h2": "Kostenlos von Apple: Pages, Numbers und Keynote",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Apples eigene Office-Apps sind die naheliegendste Lösung, denn sie kosten nichts. Laut Apple bleiben Keynote, Pages, Numbers und Freeform für alle kostenlos. Nur Premium-Vorlagen, eine Bibliothek mit lizenzfreien Fotos und Grafiken sowie KI-Funktionen gehören zum kostenpflichtigen Apple Creator Studio (12,99 € pro Monat oder 129 € pro Jahr). Für normale Dokumente brauchst du das nicht."
+        },
+        {
+          "type": "h3",
+          "text": "Word-, Excel- und PowerPoint-Dateien öffnen"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Klick im Finder mit gedrückter Ctrl-Taste auf die Datei.",
+            "Wähle „Öffnen mit“ und dann Pages, Numbers oder Keynote.",
+            "Alternativ öffnest du die Datei direkt in der App über „Ablage“ > „Öffnen“."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Als .docx, .xlsx oder .pptx weitergeben"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Klick in der Symbolleiste auf die Teilen-Taste und dann auf „Exportieren und senden“.",
+            "Wähle „Word“, „Excel“ oder „PowerPoint“.",
+            "Klick auf „Sichern“ und wähle einen Speicherort. Mit „Kopie senden“ verschickst du die Datei direkt."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Apple weist darauf hin, dass beim Öffnen eine Warnung zu fehlenden Schriften erscheinen oder die Datei anders aussehen kann. Die alten Formate .doc, .xls und .ppt nennt Apple nicht als Exportziel. Wer sie braucht, exportiert ins aktuelle Format und speichert die Datei in der passenden Office-App um."
+        },
+        {
+          "type": "tip",
+          "text": "Für einfache Texte reicht sogar TextEdit, das auf dem Mac vorinstalliert ist. Laut Apple kann es Dokumente im Microsoft-Word-Format öffnen und sichern."
+        }
+      ]
+    },
+    {
+      "id": "libreoffice",
+      "h2": "Kostenlos und quelloffen: LibreOffice",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "LibreOffice ist ein freies, quelloffenes Office-Paket und kostet nichts. Es besteht aus sechs Programmen: Writer für Texte, Calc für Tabellen, Impress für Präsentationen sowie Draw, Base und Math. Laut Projekt läuft es ab macOS 11 auf Macs mit Intel- oder Apple-Chip."
+        },
+        {
+          "type": "p",
+          "text": "Die aktuellen Versionen laden und speichern laut LibreOffice-Hilfe die Microsoft-Formate .docx, .xlsx und .pptx. Die Hilfe sagt aber auch offen, dass manche Layouts und Formatierungen in komplexen Office-Dokumenten anders oder gar nicht unterstützt werden. Dann ist Handarbeit nötig. Als typische Problemstellen nennt sie unter anderem Änderungsverfolgung, WordArt, Pivot-Tabellen, bedingte Formatierung und einige Funktionen. VBA-Makros kann LibreOffice laden, aber nicht ausführen. Nur manche Excel-Makros laufen, wenn du das in den Einstellungen aktivierst."
+        },
+        {
+          "type": "p",
+          "text": "LibreOffice passt gut, wenn du viel schreibst und rechnest, aber nichts bezahlen willst. Tauschst du Dateien mit Word-Nutzern aus, prüf wichtige Dokumente vor dem Versenden."
+        }
+      ]
+    },
+    {
+      "id": "koja-apps",
+      "h2": "WordKoja, GridKoja und DeckKoja: Office-Dateien für 2,99 € im Monat",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Kojalytics bietet 13 Apps für macOS an, darunter drei für die Büroarbeit: [WordKoja](/software/word-koja) für Texte, [GridKoja](/software/grid-koja) für Tabellen und [DeckKoja](/software/deck-koja) für Präsentationen. Alle drei haben ein Menüband, wie du es aus Office kennst, und arbeiten mit den Microsoft-Formaten. Sie basieren auf quelloffenen Projekten (MIT/Apache-2.0) und laufen als Universal-App auf Macs mit Apple-Chip und Intel."
+        },
+        {
+          "type": "p",
+          "text": "Wichtig vorab: Alle drei Apps sind frühe Versionen und noch in Entwicklung (Alpha). Sie ersetzen Microsoft Office heute nicht vollständig. Die Entwickler der zugrunde liegenden Projekte schätzen selbst, dass WordKoja zu etwa 60 %, GridKoja zu etwa 50 % und DeckKoja zu etwa 55 % bereit für echte Arbeit ist."
+        },
+        {
+          "type": "app",
+          "app": "word-koja",
+          "text": "Öffnet und speichert .docx, liest und schreibt außerdem .odt, .rtf und .txt und exportiert PDFs mit markierbarem Text. Dazu kommen Änderungsverfolgung, Kommentare, Inhaltsverzeichnis, Fußnoten, Zitate in APA, MLA, Chicago oder IEEE und Serienbriefe aus CSV-Dateien."
+        },
+        {
+          "type": "app",
+          "app": "grid-koja",
+          "text": "Liest und schreibt .xlsx als Standardformat, mit über 500 Funktionen, dynamischen Arrays, Pivot-Tabellen und 17 Diagrammtypen. CSV und TSV gehen ebenfalls, alte .xls-Dateien öffnet GridKoja nur eingeschränkt."
+        },
+        {
+          "type": "app",
+          "app": "deck-koja",
+          "text": "Öffnet und speichert .pptx und bringt 11 Folienlayouts, 8 Designs, Übergänge wie Morph und eine Referentenansicht mit Notizen und Vorschau der nächsten Folien mit."
+        },
+        {
+          "type": "h3",
+          "text": "Was den Apps noch fehlt"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "WordKoja hat noch keine deutsche Rechtschreib- und Grammatikprüfung, nur die deutsche Silbentrennung. Die Oberfläche gibt es auf Deutsch. Seitenumbrüche können von Word abweichen, und alte .doc-Dateien lassen sich öffnen, aber nicht wieder als .doc speichern. Cloud-Speicher und gemeinsames Bearbeiten in Echtzeit gibt es nicht.",
+            "In GridKoja sind bisher nur die Menüs ins Deutsche übersetzt, Formeln schreibst du in englischer Schreibweise. Diagramme verlieren beim Speichern als .xlsx teils Typ und Optionen. VBA-Makros laufen nicht.",
+            "DeckKoja hat bisher nur eine englische Oberfläche und kann noch nicht drucken. Alte .ppt-Dateien und das OpenDocument-Format .odp öffnet es nicht."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Preis und Bedingungen"
+        },
+        {
+          "type": "p",
+          "text": "Du lädst die Apps kostenlos über den Kojalytics Launcher und kannst alle Apps 3 Tage lang kostenlos testen. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt. Kündigen kannst du jederzeit mit einem Klick auf [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs. Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Es gibt sie nur für macOS, nicht für Windows und nicht im Browser. Alle Details stehen auf der [Preisseite](/software#preise)."
+        },
+        {
+          "type": "p",
+          "text": "Im selben Paket steckt zum Beispiel auch [PdfKoja](/software/pdf-koja), mit dem du PDFs zusammenfügen, teilen und Seiten neu ordnen kannst. Wie das am Mac auch ohne Zusatz-App geht, zeigt unser Ratgeber [PDFs am Mac zusammenfügen](/ratgeber/pdf-zusammenfuegen-mac)."
+        },
+        {
+          "type": "tip",
+          "text": "Teste die Apps in den 3 Tagen mit deinen echten Dateien, bevor du dich festlegst. Wenn du auf exakte Word-Kompatibilität oder eine deutsche Rechtschreibprüfung angewiesen bist, ist Office 2024 oder Microsoft 365 derzeit die sicherere Wahl."
+        }
+      ]
+    },
+    {
+      "id": "billig-keys-und-gratis-vollversionen",
+      "h2": "Vorsicht bei „Office kostenlos Vollversion“ und Billig-Keys",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Wenn du nach einer kostenlosen Office-Vollversion für den Mac suchst, sei vorsichtig. Kostenlos bietet Microsoft Word, Excel und PowerPoint nur im Browser und auf Mobilgeräten bis 10,1 Zoll an. Angebliche Gratis-Vollversionen von anderen Seiten solltest du meiden."
+        },
+        {
+          "type": "p",
+          "text": "Auf Auktionsseiten, in Kleinanzeigen und auf anderen Websites werden außerdem einzelne Product Keys für Office angeboten. Microsoft gibt dazu selbst klare Hinweise:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Ein Product Key allein ist laut Microsoft keine Nutzungsberechtigung. Du brauchst eine passende Lizenz, nicht nur einen Schlüssel.",
+            "Microsoft verkauft Product Keys nicht als eigenständige Produkte, mit Ausnahme der Product Key Cards.",
+            "Bei Angeboten auf Auktionsseiten und in Kleinanzeigen rät Microsoft zu besonderer Vorsicht. Wirkt ein Preis zu gut, um wahr zu sein, stimmt laut Microsoft meist etwas nicht.",
+            "Microsoft empfiehlt eine sichere Zahlungsmethode und rät von Barzahlung und Sofortüberweisung ab."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Am sichersten kaufst du direkt bei Microsoft oder bei bekannten Händlern. Achte darauf, dass du eine echte Lizenz für Office Home 2024 oder Office Home & Business 2024 bekommst, die du in deinem Microsoft-Konto einlösen kannst."
+        }
+      ]
+    },
+    {
+      "id": "kostenvergleich",
+      "h2": "Kostenvergleich über 3 und 5 Jahre",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Wie viel du sparst, hängt davon ab, wie lange du die Software nutzt. Die Tabelle rechnet mit den heutigen Preisen. Mögliche Preiserhöhungen sind nicht berücksichtigt."
+        },
+        {
+          "type": "table",
+          "head": ["Option", "Preis", "Nach 3 Jahren", "Nach 5 Jahren", "Geräte"],
+          "rows": [
+            ["Microsoft 365 Single (Jahresabo)", "99 € pro Jahr", "297 €", "495 €", "1 Person, bis zu 5 Geräte gleichzeitig"],
+            ["Microsoft 365 Single (Monatsabo)", "10 € pro Monat", "360 €", "600 €", "1 Person, bis zu 5 Geräte gleichzeitig"],
+            ["Microsoft 365 Family (Jahresabo)", "129 € pro Jahr", "387 €", "645 €", "bis zu 6 Personen"],
+            ["Office Home 2024", "149 € einmalig", "149 €", "149 € plus Nachfolger*", "1 Mac"],
+            ["Office Home & Business 2024", "299 € einmalig", "299 €", "299 € plus Nachfolger*", "1 Mac"],
+            ["Koja-Apps (monatlich)", "2,99 € pro Monat", "107,64 €", "179,40 €", "bis zu 3 Macs"],
+            ["Koja-Apps (Dauerlizenz)", "79 € einmalig", "79 €", "79 €", "bis zu 3 Macs"],
+            ["Pages, Numbers, Keynote, LibreOffice, Microsoft 365 für das Web", "kostenlos", "0 €", "0 €", "je nach Angebot"]
+          ],
+          "caption": "* Office 2024 bekommt nur bis Oktober 2029 Updates. Wer danach ein unterstütztes Office will, kauft die nächste Version zum vollen Preis. Preise inkl. MwSt., Stand 7. November 2026."
+        },
+        {
+          "type": "p",
+          "text": "Über drei Jahre ist Office Home 2024 deutlich günstiger als jedes Microsoft-365-Abo. Wer über 2029 hinaus ein Office mit Sicherheitsupdates will, zahlt aber erneut. Microsoft 365 lohnt sich vor allem, wenn du den Cloud-Speicher nutzt, auf mehreren Geräten arbeitest oder das Abo mit der Familie teilst. Die Koja-Apps sind die günstigste kostenpflichtige Variante, aber auch die unfertigste."
+        }
+      ]
+    },
+    {
+      "id": "welche-loesung-passt",
+      "h2": "Welche Lösung passt zu wem?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Du brauchst echtes Word und Excel, weil Kunden, Schule oder Arbeitgeber es erwarten: Nimm Office Home 2024 für 149 €, mit Outlook Office Home & Business 2024 für 299 €. Voraussetzung ist macOS Sonoma oder neuer.",
+            "Du öffnest nur gelegentlich eine Office-Datei: Pages, Numbers und Keynote oder die kostenlose Webversion von Microsoft reichen meist aus.",
+            "Du arbeitest viel mit Office-Dateien, willst aber nichts bezahlen: LibreOffice ist eine umfangreiche kostenlose Lösung zum Installieren.",
+            "Du willst in Echtzeit mit anderen an Dateien arbeiten oder mehrere Personen und Geräte versorgen: Dann ist Microsoft 365 trotz Abo die passende Wahl.",
+            "Du suchst eine günstige Mac-App mit vertrautem Menüband und willst ein Paket aus 13 Apps für wenig Geld: Teste WordKoja, GridKoja und DeckKoja, mit dem Wissen, dass sie noch in früher Entwicklung sind."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Egal, wofür du dich entscheidest: Probier deine wichtigsten Dateien vorher aus. Gerade bei Vorlagen von Arbeitgebern oder Behörden zeigt sich schnell, ob eine Alternative reicht."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Kann man Microsoft Office für Mac ohne Abo kaufen?",
+      "a": "Ja. Office Home 2024 kostet bei Microsoft 149 € einmalig und enthält Word, Excel, PowerPoint und OneNote für einen Mac. Office Home & Business 2024 mit Outlook kostet 299 €. Beide bekommen bis Oktober 2029 Updates, aber keine neuen Funktionen."
+    },
+    {
+      "q": "Ist Word auf dem Mac kostenlos?",
+      "a": "Als installierte App nicht. Die Versionen aus dem Mac App Store brauchen zum Aktivieren ein Microsoft-365-Abo. Kostenlos nutzen kannst du Word im Browser mit einem Microsoft-Konto oder Apples Pages, das Word-Dateien öffnet und als .docx exportiert."
+    },
+    {
+      "q": "Wie öffne ich eine .docx-Datei auf dem Mac ohne Word?",
+      "a": "Klick die Datei im Finder mit gedrückter Ctrl-Taste an und wähle „Öffnen mit“ > Pages. Zurück ins Word-Format kommst du über die Teilen-Taste, „Exportieren und senden“ und „Word“. Bei komplexen Dokumenten können Schriften fehlen oder das Layout abweichen."
+    },
+    {
+      "q": "Läuft Office 2024 auf meinem älteren Mac?",
+      "a": "Für eine Neuinstallation von Office 2024 brauchst du laut Microsoft macOS Sonoma oder neuer, 4 GB Arbeitsspeicher und 10 GB freien Speicherplatz. Offiziell unterstützt Microsoft aber nur die drei neuesten macOS-Versionen, seit September 2026 also Sequoia 15, Tahoe 26 und Golden Gate 27. Nutzt du noch Sonoma, prüf deshalb, ob sich dein Mac aktualisieren lässt."
+    },
+    {
+      "q": "Gibt es Office für Schüler und Studierende kostenlos?",
+      "a": "Teilweise. Lehrkräfte und Lernende mit der E-Mail-Adresse einer berechtigten Bildungseinrichtung können Office 365 A1 kostenlos nutzen. Darin sind Word, Excel, PowerPoint, Outlook und OneNote aber nur als Webversionen enthalten. Frag bei deiner Schule oder Hochschule nach, ob sie auch Desktop-Apps anbietet."
+    },
+    {
+      "q": "Ersetzen WordKoja, GridKoja und DeckKoja Microsoft Office?",
+      "a": "Nein, noch nicht. Die drei Apps sind frühe Versionen (Alpha) und arbeiten mit .docx, .xlsx und .pptx, Layout und Formatierung können aber abweichen. WordKoja hat zum Beispiel noch keine deutsche Rechtschreibprüfung. Du kannst alle 13 Apps 3 Tage kostenlos testen und danach für 2,99 € im Monat nutzen, jederzeit ohne Gebühr kündbar."
+    }
+  ],
+  "apps": ["word-koja", "grid-koja", "deck-koja", "pdf-koja"],
+  "sources": [
+    {
+      "label": "Microsoft: Microsoft 365-Pläne und -Preise vergleichen",
+      "url": "https://www.microsoft.com/de-de/microsoft-365/buy/compare-all-microsoft-365-products"
+    },
+    {
+      "label": "Microsoft Store: Office Home & Business 2024",
+      "url": "https://www.microsoft.com/de-de/microsoft-365/p/office-home-business-2024/cfq7ttc0pbm7"
+    },
+    {
+      "label": "Microsoft Support: Häufig gestellte Fragen zu Office 2024 und Office LTSC 2024",
+      "url": "https://support.microsoft.com/de-de/office/lifecycle/office-2024-and-office-ltsc-2024-faq"
+    },
+    {
+      "label": "Microsoft Lifecycle: Office 2024",
+      "url": "https://learn.microsoft.com/de-de/lifecycle/products/office-2024"
+    },
+    {
+      "label": "Microsoft Lifecycle: Office 2021",
+      "url": "https://learn.microsoft.com/de-de/lifecycle/products/office-2021"
+    },
+    {
+      "label": "Microsoft Support: macOS aktualisieren, um weiter Office-Updates zu erhalten",
+      "url": "https://support.microsoft.com/de-de/office/upgrade-macos-to-continue-receiving-microsoft-365-and-office-for-mac-updates-16b8414f-08ec-4b24-8c91-10a918f649f8"
+    },
+    {
+      "label": "Microsoft Learn: Übersicht über Office für Mac",
+      "url": "https://learn.microsoft.com/de-de/microsoft-365-apps/mac/overview"
+    },
+    {
+      "label": "Microsoft Support: Microsoft Office und der Mac App Store",
+      "url": "https://support.microsoft.com/de-de/office/office-for-mac/microsoft-office-and-the-mac-app-store"
+    },
+    {
+      "label": "Microsoft: Microsoft 365 für das Web kostenlos nutzen",
+      "url": "https://www.microsoft.com/de-de/microsoft-365/free-office-online-for-the-web"
+    },
+    {
+      "label": "Microsoft Support: Microsoft 365-Apps auf Mobilgeräten",
+      "url": "https://support.microsoft.com/de-de/office/foundations-experiences/microsoft-365-mobile-apps"
+    },
+    {
+      "label": "Microsoft Bildung: Office 365 Education",
+      "url": "https://www.microsoft.com/de-de/education/products/office"
+    },
+    {
+      "label": "Microsoft How to Tell: Tipps für sicheres Einkaufen",
+      "url": "https://www.microsoft.com/de-de/howtotell/shop"
+    },
+    {
+      "label": "Microsoft How to Tell: Digitale Downloads",
+      "url": "https://www.microsoft.com/de-de/howtotell/software-digital-downloads"
+    },
+    {
+      "label": "Apple Support: Office-Dateien mit Pages, Numbers und Keynote verwenden",
+      "url": "https://support.apple.com/de-de/105050"
+    },
+    {
+      "label": "Apple: Apple Creator Studio",
+      "url": "https://www.apple.com/de/apple-creator-studio/"
+    },
+    {
+      "label": "Apple Support: TextEdit-Dokumente öffnen und sichern",
+      "url": "https://support.apple.com/de-de/guide/textedit/txtee6663a0e/mac"
+    },
+    {
+      "label": "LibreOffice: Über LibreOffice",
+      "url": "https://www.libreoffice.org/discover/libreoffice/"
+    },
+    {
+      "label": "LibreOffice: Systemvoraussetzungen",
+      "url": "https://www.libreoffice.org/get-help/system-requirements/"
+    },
+    {
+      "label": "LibreOffice-Hilfe: Microsoft-Office-Dokumente konvertieren",
+      "url": "https://help.libreoffice.org/latest/de/text/shared/guide/ms_import_export_limitations.html"
+    }
+  ]
+}

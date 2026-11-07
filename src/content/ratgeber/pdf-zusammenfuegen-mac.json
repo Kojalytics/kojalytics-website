@@ -1,0 +1,492 @@
+{
+  "slug": "pdf-zusammenfuegen-mac",
+  "navTitle": "PDF zusammenfügen am Mac",
+  "h1": "PDF zusammenfügen am Mac: 3 Wege ohne Upload (Finder, Vorschau, App)",
+  "metaTitle": "PDF zusammenfügen am Mac: kostenlos, ohne Upload",
+  "metaDescription": "Mehrere PDFs am Mac zu einer Datei zusammenfügen: per Finder-Schnellaktion oder mit Vorschau, kostenlos und ohne Upload. Mit Tipps für typische Probleme.",
+  "primaryKeyword": "pdf zusammenfügen mac",
+  "updated": "2026-11-07",
+  "readingMinutes": 13,
+  "intro": [
+    "Am Mac kannst du mehrere Dateien am schnellsten direkt im Finder zu einem PDF zusammenfügen, ganz ohne zusätzliches Programm: Markiere die Dateien in der gewünschten Reihenfolge, klicke bei gedrückter Control-Taste darauf und wähle „Schnellaktionen“ > „PDF erstellen“. macOS legt daraus sofort eine neue PDF-Datei an. Willst du nur einzelne Seiten übernehmen oder die Reihenfolge Seite für Seite festlegen, nimmst du die App Vorschau. Beide Wege sind kostenlos und in macOS enthalten.",
+    "Hier findest du beide Methoden Schritt für Schritt, dazu Apples wichtigsten Hinweis zum Schutz deiner Originale und Lösungen für typische Probleme wie eine falsche Seitenreihenfolge oder zu große Dateien. Außerdem erfährst du, welche Programme sich lohnen, wenn du regelmäßig PDFs kombinierst. Alle drei Hauptwege laufen lokal auf deinem Mac. Du musst also keine Dokumente hochladen."
+  ],
+  "sections": [
+    {
+      "id": "ueberblick",
+      "h2": "PDF zusammenfügen am Mac: alle Wege im Überblick",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Welche Methode passt, hängt vor allem davon ab, ob du ganze Dateien oder einzelne Seiten kombinieren willst und wie oft du das machst."
+        },
+        {
+          "type": "table",
+          "head": [
+            "Methode",
+            "Kosten",
+            "Upload?",
+            "Gut für",
+            "Grenzen"
+          ],
+          "rows": [
+            [
+              "Finder-Schnellaktion „PDF erstellen“",
+              "kostenlos, in macOS enthalten",
+              "nein",
+              "ganze Dateien in wenigen Sekunden kombinieren",
+              "keine Seitenauswahl, Reihenfolge folgt deiner Auswahl"
+            ],
+            [
+              "Vorschau",
+              "kostenlos, in macOS enthalten",
+              "nein",
+              "einzelne Seiten übernehmen, löschen, sortieren und drehen",
+              "sichert Änderungen automatisch in die geöffnete Datei"
+            ],
+            [
+              "PDFsam Basic",
+              "kostenlos, quelloffen",
+              "nein",
+              "Zusammenfügen, Teilen, Drehen, Seiten extrahieren",
+              "eigene Installation, ab macOS 11"
+            ],
+            [
+              "PdfKoja",
+              "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig",
+              "nein",
+              "regelmäßiges Zusammenfügen mit Lesezeichen pro Datei, Teilen, Seiten ordnen",
+              "noch in früher Entwicklung (Early Alpha)"
+            ],
+            [
+              "Adobe Acrobat online",
+              "kostenlos",
+              "ja, auf Adobe-Server",
+              "schnell im Browser, ohne Installation",
+              "Upload deiner Dokumente, bis 100 Dateien"
+            ],
+            [
+              "Adobe Acrobat Standard oder Pro",
+              "17,99 € bzw. 23,79 € pro Monat im Jahres-Abo",
+              "nein, Desktop-App",
+              "umfangreiche PDF-Bearbeitung",
+              "Abo-Kosten für eine Aufgabe, die macOS kostenlos erledigt"
+            ]
+          ],
+          "caption": "Preise inkl. MwSt., Stand: 7. November 2026."
+        },
+        {
+          "type": "p",
+          "text": "Für die meisten Fälle reicht Methode 1. Brauchst du nur bestimmte Seiten aus einem Dokument, greif zu Methode 2."
+        }
+      ]
+    },
+    {
+      "id": "finder-schnellaktion",
+      "h2": "Methode 1: PDFs im Finder zusammenfügen (ohne Programm)",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Diesen Weg beschreibt Apple im Mac-Benutzerhandbuch für alle macOS-Versionen seit Mojave (10.14). Du musst dafür keine App öffnen."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne den Ordner mit deinen PDFs im Finder. Dateien auf dem Schreibtisch funktionieren genauso.",
+            "Markiere die Dateien in der Reihenfolge, in der sie im fertigen PDF stehen sollen: Klicke die erste an, halte dann die Befehlstaste (⌘) gedrückt und klicke die weiteren nacheinander an.",
+            "Klicke bei gedrückter Control-Taste (oder mit einem Rechtsklick) auf eine der markierten Dateien.",
+            "Wähle „Schnellaktionen“ > „PDF erstellen“.",
+            "Die neue PDF-Datei bekommt automatisch einen Namen, der dem der zuerst ausgewählten Datei ähnelt. Benenne sie am besten gleich sinnvoll um."
+          ]
+        },
+        {
+          "type": "tip",
+          "text": "Die Seitenreihenfolge richtet sich laut Apple danach, in welcher Reihenfolge du die Dateien auswählst, nicht nach dem Dateinamen. Klicke die Dateien deshalb einzeln mit gedrückter Befehlstaste an. Ist trotzdem etwas durcheinandergeraten, sortierst du die Seiten danach in Vorschau um (siehe Methode 2)."
+        },
+        {
+          "type": "h3",
+          "text": "Alternative: die Taste im Vorschaubereich"
+        },
+        {
+          "type": "p",
+          "text": "Es geht auch über den Vorschaubereich im Finder-Fenster. Blende ihn mit „Darstellung“ > „Vorschau einblenden“ ein, markiere die Dateien und klicke unten auf „PDF erstellen“. Steht dort nur „Mehr“, findest du „PDF erstellen“ darunter."
+        },
+        {
+          "type": "h3",
+          "text": "Word-, Pages- oder andere Dokumente einbinden"
+        },
+        {
+          "type": "p",
+          "text": "Welche Schnellaktionen der Finder anbietet, hängt laut Apple vom Dateityp ab. Wandle andere Dokumente deshalb am besten zuerst selbst in PDF um. Das geht in jeder App, die drucken kann:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne das Dokument und wähle „Ablage“ > „Drucken“.",
+            "Klicke auf die Taste „PDF“ oder öffne über den Pfeil daneben das Einblendmenü und wähle „Als PDF sichern“.",
+            "Gib einen Namen ein, wähle den Speicherort und sichere die Datei."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Danach fügst du die neuen PDFs wie oben beschrieben zusammen. Arbeitest du mit Word-Dateien, aber ohne Microsoft-Abo, kann [WordKoja](/software/word-koja) helfen: Die App öffnet .docx-Dateien und exportiert PDFs mit markierbarem Text, Links und Lesezeichen. Sie ist allerdings noch in früher Entwicklung (Alpha), und Seiten- und Zeilenumbrüche können noch von Word abweichen."
+        }
+      ]
+    },
+    {
+      "id": "vorschau",
+      "h2": "Methode 2: PDFs mit Vorschau zusammenfügen",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Vorschau ist die PDF- und Bild-App, die macOS mitbringt. Damit übernimmst du ganze Dateien oder nur ausgewählte Seiten aus einem PDF in ein anderes."
+        },
+        {
+          "type": "tip",
+          "text": "Bevor du loslegst: Vorschau sichert Änderungen automatisch. Ziehst du Seiten in ein geöffnetes PDF, veränderst du genau diese Datei. Arbeite deshalb mit Kopien. Wie das geht, steht im nächsten Abschnitt."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne die PDFs in Vorschau, zum Beispiel per Doppelklick.",
+            "Wähle in jedem Fenster „Darstellung“ > „Miniaturen“. Links erscheint eine Seitenleiste mit allen Seiten.",
+            "Ziehe die gewünschten Miniaturen aus der Seitenleiste des einen PDFs in die Seitenleiste des anderen. Du kannst sie am Ende oder zwischen zwei vorhandenen Seiten ablegen.",
+            "Liegen die Seiten nicht nebeneinander, halte beim Anklicken die Befehlstaste gedrückt, um mehrere auszuwählen.",
+            "Prüfe die Reihenfolge und schließe das Fenster. Vorschau hat die Änderungen bereits gesichert."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Ganze Datei anhängen:** Ziehe das Symbol einer PDF-Datei direkt aus dem Finder in die Seitenleiste des geöffneten Dokuments. Dann landen alle Seiten auf einmal darin."
+        },
+        {
+          "type": "h3",
+          "text": "Seiten einfügen, löschen, sortieren und drehen"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "**Einfügen:** Markiere die Seite, hinter der etwas eingefügt werden soll, und wähle „Bearbeiten“ > „Einfügen“ > „Seite(n) aus Datei“. Mit „Leere Seite“ fügst du eine leere Seite ein.",
+            "**Löschen:** Markiere die Miniaturen und drücke die Rückschritttaste oder wähle „Bearbeiten“ > „Löschen“. Dabei verschwinden auch alle Anmerkungen auf diesen Seiten.",
+            "**Sortieren:** Ziehe die Miniaturen an die richtige Stelle. Bei vielen Seiten hilft die Ansicht „Darstellung“ > „Kontaktbogen“.",
+            "**Drehen:** Markiere quer liegende oder auf dem Kopf stehende Seiten, etwa aus einem Scan, und klicke auf „Links drehen“. Mit gedrückter Wahltaste wird daraus „Rechts drehen“.",
+            "**Seiten herauslösen:** Ziehst du Miniaturen aus der Seitenleiste auf den Schreibtisch, entsteht daraus ein neues PDF."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "originale-schuetzen",
+      "h2": "Originale schützen: Warum du vorher duplizieren solltest",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Apple weist in der Vorschau-Anleitung ausdrücklich darauf hin, dass Änderungen an einem Vorschau-Dokument automatisch gesichert werden. Ziehst du die Seiten von Rechnung B in Rechnung A, ist Rechnung A danach verändert, auch wenn du nie auf „Sichern“ geklickt hast. Mit Kopien gehst du auf Nummer sicher:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne das PDF, in das du Seiten einfügen willst, in Vorschau und wähle „Ablage“ > „Duplizieren“. Apple empfiehlt das für jede Datei, deren Original du behalten willst.",
+            "Sichere die Kopie unter einem neuen Namen, etwa „Unterlagen komplett.pdf“.",
+            "Füge die Seiten nur in der Kopie zusammen. Die Originale bleiben unberührt."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Für wichtige Dokumente wie Verträge oder Zeugnisse kannst du das Original zusätzlich sperren: Bewege in Vorschau den Zeiger neben den Dokumentnamen in der Titelleiste, klicke auf den Abwärtspfeil und aktiviere „Gesperrt“. Im Finder geht das über „Ablage“ > „Informationen“. Eine gesperrte Datei lässt sich laut Apple weder bearbeiten noch löschen. Wer etwas ändern will, muss zuerst ein Duplikat anlegen."
+        },
+        {
+          "type": "tip",
+          "text": "Die Finder-Schnellaktion aus Methode 1 legt immer eine neue Datei an. Deine Ausgangs-PDFs bleiben dabei unverändert."
+        },
+        {
+          "type": "h3",
+          "text": "Schon passiert? So holst du das Original zurück"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne die veränderte Datei in Vorschau.",
+            "Wähle „Ablage“ > „Zurücksetzen auf“ > „Alle Versionen durchsuchen“.",
+            "Blättere mit den Pfeilen oder über die Zeitleiste rechts zu der Fassung vor dem Zusammenfügen.",
+            "Klicke auf „Wiederherstellen“. Willst du beide Fassungen behalten, halte die Wahltaste gedrückt und klicke auf „Eine Kopie wiederherstellen“."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pdfkoja",
+      "h2": "Methode 3: Zusammenfügen und Aufteilen mit PdfKoja",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Wer häufig PDFs kombiniert, etwa für Angebote oder Bewerbungen, stößt mit Vorschau an Grenzen: In Apples Vorschau-Anleitungen findest du keine Funktion, die ein PDF automatisch nach Seitenzahl aufteilt, und keine Angabe dazu, ob Lesezeichen beim Zusammenfügen erhalten bleiben."
+        },
+        {
+          "type": "p",
+          "text": "[PdfKoja](/software/pdf-koja) ist die PDF-App unter den Koja-Apps. Sie läuft nativ auf dem Mac (Apple Silicon und Intel), offline, ohne Konto und ohne Telemetrie. Die Oberfläche gibt es auf Deutsch. Fürs Zusammenfügen bringt sie laut den Entwicklern Folgendes mit:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "**Beliebig viele PDFs zusammenfügen:** Jede Ausgangsdatei bekommt ein eigenes Lesezeichen, ihre vorhandenen Lesezeichen hängen darunter.",
+            "**Inhalte bleiben erhalten:** Links, Formularfelder, Ebenen und Dateianhänge werden übernommen, die Seiten sehen aus wie in den Ausgangsdateien.",
+            "**Teilen und Extrahieren:** Ausgewählte Seiten als eigene Datei speichern oder ein PDF alle n Seiten bzw. vor bestimmten Seiten aufteilen.",
+            "**Seiten wie Karten ordnen:** Per Klick, ⌘-Klick oder ⇧-Klick auswählen, dann drehen, löschen, verschieben oder leere Seiten und Seiten aus einer anderen Datei einfügen. Der Verlauf zum Widerrufen funktioniert auch nach dem Sichern.",
+            "**Vorsichtiges Speichern:** Änderungen werden an die Datei angehängt, statt sie komplett neu zu schreiben, und zuerst in eine temporäre Kopie gesichert. Dazu kommen automatisches Sichern jede Minute und eine Wiederherstellung nach einem Absturz.",
+            "**Passwortgeschützte PDFs:** Verschlüsselung von RC4 (40 Bit) bis AES-256 mit Benutzer- und Eigentümerpasswort. Die Rechte, die der Autor festgelegt hat, werden respektiert."
+          ]
+        },
+        {
+          "type": "app",
+          "app": "pdf-koja",
+          "text": "PDFs zusammenfügen, aufteilen und Seiten ordnen, offline und ohne Konto, mit einem Lesezeichen pro Ausgangsdatei. Noch in früher Entwicklung, aber genau diese Aufgaben zählen die Entwickler zu den Bereichen, die heute gut funktionieren."
+        },
+        {
+          "type": "p",
+          "text": "**Ehrlich gesagt:** PdfKoja ist noch in früher Entwicklung (Early Alpha) und ersetzt Adobe Acrobat nicht vollständig. Office-Dokumente kann die App nicht in PDF umwandeln, die Texterkennung (OCR) funktioniert nur für lateinische Schrift, und das Bearbeiten von vorhandenem Text ist noch schwach. Bei absichtlich beschädigten Testdateien finden die Entwickler noch Abstürze und Hänger, die sie nach und nach beheben. Für wichtige Dokumente gilt deshalb: Originale aufbewahren und das Ergebnis kurz prüfen."
+        },
+        {
+          "type": "p",
+          "text": "PdfKoja gehört zu den 13 Koja-Apps für macOS. Du lädst sie kostenlos über den Kojalytics Launcher und kannst alle Apps 3 Tage kostenlos testen. Danach kostet das Paket 2,99 € pro Monat (inkl. MwSt.), jederzeit mit einem Klick auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs, ein Konto brauchst du nicht. Details stehen in der [Preisübersicht](/software#preise). Kombinierst du nur ein- oder zweimal im Jahr zwei PDFs, reicht der Finder völlig."
+        }
+      ]
+    },
+    {
+      "id": "weitere-programme",
+      "h2": "Weitere Programme: PDFsam Basic und Adobe Acrobat",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "PDFsam Basic: kostenlos und quelloffen"
+        },
+        {
+          "type": "p",
+          "text": "PDFsam Basic ist ein kostenloses, quelloffenes Programm (Lizenz AGPL) für macOS, Windows und Linux. Es kann PDFs zusammenführen, teilen, mischen, drehen und Seiten extrahieren. Laut Hersteller läuft alles lokal: Die Dateien werden nicht hochgeladen, eine Internetverbindung ist nicht nötig. Voraussetzung ist mindestens macOS 11 (Big Sur). Daneben gibt es kostenpflichtige Versionen (PDFsam Visual und Enhanced), fürs Zusammenfügen reicht aber die Basic-Version."
+        },
+        {
+          "type": "h3",
+          "text": "Adobe Acrobat: Zusammenfügen in der Desktop-App nur im Abo"
+        },
+        {
+          "type": "p",
+          "text": "Den Acrobat Reader bietet Adobe kostenlos an, beschreibt ihn aber als Programm zum Öffnen und Anzeigen von PDFs. Das Zusammenführen mehrerer Dokumente führt Adobe bei Acrobat Standard (17,99 € pro Monat) und Acrobat Pro (23,79 € pro Monat) auf, jeweils im Jahres-Abo mit monatlicher Abrechnung inkl. MwSt. Im flexiblen Monats-Abo kosten Acrobat Standard 29,99 € und Acrobat Pro 35,69 € pro Monat."
+        },
+        {
+          "type": "p",
+          "text": "Hast du Acrobat nur zum Zusammenfügen abonniert, lohnt ein Blick auf die Kündigungsregeln: Beim Jahres-Abo mit monatlicher Abrechnung verlangt Adobe nach Ablauf der ersten 14 Tage eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Wie du die Kündigung am besten planst, erklärt der Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+        }
+      ]
+    },
+    {
+      "id": "probleme",
+      "h2": "Häufige Probleme und Lösungen",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Problem",
+            "Ursache",
+            "Lösung"
+          ],
+          "rows": [
+            [
+              "Seiten in falscher Reihenfolge",
+              "Der Finder übernimmt die Reihenfolge, in der du die Dateien ausgewählt hast.",
+              "Dateien einzeln mit gedrückter Befehlstaste in der richtigen Reihenfolge anklicken oder das Ergebnis in Vorschau über die Miniaturen umsortieren."
+            ],
+            [
+              "„PDF erstellen“ fehlt im Menü",
+              "Welche Schnellaktionen erscheinen, hängt laut Apple vom Dateityp und von den aktivierten Finder-Erweiterungen ab.",
+              "Über „Mehr“ > „Anpassen“ die Systemeinstellung „Erweiterungen“ öffnen und prüfen. Andere Dokumente vorher als PDF sichern."
+            ],
+            [
+              "Original wurde verändert",
+              "Vorschau sichert Änderungen automatisch.",
+              "„Ablage“ > „Zurücksetzen auf“ > „Alle Versionen durchsuchen“. Künftig vorher duplizieren."
+            ],
+            [
+              "PDF ist passwortgeschützt",
+              "Der Absender hat das Öffnen oder Ändern eingeschränkt.",
+              "Mit dem Passwort in Vorschau öffnen. Fehlen die Rechte zum Ändern, beim Absender eine ungeschützte Fassung anfragen."
+            ],
+            [
+              "Seite steht quer oder auf dem Kopf",
+              "Häufig bei gescannten Seiten.",
+              "In Vorschau markieren und „Links drehen“ (mit Wahltaste „Rechts drehen“) anklicken."
+            ],
+            [
+              "Datei zu groß für die E-Mail",
+              "Viele Scans oder hochauflösende Bilder.",
+              "Mit dem Quartz-Filter „Dateigröße reduzieren“ exportieren (siehe unten) oder Mail Drop nutzen."
+            ]
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Zusammengefügtes PDF verkleinern"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne das fertige PDF in Vorschau.",
+            "Wähle „Ablage“ > „Exportieren“.",
+            "Wähle im Einblendmenü „Quartz-Filter“ die Option „Dateigröße reduzieren“.",
+            "Klicke auf „Sichern“. Fragt Vorschau, ob die Datei ersetzt werden soll, klicke auf „Abbrechen“, gib unter „Exportieren als“ einen neuen Namen ein und sichere erneut. So bleibt die große Fassung erhalten."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Apple weist darauf hin, dass die verkleinerte Datei schlechter aussehen kann als das Original. Prüfe vor dem Versenden die Lesbarkeit. Ist die Datei trotzdem zu groß: Mail Drop in Apple Mail verschickt Anhänge bis 5 GB über iCloud. Die Dateien bleiben laut Apple 30 Tage abrufbar."
+        },
+        {
+          "type": "h3",
+          "text": "Zusammengefügtes PDF mit Passwort schützen"
+        },
+        {
+          "type": "p",
+          "text": "Enthält das PDF persönliche Daten, kannst du es in Vorschau verschlüsseln:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne das PDF in Vorschau und wähle „Ablage“ > „Exportieren“. Gib einen neuen Namen ein, wenn das Original ohne Passwort bleiben soll.",
+            "Klicke auf „Zugriffsrechte“ und aktiviere „Passwort erforderlich zum Öffnen des Dokuments“. Gib das Passwort zweimal ein.",
+            "Lege ein Eigentümerpasswort fest. Es darf dasselbe sein oder ein anderes.",
+            "Klicke auf „Anwenden“ und dann auf „Sichern“."
+          ]
+        },
+        {
+          "type": "tip",
+          "text": "Schick das Passwort auf einem anderen Weg als das PDF, zum Beispiel per SMS oder Telefon. Sonst hat jeder, der die E-Mail liest, beides."
+        }
+      ]
+    },
+    {
+      "id": "datenschutz",
+      "h2": "Online-Tools oder offline am Mac? Der Datenschutz-Check",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Online-Dienste zum Zusammenfügen funktionieren, haben aber einen Haken: Deine Dateien verlassen den Mac und werden auf fremden Servern verarbeitet. Bei Kontoauszügen, Steuerunterlagen, Arztbriefen oder Bewerbungen mit Zeugnissen ist das unnötig, weil der Mac dieselbe Aufgabe lokal erledigt."
+        },
+        {
+          "type": "p",
+          "text": "Ein Beispiel ist das kostenlose Online-Werkzeug von Adobe. Laut Adobe brauchst du zum Zusammenführen und Herunterladen kein Konto. Du kannst bis zu 100 Dateien kombinieren, höchstens 1.500 Seiten insgesamt und 500 Seiten pro Datei. Die Dateien werden auf Adobe-Servern verarbeitet und danach gelöscht. Wer die Seiten nach dem Zusammenführen neu ordnen oder löschen will, muss sich anmelden."
+        },
+        {
+          "type": "p",
+          "text": "Wenn du doch ein Online-Tool nutzt, halte dich an ein paar Grundregeln:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Lies vorher in der Datenschutzerklärung nach, wie lange der Dienst Dateien speichert und wo er sie verarbeitet.",
+            "Lade keine Dokumente mit Ausweis-, Konto- oder Gesundheitsdaten hoch.",
+            "Lösche deine Dateien nach dem Download, wenn der Dienst das anbietet."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Fazit:** Für gelegentliches Zusammenfügen reichen Finder und Vorschau, beide kostenlos und lokal. Wer oft mit PDFs arbeitet und mehr Struktur im Ergebnis braucht, kann PDFsam Basic oder das noch junge PdfKoja ausprobieren. Auch diese Programme arbeiten ohne Upload. Wie du PDFs darüber hinaus bearbeitest, zeigt der Ratgeber [PDF bearbeiten am Mac](/ratgeber/pdf-bearbeiten-mac)."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wie füge ich am Mac zwei PDFs zu einer Datei zusammen?",
+      "a": "Markiere beide Dateien im Finder in der gewünschten Reihenfolge, klicke bei gedrückter Control-Taste darauf und wähle „Schnellaktionen“ > „PDF erstellen“. macOS legt daraus eine neue PDF-Datei an. Die beiden Ausgangsdateien bleiben dabei unverändert."
+    },
+    {
+      "q": "Kann ich PDFs am Mac kostenlos und ohne Programm zusammenfügen?",
+      "a": "Ja. Die Finder-Schnellaktion „PDF erstellen“ und die App Vorschau sind in macOS enthalten und kostenlos. Du musst nichts installieren und nichts hochladen."
+    },
+    {
+      "q": "Wie füge ich in Vorschau nur einzelne Seiten aus einem anderen PDF ein?",
+      "a": "Blende in beiden Dokumenten mit „Darstellung“ > „Miniaturen“ die Seitenleiste ein. Ziehe die gewünschten Seiten in die Seitenleiste des Ziel-PDFs, mehrere einzelne Seiten wählst du mit gedrückter Befehlstaste aus. Alternativ nutzt du „Bearbeiten“ > „Einfügen“ > „Seite(n) aus Datei“."
+    },
+    {
+      "q": "Warum hat Vorschau mein Original-PDF verändert?",
+      "a": "Vorschau sichert Änderungen automatisch. Wähle deshalb vor dem Zusammenfügen „Ablage“ > „Duplizieren“ und arbeite in der Kopie. Eine frühere Fassung holst du über „Ablage“ > „Zurücksetzen auf“ > „Alle Versionen durchsuchen“ zurück."
+    },
+    {
+      "q": "Wie mache ich ein zusammengefügtes PDF am Mac kleiner?",
+      "a": "Öffne das PDF in Vorschau, wähle „Ablage“ > „Exportieren“ und im Einblendmenü „Quartz-Filter“ die Option „Dateigröße reduzieren“. Sichere das Ergebnis am besten unter einem neuen Namen. Laut Apple kann die Qualität dabei sinken, prüf also die Lesbarkeit."
+    },
+    {
+      "q": "Kann ich PDFs ohne Adobe Acrobat zusammenfügen?",
+      "a": "Ja. Am Mac erledigen Finder und Vorschau das kostenlos. Für mehr Funktionen gibt es lokale Programme wie PDFsam Basic oder PdfKoja, das allerdings noch in früher Entwicklung ist. Acrobat Standard und Pro kosten im Jahres-Abo mit monatlicher Abrechnung 17,99 € bzw. 23,79 € pro Monat."
+    }
+  ],
+  "apps": [
+    "pdf-koja",
+    "word-koja"
+  ],
+  "sources": [
+    {
+      "label": "Apple Mac-Benutzerhandbuch: Dateien in einem PDF-Dokument kombinieren",
+      "url": "https://support.apple.com/de-de/guide/mac-help/mchl21ac2368/mac"
+    },
+    {
+      "label": "Apple Mac-Benutzerhandbuch: Schnellaktionen im Finder ausführen",
+      "url": "https://support.apple.com/de-de/guide/mac-help/mchl97ff9142/mac"
+    },
+    {
+      "label": "Apple Mac-Benutzerhandbuch: Dokument als PDF-Datei sichern",
+      "url": "https://support.apple.com/de-de/guide/mac-help/mchlp1531/mac"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: PDFs kombinieren",
+      "url": "https://support.apple.com/de-de/guide/preview/prvw43696/mac"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: Seiten hinzufügen, löschen oder bewegen",
+      "url": "https://support.apple.com/de-de/guide/preview/prvw11793/mac"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: PDF zuschneiden oder drehen",
+      "url": "https://support.apple.com/de-de/guide/preview/prvw11567/mac"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: Größe einer PDF-Datei reduzieren",
+      "url": "https://support.apple.com/de-de/guide/preview/prvw1509/mac"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: PDF mit einem Passwort schützen",
+      "url": "https://support.apple.com/de-de/guide/preview/prvw587dd90f/mac"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: PDFs und Bilder schützen (Gesperrt)",
+      "url": "https://support.apple.com/de-de/guide/preview/prvw35875/mac"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: Änderungen an PDFs zurücknehmen",
+      "url": "https://support.apple.com/de-de/guide/preview/prvwf4697c5a/mac"
+    },
+    {
+      "label": "Apple Support: Mail Drop-Grenzwerte",
+      "url": "https://support.apple.com/de-de/108329"
+    },
+    {
+      "label": "Adobe: Acrobat-Tarife und Preise",
+      "url": "https://www.adobe.com/de/acrobat/plans.html"
+    },
+    {
+      "label": "Adobe: PDFs online zusammenführen",
+      "url": "https://www.adobe.com/de/acrobat/online/merge-pdf.html"
+    },
+    {
+      "label": "Adobe: Allgemeine Abonnementbedingungen",
+      "url": "https://www.adobe.com/de/legal/subscription-terms.html"
+    },
+    {
+      "label": "PDFsam: PDFsam Basic",
+      "url": "https://pdfsam.org/pdfsam-basic/"
+    },
+    {
+      "label": "PDFsam: Download und Systemanforderungen",
+      "url": "https://pdfsam.org/download-pdfsam-basic/"
+    }
+  ]
+}

@@ -1,0 +1,367 @@
+{
+  "slug": "pdf-bearbeiten-mac",
+  "navTitle": "PDF bearbeiten am Mac",
+  "h1": "PDF bearbeiten am Mac: Was Vorschau kann – und wann du mehr brauchst",
+  "metaTitle": "PDF bearbeiten am Mac: Anleitung & Alternativen",
+  "metaDescription": "PDF am Mac bearbeiten ohne Acrobat: Mit Vorschau Text einfügen, unterschreiben, schwärzen, Seiten ordnen und verkleinern – plus Alternativen.",
+  "primaryKeyword": "pdf bearbeiten mac",
+  "updated": "2026-11-07",
+  "readingMinutes": 13,
+  "intro": [
+    "Wenn du ein PDF am Mac bearbeiten willst, brauchst du für die meisten Aufgaben kein Zusatzprogramm. Die vorinstallierte App Vorschau fügt Text, Markierungen und Notizen hinzu, setzt deine Unterschrift ein, schwärzt Textstellen, löscht, dreht und sortiert Seiten, fügt PDFs zusammen, verkleinert Dateien und schützt sie mit einem Passwort. Eines kann Vorschau nicht: vorhandenen Text im PDF umschreiben. Das sagt Apple im Vorschau-Handbuch selbst. Dafür brauchst du die Originaldatei, LibreOffice Draw für kleine Korrekturen oder einen PDF-Editor wie Adobe Acrobat Standard (17,99 € pro Monat inkl. MwSt. im Jahresabo mit monatlicher Abrechnung).",
+    "Hier findest du die Schritte mit den Menünamen aus Apples Vorschau-Handbuch (Stand Oktober 2026) und die Warnungen, die oft fehlen: Vorschau sichert automatisch, Schwärzungen werden erst beim Schließen endgültig, und Komprimieren kann Bildqualität kosten. Am Ende vergleichen wir Programme für alles, was Vorschau nicht schafft, darunter unsere eigene App PdfKoja, die noch in früher Entwicklung ist."
+  ],
+  "sections": [
+    {
+      "id": "was-vorschau-kann",
+      "h2": "PDF am Mac bearbeiten: Was Vorschau kann und was nicht",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Vorschau ist auf jedem Mac vorinstalliert. Text, Formen, Notizen und Unterschriften findest du in der Werkzeugleiste mit den Markierungswerkzeugen, Seiten bearbeitest du in der Seitenleiste („Darstellung“ > „Miniaturen“). Die Übersicht zeigt, was geht:"
+        },
+        {
+          "type": "table",
+          "head": ["Aufgabe", "In Vorschau?", "Wo du es findest"],
+          "rows": [
+            ["Text, Formen und Notizen hinzufügen", "Ja", "Markierungswerkzeuge „Text“, „Formen“, „Notiz“"],
+            ["Text hervorheben, unter- oder durchstreichen", "Ja", "Text auswählen, dann Hervorheben-Taste"],
+            ["Vorhandenen Text ändern", "Nein", "Laut Apple nicht möglich, siehe Abschnitt unten"],
+            ["Formulare ausfüllen", "Ja", "In das Formularfeld klicken und tippen"],
+            ["Unterschreiben", "Ja", "Werkzeug „Unterschreiben“"],
+            ["Text schwärzen", "Ja", "Werkzeug „Auswahl des zu redigierenden Texts“"],
+            ["Seiten löschen, einfügen, verschieben", "Ja", "„Darstellung“ > „Miniaturen“ und „Bearbeiten“ > „Einfügen“"],
+            ["Seiten drehen und zuschneiden", "Ja", "Werkzeuge „Links drehen“ und „Zuschneiden“"],
+            ["PDFs zusammenfügen", "Ja", "Miniaturen von einem PDF ins andere ziehen"],
+            ["Dateigröße reduzieren", "Ja", "„Ablage“ > „Exportieren“ > „Quartz-Filter“"],
+            ["Passwort setzen", "Ja", "„Ablage“ > „Exportieren“ > „Zugriffsrechte“"]
+          ],
+          "caption": "Grundlage: Apple, Vorschau – Benutzerhandbuch, Stand Oktober 2026"
+        },
+        {
+          "type": "tip",
+          "text": "Vorschau sichert Änderungen automatisch. Wenn du das Original behalten willst, wähle vor dem Bearbeiten „Ablage“ > „Duplizieren“ und arbeite in der Kopie. Ältere Stände holst du über „Ablage“ > „Zurücksetzen auf“ > „Alle Versionen durchsuchen“ zurück."
+        }
+      ]
+    },
+    {
+      "id": "text-und-anmerkungen",
+      "h2": "Text, Markierungen und Notizen hinzufügen",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Mit den Markierungswerkzeugen legst du neue Inhalte über das PDF, der vorhandene Text bleibt unverändert:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne das PDF in Vorschau und blende bei Bedarf die Markierungswerkzeuge ein.",
+            "Wähle „Text“, tippe deinen Text und zieh das Textfeld an die richtige Stelle. Schrift, Stil und Farbe änderst du über „Textformat“.",
+            "Für Hinweise nimmst du „Notiz“. Die Farbe einer Notiz änderst du per Control-Klick auf die Notiz.",
+            "Mit „Formen“ setzt du Rahmen, Linien, eine Hervorhebung oder eine Lupe. Die blauen Aktivpunkte ändern die Größe.",
+            "Um Text hervorzuheben, wählst du ihn aus und klickst auf die Hervorheben-Taste. Über den Pfeil daneben wählst du die Farbe oder Unter- und Durchstreichen."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Alle Hervorhebungen und Notizen zeigt „Darstellung“ > „Hervorhebungen und Notizen“ gesammelt in der Seitenleiste. Eine Hervorhebung löschst du per Control-Klick auf den Text über das Kontextmenü."
+        },
+        {
+          "type": "h3",
+          "text": "Anmerkungen fixieren, bevor du das PDF verschickst"
+        },
+        {
+          "type": "p",
+          "text": "Mit „Ablage“ > „Sichern“, „Exportieren“ oder „Als PDF exportieren“ bleiben deine Anmerkungen später bearbeitbar. Soll alles fest auf der Seite stehen, wähle „Ablage“ > „Drucken“ und dann „Als PDF sichern“. Apple nennt das Reduzieren der Anmerkungen: Danach lassen sie sich nicht mehr bearbeiten."
+        }
+      ]
+    },
+    {
+      "id": "vorhandenen-text-aendern",
+      "h2": "Vorhandenen Text im PDF ändern: drei Wege",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Ein Tippfehler, eine falsche Zahl: Hier stößt Vorschau an ihre Grenzen. Apple schreibt im Handbuch, dass sich der Text eines PDFs in Vorschau nicht bearbeiten lässt. Du hast drei Möglichkeiten."
+        },
+        {
+          "type": "h3",
+          "text": "1. Die Originaldatei ändern und neu als PDF sichern"
+        },
+        {
+          "type": "p",
+          "text": "Das ist fast immer der sauberste Weg: Ausgangsdokument korrigieren und das PDF neu erstellen. Auf dem Mac geht das aus den meisten Apps über „Ablage“ > „Drucken“, dann im Einblendmenü „PDF“ mit „Als PDF sichern“. Liegt die Vorlage als Word-Datei vor und hast du kein Word, kann zum Beispiel [WordKoja](/software/word-koja) sie öffnen und als PDF exportieren."
+        },
+        {
+          "type": "app",
+          "app": "word-koja",
+          "text": "WordKoja öffnet und speichert .docx und exportiert PDFs mit auswählbarem Text, Links und Lesezeichen. Die App ist noch in früher Entwicklung (Alpha): Seitenumbrüche können von Word abweichen, und ein fertiges PDF öffnet sie nicht als bearbeitbares Dokument."
+        },
+        {
+          "type": "h3",
+          "text": "2. Kleine Korrekturen mit LibreOffice Draw"
+        },
+        {
+          "type": "p",
+          "text": "Die freie Office-Suite LibreOffice gibt es kostenlos für Macs mit Apple Silicon und Intel. PDFs öffnet sie in Draw, ihrem Zeichenprogramm, und laut dem offiziellen LibreOffice-Handbuch lassen sich deren Inhalte damit bearbeiten. Für ein falsches Wort oder eine Zahl kann das reichen. Arbeite in einer Kopie und prüfe Schrift, Abstände und Zeilenumbrüche genau, bevor du das Ergebnis wieder als PDF exportierst."
+        },
+        {
+          "type": "h3",
+          "text": "3. Einen PDF-Editor nutzen"
+        },
+        {
+          "type": "p",
+          "text": "Mit Adobe Acrobat Standard und Acrobat Pro bearbeitest du laut Adobe PDF-Dateien direkt, also auch Text und Bilder. Acrobat Standard kostet 17,99 € pro Monat im Jahresabo mit monatlicher Abrechnung, Acrobat Pro 23,79 € (jeweils inkl. MwSt.). Den kostenlosen Acrobat Reader beschreibt Adobe als Programm zum Ansehen, Kommentieren und Unterzeichnen. Das Bearbeiten von PDFs führt Adobe erst ab Acrobat Standard auf."
+        },
+        {
+          "type": "tip",
+          "text": "Lass die Finger vom weißen Kasten. Wenn du alten Text mit einer weißen Form abdeckst und ein Textfeld darüberlegst, sieht die Seite korrigiert aus. Der alte Text steht aber weiter in der Datei und lässt sich oft finden und kopieren. Für Verträge, Beträge oder vertrauliche Angaben ist das keine Lösung."
+        }
+      ]
+    },
+    {
+      "id": "pdf-unterschreiben",
+      "h2": "PDF unterschreiben und Formulare ausfüllen",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Vorschau speichert deine Unterschrift, sodass du sie danach in jedes PDF einsetzen kannst. Klicke dazu in der Werkzeugleiste auf „Unterschreiben“. Du hast drei Wege, die Unterschrift zu erfassen:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Trackpad: Klicke auf „Trackpad“, unterschreibe mit dem Finger, drücke eine beliebige Taste und klicke auf „Fertig“.",
+            "Kamera: Unterschreibe auf weißem Papier und halte das Blatt so vor die Mac-Kamera, dass die Unterschrift auf der blauen Linie liegt. Klicke dann auf „Fertig“.",
+            "iPhone oder iPad: Wähle „Gerät auswählen“ und unterschreibe auf dem Gerät mit dem Finger, auf dem iPad auch mit dem Apple Pencil."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Zum Einsetzen wählst du die Unterschrift aus der Liste, ziehst sie an die richtige Stelle und passt die Größe mit den Aktivpunkten an. Ist iCloud Drive aktiv, stehen deine Unterschriften auch auf deinen anderen Macs bereit."
+        },
+        {
+          "type": "h3",
+          "text": "Formulare ausfüllen"
+        },
+        {
+          "type": "p",
+          "text": "Bei ausfüllbaren Formularen klickst du in ein Feld und tippst. Geht das nicht, legst du mit dem Werkzeug „Text“ ein Textfeld darüber. Manche Formulare füllt Vorschau mit „Formular automatisch ausfüllen“ aus deiner Kontaktkarte, laut Apple aber nicht jedes."
+        },
+        {
+          "type": "h3",
+          "text": "Ist das rechtsgültig?"
+        },
+        {
+          "type": "p",
+          "text": "Die Unterschrift aus Vorschau ist ein erfasstes Abbild deiner Handschrift, das du auf der Seite platzierst. Apple beschreibt sie nicht als qualifizierte elektronische Signatur. Das zählt, wenn das Gesetz die Schriftform verlangt: Dann kann die elektronische Form sie nur ersetzen, wenn das Dokument eine qualifizierte elektronische Signatur trägt (§ 126a BGB). In allen anderen Fällen klärst du am besten vorab mit dem Empfänger, ob ein unterschriebenes PDF genügt."
+        }
+      ]
+    },
+    {
+      "id": "pdf-schwaerzen",
+      "h2": "Text schwärzen und prüfen, ob er wirklich weg ist",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Vorschau hat ein eigenes Werkzeug zum Schwärzen. Apple nennt es „Auswahl des zu redigierenden Texts“. Laut Apple entfernt es den markierten Text aus der Ansicht, und nach dem Schließen des Dokuments ist die Schwärzung dauerhaft. So gehst du sicher vor:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Erstelle mit „Ablage“ > „Duplizieren“ eine Kopie und arbeite nur darin. Nach dem Schließen gibt es kein Zurück.",
+            "Blende die Markierungswerkzeuge ein und wähle „Auswahl des zu redigierenden Texts“.",
+            "Markiere alle Stellen, die verschwinden sollen. Solange das Dokument offen ist, kannst du Schwärzungen noch ändern.",
+            "Schließe das Dokument. Ab jetzt bleiben die Schwärzungen dauerhaft erhalten.",
+            "Öffne die Datei erneut und suche nach den geschwärzten Begriffen. Versuche außerdem, den Text an diesen Stellen auszuwählen und zu kopieren."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Eine Lücke nennt Apple ausdrücklich: Einträge im Inhaltsverzeichnis, die auf geschwärzten Text verweisen, werden nicht entfernt. Prüfe das Inhaltsverzeichnis in der Seitenleiste deshalb immer mit."
+        },
+        {
+          "type": "tip",
+          "text": "Schwarze Balken aus dem Werkzeug „Formen“ sind kein Schwärzen. Sie liegen nur als Anmerkung über dem Text, der darunter in der Datei bleibt. Nutze für vertrauliche Inhalte immer das Redigieren-Werkzeug."
+        }
+      ]
+    },
+    {
+      "id": "seiten-bearbeiten",
+      "h2": "Seiten löschen, einfügen, drehen und zusammenfügen",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Die meisten Seitenaufgaben erledigst du in der Seitenleiste. Öffne sie mit „Darstellung“ > „Miniaturen“ oder „Darstellung“ > „Kontaktbogen“."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Seiten löschen: Seiten auswählen und die Rückschritttaste drücken oder „Bearbeiten“ > „Löschen“ wählen. Achtung: Anmerkungen auf diesen Seiten werden mitgelöscht.",
+            "Seiten einfügen: Die Seite auswählen, nach der die neue erscheinen soll. Dann „Bearbeiten“ > „Einfügen“ > „Seite(n) aus Datei“ oder „Leere Seite“ wählen.",
+            "Seiten verschieben: Miniaturen an die neue Position ziehen.",
+            "Seiten drehen: Seiten in den Miniaturen auswählen und auf „Links drehen“ klicken. Mit gedrückter Option-Taste drehst du nach rechts.",
+            "Seiten zuschneiden: Mit dem Werkzeug „Rechteckige Auswahl“ den Bereich markieren, der bleiben soll, und in der Werkzeugleiste auf „Zuschneiden“ klicken. „Bearbeiten“ > „Zuschneiden widerrufen“ macht das sofort rückgängig.",
+            "Seiten als eigenes PDF speichern: Miniaturen aus der Seitenleiste auf den Schreibtisch ziehen. So entsteht ein neues PDF."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Mehrere PDFs zusammenfügen"
+        },
+        {
+          "type": "p",
+          "text": "Öffne alle PDFs und blende in jedem die Miniaturen ein. Zieh dann die gewünschten Seiten von einer Seitenleiste in die andere. Ein komplettes PDF fügst du hinzu, indem du sein Symbol aus dem Finder in die Seitenleiste eines geöffneten Dokuments ziehst. Dupliziere die Originale vorher. Mehr Wege zeigt der Ratgeber [PDF zusammenfügen am Mac](/ratgeber/pdf-zusammenfuegen-mac)."
+        }
+      ]
+    },
+    {
+      "id": "pdf-verkleinern-und-schuetzen",
+      "h2": "PDF verkleinern und mit Passwort schützen",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Dateigröße reduzieren"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Wähle „Ablage“ > „Exportieren“.",
+            "Wähle im Einblendmenü „Quartz-Filter“ die Option „Dateigröße reduzieren“.",
+            "Gib im Feld „Exportieren als“ einen neuen Namen ein, damit das Original erhalten bleibt, und klicke auf „Sichern“."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Apple weist darauf hin, dass das komprimierte PDF schlechter aussehen kann als das Original. Ist dir das Ergebnis zu grob, nimm statt des Filters die einzelnen Optionen im selben Dialog: „Bilder für Bildschirm optimieren“, „Bilder als JPEG sichern“ oder „Linearisiertes PDF erstellen“. Letzteres sorgt dafür, dass das PDF im Browser schneller lädt. Wie klein die Datei wird und wie gut sie aussieht, hängt laut Apple von den gewählten Optionen ab."
+        },
+        {
+          "type": "h3",
+          "text": "Passwort setzen"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Wähle „Ablage“ > „Exportieren“. Gib einen neuen Dateinamen ein, wenn das Original ohne Passwort bleiben soll.",
+            "Klicke auf „Zugriffsrechte“ und aktiviere „Passwort erforderlich zum Öffnen des Dokuments“. Gib das Passwort zweimal ein.",
+            "Entferne die Häkchen bei den Aktionen, etwa Drucken, die nur mit dem Eigentümerpasswort möglich sein sollen.",
+            "Lege im Feld „Eigentümerpasswort“ ein Passwort fest. Es darf dasselbe sein wie das zum Öffnen oder ein anderes.",
+            "Klicke auf „Anwenden“ und dann auf „Sichern“. Der Schutz greift beim nächsten Öffnen der Datei."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Später änderst du die Rechte über „Ablage“ > „Berechtigungen bearbeiten“. Bewahre das Passwort an einem sicheren Ort auf."
+        }
+      ]
+    },
+    {
+      "id": "pdf-programme-vergleich",
+      "h2": "Wann Vorschau nicht reicht: PDF-Programme im Vergleich",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Ein eigenes PDF-Programm lohnt sich, wenn du regelmäßig vorhandenen Text änderst, Scans in bearbeitbare PDFs umwandeln willst oder viele Dateien ordnest und aufteilst. Diese Optionen gibt es:"
+        },
+        {
+          "type": "table",
+          "head": ["Programm", "Kosten", "Stark bei", "Grenzen"],
+          "rows": [
+            ["Vorschau (Apple)", "auf dem Mac vorinstalliert", "Anmerkungen, Unterschrift, Schwärzen, Seiten, Zusammenfügen, Verkleinern, Passwort", "Vorhandener Text lässt sich nicht bearbeiten"],
+            ["Adobe Acrobat Reader", "kostenlos", "Ansehen, Kommentieren, Unterzeichnen", "PDF-Bearbeitung erst ab Acrobat Standard"],
+            ["Adobe Acrobat Standard", "17,99 € pro Monat im Jahresabo (monatlich abgerechnet), 29,99 € im Monatsabo", "PDFs bearbeiten und organisieren, umwandeln, Formulare, Signaturen, Passwortschutz", "Schwärzen, Scans umwandeln und Vergleichen nur in Pro"],
+            ["Adobe Acrobat Pro", "23,79 € pro Monat im Jahresabo (monatlich abgerechnet), 35,69 € im Monatsabo", "Alles aus Standard plus Schwärzen, Scans in bearbeitbare PDFs, Vergleichen", "Jahresabo mit monatlicher Abrechnung nach 14 Tagen nur gegen Gebühr vorzeitig kündbar (wie bei Standard)"],
+            ["LibreOffice Draw", "kostenlos", "Kleine Korrekturen in fremden PDFs", "Zeichenprogramm, kein reiner PDF-Editor; Ergebnis genau prüfen"],
+            ["PdfKoja", "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig", "Seiten ordnen, Zusammenfügen und Teilen, Passwortschutz, Formulare, Kommentare, offline", "Frühe Alpha-Version, Bearbeiten von vorhandenem Text noch lückenhaft"]
+          ],
+          "caption": "Preise inkl. MwSt. laut Anbieterseiten, Stand 7. November 2026"
+        },
+        {
+          "type": "h3",
+          "text": "Acrobat ohne Abo?"
+        },
+        {
+          "type": "p",
+          "text": "Unbefristete Acrobat-Lizenzen verkauft Adobe nach Acrobat 2020 nicht mehr. Als Alternative nennt Adobe Acrobat Pro 2024: Gegen eine einmalige Zahlung bekommst du drei Jahre Zugriff auf die Desktop-Version, mit vierteljährlichen Sicherheits-Updates, aber ohne neue Funktionen und ohne Adobes Online-Dienste. Wer ein Jahresabo mit monatlicher Zahlung nach den ersten 14 Tagen kündigt, zahlt laut Adobes Abobedingungen eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Mehr dazu im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+        },
+        {
+          "type": "h3",
+          "text": "Online-Editoren: Denk an den Upload"
+        },
+        {
+          "type": "p",
+          "text": "Bei vielen PDF-Editoren im Browser lädst du die Datei auf den Server des Anbieters hoch. Bei Verträgen, Steuerunterlagen oder Gesundheitsdaten solltest du dir das gut überlegen. Vorschau, LibreOffice und PdfKoja arbeiten lokal auf deinem Mac."
+        },
+        {
+          "type": "h3",
+          "text": "PdfKoja: was es heute kann und was nicht"
+        },
+        {
+          "type": "p",
+          "text": "[PdfKoja](/software/pdf-koja) ist unsere PDF-App für macOS, ein Build eines quelloffenen Projekts, dessen Entwickler es selbst als Early Alpha einstufen. Enthalten sind das Ordnen von Seiten (drehen, löschen, einfügen, verschieben, mit Rückgängig-Verlauf auch nach dem Sichern), das Zusammenfügen beliebig vieler PDFs mit je einem Lesezeichen pro Datei sowie Extrahieren und Aufteilen, etwa alle n Seiten. Dazu kommen Verschlüsselung mit Benutzer- und Eigentümerpasswort (von RC4 mit 40 Bit bis AES-256), das Ausfüllen von Formularen und Kommentare als Unterhaltungen."
+        },
+        {
+          "type": "p",
+          "text": "Gesichert wird inkrementell, die ursprünglichen Bytes bleiben erhalten. Jede Minute läuft eine automatische Sicherung, nach einem Absturz bietet die App eine Wiederherstellung an. PdfKoja läuft offline, ohne Konto und ohne Telemetrie, mit deutscher Oberfläche."
+        },
+        {
+          "type": "p",
+          "text": "Die Grenzen solltest du kennen: Vorhandenen Text zu bearbeiten ist laut den Entwicklern noch dünn, Office-Dateien lassen sich nicht in PDF umwandeln, und die Texterkennung (OCR) funktioniert nur für lateinische Schrift. In ihrem eigenen Abgleich mit Acrobat Pro kommen die Entwickler auf eine Abdeckung von rund 57 % der 808 erfassten Funktionen. PdfKoja ersetzt Acrobat also nicht vollständig. Prüfe Ergebnisse bei wichtigen Dokumenten deshalb immer."
+        },
+        {
+          "type": "app",
+          "app": "pdf-koja",
+          "text": "PdfKoja ergänzt Vorschau beim Ordnen, Aufteilen und Schützen von PDFs und läuft offline ohne Konto. Die App ist noch in früher Entwicklung (Early Alpha), teste sie deshalb zuerst 3 Tage kostenlos."
+        },
+        {
+          "type": "p",
+          "text": "Alle 13 Koja-Apps lädst du kostenlos über den Kojalytics Launcher und testest sie 3 Tage. Danach kosten sie zusammen 2,99 € pro Monat inkl. MwSt., jederzeit ohne Gebühr kündbar, oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. Die Apps gibt es nur für macOS. Details stehen unter [Preise](/software#preise)."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Kann man mit Vorschau Text in einem PDF bearbeiten?",
+      "a": "Nein. Laut Apple lässt sich der Text eines PDFs in Vorschau nicht bearbeiten. Du kannst aber Textfelder, Notizen und Hervorhebungen hinzufügen. Für Korrekturen bearbeitest du am besten die Originaldatei oder nutzt einen PDF-Editor."
+    },
+    {
+      "q": "Wie kann ich ein PDF auf dem Mac kostenlos bearbeiten?",
+      "a": "Mit der vorinstallierten App Vorschau: Sie fügt Text und Unterschriften hinzu, schwärzt, sortiert Seiten, verkleinert Dateien und setzt Passwörter. Für kleine Textkorrekturen in fremden PDFs gibt es das kostenlose LibreOffice Draw."
+    },
+    {
+      "q": "Ist eine Unterschrift mit Vorschau rechtsgültig?",
+      "a": "Vorschau platziert ein erfasstes Abbild deiner Unterschrift im PDF. Apple beschreibt das nicht als qualifizierte elektronische Signatur. Wo das Gesetz die Schriftform verlangt, kann die elektronische Form sie nur mit qualifizierter elektronischer Signatur ersetzen (§ 126a BGB). In anderen Fällen fragst du am besten beim Empfänger nach, ob ein unterschriebenes PDF genügt."
+    },
+    {
+      "q": "Wie mache ich Änderungen in Vorschau rückgängig?",
+      "a": "Wähle „Ablage“ > „Zurücksetzen auf“ > „Alle Versionen durchsuchen“, blättere zum gewünschten Stand und klicke auf „Wiederherstellen“. Mit gedrückter Option-Taste erstellst du stattdessen eine Kopie dieser Version. Vor dem Schwärzen solltest du die Datei trotzdem duplizieren."
+    },
+    {
+      "q": "Warum ist mein PDF nach dem Verkleinern unscharf?",
+      "a": "Apple weist darauf hin, dass ein komprimiertes PDF schlechter aussehen kann als das Original. Wie stark, hängt von den gewählten Optionen ab. Exportiere deshalb immer unter neuem Namen und probiere statt des Quartz-Filters einzelne Optionen wie „Bilder für Bildschirm optimieren“ aus."
+    },
+    {
+      "q": "Brauche ich Adobe Acrobat auf dem Mac?",
+      "a": "Für Anmerkungen, Unterschriften, Seitenarbeit, Schwärzen und Passwortschutz reicht Vorschau. Acrobat lohnt sich, wenn du regelmäßig vorhandenen Text änderst oder Scans in bearbeitbare PDFs umwandeln willst; Letzteres gibt es erst in Acrobat Pro. Standard kostet 17,99 €, Pro 23,79 € pro Monat im Jahresabo mit monatlicher Abrechnung."
+    }
+  ],
+  "apps": ["pdf-koja", "word-koja"],
+  "sources": [
+    { "label": "Apple Vorschau-Handbuch: Anmerkungen zu einer PDF-Datei hinzufügen", "url": "https://support.apple.com/de-de/guide/preview/prvw11580/mac" },
+    { "label": "Apple Vorschau-Handbuch: Text markieren, unter- und durchstreichen", "url": "https://support.apple.com/de-de/guide/preview/prvw757d4d5b/mac" },
+    { "label": "Apple Vorschau-Handbuch: PDF-Formulare ausfüllen und unterschreiben", "url": "https://support.apple.com/de-de/guide/preview/prvw35725/mac" },
+    { "label": "Apple Vorschau-Handbuch: Seiten hinzufügen, löschen oder bewegen", "url": "https://support.apple.com/de-de/guide/preview/prvw11793/mac" },
+    { "label": "Apple Vorschau-Handbuch: PDF zuschneiden oder drehen", "url": "https://support.apple.com/de-de/guide/preview/prvw11567/mac" },
+    { "label": "Apple Vorschau-Handbuch: PDFs kombinieren", "url": "https://support.apple.com/de-de/guide/preview/prvw43696/mac" },
+    { "label": "Apple Vorschau-Handbuch: Größe einer PDF-Datei reduzieren", "url": "https://support.apple.com/de-de/guide/preview/prvw1509/mac" },
+    { "label": "Apple Vorschau-Handbuch: PDF mit Passwort schützen", "url": "https://support.apple.com/de-de/guide/preview/prvw587dd90f/mac" },
+    { "label": "Apple Vorschau-Handbuch: Änderungen zurücknehmen", "url": "https://support.apple.com/de-de/guide/preview/prvwf4697c5a/mac" },
+    { "label": "Apple Mac-Benutzerhandbuch: Dokument als PDF sichern", "url": "https://support.apple.com/de-de/guide/mac-help/mchlp1531/mac" },
+    { "label": "Adobe: Acrobat-Abos und Preise", "url": "https://www.adobe.com/de/acrobat/plans.html" },
+    { "label": "Adobe: Allgemeine Abobedingungen", "url": "https://www.adobe.com/de/legal/subscription-terms.html" },
+    { "label": "LibreOffice Getting Started Guide 26.2: Kapitel 10, Dateiformate und Export", "url": "https://books.libreoffice.org/en/GS262/GS26210-FileFormatsSecurityExporting.html" },
+    { "label": "LibreOffice: Startseite", "url": "https://de.libreoffice.org/" },
+    { "label": "LibreOffice: Download", "url": "https://de.libreoffice.org/download/download/" },
+    { "label": "Gesetze im Internet: § 126a BGB Elektronische Form", "url": "https://www.gesetze-im-internet.de/bgb/__126a.html" }
+  ]
+}

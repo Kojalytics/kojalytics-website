@@ -1,0 +1,471 @@
+{
+  "slug": "office-2021-mac-support-ende",
+  "navTitle": "Office 2021 Mac: Support-Ende",
+  "h1": "Office 2021 für Mac: Support-Ende – was jetzt gilt und was du tun kannst",
+  "metaTitle": "Office 2021 Mac Support-Ende: Was jetzt zu tun ist",
+  "metaDescription": "Der Support für Office 2021 auf dem Mac endete am 13. Oktober 2026. Was noch geht, wie du den Lizenzfehler behebst und welche Optionen du jetzt hast.",
+  "primaryKeyword": "office 2021 mac support ende",
+  "updated": "2026-11-07",
+  "readingMinutes": 13,
+  "intro": [
+    "Das Support-Ende für Office 2021 betrifft auch den Mac: Microsoft hat den Support am 13. Oktober 2026 beendet, einschließlich der Mac-Ausgaben von Home & Student 2021 und Home & Business 2021. Seitdem gibt es keine Sicherheitsupdates, keine Fehlerbehebungen und keinen technischen Support mehr. Abgeschaltet wird Office 2021 aber nicht: Deine Dauerlizenz bleibt gültig, und laut Microsoft können die Apps weiter funktionieren. Eine Verlängerung oder bezahlte Zusatz-Updates gibt es nicht.",
+    "Für Unruhe sorgte ein Update vom 22. Oktober. Danach nahmen Word und Excel bei mehreren Mac-Nutzern die Office-2021-Lizenz nicht mehr an. Microsoft hat den Fehler mit Version 16.114.3 vom 27. Oktober behoben. Hier erfährst du, was offiziell gilt, wie du den Fehler loswirst, was auf älteren Macs passiert und welche Wege es jetzt gibt, vom Einmalkauf Office Home 2024 bis zu kostenlosen Programmen. Stand: 7. November 2026."
+  ],
+  "sections": [
+    {
+      "id": "das-wichtigste-in-kuerze",
+      "h2": "Das Wichtigste in Kürze (Stand: 7. November 2026)",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Der Support für Office 2021 endete am 13. Oktober 2026. Seitdem gibt es keine Sicherheitsupdates, keine Fehlerbehebungen und keinen Telefon- oder Chat-Support mehr. Eine Verlängerung bietet Microsoft nicht an.",
+            "Die Programme können laut Microsoft weiter funktionieren. Deine Dauerlizenz läuft nicht ab, und deine Dateien bleiben, wo sie sind.",
+            "Meldet Word oder Excel seit Ende Oktober, dass deine Office-2021-Lizenz nicht unterstützt wird: Aktualisiere auf Version 16.114.3 oder neuer. Damit hat Microsoft den Fehler laut eigenen Versionshinweisen behoben.",
+            "Auf Macs mit macOS 11 Big Sur oder älter kann Office 2021 seit dem 13. Juli 2026 nur noch Dateien öffnen, anzeigen und drucken, aber nicht mehr bearbeiten oder speichern.",
+            "Office 2019 für Mac ist schon seit dem 10. Oktober 2023 ohne Support und lässt sich nicht mehr auf die zum Bearbeiten nötige Version bringen.",
+            "Wechseln kannst du zu Office Home 2024 (einmalig 149,00 €, braucht macOS Sonoma oder neuer), zu Microsoft 365 Single (99,00 € pro Jahr) oder zu kostenlosen Programmen wie Pages, Numbers, Keynote und LibreOffice."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "was-microsoft-offiziell-sagt",
+      "h2": "Was Microsoft offiziell zum Support-Ende sagt",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Office 2021 folgt Microsofts Modern-Lifecycle-Richtlinie. Die Lifecycle-Seite nennt ausdrücklich die Mac-Ausgaben „Home and Student für Mac“ und „Home and Business für Mac“. Der Support begann am 5. Oktober 2021. Als Ende nennen Microsofts Support-Seiten und die Lifecycle-Übersicht für 2026 den 13. Oktober 2026."
+        },
+        {
+          "type": "p",
+          "text": "Was das Support-Ende konkret bedeutet, beschreibt Microsoft so:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Keine Fehlerbehebungen und keine Sicherheitsupdates für Lücken, die ab jetzt bekannt werden.",
+            "Keine Software-Updates mehr für Office 2021.",
+            "Kein technischer Support per Telefon oder Chat.",
+            "Hilfeinhalte werden nicht mehr aktualisiert, die meisten Online-Hilfen zu Office 2021 werden eingestellt."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Eine Verlängerung oder erweiterte Sicherheitsupdates gegen Aufpreis wird es laut Microsoft nicht geben. Privatnutzern rät Microsoft zu einem Upgrade auf eine neuere Office-Version oder zu Microsoft 365. Verwaltet deine Firma oder Schule Office, ist der IT-Support dort dein Ansprechpartner."
+        },
+        {
+          "type": "table",
+          "head": [
+            "Produkt",
+            "Support-Ende",
+            "Status am 7. November 2026"
+          ],
+          "rows": [
+            [
+              "Office 2019 für Mac",
+              "10. Oktober 2023",
+              "Kein Support, keine Updates"
+            ],
+            [
+              "Office 2021 für Mac (Home & Student, Home & Business)",
+              "13. Oktober 2026",
+              "Kein Support, keine Sicherheitsupdates"
+            ],
+            [
+              "Office 2024 für Mac (Home, Home & Business)",
+              "9. Oktober 2029",
+              "Unterstützt"
+            ],
+            [
+              "Microsoft 365 (Abo)",
+              "Kein Einmalprodukt, Updates laufen mit dem Abo",
+              "Unterstützt auf aktuellen macOS-Versionen"
+            ]
+          ],
+          "caption": "Quellen: Microsoft Lifecycle und Microsoft Support"
+        }
+      ]
+    },
+    {
+      "id": "funktioniert-office-2021-noch",
+      "h2": "Funktioniert Office 2021 auf dem Mac nach dem Support-Ende noch?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "In der Regel ja. Das Support-Ende ist kein Abschaltdatum. Deine Dauerlizenz bleibt gültig, die Programme starten weiter, und auf einem Mac mit macOS 12 oder neuer kannst du Dateien öffnen, bearbeiten und speichern. Was fehlt, sind Updates: Sicherheitslücken, die ab jetzt gefunden werden, schließt Microsoft für Office 2021 nicht mehr."
+        },
+        {
+          "type": "p",
+          "text": "Microsoft warnt deshalb ausdrücklich vor ernsten Sicherheitsrisiken. Sei vor allem bei Dateien aus fremden Quellen vorsichtig, etwa bei Anhängen in E-Mails."
+        },
+        {
+          "type": "h3",
+          "text": "Der Lizenzfehler nach dem Update vom 22. Oktober"
+        },
+        {
+          "type": "p",
+          "text": "Am 22. Oktober 2026 erschien Version 16.114.1 der Office-Apps für den Mac. Danach berichteten mehrere Nutzer in Microsofts Q&A-Forum, dass Word und Excel ihre Office-2021-Lizenz nicht mehr annahmen. Im geöffneten Dokument erschien oben die Aufforderung, Microsoft 365 zu aktivieren, mit dem Hinweis „Your Office 2021 license is not supported with this version of the application“. Bearbeiten und Speichern waren damit blockiert. In der deutschen Oberfläche kann der Wortlaut abweichen."
+        },
+        {
+          "type": "p",
+          "text": "Am 27. Oktober erschien Version 16.114.3. In den Versionshinweisen schreibt Microsoft, ein vorheriges Update habe Office 2021 versehentlich für bestehende Nutzer deaktiviert. Das neue Update stelle die volle Funktion wieder her. Vorher hatten freiwillige Moderatoren im Forum geraten, auf Version 16.114 oder 16.113 zurückzugehen und automatische Updates abzuschalten. Das ist jetzt nicht mehr nötig, und als Dauerlösung verpasst du damit spätere Korrekturen."
+        },
+        {
+          "type": "h3",
+          "text": "So behebst du den Fehler"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne Word und wähle im Menü „Word > Über Word“. Dort siehst du die Versionsnummer und den Lizenztyp.",
+            "Wähle im Menü „Hilfe > Nach Updates suchen“. Microsoft AutoUpdate öffnet sich. Klicke auf „Aktualisieren“ oder „Alle aktualisieren“.",
+            "Prüfe danach unter „Word > Über Word“, ob jetzt mindestens Version 16.114.3 installiert ist.",
+            "Hast du die automatischen Updates im Zuge der Forums-Tipps abgeschaltet, schalte sie in Microsoft AutoUpdate wieder ein.",
+            "Kannst du immer noch nicht bearbeiten, beende die App mit Befehl+Q, öffne sie neu, melde dich in den Kontoeinstellungen ab und mit deinem Microsoft-Konto wieder an. Notfalls installierst du Office 2021 über die Kontoseite deines Microsoft-Kontos neu."
+          ]
+        },
+        {
+          "type": "tip",
+          "text": "Hast du Word, Excel oder PowerPoint aus dem Mac App Store geladen? Diese Versionen lassen sich laut Microsoft nur mit einem Microsoft-365-Abo aktivieren. Eine unbefristete Lizenz wie Office 2021 funktioniert damit nicht. Installiere Office in diesem Fall über dein Microsoft-Konto."
+        },
+        {
+          "type": "p",
+          "text": "Ob spätere Versionen deine Office-2021-Lizenz weiter annehmen, hat Microsoft nicht zugesagt. Abo und Dauerlizenz nutzen auf dem Mac dieselben Apps, und nach dem Support-Ende gibt es keine Garantie, dass jedes künftige Update zu Office 2021 passt. Sichere deshalb wichtige Dokumente und plane den Umstieg in Ruhe."
+        }
+      ]
+    },
+    {
+      "id": "eingeschraenkte-funktionalitaet",
+      "h2": "Nur noch lesen: der Modus mit eingeschränkter Funktionalität auf älteren Macs",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Ein zweites Problem betrifft ältere Macs, und zwar schon seit dem Sommer. Seit dem 13. Juli 2026 können Office-Apps auf dem Mac in einen „Modus mit eingeschränkter Funktionalität“ wechseln. Dann kannst du Dateien öffnen, anzeigen und drucken, aber nicht bearbeiten, speichern oder neu anlegen. Betroffen sind Word, Excel, PowerPoint, Outlook und OneNote, und zwar bei Office 2021 und Office 2019 ebenso wie bei Microsoft 365."
+        },
+        {
+          "type": "p",
+          "text": "Der Grund ist das Ende der Unterstützung für alte Systeme. Für den vollen Funktionsumfang verlangt Microsoft mindestens macOS 12 Monterey und App-Version 16.83. Welche Office-Version du bekommst, hängt von deinem macOS ab:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Dein macOS",
+            "Letzte Office-Version laut Microsoft",
+            "Was das für Office 2021 bedeutet"
+          ],
+          "rows": [
+            [
+              "macOS 11 Big Sur oder älter",
+              "Älter als 16.78 (ab 16.78 ist Monterey nötig)",
+              "Nur öffnen, anzeigen und drucken"
+            ],
+            [
+              "macOS 12 Monterey",
+              "16.88 (August 2024)",
+              "Volle Funktion, aber seit August 2024 keine Updates"
+            ],
+            [
+              "macOS 13 Ventura",
+              "16.101 (September 2025)",
+              "Volle Funktion, aber seit September 2025 keine Updates"
+            ],
+            [
+              "macOS 14 Sonoma",
+              "Keine Angabe (ab 16.101 Mindestvoraussetzung)",
+              "Volle Funktion, aber nicht mehr unter den drei offiziell unterstützten Versionen"
+            ],
+            [
+              "macOS 15 Sequoia oder neuer",
+              "Aktuelle Versionen",
+              "Volle Funktion; Office 2021 selbst bekommt trotzdem keine Sicherheitsupdates mehr"
+            ]
+          ],
+          "caption": "Quellen: Microsoft Support und Microsoft Learn (Updateverlauf), Stand November 2026. Volle Funktion setzt macOS 12 und Version 16.83 voraus."
+        },
+        {
+          "type": "p",
+          "text": "Offiziell unterstützt Microsoft immer die drei neuesten macOS-Hauptversionen. Seit September 2026 sind das macOS Golden Gate 27, macOS Tahoe 26 und macOS Sequoia 15. Auf älteren Systemen laufen die Apps weiter, bekommen aber keine Updates mehr, auch keine Sicherheitsupdates. Lässt sich dein macOS nicht aktualisieren, rät Microsoft zu Microsoft 365 im Web oder zu einem neueren Gerät."
+        }
+      ]
+    },
+    {
+      "id": "office-2019-mac",
+      "h2": "Office 2019 für Mac: seit 2023 ohne Support",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Bei Office 2019 für Mac endete der Support bereits am 10. Oktober 2023. Seitdem gibt es keine Updates mehr. Dazu kommt: Office 2019 lässt sich laut Microsoft nicht auf die Version bringen, die für den vollen Funktionsumfang nötig ist. Wer damit seit Juli 2026 nur noch lesen kann, behebt das weder durch ein Update noch durch eine Neuinstallation."
+        },
+        {
+          "type": "p",
+          "text": "Deine Dateien sind dadurch nicht verloren. Zum Bearbeiten brauchst du aber ein anderes Programm. Microsoft selbst nennt als Ausweg Microsoft 365 im Web oder ein Abo."
+        }
+      ]
+    },
+    {
+      "id": "deine-optionen",
+      "h2": "Deine Optionen: Office 2024, Microsoft 365 oder ein Wechsel",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Office 2021 läuft vorerst weiter, du hast also etwas Zeit. Wenn du aber dauerhaft mit Sicherheitsupdates arbeiten willst, hast du diese Wege:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Option",
+            "Preis",
+            "Gut zu wissen"
+          ],
+          "rows": [
+            [
+              "Office 2021 weiter nutzen",
+              "0 €",
+              "Keine Sicherheitsupdates; keine Zusage, dass künftige App-Versionen die Lizenz annehmen"
+            ],
+            [
+              "Office Home 2024",
+              "149,00 € einmalig, 1 PC oder Mac",
+              "Word, Excel, PowerPoint, OneNote; Support bis 9. Oktober 2029; Installation braucht macOS Sonoma oder neuer; kein Upgrade auf die nächste Version enthalten"
+            ],
+            [
+              "Microsoft 365 Single",
+              "99,00 € pro Jahr oder 10,00 € pro Monat",
+              "1 Person, bis zu 5 Geräte gleichzeitig, 1 TB Cloud-Speicher; verlängert sich automatisch"
+            ],
+            [
+              "Microsoft 365 Family",
+              "129,00 € pro Jahr oder 13,00 € pro Monat",
+              "1 bis 6 Personen, bis zu 2 TB geteilter Speicher"
+            ],
+            [
+              "Microsoft 365 im Web",
+              "Kostenlos",
+              "Word, Excel und PowerPoint im Browser, mit Microsoft-Konto und 5 GB OneDrive"
+            ],
+            [
+              "Pages, Numbers, Keynote",
+              "Kostenlos",
+              "Von Apple; öffnen Office-Dateien und exportieren DOCX, XLSX und PPTX"
+            ],
+            [
+              "LibreOffice",
+              "Kostenlos",
+              "Quelloffen; Writer, Calc und Impress; ab macOS 11"
+            ],
+            [
+              "Koja-Apps (13 Mac-Apps, darunter WordKoja, GridKoja, DeckKoja)",
+              "2,99 € pro Monat oder 79 € einmalig für alle 13 Apps",
+              "Frühe Versionen (Alpha); nur macOS; bis zu 3 Macs; kein Konto nötig"
+            ]
+          ],
+          "caption": "Preise inkl. MwSt., Stand 7. November 2026. Quellen: Microsoft Store, Apple, LibreOffice, Kojalytics."
+        },
+        {
+          "type": "h3",
+          "text": "Office Home 2024: wieder ein Einmalkauf"
+        },
+        {
+          "type": "p",
+          "text": "Wer Office 2021 als Einmalkauf mochte, findet in Office Home 2024 das Gegenstück. Es kostet bei Microsoft 149,00 € für einen PC oder Mac und wird bis zum 9. Oktober 2029 unterstützt. Enthalten sind Word, Excel, PowerPoint und OneNote. Für Outlook nennt Microsofts Vergleichstabelle bei Office Home 2024 nur die kostenlose Version mit Werbung. Zwei Haken: Ein Upgrade auf die nächste Hauptversion ist nicht enthalten, die kaufst du später wieder zum vollen Preis. Und eine Neuinstallation von Office 2024 für Mac setzt macOS Sonoma oder neuer voraus. Auf einem Mac, der bei Monterey oder Ventura stehen bleibt, hilft dir Office 2024 also nicht."
+        },
+        {
+          "type": "h3",
+          "text": "Microsoft 365: immer aktuell, aber im Abo"
+        },
+        {
+          "type": "p",
+          "text": "Mit Microsoft 365 bekommst du laufend neue Versionen und Sicherheitsupdates. Beachte: Abos verlängern sich automatisch zum normalen Preis, wenn du nicht kündigst. Und auch mit Abo setzen aktuelle Updates seit September 2025 macOS Sonoma oder neuer voraus."
+        }
+      ]
+    },
+    {
+      "id": "alternativen-ohne-microsoft",
+      "h2": "Alternativen: Office-Dateien ohne neue Office-Lizenz bearbeiten",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Wenn du nicht wieder an Microsoft zahlen willst, gibt es auf dem Mac brauchbare Alternativen. Wie gut deine Dateien übernommen werden, hängt stark vom einzelnen Dokument ab. Teste deshalb jede Alternative mit deinen eigenen wichtigsten Dateien, bevor du umsteigst. Einen ausführlichen Vergleich findest du in unserem Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
+        },
+        {
+          "type": "h3",
+          "text": "Pages, Numbers und Keynote"
+        },
+        {
+          "type": "p",
+          "text": "Apples eigene Programme sind kostenlos. Pages öffnet Word-Dateien, Numbers Excel-Dateien und Keynote PowerPoint-Dateien. Beim Export erzeugen sie DOCX, XLSX und PPTX sowie PDF. Dabei entsteht eine Kopie, das Original bleibt unverändert. Fehlen Schriften, kann ein Dokument anders aussehen als in Office. Premium-Vorlagen, eine Bildbibliothek und KI-Funktionen gibt es gegen Aufpreis im Abo Apple Creator Studio; die Apps selbst bleiben laut Apple für alle kostenlos."
+        },
+        {
+          "type": "h3",
+          "text": "LibreOffice"
+        },
+        {
+          "type": "p",
+          "text": "LibreOffice ist ein kostenloses, quelloffenes Office-Paket mit Writer für Texte, Calc für Tabellen und Impress für Präsentationen. Es öffnet Word-, Excel- und PowerPoint-Dateien, arbeitet intern aber mit dem Open Document Format (ODF). Auf dem Mac braucht es mindestens macOS 11 und ist damit auch für ältere Geräte eine Option."
+        },
+        {
+          "type": "h3",
+          "text": "Microsoft 365 im Web"
+        },
+        {
+          "type": "p",
+          "text": "Mit einem kostenlosen Microsoft-Konto nutzt du Word, Excel und PowerPoint im Browser, inklusive 5 GB OneDrive-Speicher. Das ist die einfachste Lösung, wenn du nur gelegentlich eine Office-Datei bearbeitest oder dein Mac im Lesemodus festhängt. Du brauchst dafür eine Internetverbindung, und zum gemeinsamen Bearbeiten müssen die Dateien in OneDrive liegen."
+        },
+        {
+          "type": "h3",
+          "text": "Koja-Apps: WordKoja, GridKoja und DeckKoja"
+        },
+        {
+          "type": "p",
+          "text": "Wir bei Kojalytics bieten 13 Mac-Apps an, darunter drei Office-Programme mit einem Menüband, wie du es aus Word, Excel und PowerPoint kennst. Alle drei sind noch in früher Entwicklung (Alpha). Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen selbst, dass sie zu etwa 50 bis 60 Prozent für echte Arbeit bereit sind. Sie ersetzen Microsoft Office also nicht vollständig. Dafür sind sie günstig: Alle 13 Apps kosten zusammen 2,99 € pro Monat oder einmalig 79 €."
+        },
+        {
+          "type": "app",
+          "app": "word-koja",
+          "text": "WordKoja öffnet und speichert .docx, öffnet alte .doc-Dateien und exportiert PDF mit markierbarem Text. Die Oberfläche gibt es auf Deutsch, eine deutsche Rechtschreib- und Grammatikprüfung fehlt aber noch."
+        },
+        {
+          "type": "app",
+          "app": "grid-koja",
+          "text": "GridKoja liest und schreibt .xlsx und bietet mehr als 500 Funktionen, PivotTables und 17 Diagrammtypen. Sehr große Arbeitsmappen öffnen noch nicht, Diagramme verlieren beim Speichern teils Typ und Optionen, und auf Deutsch ist bisher nur das Menüband."
+        },
+        {
+          "type": "p",
+          "text": "Für Präsentationen gibt es [DeckKoja](/software/deck-koja). Es öffnet und speichert .pptx und hat eine Referentenansicht. Die Oberfläche ist bisher nur auf Englisch, und Drucken fehlt noch. Mehr Details findest du auf den Seiten zu [WordKoja](/software/word-koja) und [GridKoja](/software/grid-koja)."
+        },
+        {
+          "type": "p",
+          "text": "Alle Koja-Apps laufen nur auf macOS, offline und ohne Konto; Internet brauchst du nur für Download und Aktivierung. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos, am besten mit deinen eigenen Dateien. Danach zahlst du 2,99 € pro Monat, jederzeit ohne Gebühr kündbar auf [kojalytics.com/kuendigen](/kuendigen), oder einmalig 79 € für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. Details stehen unter [Preise](/software#preise)."
+        }
+      ]
+    },
+    {
+      "id": "checkliste",
+      "h2": "Checkliste: So gehst du jetzt vor",
+      "blocks": [
+        {
+          "type": "ol",
+          "items": [
+            "Prüfe unter „Word > Über Word“, welche Office-Version und welche Lizenz du hast.",
+            "Prüfe im Apple-Menü unter „Über diesen Mac“, welches macOS läuft.",
+            "Taucht der Lizenzfehler auf, aktualisiere über „Hilfe > Nach Updates suchen“ auf Version 16.114.3 oder neuer.",
+            "Läuft dein Mac mit macOS 11 oder älter, bearbeite Office-Dateien mit Microsoft 365 im Web. LibreOffice läuft ab macOS 11.",
+            "Sichere wichtige Dokumente zusätzlich, etwa als PDF.",
+            "Öffne Anhänge aus unbekannten Quellen nicht mehr ungeprüft mit Office 2021.",
+            "Entscheide in Ruhe zwischen Office Home 2024, Microsoft 365 und einer Alternative. Teste Alternativen mit deinen echten Dateien, bevor du dich festlegst."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Wenn du Dokumente als PDF sicherst und später doch etwas ändern musst, hilft dir unser Ratgeber [PDF bearbeiten am Mac](/ratgeber/pdf-bearbeiten-mac)."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Kann ich Office 2021 nach dem Support-Ende weiter nutzen?",
+      "a": "Ja. Deine Lizenz bleibt gültig, und die Programme können laut Microsoft weiter funktionieren. Du bekommst aber keine Sicherheitsupdates, Fehlerbehebungen oder technischen Support mehr. Auf Macs mit macOS 11 oder älter kannst du Dateien nur noch öffnen, anzeigen und drucken."
+    },
+    {
+      "q": "Warum kann ich in Word mit Office 2021 plötzlich nicht mehr bearbeiten?",
+      "a": "Passiert das seit dem 22. Oktober 2026, liegt es sehr wahrscheinlich an einem fehlerhaften Update, das Office 2021 laut Microsoft versehentlich deaktiviert hat. Microsoft hat das mit Version 16.114.3 vom 27. Oktober behoben. Aktualisiere über „Hilfe > Nach Updates suchen“ auf diese oder eine neuere Version. Läuft dein Mac mit macOS 11 oder älter, steckt dagegen der Modus mit eingeschränkter Funktionalität dahinter."
+    },
+    {
+      "q": "Ist Office 2021 auf dem Mac jetzt unsicher?",
+      "a": "Office 2021 bekommt keine Sicherheitsupdates mehr. Lücken, die ab jetzt bekannt werden, bleiben offen, und Microsoft warnt ausdrücklich vor ernsten Sicherheitsrisiken. Besonders vorsichtig solltest du mit Dateien aus unbekannten Quellen sein, etwa mit E-Mail-Anhängen."
+    },
+    {
+      "q": "Kann ich Office 2021 günstig auf Office 2024 upgraden?",
+      "a": "Nein. Bei Einmalkäufen ist laut Microsoft keine Upgrade-Option enthalten, die nächste Version kaufst du zum vollen Preis. Office Home 2024 kostet bei Microsoft 149,00 € für einen PC oder Mac. Für die Installation auf dem Mac brauchst du macOS Sonoma oder neuer."
+    },
+    {
+      "q": "Gehen meine Dateien verloren, wenn Office 2021 nicht mehr funktioniert?",
+      "a": "Nein. Deine Dokumente bleiben auf deinem Mac oder in deinem Cloud-Speicher. Selbst im Modus mit eingeschränkter Funktionalität kannst du sie öffnen, anzeigen und drucken. Bearbeiten kannst du sie zum Beispiel mit Office 2024, Microsoft 365, Pages, Numbers, Keynote oder LibreOffice."
+    }
+  ],
+  "apps": [
+    "word-koja",
+    "grid-koja",
+    "deck-koja"
+  ],
+  "sources": [
+    {
+      "label": "Microsoft Support: Ende des Supports für Office 2021",
+      "url": "https://support.microsoft.com/de-de/office/system-requirements/end-of-support-for-office-2021"
+    },
+    {
+      "label": "Microsoft Learn: Lifecycle von Office 2021",
+      "url": "https://learn.microsoft.com/de-de/lifecycle/products/office-2021"
+    },
+    {
+      "label": "Microsoft Learn: Supportende im Jahr 2026",
+      "url": "https://learn.microsoft.com/de-de/lifecycle/end-of-support/end-of-support-2026"
+    },
+    {
+      "label": "Microsoft Learn: Lifecycle von Office 2024",
+      "url": "https://learn.microsoft.com/de-de/lifecycle/products/office-2024"
+    },
+    {
+      "label": "Microsoft Learn: Supportende im Jahr 2029",
+      "url": "https://learn.microsoft.com/de-de/lifecycle/end-of-support/end-of-support-2029"
+    },
+    {
+      "label": "Microsoft Support: Welche Version von Office verwende ich?",
+      "url": "https://support.microsoft.com/de-de/article/About-Office-What-version-of-Office-am-I-using-932788B8-A3CE-44BF-BB09-E334518B8B19"
+    },
+    {
+      "label": "Microsoft Support: Aktualisieren von Microsoft 365 oder Office auf macOS und iOS",
+      "url": "https://support.microsoft.com/de-de/office/update-microsoft-365-or-office-on-your-macos-or-ios-device-f418ae5d-bb5f-4078-b3d9-9340f5dd084e"
+    },
+    {
+      "label": "Microsoft Support: macOS aktualisieren, um weiter Office-Updates zu erhalten",
+      "url": "https://support.microsoft.com/de-de/office/upgrade-macos-to-continue-receiving-microsoft-365-and-office-for-mac-updates-16b8414f-08ec-4b24-8c91-10a918f649f8"
+    },
+    {
+      "label": "Microsoft Learn: Versionshinweise für Office für Mac (16.114.3)",
+      "url": "https://learn.microsoft.com/de-de/officeupdates/release-notes-office-for-mac"
+    },
+    {
+      "label": "Microsoft Learn: Updateverlauf für Office für Mac",
+      "url": "https://learn.microsoft.com/en-us/officeupdates/update-history-office-for-mac"
+    },
+    {
+      "label": "Microsoft Q&A: Nutzerbericht zum Lizenzfehler in Word 16.114.1",
+      "url": "https://learn.microsoft.com/en-gb/answers/questions/6047123/cannot-create-or-edit-microsoft-word-with-office-2"
+    },
+    {
+      "label": "Microsoft Q&A: Office 2021 nach Update 16.114.1 ohne Lizenz",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/6047955/office-2021-release-of-16-114-1-license-removed"
+    },
+    {
+      "label": "Microsoft Support: Microsoft Office und der Mac App Store",
+      "url": "https://support.microsoft.com/de-de/office/office-for-mac/microsoft-office-and-the-mac-app-store"
+    },
+    {
+      "label": "Microsoft Store: Alle Microsoft 365-Pläne und -Preise vergleichen",
+      "url": "https://www.microsoft.com/de-de/microsoft-365/buy/compare-all-microsoft-365-products"
+    },
+    {
+      "label": "Microsoft: Microsoft 365 für das Web kostenlos nutzen",
+      "url": "https://www.microsoft.com/de-de/microsoft-365/free-office-online-for-the-web"
+    },
+    {
+      "label": "Apple Support: Pages-, Numbers- und Keynote-Dateien in Office-Formate umwandeln",
+      "url": "https://support.apple.com/de-de/105050"
+    },
+    {
+      "label": "Apple: Apple Creator Studio",
+      "url": "https://www.apple.com/de/apple-creator-studio/"
+    },
+    {
+      "label": "LibreOffice: Was ist LibreOffice?",
+      "url": "https://de.libreoffice.org/discover/libreoffice/"
+    },
+    {
+      "label": "LibreOffice: Systemvoraussetzungen",
+      "url": "https://de.libreoffice.org/get-help/system-requirements/"
+    }
+  ]
+}

@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
     title: "Etsy Sync",
     kind: "Shopify-App",
     summary: "Auf Etsy verkaufen und alles in Shopify verwalten. Produkte werden mit einem Klick synchronisiert, Bestellungen kommen automatisch zurück.",
-    image: { src: "/projects/etsy-sync.webp", width: 1600, height: 1000, alt: "Die Website von Etsy Sync" },
+    image: { src: "/projects/etsy-sync.webp", width: 1600, height: 860, alt: "Die Website von Etsy Sync" },
     href: "/etsy-sync",
     tags: ["Shopify", "Etsy-API", "Node.js"],
   },

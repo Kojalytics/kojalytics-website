@@ -30,14 +30,10 @@ export default function PerspectiveTunnelHero({
 
         {/* A soft white halo behind the copy keeps it readable while windows fly past */}
         <div className="relative z-20 flex w-full justify-center px-5">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,rgba(255,255,255,0.97)_0%,rgba(255,255,255,0.85)_55%,transparent_85%)] md:bg-[radial-gradient(ellipse_46%_55%_at_50%_50%,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.7)_55%,transparent_82%)]" />
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,rgba(255,255,255,0.97)_0%,rgba(255,255,255,0.85)_55%,transparent_85%)] md:bg-[radial-gradient(ellipse_40%_50%_at_50%_50%,rgba(255,255,255,0.93)_0%,rgba(255,255,255,0.55)_60%,transparent_82%)]" />
           {children}
         </div>
 
-        <div className="pointer-events-none absolute bottom-6 z-20 flex flex-col items-center gap-2 text-[12px] font-semibold text-muted motion-reduce:hidden" aria-hidden>
-          <span>Scrollen</span>
-          <span className="h-6 w-px bg-gradient-to-b from-foreground/50 to-transparent" />
-        </div>
       </div>
     </section>
   );

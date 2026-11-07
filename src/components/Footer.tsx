@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 text-xs leading-relaxed text-muted md:flex-row md:justify-between">
           <p>&copy; {new Date().getFullYear()} Kojalytics. Alle Rechte vorbehalten.</p>
           <p className="max-w-2xl md:text-right">
-            Die Koja-Apps basieren auf den quelloffenen Craft-Apps des ArtCraft-Teams (MIT / Apache-2.0). Kojalytics steht in keiner
+            Die Koja-Apps basieren auf quelloffener Software des ArtCraft-Teams (MIT / Apache-2.0). Kojalytics steht in keiner
             Verbindung zu ArtCraft und wird nicht von ArtCraft unterstützt. Genannte Produktnamen anderer Unternehmen sind Marken ihrer Inhaber.
           </p>
         </div>

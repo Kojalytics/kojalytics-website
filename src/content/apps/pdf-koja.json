@@ -1,18 +1,161 @@
 {
-  "kind": "STUB",
-  "benefit": "STUB",
-  "keyword": "STUB",
-  "metaTitle": "STUB",
-  "metaDescription": "STUB",
-  "h1": "STUB",
-  "lead": "STUB",
-  "highlights": ["STUB"],
-  "features": [{ "title": "STUB", "text": "STUB", "screenshot": "hero.webp" }],
-  "screenshots": [{ "file": "hero.webp", "alt": "STUB", "caption": "STUB" }],
-  "switching": { "title": "STUB", "paragraphs": ["STUB"] },
-  "comparison": { "rows": [{ "label": "STUB", "koja": "STUB", "other": "STUB" }], "note": "STUB" },
-  "forWho": ["STUB"],
-  "notFor": ["STUB"],
-  "formats": ["STUB"],
-  "faq": [{ "q": "STUB", "a": "STUB" }]
+  "kind": "PDF-Programm",
+  "benefit": "PDFs am Mac lesen, ordnen, zusammenfügen und mit Passwort schützen, offline und ohne Konto.",
+  "keyword": "adobe acrobat alternative mac",
+  "metaTitle": "Adobe-Acrobat-Alternative für den Mac: PdfKoja",
+  "metaDescription": "PdfKoja ist eine Adobe-Acrobat-Alternative für den Mac: PDFs offline ordnen, zusammenfügen und schützen. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "Adobe-Acrobat-Alternative für den Mac – offline und ohne Konto",
+  "lead": "PdfKoja ist eine Alternative zu Adobe Acrobat für deinen Mac: Du liest, ordnest, kombinierst, teilst und schützt PDFs, und deine Dokumente bleiben auf deinem Rechner. Die App ist noch in früher Entwicklung, teste sie deshalb 3 Tage kostenlos. Danach zahlst du 2,99 € im Monat für alle 13 Apps oder 79 € einmalig.",
+  "highlights": [
+    "PDFs ordnen und zusammenfügen",
+    "Offline, ohne Konto, ohne Cloud",
+    "Passwortschutz bis AES-256"
+  ],
+  "features": [
+    {
+      "title": "Jedes Werkzeug mit ⌘K finden",
+      "text": "Drück ⌘K und tipp ein, was du vorhast, etwa „drehen“ oder „extrahieren“. Die Befehlspalette durchsucht alle Werkzeuge und Befehle, ein Werkzeugkatalog listet sie zusätzlich nach Aufgaben geordnet auf. Werkzeuge, die noch in Entwicklung sind, erkennst du dort an einer Markierung.",
+      "screenshot": "palette.webp"
+    },
+    {
+      "title": "Originalgetreu darstellen, scharf lesen",
+      "text": "PdfKoja zeigt auch anspruchsvolle Dokumente originalgetreu an, mit Ligaturen, Schrift von rechts nach links, senkrecht gesetztem Chinesisch und Japanisch, farbigen Emoji und Transparenzen. Von den 983 Dateien der pdf.js-Testsammlung öffnet und zeigt die App laut den Entwicklern 963 sauber an, ohne einen einzigen Absturz. Zum Lesen wählst du Einzelseite, Doppelseite, fortlaufende Ansicht, Vollbild oder den ablenkungsfreien Lesemodus, hell oder dunkel, und die Schrift bleibt bei jedem Zoom scharf.",
+      "screenshot": "twoup.webp"
+    },
+    {
+      "title": "Seiten ordnen, drehen, löschen",
+      "text": "Markiere Seiten per Klick, ⌘-Klick oder Umschalt-Klick und dreh, lösch oder verschieb sie in der Seitenübersicht. Leere Seiten oder Seiten aus einer anderen Datei fügst du an beliebiger Stelle ein. Der Verlauf zum Rückgängigmachen bleibt auch nach dem Speichern erhalten."
+    },
+    {
+      "title": "PDFs zusammenfügen und teilen",
+      "text": "Füg beliebig viele PDFs zu einem Dokument zusammen: Jede Datei bekommt ein eigenes Lesezeichen, und Links, Formularfelder und Anhänge bleiben erhalten. Ausgewählte Seiten speicherst du als neue Datei, oder du teilst ein Dokument in gleich große Abschnitte oder vor bestimmten Seiten. Schritt für Schritt erklärt im Ratgeber [PDF zusammenfügen am Mac](/ratgeber/pdf-zusammenfuegen-mac)."
+    },
+    {
+      "title": "Suchen beim Tippen, schnell navigieren",
+      "text": "PdfKoja durchsucht das ganze Dokument schon, während du tippst, und mit ⌘G springst du zum nächsten Treffer. Text markierst du in der richtigen Lesereihenfolge, auch in Spalten. Lange Dokumente erschließt du über verschachtelte, durchsuchbare Lesezeichen, Seitenminiaturen in 50 bis 150 % Größe und die eigenen Seitenbezeichnungen des Dokuments wie i, ii, 1, 2."
+    },
+    {
+      "title": "Formulare, Kommentare, Ebenen",
+      "text": "Formularfelder füllst du direkt aus, auf Wunsch farbig hervorgehoben: Kontrollkästchen, Optionsfelder, Listen und Unterschriftsfelder. Kommentare erscheinen als Unterhaltungen mit Antworten. Ebenen blendest du ohne Verzögerung ein und aus, und Dateianhänge öffnest oder speicherst du direkt aus dem PDF."
+    },
+    {
+      "title": "Originaldaten bleiben erhalten",
+      "text": "PdfKoja speichert inkrementell: Die ursprünglichen Daten einer Datei bleiben unverändert, deine Änderungen werden angehängt. Gespeichert wird zuerst in eine temporäre Kopie, die erst danach das Original ersetzt, damit nach einem Absturz keine halb geschriebene Datei zurückbleibt. Zusätzlich sichert die App deine Änderungen jede Minute und bietet nach einem Absturz beim nächsten Start eine Wiederherstellung an."
+    },
+    {
+      "title": "Passwortschutz bis AES-256",
+      "text": "Schütze PDFs mit einem Passwort zum Öffnen und einem für die Berechtigungen, verschlüsselt von RC4 mit 40 Bit bis AES-256. PdfKoja hält sich an die Berechtigungen, die der Autor festgelegt hat, und speichert Änderungen an verschlüsselten Dateien wieder verschlüsselt. In den Dokumenteigenschaften siehst du Titel, Autor, Schriften samt Einbettung, PDF-Version, Seitengröße und alle Sicherheitseinstellungen."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "organize.webp",
+      "alt": "PdfKoja-Seitenübersicht: PDF-Seiten als Miniaturen, zwei davon markiert, daneben Seitenzähler und Zoom",
+      "caption": "Seiten wie Karten ordnen: mehrere markieren, gemeinsam drehen, löschen oder verschieben und jeden Schritt auch nach dem Speichern zurücknehmen."
+    },
+    {
+      "file": "palette.webp",
+      "alt": "PdfKoja-Befehlspalette mit der Suche „page“ und Treffern wie Seiten drehen, löschen, einfügen und extrahieren",
+      "caption": "Mit ⌘K findest du jedes Werkzeug per Suchwort, statt dich durch verschachtelte Menüs zu klicken."
+    },
+    {
+      "file": "twoup.webp",
+      "alt": "PdfKoja mit dunkler Seitenleiste: zweispaltige PDF-Seite mit Initiale, Zitat, gelber Markierung und Notiz",
+      "caption": "Lange Dokumente entspannt lesen: scharfe Schrift in jeder Zoomstufe, Markierungen und Notizen direkt im Text."
+    }
+  ],
+  "switching": {
+    "title": "Von Adobe Acrobat zu PdfKoja wechseln: die Alternative für deinen Mac",
+    "paragraphs": [
+      "Der Aufbau erinnert an Acrobat: Die Werkzeuge liegen nach Aufgaben geordnet in einem Katalog, etwa Kombinieren, Seiten organisieren, Kommentare, Ausfüllen und Schützen, und mit ⌘K findest du jeden Befehl per Stichwort. Die Oberfläche stellst du in den Einstellungen auf Deutsch oder auf „Auto“, dann folgt sie der Sprache deines Macs. Die Bildschirmfotos auf dieser Seite zeigen die englische Oberfläche.",
+      "Deine Dateien bleiben normale PDFs. PdfKoja speichert Änderungen nach dem PDF-Standard und lässt die ursprünglichen Daten einer Datei unangetastet, verschlüsselte PDFs bleiben verschlüsselt. Du kannst deine Dokumente also weiter in Acrobat oder in der Vorschau öffnen, der Weg zurück bleibt offen.",
+      "PdfKoja ist eine frühe Version (Alpha), und manches fehlt noch. Word-, Excel- und PowerPoint-Dateien wandelt die App nicht in PDF um, der Export nach Word verliert das Layout, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt. Texterkennung (OCR) gibt es nur für lateinische Schrift, und Signaturen per Token, Preflight, PDF/X, PDF/UA sowie vollständige XFA-Formulare fehlen. Cloud-Funktionen von Adobe wie den Speicher in der Document Cloud, Signaturanfragen über Acrobat Sign, die gemeinsame Überprüfung und den KI-Assistenten bietet PdfKoja nicht. Außerdem finden die Entwickler bei gezielt manipulierten Dateien noch Abstürze und Hänger, die sie nach und nach beheben.",
+      "So testest du den Umstieg in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere darüber PdfKoja und öffne Kopien deiner typischen PDFs. Füg zwei Dateien zusammen, sortier Seiten um, füll ein Formular aus und setz ein Passwort, dann prüf das Ergebnis in einem zweiten PDF-Programm. Passt alles, wählst du zwischen 2,99 € im Monat für alle 13 Apps und einer [dauerhaften Lizenz für 79 €](/software#preise). Was du beim Beenden deines Acrobat-Abos beachten solltest, steht im [Ratgeber zur Adobe-Kündigung](/ratgeber/adobe-abo-kuendigen)."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Preis",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "Acrobat Pro: 23,79 € im Monat im Jahres-Abo mit monatlicher Abrechnung oder 35,69 € im Monats-Abo. Acrobat Standard ab 17,99 € im Monat. Der Reader zum Anzeigen ist kostenlos"
+      },
+      {
+        "label": "Abrechnung und Kündigung",
+        "koja": "Monatlich, jederzeit mit einem Klick kündbar, ohne Gebühr. Oder Einmalkauf ohne Laufzeit",
+        "other": "Jahres-Abo verlängert sich automatisch. Bei monatlicher Abrechnung kostet eine Kündigung nach 14 Tagen 50 % des restlichen Vertragswerts. Das teurere Monats-Abo ist ohne Zusatzgebühr kündbar"
+      },
+      {
+        "label": "Konto nötig",
+        "koja": "Nein",
+        "other": "Ja, Adobe-ID für Kauf und Installation"
+      },
+      {
+        "label": "Offline nutzbar",
+        "koja": "Ja, Internet nur für Download und Aktivierung. Dokumente verlassen den Mac nicht",
+        "other": "Desktop-App ja, die Lizenz wird aber alle 30 Tage online geprüft. Cloud-Speicher, Signaturanfragen und KI-Assistent brauchen Internet"
+      },
+      {
+        "label": "Wichtige Dateiformate",
+        "koja": "PDF, auch verschlüsselt bis AES-256. Export nach Word ohne Layout, keine Umwandlung von Office-Dateien",
+        "other": "PDF, dazu Umwandlung von Dateien in PDF und von PDF nach Word, Excel und PowerPoint"
+      },
+      {
+        "label": "Plattformen",
+        "koja": "Nur macOS (Apple-Chip und Intel)",
+        "other": "Windows und macOS, dazu Web und Apps für iPhone, iPad und Android"
+      },
+      {
+        "label": "Entwicklungsstand",
+        "koja": "Frühe Version (Alpha). Laut den Entwicklern 57 % von 808 erfassten Acrobat-Pro-Funktionen ganz oder teilweise umgesetzt",
+        "other": "Ausgereift, sehr großer Funktionsumfang"
+      }
+    ],
+    "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
+  },
+  "forWho": [
+    "du PDFs am Mac vor allem liest, ordnest, zusammenfügst, ausfüllst und mit Passwort schützt",
+    "du Verträge, Rechnungen oder Steuerunterlagen nicht bei einem Online-Dienst hochladen willst",
+    "du nicht mehr 23,79 € im Monat für Acrobat Pro zahlen willst, weil du nur einen Teil der Funktionen nutzt",
+    "du neben der Vorschau ein PDF-Programm mit Seitenverwaltung, Kommentar-Threads und Passwortschutz suchst"
+  ],
+  "notFor": [
+    "du beruflich jeden Tag auf ein PDF-Programm angewiesen bist: PdfKoja ist noch in früher Entwicklung (Alpha)",
+    "du Word-, Excel- oder PowerPoint-Dateien in PDF umwandeln oder PDFs mit Layout nach Word exportieren musst",
+    "du vorhandenen Text in PDFs oft umschreibst oder Texterkennung für nichtlateinische Schriften brauchst"
+  ],
+  "formats": [
+    "PDF (öffnen, bearbeiten, speichern)",
+    "Verschlüsselte PDFs (RC4 bis AES-256)",
+    "PDF-Formulare (ausfüllen)",
+    "XFA-Formulare (noch nicht vollständig)",
+    "DOCX (nur Export, ohne Layout)",
+    "Word, Excel, PowerPoint (keine Umwandlung in PDF)"
+  ],
+  "faq": [
+    {
+      "q": "Ist PdfKoja eine vollwertige Adobe-Acrobat-Alternative?",
+      "a": "Nein, noch nicht. PdfKoja ist eine frühe Version (Alpha): Von 808 erfassten Acrobat-Pro-Funktionen sind laut den Entwicklern des zugrunde liegenden Open-Source-Projekts 57 % ganz oder teilweise umgesetzt, bei den unverzichtbaren Funktionen 94 %. Lesen, Suchen, Seiten ordnen, Zusammenfügen, Formulare, Passwörter und einfache digitale Signaturen funktionieren laut den Entwicklern schon gut; Office-Umwandlung, das Bearbeiten von vorhandenem Text und OCR für nichtlateinische Schriften fehlen dagegen oder klappen nur eingeschränkt. Teste PdfKoja deshalb mit deinen eigenen Dokumenten, bevor du dich entscheidest."
+    },
+    {
+      "q": "Welche Dateiformate öffnet und speichert PdfKoja?",
+      "a": "PdfKoja öffnet, bearbeitet und speichert PDF-Dateien, auch verschlüsselte von RC4 mit 40 Bit bis AES-256. Gespeichert wird im PDF-Standardformat, deine Dateien kannst du also weiter in Acrobat oder der Vorschau öffnen. Einen Export nach Word (DOCX) gibt es, er verliert aber das Layout. Word-, Excel- und PowerPoint-Dateien wandelt PdfKoja nicht in PDF um."
+    },
+    {
+      "q": "Kann ich mit PdfKoja PDFs zusammenfügen und Seiten löschen?",
+      "a": "Ja. Du fügst beliebig viele PDFs zu einer Datei zusammen, jede bekommt ein eigenes Lesezeichen, und Links, Formularfelder und Anhänge bleiben erhalten. In der Seitenübersicht markierst du mehrere Seiten und drehst, löschst, verschiebst oder extrahierst sie, jeden Schritt kannst du auch nach dem Speichern zurücknehmen. Eine Anleitung findest du im Ratgeber [PDF zusammenfügen am Mac](/ratgeber/pdf-zusammenfuegen-mac)."
+    },
+    {
+      "q": "Reicht nicht auch die Vorschau-App auf dem Mac?",
+      "a": "Für schnelle Aufgaben oft schon. PdfKoja ist für umfangreichere PDF-Arbeit gedacht und bietet etwa Zusammenfügen mit eigenem Lesezeichen pro Datei, Kommentare als Unterhaltungen mit Antworten, eine Befehlspalette für alle Werkzeuge und ein Speichern, das die Originaldaten erhält und nach einem Absturz eine Wiederherstellung anbietet. Was die Vorschau kann und wann sich ein eigenes Programm lohnt, steht im Ratgeber [PDF bearbeiten am Mac](/ratgeber/pdf-bearbeiten-mac)."
+    },
+    {
+      "q": "Gibt es PdfKoja ohne Abo?",
+      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für PdfKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Macs. Zum Vergleich: Acrobat Pro kostet im Jahres-Abo mit monatlicher Abrechnung 23,79 € im Monat, aufs Jahr gerechnet also 285,48 €. Wenn du lieber monatlich zahlst, nimmst du das Abo für 2,99 € im Monat, das du jederzeit mit einem Klick und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
+    },
+    {
+      "q": "Läuft PdfKoja offline, und gibt es die App auf Deutsch?",
+      "a": "Ja, PdfKoja arbeitet komplett auf deinem Mac, ohne Konto und ohne Cloud: Deine Dokumente werden nirgendwo hochgeladen, Internet brauchst du nur für Download und Aktivierung. Die Oberfläche stellst du in den Einstellungen auf Deutsch, eine von 29 Sprachen. PdfKoja läuft auf Macs mit Apple-Chip und mit Intel-Prozessor; für Windows, das iPad oder den Browser gibt es die App nicht."
+    }
+  ]
 }
