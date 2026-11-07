@@ -111,6 +111,13 @@
 .koja-app:nth-child(2) { animation-delay: 0.08s; }
 .koja-app:nth-child(3) { animation-delay: 0.16s; }
 
+.koja-app-icon {
+  display: block;
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
 .koja-app svg {
   color: var(--k-accent-light);
 }

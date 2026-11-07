@@ -1,41 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Aperture,
-  AudioLines,
-  Check,
-  DraftingCompass,
-  FileLock2,
-  FileText,
-  Film,
-  Frame,
-  Grid3x3,
-  Image as ImageIcon,
-  LayoutTemplate,
-  PenTool,
-  Presentation,
-  ShieldCheck,
-  Sparkles,
-  Infinity as InfinityIcon,
-  Laptop,
-} from "lucide-react";
+import { Check, ShieldCheck, Infinity as InfinityIcon, Laptop } from "lucide-react";
 import "./koja-apps.css";
 
 const apps = [
-  { icon: FileText, name: "WordKoja", desc: "Texte, Briefe und Berichte. Öffnet und speichert .docx." },
-  { icon: Grid3x3, name: "GridKoja", desc: "Tabellen mit Formeln und Diagrammen. Öffnet und speichert .xlsx." },
-  { icon: Presentation, name: "DeckKoja", desc: "Präsentationen und Folien. Öffnet und speichert .pptx." },
-  { icon: FileLock2, name: "PdfKoja", desc: "PDFs lesen, ordnen, kommentieren und schützen." },
-  { icon: ImageIcon, name: "PhotoKoja", desc: "Bildbearbeitung mit Ebenen, Masken und Filtern." },
-  { icon: Aperture, name: "LightKoja", desc: "Fotobibliothek und RAW-Entwicklung." },
-  { icon: PenTool, name: "VectorKoja", desc: "Vektorgrafiken, Logos und Illustrationen." },
-  { icon: LayoutTemplate, name: "DesignKoja", desc: "Layout für Flyer, Magazine und Broschüren." },
-  { icon: Frame, name: "FigKoja", desc: "Interface-Design und klickbare Prototypen." },
-  { icon: Film, name: "FilmKoja", desc: "Videoschnitt, Farbkorrektur und Ton." },
-  { icon: Sparkles, name: "EffectKoja", desc: "Motion Graphics und visuelle Effekte." },
-  { icon: AudioLines, name: "SoundKoja", desc: "Audio aufnehmen, schneiden und mischen." },
-  { icon: DraftingCompass, name: "CADKoja", desc: "Technisches Zeichnen und CAD-Konstruktion." },
+  { icon: "/koja-apps/icons/wordcraft.svg", name: "WordKoja", desc: "Texte, Briefe und Berichte. Öffnet und speichert .docx." },
+  { icon: "/koja-apps/icons/gridcraft.svg", name: "GridKoja", desc: "Tabellen mit Formeln und Diagrammen. Öffnet und speichert .xlsx." },
+  { icon: "/koja-apps/icons/deckcraft.svg", name: "DeckKoja", desc: "Präsentationen und Folien. Öffnet und speichert .pptx." },
+  { icon: "/koja-apps/icons/pdfcraft.svg", name: "PdfKoja", desc: "PDFs lesen, ordnen, kommentieren und schützen." },
+  { icon: "/koja-apps/icons/photocraft.svg", name: "PhotoKoja", desc: "Bildbearbeitung mit Ebenen, Masken und Filtern." },
+  { icon: "/koja-apps/icons/lightcraft.svg", name: "LightKoja", desc: "Fotobibliothek und RAW-Entwicklung." },
+  { icon: "/koja-apps/icons/vectorcraft.svg", name: "VectorKoja", desc: "Vektorgrafiken, Logos und Illustrationen." },
+  { icon: "/koja-apps/icons/designcraft.svg", name: "DesignKoja", desc: "Layout für Flyer, Magazine und Broschüren." },
+  { icon: "/koja-apps/icons/figcraft.svg", name: "FigKoja", desc: "Interface-Design und klickbare Prototypen." },
+  { icon: "/koja-apps/icons/filmcraft.svg", name: "FilmKoja", desc: "Videoschnitt, Farbkorrektur und Ton." },
+  { icon: "/koja-apps/icons/effectcraft.svg", name: "EffectKoja", desc: "Motion Graphics und visuelle Effekte." },
+  { icon: "/koja-apps/icons/soundcraft.svg", name: "SoundKoja", desc: "Audio aufnehmen, schneiden und mischen." },
+  { icon: "/koja-apps/icons/cadcraft.svg", name: "CADKoja", desc: "Technisches Zeichnen und CAD-Konstruktion." },
 ];
 
 const included = [
@@ -83,9 +65,10 @@ export default function KojaAppsPage() {
       </section>
 
       <section className="koja-apps">
-        {apps.map(({ icon: Icon, name, desc }) => (
+        {apps.map(({ icon, name, desc }) => (
           <article key={name} className="koja-app">
-            <Icon size={28} strokeWidth={1.6} />
+            {/* eslint-disable-next-line @next/next/no-img-element -- small static SVGs */}
+            <img className="koja-app-icon" src={icon} alt="" width={56} height={56} loading="lazy" />
             <h2>{name}</h2>
             <p>{desc}</p>
           </article>
