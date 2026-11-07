@@ -1,203 +1,85 @@
-"use client";
-
-import { motion } from "framer-motion";
-import {
-  Mail,
-  MessageCircle,
-  HelpCircle,
-  ChevronDown,
-  Smartphone,
-  Shield,
-  CreditCard,
-  RefreshCw,
-  Trash2,
-  ImageIcon,
-} from "lucide-react";
-import { useState } from "react";
+import Link from "next/link";
+import { Mail, MessageCircle } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import Link from "next/link";
+import Faq from "@/components/software/Faq";
 
-const faqs = [
+const kojaFaq = [
   {
-    icon: ImageIcon,
-    question: "How does AI Headshot work?",
-    answer:
-      "Upload 5-10 selfies and our AI creates professional, studio-quality portraits in various styles. The process takes just a few minutes, and you'll receive high-resolution images ready for LinkedIn, resumes, or social media.",
+    q: "Wie aktiviere ich meine Koja-Lizenz?",
+    a: "Starte den Kojalytics Launcher, öffne Einstellungen › Lizenz, füge deinen Schlüssel aus der Kauf-E-Mail ein und klicke auf „Aktivieren“. Eine Lizenz gilt für bis zu 3 Macs.",
   },
   {
-    icon: CreditCard,
-    question: "What are the pricing plans?",
-    answer:
-      "We offer two plans: Starter (€9.99) includes 12 AI-generated portraits, and Premium (€19.99) includes 24 portraits with more style options. Both are one-time purchases — no subscriptions.",
+    q: "Wie kündige ich mein Koja-Abo?",
+    a: "Unter [Verträge hier kündigen](/kuendigen), ohne Login und ohne Gebühr. Das Abo endet zum Ende des bezahlten Monats, die Bestätigung kommt sofort per E-Mail.",
   },
   {
-    icon: RefreshCw,
-    question: "Can I get a refund?",
-    answer:
-      "If you're not satisfied with your portraits, contact us within 14 days of purchase at support@kojalytics.com. We'll review your case and process a refund if the quality didn't meet expectations.",
-  },
-  {
-    icon: Shield,
-    question: "Is my data safe?",
-    answer:
-      "Absolutely. Your photos are processed securely and automatically deleted from our servers after portrait generation. We never share, sell, or use your images for training purposes.",
-  },
-  {
-    icon: Smartphone,
-    question: "Which devices are supported?",
-    answer:
-      "AI Headshot is available on iPhone (iOS 16+). We're working on expanding to iPad and Android in future updates.",
-  },
-  {
-    icon: Trash2,
-    question: "How do I delete my account and data?",
-    answer:
-      "You can delete your account and all associated data directly in the app under Settings → Account → Delete Account. All your data will be permanently removed within 48 hours. You can also email us at support@kojalytics.com.",
+    q: "Ich habe meinen Lizenzschlüssel verloren.",
+    a: "Schreib an support@kojalytics.com mit der E-Mail-Adresse, mit der du bezahlt hast. Wir schicken dir den Schlüssel erneut.",
   },
 ];
 
-function FAQItem({ faq }: { faq: (typeof faqs)[0] }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="glass-card rounded-xl overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-4 p-6 text-left hover:bg-surface-light/50 transition-colors"
-      >
-        <faq.icon className="w-5 h-5 text-accent-light shrink-0" />
-        <span className="font-semibold flex-1">{faq.question}</span>
-        <ChevronDown
-          className={`w-5 h-5 text-muted transition-transform duration-300 ${
-            open ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-60" : "max-h-0"
-        }`}
-      >
-        <p className="px-6 pb-6 text-muted leading-relaxed pl-15">
-          {faq.answer}
-        </p>
-      </div>
-    </div>
-  );
-}
+const headshotFaq = [
+  {
+    q: "Wie funktioniert AI Headshot?",
+    a: "Du lädst 5 bis 10 Selfies hoch, und unsere KI erstellt daraus professionelle Porträts in verschiedenen Stilen. Das dauert nur wenige Minuten. Du bekommst hochauflösende Bilder für LinkedIn, Lebenslauf oder Social Media.",
+  },
+  {
+    q: "Welche Pakete gibt es?",
+    a: "Starter (9,99 €) mit 12 KI-Porträts und Premium (19,99 €) mit 24 Porträts und mehr Stilen. Beides sind Einmalkäufe, kein Abo.",
+  },
+  {
+    q: "Kann ich mein Geld zurückbekommen?",
+    a: "Wenn du mit deinen Porträts nicht zufrieden bist, schreib uns innerhalb von 14 Tagen nach dem Kauf an support@kojalytics.com. Wir prüfen deinen Fall und erstatten den Betrag, wenn die Qualität nicht den Erwartungen entsprach.",
+  },
+  {
+    q: "Sind meine Fotos sicher?",
+    a: "Deine Fotos werden sicher verarbeitet und nach der Erstellung der Porträts automatisch von unseren Servern gelöscht. Wir geben sie nie weiter, verkaufen sie nicht und nutzen sie nicht zum Training.",
+  },
+  {
+    q: "Auf welchen Geräten läuft AI Headshot?",
+    a: "AI Headshot gibt es für das iPhone (ab iOS 16). iPad und Android sind in Planung.",
+  },
+  {
+    q: "Wie lösche ich mein Konto und meine Daten?",
+    a: "Direkt in der App unter Einstellungen › Konto › Konto löschen. Alle Daten werden innerhalb von 48 Stunden dauerhaft entfernt. Du kannst uns auch an support@kojalytics.com schreiben.",
+  },
+];
 
 export default function SupportPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="text-sm font-mono text-accent tracking-wider uppercase">
-              Support Center
-            </span>
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
-              How can we <span className="gradient-text">help?</span>
-            </h1>
-            <p className="mt-6 text-muted text-lg max-w-xl mx-auto">
-              Find answers to common questions about AI Headshot, or reach
-              out to our team directly.
-            </p>
-          </motion.div>
+      <main className="px-5 pb-24 pt-28 md:px-6 md:pt-36">
+        <div className="mx-auto max-w-4xl">
+          <p className="eyebrow">Hilfe & Support</p>
+          <h1 className="display mt-3 text-[clamp(2.5rem,6vw,4.25rem)]">Wie können wir helfen?</h1>
+          <p className="mt-5 max-w-xl text-lg text-muted">Antworten auf häufige Fragen zu den Koja-Apps und AI Headshot. Oder schreib uns direkt.</p>
 
-          {/* Contact cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20"
-          >
-            <a
-              href="mailto:support@kojalytics.com"
-              className="glass-card rounded-2xl p-8 flex items-start gap-5 group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
-                <Mail className="w-6 h-6 text-accent-light" />
-              </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            <div className="flex items-start gap-4 rounded-[22px] bg-surface p-6">
+              <Mail size={22} className="mt-0.5 shrink-0" aria-hidden />
               <div>
-                <h3 className="text-lg font-semibold">Email Support</h3>
-                <p className="text-muted mt-1 text-sm">
-                  Get help within 24 hours
-                </p>
-                <p className="text-accent-light mt-3 text-sm font-medium">
-                  support@kojalytics.com
-                </p>
+                <h2 className="font-semibold">E-Mail-Support</h2>
+                <p className="mt-1 text-sm text-muted">Antwort in der Regel innerhalb von 24 Stunden</p>
+                <p className="mt-2 select-all font-medium">support@kojalytics.com</p>
               </div>
-            </a>
-
-            <Link
-              href="/contact"
-              className="glass-card rounded-2xl p-8 flex items-start gap-5 group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
-                <MessageCircle className="w-6 h-6 text-accent-light" />
-              </div>
+            </div>
+            <Link href="/kontakt" className="flex items-start gap-4 rounded-[22px] border border-border p-6 transition-colors hover:border-foreground/40">
+              <MessageCircle size={22} className="mt-0.5 shrink-0" aria-hidden />
               <div>
-                <h3 className="text-lg font-semibold">Contact Form</h3>
-                <p className="text-muted mt-1 text-sm">
-                  Send us a detailed message
-                </p>
-                <p className="text-accent-light mt-3 text-sm font-medium">
-                  Go to contact page →
-                </p>
+                <h2 className="font-semibold">Kontaktformular</h2>
+                <p className="mt-1 text-sm text-muted">Für ausführliche Anfragen</p>
+                <p className="mt-2 font-medium">Zur Kontaktseite →</p>
               </div>
             </Link>
-          </motion.div>
+          </div>
 
-          {/* FAQ */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <HelpCircle className="w-6 h-6 text-accent-light" />
-              <h2 className="text-2xl font-bold">Frequently Asked Questions</h2>
-            </div>
+          <h2 className="display mb-6 mt-16 text-3xl">Koja-Apps</h2>
+          <Faq items={kojaFaq} />
 
-            <div className="space-y-3">
-              {faqs.map((faq) => (
-                <FAQItem key={faq.question} faq={faq} />
-              ))}
-            </div>
-          </motion.div>
-
-          {/* App info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-20 glass-card rounded-2xl p-10 text-center"
-          >
-            <h3 className="text-2xl font-bold mb-4">AI Headshot</h3>
-            <p className="text-muted max-w-lg mx-auto">
-              Professional AI portraits in minutes. Available on the App Store.
-            </p>
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="mailto:support@kojalytics.com?subject=AI%20Headshot%20Support"
-                className="btn-gradient text-sm"
-              >
-                <span>Contact Support</span>
-              </a>
-              <span className="text-sm text-muted">
-                Developer: Kojalytics
-              </span>
-            </div>
-          </motion.div>
+          <h2 className="display mb-6 mt-16 text-3xl">AI Headshot</h2>
+          <Faq items={headshotFaq} />
         </div>
       </main>
       <Footer />

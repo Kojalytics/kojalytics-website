@@ -2,29 +2,32 @@
 
 /*
  * Kojalytics design system
- * Near-black stage, one neon-lime accent, condensed uppercase display type, imagery does the talking.
- * Every page uses these tokens; nothing outside this file defines a brand color.
+ * Light and calm: white pages, stone-grey surfaces, black buttons. Colour comes from the
+ * products themselves: real screenshots and the app icons, each app keeps its icon colour.
+ * Every page uses these tokens; nothing outside this file defines a brand colour.
  */
 @theme inline {
-  --color-background: #0f1012;
-  --color-foreground: #f2f3ee;
-  --color-accent: #d1fe17;
-  --color-accent-light: #e3ff70;
-  --color-accent-dim: #a6cc0a;
-  --color-accent-ink: #10120a;
-  --color-surface: #17191c;
-  --color-surface-light: #1f2226;
-  --color-border: #2a2e33;
-  --color-muted: #8d939a;
-  --font-sans: var(--font-archivo), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-background: #ffffff;
+  --color-foreground: #111113;
+  --color-surface: #f5f5f4;
+  --color-surface-light: #fafaf9;
+  --color-border: #e7e5e4;
+  --color-muted: #57534e;
+  --color-accent: #2f6fe4;
+  --color-accent-light: #5b8ff0;
+  --color-accent-dim: #1f55c0;
+  --color-accent-ink: #ffffff;
+  --color-success: #15803d;
+  --font-sans: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-heading), var(--font-body), system-ui, sans-serif;
   --font-mono: ui-monospace, Menlo, SFMono-Regular, monospace;
-  --radius-card: 18px;
-  --radius-btn: 10px;
+  --radius-card: 20px;
+  --radius-btn: 999px;
 }
 
-/* Kept for the AI Headshot and Koja pages that read these names. */
+/* Kept for the AI Headshot pages that read these names. */
 :root {
-  --font-system-sans: var(--font-archivo), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-system-sans: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-system-mono: ui-monospace, Menlo, SFMono-Regular, monospace;
 }
 
@@ -34,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -44,85 +48,110 @@ body {
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: var(--color-accent-ink);
+  background: #dbe7fd;
+  color: var(--color-foreground);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-background);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 3px;
-}
-
-/* Condensed uppercase headline, the signature of the system */
+/* Headline face */
 .display {
-  font-weight: 800;
-  font-variation-settings: "wdth" 70;
-  text-transform: uppercase;
-  line-height: 0.9;
-  letter-spacing: -0.005em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
   text-wrap: balance;
 }
 
 /* Small label above a headline */
 .eyebrow {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--color-muted);
 }
 
-/* Soft light from above instead of a flat page */
-.aurora-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(209, 254, 23, 0.05), transparent 70%);
+.prose-de p,
+.prose-de li {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #2b2a29;
+}
+.prose-de p + p {
+  margin-top: 1rem;
+}
+.prose-de h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.1;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+  scroll-margin-top: 6rem;
+}
+.prose-de h3 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.prose-de ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 1rem;
+}
+.prose-de ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  margin-top: 1rem;
+}
+.prose-de li + li {
+  margin-top: 0.4rem;
+}
+.prose-de a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
+/* Legacy page decoration hooks, now neutral */
+.aurora-bg,
 .grid-pattern {
   display: none;
 }
 
 /* Raised panel */
 .glass-card {
-  background: var(--color-surface);
+  background: var(--color-background);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(209, 254, 23, 0.4);
-  transform: translateY(-2px);
+  border-color: #d6d3d1;
+  box-shadow: 0 12px 32px -16px rgba(17, 17, 19, 0.18);
 }
 
-/* Primary button: lime with dark text */
+/* Primary button: black pill */
 .btn-gradient,
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--color-accent);
-  color: var(--color-accent-ink);
+  background: var(--color-foreground);
+  color: #fff;
   border-radius: var(--radius-btn);
-  padding: 14px 28px;
-  font-weight: 700;
-  transition: background 0.2s ease, transform 0.2s ease;
+  padding: 14px 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .btn-gradient:hover,
 .btn-primary:hover {
-  background: var(--color-accent-light);
+  background: #2c2c30;
 }
 
 .btn-gradient:active,
@@ -138,17 +167,18 @@ body {
   justify-content: center;
   gap: 8px;
   border-radius: var(--radius-btn);
-  padding: 14px 28px;
-  font-weight: 700;
+  padding: 13px 24px;
+  font-weight: 600;
+  line-height: 1.2;
   color: var(--color-foreground);
-  background: var(--color-surface-light);
-  border: 1px solid var(--color-border);
+  background: #fff;
+  border: 1px solid #d6d3d1;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .btn-outline:hover,
 .btn-secondary:hover {
-  border-color: var(--color-muted);
+  border-color: var(--color-foreground);
 }
 
 .btn-primary:focus-visible,
@@ -157,7 +187,9 @@ body {
 .btn-outline:focus-visible,
 a:focus-visible,
 button:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }

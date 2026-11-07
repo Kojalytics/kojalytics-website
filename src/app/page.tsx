@@ -1,25 +1,32 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import MacWindow from "@/components/ui/mac-window";
+import AppIcon from "@/components/ui/app-icon";
 import ProjectCard from "@/components/studio/ProjectCard";
 import ContactCta from "@/components/studio/ContactCta";
-import { APPS, appImage } from "@/lib/apps";
+import { APPS, getApp, shotFor } from "@/lib/apps";
+import { ARTICLES } from "@/lib/ratgeber";
 import { PROJECTS, SERVICES } from "@/lib/studio";
-import { TRIAL_DAYS } from "@/lib/pricing";
+import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import { DEFAULT_OG_IMAGE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Kojalytics: Software Studio for iOS, Web and Mac Apps" },
+  title: { absolute: "Kojalytics: Mac-Apps statt Abo und App-Entwicklung" },
   description:
-    "Kojalytics is a software studio from Germany. We build iOS apps, web platforms and AI features for clients, and make the Koja apps for Mac.",
+    "Kojalytics ist ein Software-Studio aus Deutschland. Wir machen die Koja-Apps für den Mac und entwickeln iOS-Apps, Web-Plattformen und KI-Funktionen.",
   alternates: { canonical: "/" },
-  openGraph: { url: "/", title: "Kojalytics: software studio from Germany", images: [DEFAULT_OG_IMAGE] },
+  openGraph: { url: "/", title: "Kojalytics: Software-Studio aus Deutschland", images: [DEFAULT_OG_IMAGE] },
 };
 
-const teaserApps = APPS.slice(0, 6);
+function Shot({ slug, className, priority = false, sizes }: { slug: string; className?: string; priority?: boolean; sizes: string }) {
+  const app = getApp(slug);
+  const shot = app && shotFor(app);
+  if (!shot) return null;
+  return <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} priority={priority} sizes={sizes} className={className} />;
+}
 
 export default function Home() {
   return (
@@ -27,104 +34,99 @@ export default function Home() {
       <Navigation />
       <main>
         {/* Hero */}
-        <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-28 md:px-6 md:pt-36 lg:grid-cols-[1fr_1fr] lg:items-center">
-          <div>
-            <p className="eyebrow">Software studio · Germany</p>
-            <h1 className="display mt-4 text-[clamp(3.25rem,9vw,7.5rem)]">
-              Apps for clients.
-              <br />
-              <span className="text-highlight">Apps of our own.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
-              Kojalytics designs and builds iOS apps, web platforms and AI features for companies and founders. We also make the
-              Koja apps: 13 creative and office apps for Mac.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="btn-primary text-base">
-                Start a project
-              </Link>
-              <Link href="/software" className="btn-secondary text-base">
-                See the Koja apps
-              </Link>
+        <section className="overflow-hidden bg-[linear-gradient(180deg,#f5f5f4_0%,#ffffff_100%)] px-5 pb-20 pt-28 md:px-6 md:pt-36">
+          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted w-fit">Software-Studio aus Deutschland</p>
+              <h1 className="display mt-6 text-[clamp(2.75rem,6.5vw,5.25rem)]">Wir bauen Apps. Für Kunden und für deinen Mac.</h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+                Kojalytics entwickelt iOS-Apps, Web-Plattformen und KI-Funktionen für Unternehmen und Gründer. Und wir machen die
+                Koja-Apps: 13 Mac-Apps für Kreativ- und Büroarbeit, für {PLANS.monthly.label} im Monat.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/software" className="btn-primary text-base">
+                  Koja-Apps entdecken <ArrowRight size={18} aria-hidden />
+                </Link>
+                <Link href="/kontakt" className="btn-secondary text-base">
+                  Projekt anfragen
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="relative aspect-[16/11] overflow-hidden rounded-[18px] border border-border">
-            <Image
-              src="/studio/services.webp"
-              alt="Developer desk at night with code on a monitor, an iPhone app and paper sketches of app screens"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
+            <div className="relative">
+              <Shot slug="photo-koja" priority sizes="(max-width: 1024px) 92vw, 50vw" className="relative z-10" />
+              <Shot slug="grid-koja" sizes="(max-width: 1024px) 50vw, 26vw" className="absolute -bottom-10 -left-6 z-20 hidden w-[46%] sm:block" />
+              <Shot slug="film-koja" sizes="(max-width: 1024px) 50vw, 26vw" className="absolute -right-6 -top-8 z-0 hidden w-[44%] sm:block" />
+            </div>
           </div>
         </section>
 
-        {/* Software teaser */}
-        <section className="px-5 py-16 md:px-6 md:py-24">
-          <Link
-            href="/software"
-            className="group mx-auto grid max-w-7xl overflow-hidden rounded-[24px] border border-border bg-surface transition-colors hover:border-accent/60 lg:grid-cols-2"
-          >
-            <div className="flex flex-col justify-center p-8 sm:p-12">
-              <p className="eyebrow text-accent">New · Koja apps for Mac</p>
-              <h2 className="display mt-4 text-5xl sm:text-6xl md:text-7xl">
-                13 pro apps. <span className="text-highlight">€2.99 a month.</span>
-              </h2>
-              <p className="mt-5 max-w-md text-lg text-muted">
-                Photo, video, design, audio, office and CAD. Offline, no account, cancel in one click. Free for {TRIAL_DAYS} days.
+        {/* Koja apps */}
+        <section className="px-5 py-20 md:px-6 md:py-28">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
+              <div>
+                <p className="eyebrow">Koja-Apps für den Mac</p>
+                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Profi-Apps. {PLANS.monthly.label} im Monat.</h2>
+              </div>
+              <p className="text-lg leading-relaxed text-muted">
+                Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD. Offline, ohne Konto, mit einem Klick kündbar. Teste alle Apps{" "}
+                {TRIAL_DAYS} Tage kostenlos oder zahle einmalig {PLANS.lifetime.label}.
               </p>
-              <span className="mt-8 inline-flex items-center gap-2 font-bold text-accent">
-                Explore the apps <ArrowUpRight size={18} aria-hidden />
-              </span>
             </div>
-            <div className="grid grid-cols-3 gap-1 p-1">
-              {teaserApps.map((a) => (
-                <div key={a.slug} className="relative aspect-[4/5] overflow-hidden rounded-[12px]">
-                  <Image src={appImage(a.slug)} alt={a.imageAlt} fill sizes="(max-width: 1024px) 33vw, 17vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <span className="absolute bottom-2 left-2 rounded bg-black/70 px-2 py-0.5 text-[11px] font-bold">{a.name}</span>
-                </div>
+            <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+              {APPS.map((a) => (
+                <li key={a.slug}>
+                  <Link href={`/software/${a.slug}`} className="flex h-full items-center gap-3 rounded-[16px] border border-border p-3 transition-colors hover:border-foreground/40">
+                    <AppIcon slug={a.slug} name={a.name} size={40} />
+                    <span className="min-w-0">
+                      <span className="block truncate font-semibold">{a.name}</span>
+                      <span className="block truncate text-sm text-muted">{a.kind}</span>
+                    </span>
+                  </Link>
+                </li>
               ))}
-            </div>
-          </Link>
+              <li>
+                <Link href="/software" className="flex h-full items-center justify-center gap-2 rounded-[16px] bg-foreground p-3 font-semibold text-white">
+                  Alle ansehen <ArrowRight size={16} aria-hidden />
+                </Link>
+              </li>
+            </ul>
+          </div>
         </section>
 
         {/* Services */}
-        <section className="mx-auto max-w-7xl px-5 py-20 md:px-6 md:py-28">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <p className="eyebrow">Services</p>
-              <h2 className="display mt-3 text-5xl sm:text-6xl md:text-7xl">
-                From idea <span className="text-highlight">to App Store.</span>
-              </h2>
-            </div>
-            <Link href="/services" className="inline-flex items-center gap-1.5 font-bold text-accent">
-              All services <ArrowUpRight size={18} aria-hidden />
-            </Link>
-          </div>
-          <div className="mt-12 divide-y divide-border border-y border-border">
-            {SERVICES.map((s) => (
-              <Link key={s.slug} href={`/services#${s.slug}`} className="group grid gap-2 py-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_auto] md:items-center md:gap-10">
-                <h3 className="display text-3xl group-hover:text-accent sm:text-4xl">{s.title}</h3>
-                <p className="text-muted">{s.summary}</p>
-                <ArrowUpRight size={22} className="hidden text-muted group-hover:text-accent md:block" aria-hidden />
+        <section className="bg-surface px-5 py-20 md:px-6 md:py-28">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div>
+                <p className="eyebrow">Leistungen</p>
+                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">Von der Idee bis in den App Store.</h2>
+              </div>
+              <Link href="/leistungen" className="inline-flex items-center gap-1.5 font-semibold">
+                Alle Leistungen <ArrowRight size={18} aria-hidden />
               </Link>
-            ))}
+            </div>
+            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+              {SERVICES.map((s) => (
+                <Link key={s.slug} href={`/leistungen#${s.slug}`} className="rounded-[22px] bg-white p-6 transition-shadow hover:shadow-[0_20px_40px_-24px_rgba(17,17,19,0.3)]">
+                  <h3 className="text-lg font-semibold">{s.title}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{s.summary}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Work */}
-        <section className="border-t border-border bg-surface/40 px-5 py-20 md:px-6 md:py-28">
+        <section className="px-5 py-20 md:px-6 md:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
-                <p className="eyebrow">Selected work</p>
-                <h2 className="display mt-3 text-5xl sm:text-6xl md:text-7xl">
-                  Shipped, <span className="text-highlight">not just designed.</span>
-                </h2>
+                <p className="eyebrow">Projekte</p>
+                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">Ausgeliefert, nicht nur entworfen.</h2>
               </div>
-              <Link href="/work" className="inline-flex items-center gap-1.5 font-bold text-accent">
-                All projects <ArrowUpRight size={18} aria-hidden />
+              <Link href="/projekte" className="inline-flex items-center gap-1.5 font-semibold">
+                Alle Projekte <ArrowRight size={18} aria-hidden />
               </Link>
             </div>
             <div className="mt-12 grid gap-4 md:grid-cols-3">
@@ -134,6 +136,28 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Guides */}
+        {ARTICLES.length > 0 && (
+          <section className="border-t border-border px-5 py-20 md:px-6 md:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                <h2 className="display text-4xl sm:text-5xl">Aus dem Ratgeber</h2>
+                <Link href="/ratgeber" className="inline-flex items-center gap-1.5 font-semibold">
+                  Alle Ratgeber <ArrowRight size={18} aria-hidden />
+                </Link>
+              </div>
+              <div className="mt-10 grid gap-4 md:grid-cols-3">
+                {ARTICLES.slice(0, 3).map((a) => (
+                  <Link key={a.slug} href={`/ratgeber/${a.slug}`} className="rounded-[22px] border border-border p-6 transition-colors hover:border-foreground/40">
+                    <p className="text-sm text-muted">{a.readingMinutes} Min. Lesezeit</p>
+                    <h3 className="mt-3 text-xl font-semibold leading-snug">{a.h1}</h3>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <ContactCta />
       </main>

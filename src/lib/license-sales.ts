@@ -95,26 +95,26 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
 
 async function sendLicenseEmail(to: string, key: string, subscription: boolean) {
   const text = [
-    'Thanks for your purchase!',
+    'Danke für deinen Kauf!',
     '',
-    `Your Kojalytics license key: ${key}`,
+    `Dein Kojalytics-Lizenzschlüssel: ${key}`,
     '',
-    'How to activate it:',
-    `1. Download the Kojalytics Launcher for Mac: ${LAUNCHER_DOWNLOAD_URL}`,
-    '2. Open the file and drag the Launcher into your Applications folder.',
-    '3. Start the Launcher and go to Settings › License.',
-    '4. Paste the key and click "Activate".',
-    '5. Install your Koja apps right in the Launcher.',
+    'So aktivierst du ihn:',
+    `1. Lade den Kojalytics Launcher für den Mac: ${LAUNCHER_DOWNLOAD_URL}`,
+    '2. Öffne die Datei und ziehe den Launcher in den Ordner „Programme“.',
+    '3. Starte den Launcher und gehe zu Einstellungen › Lizenz.',
+    '4. Füge den Schlüssel ein und klicke auf „Aktivieren“.',
+    '5. Installiere deine Koja-Apps direkt im Launcher.',
     '',
     subscription
-      ? `Your monthly plan covers all Koja apps on up to ${LICENSE_DEVICES} Macs. Cancel any time in one click: https://www.kojalytics.com/cancel`
-      : `Your lifetime license covers all Koja apps on up to ${LICENSE_DEVICES} Macs.`,
-    'Please keep this email.',
+      ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit mit einem Klick: https://www.kojalytics.com/kuendigen`
+      : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs.`,
+    'Bitte bewahre diese E-Mail gut auf.',
     '',
-    'Questions? Just reply to this email.',
+    'Fragen? Antworte einfach auf diese E-Mail.',
     'Kojalytics · https://www.kojalytics.com',
   ].join('\n');
-  await sendEmail(to, 'Your Kojalytics license key', text);
+  await sendEmail(to, 'Dein Kojalytics-Lizenzschlüssel', text);
 }
 
 export async function sendEmail(to: string, subject: string, text: string) {

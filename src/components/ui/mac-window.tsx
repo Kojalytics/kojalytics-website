@@ -1,0 +1,33 @@
+import Image from "next/image";
+
+/** A real app screenshot framed as a macOS window: rounded corners, traffic lights, soft shadow. */
+export default function MacWindow({
+  src,
+  alt,
+  width,
+  height,
+  sizes,
+  priority = false,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes: string;
+  priority?: boolean;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`overflow-hidden rounded-[12px] bg-[#ececeb] ring-1 ring-black/10 shadow-[0_30px_60px_-30px_rgba(17,17,19,0.45),0_12px_24px_-12px_rgba(17,17,19,0.18)] ${className}`}
+    >
+      <div className="flex h-7 items-center gap-1.5 px-3" aria-hidden>
+        <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+        <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
+        <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+      </div>
+      <Image src={src} alt={alt} width={width} height={height} sizes={sizes} priority={priority} className="block h-auto w-full" />
+    </div>
+  );
+}

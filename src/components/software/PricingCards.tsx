@@ -8,8 +8,8 @@ import { track } from "@/lib/track";
 import DownloadButton from "./DownloadButton";
 
 const included: Record<Plan, string[]> = {
-  monthly: ["All 13 Koja apps", "Every update while subscribed", "Up to 3 Macs", "Cancel in one click, any time"],
-  lifetime: ["All 13 Koja apps, forever", "Updates via the Kojalytics Launcher", "Up to 3 Macs", "One payment, no renewal"],
+  monthly: ["Alle 13 Koja-Apps", "Alle Updates inklusive", "Auf bis zu 3 Macs", "Jederzeit mit einem Klick kündbar"],
+  lifetime: ["Alle 13 Koja-Apps, für immer", "Updates über den Kojalytics Launcher", "Auf bis zu 3 Macs", "Einmal zahlen, keine Verlängerung"],
 };
 
 export default function PricingCards({ source }: { source: string }) {
@@ -19,7 +19,7 @@ export default function PricingCards({ source }: { source: string }) {
 
   async function buy(plan: Plan) {
     if (!waiver) {
-      setError("Please tick the box above the buttons first.");
+      setError("Bitte setze zuerst den Haken über den Buttons.");
       return;
     }
     setBusy(plan);
@@ -35,7 +35,7 @@ export default function PricingCards({ source }: { source: string }) {
       if (!res.ok || !data.url) throw new Error(data.error || "checkout failed");
       window.location.href = data.url;
     } catch {
-      setError("The checkout could not be started. Please try again in a moment.");
+      setError("Der Bezahlvorgang konnte nicht gestartet werden. Bitte versuche es gleich noch einmal.");
       setBusy(null);
     }
   }
@@ -49,37 +49,39 @@ export default function PricingCards({ source }: { source: string }) {
           return (
             <div
               key={plan}
-              className={`relative flex flex-col rounded-[18px] border p-6 sm:p-8 ${
-                highlight ? "border-accent bg-surface" : "border-border bg-surface"
+              className={`relative flex flex-col rounded-[22px] border bg-white p-6 sm:p-8 ${
+                highlight ? "border-foreground shadow-[0_24px_60px_-30px_rgba(17,17,19,0.35)]" : "border-border"
               }`}
             >
               {highlight && (
-                <span className="absolute -top-3 left-6 rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent-ink">
-                  Start here
+                <span className="absolute -top-3 left-6 rounded-full bg-foreground px-3 py-1 text-xs font-semibold text-white">
+                  Beliebtester Einstieg
                 </span>
               )}
-              <p className="eyebrow">{p.name}</p>
+              <p className="text-sm font-semibold text-muted">{p.name}</p>
               <p className="mt-3 flex items-baseline gap-2">
-                <span className="display text-6xl sm:text-7xl">{p.label}</span>
+                <span className="display text-6xl">{p.label}</span>
                 <span className="text-muted">{p.per}</span>
               </p>
               <p className="mt-2 text-sm text-muted">
-                {plan === "monthly" ? `After your free ${TRIAL_DAYS}-day trial. Incl. VAT.` : "Pay once, use forever. Incl. VAT. Pays off after 27 months."}
+                {plan === "monthly"
+                  ? `Nach ${TRIAL_DAYS} Tagen kostenlosem Test. Inkl. MwSt.`
+                  : "Einmal zahlen, dauerhaft nutzen. Inkl. MwSt. Lohnt sich ab dem 27. Monat."}
               </p>
               <ul className="mt-6 grid gap-3">
                 {included[plan].map((item) => (
                   <li key={item} className="flex gap-3 text-[15px]">
-                    <Check size={18} strokeWidth={3} className="mt-0.5 shrink-0 text-accent" aria-hidden />
+                    <Check size={18} strokeWidth={2.6} className="mt-0.5 shrink-0 text-success" aria-hidden />
                     {item}
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={() => buy(plan)}
-                disabled={busy !== null}
-                className={`mt-8 ${highlight ? "btn-primary" : "btn-secondary"} w-full`}
-              >
-                {busy === plan ? "Opening secure checkout…" : plan === "monthly" ? "Subscribe for €2.99 / month" : "Buy lifetime for €79"}
+              <button onClick={() => buy(plan)} disabled={busy !== null} className={`mt-8 w-full ${highlight ? "btn-primary" : "btn-secondary"}`}>
+                {busy === plan
+                  ? "Sicherer Checkout öffnet sich …"
+                  : plan === "monthly"
+                    ? "Für 2,99 € im Monat abonnieren"
+                    : "Für 79 € dauerhaft kaufen"}
               </button>
             </div>
           );
@@ -91,20 +93,29 @@ export default function PricingCards({ source }: { source: string }) {
           type="checkbox"
           checked={waiver}
           onChange={(e) => setWaiver(e.target.checked)}
-          className="mt-1 h-4 w-4 shrink-0 accent-[#d1fe17]"
+          className="mt-1 h-4 w-4 shrink-0 accent-[#111113]"
         />
         <span>
-          I want my license to start immediately. I know that my right of withdrawal ends once the license key has been
-          delivered. Payment via Stripe, see our <Link href="/terms" className="text-foreground underline underline-offset-2">terms</Link>.
+          Ich möchte, dass meine Lizenz sofort startet. Mir ist bekannt, dass mein Widerrufsrecht mit der Lieferung des
+          Lizenzschlüssels erlischt. Zahlung über Stripe, es gelten unsere{" "}
+          <Link href="/agb" className="text-foreground underline underline-offset-2">
+            AGB
+          </Link>
+          .
         </span>
       </label>
-      {error && <p className="text-sm text-red-400" role="alert">{error}</p>}
-
-      <div className="flex flex-col items-start gap-3 rounded-[18px] border border-dashed border-border p-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-[15px]">
-          <span className="font-bold">Not sure yet?</span> <span className="text-muted">Download the apps and use all of them free for {TRIAL_DAYS} days first.</span>
+      {error && (
+        <p className="text-sm text-red-600" role="alert">
+          {error}
         </p>
-        <DownloadButton source={source} label="Download free" />
+      )}
+
+      <div className="flex flex-col items-start gap-3 rounded-[22px] border border-dashed border-[#d6d3d1] bg-surface-light p-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-[15px]">
+          <span className="font-semibold">Noch unsicher?</span>{" "}
+          <span className="text-muted">Lade die Apps und nutze alle {TRIAL_DAYS} Tage kostenlos. Ohne Zahlungsdaten.</span>
+        </p>
+        <DownloadButton source={source} label="Kostenlos laden" />
       </div>
     </div>
   );

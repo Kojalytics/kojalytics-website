@@ -4,7 +4,7 @@ import { LICENSE_PRODUCT, sendEmail } from '@/lib/license-sales';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Cancellation button (§ 312k BGB): ends every active Koja subscription of this email address
+// Kündigungsbutton (§ 312k BGB): ends every active Koja subscription of this email address
 // at the end of the paid period and confirms it by email. The answer is the same whether or not a
 // subscription exists, so the form cannot be used to find out who is a customer.
 export async function POST(request: NextRequest) {
@@ -14,10 +14,10 @@ export async function POST(request: NextRequest) {
   const extraordinary = body?.type === 'extraordinary';
   const reason = typeof body?.reason === 'string' ? body.reason.trim().slice(0, 1000) : '';
   if (!EMAIL.test(email) || !name) {
-    return NextResponse.json({ error: 'Please enter your name and the email address you subscribed with.' }, { status: 400 });
+    return NextResponse.json({ error: 'Bitte gib deinen Namen und die E-Mail-Adresse deines Abos ein.' }, { status: 400 });
   }
   if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY.includes('REPLACE')) {
-    return NextResponse.json({ error: 'Cancellation is temporarily unavailable. Please email support@kojalytics.com.' }, { status: 503 });
+    return NextResponse.json({ error: 'Die Kündigung ist gerade nicht verfügbar. Bitte schreib an support@kojalytics.com.' }, { status: 503 });
   }
 
   try {
@@ -39,19 +39,19 @@ export async function POST(request: NextRequest) {
 
     if (ended.length && process.env.RESEND_API_KEY) {
       const until = ended
-        .map((e) => new Date(e.endsAt * 1000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }))
+        .map((e) => new Date(e.endsAt * 1000).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }))
         .join(', ');
       await sendEmail(
         email,
-        'Your Koja subscription is cancelled',
+        'Bestätigung deiner Kündigung',
         [
-          `Hello ${name},`,
+          `Hallo ${name},`,
           '',
-          `we have received your cancellation on ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Berlin' })} (Berlin time).`,
-          `Your Koja apps subscription ends on ${until}. You will not be charged again.`,
-          'You can keep using the apps until then.',
+          `wir haben deine Kündigung am ${new Date().toLocaleString('de-DE', { timeZone: 'Europe/Berlin' })} Uhr erhalten.`,
+          `Dein Koja-Apps-Abo endet am ${until}. Danach buchen wir nichts mehr ab.`,
+          'Bis dahin kannst du die Apps weiter nutzen.',
           '',
-          'Changed your mind? Subscribe again any time at https://www.kojalytics.com/software',
+          'Du möchtest doch bleiben? Unter https://www.kojalytics.com/software kannst du jederzeit wieder abonnieren.',
           '',
           'Kojalytics · https://www.kojalytics.com',
         ].join('\n')
@@ -60,6 +60,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error('Cancel error:', err);
-    return NextResponse.json({ error: 'Something went wrong. Please try again or email support@kojalytics.com.' }, { status: 500 });
+    return NextResponse.json({ error: 'Das hat nicht geklappt. Bitte versuche es erneut oder schreib an support@kojalytics.com.' }, { status: 500 });
   }
 }

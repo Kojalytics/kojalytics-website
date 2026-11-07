@@ -1,0 +1,18 @@
+{
+  "kind": "STUB",
+  "benefit": "STUB",
+  "keyword": "STUB",
+  "metaTitle": "STUB",
+  "metaDescription": "STUB",
+  "h1": "STUB",
+  "lead": "STUB",
+  "highlights": ["STUB"],
+  "features": [{ "title": "STUB", "text": "STUB", "screenshot": "hero.webp" }],
+  "screenshots": [{ "file": "hero.webp", "alt": "STUB", "caption": "STUB" }],
+  "switching": { "title": "STUB", "paragraphs": ["STUB"] },
+  "comparison": { "rows": [{ "label": "STUB", "koja": "STUB", "other": "STUB" }], "note": "STUB" },
+  "forWho": ["STUB"],
+  "notFor": ["STUB"],
+  "formats": ["STUB"],
+  "faq": [{ "q": "STUB", "a": "STUB" }]
+}

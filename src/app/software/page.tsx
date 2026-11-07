@@ -1,75 +1,98 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CloudOff, FileText, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, CloudOff, FileText, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PerspectiveTunnelHero from "@/components/ui/perspective-tunnel-hero";
+import MacWindow from "@/components/ui/mac-window";
+import AppIcon from "@/components/ui/app-icon";
 import DownloadButton from "@/components/software/DownloadButton";
 import PricingCards from "@/components/software/PricingCards";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
-import { APPS, APP_GROUPS, appImage } from "@/lib/apps";
+import { APPS, APP_GROUPS, getApp, shotFor } from "@/lib/apps";
+import { ARTICLES } from "@/lib/ratgeber";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import { SOFTWARE_FAQ } from "@/lib/software-faq";
 import { SITE_URL, jsonLd } from "@/lib/site";
+import compare from "@/content/software-compare.json";
 
 export const metadata: Metadata = {
-  title: "Koja Apps: 13 Creative and Office Apps for Mac, €2.99",
+  title: "Koja-Apps: 13 Mac-Apps statt Adobe-Abo",
   description:
-    "Photo, video, design, audio, office and CAD apps for Mac. Offline, no account. €2.99 a month, cancel in one click, or €79 once. Try free for 3 days.",
+    "Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD für den Mac. Offline, ohne Konto. 2,99 € im Monat, mit einem Klick kündbar. 3 Tage kostenlos testen.",
   alternates: { canonical: "/software" },
   openGraph: {
-    title: "13 pro apps for Mac. €2.99 a month. Cancel in one click.",
-    description: "Photo, video, design, audio, office and CAD apps that run offline. Try all of them free for 3 days.",
+    title: "13 Profi-Apps für deinen Mac. 2,99 € im Monat.",
+    description: "Foto, Video, Design, Audio, Office, PDF und CAD. Offline, ohne Konto, mit einem Klick kündbar. 3 Tage kostenlos testen.",
     url: "/software",
-    images: [{ url: "/software/og-software.jpg", width: 1200, height: 630, alt: "A creative workshop at night with photo, video and audio apps on several screens" }],
+    images: [{ url: "/og/software.jpg", width: 1200, height: 630, alt: "Die Koja-Apps auf dem Mac" }],
   },
 };
 
 const problems = [
   {
-    pain: "Monthly bills that never stop, and a fee if you leave early.",
-    fix: "€2.99 a month and one click to cancel. Or pay €79 once and keep it.",
+    pain: "Monatliche Abo-Kosten, die nie enden, und eine Gebühr, wenn du vorzeitig gehst.",
+    fix: "2,99 € im Monat und mit einem Klick gekündigt. Oder einmal 79 € zahlen und behalten.",
   },
   {
-    pain: "An account, a cloud and a login screen before you can open a file.",
-    fix: "Native Mac apps that start offline. No account, no upload.",
+    pain: "Erst Konto, Cloud und Anmeldung, bevor du eine Datei öffnen darfst.",
+    fix: "Echte Mac-Apps, die offline starten. Ohne Konto, ohne Upload.",
   },
   {
-    pain: "Learning a new tool from scratch when a deadline is due.",
-    fix: "Layers, timelines, ribbons and shortcuts where your hands expect them.",
+    pain: "Ein komplett neues Programm lernen, wenn die Deadline drückt.",
+    fix: "Ebenen, Zeitleisten, Menübänder und Kurzbefehle da, wo du sie erwartest.",
   },
 ];
 
 const benefits = [
-  { icon: Zap, title: "Native on your Mac", text: "Real Mac apps that start fast and keep working without internet." },
-  { icon: FileText, title: "Your files just open", text: ".docx, .xlsx, .pptx and PDF from colleagues and clients open as they are." },
-  { icon: CloudOff, title: "No account, no cloud", text: "Nothing to sign up for. Your work never leaves your computer." },
-  { icon: MousePointerClick, title: "Cancel in one click", text: "On our website, without a fee, a form letter or a phone call." },
-  { icon: Lock, title: "Open-source core", text: "Built on open code (MIT / Apache-2.0) that anyone can inspect." },
-  { icon: ShieldCheck, title: "A real company behind it", text: "Kojalytics, a software studio in Germany. GDPR, Impressum, support by email." },
+  { icon: Zap, title: "Echte Mac-Apps", text: "Native Programme, die schnell starten und ohne Internet weiterlaufen." },
+  { icon: FileText, title: "Deine Dateien öffnen sich", text: ".docx, .xlsx, .pptx und PDF von Kunden und Kollegen öffnen sich wie gewohnt." },
+  { icon: CloudOff, title: "Kein Konto, keine Cloud", text: "Nichts anmelden, nichts hochladen. Deine Arbeit bleibt auf deinem Mac." },
+  { icon: MousePointerClick, title: "Kündigen mit einem Klick", text: "Auf unserer Website, ohne Gebühr, ohne Anruf, ohne Kündigungsschreiben." },
+  { icon: Lock, title: "Offener Quellcode", text: "Die Apps basieren auf offenem Code (MIT / Apache-2.0), den jeder prüfen kann." },
+  { icon: ShieldCheck, title: "Ein echtes Unternehmen", text: "Kojalytics, Software-Studio aus Deutschland. DSGVO, Impressum, Support per E-Mail." },
+];
+
+const showcase = [
+  {
+    app: "word-koja",
+    title: "Deine Office-Dateien öffnen sich einfach",
+    text: "WordKoja, GridKoja und DeckKoja lesen und speichern .docx, .xlsx und .pptx. Das Angebot vom Kunden, die Tabelle aus der Buchhaltung, die Präsentation der Kollegin: Sie öffnen sich ohne Umweg über ein Microsoft-Konto.",
+  },
+  {
+    app: "photo-koja",
+    title: "Profi-Werkzeuge, die du schon kennst",
+    text: "Ebenen, Masken, Ebenenstile und Pinsel in PhotoKoja. Pfade und Formen in VectorKoja. Musterseiten und Textrahmen in DesignKoja. Wer aus der Adobe-Welt kommt, findet sich in Minuten zurecht.",
+  },
+  {
+    app: "film-koja",
+    title: "Auch für Video, Effekte und Audio",
+    text: "Schneide Videos auf einer Mehrspur-Zeitleiste in FilmKoja, animiere Titel in EffectKoja und mische deinen Podcast in SoundKoja. Alles im selben Abo.",
+  },
 ];
 
 const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Koja apps",
+  name: "Koja-Apps",
   applicationCategory: "MultimediaApplication",
   operatingSystem: "macOS",
+  inLanguage: "de",
   url: `${SITE_URL}/software`,
-  image: `${SITE_URL}/software/og-software.jpg`,
-  description: "13 creative and office apps for Mac: photo, RAW, vector, layout, interface design, video, motion graphics, audio, word processing, spreadsheets, presentations, PDF and CAD.",
+  image: `${SITE_URL}/og/software.jpg`,
+  description:
+    "13 Mac-Apps für Bildbearbeitung, RAW-Fotos, Vektorgrafik, Layout, Interface-Design, Videoschnitt, Motion Graphics, Audio, Textverarbeitung, Tabellen, Präsentationen, PDF und CAD.",
   publisher: { "@type": "Organization", name: "Kojalytics", url: SITE_URL },
   offers: [
     {
       "@type": "Offer",
-      name: "Monthly",
+      name: "Monatlich",
       price: (PLANS.monthly.cents / 100).toFixed(2),
       priceCurrency: "EUR",
       priceSpecification: { "@type": "UnitPriceSpecification", price: (PLANS.monthly.cents / 100).toFixed(2), priceCurrency: "EUR", billingDuration: "P1M", unitCode: "MON" },
     },
-    { "@type": "Offer", name: "Lifetime", price: (PLANS.lifetime.cents / 100).toFixed(2), priceCurrency: "EUR" },
+    { "@type": "Offer", name: "Dauerhaft", price: (PLANS.lifetime.cents / 100).toFixed(2), priceCurrency: "EUR" },
   ],
 };
 
@@ -77,12 +100,15 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 1, name: "Startseite", item: SITE_URL },
     { "@type": "ListItem", position: 2, name: "Software", item: `${SITE_URL}/software` },
   ],
 };
 
-const tunnelItems = APPS.map((a) => ({ src: appImage(a.slug), alt: a.imageAlt, label: `${a.name} · ${a.kind}` }));
+const tunnelItems = APPS.map((a) => {
+  const s = a.shots[0];
+  return { src: s?.src ?? "", alt: s?.alt ?? a.name, label: a.name, icon: `/apps/${a.slug}/icon.webp` };
+}).filter((i) => i.src);
 
 export default function SoftwarePage() {
   // Placeholder slots for real customer quotes: visible on preview deployments only, never in production.
@@ -99,40 +125,45 @@ export default function SoftwarePage() {
       <main>
         <PerspectiveTunnelHero items={tunnelItems}>
           <div className="flex max-w-3xl flex-col items-center text-center">
-            <p className="eyebrow text-accent">Koja apps for Mac</p>
-            <h1 className="display mt-4 text-[clamp(2.75rem,10vw,6.25rem)]">
-              13 pro apps.
-              <br />
-              <span className="text-highlight">€2.99</span> a month.
-              <br />
-              Cancel in one click.
+            <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted">Koja-Apps für den Mac</p>
+            <h1 className="display mt-5 text-[clamp(2.6rem,7.5vw,5.75rem)]">
+              13 Profi-Apps für deinen Mac. <span className="text-highlight">2,99 €</span> im Monat.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/90 [text-shadow:0_1px_12px_rgba(0,0,0,0.9)] sm:text-lg">
-              Edit photos, lay out pages, cut video, mix audio and write documents in native Mac apps that run offline,
-              without an account. Try every app free for {TRIAL_DAYS} days.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+              Fotos bearbeiten, Layouts setzen, Videos schneiden, Texte schreiben und PDFs bearbeiten: in echten Mac-Apps, die
+              offline laufen und kein Konto brauchen. Teste alle Apps {TRIAL_DAYS} Tage kostenlos.
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
               <DownloadButton source="software-hero" />
-              <Link href="#pricing" className="btn-secondary">
-                See pricing
+              <Link href="#preise" className="btn-secondary">
+                Preise ansehen
               </Link>
             </div>
-            <p className="mt-4 text-sm text-muted">macOS · No card to start · Or €79 once, yours for life</p>
+            <p className="mt-4 text-sm text-muted">macOS · ohne Konto · jederzeit mit einem Klick kündbar</p>
+            <ul className="mt-7 flex max-w-md flex-wrap justify-center gap-2" aria-label="Alle 13 Apps">
+              {APPS.map((a) => (
+                <li key={a.slug}>
+                  <Link href={`/software/${a.slug}`} title={`${a.name}: ${a.kind}`} className="block transition-transform hover:-translate-y-0.5">
+                    <AppIcon slug={a.slug} name={a.name} size={34} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </PerspectiveTunnelHero>
 
         {/* Problem → solution */}
-        <section className="mx-auto max-w-7xl px-5 py-24 md:px-6 md:py-32">
-          <p className="eyebrow">Why people switch</p>
-          <h2 className="display mt-3 max-w-4xl text-5xl sm:text-6xl md:text-7xl">
-            You wanted to make things. <span className="text-highlight">Not manage subscriptions.</span>
+        <section className="mx-auto max-w-7xl px-5 py-20 md:px-6 md:py-28">
+          <p className="eyebrow">Warum Leute wechseln</p>
+          <h2 className="display mt-3 max-w-4xl text-4xl sm:text-5xl md:text-6xl">
+            Du willst etwas erschaffen. <span className="text-muted">Keine Abos verwalten.</span>
           </h2>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-[18px] border border-border bg-border">
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
             {problems.map((p) => (
-              <div key={p.pain} className="grid gap-4 bg-background p-6 sm:p-8 md:grid-cols-2 md:gap-10">
-                <p className="text-lg text-muted line-through decoration-muted/50">{p.pain}</p>
-                <p className="flex items-start gap-3 text-lg font-semibold">
-                  <ArrowRight className="mt-1 shrink-0 text-accent" size={20} aria-hidden />
+              <div key={p.pain} className="rounded-[22px] border border-border p-6">
+                <p className="text-muted line-through decoration-muted/40">{p.pain}</p>
+                <p className="mt-4 flex items-start gap-2 text-lg font-semibold">
+                  <ArrowRight className="mt-1 shrink-0 text-accent" size={18} aria-hidden />
                   {p.fix}
                 </p>
               </div>
@@ -141,54 +172,53 @@ export default function SoftwarePage() {
         </section>
 
         {/* App gallery */}
-        <section id="apps" className="border-t border-border bg-surface/40 px-5 py-24 md:px-6 md:py-32">
+        <section id="apps" className="scroll-mt-16 bg-surface px-5 py-20 md:px-6 md:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
-                <p className="eyebrow">The apps</p>
-                <h2 className="display mt-3 text-5xl sm:text-6xl md:text-7xl">
-                  Thirteen apps. <span className="text-highlight">One plan.</span>
-                </h2>
+                <p className="eyebrow">Die Apps</p>
+                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Apps. Ein Abo.</h2>
               </div>
               <p className="max-w-md text-muted">
-                Everything from a quick PDF to a finished film. Install only the apps you need; they all come with the same plan.
+                Vom schnellen PDF bis zum fertigen Film. Installiere nur die Apps, die du brauchst. Alle sind im selben Abo enthalten.
               </p>
             </div>
 
             {APP_GROUPS.map((group) => {
               const apps = APPS.filter((a) => a.group === group);
               return (
-                <div key={group} className="mt-16">
-                  <h3 className="eyebrow mb-5 text-foreground">{group}</h3>
+                <div key={group} className="mt-14">
+                  <h3 className="mb-5 text-lg font-semibold">{group}</h3>
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {apps.map((app, i) => (
-                      <Link
-                        key={app.slug}
-                        href={`/software/${app.slug}`}
-                        className={`group relative overflow-hidden rounded-[18px] border border-border bg-surface transition-colors hover:border-accent/60 ${
-                          i === 0 && apps.length > 3 ? "lg:col-span-2 lg:row-span-2" : ""
-                        }`}
-                      >
-                        <div className={`relative ${i === 0 && apps.length > 3 ? "aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[640px]" : "aspect-[4/5]"}`}>
-                          <Image
-                            src={appImage(app.slug)}
-                            alt={app.imageAlt}
-                            fill
-                            sizes={i === 0 && apps.length > 3 ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
-                            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                          <div className="absolute inset-x-0 bottom-0 p-6">
-                            <p className="eyebrow text-accent">{app.kind}</p>
-                            <p className="display mt-2 text-4xl sm:text-5xl">{app.name}</p>
-                            <p className="mt-2 max-w-md text-[15px] leading-relaxed text-foreground/80">{app.benefit}</p>
-                            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-accent">
-                              Explore {app.name} <ArrowUpRight size={16} aria-hidden />
+                    {apps.map((app) => {
+                      const shot = app.shots[0];
+                      return (
+                        <Link
+                          key={app.slug}
+                          href={`/software/${app.slug}`}
+                          className="group flex flex-col overflow-hidden rounded-[22px] border border-border bg-white transition-[box-shadow,border-color] hover:border-[#d6d3d1] hover:shadow-[0_20px_40px_-24px_rgba(17,17,19,0.3)]"
+                        >
+                          {shot && (
+                            <div className="bg-[linear-gradient(160deg,var(--c)_0%,transparent_75%)] p-5 pb-0" style={{ ["--c" as string]: `${app.color}22` }}>
+                              <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw" className="translate-y-2 transition-transform duration-500 group-hover:translate-y-0" />
+                            </div>
+                          )}
+                          <div className="flex flex-1 flex-col border-t border-border p-5">
+                            <div className="flex items-center gap-3">
+                              <AppIcon slug={app.slug} name={app.name} size={40} />
+                              <div>
+                                <p className="font-semibold">{app.name}</p>
+                                <p className="text-sm text-muted">{app.kind}</p>
+                              </div>
+                            </div>
+                            <p className="mt-4 flex-1 text-[15px] leading-relaxed text-muted">{app.benefit}</p>
+                            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold">
+                              Mehr zu {app.name} <ArrowRight size={16} aria-hidden />
                             </span>
                           </div>
-                        </div>
-                      </Link>
-                    ))}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               );
@@ -196,33 +226,90 @@ export default function SoftwarePage() {
           </div>
         </section>
 
+        {/* Showcase */}
+        <section className="px-5 py-20 md:px-6 md:py-28">
+          <div className="mx-auto grid max-w-7xl gap-24">
+            {showcase.map((s, i) => {
+              const app = getApp(s.app);
+              const shot = app && shotFor(app);
+              return (
+                <div key={s.title} className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+                  <div className={i % 2 ? "lg:order-2" : ""}>
+                    <h2 className="display text-4xl sm:text-5xl">{s.title}</h2>
+                    <p className="mt-5 text-lg leading-relaxed text-muted">{s.text}</p>
+                  </div>
+                  {shot && app && (
+                    <figure className={`m-0 ${i % 2 ? "lg:order-1" : ""}`}>
+                      <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 1024px) 100vw, 60vw" />
+                      <figcaption className="mt-3 text-sm text-muted">{shot.caption}</figcaption>
+                    </figure>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
         {/* Benefits */}
-        <section className="mx-auto max-w-7xl px-5 py-24 md:px-6 md:py-32">
-          <p className="eyebrow">What you get</p>
-          <h2 className="display mt-3 max-w-4xl text-5xl sm:text-6xl md:text-7xl">
-            Built for your Mac. <span className="text-highlight">Not for a subscription dashboard.</span>
-          </h2>
-          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="rounded-[18px] border border-border bg-surface p-6">
-                <Icon size={24} className="text-accent" aria-hidden />
-                <h3 className="mt-5 text-xl font-bold">{title}</h3>
-                <p className="mt-2 leading-relaxed text-muted">{text}</p>
-              </div>
-            ))}
+        <section className="bg-surface px-5 py-20 md:px-6 md:py-28">
+          <div className="mx-auto max-w-7xl">
+            <p className="eyebrow">Was du bekommst</p>
+            <h2 className="display mt-3 max-w-3xl text-4xl sm:text-5xl md:text-6xl">Gebaut für deinen Mac, nicht für ein Abo-Dashboard.</h2>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {benefits.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="rounded-[22px] bg-white p-6">
+                  <Icon size={24} className="text-accent" aria-hidden />
+                  <h3 className="mt-5 text-lg font-semibold">{title}</h3>
+                  <p className="mt-2 leading-relaxed text-muted">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Price comparison */}
+        <section className="px-5 py-20 md:px-6 md:py-28">
+          <div className="mx-auto max-w-5xl">
+            <p className="eyebrow">Preisvergleich</p>
+            <h2 className="display mt-3 text-4xl sm:text-5xl">Was du im Jahr zahlst</h2>
+            <div className="mt-10 overflow-x-auto rounded-[22px] border border-border">
+              <table className="w-full min-w-[560px] text-left text-[15px]">
+                <thead className="bg-surface text-sm">
+                  <tr>
+                    <th scope="col" className="p-4"></th>
+                    {compare.columns.map((c, i) => (
+                      <th key={c} scope="col" className={`p-4 font-semibold ${i === 0 ? "text-accent" : ""}`}>
+                        {c}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {compare.rows.map((r) => (
+                    <tr key={r.label} className="border-t border-border align-top">
+                      <th scope="row" className="p-4 font-medium text-muted">{r.label}</th>
+                      {r.values.map((v, i) => (
+                        <td key={i} className={`p-4 ${i === 0 ? "font-semibold" : ""}`}>
+                          {v}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs leading-relaxed text-muted">{compare.note}</p>
           </div>
         </section>
 
         {/* Pricing */}
-        <section id="pricing" className="scroll-mt-20 border-t border-border bg-surface/40 px-5 py-24 md:px-6 md:py-32">
+        <section id="preise" className="scroll-mt-16 bg-surface px-5 py-20 md:px-6 md:py-28">
           <div className="mx-auto max-w-5xl">
-            <p className="eyebrow">Pricing</p>
-            <h2 className="display mt-3 text-5xl sm:text-6xl md:text-7xl">
-              Try free. <span className="text-highlight">Then pick a plan.</span>
-            </h2>
+            <p className="eyebrow">Preise</p>
+            <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">Erst testen. Dann entscheiden.</h2>
             <p className="mt-5 max-w-2xl text-lg text-muted">
-              Use every app free for {TRIAL_DAYS} days. Then stay for €2.99 a month and leave whenever you want, or pay €79 once and
-              never think about it again.
+              Nutze alle Apps {TRIAL_DAYS} Tage kostenlos. Danach bleibst du für {PLANS.monthly.label} im Monat und gehst, wann du willst,
+              oder du zahlst einmal {PLANS.lifetime.label} und denkst nie wieder darüber nach.
             </p>
             <div className="mt-12">
               <PricingCards source="software-pricing" />
@@ -231,62 +318,84 @@ export default function SoftwarePage() {
         </section>
 
         {/* Trust */}
-        <section className="mx-auto max-w-7xl px-5 py-24 md:px-6 md:py-32">
+        <section className="mx-auto max-w-7xl px-5 py-20 md:px-6 md:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[18px] border border-border">
-              <Image
-                src="/software/hero.webp"
-                alt="A creative workshop at night with photo, video, vector and audio work on several monitors"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
             <div>
-              <p className="eyebrow">Who is behind Koja</p>
-              <h2 className="display mt-3 text-5xl sm:text-6xl">
-                A small studio. <span className="text-highlight">Open code.</span>
-              </h2>
-              <p className="mt-6 leading-relaxed text-muted">
-                Kojalytics is a software studio from Germany. The Koja apps are built on the open-source Craft apps by the
-                ArtCraft team. We package them as signed Mac apps, keep them updated through the Kojalytics Launcher and
-                answer your emails ourselves.
+              <p className="eyebrow">Wer hinter Koja steht</p>
+              <h2 className="display mt-3 text-4xl sm:text-5xl">Ein kleines Studio. Offener Code.</h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted">
+                Kojalytics ist ein Software-Studio aus Deutschland. Die Koja-Apps basieren auf den quelloffenen Craft-Apps des
+                ArtCraft-Teams. Wir liefern sie als signierte Mac-Apps aus, halten sie über den Kojalytics Launcher aktuell und
+                beantworten deine E-Mails selbst.
               </p>
-              <ul className="mt-6 grid gap-2 text-[15px]">
-                <li>Secure payment with Stripe</li>
-                <li>GDPR-compliant, company based in Germany</li>
-                <li>Support at support@kojalytics.com</li>
+              <ul className="mt-6 grid gap-2">
+                <li>Sichere Zahlung über Stripe</li>
+                <li>DSGVO-konform, Unternehmen mit Sitz in Deutschland</li>
+                <li>Support unter support@kojalytics.com</li>
               </ul>
               {showPlaceholders && (
-                <div className="mt-8 rounded-[18px] border border-dashed border-accent/60 p-5 text-sm text-accent">
-                  [Placeholder, preview only] Add 2–3 real customer quotes with name and role here. Do not invent quotes.
+                <div className="mt-8 rounded-[18px] border border-dashed border-accent p-5 text-sm text-accent">
+                  [Platzhalter, nur in der Vorschau sichtbar] Hier 2–3 echte Kundenstimmen mit Name und Tätigkeit einsetzen. Keine
+                  erfundenen Zitate.
                 </div>
               )}
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {["grid-koja", "light-koja", "vector-koja", "deck-koja"].map((slug) => {
+                const app = getApp(slug);
+                const shot = app && shotFor(app);
+                return shot && app ? (
+                  <MacWindow key={slug} src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 1024px) 45vw, 25vw" />
+                ) : null;
+              })}
             </div>
           </div>
         </section>
 
+        {/* Guides */}
+        {ARTICLES.length > 0 && (
+          <section className="border-t border-border px-5 py-20 md:px-6 md:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                <h2 className="display text-4xl sm:text-5xl">Ratgeber zum Umstieg</h2>
+                <Link href="/ratgeber" className="inline-flex items-center gap-1.5 font-semibold">
+                  Alle Ratgeber <ArrowRight size={18} aria-hidden />
+                </Link>
+              </div>
+              <div className="mt-10 grid gap-4 md:grid-cols-3">
+                {ARTICLES.slice(0, 3).map((a) => (
+                  <Link key={a.slug} href={`/ratgeber/${a.slug}`} className="rounded-[22px] border border-border p-6 transition-colors hover:border-foreground/40">
+                    <p className="text-sm text-muted">{a.readingMinutes} Min. Lesezeit</p>
+                    <h3 className="mt-3 text-xl font-semibold leading-snug">{a.h1}</h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted">{a.metaDescription}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* FAQ */}
-        <section id="faq" className="border-t border-border px-5 py-24 md:px-6 md:py-32">
+        <section id="fragen" className="bg-surface px-5 py-20 md:px-6 md:py-28">
           <div className="mx-auto max-w-4xl">
-            <p className="eyebrow">Questions</p>
-            <h2 className="display mt-3 mb-10 text-5xl sm:text-6xl">Before you download</h2>
+            <p className="eyebrow">Fragen</p>
+            <h2 className="display mb-10 mt-3 text-4xl sm:text-5xl">Bevor du lädst</h2>
             <Faq items={SOFTWARE_FAQ} />
           </div>
         </section>
 
         {/* Final CTA */}
-        <section className="relative overflow-hidden border-t border-border px-5 py-28 md:px-6 md:py-36">
-          <Image src="/software/effect-koja.webp" alt="" fill sizes="100vw" className="object-cover opacity-25" />
-          <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
-            <h2 className="display text-6xl sm:text-7xl md:text-8xl">
-              Your whole studio <span className="text-highlight">for €2.99.</span>
-            </h2>
-            <p className="mt-6 max-w-xl text-lg text-foreground/80">
-              13 apps, free for {TRIAL_DAYS} days, cancel in one click.
-            </p>
+        <section className="px-5 py-24 md:px-6 md:py-32">
+          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+            <div className="flex -space-x-3">
+              {APPS.slice(0, 7).map((a) => (
+                <AppIcon key={a.slug} slug={a.slug} name={a.name} size={52} />
+              ))}
+            </div>
+            <h2 className="display mt-8 text-5xl sm:text-6xl md:text-7xl">Dein ganzes Studio für 2,99 €.</h2>
+            <p className="mt-5 max-w-xl text-lg text-muted">13 Apps, {TRIAL_DAYS} Tage kostenlos, mit einem Klick kündbar.</p>
             <div className="mt-8">
-              <DownloadButton source="software-footer-cta" />
+              <DownloadButton source="software-final-cta" />
             </div>
           </div>
         </section>

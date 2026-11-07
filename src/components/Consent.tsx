@@ -67,23 +67,24 @@ export default function Consent() {
       {open && (
         <div
           role="dialog"
-          aria-label="Cookie settings"
+          aria-label="Cookie-Einstellungen"
           className="fixed inset-x-0 bottom-0 z-[60] p-3 sm:p-4"
           style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
         >
-          <div className="mx-auto flex max-w-3xl flex-col gap-3 rounded-[16px] border border-border bg-surface p-4 shadow-2xl shadow-black/60 sm:flex-row sm:items-center sm:gap-4 sm:p-6">
+          <div className="mx-auto flex max-w-3xl flex-col gap-3 rounded-[18px] border border-border bg-white p-4 shadow-[0_20px_50px_-20px_rgba(17,17,19,0.35)] sm:flex-row sm:items-center sm:gap-4 sm:p-5">
             <p className="flex-1 text-[13px] leading-snug text-muted sm:text-sm sm:leading-relaxed">
-              With your consent we use cookies from Google, Meta and Microsoft to measure our ads. Change it any time in the footer.{" "}
+              Mit deiner Einwilligung nutzen wir Cookies von Google, Meta und Microsoft, um unsere Werbung zu messen. Du kannst das
+              jederzeit im Footer ändern.{" "}
               <Link href="/datenschutz" className="text-foreground underline underline-offset-2">
-                Privacy policy
+                Datenschutz
               </Link>
             </p>
             <div className="grid shrink-0 grid-cols-2 gap-2">
               <button onClick={() => decide("denied")} className="btn-secondary text-sm !px-5 !py-2.5">
-                Reject
+                Ablehnen
               </button>
               <button onClick={() => decide("granted")} className="btn-primary text-sm !px-5 !py-2.5">
-                Accept
+                Akzeptieren
               </button>
             </div>
           </div>
