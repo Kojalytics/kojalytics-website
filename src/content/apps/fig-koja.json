@@ -123,7 +123,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "koja": "macOS und Windows, auf bis zu 3 Geräten",
         "other": "Browser sowie Desktop-Apps für macOS und Windows"
       },
       {
@@ -143,7 +143,7 @@
   "notFor": [
     "du ein ausgereiftes Werkzeug für laufende Kundenprojekte brauchst: FigKoja ist noch in früher Entwicklung (Alpha).",
     "dein Team täglich live in denselben Dateien arbeitet oder du auf Figma-Plugins angewiesen bist.",
-    "du auch unter Windows oder im Browser arbeiten musst: FigKoja gibt es nur für macOS."
+    "du im Browser arbeiten musst: FigKoja gibt es nur als Desktop-App für Mac und Windows."
   ],
   "formats": [
     "SVG (Import und Export)",
@@ -178,11 +178,11 @@
     },
     {
       "q": "Was kostet FigKoja im Vergleich zu Figma?",
-      "a": "Nach 3 kostenlosen Testtagen kostet FigKoja 2,99 € im Monat inkl. MwSt., und darin sind alle 13 Koja-Apps enthalten. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Macs. Bei Figma ist der Tarif Starter kostenlos, erlaubt im Team aber nur 3 Dateien; im Tarif Professional kostet eine Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung. Das Monatsabo von FigKoja kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "a": "Nach 3 kostenlosen Testtagen kostet FigKoja 2,99 € im Monat inkl. MwSt., und darin sind alle 13 Koja-Apps enthalten. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Geräten. Bei Figma ist der Tarif Starter kostenlos, erlaubt im Team aber nur 3 Dateien; im Tarif Professional kostet eine Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung. Das Monatsabo von FigKoja kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     },
     {
       "q": "Ist FigKoja Open Source?",
-      "a": "FigKoja ist der macOS-Build eines quelloffenen Projekts unter MIT- und Apache-2.0-Lizenz. Bei Kojalytics bezahlst du für die fertige Mac-Version, den Kojalytics Launcher, der sie installiert und aktualisiert, und den Support. Erweiterungen laufen als WebAssembly-Plugins in einer abgeschotteten Umgebung, standardmäßig ohne Zugriff auf deine Dateien und das Netzwerk."
+      "a": "FigKoja ist der macOS- und Windows-Build eines quelloffenen Projekts unter MIT- und Apache-2.0-Lizenz. Bei Kojalytics bezahlst du für die fertigen Versionen für Mac und Windows, den Kojalytics Launcher, der sie installiert und aktualisiert, und den Support. Erweiterungen laufen als WebAssembly-Plugins in einer abgeschotteten Umgebung, standardmäßig ohne Zugriff auf deine Dateien und das Netzwerk."
     }
   ]
 }

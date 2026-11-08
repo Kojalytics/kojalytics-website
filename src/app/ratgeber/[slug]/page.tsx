@@ -55,7 +55,7 @@ function AppCallout({ slug, text }: { slug: string; text: string }) {
             <AppIcon slug={app.slug} name={app.name} size={44} />
             <div>
               <p className="font-semibold">{app.name}</p>
-              <p className="text-sm text-muted">{app.kind} für macOS</p>
+              <p className="text-sm text-muted">{app.kind} für macOS und Windows</p>
             </div>
           </div>
           <p className="mt-4 text-[15px] leading-relaxed text-[#2b2a29]">
@@ -253,7 +253,7 @@ export default async function ArticlePage({ params }: Props) {
           <div className="mt-14 rounded-[24px] bg-foreground p-8 text-white sm:p-10">
             <p className="display text-3xl sm:text-4xl">Alle 13 Koja-Apps {TRIAL_DAYS} Tage kostenlos testen</p>
             <p className="mt-3 text-white/75">
-              Danach {PLANS.monthly.label} im Monat, jederzeit online kündbar. Oder einmalig {PLANS.lifetime.label}. Für macOS, ohne Konto.
+              Danach {PLANS.monthly.label} im Monat, jederzeit online kündbar. Oder einmalig {PLANS.lifetime.label}. Für macOS und Windows, ohne Konto.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <DownloadButton source={`ratgeber-${article.slug}`} className="!bg-white !text-foreground hover:!bg-white/90" />

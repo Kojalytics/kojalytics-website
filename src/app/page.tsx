@@ -14,9 +14,9 @@ import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import { DEFAULT_OG_IMAGE, OG_BASE, WEBSITE_JSON_LD, jsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Kojalytics: Mac-Apps statt Abo und App-Entwicklung" },
+  title: { absolute: "Kojalytics: Mac- und Windows-Apps statt Abo und App-Entwicklung" },
   description:
-    "Kojalytics ist ein Software-Studio aus Deutschland. Wir machen die Koja-Apps für den Mac und entwickeln iOS-Apps, Web-Plattformen und KI-Funktionen.",
+    "Kojalytics ist ein Software-Studio aus Deutschland. Wir machen die Koja-Apps für Mac und Windows und entwickeln iOS-Apps, Web-Plattformen und KI-Funktionen.",
   alternates: { canonical: "/" },
   openGraph: { ...OG_BASE, url: "/", title: "Kojalytics: Software-Studio aus Deutschland", images: [DEFAULT_OG_IMAGE] },
 };
@@ -40,11 +40,11 @@ export default function Home() {
             <div>
               <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted w-fit">Software-Studio aus Deutschland</p>
               <h1 className="display mt-6 text-[clamp(2.75rem,5.6vw,4.75rem)]">
-                Wir bauen Apps. <span className="whitespace-nowrap">Für Kunden</span> und für deinen Mac.
+                Wir bauen Apps. <span className="whitespace-nowrap">Für Kunden</span> und für deinen Computer.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 Kojalytics entwickelt iOS-Apps, Web-Plattformen und KI-Funktionen für Unternehmen und Gründer. Und wir machen die
-                Koja-Apps: 13 Mac-Apps für Kreativ- und Büroarbeit, für {PLANS.monthly.label} im Monat.
+                Koja-Apps: 13 Apps für Kreativ- und Büroarbeit auf Mac und Windows, für {PLANS.monthly.label} im Monat.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/software" className="btn-primary text-base">
@@ -68,8 +68,8 @@ export default function Home() {
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
               <div>
-                <p className="eyebrow">Koja-Apps für den Mac</p>
-                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Mac-Apps. {PLANS.monthly.label} im Monat.</h2>
+                <p className="eyebrow">Koja-Apps für Mac und Windows</p>
+                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Apps. {PLANS.monthly.label} im Monat.</h2>
               </div>
               <p className="text-lg leading-relaxed text-muted">
                 Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD. Offline, ohne Konto, jederzeit online kündbar. Teste alle Apps{" "}

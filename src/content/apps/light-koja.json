@@ -108,7 +108,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS (Apple-Chip und Intel)",
+        "koja": "macOS (Apple-Chip und Intel) und Windows",
         "other": "macOS, Windows, iPhone, iPad, Android und Web"
       },
       {
@@ -159,15 +159,15 @@
     },
     {
       "q": "Gibt es LightKoja ohne Abo?",
-      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für LightKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Macs. Zum Vergleich: Lightroom kostet im Jahresabo mit Vorauszahlung 141,94 € pro Jahr. Wenn du lieber monatlich zahlst, nimmst du das Abo für 2,99 € im Monat, das du jederzeit online und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
+      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für LightKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Geräten. Zum Vergleich: Lightroom kostet im Jahresabo mit Vorauszahlung 141,94 € pro Jahr. Wenn du lieber monatlich zahlst, nimmst du das Abo für 2,99 € im Monat, das du jederzeit online und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
     },
     {
       "q": "Läuft LightKoja auf meinem Mac und auf Deutsch?",
-      "a": "LightKoja ist eine Universal-App für Macs mit Apple-Chip und mit Intel-Prozessor. Gerechnet wird auf der Grafikeinheit: Auf einem Apple M4 Pro dauert der Export eines 24-MP-RAWs in voller Größe laut Projektangaben (Stand: November 2026) rund 0,3 Sekunden. Die Oberfläche gibt es in 18 Sprachen, darunter Deutsch. Für Windows, iPad oder den Browser gibt es LightKoja nicht."
+      "a": "LightKoja ist eine Universal-App für Macs mit Apple-Chip und mit Intel-Prozessor. Gerechnet wird auf der Grafikeinheit: Auf einem Apple M4 Pro dauert der Export eines 24-MP-RAWs in voller Größe laut Projektangaben (Stand: November 2026) rund 0,3 Sekunden. Die Oberfläche gibt es in 18 Sprachen, darunter Deutsch. Unter Windows läuft LightKoja ebenfalls, für das iPad oder den Browser gibt es die App nicht."
     },
     {
       "q": "Ist LightKoja Open Source?",
-      "a": "LightKoja ist der Mac-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Bei Kojalytics bezahlst du für die fertige, signierte Mac-App, Installation und Updates über den Kojalytics Launcher, Support und 12 weitere Apps zum selben Preis. Deine Fotos und dein Katalog bleiben dabei auf deinem Mac, den Katalog kannst du jederzeit sichern."
+      "a": "LightKoja ist der Mac- und Windows-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Bei Kojalytics bezahlst du für die fertige, signierte App für Mac und Windows, Installation und Updates über den Kojalytics Launcher, Support und 12 weitere Apps zum selben Preis. Deine Fotos und dein Katalog bleiben dabei auf deinem Mac, den Katalog kannst du jederzeit sichern."
     }
   ]
 }

@@ -297,7 +297,7 @@
         },
         {
           "type": "p",
-          "text": "[PdfKoja](/software/pdf-koja) ist unsere PDF-App für macOS, ein Build eines quelloffenen Projekts, dessen Entwickler es selbst als frühe Alpha-Version einstufen. Enthalten sind das Ordnen von Seiten (drehen, löschen, einfügen, verschieben, mit Rückgängig-Verlauf auch nach dem Sichern), das Zusammenfügen beliebig vieler PDFs mit je einem Lesezeichen pro Datei sowie Extrahieren und Aufteilen, etwa alle n Seiten. Dazu kommen Verschlüsselung mit Benutzer- und Eigentümerpasswort (von RC4 mit 40 Bit bis AES-256), das Ausfüllen von Formularen und Kommentare als Unterhaltungen."
+          "text": "[PdfKoja](/software/pdf-koja) ist unsere PDF-App für macOS und Windows, ein Build eines quelloffenen Projekts, dessen Entwickler es selbst als frühe Alpha-Version einstufen. Enthalten sind das Ordnen von Seiten (drehen, löschen, einfügen, verschieben, mit Rückgängig-Verlauf auch nach dem Sichern), das Zusammenfügen beliebig vieler PDFs mit je einem Lesezeichen pro Datei sowie Extrahieren und Aufteilen, etwa alle n Seiten. Dazu kommen Verschlüsselung mit Benutzer- und Eigentümerpasswort (von RC4 mit 40 Bit bis AES-256), das Ausfüllen von Formularen und Kommentare als Unterhaltungen."
         },
         {
           "type": "p",
@@ -314,7 +314,7 @@
         },
         {
           "type": "p",
-          "text": "Alle 13 Koja-Apps lädst du kostenlos über den Kojalytics Launcher und testest sie 3 Tage. Danach kosten sie zusammen 2,99 € pro Monat inkl. MwSt., jederzeit ohne Gebühr kündbar, oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. Die Apps gibt es nur für macOS. Details stehen unter [Preise](/software#preise)."
+          "text": "Alle 13 Koja-Apps lädst du kostenlos über den Kojalytics Launcher und testest sie 3 Tage. Danach kosten sie zusammen 2,99 € pro Monat inkl. MwSt., jederzeit ohne Gebühr kündbar, oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Geräte. Die Apps gibt es für macOS und Windows. Details stehen unter [Preise](/software#preise)."
         }
       ]
     }

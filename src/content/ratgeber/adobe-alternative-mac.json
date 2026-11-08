@@ -273,11 +273,11 @@
       "blocks": [
         {
           "type": "p",
-          "text": "Kojalytics bietet 13 Koja-Apps für macOS an, darunter die oben genannten Alternativen zu Photoshop, Lightroom, Illustrator, InDesign, Premiere, After Effects, Audition und Acrobat. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt., jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs."
+          "text": "Kojalytics bietet 13 Koja-Apps für macOS und Windows an, darunter die oben genannten Alternativen zu Photoshop, Lightroom, Illustrator, InDesign, Premiere, After Effects, Audition und Acrobat. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt., jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Geräten (Mac oder Windows-PC)."
         },
         {
           "type": "p",
-          "text": "Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Die Apps gibt es nur für macOS, nicht für Windows und nicht im Browser. Technisch sind es macOS-Builds quelloffener Projekte (MIT/Apache-2.0), die sich im Alpha- oder Pre-Alpha-Stadium befinden. Keine Koja-App ersetzt ein Adobe-Programm vollständig."
+          "text": "Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Die Apps gibt es für macOS und Windows, nicht im Browser. Technisch sind es Builds quelloffener Projekte (MIT/Apache-2.0), die sich im Alpha- oder Pre-Alpha-Stadium befinden. Keine Koja-App ersetzt ein Adobe-Programm vollständig."
         },
         {
           "type": "h3",
@@ -300,7 +300,7 @@
           "items": [
             "unter Termindruck an Kundenprojekten arbeitest und dich auf jede Funktion verlassen musst,",
             "generative KI, Adobe-Plug-ins oder Cloud-Zusammenarbeit brauchst,",
-            "unter Windows, auf dem iPad oder im Browser arbeitest."
+            "auf dem iPad oder im Browser arbeitest."
           ]
         },
         {

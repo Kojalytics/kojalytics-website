@@ -8,7 +8,7 @@ import { DEFAULT_OG_IMAGE, OG_BASE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projekte: Apps, die wir gebaut haben",
-  description: "Apps, die wir entworfen, entwickelt und veröffentlicht haben: die Koja-Apps für den Mac, AI Headshot für iOS und Web sowie Etsy Sync für Shopify.",
+  description: "Apps, die wir entworfen, entwickelt und veröffentlicht haben: die Koja-Apps für Mac und Windows, AI Headshot für iOS und Web sowie Etsy Sync für Shopify.",
   alternates: { canonical: "/projekte" },
   openGraph: { ...OG_BASE, url: "/projekte", images: [DEFAULT_OG_IMAGE] },
 };

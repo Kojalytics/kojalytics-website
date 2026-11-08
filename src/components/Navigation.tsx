@@ -62,11 +62,11 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <DownloadButton source="nav" label="3 Tage kostenlos testen" shareLabel="An Mac senden" className="!px-5 !py-2.5 !text-sm" />
+            <DownloadButton source="nav" label="3 Tage kostenlos testen" shareLabel="An Computer senden" className="!px-5 !py-2.5 !text-sm" />
           </div>
 
           <div className="flex items-center gap-1 md:hidden">
-            <DownloadButton source="nav-mobile" label="Kostenlos testen" shareLabel="An Mac senden" className="min-h-11 !gap-1.5 !px-4 !py-2 !text-[13px]" />
+            <DownloadButton source="nav-mobile" label="Kostenlos testen" shareLabel="Link senden" className="min-h-11 !gap-1.5 !px-4 !py-2 !text-[13px]" />
             <button
               onClick={() => setOpenFor(mobileOpen ? null : pathname)}
               className="grid h-11 w-11 place-items-center text-foreground"

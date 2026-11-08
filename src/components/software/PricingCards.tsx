@@ -8,8 +8,8 @@ import { track } from "@/lib/track";
 import DownloadButton from "./DownloadButton";
 
 const included: Record<Plan, string[]> = {
-  monthly: ["Alle 13 Koja-Apps", "Alle Updates inklusive", "Auf bis zu 3 Macs", "Jederzeit online kündbar"],
-  lifetime: ["Alle 13 Koja-Apps, ohne Ablaufdatum", "Updates über den Kojalytics Launcher", "Auf bis zu 3 Macs", "Einmal zahlen, keine Verlängerung"],
+  monthly: ["Alle 13 Koja-Apps", "Alle Updates inklusive", "Auf bis zu 3 Geräten (Mac oder Windows-PC)", "Jederzeit online kündbar"],
+  lifetime: ["Alle 13 Koja-Apps, ohne Ablaufdatum", "Updates über den Kojalytics Launcher", "Auf bis zu 3 Geräten (Mac oder Windows-PC)", "Einmal zahlen, keine Verlängerung"],
 };
 
 const note: Record<Plan, string> = {

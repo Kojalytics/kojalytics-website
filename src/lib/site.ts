@@ -15,7 +15,7 @@ export const ORGANIZATION_JSON_LD = {
   logo: `${SITE_URL}/icon.png`,
   email: "support@kojalytics.com",
   description:
-    "Kojalytics ist ein Software-Studio aus Deutschland. Wir entwickeln Apps und Web-Plattformen für Kunden und bieten die Koja-Apps für den Mac an.",
+    "Kojalytics ist ein Software-Studio aus Deutschland. Wir entwickeln Apps und Web-Plattformen für Kunden und bieten die Koja-Apps für Mac und Windows an.",
   address: { "@type": "PostalAddress", addressCountry: "DE" },
 };
 

@@ -18,13 +18,13 @@ import { OG_BASE, SITE_URL, jsonLd } from "@/lib/site";
 import compare from "@/content/software-compare.json";
 
 export const metadata: Metadata = {
-  title: "Koja-Apps: 13 Mac-Apps statt Adobe-Abo",
+  title: "Koja-Apps: 13 Apps für Mac und Windows statt Adobe-Abo",
   description:
-    "Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD für den Mac. Offline, ohne Konto. 2,99 € im Monat, jederzeit online kündbar. 3 Tage kostenlos testen.",
+    "Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD für Mac und Windows. Offline, ohne Konto. 2,99 € im Monat, jederzeit online kündbar. 3 Tage kostenlos testen.",
   alternates: { canonical: "/software" },
   openGraph: {
     ...OG_BASE,
-    title: "Foto, Video und Office: 13 Mac-Apps für 2,99 € im Monat.",
+    title: "Foto, Video und Office: 13 Apps für Mac und Windows, 2,99 € im Monat.",
     description: "Foto, Video, Design, Audio, Office, PDF und CAD. Offline, ohne Konto, jederzeit online kündbar. 3 Tage kostenlos testen.",
     url: "/software",
     images: [{ url: "/og/software.jpg", width: 1200, height: 630, alt: "Die Koja-Apps auf dem Mac" }],
@@ -38,7 +38,7 @@ const problems = [
   },
   {
     pain: "Erst Konto, Cloud und Anmeldung, bevor du eine Datei öffnen darfst.",
-    fix: "Echte Mac-Apps, die offline starten. Ohne Konto, ohne Upload.",
+    fix: "Echte Desktop-Apps, die offline starten. Ohne Konto, ohne Upload.",
   },
   {
     pain: "Ein komplett neues Programm lernen, wenn die Deadline drückt.",
@@ -47,13 +47,13 @@ const problems = [
 ];
 
 const benefits = [
-  { icon: Zap, title: "Echte Mac-Apps", text: "Native Programme, die schnell starten und ohne Internet weiterlaufen." },
+  { icon: Zap, title: "Echte Desktop-Apps", text: "Native Programme, die schnell starten und ohne Internet weiterlaufen." },
   {
     icon: FileText,
     title: "Gängige Dateiformate",
     text: ".docx, .xlsx, .pptx, .psd und PDF öffnest du direkt, ohne Umwandeln. Layout und Umbrüche können noch abweichen, teste deshalb mit Kopien deiner Dateien.",
   },
-  { icon: CloudOff, title: "Kein Konto, keine Cloud", text: "Nichts anmelden, nichts hochladen. Deine Arbeit bleibt auf deinem Mac." },
+  { icon: CloudOff, title: "Kein Konto, keine Cloud", text: "Nichts anmelden, nichts hochladen. Deine Arbeit bleibt auf deinem Computer." },
   { icon: MousePointerClick, title: "Online kündigen, jederzeit", text: "Name und E-Mail eingeben, „Jetzt kündigen“ klicken. Ohne Gebühr, ohne Anruf, ohne Kündigungsschreiben." },
   { icon: Lock, title: "Offener Quellcode", text: "Die Apps basieren auf offenem Code (MIT / Apache-2.0), den jeder prüfen kann." },
   { icon: ShieldCheck, title: "Ein echtes Unternehmen", text: "Kojalytics, Software-Studio aus Hamburg. Mit Impressum und Support per E-Mail, von Menschen beantwortet." },
@@ -62,7 +62,7 @@ const benefits = [
 const showcase = [
   {
     app: "word-koja",
-    title: "Deine Office-Dateien am Mac",
+    title: "Deine Office-Dateien am Mac und PC",
     text: "WordKoja, GridKoja und DeckKoja lesen und speichern .docx, .xlsx und .pptx, ohne Microsoft-Konto. Das Angebot vom Kunden, die Tabelle aus der Buchhaltung, die Präsentation der Kollegin. Aufwendige Layouts können noch abweichen: Teste deine wichtigsten Dateien in den 3 Tagen.",
   },
   {
@@ -82,12 +82,12 @@ const productJsonLd = {
   "@type": "SoftwareApplication",
   name: "Koja-Apps",
   applicationCategory: "MultimediaApplication",
-  operatingSystem: "macOS",
+  operatingSystem: "macOS, Windows",
   inLanguage: "de",
   url: `${SITE_URL}/software`,
   image: `${SITE_URL}/og/software.jpg`,
   description:
-    "13 Mac-Apps für Bildbearbeitung, RAW-Fotos, Vektorgrafik, Layout, Interface-Design, Videoschnitt, Motion Graphics, Audio, Textverarbeitung, Tabellen, Präsentationen, PDF und CAD.",
+    "13 Apps für Mac und Windows: Bildbearbeitung, RAW-Fotos, Vektorgrafik, Layout, Interface-Design, Videoschnitt, Motion Graphics, Audio, Textverarbeitung, Tabellen, Präsentationen, PDF und CAD.",
   publisher: { "@type": "Organization", name: "Kojalytics", url: SITE_URL },
   offers: [
     {
@@ -133,13 +133,13 @@ export default function SoftwarePage() {
       <main>
         <PerspectiveTunnelHero items={tunnelItems}>
           <div className="flex max-w-3xl flex-col items-center text-center">
-            <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted">Koja-Apps für den Mac · frühe Alpha-Versionen</p>
+            <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted">Koja-Apps für Mac und Windows · frühe Alpha-Versionen</p>
             <h1 className="display mt-5 text-[clamp(2.4rem,5.6vw,4.6rem)]">
-              Foto, Video und Office: <span className="whitespace-nowrap">13 Mac-Apps</span> für{" "}
+              13 Apps für <span className="whitespace-nowrap">Mac und Windows</span>.{" "}
               <span className="whitespace-nowrap text-highlight">2,99 €</span> im Monat.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              Fotos bearbeiten, Layouts setzen, Videos schneiden, Texte schreiben und PDFs ordnen: in echten Mac-Apps, die
+              Fotos bearbeiten, Layouts setzen, Videos schneiden, Texte schreiben und PDFs ordnen: in echten Desktop-Apps, die
               offline laufen und kein Konto brauchen. Teste alle Apps {TRIAL_DAYS} Tage kostenlos.
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
@@ -148,7 +148,7 @@ export default function SoftwarePage() {
                 Preise ansehen
               </Link>
             </div>
-            <p className="mt-4 text-sm text-foreground/70">macOS · ohne Konto · jederzeit online kündbar</p>
+            <p className="mt-4 text-sm text-foreground/70">macOS und Windows · ohne Konto · jederzeit online kündbar</p>
             <ul className="mt-7 flex max-w-[600px] flex-wrap justify-center gap-2" aria-label="Alle 13 Apps">
               {APPS.map((a) => (
                 <li key={a.slug}>
@@ -279,7 +279,7 @@ export default function SoftwarePage() {
         <section className="bg-surface px-5 py-20 md:px-6 md:py-28">
           <div className="mx-auto max-w-7xl">
             <p className="eyebrow">Was du bekommst</p>
-            <h2 className="display mt-3 max-w-3xl text-4xl sm:text-5xl md:text-6xl">Gebaut für deinen Mac, nicht für ein Abo-Dashboard.</h2>
+            <h2 className="display mt-3 max-w-3xl text-4xl sm:text-5xl md:text-6xl">Gebaut für deinen Computer, nicht für ein Abo-Dashboard.</h2>
             <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {benefits.map(({ icon: Icon, title, text }) => (
                 <div key={title} className="rounded-[22px] bg-white p-6">
@@ -365,7 +365,7 @@ export default function SoftwarePage() {
               <h2 className="display mt-3 text-4xl sm:text-5xl">Ein kleines Studio. Offener Code.</h2>
               <p className="mt-6 text-lg leading-relaxed text-muted">
                 Kojalytics ist ein Software-Studio aus Deutschland. Die Koja-Apps basieren auf quelloffener Software des
-                ArtCraft-Teams. Wir liefern sie als signierte Mac-Apps aus, halten sie über den Kojalytics Launcher aktuell und
+                ArtCraft-Teams. Wir liefern sie als signierte Apps für Mac und Windows aus, halten sie über den Kojalytics Launcher aktuell und
                 beantworten deine E-Mails selbst. Die Apps sind frühe Versionen und werden laufend weiterentwickelt. Deshalb
                 testest du alles {TRIAL_DAYS} Tage kostenlos, bevor du zahlst.
               </p>

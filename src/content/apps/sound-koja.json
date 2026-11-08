@@ -113,7 +113,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "koja": "macOS und Windows, auf bis zu 3 Geräten",
         "other": "macOS und Windows"
       },
       {
@@ -160,7 +160,7 @@
     },
     {
       "q": "Gibt es eine Pro-Tools-Alternative ohne Abo?",
-      "a": "Ja: SoundKoja kaufst du für 79 € einmalig mit dauerhafter Lizenz, oder du nutzt es für 2,99 € im Monat, jederzeit kündbar. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Macs. Bei Pro Tools ist die Version Intro kostenlos, aber auf je 8 Audio-, Instrumenten- und MIDI-Spuren begrenzt; Artist, Studio und Ultimate kosten laut Avid-Preisliste im Jahres-Abo 99, 299 bzw. 599 US-$. Alle Details findest du bei den [Preisen](/software#preise)."
+      "a": "Ja: SoundKoja kaufst du für 79 € einmalig mit dauerhafter Lizenz, oder du nutzt es für 2,99 € im Monat, jederzeit kündbar. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Geräten. Bei Pro Tools ist die Version Intro kostenlos, aber auf je 8 Audio-, Instrumenten- und MIDI-Spuren begrenzt; Artist, Studio und Ultimate kosten laut Avid-Preisliste im Jahres-Abo 99, 299 bzw. 599 US-$. Alle Details findest du bei den [Preisen](/software#preise)."
     },
     {
       "q": "Kann ich mit SoundKoja über mein Audio-Interface aufnehmen?",
@@ -172,7 +172,7 @@
     },
     {
       "q": "SoundKoja basiert auf Open Source. Warum kostet es Geld?",
-      "a": "SoundKoja ist der macOS-Build eines quelloffenen Projekts unter MIT- oder Apache-2.0-Lizenz; das Ursprungsprojekt selbst ist kostenlos, seinen Namen findest du am Ende dieser Seite. Bei uns bezahlst du für die fertige Mac-Version, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dazu bekommst du 12 weitere Apps zum selben Preis, etwa [FilmKoja](/software/film-koja) für den Videoschnitt. Einen Überblick findest du unter [Software](/software)."
+      "a": "SoundKoja ist der macOS- und Windows-Build eines quelloffenen Projekts unter MIT- oder Apache-2.0-Lizenz; das Ursprungsprojekt selbst ist kostenlos, seinen Namen findest du am Ende dieser Seite. Bei uns bezahlst du für die fertigen Versionen für Mac und Windows, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dazu bekommst du 12 weitere Apps zum selben Preis, etwa [FilmKoja](/software/film-koja) für den Videoschnitt. Einen Überblick findest du unter [Software](/software)."
     }
   ]
 }

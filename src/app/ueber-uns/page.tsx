@@ -7,7 +7,7 @@ import { DEFAULT_OG_IMAGE, OG_BASE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Über Kojalytics: Software-Studio aus Deutschland",
   description:
-    "Kojalytics ist ein kleines Software-Studio aus Hamburg. Wir bauen Apps für Kunden und betreiben eigene Produkte wie AI Headshot und die Koja-Apps für den Mac.",
+    "Kojalytics ist ein kleines Software-Studio aus Hamburg. Wir bauen Apps für Kunden und betreiben eigene Produkte wie AI Headshot und die Koja-Apps für Mac und Windows.",
   alternates: { canonical: "/ueber-uns" },
   openGraph: { ...OG_BASE, url: "/ueber-uns", images: [DEFAULT_OG_IMAGE] },
 };
@@ -31,7 +31,7 @@ export default function AboutPage() {
             <h1 className="display mt-3 max-w-4xl text-[clamp(2.75rem,6.5vw,5rem)]">Ein kleines Studio, das ausliefert.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
               Kojalytics ist ein Software-Studio aus Deutschland. Wir entwickeln Apps und Web-Plattformen für Kunden und betreiben eigene
-              Produkte: AI Headshot, Etsy Sync und die Koja-Apps für den Mac.
+              Produkte: AI Headshot, Etsy Sync und die Koja-Apps für Mac und Windows.
             </p>
           </div>
         </section>

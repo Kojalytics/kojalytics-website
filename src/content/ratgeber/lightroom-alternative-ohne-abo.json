@@ -167,7 +167,7 @@
       "blocks": [
         {
           "type": "p",
-          "text": "[LightKoja](/software/light-koja) ist unsere App für Fotobibliothek und RAW-Entwicklung auf dem Mac, ein macOS-Build eines quelloffenen Projekts. Zu den Grundreglern gehören Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz. Alles läuft lokal, ohne Konto und ohne Cloud, und deine Originale bleiben unverändert."
+          "text": "[LightKoja](/software/light-koja) ist unsere App für Fotobibliothek und RAW-Entwicklung auf dem Mac, ein Build eines quelloffenen Projekts. Zu den Grundreglern gehören Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz. Alles läuft lokal, ohne Konto und ohne Cloud, und deine Originale bleiben unverändert."
         },
         {
           "type": "ul",
@@ -192,7 +192,7 @@
         },
         {
           "type": "p",
-          "text": "LightKoja ist eine von 13 Koja-Apps für macOS. Nach 3 kostenlosen Testtagen zahlst du 2,99 € pro Monat inkl. MwSt. für alle 13 Apps, jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar und ohne Gebühr. Alternativ gibt es für einmalig 79 € eine dauerhafte Lizenz, siehe [Preise](/software#preise). Beides gilt auf bis zu 3 Macs, ein Konto brauchst du nicht. Internet ist nur für Download und Aktivierung nötig. Windows oder eine Web-Version gibt es nicht."
+          "text": "LightKoja ist eine von 13 Koja-Apps für macOS und Windows. Nach 3 kostenlosen Testtagen zahlst du 2,99 € pro Monat inkl. MwSt. für alle 13 Apps, jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar und ohne Gebühr. Alternativ gibt es für einmalig 79 € eine dauerhafte Lizenz, siehe [Preise](/software#preise). Beides gilt auf bis zu 3 Geräten (Mac oder Windows-PC), ein Konto brauchst du nicht. Internet ist nur für Download und Aktivierung nötig. Eine Web-Version gibt es nicht."
         },
         {
           "type": "p",

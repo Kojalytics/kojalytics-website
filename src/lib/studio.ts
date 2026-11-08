@@ -55,10 +55,10 @@ export const PROJECTS: Project[] = [
     slug: "koja-apps",
     title: "Koja-Apps",
     kind: "Eigenes Produkt",
-    summary: "13 Kreativ- und Büro-Apps für den Mac, ausgeliefert mit Launcher, Lizenzsystem und Abos, die sich jederzeit online kündigen lassen.",
+    summary: "13 Kreativ- und Büro-Apps für Mac und Windows, ausgeliefert mit Launcher, Lizenzsystem und Abos, die sich jederzeit online kündigen lassen.",
     image: { src: "/apps/photo-koja/hero.webp", width: 1600, height: 1000, alt: "PhotoKoja mit Ebenen und Werkzeugen auf dem Mac" },
     href: "/software",
-    tags: ["macOS", "Lizenzierung", "Stripe"],
+    tags: ["macOS", "Windows", "Lizenzierung", "Stripe"],
   },
   {
     slug: "ai-headshot",

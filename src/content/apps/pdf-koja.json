@@ -102,7 +102,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS (Apple-Chip und Intel)",
+        "koja": "macOS (Apple-Chip und Intel) und Windows",
         "other": "Windows und macOS, dazu Web und Apps für iPhone, iPad und Android"
       },
       {
@@ -151,11 +151,11 @@
     },
     {
       "q": "Gibt es PdfKoja ohne Abo?",
-      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für PdfKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Macs. Zum Vergleich: Acrobat Pro kostet im Jahres-Abo mit monatlicher Abrechnung 23,79 € im Monat, aufs Jahr gerechnet also 285,48 €. Wenn du lieber monatlich zahlst, nimmst du das Abo für 2,99 € im Monat, das du jederzeit online und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
+      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für PdfKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Geräten. Zum Vergleich: Acrobat Pro kostet im Jahres-Abo mit monatlicher Abrechnung 23,79 € im Monat, aufs Jahr gerechnet also 285,48 €. Wenn du lieber monatlich zahlst, nimmst du das Abo für 2,99 € im Monat, das du jederzeit online und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
     },
     {
       "q": "Läuft PdfKoja offline, und gibt es die App auf Deutsch?",
-      "a": "Ja, PdfKoja arbeitet komplett auf deinem Mac, ohne Konto und ohne Cloud: Deine Dokumente werden nirgendwo hochgeladen, Internet brauchst du nur für Download und Aktivierung. Die Oberfläche stellst du in den Einstellungen auf Deutsch, eine von 29 Sprachen. PdfKoja läuft auf Macs mit Apple-Chip und mit Intel-Prozessor; für Windows, das iPad oder den Browser gibt es die App nicht."
+      "a": "Ja, PdfKoja arbeitet komplett auf deinem Mac, ohne Konto und ohne Cloud: Deine Dokumente werden nirgendwo hochgeladen, Internet brauchst du nur für Download und Aktivierung. Die Oberfläche stellst du in den Einstellungen auf Deutsch, eine von 29 Sprachen. PdfKoja läuft auf Macs mit Apple-Chip und mit Intel-Prozessor sowie unter Windows; für das iPad oder den Browser gibt es die App nicht."
     }
   ]
 }
