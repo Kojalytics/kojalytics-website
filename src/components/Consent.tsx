@@ -10,7 +10,8 @@ const STORAGE_KEY = "kj-consent-v1";
 const CHANGE_EVENT = "kj:consent";
 const OPEN_EVENT = "kj:open-consent";
 const CLARITY_ID = "wrmm9ck898";
-const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "";
+// Dataset "Kojalytics" in the DayRoutin business (Meta Events Manager). Public anyway: it ends up in the page source.
+const META_PIXEL_ID = "1160203439679240";
 
 type Choice = "granted" | "denied";
 
