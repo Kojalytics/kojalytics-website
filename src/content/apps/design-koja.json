@@ -1,0 +1,175 @@
+{
+  "kind": "Layoutprogramm",
+  "benefit": "Flyer, Broschüren und Magazine auf dem Mac layouten, mit Musterseiten, Absatzformaten und PDF/X-4-Export.",
+  "keyword": "indesign alternative mac",
+  "metaTitle": "InDesign-Alternative für den Mac: DesignKoja",
+  "metaDescription": "DesignKoja ist eine InDesign-Alternative für den Mac: Musterseiten, verkettete Textrahmen, IDML, PDF/X-4. Teste 3 Tage gratis, danach 2,99 € im Monat.",
+  "h1": "InDesign-Alternative für den Mac: Musterseiten, IDML und PDF/X-4",
+  "lead": "DesignKoja ist eine InDesign-Alternative für den Mac, mit Doppelseiten, verketteten Textrahmen und Absatzformaten für Flyer, Broschüren und Magazine. Die App ist eine frühe Version (Pre-Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Layouts.",
+  "highlights": [
+    "Musterseiten und Doppelseiten",
+    "IDML öffnen und exportieren",
+    "PDF/X-4 mit CMYK und Vollton"
+  ],
+  "features": [
+    {
+      "title": "Text über Spalten und Seiten verketten",
+      "text": "Verkette Textrahmen, damit ein Artikel von Rahmen zu Rahmen und von Seite zu Seite fließt. Spalten und Steg stellst du direkt im Eigenschaften-Panel ein. Der Absatz-Setzer nach Knuth–Plass wägt alle Zeilenumbrüche eines Absatzes gemeinsam ab und sorgt so für gleichmäßigere Wortabstände im Blocksatz.",
+      "screenshot": "columns.webp"
+    },
+    {
+      "title": "Absatz- und Zeichenformate",
+      "text": "Rubrik, Headline, Vorspann, Fließtext und Bildunterschrift legst du einmal als Format an. So bleibt die Gestaltung im ganzen Dokument einheitlich, auch wenn es wächst.",
+      "screenshot": "feature.webp"
+    },
+    {
+      "title": "Druckfertiges PDF mit Beschnitt",
+      "text": "DesignKoja exportiert PDF/X-4 und PDF/A-2b mit eingebetteten Schriften, auswählbarem Text, CMYK- und Volltonfarben, Beschnitt und Schnittmarken. Laut Projektangaben stimmen die Zeilenumbrüche im PDF genau mit der Ansicht auf dem Bildschirm überein.",
+      "screenshot": "cover.webp"
+    },
+    {
+      "title": "Doppelseiten und Musterseiten",
+      "text": "Du arbeitest in Doppelseiten wie in klassischen DTP-Programmen. Wiederkehrende Elemente legst du einmal auf einer Musterseite an, statt sie auf jeder Seite zu wiederholen."
+    },
+    {
+      "title": "IDML-Dateien öffnen und exportieren",
+      "text": "DesignKoja öffnet IDML-Dateien und exportiert wieder als IDML. INDD-Dateien lassen sich ebenfalls öffnen, das ist aber noch experimentell und bisher nur mit Testdateien geprüft. Außerdem exportierst du als bearbeitbares PPTX, als PNG und als EPUB."
+    },
+    {
+      "title": "Benannte Farbfelder in CMYK",
+      "text": "Lege benannte Farbfelder an, auch in CMYK, und nutze sie im ganzen Dokument. So bleiben deine Hausfarben auf jeder Seite gleich. Beim PDF-Export gibt DesignKoja CMYK- und Volltonfarben aus."
+    },
+    {
+      "title": "Tabellen, Textumfluss und Feinsatz",
+      "text": "Tabellen, Textumfluss um Objekte mit einstellbarem Abstand, Grundlinienraster, Tabulatoren, Linien, Schattierungen und optischer Randausgleich sind dabei. Den Blocksatz steuerst du über Wortabstand, Zeichenabstand und Glyphenskalierung. Bei Tabellen fehlen noch einige Optionen, und verankerte Objekte in Zellen werden nicht angezeigt."
+    },
+    {
+      "title": "Fußnoten, Index und Bücher",
+      "text": "Laut Entwicklungsplan funktionieren für lange Dokumente bereits Fußnoten, Querverweise, ein Index und Bücher aus mehreren Dokumenten. Dazu kommen XML-Struktur mit Tags sowie Schaltflächen und Formulare."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "DesignKoja auf dem Mac: Doppelseite mit Spaltenrastern, verketteten Textrahmen und Eigenschaften-Panel",
+      "caption": "Spalten, Steg und Textumfluss stellst du im Eigenschaften-Panel ein, die Verkettung der Textrahmen siehst du als Linie."
+    },
+    {
+      "file": "cover.webp",
+      "alt": "Mit DesignKoja gestaltetes Magazin-Cover mit randabfallender Sonnenuntergang-Grafik und großer Titelzeile",
+      "caption": "Seite 1 des mitgelieferten Beispieldokuments: eine randabfallende Grafik, die du mit Beschnitt und Schnittmarken als PDF ausgibst."
+    },
+    {
+      "file": "feature.webp",
+      "alt": "Artikel-Einstieg aus DesignKoja: Rubrik, Headline, Vorspann, Bild mit Bildunterschrift und zweispaltiger Text",
+      "caption": "Rubrik, Headline, Vorspann und Fließtext legst du als Absatzformate an, damit jeder Artikel gleich aussieht."
+    },
+    {
+      "file": "columns.webp",
+      "alt": "Mit DesignKoja gesetzte Magazinseite: dreispaltiger Fließtext mit verkettetem Text und hervorgehobenem Zitat",
+      "caption": "Der Text läuft verkettet über drei Spalten, der Absatz-Setzer sorgt für gleichmäßige Zeilen."
+    },
+    {
+      "file": "swatches.webp",
+      "alt": "DesignKoja-Seite mit benannten Farbfeldern, darunter ein CMYK-Feld C=100 M=0 Y=0 K=0",
+      "caption": "Benannte Farbfelder in CMYK halten deine Hausfarben auf jeder Seite und im Druck gleich."
+    }
+  ],
+  "switching": {
+    "title": "Von InDesign zu DesignKoja wechseln: die Alternative für deinen Mac",
+    "paragraphs": [
+      "Die Grundbegriffe bleiben gleich: Doppelseiten, Musterseiten, Textrahmen, die du verkettest, Absatz- und Zeichenformate, Farbfelder und ein Eigenschaften-Panel für Spalten, Steg und Textumfluss. Wenn du mit InDesign gearbeitet hast, kennst du das Prinzip also schon. Bilder bearbeitest du in [PhotoKoja](/software/photo-koja), Logos und Grafiken in [VectorKoja](/software/vector-koja), beide sind im Preis enthalten, ob im Monatsabo oder mit der Einmal-Lizenz.",
+      "Deine Layouts nimmst du am besten als IDML mit: Exportiere sie in InDesign als IDML und öffne sie in DesignKoja. INDD-Dateien kann DesignKoja auch direkt öffnen, das ist aber noch nicht mit echten Projekten erprobt. Auch beim IDML-Import gibt es offene Fehler, etwa Rahmen, die nicht angezeigt werden, oder Schriften, die als fehlend gemeldet werden. Exportiere deine wichtigen Dokumente deshalb als IDML und PDF, solange dein Adobe-Abo noch läuft. Wie du das Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen).",
+      "Was noch fehlt, solltest du vor dem Wechsel kennen. DesignKoja ist in einem sehr frühen Stadium (Pre-Alpha). Silbentrennung gibt es bisher nur für fünf Sprachen, Deutsch ist nicht dabei, und die Rechtschreibprüfung kann nur Englisch. PDF/X-1a, PDF/X-3 und Adobe-PDF-Vorgaben (.joboptions) fehlen, ebenso PostScript-Ausgabe, Druckvorgaben und Separationen beim Drucken. InDesign-Skripte und Plug-ins laufen nicht. Der automatische Textfluss über den Primärtextrahmen fügt Seiten ein, die sich nicht löschen lassen; manuelles Verketten funktioniert. Beim Speichern von Änderungen an Absatzformaten gibt es gemeldete Fehler, und installierte Schriften werden nicht immer gefunden, etwa aus Benutzer-Schriftordnern oder Schriftverwaltungen.",
+      "So testest du in 3 Tagen: Lade den Kojalytics Launcher, installiere DesignKoja und öffne zuerst das mitgelieferte vierseitige Beispieldokument. Danach nimmst du eine IDML-Datei aus einem echten Projekt, prüfst Schriften, Umbrüche und Farben und exportierst ein PDF/X-4 für deine Druckerei. Auf manchen Intel-Macs stürzt die App wegen eines bekannten Grafikfehlers schon beim Start ab; das merkst du also sofort. Passt es nicht, zahlst du nichts."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Preis",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "25,99 € im Monat als Einzel-App (Jahres-Abo, monatlich abgerechnet), nur im Abo erhältlich"
+      },
+      {
+        "label": "Abrechnung und Kündigung",
+        "koja": "monatlich, jederzeit online kündbar, ohne Gebühr",
+        "other": "Jahres-Abo verlängert sich automatisch; Kündigung nach 14 Tagen kostet 50 % des restlichen Vertragswerts"
+      },
+      {
+        "label": "Konto nötig",
+        "koja": "nein",
+        "other": "ja, Adobe-Konto"
+      },
+      {
+        "label": "Offline nutzbar",
+        "koja": "ja, Internet nur für Download und Aktivierung",
+        "other": "ja, die Lizenz wird regelmäßig online geprüft"
+      },
+      {
+        "label": "Wichtige Dateiformate",
+        "koja": "IDML (öffnen, exportieren), INDD (öffnen, experimentell), PDF/X-4, PDF/A-2b, EPUB, PPTX",
+        "other": "INDD, IDML, PDF/X-1a, PDF/X-3, PDF/X-4, EPUB"
+      },
+      {
+        "label": "Plattformen",
+        "koja": "macOS (Apple Silicon und Intel)",
+        "other": "macOS und Windows"
+      },
+      {
+        "label": "Entwicklungsstand",
+        "koja": "frühe Version (Pre-Alpha) mit bekannten Lücken",
+        "other": "ausgereift, seit Jahren im Profi-Einsatz"
+      }
+    ],
+    "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
+  },
+  "forWho": [
+    "du Flyer, Broschüren, Magazine oder eine Vereinszeitung auf dem Mac gestalten willst, ohne ein Adobe-Abo zu bezahlen",
+    "du mit Musterseiten, verketteten Textrahmen und Absatzformaten arbeiten willst",
+    "du IDML-Dateien auf dem Mac öffnen willst, ohne InDesign zu installieren",
+    "du neben dem Layout auch Bildbearbeitung, Vektorgrafik und PDF-Werkzeuge brauchst: Alle 13 Koja-Apps kosten zusammen 2,99 € im Monat oder 79 € einmalig"
+  ],
+  "notFor": [
+    "du schon heute Kundenaufträge mit festem Drucktermin zuverlässig produzieren musst: DesignKoja ist noch in früher Entwicklung (Pre-Alpha)",
+    "du lange deutsche Texte mit automatischer Silbentrennung und deutscher Rechtschreibprüfung setzen willst",
+    "deine Druckerei PDF/X-1a oder PDF/X-3 verlangt oder du InDesign-Skripte und Plug-ins brauchst"
+  ],
+  "formats": [
+    "IDML (öffnen und exportieren)",
+    "INDD (öffnen, experimentell)",
+    "PDF (Export)",
+    "PDF/X-4 (Export)",
+    "PDF/A-2b (Export)",
+    "PPTX (Export, bearbeitbar)",
+    "PNG (Export)",
+    "EPUB 3 (Export)",
+    "EPS (platzieren, nur Vorschau)"
+  ],
+  "faq": [
+    {
+      "q": "Ist DesignKoja eine vollwertige InDesign-Alternative?",
+      "a": "Nein, noch nicht. DesignKoja ist in einem sehr frühen Entwicklungsstand (Pre-Alpha): Musterseiten, verkettete Textrahmen, Formate, Tabellen und PDF/X-4-Export sind da, aber deutsche Silbentrennung, PDF/X-1a, InDesign-Skripte und Plug-ins fehlen, und einige Grundfunktionen haben bekannte Fehler. Zum Ausprobieren und für einfache eigene Layouts kann es schon reichen, für Aufträge mit festem Drucktermin solltest du InDesign vorerst behalten."
+    },
+    {
+      "q": "Kann ich IDML- und INDD-Dateien auf dem Mac ohne InDesign öffnen?",
+      "a": "IDML-Dateien öffnest du in DesignKoja direkt und kannst sie auch wieder als IDML exportieren. INDD-Dateien öffnet DesignKoja über eine eingebaute Import-Bibliothek, das ist aber bisher nur mit künstlich erzeugten Testdateien erprobt, nicht mit echten Projekten. Auch beim IDML-Import gibt es noch offene Fehler. Prüf deine wichtigsten Dateien deshalb im kostenlosen Test, bevor du dich darauf verlässt."
+    },
+    {
+      "q": "Welche PDFs bekommt meine Druckerei aus DesignKoja?",
+      "a": "DesignKoja exportiert PDF/X-4 und PDF/A-2b mit eingebetteten Schriften, CMYK- und Volltonfarben, Beschnitt und Schnittmarken. PDF/X-1a, PDF/X-3 und Adobe-PDF-Vorgaben (.joboptions) fehlen noch. Frag deine Druckerei vorher, ob sie PDF/X-4 annimmt."
+    },
+    {
+      "q": "Kann ich mit DesignKoja deutsche Texte setzen?",
+      "a": "Ja, aber mit Einschränkungen. Eine automatische Silbentrennung gibt es bisher nur für Englisch, Spanisch, Portugiesisch, Norwegisch und Griechisch, nicht für Deutsch, und die Rechtschreibprüfung kann nur Englisch. Bei Flyern, Plakaten und kurzen Texten fällt das wenig auf, bei langen Fließtexten in schmalen Spalten schon."
+    },
+    {
+      "q": "Was kostet DesignKoja im Vergleich zu InDesign?",
+      "a": "DesignKoja kostet 2,99 € im Monat für alle 13 Koja-Apps oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. InDesign kostet als Einzel-App 25,99 € im Monat im Jahres-Abo mit monatlicher Abrechnung, aufs Jahr gerechnet 311,88 €. Kündigst du dieses Adobe-Abo nach den ersten 14 Tagen, zahlst du 50 % des restlichen Vertragswerts als Gebühr. Das Monatsabo für DesignKoja kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+    },
+    {
+      "q": "Gibt es DesignKoja kostenlos?",
+      "a": "Du kannst DesignKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DesignKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0), dessen Quellcode frei verfügbar ist. Du bezahlst uns für die fertige, signierte Mac-Version, den Launcher, der sie installiert und aktualisiert, und Support von einem Studio aus Deutschland."
+    }
+  ]
+}

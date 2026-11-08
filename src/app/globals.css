@@ -1,22 +1,33 @@
 @import "tailwindcss";
 
+/*
+ * Kojalytics design system
+ * Light and calm: white pages, stone-grey surfaces, black buttons. Colour comes from the
+ * products themselves: real screenshots and the app icons, each app keeps its icon colour.
+ * Every page uses these tokens; nothing outside this file defines a brand colour.
+ */
 @theme inline {
-  --color-background: #000000;
-  --color-foreground: #f0f0f5;
-  --color-accent: #6366f1;
-  --color-accent-light: #818cf8;
-  --color-accent-dim: #4f46e5;
-  --color-surface: #0c0c12;
-  --color-surface-light: #14141e;
-  --color-border: #1e1e2e;
-  --color-muted: #6b7280;
-  --font-sans: var(--font-system-sans);
-  --font-mono: var(--font-system-mono);
+  --color-background: #ffffff;
+  --color-foreground: #111113;
+  --color-surface: #f5f5f4;
+  --color-surface-light: #fafaf9;
+  --color-border: #e7e5e4;
+  --color-muted: #57534e;
+  --color-accent: #2a66d8;
+  --color-accent-light: #5b8ff0;
+  --color-accent-dim: #1f55c0;
+  --color-accent-ink: #ffffff;
+  --color-success: #15803d;
+  --font-sans: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-heading), var(--font-body), system-ui, sans-serif;
+  --font-mono: ui-monospace, Menlo, SFMono-Regular, monospace;
+  --radius-card: 20px;
+  --radius-btn: 999px;
 }
 
-/* One typeface for the whole site, the same stack the 3D hero paints with. */
+/* Kept for the AI Headshot pages that read these names. */
 :root {
-  --font-system-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-system-sans: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-system-mono: ui-monospace, Menlo, SFMono-Regular, monospace;
 }
 
@@ -26,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -35,149 +47,182 @@ body {
   overflow-x: hidden;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-background);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 3px;
+::selection {
+  background: #dbe7fd;
+  color: var(--color-foreground);
 }
 
-/* Aurora gradient background */
-.aurora-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
+/* Headline face */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-wrap: balance;
 }
 
-.aurora-bg::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-  animation: aurora 20s ease-in-out infinite alternate;
+/*
+ * Label and article typography sit in the components layer, so Tailwind utilities on the same
+ * elements (e.g. a coloured eyebrow, a muted paragraph in a callout box) still win.
+ */
+@layer components {
+  /* Small label above a headline */
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+  }
+
+  .prose-de p,
+  .prose-de li {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #2b2a29;
+  }
+  .prose-de p + p {
+    margin-top: 1rem;
+  }
+  .prose-de h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    line-height: 1.1;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-wrap: balance;
+    scroll-margin-top: 6rem;
+  }
+  .prose-de h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-de ul,
+  .prose-de ol {
+    padding-left: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .prose-de ul {
+    list-style: disc;
+  }
+  .prose-de ol {
+    list-style: decimal;
+  }
+  .prose-de li + li {
+    margin-top: 0.4rem;
+  }
+  .prose-de a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
-@keyframes aurora {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-2%, 2%) rotate(1deg); }
-  100% { transform: translate(2%, -1%) rotate(-1deg); }
+/* Server-rendered cookie banner for visitors who already chose (see Consent.tsx) */
+html[data-kj-consent] .kj-consent-pending {
+  display: none;
 }
 
-/* Grid pattern overlay */
+/* Legacy page decoration hooks, now neutral */
+.aurora-bg,
 .grid-pattern {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  display: none;
 }
 
-/* Glow text */
-.text-glow {
-  text-shadow: 0 0 80px rgba(99, 102, 241, 0.5), 0 0 40px rgba(99, 102, 241, 0.3);
-}
-
-/* Glass card */
+/* Raised panel */
 .glass-card {
-  background: linear-gradient(135deg, rgba(12, 12, 18, 0.8), rgba(20, 20, 30, 0.6));
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(99, 102, 241, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.1), inset 0 0 40px rgba(99, 102, 241, 0.03);
-  transform: translateY(-4px);
+  border-color: #d6d3d1;
+  box-shadow: 0 12px 32px -16px rgba(17, 17, 19, 0.18);
 }
 
-/* Gradient border button */
-.btn-gradient {
-  position: relative;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  border-radius: 12px;
-  padding: 14px 32px;
+/* Primary button: black pill */
+.btn-gradient,
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-foreground);
+  color: #fff;
+  border-radius: var(--radius-btn);
+  padding: 14px 26px;
   font-weight: 600;
-  color: white;
-  transition: all 0.3s ease;
-  overflow: hidden;
+  line-height: 1.2;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-.btn-gradient::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #818cf8, #a78bfa);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: inherit;
+.btn-gradient:hover,
+.btn-primary:hover {
+  background: #2c2c30;
 }
 
-.btn-gradient:hover::before {
-  opacity: 1;
+.btn-gradient:active,
+.btn-primary:active {
+  transform: scale(0.98);
 }
 
-.btn-gradient span {
-  position: relative;
-  z-index: 1;
-}
-
-/* Outline button */
-.btn-outline {
-  position: relative;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  border-radius: 12px;
-  padding: 14px 32px;
+/* Secondary button */
+.btn-outline,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-btn);
+  padding: 13px 24px;
   font-weight: 600;
-  color: var(--color-accent-light);
-  transition: all 0.3s ease;
-  background: transparent;
+  line-height: 1.2;
+  color: var(--color-foreground);
+  background: #fff;
+  border: 1px solid #d6d3d1;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.btn-outline:hover {
-  border-color: rgba(99, 102, 241, 0.6);
-  background: rgba(99, 102, 241, 0.05);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+.btn-outline:hover,
+.btn-secondary:hover {
+  border-color: var(--color-foreground);
 }
 
-/* Section divider */
+.btn-primary:focus-visible,
+.btn-gradient:focus-visible,
+.btn-secondary:focus-visible,
+.btn-outline:focus-visible,
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+  background: var(--color-border);
 }
 
-/* Animated gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #818cf8 0%, #6366f1 25%, #a78bfa 50%, #6366f1 75%, #818cf8 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 6s linear infinite;
+/* Highlighted word inside a headline */
+.gradient-text,
+.text-highlight {
+  color: var(--color-accent);
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+@keyframes tunnel-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Floating animation */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -185,4 +230,13 @@ body {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-float {
+    animation: none;
+  }
 }

@@ -1,0 +1,165 @@
+{
+  "kind": "2D-CAD",
+  "benefit": "Grundrisse und technische 2D-Zeichnungen am Mac erstellen, mit Befehlszeile, gängigen CAD-Kurzbefehlen und DWG-Import.",
+  "keyword": "AutoCAD Alternative Mac",
+  "metaTitle": "AutoCAD-Alternative für Mac: CADKoja für 2D-CAD",
+  "metaDescription": "CADKoja ist eine AutoCAD-Alternative für den Mac: Befehlszeile, Layer, Bemaßung, DWG und DXF. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "AutoCAD-Alternative für den Mac: 2D-Zeichnungen mit DWG und DXF",
+  "lead": "CADKoja ist eine AutoCAD-Alternative für den Mac, ausgelegt auf 2D: Befehlszeile, Objektfang, Layer, Bemaßung, Schraffur, Blöcke und Layouts. Pläne plottest du maßstabsgetreu als PDF. Die App ist eine sehr frühe Version (Pre-Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Zeichnungen.",
+  "highlights": [
+    "Befehlszeile mit CAD-Kurzbefehlen",
+    "DWG und DXF öffnen",
+    "Bemaßung, Layer, PDF-Plot"
+  ],
+  "features": [
+    {
+      "title": "Befehlszeile mit CAD-Kurzbefehlen",
+      "text": "Du tippst Befehle und Aliase, mit AutoVervollständigen und anklickbaren Optionen in der Eingabeaufforderung. Relative und polare Koordinaten (@dx,dy und @d<w), direkte Distanzeingabe, transparente Befehle und Wiederholen mit Enter, Leertaste oder Rechtsklick funktionieren. Wiederkehrende Abläufe spielst du über Skriptdateien im .scr-Stil ab."
+    },
+    {
+      "title": "Zeichnen und Ändern mit LINE und TRIM",
+      "text": "Zum Zeichnen gibt es 14 Befehle von LINE, PLINE, CIRCLE und ARC über SPLINE und XLINE bis TEXT und MTEXT. Ändern kannst du unter anderem mit MOVE, COPY, ROTATE, MIRROR, STRETCH, OFFSET, TRIM, EXTEND, FILLET, CHAMFER und ARRAY, rechteckig wie polar. Doppelte Objekte räumst du mit OVERKILL auf."
+    },
+    {
+      "title": "Präzise mit Objektfang und Griffen",
+      "text": "11 Objektfang-Arten, polare Spur, Ortho-Modus und Rasterfang sorgen für exakte Punkte. Über die Griffe eines Objekts wechselst du mit der Leertaste zwischen Strecken, Verschieben, Drehen, Skalieren und Spiegeln."
+    },
+    {
+      "title": "Technische Zeichnungen mit Bemaßung",
+      "text": "Lineare, ausgerichtete, Winkel- und Radiusbemaßungen passen sich an, wenn du die Geometrie änderst; Bemaßungsstile legst du mit DIMSTYLE fest. Schraffuren setzt du per Klick in eine Fläche, auch mit Inseln, als Muster, Volltonfüllung oder Verlauf. Wiederkehrende Teile speicherst du als Blöcke mit Attributen, auch verschachtelt.",
+      "screenshot": "bracket.webp"
+    },
+    {
+      "title": "Layouts und Plotten als PDF",
+      "text": "Im Papierbereich legst du Layoutblätter mit Ansichtsfenstern an, auch mit eigenen Layer-Einstellungen pro Ansichtsfenster. Mit Seiteneinrichtung, PLOT und EXPORTPDF gibst du Pläne maßstabsgetreu als PDF aus.",
+      "screenshot": "layout.webp"
+    },
+    {
+      "title": "Layer und Eigenschaften",
+      "text": "Mit dem Layereigenschaften-Manager und der Eigenschaften-Palette steuerst du Linientypen, Linienstärken sowie Index- und True-Color-Farben. Die Panels für Werkzeuge, Layer und Eigenschaften kannst du neu gruppieren, frei schweben lassen oder schließen."
+    },
+    {
+      "title": "Grundrisse beschriften",
+      "text": "Texte setzt du mit TEXT und MTEXT in TrueType-Schriften, Hinweise mit Multi-Führungslinien (MLEADER) und Raum- oder Stücklisten mit TABLE. So bekommt ein Grundriss am Mac Maße, Notizen und eine Raumtabelle in derselben Zeichnung."
+    },
+    {
+      "title": "Parametrische Abhängigkeiten",
+      "text": "Geometrische und Bemaßungsabhängigkeiten, AUTOCONSTRAIN und Parameter mit Formeln halten eine Zeichnung zusammen. Änderst du ein Maß, rechnet CADKoja die Geometrie neu und meldet widersprüchliche Abhängigkeiten."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "CADKoja auf dem Mac: Wohnungsgrundriss mit Bemaßung, Raumtabelle, Werkzeugpalette und Eigenschaften-Panel",
+      "caption": "Grundrisse zeichnest du mit Bemaßung, Raumtabelle und Layern, gesteuert über Befehlszeile und Werkzeugpalette."
+    },
+    {
+      "file": "bracket.webp",
+      "alt": "CADKoja: technische Zeichnung eines Montagewinkels mit Vorderansicht, Schnitt A-A, Schraffur und Bemaßung",
+      "caption": "Technische Bauteile zeichnest du mit Schnittansicht, Schraffur und Bemaßung, die der Geometrie folgt."
+    },
+    {
+      "file": "layout.webp",
+      "alt": "CADKoja Papierbereich: Layout „A1 Plan“ mit Grundriss im Ansichtsfenster, bereit zum Plotten als PDF",
+      "caption": "Im Papierbereich legst du Layouts mit Ansichtsfenstern an und gibst Pläne maßstabsgetreu als PDF aus."
+    }
+  ],
+  "switching": {
+    "title": "Von AutoCAD zu CADKoja wechseln: die Alternative für deinen Mac",
+    "paragraphs": [
+      "Vieles bleibt, wie du es kennst: Du arbeitest mit der Befehlszeile und englischen Befehlsnamen samt Aliasen, etwa LINE, OFFSET, TRIM, FILLET, DIMSTYLE, MLEADER, BLOCK, INSERT und PLOT. Dazu kommen Objektfang, polare Spur, Ortho, Griffe, Layereigenschaften-Manager, Eigenschaften-Palette sowie die Register für Modell und Layouts.",
+      "Zu deinen Dateien: CADKoja öffnet DWG-Dateien der Versionen R13 bis 2018 und DXF-Dateien von R12 bis 2018, als ASCII oder binär. Gespeichert wird in DWG und DXF im älteren Format R2000. Elemente, die CADKoja nicht kennt, gehen dabei verloren, und ob sich mit CADKoja gespeicherte DWG-Dateien in AutoCAD sauber öffnen lassen, ist laut Projektangaben noch nicht geprüft. Arbeite deshalb mit Kopien. SHX-Schriften liest CADKoja nicht, solche Texte erscheinen in einer Ersatzschrift. Exportieren kannst du als PDF, SVG und PNG.",
+      "Was noch fehlt: CADKoja ist eine sehr frühe Version (Pre-Alpha) und vor allem ein 2D-Programm, 3D ist kaum umgesetzt. Externe Referenzen (Xrefs), Blockeditor, dynamische Blöcke und AutoLISP gibt es noch nicht, ebenso wenig automatisches Speichern und Wiederherstellen. Beim Plotten werden Plotstile ignoriert, und die Objektfangspur fehlt. Einige Befehlsoptionen, etwa bei TRIM, OFFSET und PLINE, sind noch unvollständig, Ellipsen und Splines sind geometrisch nicht exakt, und die deutsche Oberfläche ist nur teilweise übersetzt.",
+      "So testest du in 3 Tagen: Lade den Kojalytics Launcher, installiere CADKoja und öffne die Kopie einer echten DWG- oder DXF-Datei aus deinem Alltag. Zeichne einen Raum oder ein Bauteil mit LINE, TRIM und Bemaßung nach, lege ein Layout an und plotte es als PDF. Speichere zwischendurch regelmäßig. Passt es, geht es für 2,99 € im Monat weiter, [jederzeit kündbar](/kuendigen), oder du zahlst einmalig 79 €. Ein bestehendes AutoCAD-Abo kündigst du erst, wenn deine wichtigsten Zeichnungen in CADKoja funktionieren."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Preis",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "2.190 € im Jahr oder 274 € im Monatsabo; AutoCAD LT: 572 € im Jahr oder 72 € im Monat"
+      },
+      {
+        "label": "Abrechnung und Kündigung",
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr; oder einmalig 79 €",
+        "other": "Monats-, Jahres- oder 3-Jahres-Abo, Rückgabe innerhalb von 30 Tagen, beim Monatsabo innerhalb von 15 Tagen"
+      },
+      {
+        "label": "Konto nötig",
+        "koja": "Nein",
+        "other": "Ja, Autodesk-Konto"
+      },
+      {
+        "label": "Offline nutzbar",
+        "koja": "Ja, Internet nur für Download und Aktivierung",
+        "other": "Bis zu 30 Tage am Stück, dann muss die Lizenz online geprüft werden"
+      },
+      {
+        "label": "Wichtige Dateiformate",
+        "koja": "DWG und DXF öffnen (bis Version 2018), speichern im Format R2000; PDF, SVG, PNG",
+        "other": "DWG und DXF in aktuellen Versionen, PDF und weitere"
+      },
+      {
+        "label": "Plattformen",
+        "koja": "Nur macOS",
+        "other": "Windows und macOS, dazu Web- und Mobilversion"
+      },
+      {
+        "label": "Entwicklungsstand",
+        "koja": "Sehr frühe Version (Pre-Alpha), vor allem 2D, viele Funktionen fehlen noch",
+        "other": "Ausgereift, seit Jahrzehnten am Markt, 2D und 3D"
+      }
+    ],
+    "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
+  },
+  "forWho": [
+    "du am Mac 2D-Zeichnungen wie Grundrisse, Möbelpläne oder einfache technische Bauteile erstellst",
+    "du mit Befehlszeile, Objektfang und Layern zeichnest und das am Mac weiter tun willst",
+    "du DWG- oder DXF-Dateien auf dem Mac öffnen, prüfen und als PDF ausgeben willst",
+    "du CAD lernen oder private Projekte planen willst und dafür kein AutoCAD-Abo bezahlen möchtest"
+  ],
+  "notFor": [
+    "du DWG-Dateien regelmäßig mit AutoCAD-Nutzern austauschst und beim Speichern nichts verloren gehen darf",
+    "du 3D-Modelle, externe Referenzen, dynamische Blöcke oder AutoLISP für deine Arbeit brauchst",
+    "du für bezahlte Projekte mit Termindruck ein ausgereiftes Programm brauchst, denn CADKoja ist noch in sehr früher Entwicklung (Pre-Alpha)"
+  ],
+  "formats": [
+    "DWG (öffnen R13 bis 2018)",
+    "DWG (speichern als R2000)",
+    "DXF (öffnen R12 bis 2018, ASCII und binär)",
+    "DXF (speichern als R2000)",
+    "PDF (Export über PLOT und EXPORTPDF)",
+    "SVG (Export)",
+    "PNG (Export, 2400 × 1600 Pixel)",
+    "TrueType- und OpenType-Schriften (.ttf, .otf, .ttc)",
+    "SHX-Schriften (nicht unterstützt)",
+    "Skriptdateien (.scr-Stil)"
+  ],
+  "faq": [
+    {
+      "q": "Ist CADKoja eine vollwertige AutoCAD-Alternative?",
+      "a": "Nein, noch nicht. CADKoja ist eine sehr frühe Version (Pre-Alpha) und vor allem für 2D gedacht. Laut Projektangaben (Stand: November 2026) hat etwa die Hälfte der Menüpunkte von AutoCAD für Mac schon einen funktionierenden Befehl, die Reife für echte Projektarbeit liegt nach eigener Schätzung bei etwa 38 %. Zum Öffnen von DWG-Dateien, zum Lernen und für einfache 2D-Zeichnungen kannst du es ausprobieren, für bezahlte Projekte behältst du AutoCAD vorerst besser."
+    },
+    {
+      "q": "Kann ich mit CADKoja DWG- und DXF-Dateien auf dem Mac öffnen?",
+      "a": "Ja, CADKoja öffnet DWG-Dateien der Versionen R13 bis 2018 und DXF-Dateien von R12 bis 2018; Texte in SHX-Schriften erscheinen dabei in einer Ersatzschrift. Gespeichert wird in DWG und DXF im Format R2000, dabei gehen Elemente verloren, die CADKoja nicht kennt. Öffne deshalb am besten Kopien und gib Pläne für andere als PDF weiter."
+    },
+    {
+      "q": "Kann ich mit CADKoja einen Grundriss am Mac zeichnen?",
+      "a": "Ja. Wände und Räume zeichnest du mit LINE, PLINE und RECTANG, Maße setzt du mit den Bemaßungsbefehlen, Hinweise mit MLEADER und eine Raumtabelle mit TABLE. Layer halten Wände, Möbel und Beschriftung auseinander. Im Papierbereich legst du ein Layout an und plottest den Plan maßstabsgetreu als PDF."
+    },
+    {
+      "q": "Ist CADKoja eine Alternative zu AutoCAD LT?",
+      "a": "Vom Ansatz her ja, denn wie AutoCAD LT ist CADKoja auf 2D-Zeichnen ausgerichtet. AutoCAD LT kostet bei Autodesk 572 € im Jahr oder 72 € im Monatsabo, CADKoja 2,99 € im Monat oder 79 € einmalig. CADKoja ist aber noch in sehr früher Entwicklung, und viele Funktionen fehlen, etwa Xrefs, dynamische Blöcke und AutoLISP. Teste es deshalb 3 Tage mit deinen eigenen Zeichnungen."
+    },
+    {
+      "q": "Ist CADKoja auf Deutsch?",
+      "a": "Teilweise. Die deutsche Oberfläche ist noch nicht vollständig übersetzt, manche Menüs und Meldungen erscheinen auf Englisch. CADKoja nutzt die von AutoCAD bekannten englischen Befehlsnamen, etwa LINE, TRIM oder OFFSET."
+    },
+    {
+      "q": "CADKoja basiert auf Open Source. Warum kostet es Geld?",
+      "a": "CADKoja ist ein macOS-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Den Quellcode kann jeder frei nutzen, und das Ursprungsprojekt bietet seine App auch selbst kostenlos an. Bei uns zahlst du für die fertige Mac-App aus dem Kojalytics Launcher und bekommst 12 weitere Apps dazu, für 2,99 € im Monat oder 79 € einmalig. Alle Optionen findest du unter [Preise](/software#preise)."
+    }
+  ]
+}

@@ -404,7 +404,7 @@ export default function EtsySyncPage() {
             <Link href="/datenschutz" className="hover:text-foreground transition-colors">Datenschutz</Link>
             <Link href="/impressum" className="hover:text-foreground transition-colors">Impressum</Link>
             <Link href="/support" className="hover:text-foreground transition-colors">Support</Link>
-            <Link href="/contact" className="hover:text-foreground transition-colors">Contact</Link>
+            <Link href="/kontakt" className="hover:text-foreground transition-colors">Contact</Link>
           </div>
         </div>
       </footer>

@@ -1,0 +1,178 @@
+{
+  "kind": "Textverarbeitung",
+  "benefit": "Briefe, Berichte und Hausarbeiten am Mac schreiben, mit Menüband und direkter Bearbeitung von .docx-Dateien.",
+  "keyword": "word alternative mac",
+  "metaTitle": "WordKoja: Word-Alternative für den Mac",
+  "metaDescription": "WordKoja ist eine Word-Alternative für den Mac: .docx öffnen und speichern, offline und ohne Konto. 3 Tage kostenlos testen, dann 79 € einmalig.",
+  "h1": "Word-Alternative für den Mac, mit Menüband und .docx",
+  "lead": "WordKoja ist eine Word-Alternative für den Mac, die .docx-Dateien direkt öffnet und speichert. Du schreibst mit Formatvorlagen, Tabellen, „Änderungen nachverfolgen“ und Inhaltsverzeichnis, offline und ohne Konto. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "highlights": [
+    "Öffnet und speichert .docx",
+    "Menüband mit Registerkarten",
+    "Offline, ohne Konto"
+  ],
+  "features": [
+    {
+      "title": "Menüband mit Registerkarten und Kürzeln",
+      "text": "Registerkarten und Gruppen ordnen die Befehle, Formatvorlagen wählst du aus einer Galerie. Viele gängige Handgriffe funktionieren: Enter setzt eine Liste fort, Tab rückt sie eine Ebene ein, ⌘B macht das Wort unter dem Cursor fett, F4 wiederholt die letzte Aktion und F7 startet die Rechtschreibprüfung."
+    },
+    {
+      "title": ".docx öffnen und speichern",
+      "text": "WordKoja liest und schreibt .docx direkt, ohne Umweg über ein anderes Format. Dazu kommen .odt, .rtf, HTML, Markdown, LaTeX und reiner Text. Alte Word-Dateien (.doc, Word 97–2003) öffnest du und speicherst sie als .docx, und der PDF-Export behält markierbaren Text, Links und Lesezeichen."
+    },
+    {
+      "title": "Änderungen nachverfolgen und prüfen",
+      "text": "Mit „Änderungen nachverfolgen“ siehst du jede Einfügung und Löschung und nimmst sie einzeln an oder lehnst sie ab. Kommentare erscheinen in Sprechblasen am Rand oder in einem eigenen Bereich. Dazu kommen Dokumentvergleich, Bearbeitungsschutz, Barrierefreiheitsprüfung, Thesaurus und Wortzählung.",
+      "screenshot": "review.webp"
+    },
+    {
+      "title": "Verzeichnisse, Fußnoten, Quellen",
+      "text": "Inhaltsverzeichnis, Fuß- und Endnoten, Beschriftungen, Abbildungsverzeichnis, Querverweise und Index fügst du über die Registerkarte für Referenzen ein. Zitate und Literaturverzeichnis formatiert WordKoja nach **APA, MLA, Chicago oder IEEE**. Das hilft bei Hausarbeiten, Abschlussarbeiten und langen Berichten.",
+      "screenshot": "references.webp"
+    },
+    {
+      "title": "Seitenlayout und Bilder",
+      "text": "Für das Seitenbild gibt es Seitenränder, Ausrichtung, Spalten, Abschnittsumbrüche, Kopf- und Fußzeilen (auch abweichend für die erste Seite oder für gerade und ungerade Seiten), Wasserzeichen, Seitenrahmen, Zeilennummern, Initialen und eine automatische Silbentrennung, die auch deutsche Texte trennt. Bilder schneidest du zu, drehst sie, passt Helligkeit und Kontrast an oder entfernst den Hintergrund. Text fließt um Bilder, Formen und Textfelder herum.",
+      "screenshot": "layout.webp"
+    },
+    {
+      "title": "Tabellen und Serienbriefe",
+      "text": "Tabellen fügst du über ein Raster ein, verbindest oder teilst Zellen, nutzt Tabellenformatvorlagen mit gebänderten Zeilen, sortierst und rechnest mit Formeln. Überschriftenzeilen wiederholen sich auf jeder Seite. Serienbriefe erstellst du aus einer CSV-Datei mit Seriendruckfeldern, Adressblock, Grußzeile und Vorschau, dazu Umschläge und Etiketten."
+    },
+    {
+      "title": "Vorlagen, Schreibhilfen und Ansichten",
+      "text": "Auf der Startseite findest du Vorlagen für Brief, Lebenslauf und Bericht sowie deine zuletzt geöffneten Dokumente. AutoKorrektur, automatische Listen, Format übertragen und Suchen und Ersetzen mit regulären Ausdrücken helfen beim Schreiben. Zum Lesen und Überarbeiten gibt es Lesemodus, Fokusmodus, Navigationsbereich und Dunkelmodus."
+    },
+    {
+      "title": "Schnell, nativ und offline",
+      "text": "WordKoja ist eine native Mac-App ohne Electron und läuft auf Macs mit Apple-Chip und mit Intel. Laut Projektangaben (Stand: November 2026) wird das Layout eines 188-seitigen Dokuments beim Tippen in etwa **1,4 ms** neu berechnet. Alles funktioniert offline, und der Text deiner Dokumente landet nie in Protokolldateien."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "WordKoja: Menüband mit Formatvorlagen-Galerie, Navigationsbereich mit Überschriften und geöffnetem Dokument",
+      "caption": "Englische Oberfläche abgebildet, die App gibt es auch auf Deutsch. Cloud-Speicher und Zusammenarbeit in Echtzeit fehlen noch."
+    },
+    {
+      "file": "references.webp",
+      "alt": "WordKoja: Referenzen-Menüband, darunter zwei Seiten mit Inhaltsverzeichnis und einer Tabelle mit gebänderten Zeilen",
+      "caption": "Inhaltsverzeichnis, Fußnoten und Quellenangaben nach APA, MLA, Chicago oder IEEE sparen dir bei Hausarbeiten und Berichten viel Handarbeit."
+    },
+    {
+      "file": "review.webp",
+      "alt": "WordKoja: Überprüfen-Menüband, im Text ein eingefügtes und ein gestrichenes Wort sowie markierte Kommentarstellen",
+      "caption": "Mit „Änderungen nachverfolgen“ siehst du jede Überarbeitung und entscheidest einzeln, was bleibt."
+    },
+    {
+      "file": "layout.webp",
+      "alt": "WordKoja: Layout-Menüband, Dokument mit Initiale, Textumbruch um eine Form, Zeilennummern und Seitenrahmen",
+      "caption": "Initialen, Textumbruch, Silbentrennung und Zeilennummern geben Berichten und Broschüren ein sauberes Seitenbild."
+    },
+    {
+      "file": "dark.webp",
+      "alt": "WordKoja im Dunkelmodus mit Einfügen-Menüband und eingeblendeten Formatierungszeichen im Dokument",
+      "caption": "Im Dunkelmodus arbeitest du abends mit gedämpfter Oberfläche, und Formatierungszeichen zeigen dir jeden Absatz und jedes Leerzeichen."
+    }
+  ],
+  "switching": {
+    "title": "Von Word zu WordKoja: so testest du die Word-Alternative am Mac",
+    "paragraphs": [
+      "Vieles kennst du schon: das Menüband mit Registerkarten für Einfügen, Layout, Referenzen und Überprüfen, die Formatvorlagen-Galerie, den Navigationsbereich und Kürzel wie ⌘B, F4 oder F7. Noch sind aber nicht alle Kürzel aus Word dabei: Ab Werk bringt WordKoja 140 Tastenkürzel mit. Die Oberfläche gibt es auf Deutsch, und sie folgt der Sprache deines Macs. Die Screenshots auf dieser Seite zeigen die englische Oberfläche.",
+      "Deine .docx-Dateien öffnest du direkt und speicherst sie auch wieder als .docx. Laut Projektangaben ist der .docx-Import aber noch nicht systematisch mit echten Dateien aus Word, Google Docs oder Pages getestet. Alte .doc-Dateien kannst du öffnen, aber nicht wieder als .doc speichern. Rechne damit, dass Zeilen- und Seitenumbrüche von Word abweichen können, etwa weil es für die Schrift Aptos noch keinen maßgleichen Ersatz gibt. Diagramme aus Word kannst du ansehen, aber nicht bearbeiten, und Makros in .docm-Dateien werden mitgespeichert, aber nicht ausgeführt.",
+      "Was noch fehlt: eine deutsche Rechtschreib- und Grammatikprüfung (für Deutsch gibt es bisher nur die Silbentrennung), Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit, VBA-Makros, Office-Add-ins und ein KI-Schreibassistent. Serienbriefe kannst du nicht aus Outlook-Kontakten, Access oder anderen Datenbanken erstellen, und Serien-E-Mails gibt es noch nicht. WordKoja ist noch eine frühe Version (Alpha): Laut Projektangaben (Stand: November 2026) reicht es nach eigener Schätzung für etwa 60 % der echten Arbeit, und es gibt noch offene Fehlerberichte zu Abstürzen.",
+      "So testest du in 3 Tagen, ob es für dich passt: Lade den Kojalytics Launcher, installiere WordKoja und öffne drei echte Dateien, zum Beispiel einen Brief, ein langes Dokument mit Inhaltsverzeichnis und eines mit Kommentaren. Vergleiche die Seitenumbrüche, speichere als .docx, exportiere ein PDF und arbeite dabei mit Kopien. Kündige Microsoft 365 erst, wenn du sicher bist. Welche Wege es zu Office ohne Abo gibt, steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Preis",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "Microsoft 365 Single: 99 € pro Jahr oder 10 € im Monat. Office Home 2024: 149 € einmalig für 1 Mac. Word für das Web: kostenlos"
+      },
+      {
+        "label": "Abrechnung und Kündigung",
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen.",
+        "other": "Microsoft-365-Abos verlängern sich automatisch zum normalen Preis, wenn du nicht kündigst. Office Home 2024 ist ein Einmalkauf."
+      },
+      {
+        "label": "Konto nötig",
+        "koja": "Nein",
+        "other": "Ja, Microsoft-Konto (auch für die kostenlose Web-Version)"
+      },
+      {
+        "label": "Offline nutzbar",
+        "koja": "Ja, Internet nur für Download und Aktivierung",
+        "other": "Desktop-App ja, Word für das Web nur online"
+      },
+      {
+        "label": "Wichtige Dateiformate",
+        "koja": ".docx lesen und speichern, dazu .odt, .rtf und Markdown. .doc nur öffnen, PDF-Export",
+        "other": ".docx (eigenes Format), .doc, .odt, .rtf, PDF und weitere"
+      },
+      {
+        "label": "Plattformen",
+        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "other": "macOS, Windows, iPad, iPhone, Android und Web"
+      },
+      {
+        "label": "Entwicklungsstand",
+        "koja": "Frühe Version (Alpha), noch ohne deutsche Rechtschreibprüfung",
+        "other": "Ausgereift, mit Cloud-Speicher und gemeinsamer Bearbeitung"
+      }
+    ],
+    "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
+  },
+  "forWho": [
+    "du am Mac Briefe, Bewerbungen, Hausarbeiten oder Berichte schreibst und dafür kein Microsoft-365-Abo bezahlen willst",
+    "du .docx-Dateien von Kollegen, Schule oder Ämtern öffnen, bearbeiten und als .docx oder PDF zurückschicken musst",
+    "du das Word-Menüband gewohnt bist und Formatvorlagen, Inhaltsverzeichnis und Fußnoten nicht neu lernen willst",
+    "du offline und ohne Konto arbeiten möchtest und neben Text auch Tabellen und Präsentationen brauchst, denn alle 13 Koja-Apps sind im Preis enthalten"
+  ],
+  "notFor": [
+    "du eine deutsche Rechtschreib- und Grammatikprüfung brauchst: Die fehlt in WordKoja bisher, für Deutsch gibt es nur die Silbentrennung",
+    "du täglich beruflich mit Word arbeitest und dich auf jede Funktion verlassen musst: WordKoja ist noch eine frühe Version (Alpha), und Seitenumbrüche können von Word abweichen",
+    "du in Echtzeit mit anderen in der Cloud schreibst, VBA-Makros brauchst oder unter Windows, auf dem iPad oder im Browser arbeitest"
+  ],
+  "formats": [
+    ".docx (lesen und schreiben)",
+    ".odt (lesen und schreiben)",
+    ".rtf (lesen und schreiben)",
+    "HTML (lesen und schreiben)",
+    "Markdown (lesen und schreiben)",
+    "LaTeX .tex (lesen und schreiben)",
+    ".txt (lesen und schreiben)",
+    ".doc Word 97–2003 (nur öffnen)",
+    ".docm (öffnen, Makros laufen nicht)",
+    "PDF (Export mit markierbarem Text)",
+    "PNG (Seiten als Bild exportieren)",
+    "CSV (Daten für Serienbriefe)"
+  ],
+  "faq": [
+    {
+      "q": "Ist WordKoja eine vollwertige Microsoft-Word-Alternative?",
+      "a": "Noch nicht: WordKoja ist eine frühe Version (Alpha), und laut Projektangaben (Stand: November 2026) reicht es nach eigener Schätzung für etwa 60 % der echten Arbeit. Es fehlen unter anderem eine deutsche Rechtschreibprüfung, Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit und VBA-Makros, außerdem können Seitenumbrüche von Word abweichen. Menüband, Formatvorlagen, Tabellen, „Änderungen nachverfolgen“, Verzeichnisse und Serienbriefe sind aber schon da. Ob das für dich reicht, prüfst du im kostenlosen Test mit deinen eigenen Dateien."
+    },
+    {
+      "q": "Kann ich mit WordKoja .docx-Dateien auf dem Mac öffnen und bearbeiten?",
+      "a": "Ja, WordKoja öffnet und speichert .docx direkt, außerdem .odt, .rtf, HTML, Markdown, LaTeX und .txt. Alte .doc-Dateien öffnest du und speicherst sie als .docx, PDFs exportierst du mit markierbarem Text, Links und Lesezeichen. Zeilen- und Seitenumbrüche können aber anders fallen als in Word, und Diagramme aus Word lassen sich nur ansehen. Für PDFs gibt es mit [PdfKoja](/software/pdf-koja) eine eigene App im Paket."
+    },
+    {
+      "q": "Hat WordKoja eine deutsche Rechtschreibprüfung?",
+      "a": "Noch nicht, und das solltest du vorher wissen. Die Rechtschreib- und Grammatikprüfung gibt es bisher unter anderem für Englisch und Spanisch, einige weitere Sprachen brauchen zusätzlich installierte Wörterbücher. Für Deutsch beherrscht WordKoja bisher nur die automatische Silbentrennung. Die Oberfläche selbst gibt es auf Deutsch."
+    },
+    {
+      "q": "Kann ich WordKoja ohne Abo kaufen?",
+      "a": "Ja. Du zahlst einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Macs, darunter auch [GridKoja](/software/grid-koja) für Tabellen und [DeckKoja](/software/deck-koja) für Präsentationen. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit online kündbar. Zum Vergleich: Office Home 2024 kostet bei Microsoft 149 € einmalig für einen Mac, Microsoft 365 Single 99 € pro Jahr."
+    },
+    {
+      "q": "Word gibt es im Browser kostenlos. Warum WordKoja?",
+      "a": "Word für das Web kannst du mit einem kostenlosen Microsoft-Konto nutzen, dazu gibt es 5 GB OneDrive-Speicher. Es läuft aber nur im Browser mit Internetverbindung, und zum gemeinsamen Bearbeiten liegen deine Dateien auf OneDrive. WordKoja ist eine Mac-App, die ohne Konto und offline läuft, und deine Dokumente bleiben auf deinem Mac. Wenn dir die Web-Version reicht und dich Konto und Cloud nicht stören, ist sie eine gute kostenlose Lösung."
+    },
+    {
+      "q": "WordKoja basiert auf Open Source. Warum kostet es Geld?",
+      "a": "Der Quellcode ist offen und steht wahlweise unter der MIT- oder der Apache-2.0-Lizenz. Du bezahlst für die fertige Mac-Version, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dafür bekommst du gleich 13 Apps, von Textverarbeitung über Tabellen und Präsentationen bis Bildbearbeitung."
+    }
+  ]
+}

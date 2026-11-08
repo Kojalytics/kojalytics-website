@@ -1,106 +1,95 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import DownloadButton from "@/components/software/DownloadButton";
 
 const navLinks = [
-  { href: "#services", label: "Services" },
   { href: "/software", label: "Software" },
-  { href: "/de/aiheadshot", label: "AI Headshot" },
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "/support", label: "Support" },
-  { href: "/contact", label: "Contact" },
+  { href: "/ratgeber", label: "Ratgeber" },
+  { href: "/leistungen", label: "Leistungen" },
+  { href: "/projekte", label: "Projekte" },
+  { href: "/kontakt", label: "Kontakt" },
 ];
 
+export function Logo() {
+  return (
+    <Link href="/" className="flex items-center gap-2.5" title="Kojalytics Startseite">
+      <span aria-hidden className="grid h-8 w-8 place-items-center rounded-[9px] bg-foreground font-[family-name:var(--font-display)] text-[16px] font-extrabold text-white">
+        K
+      </span>
+      <span className="font-[family-name:var(--font-display)] text-[19px] font-extrabold tracking-[-0.03em]">Kojalytics</span>
+    </Link>
+  );
+}
+
 export default function Navigation() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openFor, setOpenFor] = useState<string | null>(null);
+  // The menu closes on its own when the route changes.
+  const mobileOpen = openFor === pathname;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border"
-            : "bg-transparent"
+      <header
+        className={`fixed inset-x-0 top-0 z-50 px-5 transition-[background,border-color] duration-300 md:px-6 ${
+          scrolled || mobileOpen ? "border-b border-border bg-white/85 backdrop-blur-xl" : "border-b border-transparent bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-accent to-purple-500 flex items-center justify-center font-bold text-white text-sm transition-transform group-hover:scale-110">
-              K
-            </div>
-            <span className="text-lg font-semibold tracking-tight">
-              Kojalytics
-            </span>
-          </Link>
+        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between" aria-label="Hauptnavigation">
+          <Logo />
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-7 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted hover:text-foreground transition-colors duration-300"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`text-[15px] font-medium transition-colors ${isActive(link.href) ? "text-foreground" : "text-muted hover:text-foreground"}`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-gradient text-sm !py-2.5 !px-6">
-              <span>Let&apos;s Talk</span>
-            </Link>
+            <DownloadButton source="nav" label="3 Tage kostenlos testen" shareLabel="An Mac senden" className="!px-5 !py-2.5 !text-sm" />
           </div>
 
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-foreground p-2"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </motion.nav>
+          <div className="flex items-center gap-1 md:hidden">
+            <DownloadButton source="nav-mobile" label="Kostenlos testen" shareLabel="An Mac senden" className="min-h-11 !gap-1.5 !px-4 !py-2 !text-[13px]" />
+            <button
+              onClick={() => setOpenFor(mobileOpen ? null : pathname)}
+              className="grid h-11 w-11 place-items-center text-foreground"
+              aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </nav>
+      </header>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-8 md:hidden"
-          >
-            <div className="flex flex-col gap-6">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-2xl font-semibold text-foreground hover:text-accent-light transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 bg-white px-6 pt-24 md:hidden">
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} onClick={() => setOpenFor(null)} className="display text-4xl">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }

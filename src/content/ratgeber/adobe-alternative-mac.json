@@ -1,0 +1,511 @@
+{
+  "slug": "adobe-alternative-mac",
+  "navTitle": "Adobe-Alternativen für den Mac",
+  "h1": "Adobe-Alternative für Mac: Ersatz für Photoshop, Premiere, Acrobat & Co.",
+  "metaTitle": "Adobe-Alternative für Mac: Ersatz für jede App",
+  "metaDescription": "Photoshop, Lightroom, Illustrator, InDesign, Premiere, Acrobat: kostenlose Mac-Alternativen, Einmalkäufe und günstige Abos, mit aktuellen Adobe-Preisen.",
+  "primaryKeyword": "adobe alternative mac",
+  "updated": "2026-11-07",
+  "readingMinutes": 11,
+  "intro": [
+    "Eine einzige Adobe-Alternative für den Mac, die alles ersetzt, gibt es nicht. Für jedes einzelne Adobe-Programm gibt es aber Alternativen: Affinity deckt Bildbearbeitung, Vektorgrafik und Layout in einer App ab, ist für Einzelpersonen kostenlos und importiert PSD-, AI- und IDML-Dateien. Statt Premiere nimmst du das kostenlose DaVinci Resolve oder Final Cut Pro für 349,99 € einmalig. Für RAW-Fotos gibt es darktable, für viele PDF-Aufgaben reicht die Vorschau-App von macOS. Zum Vergleich: Creative Cloud Pro kostet im Jahres-Abo regulär 77,99 € pro Monat.",
+    "Hier findest du die aktuellen Adobe-Preise, eine Übersicht mit kostenlosen Programmen und Einmalkäufen für jedes Adobe-Programm und eine Anleitung für den Umstieg ohne Datenverlust. Auch unsere eigenen Koja-Apps ordnen wir ehrlich ein: günstig und alle in einem Abo, aber noch in früher Entwicklung. Alle Preise inkl. MwSt., Stand: 7. November 2026."
+  ],
+  "sections": [
+    {
+      "id": "adobe-preise",
+      "h2": "Was Adobe aktuell kostet (Stand November 2026)",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Photoshop, Illustrator, InDesign, Premiere und die anderen Creative-Cloud-Programme bietet Adobe als Abo an, in drei Varianten: als flexibles Monats-Abo, als Jahres-Abo mit monatlicher Abrechnung und als Jahres-Abo mit Zahlung im Voraus. Die Tabelle zeigt die Preise im Jahres-Abo mit monatlicher Abrechnung, die Adobe auf seiner Abo-Seite angibt."
+        },
+        {
+          "type": "table",
+          "head": [
+            "Adobe-Abo",
+            "Pro Monat",
+            "Aufs Jahr gerechnet"
+          ],
+          "rows": [
+            [
+              "Creative Cloud Pro (mehr als 20 Programme, inkl. Firefly)",
+              "77,99 €",
+              "935,88 €"
+            ],
+            [
+              "Creative Cloud Standard (u. a. Photoshop, Illustrator, Acrobat Pro)",
+              "61,95 €",
+              "743,40 €"
+            ],
+            [
+              "Photoshop, Illustrator, InDesign, Premiere, After Effects oder Audition (je eine App)",
+              "25,99 €",
+              "311,88 €"
+            ],
+            [
+              "Fotografie (Lightroom, Lightroom Classic, Photoshop, 1 TB Speicher)",
+              "23,79 €",
+              "285,48 €"
+            ],
+            [
+              "Acrobat Pro",
+              "23,79 €",
+              "285,48 €"
+            ],
+            [
+              "Acrobat Standard",
+              "17,99 €",
+              "215,88 €"
+            ],
+            [
+              "Lightroom (1 TB Cloud-Speicher)",
+              "14,49 €",
+              "173,88 €"
+            ]
+          ],
+          "caption": "Jahres-Abo mit monatlicher Abrechnung, inkl. MwSt., laut Adobe. Den Jahresbetrag haben wir hochgerechnet. Stand: 7. November 2026."
+        },
+        {
+          "type": "p",
+          "text": "Neukunden bekommen Creative Cloud Pro derzeit in einer zeitlich begrenzten Aktion für 38,98 € pro Monat in den ersten 3 Monaten, danach gilt der reguläre Preis von 77,99 €. Bei Zahlung im Voraus kostet Creative Cloud Pro 905,92 € und Photoshop 311,73 € pro Jahr, also kaum weniger. Deutlich teurer ist das flexible Monats-Abo, das du laut Adobe jederzeit ohne Zusatzgebühren kündigen kannst: Photoshop kostet darin 38,98 €, Creative Cloud Pro 116,99 € pro Monat."
+        },
+        {
+          "type": "tip",
+          "text": "Prüfe vor dem Wechsel deine Vertragsart. Kündigst du ein Jahres-Abo mit monatlicher Abrechnung nach den ersten 14 Tagen, verlangt Adobe eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Wann und wie du am günstigsten aussteigst, erklärt unser Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+        }
+      ]
+    },
+    {
+      "id": "uebersicht",
+      "h2": "Adobe-Alternativen für den Mac: die Übersicht",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Die Tabelle ordnet jedem Adobe-Programm kostenlose Alternativen, wo vorhanden einen Einmalkauf und die passende Koja-App zu. Alle genannten Programme laufen auf dem Mac. Details zu jeder Kategorie findest du weiter unten."
+        },
+        {
+          "type": "table",
+          "head": [
+            "Adobe-Programm",
+            "Kostenlos",
+            "Einmalkauf",
+            "Koja-App (Status)"
+          ],
+          "rows": [
+            [
+              "Photoshop",
+              "Affinity, GIMP",
+              "Pixelmator Pro (59,99 €)",
+              "PhotoKoja (Alpha)"
+            ],
+            [
+              "Lightroom",
+              "darktable (nur Apple silicon)",
+              "Pixelmator Pro (RAW-Bearbeitung)",
+              "LightKoja (Alpha)"
+            ],
+            [
+              "Illustrator",
+              "Affinity, Inkscape",
+              "–",
+              "VectorKoja (Alpha)"
+            ],
+            [
+              "InDesign",
+              "Affinity, Pages für einfache Layouts",
+              "–",
+              "DesignKoja (Pre-Alpha)"
+            ],
+            [
+              "Premiere",
+              "DaVinci Resolve",
+              "Final Cut Pro (349,99 €)",
+              "FilmKoja (Alpha)"
+            ],
+            [
+              "After Effects",
+              "DaVinci Resolve (Effekte, Motion Graphics)",
+              "Motion (59,99 €)",
+              "EffectKoja (Alpha)"
+            ],
+            [
+              "Audition",
+              "Audacity, GarageBand",
+              "Logic Pro (229,99 €)",
+              "SoundKoja (Pre-Alpha)"
+            ],
+            [
+              "Acrobat",
+              "Vorschau (in macOS), Acrobat Reader zum Anzeigen",
+              "–",
+              "PdfKoja (Alpha)"
+            ]
+          ],
+          "caption": "Preise inkl. MwSt. laut Mac App Store bzw. Hersteller, Stand: 7. November 2026. Alle 13 Koja-Apps kosten zusammen 2,99 € pro Monat oder 79 € einmalig und sind frühe Versionen."
+        },
+        {
+          "type": "p",
+          "text": "Brauchst du mehrere Apple-Programme, gibt es statt der Einzelkäufe auch Apple Creator Studio: Das Abo enthält Final Cut Pro, Logic Pro, Pixelmator Pro, Motion, Compressor und MainStage für 12,99 € pro Monat oder 129 € pro Jahr. Neue Abonnenten können es einen Monat kostenlos testen. Alle Funktionen gibt es laut Apple ab macOS 26."
+        },
+        {
+          "type": "h3",
+          "text": "Worauf wir bei der Auswahl geachtet haben"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Läuft auf deinem Mac: Manche Programme gibt es nur für Apple silicon. darktable zum Beispiel bietet keine offiziellen Versionen für Intel-Macs an.",
+            "Öffnet deine Dateien: Entscheidend ist, ob PSD-, AI- und IDML-Dateien oder Schnittprojekte übernommen werden.",
+            "Kosten auf Dauer: kostenlos, Einmalkauf oder Abo, und wie leicht sich ein Abo wieder kündigen lässt.",
+            "Arbeit ohne Cloud-Zwang: Deine Dateien sollen auf deinem Mac bleiben können.",
+            "Reife: Wie erprobt ist das Programm im Alltag? Bei jungen Programmen sagen wir das dazu."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "photoshop-lightroom",
+      "h2": "Photoshop- und Lightroom-Alternativen für den Mac",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Ersatz für Photoshop"
+        },
+        {
+          "type": "p",
+          "text": "Affinity ist für Einzelpersonen kostenlos. Zum Herunterladen brauchst du ein Canva-Konto, das du kostenlos anlegen kannst. Die App vereint Bildbearbeitung, Vektorgrafik und Layout, läuft nativ auf Apple silicon und Intel und importiert laut Hersteller PSD-, AI-, PDF-, SVG- und IDML-Dateien. Die KI-Werkzeuge von Canva gibt es darin nur mit einem Canva-Premium-Abo."
+        },
+        {
+          "type": "p",
+          "text": "GIMP ist ein kostenloses, quelloffenes Bildbearbeitungsprogramm. Es gibt eigene Versionen für Intel-Macs und für Apple silicon, Voraussetzung ist macOS 11 Big Sur oder neuer. Pixelmator Pro kostet im Mac App Store einmalig 59,99 €. Laut App-Beschreibung öffnet und exportiert es Photoshop-Bilder mit Ebenen, bearbeitet RAW-Fotos von über 750 Kameras und bringt Vektorwerkzeuge mit."
+        },
+        {
+          "type": "p",
+          "text": "Vorsicht bei Photoshop Elements 2027: Adobe verkauft es für 98,98 € als 3-Jahreslizenz. Die Lizenz läuft 3 Jahre nach der Aktivierung ab und lässt sich nicht verlängern. Am Mac setzt Adobe laut Systemanforderungen einen Apple-Chip voraus, Intel-Prozessoren werden nicht unterstützt. Mehr Wege ohne Abo findest du in unserem Ratgeber [Photoshop ohne Abo](/ratgeber/photoshop-ohne-abo)."
+        },
+        {
+          "type": "p",
+          "text": "[PhotoKoja](/software/photo-koja) ist unsere Photoshop-Alternative. Menüs, Kurzbefehle und Werkzeuge liegen dort, wo Photoshop-Nutzer sie erwarten. Die App öffnet und speichert PSD- und PSB-Dateien mit Ebenen und bietet 16 nicht-destruktive Einstellungsebenen. Sie ist aber noch eine frühe Version (Alpha): 15 Photoshop-Werkzeuge fehlen, generative KI und Photoshop-Plug-ins gibt es nicht."
+        },
+        {
+          "type": "app",
+          "app": "photo-koja",
+          "text": "Passt, wenn du Photoshop vor allem für Ebenen, Masken, Einstellungsebenen und PSD-Dateien nutzt. Teste es 3 Tage mit deinen eigenen Dateien, für die tägliche Profi-Arbeit ist es noch zu früh."
+        },
+        {
+          "type": "h3",
+          "text": "Ersatz für Lightroom"
+        },
+        {
+          "type": "p",
+          "text": "darktable ist ein kostenloses, quelloffenes Programm für den Foto-Workflow und die RAW-Entwicklung (Lizenz GPL 3.0). Der Haken für ältere Macs: Die macOS-Version gibt es nur für Apple silicon, offizielle Versionen für Intel-Macs bietet das Projekt derzeit nicht an. Pixelmator Pro bearbeitet ebenfalls RAW-Fotos. Alle Lightroom-Alternativen mit Preisen vergleicht der Ratgeber [Lightroom-Alternative ohne Abo](/ratgeber/lightroom-alternative-ohne-abo)."
+        },
+        {
+          "type": "p",
+          "text": "[LightKoja](/software/light-koja) ist eine Bildverwaltung mit nicht-destruktivem RAW-Entwickler, ohne Konto und ohne Cloud. Es liest und schreibt XMP-Begleitdateien und öffnet RAW-Formate wie DNG, CR2, ARW, NEF und RAF. Auch LightKoja ist noch in früher Entwicklung (Alpha): Eine gemessene Farbkalibrierung für die Kameras fehlt noch, und einige CR3-Varianten werden nicht gelesen."
+        }
+      ]
+    },
+    {
+      "id": "illustrator-indesign",
+      "h2": "Illustrator- und InDesign-Alternativen",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Für Vektorgrafik und Layout ist Affinity ein guter Startpunkt, weil es beides in einer App vereint und Illustrator- sowie IDML-Dateien importiert. IDML ist das Austauschformat von InDesign. Inkscape ist ein kostenloses, quelloffenes Vektorprogramm für macOS, Windows und Linux. Für einfache Flyer, Einladungen oder Vereinsblätter reicht oft Pages, das Apple wie Keynote und Numbers kostenlos anbietet."
+        },
+        {
+          "type": "p",
+          "text": "[VectorKoja](/software/vector-koja) richtet sich an Illustrator-Umsteiger: Zeichenstift, Direktauswahl, Pathfinder, Formerstellung und intelligente Hilfslinien liegen an vertrauten Stellen. Die App importiert und exportiert SVG, PDF und PDF-kompatible .ai-Dateien. Der Austausch echter .ai-Dateien ist aber noch nicht zuverlässig, und VectorKoja ist eine frühe Version (Alpha)."
+        },
+        {
+          "type": "p",
+          "text": "[DesignKoja](/software/design-koja) ist ein Layoutprogramm mit Musterseiten, verketteten Textrahmen, Absatz- und Zeichenformaten und Export als PDF/X-4. Es importiert IDML- und INDD-Dateien, wie gut das mit echten Dateien klappt, ist aber noch nicht gemessen. DesignKoja ist eine sehr frühe Version (Pre-Alpha). Für deutsche Texte wichtig: Eine deutsche Silbentrennung fehlt noch."
+        }
+      ]
+    },
+    {
+      "id": "premiere-after-effects",
+      "h2": "Premiere-, After-Effects- und Audition-Alternativen",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "DaVinci Resolve gibt es kostenlos für Mac, Windows und Linux. Laut Blackmagic Design vereint es Schnitt, Farbkorrektur, visuelle Effekte, Motion Graphics und Audio in einer Anwendung und kann so Aufgaben aus mehreren Adobe-Programmen übernehmen. Die erweiterte Version DaVinci Resolve Studio kostet derzeit 245 € statt zuvor 305 € (unverbindliche Preisempfehlung inkl. MwSt.)."
+        },
+        {
+          "type": "p",
+          "text": "Final Cut Pro kostet im Mac App Store einmalig 349,99 € und setzt macOS 26.6 oder neuer voraus. Für Titel, Übergänge und Effekte gibt es dazu Motion für 59,99 €. Als Ersatz für Audition ist Audacity kostenlos und quelloffen, GarageBand bietet Apple kostenlos an, und Logic Pro kostet einmalig 229,99 €."
+        },
+        {
+          "type": "p",
+          "text": "[FilmKoja](/software/film-koja) ist ein Schnittprogramm mit Quell- und Programmmonitor, Mehrspur-Timeline, Drei-Punkt-Schnitt, Farbkorrektur mit Scopes und Export als H.264 oder ProRes. Premiere-Projekte (.prproj) öffnet es nicht, Sequenzen übernimmst du per FCP-7-XML, AAF oder OpenTimelineIO. [EffectKoja](/software/effect-koja) bietet Kompositionen, Keyframes, Expressions, 3D-Kameras und mehr als 250 Effekte, kann aber keine After-Effects-Projekte öffnen. Beide sind frühe Versionen (Alpha). SoundKoja für Mehrspur-Audio und MIDI ist noch eine sehr frühe Version (Pre-Alpha) mit bisher nur englischer Oberfläche."
+        },
+        {
+          "type": "app",
+          "app": "film-koja",
+          "text": "Für Schnitt mit vertrauter Timeline, Farbkorrektur und Untertiteln, solange du nicht unter Termindruck arbeitest. FilmKoja ist eine frühe Version (Alpha) und unterstützt noch keine Plug-ins."
+        }
+      ]
+    },
+    {
+      "id": "acrobat-alternativen",
+      "h2": "Acrobat-Alternativen: PDFs ohne Abo",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Für viele PDF-Aufgaben brauchst du am Mac kein Acrobat. Die Vorschau-App von macOS kann Seiten hinzufügen, löschen, verschieben und zwischen PDFs übertragen. Formulare füllst du direkt aus, unterschreiben kannst du mit Trackpad, Kamera oder iPhone. Zum reinen Anzeigen bietet Adobe den Acrobat Reader kostenlos an."
+        },
+        {
+          "type": "p",
+          "text": "[PdfKoja](/software/pdf-koja) bündelt die typischen Aufgaben in einer App: Es fügt beliebig viele PDFs zusammen, teilt sie auf, ordnet Seiten, füllt Formulare aus und schützt Dokumente mit Passwörtern bis AES-256. Alles läuft offline und ohne Konto. Die App ist noch eine frühe Version (Alpha). Office-Dateien wandelt sie nicht in PDF um, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt."
+        },
+        {
+          "type": "app",
+          "app": "pdf-koja",
+          "text": "Für alle, die regelmäßig PDFs zusammenfügen, aufteilen, ordnen und mit Passwort schützen, offline und ohne Konto. Für umfangreiche Textbearbeitung in bestehenden PDFs reicht es noch nicht."
+        }
+      ]
+    },
+    {
+      "id": "koja-apps",
+      "h2": "Alle Programme in einem Abo: die Koja-Apps ehrlich eingeordnet",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Kojalytics bietet 13 Koja-Apps für macOS an, darunter die oben genannten Alternativen zu Photoshop, Lightroom, Illustrator, InDesign, Premiere, After Effects, Audition und Acrobat. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt., jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs."
+        },
+        {
+          "type": "p",
+          "text": "Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Die Apps gibt es nur für macOS, nicht für Windows und nicht im Browser. Technisch sind es macOS-Builds quelloffener Projekte (MIT/Apache-2.0), die sich im Alpha- oder Pre-Alpha-Stadium befinden. Keine Koja-App ersetzt ein Adobe-Programm vollständig."
+        },
+        {
+          "type": "h3",
+          "text": "Gut geeignet, wenn du …"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Adobe nur gelegentlich nutzt und die Abo-Kosten dafür nicht mehr zahlen willst,",
+            "mehrere Programme brauchst, etwa Bildbearbeitung, Schnitt und PDF, und nicht für jedes einzeln zahlen willst,",
+            "lieber offline und ohne Konto arbeitest."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Eher nicht geeignet, wenn du …"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "unter Termindruck an Kundenprojekten arbeitest und dich auf jede Funktion verlassen musst,",
+            "generative KI, Adobe-Plug-ins oder Cloud-Zusammenarbeit brauchst,",
+            "unter Windows, auf dem iPad oder im Browser arbeitest."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Zum Vergleich: Creative Cloud Pro kostet aufs Jahr gerechnet 935,88 €, die Koja-Apps 35,88 €. Der Preisunterschied ist groß, der Unterschied in Reife und Funktionsumfang aber auch. Teste deshalb in den 3 Tagen mit deinen eigenen Dateien. Alle Details findest du auf der [Preisseite](/software#preise) und in der [Übersicht aller Koja-Apps](/software)."
+        }
+      ]
+    },
+    {
+      "id": "umstieg",
+      "h2": "Umstieg ohne Datenverlust: Formate, Testphase, Kündigungszeitpunkt",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Kündige Adobe erst, wenn deine Dateien in der neuen Software zuverlässig funktionieren. So gehst du vor:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Bestandsaufnahme: Schreib auf, welche Adobe-Programme du in den letzten Monaten wirklich genutzt hast und wofür.",
+            "Dateien sichern, solange das Abo läuft: Speichere InDesign-Dokumente zusätzlich als IDML über „Datei“ > „Speichern“ und das Format „InDesign CS4 oder später (IDML)“. Premiere-Projekte exportierst du über „Datei“ > „Exportieren“ > „Final Cut Pro XML“. Laut Adobe werden dabei nur wenige Effekte übertragen.",
+            "Cloud-Dateien herunterladen: Lade alles, was in der Creative Cloud liegt, vorsorglich auf deinen Mac oder eine externe Festplatte.",
+            "Mit eigenen Dateien testen: Affinity, DaVinci Resolve, GIMP und darktable sind kostenlos, Apple Creator Studio kannst du als neuer Abonnent einen Monat gratis testen, die Koja-Apps 3 Tage. Öffne dabei deine komplexesten PSD-, AI- und IDML-Dateien.",
+            "Zum richtigen Zeitpunkt kündigen: Innerhalb von 14 Tagen nach der Erstbestellung erstattet Adobe alle Zahlungen. Danach kostet der vorzeitige Ausstieg aus dem Jahres-Abo mit monatlicher Abrechnung 50 % des restlichen Vertragswerts. Beim Jahres-Abo mit Vorauszahlung gibt es nach 14 Tagen kein Geld zurück. Ohne Kündigung verlängern sich Jahres-Abos laut Adobe automatisch. Für Verbraucher in Deutschland darf sich ein Abo nach § 309 Nr. 9 BGB aber nach der ersten Laufzeit nur noch auf unbestimmte Zeit verlängern und muss dann jederzeit mit einer Frist von höchstens einem Monat kündbar sein. Das gilt für Verträge, die seit dem 1. März 2022 geschlossen wurden."
+          ]
+        },
+        {
+          "type": "tip",
+          "text": "Nach der Kündigung kannst du die Adobe-Apps laut Adobe noch bis zum Ende des aktuellen Abrechnungszeitraums nutzen, dein Adobe-Konto bleibt aktiv. Nutze diese Zeit, um letzte Dateien zu exportieren und zu prüfen."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Was ist die beste kostenlose Adobe-Alternative für den Mac?",
+      "a": "Das hängt vom Programm ab. Affinity deckt Bildbearbeitung, Vektorgrafik und Layout in einer App ab und ist für Einzelpersonen kostenlos. Für Videoschnitt gibt es DaVinci Resolve, für RAW-Fotos darktable (nur Apple silicon) und für PDFs die Vorschau-App von macOS."
+    },
+    {
+      "q": "Gibt es Photoshop für den Mac ohne Abo?",
+      "a": "Auf seinen Preisseiten bietet Adobe Photoshop nur im Abo an, als Einzel-App für 25,99 € pro Monat im Jahres-Abo. Photoshop Elements 2027 kostet 98,98 €, ist aber eine 3-Jahreslizenz, die danach abläuft. Einen echten Einmalkauf bietet zum Beispiel Pixelmator Pro für 59,99 €, kostenlos sind Affinity und GIMP."
+    },
+    {
+      "q": "Ist Affinity wirklich kostenlos?",
+      "a": "Ja, für Einzelpersonen ist Affinity kostenlos. Zum Herunterladen brauchst du ein Canva-Konto, das du ebenfalls kostenlos anlegen kannst. Nur die KI-Werkzeuge von Canva in Affinity setzen ein Canva-Premium-Abo voraus."
+    },
+    {
+      "q": "Was kostet Adobe Creative Cloud im Monat?",
+      "a": "Creative Cloud Pro mit mehr als 20 Programmen kostet regulär 77,99 € pro Monat im Jahres-Abo mit monatlicher Abrechnung. Creative Cloud Standard kostet 61,95 €, eine Einzel-App wie Photoshop oder Illustrator 25,99 €. Im flexiblen Monats-Abo zahlst du für Creative Cloud Pro 116,99 € pro Monat."
+    },
+    {
+      "q": "Kann ich mein Adobe-Abo vorzeitig kündigen?",
+      "a": "Ja. Innerhalb von 14 Tagen nach der Erstbestellung bekommst du dein Geld vollständig zurück. Danach wird beim Jahres-Abo mit monatlicher Abrechnung eine einmalige Gebühr von 50 % des restlichen Vertragswerts fällig. Das flexible Monats-Abo kannst du laut Adobe jederzeit ohne Zusatzgebühren kündigen."
+    },
+    {
+      "q": "Kann ich PSD- und InDesign-Dateien ohne Adobe öffnen?",
+      "a": "Ja. Affinity importiert laut Hersteller PSD-, AI- und IDML-Dateien, Pixelmator Pro öffnet Photoshop-Bilder mit Ebenen. PhotoKoja öffnet und speichert PSD und PSB, DesignKoja importiert IDML und INDD, beide sind aber noch frühe Versionen. Prüfe komplexe Dateien immer, bevor du Adobe kündigst."
+    }
+  ],
+  "apps": [
+    "photo-koja",
+    "light-koja",
+    "vector-koja",
+    "design-koja",
+    "film-koja",
+    "effect-koja",
+    "sound-koja",
+    "pdf-koja"
+  ],
+  "sources": [
+    {
+      "label": "Adobe: Creative Cloud Abos und Preise",
+      "url": "https://www.adobe.com/de/creativecloud/plans.html"
+    },
+    {
+      "label": "Adobe: Creative Cloud Pro, Abo-Arten und Preise",
+      "url": "https://www.adobe.com/de/plans-fragments/modals/individual/modals-content-rich/all-apps/master.modal.html"
+    },
+    {
+      "label": "Adobe: Photoshop, Abo-Arten und Preise",
+      "url": "https://www.adobe.com/de/plans-fragments/modals/individual/modals-content-rich/photoshop/master.modal.html"
+    },
+    {
+      "label": "Adobe: Photoshop-Abos",
+      "url": "https://www.adobe.com/de/products/photoshop/plans.html"
+    },
+    {
+      "label": "Adobe: Photoshop, Produktseite und Preis-FAQ",
+      "url": "https://www.adobe.com/de/products/photoshop.html"
+    },
+    {
+      "label": "Adobe: Illustrator-Abos",
+      "url": "https://www.adobe.com/de/products/illustrator/plans.html"
+    },
+    {
+      "label": "Adobe: InDesign-Abos",
+      "url": "https://www.adobe.com/de/products/indesign/plans.html"
+    },
+    {
+      "label": "Adobe: Premiere-Abos",
+      "url": "https://www.adobe.com/de/products/premiere/plans.html"
+    },
+    {
+      "label": "Adobe: After-Effects-Abos",
+      "url": "https://www.adobe.com/de/products/aftereffects/plans.html"
+    },
+    {
+      "label": "Adobe: Lightroom- und Fotografie-Abos",
+      "url": "https://www.adobe.com/de/products/photoshop-lightroom/plans.html"
+    },
+    {
+      "label": "Adobe: Acrobat-Tarife und Preise",
+      "url": "https://www.adobe.com/de/acrobat/plans.html"
+    },
+    {
+      "label": "Adobe: Allgemeine Abonnementbedingungen",
+      "url": "https://www.adobe.com/de/legal/subscription-terms.html"
+    },
+    {
+      "label": "Adobe Hilfe: Abo oder Probe-Abo kündigen",
+      "url": "https://helpx.adobe.com/de/account/individual/subscriptions-and-plans/renewals-and-cancellations/cancel-adobe-subscription.html"
+    },
+    {
+      "label": "Adobe: Photoshop Elements",
+      "url": "https://www.adobe.com/de/products/photoshop-elements.html"
+    },
+    {
+      "label": "Adobe Hilfe: Photoshop Elements, Systemanforderungen",
+      "url": "https://helpx.adobe.com/de/photoshop-elements/desktop/introduction-to-photoshop-elements/system-requirements.html"
+    },
+    {
+      "label": "Adobe Hilfe: Dokumente in InDesign speichern (IDML)",
+      "url": "https://helpx.adobe.com/de/indesign/desktop/save-export-and-publish/save-and-export/save-documents.html"
+    },
+    {
+      "label": "Adobe Hilfe: Premiere-Projekt als Final Cut Pro XML exportieren",
+      "url": "https://helpx.adobe.com/de/premiere/desktop/render-and-export/export-files/export-a-project-as-a-final-cut-pro-xml-file.html"
+    },
+    {
+      "label": "Affinity: Startseite",
+      "url": "https://www.affinity.studio/"
+    },
+    {
+      "label": "Affinity: Affinity herunterladen",
+      "url": "https://www.affinity.studio/get-affinity"
+    },
+    {
+      "label": "GIMP: Startseite",
+      "url": "https://www.gimp.org/"
+    },
+    {
+      "label": "GIMP: Downloads",
+      "url": "https://www.gimp.org/downloads/"
+    },
+    {
+      "label": "darktable: Installation",
+      "url": "https://www.darktable.org/install/"
+    },
+    {
+      "label": "Inkscape: Über Inkscape",
+      "url": "https://inkscape.org/about/"
+    },
+    {
+      "label": "Mac App Store: Pixelmator Pro",
+      "url": "https://apps.apple.com/de/app/pixelmator-pro/id1289583905?mt=12"
+    },
+    {
+      "label": "Apple: Apple Creator Studio",
+      "url": "https://www.apple.com/de/apple-creator-studio/"
+    },
+    {
+      "label": "Mac App Store: Final Cut Pro",
+      "url": "https://apps.apple.com/de/app/final-cut-pro/id424389933?mt=12"
+    },
+    {
+      "label": "Mac App Store: Motion",
+      "url": "https://apps.apple.com/de/app/motion/id434290957?mt=12"
+    },
+    {
+      "label": "Mac App Store: Logic Pro",
+      "url": "https://apps.apple.com/de/app/logic-pro/id634148309?mt=12"
+    },
+    {
+      "label": "Mac App Store: GarageBand",
+      "url": "https://apps.apple.com/de/app/garageband/id682658836?mt=12"
+    },
+    {
+      "label": "Blackmagic Design: DaVinci Resolve",
+      "url": "https://www.blackmagicdesign.com/de/products/davinciresolve"
+    },
+    {
+      "label": "Audacity: Startseite",
+      "url": "https://www.audacityteam.org/"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: Seiten hinzufügen, löschen oder bewegen",
+      "url": "https://support.apple.com/de-de/guide/preview/prvw11793/mac"
+    },
+    {
+      "label": "Apple Vorschau-Handbuch: PDF-Formulare ausfüllen und unterschreiben",
+      "url": "https://support.apple.com/de-de/guide/preview/prvw35725/mac"
+    },
+    {
+      "label": "§ 309 BGB: Klauselverbote ohne Wertungsmöglichkeit (Nr. 9: Laufzeit bei Dauerschuldverhältnissen)",
+      "url": "https://www.gesetze-im-internet.de/bgb/__309.html"
+    }
+  ]
+}

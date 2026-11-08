@@ -1,0 +1,478 @@
+{
+  "slug": "photoshop-ohne-abo",
+  "navTitle": "Photoshop ohne Abo",
+  "h1": "Photoshop ohne Abo: Geht das? Alle legalen Optionen für den Mac",
+  "metaTitle": "Photoshop ohne Abo? Alle legalen Wege am Mac",
+  "metaDescription": "Photoshop gibt es nur im Abo. Was Photoshop Elements mit 3-Jahres-Lizenz kostet und welche Mac-Programme du ohne Abo oder kostenlos nutzen kannst.",
+  "primaryKeyword": "photoshop ohne abo",
+  "updated": "2026-11-07",
+  "readingMinutes": 12,
+  "intro": [
+    "Nein, Photoshop ohne Abo gibt es als Vollversion nicht mehr zu kaufen. Adobe bietet Photoshop nur im Abo an: als Einzel-App für regulär 25,99 € pro Monat im Jahres-Abo, im Fotografie-Abo für 23,79 € pro Monat oder als Teil von Creative Cloud Pro. Ohne Abo bleiben dir drei legale Wege: Photoshop Elements mit einer 3-Jahres-Lizenz für 98,98 €, eine ältere Kaufversion mit gebrauchter Lizenz oder ein anderes Programm, das du kostenlos oder mit einer Einmalzahlung nutzt.",
+    "In diesem Ratgeber findest du alle Preise, Fristen und Haken auf einen Blick, Stand 7. November 2026. Alle Preise stammen von den offiziellen Seiten der Anbieter und enthalten die Mehrwertsteuer. Am Ende hilft dir eine Übersicht mit den Kosten über 3 Jahre bei der Entscheidung."
+  ],
+  "sections": [
+    {
+      "id": "kurze-antwort",
+      "h2": "Gibt es Photoshop ohne Abo? Die kurze Antwort",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Adobe schreibt auf seiner Photoshop-Seite, dass Photoshop als Einzelprodukt-Abo oder zusammen mit mehr als 20 weiteren Kreativprogrammen im Abo für Creative Cloud Pro erhältlich ist. Einen Einmalkauf nennt Adobe dort nicht. Auch die Desktop-Version für den Mac gibt es nicht gratis, sondern nur als Testversion."
+        },
+        {
+          "type": "p",
+          "text": "Die Testversion läuft 7 Tage. Schon bei der Anmeldung gibst du deine Zahlungsdaten an. Kündigst du nicht rechtzeitig, wird sie laut Adobe nach sieben Tagen automatisch zu einem kostenpflichtigen Creative-Cloud-Abo. Kostenlos ist nur die Photoshop-App für Smartphone und Tablet, und auch dort schaltet erst ein Premium-Abo weitere Funktionen frei. Für Photoshop im Web gibt es laut Adobe keine kostenlose Version."
+        },
+        {
+          "type": "p",
+          "text": "Wenn du kein Abo willst, hast du realistisch diese Möglichkeiten:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Photoshop Elements: ein einfacheres Programm von Adobe, das du für 98,98 € kaufst und 3 Jahre lang nutzen kannst.",
+            "Eine ältere Kaufversion wie Photoshop CS6 mit gebrauchter Lizenz. Das ist rechtlich möglich, aber technisch heikel.",
+            "Ein anderes Programm: kostenlos (Affinity, GIMP, Photopea), einmal gekauft (Pixelmator Pro) oder günstig im Abo bzw. als Einmalkauf (die Koja-Apps)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "photoshop-abo-kosten",
+      "h2": "Was Photoshop im Abo kostet",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Adobe verkauft Photoshop in drei Abo-Arten: als Monats-Abo, als Jahres-Abo mit monatlicher Abrechnung und als Jahres-Abo mit Zahlung im Voraus. Dazu kommen Pakete, in denen Photoshop enthalten ist."
+        },
+        {
+          "type": "table",
+          "head": [
+            "Abo",
+            "Enthalten",
+            "Preis inkl. MwSt."
+          ],
+          "rows": [
+            [
+              "Photoshop, Jahres-Abo mit monatlicher Zahlung",
+              "Photoshop",
+              "25,99 € pro Monat"
+            ],
+            [
+              "Photoshop, Jahres-Abo mit Vorauszahlung",
+              "Photoshop",
+              "311,73 € pro Jahr"
+            ],
+            [
+              "Photoshop, Monats-Abo",
+              "Photoshop, monatlich kündbar",
+              "38,98 € pro Monat"
+            ],
+            [
+              "Fotografie, Jahres-Abo",
+              "Photoshop, Lightroom, Lightroom Classic, 1 TB Cloud-Speicher",
+              "23,79 € pro Monat"
+            ],
+            [
+              "Creative Cloud Standard, Jahres-Abo",
+              "u. a. Photoshop, Illustrator, Acrobat Pro",
+              "61,95 € pro Monat"
+            ],
+            [
+              "Creative Cloud Pro, Jahres-Abo",
+              "mehr als 20 Programme und die KI Adobe Firefly",
+              "77,99 € pro Monat (Neukunden: 38,98 € in den ersten 3 Monaten)"
+            ]
+          ],
+          "caption": "Preise laut adobe.com/de, Stand 7. November 2026"
+        },
+        {
+          "type": "tip",
+          "text": "Wenn du nur Photoshop brauchst, ist das Fotografie-Abo mit 23,79 € im Monat günstiger als die Einzel-App für 25,99 €. Lightroom und Lightroom Classic bekommst du dabei dazu."
+        },
+        {
+          "type": "h3",
+          "text": "Das Kleingedruckte: Laufzeit und Kündigung"
+        },
+        {
+          "type": "p",
+          "text": "Jahres-Abos verlängern sich laut Adobe automatisch, wenn du sie nicht kündigst. Für Verbraucher in Deutschland darf sich ein Abo nach § 309 Nr. 9 BGB aber nach der ersten Laufzeit nur noch auf unbestimmte Zeit verlängern und muss dann jederzeit mit einer Frist von höchstens einem Monat kündbar sein. Das gilt für Verträge, die seit dem 1. März 2022 geschlossen wurden. Innerhalb von 14 Tagen nach der Erstbestellung bekommst du dein Geld vollständig zurück. Kündigst du ein Jahres-Abo mit monatlicher Abrechnung später, berechnet Adobe eine einmalige Gebühr von 50 % des restlichen Vertragswerts. Sind bei der Einzel-App für 25,99 € im Monat zum Beispiel noch 8 Monate offen, sind das rund 104 €."
+        },
+        {
+          "type": "p",
+          "text": "Beim Monats-Abo kündigst du laut Adobe jederzeit ohne Zusatzgebühren, zahlst dafür aber 38,98 € statt 25,99 € im Monat. Wer im Voraus für ein Jahr bezahlt, bekommt nach Ablauf der 14 Tage nichts zurück. Wie du sauber und ohne unnötige Gebühr aus dem Vertrag kommst, erklärt der Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+        }
+      ]
+    },
+    {
+      "id": "photoshop-elements",
+      "h2": "Photoshop Elements: 3-Jahres-Lizenz statt Dauerlizenz",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Mit Photoshop Elements verkauft Adobe ein Programm mit „Photoshop“ im Namen ohne Abo. Adobe selbst nennt es eine „einfache Fotobearbeitungssoftware“: ein eigenes Programm mit KI-Unterstützung, Schritt-für-Schritt-Anleitungen und einem Organizer für deine Fotos. Es ist also nicht Photoshop mit einem anderen Bezahlmodell."
+        },
+        {
+          "type": "p",
+          "text": "Eine Dauerlizenz ist Elements nicht. Die aktuelle Version Photoshop Elements 2027 kostet 98,98 € und kommt mit einer 3-Jahres-Lizenz. Adobe schreibt dazu: „Die Lizenz läuft 3 Jahre nach Aktivierung ab und ist nicht verlängerbar.“ Danach kannst du Elements nicht mehr nutzen. Auf deinen Medienkatalog greifst du mit dem Elements Organizer aber weiterhin zu, zeitlich unbegrenzt."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Preis: 98,98 €, Upgrade für 80,99 €",
+            "Paket mit Premiere Elements 2027 für Videoschnitt: 148,98 €",
+            "Testversion: 7 Tage kostenlos",
+            "Umgerechnet: rund 33 € pro Jahr, ohne automatische Verlängerung"
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Achtung bei älteren Macs"
+        },
+        {
+          "type": "p",
+          "text": "Für Elements 2027 verlangt Adobe einen Mac mit Apple-Chip ab M1. Intel-Prozessoren werden nicht unterstützt. Außerdem brauchst du macOS 15 (ab 15.5) oder macOS 26 (ab 26.5), mindestens 8 GB Arbeitsspeicher (16 GB empfohlen) und für die Aktivierung eine Internetverbindung. Für einen Intel-Mac ist die aktuelle Version also keine Option."
+        },
+        {
+          "type": "tip",
+          "text": "Nutze die 7-Tage-Testversion, bevor du kaufst. Die 3 Jahre beginnen laut Adobe erst mit der Aktivierung, nicht mit dem Kauf."
+        }
+      ]
+    },
+    {
+      "id": "gebrauchte-lizenzen",
+      "h2": "Alte Versionen und gebrauchte Lizenzen: Worauf du achten musst",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Auf Marktplätzen findest du Angebote wie „Photoshop CS6 Vollversion“. Verboten ist der Handel mit gebrauchter Software nicht. Der Europäische Gerichtshof hat 2012 entschieden, dass sich ein Hersteller dem Weiterverkauf gebrauchter Lizenzen nicht widersetzen kann, wenn er die Software gegen Bezahlung mit unbefristetem Nutzungsrecht verkauft hat. Das gilt auch für heruntergeladene Programme. Der Erstkäufer muss seine eigene Kopie beim Verkauf aber unbrauchbar machen."
+        },
+        {
+          "type": "p",
+          "text": "Bei Adobe kommen praktische Hürden dazu:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Übertragung: Alter und neuer Besitzer müssen jeweils ein Lizenzübertragungsformular ausfüllen und an Adobe schicken. Die Seriennummer muss im Adobe-Profil des Verkäufers registriert sein.",
+            "Ausnahmen: Education-Versionen von Adobe-Produkten lassen sich nicht übertragen. Bei einer Suite überträgst du immer die ganze Suite, nicht einzelne Programme daraus.",
+            "Download: Ältere Versionen wie Creative Suite 6 lädst du nur über dein Adobe-Konto herunter, wenn das Produkt dort mit Seriennummer registriert ist. Die Seriennummer funktioniert nur mit der ursprünglich gekauften Sprach- und Betriebssystemversion. Eine Windows-Lizenz hilft dir auf dem Mac also nicht.",
+            "Keine Pflege: Für CS6 gibt es laut Adobe keine Funktionsupdates und neuen Versionen mehr. Sicherheits-Patches behandelt Adobe nur „von Fall zu Fall“."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Dazu kommt die Technik. Weil Adobe für CS6 keine Updates mehr liefert, ist eine Anpassung an aktuelle macOS-Versionen und Macs mit Apple-Chip nicht zu erwarten. Ob eine so alte Version auf deinem Mac überhaupt startet, garantiert dir niemand. Für ernsthafte Arbeit ist das ein schlechtes Fundament."
+        },
+        {
+          "type": "tip",
+          "text": "Wird dir eine aktuelle Photoshop-Version als „Dauerlizenz“ angeboten, sei vorsichtig: Adobe selbst verkauft aktuelles Photoshop nur im Abo. Kauf nur, wenn der Händler die Herkunft der Lizenz und die Übertragung bei Adobe nachweisen kann."
+        }
+      ]
+    },
+    {
+      "id": "kostenlose-alternativen",
+      "h2": "Kostenlos: Affinity, GIMP und Photopea",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Wenn es dir um die Funktionen geht und nicht um den Namen Photoshop, gibt es drei kostenlose Programme, die mit Ebenen arbeiten und PSD-Dateien öffnen."
+        },
+        {
+          "type": "h3",
+          "text": "Affinity"
+        },
+        {
+          "type": "p",
+          "text": "Affinity kommt inzwischen von Canva und ist für Einzelpersonen kostenlos. Zum Herunterladen brauchst du ein Canva-Konto, das du kostenlos anlegen kannst. Nach der Aktivierung funktioniert Affinity offline. Das Programm vereint Fotobearbeitung, Vektorgrafik und Seitenlayout in einer App und läuft laut Hersteller nativ auf Macs mit Apple-Chip und mit Intel, außerdem unter Windows und auf dem iPad. PSD-Dateien importierst du mit Ebenen und Struktur. Die KI-Werkzeuge, etwa generatives Füllen oder Hintergrund entfernen, gibt es nur mit einem kostenpflichtigen Canva-Premium-Abo."
+        },
+        {
+          "type": "h3",
+          "text": "GIMP"
+        },
+        {
+          "type": "p",
+          "text": "GIMP beschreibt sich als freies, quelloffenes Bildbearbeitungsprogramm und läuft unter macOS, Windows und Linux. Mit Version 3.0 kamen nicht-destruktive Filter dazu, die nach dem Anwenden aktiv bleiben und sich später ändern lassen. Außerdem hat das Team den Import und Export von PSD-Dateien verbessert. Wenn du an Photoshop gewöhnt bist, plane etwas Einarbeitungszeit ein."
+        },
+        {
+          "type": "h3",
+          "text": "Photopea"
+        },
+        {
+          "type": "p",
+          "text": "Photopea läuft im Browser, also auch auf dem Mac ohne Installation. Laut Anbieter unterstützt es PSD-Dateien beim Öffnen und Speichern, und deine Dateien werden nicht ins Internet hochgeladen. Die Nutzung ist kostenlos. Ein Premium-Konto entfernt die Werbung."
+        }
+      ]
+    },
+    {
+      "id": "pixelmator-pro",
+      "h2": "Einmal kaufen: Pixelmator Pro",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Pixelmator Pro ist eine naheliegende Wahl, wenn du ein reines Mac-Programm einmal bezahlen willst. Es kostet im deutschen Mac App Store 59,99 €, als Entwickler ist dort Apple angegeben. Voraussetzung ist macOS 12 oder neuer. Laut App-Store-Beschreibung öffnest und exportierst du Photoshop-Bilder mit Ebenen, und die Oberfläche gibt es auf Deutsch."
+        },
+        {
+          "type": "p",
+          "text": "Apple bietet Pixelmator Pro außerdem im Abo Apple Creator Studio an, zusammen mit Final Cut Pro, Logic Pro, Motion, Compressor und MainStage, für 12,99 € im Monat oder 129 € im Jahr. Die eigenständigen Mac-Apps gibt es laut Apple aber weiterhin als einmaligen Kauf im App Store. Für „ohne Abo“ ist also der App-Store-Kauf der richtige Weg."
+        }
+      ]
+    },
+    {
+      "id": "photokoja",
+      "h2": "PhotoKoja: Ebenen, Masken und PSD für 2,99 € im Monat oder 79 € einmalig",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Wir bei Kojalytics bieten mit [PhotoKoja](/software/photo-koja) eine weitere Option an und wollen sie ehrlich einordnen. PhotoKoja ist ein Bildbearbeitungsprogramm für macOS, das sich an der Arbeitsweise von Photoshop orientiert: Menüs, Bedienfelder und Kürzel wie ⌘J oder ⇧⌘D liegen dort, wo du sie erwartest. Es ist aber noch in früher Entwicklung (Alpha) und ersetzt Photoshop nicht vollständig."
+        },
+        {
+          "type": "h3",
+          "text": "Was PhotoKoja heute kann"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "PSD- und PSB-Dateien mit Ebenen öffnen, bearbeiten und speichern. In den Tests des zugrunde liegenden Open-Source-Projekts sahen 307 von 309 Testdateien nach dem erneuten Speichern aus wie vorher.",
+            "16 Einstellungsebenen, darunter Gradationskurven, Tonwertkorrektur mit Live-Histogramm, Farbton/Sättigung und Color Lookup. Du kannst sie maskieren, umsortieren und ausblenden, ohne die Originalpixel zu verändern.",
+            "Ebenenstile wie Schlagschatten, Kontur oder Schein nach außen, auch auf Textebenen, die editierbar bleiben.",
+            "Auswahlwerkzeuge bis hin zu „Motiv auswählen“ und „Auswählen und maskieren“. Die intelligente Auswahl rechnet auf deinem Mac, ohne Cloud und ohne Konto.",
+            "Farbmanagement mit RGB, CMYK, Lab und Graustufen in 8, 16 oder 32 Bit pro Kanal, mit ICC-Profilen und Farb-Proof."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Was noch fehlt"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Generative KI-Funktionen gibt es nicht.",
+            "15 Werkzeuge aus Photoshop fehlen noch. Typografie und Profi-Workflows sind weniger ausgereift.",
+            "Photoshop-Plug-ins laufen nicht.",
+            "Erneut gespeicherte PSD-Dateien sehen in den Tests fast immer gleich aus, sind aber nicht Byte für Byte identisch mit dem Original."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Zum Angebot: Du lädst die Apps kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage lang kostenlos. Danach zahlst du 2,99 € im Monat (inkl. MwSt.) oder 79 € einmalig für eine dauerhafte Lizenz. Das Abo kündigst du jederzeit online auf [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr. In beiden Fällen bekommst du alle 13 Koja-Apps auf bis zu 3 Macs, darunter [LightKoja](/software/light-koja) für RAW-Fotos und [VectorKoja](/software/vector-koja) für Vektorgrafik. Du brauchst kein Konto, und die Apps laufen offline. Internet brauchst du nur für Download und Aktivierung. Eine Windows- oder Web-Version gibt es nicht. Alle Details stehen unter [Preise](/software#preise)."
+        },
+        {
+          "type": "app",
+          "app": "photo-koja",
+          "text": "Wenn du vor allem PSD-Dateien mit Ebenen öffnen, Korrekturen über Einstellungsebenen machen und mit Masken arbeiten willst, ist PhotoKoja einen Test wert. Prüf in den 3 Testtagen mit deinen eigenen Dateien, ob es für deine Arbeit schon reicht."
+        }
+      ]
+    },
+    {
+      "id": "entscheidungshilfe",
+      "h2": "Entscheidungshilfe: Welche Option passt zu dir?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Die folgende Übersicht rechnet die Kosten auf 3 Jahre hoch, bei gleichbleibenden Preisen. Das entspricht genau der Laufzeit einer Elements-Lizenz."
+        },
+        {
+          "type": "table",
+          "head": [
+            "Option",
+            "Kosten über 3 Jahre",
+            "Gut für",
+            "Haken"
+          ],
+          "rows": [
+            [
+              "Photoshop, Einzel-App im Jahres-Abo",
+              "935,64 €",
+              "Profis, die mit Kunden PSD-Dateien austauschen",
+              "Gebühr bei vorzeitiger Kündigung"
+            ],
+            [
+              "Fotografie-Abo (Photoshop und Lightroom)",
+              "856,44 €",
+              "Fotografen, die echtes Photoshop brauchen",
+              "Verlängert sich automatisch"
+            ],
+            [
+              "Photoshop Elements 2027",
+              "98,98 €",
+              "Hobby-Fotos mit Anleitungen",
+              "Nur Macs mit Apple-Chip, endet nach 3 Jahren"
+            ],
+            [
+              "Pixelmator Pro",
+              "59,99 €",
+              "Mac-Nutzer, die einmal zahlen wollen",
+              "Einmalkauf nur für den Mac, ab macOS 12"
+            ],
+            [
+              "Affinity",
+              "0 €",
+              "Foto, Vektor und Layout in einer App",
+              "Canva-Konto nötig, KI nur mit Canva Premium"
+            ],
+            [
+              "GIMP",
+              "0 €",
+              "Wer quelloffene Software bevorzugt",
+              "Einarbeitungszeit beim Umstieg"
+            ],
+            [
+              "Photopea",
+              "0 €",
+              "Schnelle PSD-Bearbeitung im Browser",
+              "Werbung in der Gratis-Version"
+            ],
+            [
+              "Koja-Apps (13 Apps inkl. PhotoKoja)",
+              "79 € einmalig oder 107,64 € im Abo",
+              "Viele Kreativ-Aufgaben für wenig Geld",
+              "Frühe Versionen, nur macOS"
+            ]
+          ],
+          "caption": "Monatspreis mal 36 bzw. Einmalpreis, Stand 7. November 2026. Adobe-Preise können sich ändern."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Du verdienst Geld mit Photoshop-Dateien oder brauchst Adobes KI-Funktionen: Bleib beim Abo und nimm das Fotografie-Abo, wenn dir Photoshop und Lightroom reichen.",
+            "Du bearbeitest privat Urlaubsfotos und hast einen Mac mit Apple-Chip: Teste Photoshop Elements oder Affinity.",
+            "Du willst gar nichts zahlen: Affinity, GIMP oder Photopea.",
+            "Du willst einmal zahlen: Pixelmator Pro für Fotos oder die Koja-Apps, wenn dich frühe Versionen nicht stören und du mehr als Bildbearbeitung abdecken willst."
+          ]
+        },
+        {
+          "type": "app",
+          "app": "light-koja",
+          "text": "Zahlst du das Fotografie-Abo vor allem wegen Lightroom? Dann sieh dir LightKoja an: eine Fotobibliothek mit RAW-Entwicklung, die ohne Konto und Cloud auf deinem Mac läuft, allerdings ebenfalls noch als frühe Version."
+        },
+        {
+          "type": "p",
+          "text": "Welche Programme Lightroom ersetzen können, vergleicht der Ratgeber [Lightroom-Alternative ohne Abo](/ratgeber/lightroom-alternative-ohne-abo)."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Kann man Photoshop noch ohne Abo kaufen?",
+      "a": "Nein. Adobe verkauft die aktuelle Photoshop-Version nur im Abo, als Einzel-App oder im Paket. Von den Photoshop-Programmen kannst du bei Adobe nur Photoshop Elements einmalig bezahlen, und das auch nur als 3-Jahres-Lizenz für 98,98 €. Ältere Kaufversionen wie CS6 gibt es nur noch gebraucht."
+    },
+    {
+      "q": "Gibt es Photoshop kostenlos für den Mac?",
+      "a": "Nein, für den Mac gibt es nur eine 7-tägige Testversion. Dafür hinterlegst du Zahlungsdaten, und ohne Kündigung wird daraus ein bezahltes Abo. Kostenlos ist nur die Photoshop-App für Smartphone und Tablet. Kostenlose Alternativen für den Mac sind Affinity, GIMP und Photopea."
+    },
+    {
+      "q": "Ist Photoshop Elements eine Dauerlizenz?",
+      "a": "Nein. Photoshop Elements 2027 kommt mit einer 3-Jahres-Lizenz, die ab der Aktivierung läuft und sich nicht verlängern lässt. Danach kannst du Elements nicht mehr nutzen. Deinen Medienkatalog öffnest du aber weiterhin mit dem Elements Organizer."
+    },
+    {
+      "q": "Was ist der günstigste Weg zum echten Photoshop?",
+      "a": "Zu regulären Preisen ist im Jahres-Abo mit monatlicher Zahlung das Fotografie-Abo für 23,79 € im Monat günstiger als die Einzel-App für 25,99 €, und Lightroom ist dabei. Zahlst du die Einzel-App mit 311,73 € für ein Jahr im Voraus, sparst du gegenüber der monatlichen Zahlung kaum etwas. Denk daran, dass sich Jahres-Abos automatisch verlängern."
+    },
+    {
+      "q": "Darf ich eine gebrauchte Photoshop-Lizenz kaufen?",
+      "a": "Grundsätzlich ja, wenn es sich um eine Kauflizenz handelt. Der Europäische Gerichtshof hat 2012 entschieden, dass Hersteller den Weiterverkauf solcher Lizenzen nicht verhindern können. Der Verkäufer muss seine Kopie unbrauchbar machen. Adobe verlangt für die Übertragung ein Formular von beiden Seiten, Education-Versionen sind ausgeschlossen."
+    },
+    {
+      "q": "Welches Mac-Programm öffnet PSD-Dateien ohne Photoshop?",
+      "a": "Auf dem Mac öffnen unter anderem Affinity, GIMP, Pixelmator Pro und PhotoKoja PSD-Dateien, im Browser auch Photopea. Wie gut Ebenen, Effekte und Text erhalten bleiben, hängt vom Programm und von der Datei ab. Teste deshalb mit der Kopie einer typischen Datei, bevor du umsteigst."
+    }
+  ],
+  "apps": [
+    "photo-koja",
+    "light-koja",
+    "vector-koja"
+  ],
+  "sources": [
+    {
+      "label": "Adobe: Photoshop (Produktseite und FAQ)",
+      "url": "https://www.adobe.com/de/products/photoshop.html"
+    },
+    {
+      "label": "Adobe: Photoshop-Abos und Preise",
+      "url": "https://www.adobe.com/de/products/photoshop/plans.html"
+    },
+    {
+      "label": "Adobe: Abo-Arten für Photoshop",
+      "url": "https://www.adobe.com/de/plans-fragments/modals/individual/modals-content-rich/photoshop/master.modal.html"
+    },
+    {
+      "label": "Adobe: Creative Cloud Abos im Vergleich",
+      "url": "https://www.adobe.com/de/creativecloud/plans.html"
+    },
+    {
+      "label": "Adobe: Creative Cloud Pro, Abo-Arten",
+      "url": "https://www.adobe.com/de/plans-fragments/modals/individual/modals-content-rich/all-apps/master.modal.html"
+    },
+    {
+      "label": "Adobe: Photoshop kostenlos testen",
+      "url": "https://www.adobe.com/de/products/photoshop/free-trial-download.html"
+    },
+    {
+      "label": "Adobe: Allgemeine Abobedingungen",
+      "url": "https://www.adobe.com/de/legal/subscription-terms.html"
+    },
+    {
+      "label": "Adobe: Photoshop Elements 2027",
+      "url": "https://www.adobe.com/de/products/photoshop-elements.html"
+    },
+    {
+      "label": "Adobe Hilfe: Photoshop Elements Systemanforderungen",
+      "url": "https://helpx.adobe.com/de/photoshop-elements/desktop/introduction-to-photoshop-elements/system-requirements.html"
+    },
+    {
+      "label": "Adobe Hilfe: Unterstützte Produktversionen",
+      "url": "https://helpx.adobe.com/de/support/programs/adobe-support-policies-supported-product-versions.html"
+    },
+    {
+      "label": "Adobe Hilfe: Frühere Versionen ohne Abo herunterladen",
+      "url": "https://helpx.adobe.com/de/download-install/apps/download-install-apps/creative-cloud-apps/download-previous-versions-non-subscription-apps.html"
+    },
+    {
+      "label": "Adobe Hilfe: Produktlizenz übertragen",
+      "url": "https://helpx.adobe.com/de/x-productkb/policy-pricing/transfer-product-license.html"
+    },
+    {
+      "label": "EuGH: Pressemitteilung 94/12 zum Urteil C-128/11 (UsedSoft)",
+      "url": "https://curia.europa.eu/jcms/upload/docs/application/pdf/2012-07/cp120094de.pdf"
+    },
+    {
+      "label": "Affinity: Startseite",
+      "url": "https://www.affinity.studio/"
+    },
+    {
+      "label": "Affinity: Herunterladen und FAQ",
+      "url": "https://www.affinity.studio/get-affinity"
+    },
+    {
+      "label": "GIMP: Startseite",
+      "url": "https://www.gimp.org/"
+    },
+    {
+      "label": "GIMP: Release Notes 3.0",
+      "url": "https://www.gimp.org/release-notes/gimp-3.0.html"
+    },
+    {
+      "label": "Photopea: Startseite",
+      "url": "https://www.photopea.com/"
+    },
+    {
+      "label": "Photopea: Konten",
+      "url": "https://www.photopea.com/api/accounts"
+    },
+    {
+      "label": "Mac App Store: Pixelmator Pro",
+      "url": "https://apps.apple.com/de/app/pixelmator-pro/id1289583905?mt=12"
+    },
+    {
+      "label": "Apple: Apple Creator Studio",
+      "url": "https://www.apple.com/de/apple-creator-studio/"
+    },
+    {
+      "label": "§ 309 BGB: Klauselverbote ohne Wertungsmöglichkeit (Nr. 9: Laufzeit bei Dauerschuldverhältnissen)",
+      "url": "https://www.gesetze-im-internet.de/bgb/__309.html"
+    }
+  ]
+}

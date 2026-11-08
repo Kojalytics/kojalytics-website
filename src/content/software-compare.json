@@ -1,0 +1,62 @@
+{
+  "columns": ["Koja-Apps", "Adobe Creative Cloud Pro", "Microsoft 365 Single"],
+  "rows": [
+    {
+      "label": "Preis pro Monat",
+      "values": [
+        "2,99 € für alle 13 Apps, auf bis zu 3 Macs",
+        "77,99 € im Jahres-Abo mit monatlicher Abrechnung, 116,99 € im flexiblen Monats-Abo",
+        "10 € für 1 Person, auf bis zu 5 Geräten gleichzeitig"
+      ]
+    },
+    {
+      "label": "Kosten im ersten Jahr",
+      "values": [
+        "35,88 € (12 × 2,99 €) oder einmalig 79 € für eine dauerhafte Lizenz",
+        "935,88 € (12 × 77,99 €) oder 905,92 € bei Zahlung im Voraus",
+        "99 € bei jährlicher Zahlung oder 120 € (12 × 10 €)"
+      ]
+    },
+    {
+      "label": "Enthaltene Programme",
+      "values": [
+        "13 Apps für Bildbearbeitung, RAW-Entwicklung, Vektorgrafik, Layout, Interface-Design, Videoschnitt, Motion Graphics, Audio, Textverarbeitung, Tabellenkalkulation, Präsentationen, PDF und 2D-CAD",
+        "Mehr als 20 Programme, darunter Photoshop, Illustrator und Premiere, dazu die KI Adobe Firefly",
+        "Word, Excel, PowerPoint, Outlook und OneNote als Desktop-Apps, dazu 1 TB Cloud-Speicher"
+      ]
+    },
+    {
+      "label": "Kündigung",
+      "values": [
+        "Jederzeit online kündbar auf kojalytics.com/kuendigen, ohne Gebühr. Die Lizenz für 79 € ist kein Abo.",
+        "Kündigst du das Jahres-Abo mit monatlicher Abrechnung nach den ersten 14 Tagen, zahlst du einmalig 50 % des restlichen Vertragswerts. Das Monats-Abo ist ohne Gebühr kündbar. Jahres-Abos verlängern sich automatisch, für Verbraucher in Deutschland nach dem ersten Jahr aber nur mit höchstens einem Monat Kündigungsfrist (§ 309 Nr. 9 BGB).",
+        "Das Abo verlängert sich automatisch zum normalen Preis, wenn du nicht kündigst."
+      ]
+    },
+    {
+      "label": "Konto nötig",
+      "values": [
+        "Nein",
+        "Ja, das Abo läuft über ein Adobe-Konto.",
+        "Ja, für Kauf und Installation. Auch die kostenlose Web-Version braucht ein Microsoft-Konto."
+      ]
+    },
+    {
+      "label": "Läuft offline",
+      "values": [
+        "Ja. Internet brauchst du nur für Download und Aktivierung.",
+        "Für eine begrenzte Zeit. Die Apps prüfen die Lizenz regelmäßig online und verlangen nach Ablauf einer Nachfrist eine Internetverbindung.",
+        "Ja. Verbindest du dich nicht mindestens alle 31 Tage mit dem Internet, kannst du Dokumente nur noch ansehen und drucken."
+      ]
+    },
+    {
+      "label": "Entwicklungsstand",
+      "values": [
+        "Frühe Versionen zwischen Pre-Alpha und Alpha. Es fehlen noch Funktionen, rechne mit Fehlern.",
+        "Ausgereift",
+        "Ausgereift"
+      ]
+    }
+  ],
+  "note": "Stand: November 2026. Preise für Deutschland laut Hersteller-Websites, inkl. MwSt., ohne Aktionsrabatte und ohne Gewähr. Die Koja-Apps sind frühe Versionen und ersetzen die genannten Programme nicht vollständig. Alle genannten Produktnamen sind Marken ihrer jeweiligen Inhaber."
+}

@@ -1,0 +1,188 @@
+{
+  "kind": "Vektorgrafik",
+  "benefit": "Logos, Icons und Illustrationen am Mac zeichnen, mit Zeichenstift, Pathfinder und Formerstellung.",
+  "keyword": "illustrator alternative mac",
+  "metaTitle": "Illustrator-Alternative für Mac: VectorKoja",
+  "metaDescription": "VectorKoja ist eine Illustrator-Alternative für den Mac: Zeichenstift, Pathfinder, SVG, PDF und .ai. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "Illustrator-Alternative für den Mac: Vektorgrafik mit SVG, PDF und .ai",
+  "lead": "VectorKoja ist eine Illustrator-Alternative für den Mac, mit Zeichenstift, Direktauswahl, Pathfinder, Ebenen und deutscher Oberfläche. Die App ist eine frühe Version (Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Dateien.",
+  "highlights": [
+    "Zeichenstift, Pathfinder, Ebenen",
+    "SVG, PDF, .ai: Import und Export",
+    "Oberfläche auf Deutsch"
+  ],
+  "features": [
+    {
+      "title": "Zeichenstift, Pathfinder, Formerstellung",
+      "text": "Du arbeitest mit Zeichenstift, Direktauswahl, Pathfinder, Formerstellung, intelligenten Hilfslinien, Aussehen, Farbfeldern und Ebenen. Pathfinder rechnet exakt mit Kurven, und Rückgängig ist unbegrenzt.",
+      "screenshot": "bezier.webp"
+    },
+    {
+      "title": "Effekte, die editierbar bleiben",
+      "text": "Angleichungen, Verzerrungshüllen, Verlaufsgitter, radiale, Raster- und Spiegel-Wiederholungen, Schein und Schlagschatten bleiben live. Änderst du die Ausgangsobjekte, rechnet sich der Effekt neu, statt fest in die Grafik eingebrannt zu sein.",
+      "screenshot": "ribbons.webp"
+    },
+    {
+      "title": "Zeichnen im Perspektivenraster",
+      "text": "Grafik, die du an die Ebenen eines Perspektivenrasters hängst, bleibt auch in der Perspektive bearbeitbar. So baust du Fassaden, Räume oder Verpackungs-Mockups, ohne jede Fläche von Hand zu verzerren.",
+      "screenshot": "perspective.webp"
+    },
+    {
+      "title": "Bilder vektorisieren",
+      "text": "Die Nachzeichnen-Funktion macht aus Pixelbildern wie Scans, Skizzen oder alten Logos Vektorpfade. 12 Voreinstellungen helfen dir beim Start, danach bearbeitest du die Pfade wie gewohnt."
+    },
+    {
+      "title": "Bemaßen für technische Zeichnungen",
+      "text": "Das Bemaßungswerkzeug setzt Längen-, Winkel-, Durchmesser- und Radiusmaße. Ändert sich die Zeichnung, wandern die Maße mit. Das hilft bei Skizzen, Plänen und Werkstattzeichnungen."
+    },
+    {
+      "title": "3D-Kreiseln, erste Version",
+      "text": "Aus einem einfachen Profil wird ein gedrehtes 3D-Objekt mit weicher Vektor-Schattierung, Abschlussflächen und Drehgriffen. Weitere 3D-Effekte wie Extrudieren fehlen noch."
+    },
+    {
+      "title": "Flüssig auch bei vielen Formen",
+      "text": "Das Rendern läuft auf mehreren Kernen und getrennt von der Oberfläche. Laut Projektangaben (Stand: November 2026) zeichnet die App 20.000 Formen in etwa 27 ms in voller Retina-Auflösung, während die Oberfläche mit 120 Bildern pro Sekunde weiterläuft."
+    },
+    {
+      "title": "Zeichenflächen, Export und Druck",
+      "text": "Ein Dokument kann mehrere Zeichenflächen enthalten. Dazu kommen Vorlagen, „Für Bildschirme exportieren“ in mehreren Größen, Drucken und Verpacken. Mit Druckkacheln verteilst du große Poster auf mehrere Seiten."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "VectorKoja auf dem Mac: Synthwave-Poster mit ausgewähltem Titel, Aussehen-Panel mit Schein nach außen",
+      "caption": "Der Leuchteffekt bleibt live: Änderst du den Text, passt sich der Schein sofort an."
+    },
+    {
+      "file": "bezier.webp",
+      "alt": "VectorKoja: Direktauswahl mit Ankerpunkten und Bézier-Griffen an einem Halbmond mit Sternen",
+      "caption": "Ankerpunkte und Bézier-Griffe bearbeitest du direkt, mit Zeichenstift, Direktauswahl und Pathfinder."
+    },
+    {
+      "file": "ribbons.webp",
+      "alt": "VectorKoja: drei farbige Angleichungen als Bänder auf dunklem Grund, rechts das Ebenen-Panel",
+      "caption": "Die Angleichungen im Bild haben 70 Stufen und bleiben über ihre Pfade editierbar."
+    },
+    {
+      "file": "perspective.webp",
+      "alt": "VectorKoja Perspektivenraster: zwei beleuchtete Gebäudefassaden in Zwei-Punkt-Perspektive",
+      "caption": "Fassaden zeichnest du direkt auf das Perspektivenraster und kannst sie danach weiter bearbeiten."
+    },
+    {
+      "file": "sheet.webp",
+      "alt": "VectorKoja im hellen Design: vier Zeichenflächen mit Pathfinder, Verlaufsgitter, Wiederholung und Verzerrungshülle",
+      "caption": "Mehrere Zeichenflächen in einem Dokument halten zusammengehörige Entwürfe beieinander."
+    },
+    {
+      "file": "revolve.webp",
+      "alt": "VectorKoja 3D-Kreiseln: Stillleben aus Vase, Schale, Kugel und Flasche mit Dialog und Drehgriffen",
+      "caption": "Mit 3D-Kreiseln wird aus einem Profil ein schattiertes Objekt, das du im Dialog mit Vorschau oder direkt an den Drehgriffen einstellst."
+    },
+    {
+      "file": "dimensions.webp",
+      "alt": "VectorKoja Bemaßungswerkzeug: technische Zeichnung einer Halterung mit Längen-, Winkel- und Radiusmaßen",
+      "caption": "Bemaßungen für Längen, Winkel und Radien folgen der Zeichnung, wenn du sie änderst."
+    }
+  ],
+  "switching": {
+    "title": "Illustrator-Alternative am Mac: so wechselst du zu VectorKoja",
+    "paragraphs": [
+      "Vieles bleibt, wie du es kennst: Zeichenstift, Direktauswahl, Pathfinder, Formerstellung, intelligente Hilfslinien, Aussehen, Farbfelder und Ebenen, dazu vertraute Menüs, Panels und Tastenkürzel. Auch Zeichenflächen, Textformate und verkettete Textrahmen sind dabei, und die Oberfläche gibt es auf Deutsch.",
+      "Zu deinen Dateien: SVG und PDF importierst und exportierst du, PDF auch als PDF/X. Illustrator-Dateien öffnet VectorKoja, wenn sie PDF-kompatibel gespeichert sind, und das alte .ai-Format von Illustrator 7 wird mit Ebenen, Gruppen und Text unterstützt. Auch EPS, DXF und EMF/WMF werden unterstützt. Affinity-Dateien kannst du öffnen und platzieren, aber nicht im Affinity-Format speichern.",
+      "Was noch fehlt: VectorKoja ist eine frühe Version (Alpha). Der Austausch von .ai-Dateien ist noch nicht zuverlässig, weil die Ebenenstruktur echter Dateien nicht vollständig ankommt und Illustrator-eigene Bearbeitungsdaten nicht geschrieben werden. Bei 3D gibt es bisher nur Kreiseln; Extrudieren und Materialien fehlen. Skripte und die meisten Variablen fehlen ebenfalls, generative KI gibt es nicht, und manche Werkzeuge verhalten sich im Detail noch anders als gewohnt.",
+      "So testest du in 3 Tagen: Lade den Kojalytics Launcher kostenlos herunter, installiere VectorKoja und öffne zwei, drei echte Dateien aus deinem Alltag, etwa ein Logo als SVG und eine .ai-Datei. Baue eine Form mit Zeichenstift und Pathfinder nach und exportiere sie. Passt es, nutzt du VectorKoja für 2,99 € im Monat weiter, [jederzeit kündbar](/kuendigen), oder holst dir die dauerhafte Lizenz für 79 € einmalig. Kündige dein Adobe-Abo erst, wenn du sicher bist, und prüfe vorher die Kosten: Beim Jahres-Abo mit monatlicher Abrechnung kostet eine Kündigung nach den ersten 14 Tagen 50 % des restlichen Vertragswerts. Mehr dazu im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Preis",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "25,99 € im Monat im Jahres-Abo mit monatlicher Zahlung, 38,98 € im Monats-Abo"
+      },
+      {
+        "label": "Abrechnung und Kündigung",
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr (oder einmalig 79 €)",
+        "other": "Jahres-Abo verlängert sich automatisch. Bei monatlicher Abrechnung kostet eine Kündigung nach 14 Tagen 50 % des restlichen Vertragswerts"
+      },
+      {
+        "label": "Konto nötig",
+        "koja": "Nein",
+        "other": "Ja, Adobe-Konto"
+      },
+      {
+        "label": "Offline nutzbar",
+        "koja": "Ja, Internet nur für Download und Aktivierung",
+        "other": "Ja, mit regelmäßiger Online-Prüfung der Lizenz"
+      },
+      {
+        "label": "Wichtige Dateiformate",
+        "koja": "SVG, PDF, .ai (PDF-kompatibel, mit Einschränkungen), EPS, DXF, PNG",
+        "other": "AI, PDF, EPS, SVG und weitere"
+      },
+      {
+        "label": "Plattformen",
+        "koja": "Nur macOS",
+        "other": "macOS, Windows und iPad"
+      },
+      {
+        "label": "Entwicklungsstand",
+        "koja": "Frühe Version (Alpha), einige Funktionen fehlen noch",
+        "other": "Ausgereift, seit Jahrzehnten am Markt"
+      }
+    ],
+    "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
+  },
+  "forWho": [
+    "du Logos, Icons und Illustrationen am Mac zeichnest und dafür Zeichenstift, Pathfinder und Formerstellung brauchst",
+    "du dein Adobe-Abo nur noch für gelegentliche Vektorarbeiten bezahlst",
+    "du Scans, Skizzen oder Pixel-Logos in Vektorpfade umwandeln willst",
+    "du technische Skizzen mit Maßen oder Zeichnungen im Perspektivenraster anlegst"
+  ],
+  "notFor": [
+    "du täglich .ai-Dateien mit Kunden oder Agenturen austauschst und die Ebenen exakt erhalten bleiben müssen",
+    "du Skripte, Variablen oder 3D-Effekte wie Extrudieren für deine Arbeit brauchst",
+    "du ein ausgereiftes Programm brauchst, denn VectorKoja ist noch in früher Entwicklung (Alpha)"
+  ],
+  "formats": [
+    "SVG (lesen und schreiben)",
+    "SVGZ (öffnen)",
+    "PDF und PDF/X (lesen und schreiben)",
+    "AI, PDF-kompatibel (lesen und schreiben)",
+    "EPS",
+    "DXF",
+    "EMF/WMF",
+    "PNG, JPEG, WebP (exportieren)",
+    "GIF, TIFF, BMP (öffnen)",
+    "PSD (exportieren)",
+    "PSD/PSB (als zusammengefügtes Bild öffnen)",
+    "Affinity-Dateien (nur öffnen)"
+  ],
+  "faq": [
+    {
+      "q": "Ist VectorKoja eine vollwertige Illustrator-Alternative?",
+      "a": "Noch nicht. VectorKoja ist eine frühe Version (Alpha): Der Austausch von .ai-Dateien ist noch nicht zuverlässig, bei 3D gibt es nur Kreiseln, und Skripte fehlen. Laut Projektangaben (Stand: November 2026) ist die App für alltägliche Vektorillustration fast einsatzbereit, ihren Reifegrad für typische Illustrationsarbeit schätzt das zugrunde liegende Open-Source-Projekt selbst auf etwa 65 %. Teste sie 3 Tage kostenlos mit deinen eigenen Dateien, bevor du dich entscheidest."
+    },
+    {
+      "q": "Kann ich mit VectorKoja .ai-Dateien auf dem Mac öffnen?",
+      "a": "Ja, wenn die Datei PDF-kompatibel gespeichert wurde. Auch das alte .ai-Format von Illustrator 7 wird unterstützt, dabei bleiben Ebenen, Gruppen und Text erhalten. Bei echten Projektdateien kommt die Ebenenstruktur aber noch nicht vollständig an, und Illustrator-eigene Bearbeitungsdaten schreibt VectorKoja nicht. Prüfe deine wichtigsten Dateien deshalb in den 3 Testtagen, bevor du dich auf den Austausch verlässt."
+    },
+    {
+      "q": "Kann ich mit VectorKoja ein Bild vektorisieren?",
+      "a": "Ja. Die Nachzeichnen-Funktion wandelt Pixelbilder wie Scans, Skizzen oder alte Logos in Vektorpfade um und bringt 12 Voreinstellungen mit. Das Ergebnis bearbeitest du danach wie jeden anderen Pfad, etwa mit Direktauswahl und Pathfinder."
+    },
+    {
+      "q": "Kann ich VectorKoja ohne Abo kaufen?",
+      "a": "Ja, neben dem Abo für 2,99 € im Monat gibt es eine dauerhafte Lizenz für 79 € einmalig. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Macs. Zum Vergleich: Illustrator allein kostet bei Adobe 25,99 € im Monat im Jahres-Abo mit monatlicher Zahlung. Alle Optionen findest du unter [Preise](/software#preise)."
+    },
+    {
+      "q": "Öffnet VectorKoja auch Affinity-Dateien?",
+      "a": "Ja. Dateien aus Affinity 3 (.af) sowie aus Affinity 1 und 2 (.afdesign, .afpub, .afphoto) kannst du öffnen und platzieren, mit Ebenen, Zeichenflächen, Kurven, Text und Masken. Was nicht übernommen wird, zeigt dir VectorKoja in einer Warnung an. Im Affinity-Format speichern kann VectorKoja nicht."
+    },
+    {
+      "q": "VectorKoja basiert auf Open Source. Warum kostet es Geld?",
+      "a": "VectorKoja ist ein macOS-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Den Quellcode kann jeder frei nutzen, und das Ursprungsprojekt bietet seine App auch selbst kostenlos an. Bei uns zahlst du für die fertige Mac-App aus dem Kojalytics Launcher und bekommst 12 weitere Apps zum selben Preis dazu. Einen Überblick über alle Apps findest du unter [Software](/software)."
+    }
+  ]
+}

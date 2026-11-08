@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Impressum",
+  description:
+    "Impressum von Kojalytics: Anbieterkennzeichnung nach § 5 DDG mit Anschrift, Kontakt und Verantwortlichem für die Inhalte dieser Website.",
+  alternates: { canonical: "/impressum" },
+};
 
 export default function ImpressumPage() {
   return (
@@ -11,13 +19,15 @@ export default function ImpressumPage() {
 
           <div className="glass-card rounded-2xl p-10 space-y-8">
             <section>
-              <h2 className="text-xl font-semibold mb-3">Angaben gemäß § 5 TMG</h2>
+              <h2 className="text-xl font-semibold mb-3">Angaben gemäß § 5 DDG</h2>
               <p className="text-muted leading-relaxed">
-                Kojalytics
+                Farzad Khojazada
                 <br />
-                [Deine Adresse hier eintragen]
+                Kojalytics (Einzelunternehmen)
                 <br />
-                [PLZ Stadt]
+                Am Diggen 40i
+                <br />
+                21077 Hamburg
                 <br />
                 Deutschland
               </p>
@@ -38,22 +48,34 @@ export default function ImpressumPage() {
 
             <section>
               <h2 className="text-xl font-semibold mb-3">
-                Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+                Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
               </h2>
               <p className="text-muted leading-relaxed">
-                [Dein Name hier eintragen]
+                Farzad Khojazada
                 <br />
-                [Deine Adresse hier eintragen]
+                Am Diggen 40i
+                <br />
+                21077 Hamburg
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mb-3">Haftungsausschluss</h2>
+              <h2 className="text-xl font-semibold mb-3">Verbraucherstreitbeilegung</h2>
               <p className="text-muted leading-relaxed">
-                Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine
-                Haftung für die Inhalte externer Links. Für den Inhalt der
-                verlinkten Seiten sind ausschließlich deren Betreiber
-                verantwortlich.
+                Wir sind nicht bereit und nicht verpflichtet, an
+                Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+                teilzunehmen.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold mb-3">Haftung für Inhalte und Links</h2>
+              <p className="text-muted leading-relaxed">
+                Für eigene Inhalte auf dieser Website sind wir nach den
+                allgemeinen Gesetzen verantwortlich. Für die Inhalte externer
+                Websites, auf die wir verlinken, sind ausschließlich deren
+                Betreiber verantwortlich. Werden uns Rechtsverletzungen bekannt,
+                entfernen wir die betreffenden Inhalte oder Links umgehend.
               </p>
             </section>
           </div>

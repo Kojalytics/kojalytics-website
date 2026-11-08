@@ -1,93 +1,103 @@
 import Link from "next/link";
+import { APPS } from "@/lib/apps";
+import { ARTICLES } from "@/lib/ratgeber";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
+import { Logo } from "@/components/Navigation";
+
+const company = [
+  { href: "/leistungen", label: "Leistungen" },
+  { href: "/projekte", label: "Projekte" },
+  { href: "/ueber-uns", label: "Über uns" },
+  { href: "/kontakt", label: "Kontakt" },
+  { href: "/lizenzen", label: "Software-Lizenzen" },
+];
+
+const help = [
+  { href: "/support", label: "Hilfe & Support" },
+  { href: "/kuendigen", label: "Verträge hier kündigen" },
+  { href: "/widerrufen", label: "Vertrag widerrufen" },
+  { href: "/agb", label: "AGB" },
+  { href: "/impressum", label: "Impressum" },
+  { href: "/datenschutz", label: "Datenschutz" },
+];
+
+const linkCls = "text-sm text-muted transition-colors hover:text-foreground";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-16 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-accent to-purple-500 flex items-center justify-center font-bold text-white text-sm">
-                K
-              </div>
-              <span className="text-lg font-semibold tracking-tight">Kojalytics</span>
-            </Link>
-            <p className="mt-4 text-muted max-w-sm leading-relaxed">
-              Software development studio building world-class apps and custom
-              solutions. Based in Germany.
+    <footer className="border-t border-border bg-surface px-5 pb-12 pt-16 md:px-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-12">
+          <div className="col-span-2 md:col-span-3">
+            <Logo />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
+              Software-Studio aus Deutschland. Wir entwickeln Apps für Kunden und bieten die Koja-Apps für den Mac an.
             </p>
-            <p className="mt-4 text-muted text-sm">
-              <a
-                href="mailto:support@kojalytics.com"
-                className="hover:text-foreground transition-colors"
-              >
-                support@kojalytics.com
-              </a>
-            </p>
+            <a href="mailto:support@kojalytics.com" className="mt-4 block text-sm text-muted underline-offset-4 hover:text-foreground hover:underline">
+              support@kojalytics.com
+            </a>
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Links
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { href: "#services", label: "Services" },
-                { href: "#work", label: "Work" },
-                { href: "#about", label: "About" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-muted hover:text-foreground transition-colors text-sm"
-                  >
-                    {link.label}
+          <div className="col-span-2 md:col-span-4">
+            <p className="mb-4 text-sm font-semibold">Koja-Apps für den Mac</p>
+            <ul className="grid grid-cols-2 gap-x-10 gap-y-2.5">
+              {APPS.map((app) => (
+                <li key={app.slug}>
+                  <Link href={`/software/${app.slug}`} prefetch={false} className={linkCls}>
+                    {app.name}
+                    <span className="sr-only"> – {app.kind}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Products
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { href: "/de/aiheadshot", label: "AI Headshot" },
-                { href: "#work", label: "BILDER AI" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-muted hover:text-foreground transition-colors text-sm"
-                  >
-                    {link.label}
+          <div className="md:col-span-3">
+            <p className="mb-4 text-sm font-semibold">Ratgeber</p>
+            <ul className="space-y-2.5">
+              {ARTICLES.map((a) => (
+                <li key={a.slug}>
+                  <Link href={`/ratgeber/${a.slug}`} prefetch={false} className={linkCls}>
+                    {a.navTitle}
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="mb-4 text-sm font-semibold">Unternehmen</p>
+            <ul className="space-y-2.5">
+              {company.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={linkCls}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mb-4 mt-8 text-sm font-semibold">Hilfe & Rechtliches</p>
+            <ul className="space-y-2.5">
+              {help.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={linkCls}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <CookieSettingsButton />
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="section-divider mt-12 mb-8" />
-
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted">
-            &copy; {new Date().getFullYear()} Kojalytics. All rights reserved.
+        <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 text-xs leading-relaxed text-muted md:flex-row md:justify-between">
+          <p>&copy; {new Date().getFullYear()} Kojalytics. Alle Rechte vorbehalten.</p>
+          <p className="max-w-2xl md:text-right">
+            Die Koja-Apps basieren auf quelloffener Software des ArtCraft-Teams (MIT / Apache-2.0) und sind ein eigenständiges
+            Angebot von Kojalytics. Genannte Produktnamen anderer Unternehmen sind Marken ihrer Inhaber.
           </p>
-          <div className="flex gap-6">
-            <Link href="/datenschutz" className="text-sm text-muted hover:text-foreground transition-colors">
-              Datenschutz
-            </Link>
-            <Link href="/impressum" className="text-sm text-muted hover:text-foreground transition-colors">
-              Impressum
-            </Link>
-            <Link href="/support" className="text-sm text-muted hover:text-foreground transition-colors">
-              Support
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

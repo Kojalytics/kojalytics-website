@@ -1,0 +1,173 @@
+{
+  "kind": "Bildbearbeitung",
+  "benefit": "Bearbeite Fotos und PSD-Dateien mit Ebenen, Masken und Einstellungsebenen.",
+  "keyword": "photoshop alternative mac",
+  "metaTitle": "PhotoKoja: Photoshop-Alternative für den Mac",
+  "metaDescription": "PhotoKoja ist eine Photoshop-Alternative für den Mac: PSD-Dateien mit Ebenen und Masken bearbeiten. 3 Tage kostenlos testen, dann 79 € einmalig.",
+  "h1": "Photoshop-Alternative für den Mac: PSD, Ebenen und Masken",
+  "lead": "PhotoKoja ist eine Photoshop-Alternative für den Mac, die offline und ohne Konto läuft. Du bearbeitest Fotos und PSD-Dateien mit Ebenen, Masken, Einstellungsebenen und Ebenenstilen. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "highlights": [
+    "Öffnet und speichert PSD/PSB",
+    "16 Einstellungsebenen",
+    "Offline, ohne Konto"
+  ],
+  "features": [
+    {
+      "title": "Kürzel, Transformieren, Protokoll",
+      "text": "Viele Photoshop-Tastenkürzel funktionieren auch hier, etwa ⌘J oder ⇧⌘D. Dazu kommen „Frei transformieren“ mit Skalieren, Drehen, Neigen, Verzerren und Perspektive, das vollständige Protokoll und der Protokollpinsel."
+    },
+    {
+      "title": "Korrekturen, die nichts zerstören",
+      "text": "PhotoKoja bietet **16 Einstellungsebenen**, darunter Gradationskurven pro Kanal, Tonwertkorrektur mit Live-Histogramm, Dynamik, Farbton/Sättigung, Schwarzweiß, Kanalmixer, Verlaufsumsetzung, Fotofilter, Selektive Farbkorrektur und Color Lookup mit .cube-, .3dl- und .look-Dateien. Du kannst sie maskieren, umsortieren oder ausblenden, ohne die Originalpixel anzufassen.",
+      "screenshot": "adjustments.webp"
+    },
+    {
+      "title": "Ebenenstile, auch auf Text",
+      "text": "Schlagschatten, Schatten nach innen, Schein nach außen und innen, Abgeflachte Kante und Relief, Glanz, Kontur sowie Farb-, Verlaufs- und Musterüberlagerung wirken live auf jeder Ebene. Stile lassen sich zwischen Ebenen kopieren und werden aus PSD-Dateien übernommen. Textebenen bleiben dabei editierbar.",
+      "screenshot": "layer-styles.webp"
+    },
+    {
+      "title": "Auswahlen und Masken",
+      "text": "Auswahlrechteck und -ellipse, Lasso, Zauberstab, Schnellauswahl, Objektauswahl, „Motiv auswählen“ und „Auswählen und maskieren“ sind dabei. Die intelligente Auswahl rechnet auf deinem Mac, ohne Cloud und ohne Konto. Jede Auswahl wird auf Wunsch zur Ebenenmaske, zum Vektorpfad oder zur Form.",
+      "screenshot": "masks.webp"
+    },
+    {
+      "title": "PSD und PSB mit Ebenen",
+      "text": "PhotoKoja öffnet, bearbeitet und speichert Photoshop-Dateien mit Ebenen. Laut Projektangaben (Stand: November 2026) sahen in den Tests des zugrunde liegenden Open-Source-Projekts 307 von 309 Testdateien nach dem erneuten Speichern aus wie vorher. Daten, die PhotoKoja nicht kennt, werden mitgespeichert statt verworfen."
+    },
+    {
+      "title": "Filter mit Live-Vorschau",
+      "text": "Weichzeichner samt Weichzeichnergalerie, Scharfzeichner, Rauschreduzierung sowie Verzerrungs-, Vergröberungs-, Stilisierungs- und Renderfilter zeigen ihr Ergebnis live auf der Arbeitsfläche, auch innerhalb einer Auswahl. Auf Smartobjekten bleiben Filter als Smartfilter editierbar."
+    },
+    {
+      "title": "Text, Formen und Pinsel",
+      "text": "Punkt- und Absatztext schreibst du direkt auf der Arbeitsfläche, mit allen Zeichen- und Absatzeinstellungen. Dazu kommen Formwerkzeuge, Zeichenstift, Kurvenzeichenstift und Vektormasken. Pinsel reagieren auf Druck, Neigung und Drehung deines Grafiktablett-Stifts."
+    },
+    {
+      "title": "Farbmanagement bis 32 Bit",
+      "text": "Du arbeitest in RGB, Graustufen, CMYK und Lab mit 8, 16 oder 32 Bit pro Kanal, mit ICC-Profilen und allen vier Renderprioritäten. Für den Druck prüfst du Farben mit Farb-Proof (⌘Y) und Farbumfang-Warnung (⇧⌘Y)."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "PhotoKoja: Hokusais „Große Welle“ mit Gradationskurven, Ebenen-Bedienfeld und editierbaren Textebenen",
+      "caption": "Gradationskurven und Dynamik als Einstellungsebenen, darüber editierbare Textebenen und eine Form mit Schlagschatten."
+    },
+    {
+      "file": "adjustments.webp",
+      "alt": "PhotoKoja: Monets „Impression, Sonnenaufgang“ mit Tonwertkorrektur, Dynamik-Einstellungsebene und Live-Histogramm",
+      "caption": "Einstellungsebenen halten jede Korrektur live und umkehrbar, deine Originalpixel bleiben unverändert."
+    },
+    {
+      "file": "layer-styles.webp",
+      "alt": "PhotoKoja: Ebenenstil-Dialog mit Schein nach außen und Kontur auf der Textebene „EARTHRISE“",
+      "caption": "Ebenenstile wie Schein nach außen, Kontur oder Schlagschatten wirken live auf Text und bleiben jederzeit änderbar."
+    },
+    {
+      "file": "masks.webp",
+      "alt": "PhotoKoja: Ellipsen-Maske auf einer Farbton/Sättigung-Ebene, nur das Gesicht in Vermeers Gemälde bleibt farbig",
+      "caption": "Aus jeder Auswahl machst du eine Ebenenmaske, so wirkt eine Korrektur nur dort, wo du sie haben willst."
+    }
+  ],
+  "switching": {
+    "title": "Von Photoshop zu PhotoKoja wechseln: so testest du die Alternative",
+    "paragraphs": [
+      "Das meiste kennst du schon: die Werkzeugleiste links, Ebenen und Eigenschaften in Bedienfeldern, Einstellungsebenen, Masken, Smartobjekte und Ebenenstile nach demselben Prinzip. Kürzel wie ⌘J, ⇧⌘D oder ⌘Y liegen dort, wo du sie erwartest. Die Oberfläche ist derzeit englisch beschriftet (File, Edit, Image, Layer …), die Begriffe entsprechen also der englischen Photoshop-Ausgabe.",
+      "Deine PSD- und PSB-Dateien öffnest du direkt, mit Ebenen, Textebenen, Ebenenstilen und Formebenen. Dateien aus GIMP, Krita und Affinity kann PhotoKoja lesen, aber nicht in diesen Formaten speichern. Zum Weitergeben gibt es „Export As“ mit Format, Qualität, Transparenz, Skalierung, Vorschau und Schätzung der Dateigröße.",
+      "Was noch fehlt: generative KI, Photoshop-Plug-ins und 15 Photoshop-Werkzeuge. Auch bei Typografie und Profi-Workflows ist Photoshop weiter. PhotoKoja ist noch eine frühe Version (Alpha), rechne also mit Ecken und Kanten.",
+      "So testest du in 3 Tagen, ob es für dich reicht: Lade den Kojalytics Launcher herunter, installiere PhotoKoja und öffne zwei, drei echte PSD-Dateien aus deinen Projekten. Prüf, ob Ebenen, Text und Stile so aussehen wie in Photoshop, und mach eine typische Bearbeitung von Anfang bis Ende. Kündige dein Adobe-Abo erst, wenn du sicher bist. Wie das ohne böse Überraschung klappt, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Preis",
+        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "other": "25,99 € im Monat (Jahres-Abo, monatliche Zahlung) oder 311,73 € pro Jahr im Voraus"
+      },
+      {
+        "label": "Abrechnung und Kündigung",
+        "koja": "Monatlich, jederzeit online kündbar, ohne Gebühr. Oder einmal zahlen und dauerhaft nutzen.",
+        "other": "Jahres-Abo, verlängert sich automatisch. Wer es bei monatlicher Zahlung nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. Flexibles Monats-Abo: 38,98 € im Monat."
+      },
+      {
+        "label": "Konto nötig",
+        "koja": "Nein",
+        "other": "Ja, Anmeldung mit Adobe-Konto"
+      },
+      {
+        "label": "Offline nutzbar",
+        "koja": "Ja, Internet nur für Download und Aktivierung",
+        "other": "Zeitlich begrenzt, die Apps prüfen die Lizenz alle 30 Tage online"
+      },
+      {
+        "label": "Wichtige Dateiformate",
+        "koja": "PSD und PSB mit Ebenen, TIFF, PNG, JPEG, WebP",
+        "other": "PSD und PSB (eigenes Format), TIFF, PNG, JPEG und viele mehr"
+      },
+      {
+        "label": "Plattformen",
+        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "other": "macOS, Windows, Web, Tablet und Smartphone"
+      },
+      {
+        "label": "Entwicklungsstand",
+        "koja": "Frühe Version (Alpha), einige Werkzeuge fehlen noch",
+        "other": "Ausgereift, mit generativer KI"
+      }
+    ],
+    "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
+  },
+  "forWho": [
+    "du Photoshop kennst und für Fotos und Grafiken kein Adobe-Abo mehr bezahlen willst",
+    "du PSD-Dateien mit Ebenen auf dem Mac öffnen und weiterbearbeiten musst",
+    "du offline und ohne Konto arbeiten möchtest und deine Bilder auf deinem Mac bleiben sollen",
+    "du neben der Bildbearbeitung auch Layout, Vektorgrafik oder Office-Apps brauchst, denn alle 13 Koja-Apps sind im Preis enthalten"
+  ],
+  "notFor": [
+    "du täglich beruflich mit Photoshop arbeitest und dich auf jede Funktion verlassen musst: PhotoKoja ist noch eine frühe Version (Alpha), 15 Photoshop-Werkzeuge fehlen",
+    "du generative KI oder Photoshop-Plug-ins brauchst",
+    "du unter Windows, auf dem iPad oder im Browser arbeitest"
+  ],
+  "formats": [
+    "PSD (lesen und schreiben)",
+    "PSB (lesen und schreiben)",
+    "TIFF mit Ebenen (lesen und schreiben)",
+    "PNG",
+    "JPEG",
+    "WebP",
+    "GIF",
+    "SVG (öffnen als Formebenen)",
+    "OpenEXR",
+    "GIMP XCF (nur lesen)",
+    "Krita KRA (nur lesen)",
+    "Affinity-Dateien (nur lesen)"
+  ],
+  "faq": [
+    {
+      "q": "Ist PhotoKoja eine vollwertige Photoshop-Alternative?",
+      "a": "Noch nicht. PhotoKoja ist eine frühe Version (Alpha) und ersetzt Photoshop nicht für die tägliche Profiarbeit: Es fehlen 15 Photoshop-Werkzeuge, generative KI und Plug-ins. Ebenen, Masken, 16 Einstellungsebenen, Ebenenstile, Text und PSD-Dateien sind aber schon da. Ob das für deine Arbeit reicht, findest du in den 3 kostenlosen Testtagen mit deinen eigenen Dateien heraus."
+    },
+    {
+      "q": "Kann ich mit PhotoKoja PSD-Dateien auf dem Mac öffnen und bearbeiten?",
+      "a": "Ja. PhotoKoja öffnet, bearbeitet und speichert PSD- und PSB-Dateien mit Ebenen; Textebenen, Ebenenstile und Formebenen übernimmt es beim Öffnen. Laut Projektangaben (Stand: November 2026) sahen in den Tests des zugrunde liegenden Open-Source-Projekts 307 von 309 Dateien nach dem erneuten Speichern aus wie vorher. Außerdem liest PhotoKoja Dateien aus GIMP, Krita und Affinity und exportiert unter anderem PNG, JPEG, WebP und TIFF."
+    },
+    {
+      "q": "Gibt es PhotoKoja ohne Abo?",
+      "a": "Ja. Nach 3 kostenlosen Testtagen zahlst du einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Macs, darunter auch [LightKoja](/software/light-koja) für deine Fotobibliothek und RAW-Dateien. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit online kündbar. Mehr Hintergrund liefert der Ratgeber [Photoshop ohne Abo: alle Optionen](/ratgeber/photoshop-ohne-abo)."
+    },
+    {
+      "q": "Funktionieren meine Photoshop-Tastenkürzel?",
+      "a": "Viele ja, zum Beispiel ⌘J, ⇧⌘D oder ⌘Y für den Farb-Proof. Findest du einen Befehl nicht, öffnest du mit ⌘F eine Befehlspalette und suchst ihn dort. Aktionen kannst du aufzeichnen und wieder abspielen."
+    },
+    {
+      "q": "PhotoKoja basiert auf Open Source. Warum kostet es Geld?",
+      "a": "Der Quellcode ist offen und steht unter der MIT- oder der Apache-2.0-Lizenz. Du bezahlst für die fertige Mac-Version, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dafür bekommst du gleich 13 Apps, von Bildbearbeitung über Videoschnitt bis Tabellenkalkulation."
+    },
+    {
+      "q": "Läuft PhotoKoja auch unter Windows oder im Browser?",
+      "a": "Nein, PhotoKoja gibt es nur für macOS. Die App läuft nativ und berechnet die Arbeitsfläche über Metal auf der Grafikkarte, ohne Electron und ohne Web-Ansicht. Eine Lizenz gilt auf bis zu 3 Macs."
+    }
+  ]
+}

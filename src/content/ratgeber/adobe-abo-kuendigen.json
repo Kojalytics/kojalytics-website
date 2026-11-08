@@ -1,0 +1,544 @@
+{
+  "slug": "adobe-abo-kuendigen",
+  "navTitle": "Adobe-Abo kündigen",
+  "h1": "Adobe-Abo kündigen: Anleitung, 50 % Gebühr und was mit deinen Dateien passiert",
+  "metaTitle": "Adobe-Abo kündigen: Anleitung, Gebühr, Fristen",
+  "metaDescription": "So kündigst du dein Adobe-Abo Schritt für Schritt: wann die Gebühr von 50 % anfällt, wann nicht und was danach mit Dateien und Cloud-Speicher passiert.",
+  "primaryKeyword": "adobe abo kündigen",
+  "updated": "2026-11-07",
+  "readingMinutes": 13,
+  "intro": [
+    "Dein Adobe-Abo kündigen kannst du direkt in deinem Adobe-Konto, wenn du es bei Adobe gekauft hast: Melde dich an, wähle unter „Abo-Optionen und Zahlung“ bei deinem Abo „Abo verwalten“, dann „Abo kündigen“, und folge den Schritten bis „Kündigung bestätigen“. Innerhalb von 14 Tagen nach dem ursprünglichen Kauf bekommst du laut Adobe bei den meisten Abos dein Geld vollständig zurück. Danach kommt es auf die Abo-Art an: Beim Jahres-Abo mit monatlicher Zahlung verlangt Adobe eine einmalige Gebühr von 50 % des restlichen Vertragswerts, beim Monats-Abo und beim vorausbezahlten Jahres-Abo nicht.",
+    "Hier findest du die Anleitung, eine Beispielrechnung für die Gebühr, den besten Zeitpunkt zum Kündigen und was danach mit Cloud-Speicher, Lightroom-Fotos und Credits passiert. Die Angaben zu Adobe stammen aus Adobes Hilfeseiten, Abobedingungen und Preisseiten, Stand: 7. November 2026. Rechtsberatung ist das nicht."
+  ],
+  "sections": [
+    {
+      "id": "anleitung",
+      "h2": "Adobe-Abo kündigen: Anleitung in 6 Schritten",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Hast du dein Abo direkt bei Adobe gekauft, kündigst du es im Browser über dein Adobe-Konto. So beschreibt Adobe den Weg:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Melde dich im Browser bei deinem Adobe-Konto an.",
+            "Wähle im Bereich „Abo-Optionen und Zahlung“ beim betreffenden Abo „Abo verwalten“. Diese Option findest du laut Adobe auch in den Apps, die zu deinem Abo gehören.",
+            "Klicke auf „Abo kündigen“.",
+            "Prüfe die Details deines Abos und wähle „Mit Kündigung fortfahren“.",
+            "Gib einen Grund für die Kündigung an und klicke auf „Weiter“.",
+            "Prüfe die Details der Kündigung und klicke auf „Kündigung bestätigen“."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Danach schickt Adobe dir eine Bestätigung per E-Mail. Ob die Kündigung durch ist, siehst du auch auf der Abo-Seite deines Kontos. Hast du mehrere Abos, etwa Photoshop und Acrobat, musst du jedes einzeln kündigen. Die Kündigung des einen beendet die anderen nicht."
+        },
+        {
+          "type": "tip",
+          "text": "Lies vor dem Klick auf „Kündigung bestätigen“ die angezeigten Details genau und mach einen Screenshot. Bewahre auch die Bestätigungs-E-Mail auf. Taucht später eine unerwartete Abbuchung auf, hast du einen Beleg."
+        },
+        {
+          "type": "h3",
+          "text": "Kündigen klappt nicht? Die häufigsten Gründe"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "**Zahlung in Bearbeitung oder fehlgeschlagen:** Dann lässt Adobe keine Kündigung zu. Warte laut Adobe 24 Stunden und versuche es erneut.",
+            "**Über Apple oder Google gekauft:** Dann kündigst du im jeweiligen Store, nicht bei Adobe. Wie das geht, steht weiter unten.",
+            "**Mehrere Abos:** Prüfe auf der Abo-Seite deines Kontos, welche Abos noch aktiv sind, und kündige jedes einzeln.",
+            "**Anderer Weg:** Laut Adobes Abobedingungen kannst du auch über den Adobe-Support kündigen."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Zum Hintergrund: Nach § 312k BGB müssen Unternehmen, die online Abos mit Verbrauchern abschließen, eine Kündigungsschaltfläche wie „Verträge hier kündigen“ anbieten, die zu einer Bestätigungsseite mit „jetzt kündigen“ führt. Fehlt dieser Weg, darf der Verbraucher jederzeit ohne Frist kündigen. Das ist eine allgemeine Information zur Rechtslage, keine Rechtsberatung."
+        }
+      ]
+    },
+    {
+      "id": "abo-arten",
+      "h2": "Welches Abo hast du? Davon hängen Gebühr und Laufzeit ab",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Adobe verkauft seine Apps in drei Abo-Arten. Bei der Kündigung werden sie sehr unterschiedlich behandelt:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Abo-Art",
+            "Photoshop",
+            "Creative Cloud Pro",
+            "Kündigung nach 14 Tagen",
+            "Zugriff endet"
+          ],
+          "rows": [
+            [
+              "Monats-Abo",
+              "38,98 € pro Monat",
+              "116,99 € pro Monat",
+              "keine Gebühr, keine Rückerstattung",
+              "am Ende des Abrechnungsmonats"
+            ],
+            [
+              "Jahres-Abo mit monatlicher Zahlung",
+              "25,99 € pro Monat",
+              "77,99 € pro Monat",
+              "einmalige Gebühr von 50 % des restlichen Vertragswerts",
+              "am Ende des Abrechnungsmonats"
+            ],
+            [
+              "Jahres-Abo mit Vorauszahlung",
+              "311,73 € pro Jahr",
+              "905,92 € pro Jahr",
+              "keine Gebühr, keine Rückerstattung",
+              "am Ende der Vertragslaufzeit"
+            ]
+          ],
+          "caption": "Quelle: Adobe-Abobedingungen und Preisseiten, Preise inkl. MwSt., Stand: 7. November 2026."
+        },
+        {
+          "type": "p",
+          "text": "Welche Variante du hast, siehst du im Adobe-Konto bei „Abo verwalten“ in den Details deiner Abo-Option. Ein Anhaltspunkt ist auch der Preis: Zahlst du für Photoshop 25,99 € im Monat, entspricht das nach Adobes aktueller Preisliste dem Jahres-Abo mit monatlicher Zahlung. 38,98 € entsprechen dem flexiblen Monats-Abo. Bei älteren Verträgen oder Rabattaktionen können die Beträge abweichen."
+        }
+      ]
+    },
+    {
+      "id": "vierzehn-tage-regel",
+      "h2": "Die 14-Tage-Regel: Geld zurück bei schneller Kündigung",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Kündigst du innerhalb von 14 Tagen nach dem ursprünglichen Kauf, erstattet Adobe bei den meisten Abos die Zahlungen vollständig. Das gilt für alle drei Abo-Arten. Hast du gerade erst abgeschlossen und es bereut, solltest du also nicht abwarten."
+        },
+        {
+          "type": "p",
+          "text": "Bei einem kostenlosen Probe-Abo ist es noch einfacher: Kündigst du vor Ablauf des Probezeitraums, berechnet Adobe laut seinen Abobedingungen nichts. Danach startet automatisch das bezahlte Abo, und zwar zu dem Preis, der bei deiner Anmeldung zum Probe-Abo angegeben war."
+        },
+        {
+          "type": "tip",
+          "text": "Wichtig für alle, die schon länger dabei sind: Adobe bezieht die 14 Tage in seinen Bedingungen auf den ursprünglichen Kauf bzw. die ursprüngliche Bestellung. Dass du nach einer automatischen Verlängerung erneut 14 Tage mit voller Rückerstattung hast, steht dort nicht."
+        }
+      ]
+    },
+    {
+      "id": "kuendigungsgebuehr",
+      "h2": "Die Kündigungsgebühr von 50 %: wann sie anfällt und was sie kostet",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Die Gebühr betrifft nur das Jahres-Abo mit monatlicher Zahlung. Kündigst du es nach Ablauf der ersten 14 Tage, verlangt Adobe laut seinen Abobedingungen „eine einmalige Kündigungsgebühr in Höhe von 50 % des restlichen Vertragswerts“. Das Abo läuft dann noch bis zum Ende des aktuellen Abrechnungsmonats."
+        },
+        {
+          "type": "p",
+          "text": "Wie Adobe den restlichen Vertragswert genau berechnet, steht nicht in den Bedingungen. Für eine Überschlagsrechnung nimmst du den Monatspreis mal die Monate, die nach dem laufenden Abrechnungsmonat noch übrig sind, und halbierst das Ergebnis:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Abo (Monatspreis)",
+            "noch 11 Monate",
+            "noch 6 Monate",
+            "noch 2 Monate"
+          ],
+          "rows": [
+            [
+              "Photoshop, Illustrator, InDesign, Premiere oder After Effects (25,99 €)",
+              "ca. 142,95 €",
+              "ca. 77,97 €",
+              "ca. 25,99 €"
+            ],
+            [
+              "Creative Cloud Standard (61,95 €)",
+              "ca. 340,73 €",
+              "ca. 185,85 €",
+              "ca. 61,95 €"
+            ],
+            [
+              "Creative Cloud Pro (77,99 €)",
+              "ca. 428,95 €",
+              "ca. 233,97 €",
+              "ca. 77,99 €"
+            ]
+          ],
+          "caption": "Eigene Beispielrechnung auf Basis der Adobe-Preise im Jahres-Abo mit monatlicher Zahlung, inkl. MwSt., Stand: 7. November 2026. Maßgeblich ist der Betrag, den Adobe dir berechnet."
+        },
+        {
+          "type": "p",
+          "text": "Je früher im Vertragsjahr du kündigst, desto teurer wird es. Trotzdem kann sich eine Kündigung mitten im Jahr lohnen: Bei 6 Restmonaten Photoshop stehen rund 78 € Gebühr 155,94 € an restlichen Monatsraten gegenüber. Nutzt du Photoshop nicht mehr, sparst du also die Hälfte. Brauchst du es bis zum Schluss, kündigst du besser kurz vor der Verlängerung."
+        }
+      ]
+    },
+    {
+      "id": "richtiger-zeitpunkt",
+      "h2": "Der richtige Zeitpunkt: Verlängerung und Abo-Wechsel",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Jahres-Abos verlängern sich laut Adobe jedes Jahr am Abschlusstag automatisch. In Adobes allgemeinen Abonnementbedingungen steht für das Jahres-Abo mit monatlicher Zahlung außerhalb der USA, dass es sich nach dem ersten Jahr um ein weiteres Jahr verlängert. Für Verbraucher in Deutschland darf sich ein Abo nach § 309 Nr. 9 BGB aber nach der ersten Laufzeit nur noch auf unbestimmte Zeit verlängern und muss dann jederzeit mit einer Frist von höchstens einem Monat kündbar sein. Das gilt für Verträge, die seit dem 1. März 2022 geschlossen wurden."
+        },
+        {
+          "type": "p",
+          "text": "Ausschalten lässt sich die automatische Verlängerung laut Adobe derzeit nicht, du musst dafür kündigen. Vor dem Verlängerungsdatum bekommst du bei Jahres-Abos eine Benachrichtigung. Den Preis ändert Adobe nur zur Verlängerung und mit Vorankündigung."
+        },
+        {
+          "type": "h3",
+          "text": "So planst du die Kündigung"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "**Monats-Abo:** Kündige, sobald du die Apps nicht mehr brauchst. Der Zugriff bleibt bis zum Ende des Abrechnungsmonats.",
+            "**Jahres-Abo mit Vorauszahlung:** Du kannst jederzeit kündigen und behältst den Zugriff bis zum Ende der Laufzeit. Früh zu kündigen kostet dich also nichts und verhindert, dass du die Verlängerung verpasst.",
+            "**Jahres-Abo mit monatlicher Zahlung:** Notiere dir den Abschlusstag und kündige kurz vor der Verlängerung, dann ist die Gebühr am kleinsten. Plane ein paar Tage Puffer ein, falls gerade eine Zahlung verarbeitet wird."
+          ]
+        },
+        {
+          "type": "tip",
+          "text": "Meinung geändert? Solange der Abrechnungszeitraum läuft, kannst du ein gekündigtes Abo laut Adobe im Adobe-Konto reaktivieren. Apps, Dienste und Speicher sind dann wieder da, die Abrechnung läuft wie geplant weiter."
+        },
+        {
+          "type": "h3",
+          "text": "Abo wechseln statt kündigen? Vorsicht, die Laufzeit startet neu"
+        },
+        {
+          "type": "p",
+          "text": "Im selben Menü bietet Adobe „Abo wechseln“ an, etwa um auf eine günstigere Einzel-App umzusteigen. Laut Adobe wird dein bisheriges Abo dabei gekündigt, gegebenenfalls mit Rückerstattung, und das neue beginnt sofort und wird sofort berechnet. Das Abrechnungsdatum springt auf den Tag des Wechsels, bei Jahres-Abos beginnt ein neues Vertragsjahr: Wechselst du am 14. März 2026, verlängert sich das neue Abo am 14. März 2027. Rückgängig machen lässt sich ein Wechsel nicht."
+        },
+        {
+          "type": "p",
+          "text": "Willst du Adobe ganz verlassen, bindet dich ein Wechsel in ein anderes Jahres-Abo für weitere zwölf Monate. Ob dabei eine Gebühr fällig wird, nennt Adobe auf der Hilfeseite nicht. Prüfe die Zusammenfassung, bevor du auf „Zustimmen und abonnieren“ klickst."
+        }
+      ]
+    },
+    {
+      "id": "app-store-haendler",
+      "h2": "Über Apple, Google oder einen Händler gekauft: so kündigst du dort",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Hast du dein Adobe-Abo im App Store oder bei Google Play abgeschlossen, kündigst du es dort. Laut Adobe gelten dann die Bedingungen des Stores bzw. des Drittanbieters. In deinem Adobe-Konto erscheint in diesem Fall auf der Seite „Abo-Optionen“ eine Schaltfläche „Zu App Store“ bzw. „Zu Google Store“."
+        },
+        {
+          "type": "p",
+          "text": "**Am Mac (App Store):**"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Öffne den App Store und klicke unten in der Seitenleiste auf deinen Namen.",
+            "Klicke auf der folgenden Seite erneut auf deinen Namen und melde dich bei Bedarf mit deinem Apple Account an.",
+            "Klicke auf „Abonnements“ und wähle das Adobe-Abo aus.",
+            "Klicke auf „Abo kündigen“. Fehlt die Taste oder steht dort ein Ablaufhinweis in roter Schrift, ist das Abo bereits gekündigt."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Am iPhone oder iPad:** Öffne die Einstellungen, tippe auf deinen Namen und dann auf „Abonnements“, wähle das Abo aus und tippe auf „Abo kündigen“. Findest du es nicht, such laut Apple in deinen E-Mails nach „Beleg von Apple“ und prüfe, welcher Apple Account darauf steht."
+        },
+        {
+          "type": "p",
+          "text": "**Google Play:** Melde dich bei deinem Adobe-Konto an und wähle auf der Seite „Abo-Optionen“ die Schaltfläche „Zu Google Store“. Dort verwaltest du das Abo mit dem Google-Konto, mit dem du es gekauft hast."
+        },
+        {
+          "type": "p",
+          "text": "**Microsoft oder ein Händler:** Auch hier gelten die Bedingungen des Anbieters, bei dem du gekauft hast. Für Abos über Microsoft verweist Adobe auf das Kündigungsverfahren von Microsoft."
+        }
+      ]
+    },
+    {
+      "id": "nach-der-kuendigung",
+      "h2": "Was nach der Kündigung mit Apps, Speicher und Fotos passiert",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Bis zum Ende des aktuellen Abrechnungszeitraums nutzt du alles weiter. Danach wird dein Adobe-Konto zu einem kostenlosen Konto, es bleibt also bestehen. Im Einzelnen:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Bereich",
+            "Nach der Kündigung laut Adobe"
+          ],
+          "rows": [
+            [
+              "Bezahlte Apps und Dienste",
+              "nutzbar bis zum Ende des Abrechnungszeitraums, danach nicht mehr"
+            ],
+            [
+              "Cloud-Speicher",
+              "sinkt auf 5 GB. Liegst du darüber, hast du 30 Tage Zeit zum Aufräumen. Danach kannst du den Zugriff auf einige oder alle Dateien in der Cloud verlieren."
+            ],
+            [
+              "Dateien auf deinem Mac",
+              "bleiben zugänglich"
+            ],
+            [
+              "Lightroom (Cloud-Version)",
+              "Originalfotos bleiben ein Jahr gespeichert und lassen sich in dieser Zeit herunterladen"
+            ],
+            [
+              "Lightroom Classic",
+              "lokale Fotos bleiben zugänglich, Importieren, Organisieren, Exportieren und Drucken gehen weiter. Die Module „Entwickeln“ und „Karte“ sowie Lightroom for mobile nicht mehr."
+            ],
+            [
+              "Generative Credits",
+              "verfallen mit der Kündigung"
+            ]
+          ],
+          "caption": "Quelle: Adobe-Hilfe „Kontozugriff nach Kündigung der Abo-Option“, Stand: 7. November 2026."
+        },
+        {
+          "type": "tip",
+          "text": "Auch im kostenlosen Speicher sind Dateien nicht für immer sicher: Nach längerer Inaktivität kann Adobe sie laut Hilfeseite dauerhaft löschen, vorher bekommst du eine E-Mail."
+        }
+      ]
+    },
+    {
+      "id": "dateien-sichern",
+      "h2": "Vor der Kündigung: Dateien sichern und in offene Formate exportieren",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Nimm dir vor dem Kündigen etwas Zeit. Manches geht nur, solange die Apps noch voll funktionieren. Diese Checkliste hilft:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "**Cloud-Dateien herunterladen:** Prüfe, wie viel Creative-Cloud-Speicher du belegst, und speichere alles lokal, was dir wichtig ist oder über 5 GB hinausgeht.",
+            "**Lightroom Classic:** Schreibe deine Bearbeitungen in die Dateien: Fotos im Modul „Bibliothek“ auswählen, dann „Foto“ > „Metadaten in Datei speichern“. Üblicherweise landen die Einstellungen dann in einer XMP-Filialdatei neben dem Foto. Seit Version 15.0 legt Lightroom umfangreiche Bearbeitungen wie Masken oder KI-Einstellungen zusätzlich in einer eigenen ACR-Filialdatei ab.",
+            "**Lightroom (Cloud):** Lade deine Originale herunter. Adobe bewahrt sie nach dem Abo-Ende zwar ein Jahr auf, sicherer ist es aber, sie jetzt zu laden.",
+            "**InDesign:** Exportiere wichtige Dokumente zusätzlich als PDF und als IDML. IDML führt Adobe als Format für den versionsübergreifenden Austausch.",
+            "**Premiere:** Exportiere Schnittfolgen über „Datei“ > „Exportieren“ als Final Cut Pro XML. Laut Adobe wird dabei nur ein Teil der Effekte übertragen, Audio-Pan, Gain und Pegel können ungenau ankommen. Fertige Projekte renderst du zusätzlich als Video aus.",
+            "**Generative Credits:** Hast du noch welche, nutze sie vor der Kündigung. Danach verfallen sie."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alternativen",
+      "h2": "Womit du nach Adobe weiterarbeitest",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Für PDFs reicht oft, was schon da ist: Den Acrobat Reader zum Anzeigen bietet Adobe kostenlos an, und mit der Mac-App Vorschau füllst du PDF-Formulare aus und fügst Unterschriften hinzu. Für andere Aufgaben gibt es diese Optionen:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Programm",
+            "Kosten",
+            "Plattform",
+            "Gut zu wissen"
+          ],
+          "rows": [
+            [
+              "Affinity",
+              "kostenlos für Einzelpersonen",
+              "macOS, Windows, iPadOS",
+              "Download mit kostenlosem Canva-Konto, Canva-KI-Werkzeuge nur mit Canva Premium"
+            ],
+            [
+              "GIMP",
+              "kostenlos, freie Software",
+              "macOS ab 11, Windows, Linux",
+              "Bildbearbeitung"
+            ],
+            [
+              "darktable",
+              "kostenlos, Open Source",
+              "macOS ab 13.5, Windows, Linux",
+              "Raw-Entwicklung und Fotoverwaltung, derzeit keine offizielle Version für Intel-Macs"
+            ],
+            [
+              "Koja-Apps (13 Apps)",
+              "2,99 € pro Monat oder 79 € einmalig",
+              "nur macOS, bis zu 3 Macs",
+              "viele Adobe-Bereiche in einem Paket, aber frühe Versionen in Entwicklung"
+            ],
+            [
+              "Zum Vergleich: Adobe Creative Cloud Pro",
+              "77,99 € pro Monat im Jahres-Abo mit monatlicher Zahlung",
+              "–",
+              "laut Adobe mehr als 20 Programme inklusive Adobe Firefly"
+            ]
+          ],
+          "caption": "Preise inkl. MwSt., Stand: 7. November 2026."
+        },
+        {
+          "type": "p",
+          "text": "Die Koja-Apps bieten wir selbst an, deshalb ganz offen: Die 13 Apps für macOS sind Builds quelloffener Projekte und alle noch in früher Entwicklung. Für manche Aufgaben reichen sie vielleicht schon, die Adobe-Programme ersetzen sie aber nicht vollständig."
+        },
+        {
+          "type": "app",
+          "app": "photo-koja",
+          "text": "Für alle, die Photoshop gewohnt sind: PhotoKoja öffnet und speichert Photoshop-Dateien (PSD/PSB) mit Ebenen und bringt 16 Einstellungsebenen, Ebenenstile und Masken mit. Noch eine frühe Alpha-Version, ohne generative KI, und laut den Entwicklern fehlen noch 15 Photoshop-Werkzeuge."
+        },
+        {
+          "type": "app",
+          "app": "light-koja",
+          "text": "LightKoja ist Fotoverwaltung und Raw-Entwickler in einem, arbeitet nicht-destruktiv und liest XMP-Filialdateien mit Camera-Raw-Entwicklungseinstellungen. Noch Alpha: Unter anderem fehlt eine gemessene Kamerafarbkalibrierung, prüf deine Bearbeitungen also an ein paar Fotos."
+        },
+        {
+          "type": "p",
+          "text": "Für Vektorgrafik gibt es [VectorKoja](/software/vector-koja). Es öffnet SVG, PDF und PDF-kompatible .ai-Dateien, der Austausch echter Illustrator-Dateien ist laut den Entwicklern aber noch nicht zuverlässig. [FilmKoja](/software/film-koja) importiert Schnittfolgen als Final Cut Pro XML, AAF oder OpenTimelineIO, öffnet aber keine Premiere-Projektdateien (.prproj). Für PDFs gibt es [PdfKoja](/software/pdf-koja). [DesignKoja](/software/design-koja) kann IDML öffnen, ist aber noch im Vor-Alpha-Stadium und für echte Projekte noch nicht zu empfehlen."
+        },
+        {
+          "type": "p",
+          "text": "Alle 13 Apps lädst du kostenlos über den Kojalytics Launcher herunter und kannst sie 3 Tage lang gratis testen. Danach kosten sie zusammen 2,99 € pro Monat (inkl. MwSt.), jederzeit online auf [kojalytics.com/kuendigen](/kuendigen) kündbar, ohne Gebühr, oder 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Macs, ohne Konto. Die Apps laufen offline, Internet brauchst du nur für Download und Aktivierung. Windows und eine Web-Version gibt es nicht. Details stehen in der [Preisübersicht](/software#preise)."
+        },
+        {
+          "type": "p",
+          "text": "Teste Ersatzprogramme am besten, solange dein Adobe-Abo noch läuft, und vergleiche deine wichtigsten Dateien in beiden. Mehr dazu in den Ratgebern [Adobe-Alternativen für den Mac](/ratgeber/adobe-alternative-mac) und [Photoshop ohne Abo](/ratgeber/photoshop-ohne-abo)."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Kann ich mein Adobe-Abo ohne Gebühr kündigen?",
+      "a": "Ja, innerhalb von 14 Tagen nach dem ursprünglichen Kauf erstattet Adobe bei den meisten Abos sogar alle Zahlungen. Das Monats-Abo und das vorausbezahlte Jahres-Abo kannst du auch danach ohne Gebühr kündigen, du bekommst dann nur kein Geld zurück. Eine Gebühr fällt nur beim Jahres-Abo mit monatlicher Zahlung an, wenn du nach den ersten 14 Tagen kündigst."
+    },
+    {
+      "q": "Wie hoch ist die Kündigungsgebühr bei Adobe?",
+      "a": "Beim Jahres-Abo mit monatlicher Zahlung verlangt Adobe nach den ersten 14 Tagen einmalig 50 % des restlichen Vertragswerts. Bei Photoshop für 25,99 € im Monat und 6 verbleibenden Monaten sind das grob gerechnet rund 78 €. Je näher das Ende des Vertragsjahres, desto niedriger die Gebühr."
+    },
+    {
+      "q": "Verlängert sich ein Adobe-Jahresabo automatisch?",
+      "a": "Ja. Jahres-Abos verlängern sich laut Adobe jedes Jahr am Abschlusstag automatisch. Ausschalten lässt sich das laut Adobe derzeit nicht, du musst dafür kündigen. Vor dem Verlängerungsdatum schickt Adobe eine Benachrichtigung. Für Verbraucher in Deutschland gilt bei Verträgen seit dem 1. März 2022 aber § 309 Nr. 9 BGB: Nach der ersten Laufzeit darf sich ein Abo nur noch auf unbestimmte Zeit verlängern und muss dann mit höchstens einem Monat Frist kündbar sein."
+    },
+    {
+      "q": "Was passiert mit meinen Dateien, wenn ich Adobe kündige?",
+      "a": "Dateien auf deinem Mac bleiben erhalten. Der Cloud-Speicher sinkt auf 5 GB, und liegst du darüber, hast du 30 Tage Zeit zum Aufräumen. Lightroom-Originale aus der Cloud bewahrt Adobe ein Jahr zum Herunterladen auf."
+    },
+    {
+      "q": "Warum kann ich mein Adobe-Abo nicht kündigen?",
+      "a": "Häufig läuft gerade eine Zahlung oder sie ist fehlgeschlagen. Dann lässt Adobe keine Kündigung zu, und du versuchst es nach 24 Stunden erneut. Hast du über den App Store oder Google Play gekauft, kündigst du dort statt im Adobe-Konto."
+    },
+    {
+      "q": "Kann ich eine Adobe-Kündigung rückgängig machen?",
+      "a": "Ja, solange der laufende Abrechnungszeitraum noch nicht vorbei ist. Dann reaktivierst du das Abo laut Adobe in deinem Adobe-Konto, und Apps, Dienste und Speicher sind wieder da. Die Abrechnung läuft danach wie geplant weiter."
+    }
+  ],
+  "apps": [
+    "photo-koja",
+    "light-koja",
+    "vector-koja",
+    "film-koja",
+    "pdf-koja",
+    "design-koja"
+  ],
+  "sources": [
+    {
+      "label": "Adobe-Hilfe: Kündigen eines Adobe-Abos oder Probe-Abos",
+      "url": "https://helpx.adobe.com/de/account/individual/subscriptions-and-plans/renewals-and-cancellations/cancel-adobe-subscription.html"
+    },
+    {
+      "label": "Adobe-Hilfe: Abonnementbedingungen und Rückerstattungsrichtlinien",
+      "url": "https://helpx.adobe.com/de/account/individual/terms-policies-and-regulations/adobe-subscription-terms.html"
+    },
+    {
+      "label": "Adobe: Allgemeine Abonnementbedingungen",
+      "url": "https://www.adobe.com/de/legal/subscription-terms.html"
+    },
+    {
+      "label": "Adobe-Hilfe: Kontozugriff nach Kündigung der Abo-Option",
+      "url": "https://helpx.adobe.com/de/account/individual/subscriptions-and-plans/renewals-and-cancellations/account-access-after-plan-cancellation.html"
+    },
+    {
+      "label": "Adobe-Hilfe: Adobe-Abo automatisch verlängern",
+      "url": "https://helpx.adobe.com/de/account/individual/subscriptions-and-plans/renewals-and-cancellations/manage-auto-renewal-settings.html"
+    },
+    {
+      "label": "Adobe-Hilfe: Wechseln eines Adobe-Abos",
+      "url": "https://helpx.adobe.com/de/account/individual/subscriptions-and-plans/plan-changes-and-upgrades/change-adobe-plan.html"
+    },
+    {
+      "label": "Adobe-Hilfe: Adobe-Abos aus App Store und Google Play",
+      "url": "https://helpx.adobe.com/de/account/individual/billing-and-payments/payment-methods/manage-adobe-subscriptions-through-app-stores.html"
+    },
+    {
+      "label": "Adobe: Creative Cloud Abo-Optionen und Preise",
+      "url": "https://www.adobe.com/de/creativecloud/plans.html"
+    },
+    {
+      "label": "Adobe: Creative Cloud Pro, Abo-Arten und Preise",
+      "url": "https://www.adobe.com/de/plans-fragments/modals/individual/modals-content-rich/all-apps/master.modal.html"
+    },
+    {
+      "label": "Adobe: Photoshop-Preise",
+      "url": "https://www.adobe.com/de/products/photoshop/plans.html"
+    },
+    {
+      "label": "Adobe: Photoshop, Abo-Arten und Preise",
+      "url": "https://www.adobe.com/de/plans-fragments/modals/individual/modals-content-rich/photoshop/master.modal.html"
+    },
+    {
+      "label": "Adobe: Illustrator-Preise",
+      "url": "https://www.adobe.com/de/products/illustrator/plans.html"
+    },
+    {
+      "label": "Adobe: InDesign-Preise",
+      "url": "https://www.adobe.com/de/products/indesign/plans.html"
+    },
+    {
+      "label": "Adobe: Premiere-Preise",
+      "url": "https://www.adobe.com/de/products/premiere/plans.html"
+    },
+    {
+      "label": "Adobe: After-Effects-Preise",
+      "url": "https://www.adobe.com/de/products/aftereffects/plans.html"
+    },
+    {
+      "label": "Adobe: Acrobat-Tarife und Acrobat Reader",
+      "url": "https://www.adobe.com/de/acrobat/plans.html"
+    },
+    {
+      "label": "Adobe-Hilfe: Lightroom Classic, Metadaten in Filialdateien speichern",
+      "url": "https://helpx.adobe.com/de/lightroom-classic/help/create-xmp-acr-files.html"
+    },
+    {
+      "label": "Adobe-Hilfe: Unterstützte Dateiformate in InDesign",
+      "url": "https://helpx.adobe.com/de/indesign/using/supported-file-formats.html"
+    },
+    {
+      "label": "Adobe Help: Export a project as a Final Cut Pro XML file (Premiere)",
+      "url": "https://helpx.adobe.com/premiere/desktop/render-and-export/export-files/export-a-project-as-a-final-cut-pro-xml-file.html"
+    },
+    {
+      "label": "Apple Support: Ein Abonnement von Apple kündigen",
+      "url": "https://support.apple.com/de-de/118428"
+    },
+    {
+      "label": "Apple: Vorschau – Benutzerhandbuch für den Mac",
+      "url": "https://support.apple.com/de-de/guide/preview/welcome/mac"
+    },
+    {
+      "label": "§ 312k BGB: Kündigung von Verbraucherverträgen im elektronischen Geschäftsverkehr",
+      "url": "https://www.gesetze-im-internet.de/bgb/__312k.html"
+    },
+    {
+      "label": "§ 309 BGB: Klauselverbote ohne Wertungsmöglichkeit (Nr. 9: Laufzeit bei Dauerschuldverhältnissen)",
+      "url": "https://www.gesetze-im-internet.de/bgb/__309.html"
+    },
+    {
+      "label": "Affinity: Get Affinity",
+      "url": "https://www.affinity.studio/get-affinity"
+    },
+    {
+      "label": "GIMP: Startseite",
+      "url": "https://www.gimp.org/"
+    },
+    {
+      "label": "GIMP: Downloads",
+      "url": "https://www.gimp.org/downloads/"
+    },
+    {
+      "label": "darktable: Installation",
+      "url": "https://www.darktable.org/install/"
+    }
+  ]
+}
