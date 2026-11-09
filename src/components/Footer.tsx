@@ -26,7 +26,7 @@ const linkCls = "text-sm text-muted transition-colors hover:text-foreground";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border">
+    <footer>
       <div className="rail crosshairs">
         <SectionBar index="—" label="Kojalytics" meta="Software-Studio aus Hamburg" />
         <div className="cells grid-cols-2 border-b border-border md:grid-cols-12">

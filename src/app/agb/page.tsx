@@ -184,7 +184,7 @@ export default function TermsPage() {
           <Section title="9. Widerrufsbelehrung">
             <P>Verbrauchern steht ein Widerrufsrecht nach folgender Maßgabe zu.</P>
 
-            <h3>Widerrufsrecht</h3>
+            <h3 className="text-[1.0625rem]">Widerrufsrecht</h3>
             <P>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</P>
             <P>Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.</P>
             <P>
@@ -202,7 +202,7 @@ export default function TermsPage() {
               Ablauf der Widerrufsfrist absenden.
             </P>
 
-            <h3>Folgen des Widerrufs</h3>
+            <h3 className="text-[1.0625rem]">Folgen des Widerrufs</h3>
             <P>
               Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben,
               einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass Sie eine
@@ -213,7 +213,7 @@ export default function TermsPage() {
               in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.
             </P>
 
-            <h3>Vorzeitiges Erlöschen des Widerrufsrechts</h3>
+            <h3 className="text-[1.0625rem]">Vorzeitiges Erlöschen des Widerrufsrechts</h3>
             <P>
               Bei einem Vertrag über die Bereitstellung von digitalen Inhalten, die sich nicht auf einem körperlichen
               Datenträger befinden, erlischt Ihr Widerrufsrecht vorzeitig, wenn wir mit der Vertragserfüllung begonnen haben,
@@ -278,7 +278,7 @@ export default function TermsPage() {
                 gewöhnlichen Aufenthalt hast.
               </P>
             </Section>
-            <div className={`grid py-8 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`}>
+            <div className={`grid py-8 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`} data-reveal>
               <p className="text-sm leading-relaxed text-muted lg:col-start-2">
                 Fragen zu diesen AGB: support@kojalytics.com. Siehe auch{" "}
                 <Link href="/impressum" className="text-foreground underline underline-offset-4">
@@ -302,7 +302,7 @@ export default function TermsPage() {
 /** One numbered clause: title left (sticky on wide screens), text right in a readable column. */
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className={`grid gap-4 py-10 md:py-12 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`}>
+    <section className={`grid gap-4 py-10 md:py-12 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`} data-reveal>
       <h2 className="text-[1.125rem] font-semibold leading-snug lg:sticky lg:top-20 lg:self-start">{title}</h2>
       <div className="prose-de [&>:first-child]:mt-0 [&>:last-child]:mb-0">{children}</div>
     </section>

@@ -29,7 +29,7 @@ export default function ImpressumPage() {
         <section className="rail crosshairs">
           <SectionBar index="02" label="Angaben" meta="Kojalytics · Hamburg" />
           <div className="divide-y divide-border">
-            <Row title="Angaben gemäß § 5 DDG">
+            <Row index="01" title="Angaben gemäß § 5 DDG">
               <p>
                 Farzad Khojazada
                 <br />
@@ -43,13 +43,13 @@ export default function ImpressumPage() {
               </p>
             </Row>
 
-            <Row title="Kontakt">
+            <Row index="02" title="Kontakt">
               <p>
                 E-Mail: <a href="mailto:support@kojalytics.com">support@kojalytics.com</a>
               </p>
             </Row>
 
-            <Row title="Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV">
+            <Row index="03" title="Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV">
               <p>
                 Farzad Khojazada
                 <br />
@@ -59,7 +59,7 @@ export default function ImpressumPage() {
               </p>
             </Row>
 
-            <Row title="Verbraucherstreitbeilegung">
+            <Row index="04" title="Verbraucherstreitbeilegung">
               <p>
                 Wir sind nicht bereit und nicht verpflichtet, an
                 Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
@@ -67,7 +67,7 @@ export default function ImpressumPage() {
               </p>
             </Row>
 
-            <Row title="Haftung für Inhalte und Links">
+            <Row index="05" title="Haftung für Inhalte und Links">
               <p>
                 Für eigene Inhalte auf dieser Website sind wir nach den
                 allgemeinen Gesetzen verantwortlich. Für die Inhalte externer
@@ -85,11 +85,14 @@ export default function ImpressumPage() {
 }
 
 /** One line of the imprint: label left, details right (stacked on phones). */
-function Row({ title, children }: { title: string; children: React.ReactNode }) {
+function Row({ index, title, children }: { index: string; title: string; children: React.ReactNode }) {
   return (
-    <section className={`grid gap-3 py-8 md:py-10 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`}>
-      <h2 className="text-[1.125rem] font-semibold leading-snug">{title}</h2>
-      <div className="prose-de">{children}</div>
+    <section className={`grid gap-3 py-8 md:py-10 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`} data-reveal>
+      <div>
+        <p className="hud text-faint">{index}</p>
+        <h2 className="mt-2 text-[1.125rem] font-semibold leading-snug">{title}</h2>
+      </div>
+      <div className="prose-de lg:pt-[22px]">{children}</div>
     </section>
   );
 }

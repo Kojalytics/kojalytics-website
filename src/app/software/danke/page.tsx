@@ -65,7 +65,7 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
                   </h1>
                   <div
                     data-clarity-mask="true"
-                    className="rise-in mt-8 select-all break-all border border-border-strong bg-surface p-5 font-mono text-lg tracking-wider [--i:2]"
+                    className="rise-in mt-8 select-all border border-border-strong bg-surface p-5 font-mono text-base tracking-wider wrap-anywhere [--i:2] sm:text-lg"
                   >
                     {purchase.license.key}
                   </div>

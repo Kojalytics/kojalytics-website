@@ -17,7 +17,7 @@ export default function ContactForm() {
 
   return (
     <form
-      className="grid content-start gap-6 p-6 md:p-10"
+      className="grid content-start gap-6 p-6 md:p-8"
       onSubmit={(e) => {
         e.preventDefault();
         const body = `${message}\n\n${name}\n${email}`;
@@ -65,7 +65,7 @@ export default function ContactForm() {
           placeholder="Erzähl uns kurz von deinem Projekt oder deiner Frage."
         />
       </div>
-      <button type="submit" className="btn-primary w-full sm:w-auto sm:justify-self-start">
+      <button type="submit" className="btn-primary w-full text-center sm:w-auto sm:justify-self-start">
         Nachricht im Mailprogramm öffnen
       </button>
       <p className="text-xs leading-relaxed text-muted">Die Nachricht öffnet sich in deinem eigenen E-Mail-Programm. Über unseren Server werden keine Daten gesendet.</p>

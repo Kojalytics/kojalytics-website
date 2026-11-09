@@ -21,7 +21,7 @@ const pad = "px-5 md:px-10";
 const two = (n: number) => String(n).padStart(2, "0");
 /** No line break between a number and its unit ("50 %", "79 €"). */
 const keepUnits = (s: string) => s.replace(/ (%|€)/g, " $1");
-const dateShort =(iso: string) => new Date(iso).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "UTC" });
+const dateShort = (iso: string) => new Date(iso).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "UTC" });
 
 export default function RatgeberIndex() {
   const listJsonLd = {

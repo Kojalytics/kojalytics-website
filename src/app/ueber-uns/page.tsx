@@ -46,12 +46,12 @@ export default function AboutPage() {
         {/* 02 Principles */}
         <section className="rail crosshairs">
           <SectionBar index="02" label="Wie wir arbeiten" meta={`${principles.length} Grundsätze`} />
-          <div className="cells md:grid-cols-3">
+          <div className="cells lg:grid-cols-3">
             {principles.map((p, i) => (
               <div key={p.title} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
                 <p className="hud text-faint">{two(i + 1)}</p>
                 <h2 className="display mt-6 text-[1.55rem]">{p.title}</h2>
-                <p className="mt-3 leading-relaxed text-muted">{p.text}</p>
+                <p className="mt-3 max-w-xl leading-relaxed text-muted">{p.text}</p>
               </div>
             ))}
           </div>

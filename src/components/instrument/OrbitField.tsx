@@ -110,7 +110,8 @@ export default function OrbitField({ apps }: { apps: OrbitApp[] }) {
                         alt=""
                         width={104}
                         height={104}
-                        loading="eager"
+                        loading="lazy"
+                        fetchPriority="low"
                         className="h-full w-full rounded-[22%] shadow-[0_22px_34px_-16px_rgba(14,14,16,0.5)] transition-transform duration-300 group-hover:scale-110"
                       />
                       <span className="pointer-events-none absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap border border-border bg-white px-2 py-1 font-mono text-[15px] uppercase tracking-[0.14em] text-foreground opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">

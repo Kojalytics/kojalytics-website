@@ -48,7 +48,7 @@ export default function AiHeadshotCase() {
               <span className="text-foreground">AI Headshot</span>
             </nav>
             <h1 className="display rise-in mt-6 max-w-4xl text-[clamp(2.1rem,5.4vw,4.6rem)] [--i:1]">
-              Vom Selfie zum Business-Porträt in <span className="text-highlight">Minuten</span>.
+              Vom Selfie zum <span className="sm:whitespace-nowrap">Business-Porträt</span> in <span className="text-highlight">Minuten</span>.
             </h1>
             <p className="rise-in mt-6 max-w-2xl text-lg leading-relaxed text-muted [--i:2]">
               AI Headshot macht aus ein paar Selfies professionelle Porträts für LinkedIn, Lebenslauf und Firmenwebsite. Ohne Fotograf,

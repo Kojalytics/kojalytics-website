@@ -23,6 +23,8 @@ const mono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono-ui",
   display: "swap",
+  // Small labels only: not worth a preload that competes with the headline font.
+  preload: false,
 });
 
 export const metadata: Metadata = {

@@ -59,7 +59,7 @@ export default function DatenschutzPage() {
         <section id="website" className="rail crosshairs scroll-mt-12">
           <SectionBar index="02" label="Teil A" meta="Website und Koja-Apps · Abschnitte 1–13" />
           <div className={`py-14 md:py-20 ${pad}`}>
-            <h2 className="display max-w-4xl text-[clamp(1.8rem,3.4vw,2.8rem)]">
+            <h2 className="display max-w-4xl text-[clamp(1.8rem,3.4vw,2.8rem)]" data-reveal>
               Teil <span className="text-highlight">A</span>: Website kojalytics.com und Koja-Apps
             </h2>
           </div>
@@ -441,14 +441,14 @@ export default function DatenschutzPage() {
         <section id="ai-headshot" className="rail crosshairs scroll-mt-12">
           <SectionBar index="03" label="Teil B" meta="AI Headshot · iOS-App · Abschnitte B1–B12" />
           <div className={`py-14 md:py-20 ${pad}`}>
-            <h2 className="display max-w-4xl text-[clamp(1.8rem,3.4vw,2.8rem)]">
+            <h2 className="display max-w-4xl text-[clamp(1.8rem,3.4vw,2.8rem)]" data-reveal>
               Teil <span className="text-highlight">B</span>: AI Headshot (iOS-App)
             </h2>
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted">
+            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted" data-reveal>
               Dieser Teil gilt für die iOS-App AI Headshot, ein eigenes Angebot
               von Kojalytics.
             </p>
-            <div className="mt-8 max-w-3xl border border-border border-t-2 border-t-foreground p-5">
+            <div className="mt-8 max-w-3xl border border-border border-t-2 border-t-foreground p-5" data-reveal>
               <p className="font-medium leading-relaxed">
                 AI Headshot braucht kein Nutzerkonto, erstellt keine
                 Nutzerprofile und verwendet keinerlei Tracking oder
@@ -743,7 +743,7 @@ export default function DatenschutzPage() {
 /** One numbered section: title left (sticky on wide screens), text right in a readable column. */
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className={`grid gap-4 py-10 md:py-12 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`}>
+    <section className={`grid gap-4 py-10 md:py-12 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`} data-reveal>
       <h3 className="text-[1.125rem] font-semibold leading-snug lg:sticky lg:top-20 lg:self-start">{title}</h3>
       <div className="prose-de [&>:first-child]:mt-0 [&>:last-child]:mb-0">{children}</div>
     </section>
@@ -765,9 +765,12 @@ function List({ className = "", children }: { className?: string; children: Reac
 /** Label/value rows for the services that run with consent: mono label left, text right, hairlines between. */
 function Facts({ items }: { items: [string, string][] }) {
   return (
-    <dl className="border-t border-border">
+    <dl className="border-t border-border lg:border-t-0">
       {items.map(([label, text]) => (
-        <div key={label} className="grid gap-1 border-b border-border py-4 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-6">
+        <div
+          key={label}
+          className="grid gap-1 border-b border-border py-4 last:border-b-0 last:pb-0 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-6 lg:first:pt-0"
+        >
           <dt className="hud sm:pt-[7px]">{label}</dt>
           <dd>
             <p>{text}</p>

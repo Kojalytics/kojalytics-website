@@ -45,7 +45,7 @@ export default function LicensingPage() {
             </p>
             <div className="rise-in mt-9 flex flex-col gap-3 [--i:2] sm:flex-row">
               <Link href="/kontakt" className="btn-primary">
-                Beratung anfragen <ArrowRight size={16} aria-hidden />
+                Beratung anfragen <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
               </Link>
               <a href="#ablauf" className="btn-secondary">
                 So funktioniert es
@@ -62,7 +62,7 @@ export default function LicensingPage() {
               Software für jeden <span className="text-highlight">Arbeitsplatz</span>
             </h2>
           </div>
-          <div className="cells border-y border-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="cells border-y border-border sm:grid-cols-2 xl:grid-cols-4">
             {categories.map((c, i) => (
               <div key={c.title} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
                 <div className="flex items-start justify-between">
@@ -110,7 +110,7 @@ export default function LicensingPage() {
               Erst beraten, dann <span className="text-highlight">lizenzieren</span>
             </h2>
           </div>
-          <div className="cells border-t border-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="cells border-t border-border sm:grid-cols-2 xl:grid-cols-4">
             {reasons.map((r, i) => (
               <div key={r.title} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
                 <div className="flex items-start justify-between">
@@ -138,7 +138,7 @@ export default function LicensingPage() {
             </p>
             <div className="mt-9">
               <Link href="/kontakt" className="btn-primary">
-                Schreib uns <ArrowRight size={16} aria-hidden />
+                Schreib uns <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
               </Link>
             </div>
           </div>

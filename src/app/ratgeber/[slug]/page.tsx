@@ -50,7 +50,7 @@ const columns = "grid lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-14 xl:grid-cols-
 /** No line break between a number and its unit ("50 %", "79 €"). */
 const keepUnits = (s: string) => s.replace(/ (%|€)/g, " $1");
 
-const dateDE =(iso: string) => new Date(iso).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
+const dateDE = (iso: string) => new Date(iso).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
 
 function AppCallout({ slug, text }: { slug: string; text: string }) {
   const app = getApp(slug);
@@ -134,7 +134,7 @@ function BlockView({ block }: { block: Block }) {
                 </dt>
                 {r.slice(1).map((c, j) => (
                   <dd key={j} className="mt-3 border-t border-border pt-3 leading-relaxed">
-                    <span className="hud">{block.head[j + 1]}: </span>
+                    <span className="hud mb-1 block">{block.head[j + 1]}</span>
                     <RichText text={c} />
                   </dd>
                 ))}
@@ -169,16 +169,15 @@ function BlockView({ block }: { block: Block }) {
       );
     case "tip":
       return (
-        <div className="not-prose my-8 flex gap-4 border border-border p-5 sm:p-6">
-          <span className="icon-box shrink-0">
+        // Phones: icon and label share the first row, the text gets the full width below.
+        <div className="not-prose my-8 grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-3 border border-border p-5 sm:items-start sm:gap-y-2 sm:p-6">
+          <span className="icon-box sm:row-span-2">
             <Lightbulb size={18} aria-hidden />
           </span>
-          <div className="min-w-0">
-            <p className="hud !text-[11px] !leading-[1.4] !text-foreground">Tipp</p>
-            <p className="mt-2">
-              <RichText text={block.text} />
-            </p>
-          </div>
+          <p className="hud !text-[11px] !leading-[1.4] !text-foreground">Tipp</p>
+          <p className="col-span-2 !mt-0 sm:col-span-1 sm:col-start-2">
+            <RichText text={block.text} />
+          </p>
         </div>
       );
     case "app":
@@ -348,7 +347,7 @@ export default async function ArticlePage({ params }: Props) {
             <section className="rail crosshairs" aria-labelledby="quellen">
               <SectionBar index={indexOf("sources")} label="Quellen" meta={`Stand ${dateDE(article.updated)}`} />
               <div className={`gap-4 py-14 md:py-20 ${pad} ${columns}`}>
-                <h2 id="quellen" className="hud lg:sticky lg:top-20 lg:self-start lg:pt-3" data-reveal>
+                <h2 id="quellen" className="hud max-lg:sr-only lg:sticky lg:top-20 lg:self-start lg:pt-3" data-reveal>
                   <span className="text-foreground">Quellen</span>
                 </h2>
                 <ol className="min-w-0 max-w-3xl border-t border-border" data-reveal>

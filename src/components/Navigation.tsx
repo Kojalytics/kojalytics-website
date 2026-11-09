@@ -45,7 +45,7 @@ export default function Navigation() {
             <Logo />
           </div>
 
-          <ul className="hidden items-stretch md:flex">
+          <ul className="hidden items-stretch lg:flex">
             {navLinks.map((link) => (
               <li key={link.href} className="flex items-center px-1.5 first:pl-3">
                 <Link
@@ -72,17 +72,17 @@ export default function Navigation() {
               source="nav"
               label="3 Tage kostenlos testen"
               shareLabel="An Mac senden"
-              className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] md:inline-flex"
+              className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] lg:inline-flex"
             />
             <DownloadButton
               source="nav-mobile"
               label="Testen"
               shareLabel="An Mac senden"
-              className="!min-h-full !gap-2 !border-0 !px-4 !text-[11px] md:!hidden"
+              className="!min-h-full !gap-2 !border-0 !px-4 !text-[11px] lg:!hidden"
             />
             <button
               onClick={() => setOpenFor(mobileOpen ? null : pathname)}
-              className="grid w-12 place-items-center border-l border-border text-foreground md:hidden"
+              className="grid w-12 place-items-center border-l border-border text-foreground lg:hidden"
               aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
               aria-expanded={mobileOpen}
             >
@@ -93,7 +93,7 @@ export default function Navigation() {
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 top-12 z-40 overflow-y-auto bg-white md:hidden">
+        <div className="fixed inset-0 top-12 z-40 overflow-y-auto bg-white lg:hidden">
           <ul className="border-b border-border">
             {[...navLinks, { href: "/software#preise", label: "Preise" }].map((link, i) => (
               <li key={link.href} className="border-t border-border first:border-t-0">

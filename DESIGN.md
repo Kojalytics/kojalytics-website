@@ -15,7 +15,7 @@ It is our own implementation; never copy code, text or images from other website
 | `background` | `#ffffff` | Every page background. Always white, no tinted or dark sections. |
 | `foreground` | `#0e0e10` | Text, primary buttons, filled tags |
 | `muted` | `#5a5a60` | Body copy, secondary text |
-| `faint` | `#8a8a90` | Index numbers, crosshairs |
+| `faint` | `#6a6a70` | Index numbers, crosshairs (AA contrast on white and on the window frame) |
 | `border` / `border-strong` | `#e3e3e1` / `#c9c9c6` | Hairlines / outlines of buttons, tags, icon boxes |
 | `surface` | `#f6f6f5` | Small wells only (image backgrounds, the checkout confirmation box, table highlight) |
 | `accent` | `#2a66d8` | One highlighted word per headline (`.text-highlight`), links. Nothing else is blue. |

@@ -209,7 +209,7 @@ export default async function AppPage({ params }: Props) {
                         <span className="mx-2 text-faint">/</span>
                         {app.name}
                       </p>
-                      <h3 className="display mt-4 text-[clamp(1.7rem,3vw,2.5rem)]">{f.title}</h3>
+                      <h3 className="display mt-4 break-words text-[clamp(1.5rem,3vw,2.5rem)]">{f.title}</h3>
                       <p className="mt-5 text-lg leading-relaxed text-muted">
                         <RichText text={f.text} />
                       </p>
