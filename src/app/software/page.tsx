@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Check, CloudOff, FileText, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
+import { ArrowUpRight, Check, CloudOff, FileText, LayoutGrid, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import MacWindow from "@/components/ui/mac-window";
@@ -11,6 +11,7 @@ import PricingCards from "@/components/software/PricingCards";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
 import SectionBar from "@/components/instrument/SectionBar";
+import OrbitField from "@/components/instrument/OrbitField";
 import { APPS, appInk, getApp, shotFor } from "@/lib/apps";
 import { ARTICLES } from "@/lib/ratgeber";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
@@ -129,33 +130,71 @@ export default function SoftwarePage() {
       <Navigation />
 
       <main className="pt-12">
-        {/* 01 Hero: headline and buttons left, the 13 apps as an instrument panel right */}
+        {/* Hero: the Kojalytics mark in the centre, the 13 app icons orbiting around it */}
+        <section className="relative overflow-hidden border-b border-border">
+          <OrbitField apps={APPS.map((a) => ({ slug: a.slug, name: a.name, kind: a.kind }))} />
+          {/* White veil keeps the copy readable: below the orbits on phones, a soft halo behind the copy from sm up */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_0px,rgba(255,255,255,0)_310px,#fff_375px)] sm:bg-[radial-gradient(ellipse_40%_46%_at_50%_50%,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.85)_60%,rgba(255,255,255,0)_100%)]"
+          />
+          {/* Phones: the K mark is the centre the apps orbit around */}
+          <div aria-hidden className="pointer-events-none absolute left-1/2 top-[195px] z-[5] grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center bg-foreground sm:hidden">
+            <span className="display text-[34px] leading-none text-white">K</span>
+          </div>
+          <div className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100svh-3rem)] max-w-3xl flex-col items-center justify-start px-5 pb-16 pt-[370px] text-center sm:justify-center sm:py-20">
+            <p aria-label="Kojalytics" className="display rise-in flex items-center gap-[0.2em] text-[clamp(2rem,6.2vw,5rem)] uppercase tracking-[-0.02em] max-sm:hidden">
+              <span aria-hidden className="inline-grid h-[0.82em] w-[0.82em] shrink-0 place-items-center bg-foreground max-sm:hidden">
+                <span className="text-[0.56em] leading-none text-white">K</span>
+              </span>
+              <span aria-hidden>Kojalytics</span>
+            </p>
+            <h1 className="display rise-in text-[clamp(1.75rem,3.6vw,2.9rem)] [--i:1] sm:mt-7">
+              13 Mac-Apps für <span className="whitespace-nowrap text-highlight">{PLANS.monthly.label}</span>{" "}
+              <span className="whitespace-nowrap">im Monat.</span>
+            </h1>
+            <p className="rise-in mt-5 max-w-xl text-lg leading-relaxed text-muted [--i:2]">
+              Bildbearbeitung, RAW-Fotos, Layout, Video, Audio, Office, PDF und CAD: echte Mac-Apps, die offline laufen und kein Konto
+              brauchen. Teste alle {TRIAL_DAYS} Tage kostenlos.
+            </p>
+            <div className="pointer-events-auto rise-in mt-8 flex w-full flex-col justify-center gap-3 [--i:3] sm:w-auto sm:flex-row">
+              <DownloadButton source="software-hero" />
+              <Link href="#apps" className="btn-secondary">
+                <LayoutGrid size={15} aria-hidden /> Alle Apps ansehen
+              </Link>
+            </div>
+            <p className="hud rise-in mt-5 [--i:4]">Für macOS · Kojalytics Launcher (DMG)</p>
+            <p className="hud rise-in mt-7 text-faint [--i:5]">Offline · ohne Konto · jederzeit online kündbar · frühe Alpha-Versionen</p>
+          </div>
+        </section>
+
+        {/* 01 Overview: all apps and the price at a glance */}
         <section className="rail">
           <SectionBar index="01" label="Koja-Apps für den Mac" meta="13 Apps · macOS · frühe Alpha-Versionen" />
           <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center ${pad}`}>
             <div>
-              <h1 className="display rise-in text-[clamp(2.1rem,5.4vw,4.6rem)]">
-                13 Mac-Apps für <span className="whitespace-nowrap text-highlight">{PLANS.monthly.label}</span>{" "}
-                <span className="whitespace-nowrap">im Monat.</span>
-              </h1>
-              <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
-                Bildbearbeitung, RAW-Fotos, Layout, Video, Audio, Office, PDF und CAD: echte Mac-Apps, die offline laufen und kein
-                Konto brauchen. Teste alle {TRIAL_DAYS} Tage kostenlos.
+              <h2 className="display text-[clamp(2rem,4.6vw,4rem)]" data-reveal>
+                13 Apps. Ein <span className="text-highlight">Preis</span>.
+              </h2>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted" data-reveal>
+                Vom schnellen PDF bis zum fertigen Film: Installiere nur die Apps, die du brauchst. Alle sind enthalten, ob für{" "}
+                <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat oder einmalig{" "}
+                <span className="whitespace-nowrap">{PLANS.lifetime.label}</span>.
               </p>
-              <div className="rise-in mt-9 flex flex-col gap-3 [--i:2] sm:flex-row">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row" data-reveal>
                 <DownloadButton source="software-hero" />
                 <Link href="#preise" className="btn-secondary">
                   Preise ansehen
                 </Link>
               </div>
-              <p className="hud rise-in mt-5 [--i:3]">Für macOS · Kojalytics Launcher (DMG) · ohne Konto · jederzeit online kündbar</p>
-              <p className="rise-in mt-6 max-w-xl text-[15px] leading-relaxed text-muted [--i:4]">
+              <p className="hud mt-5" data-reveal>Für macOS · Kojalytics Launcher (DMG) · ohne Konto · jederzeit online kündbar</p>
+              <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted" data-reveal>
                 <span className="text-foreground">Empfohlen:</span> Der Kojalytics Launcher installiert jede App, die du brauchst, und hält
                 alle aktuell.
               </p>
             </div>
 
-            <div className="rise-in [--i:2]">
+            <div data-reveal>
               <ul className="cells grid-cols-4 border border-border" aria-label="Alle 13 Apps">
                 {APPS.map((a) => (
                   <li key={a.slug}>

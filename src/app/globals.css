@@ -161,7 +161,8 @@ body {
   .crosshairs::after {
     right: -7px;
   }
-  @media (max-width: 767px) {
+  /* Only where the rail has room beside it; otherwise the ticks would stick out past the screen edge. */
+  @media (max-width: 1299px) {
     .crosshairs::before,
     .crosshairs::after {
       display: none;
@@ -303,6 +304,65 @@ body {
   }
 }
 
+/*
+ * Orbit hero on /software (OrbitField.tsx): a 2400px field centred in the hero, scaled per breakpoint.
+ * --p is the scroll progress (0…1) set by the component: the field widens and the icons fade out.
+ */
+.orbit-field {
+  /* Phones: the field sits in the top part of the hero around the K mark; the copy follows below. */
+  --s: 0.36;
+  --p: 0;
+  position: absolute;
+  left: 50%;
+  top: 195px;
+  width: 2400px;
+  height: 2400px;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(calc(var(--s) * (1 + var(--p) * 0.45)));
+}
+@media (min-width: 640px) {
+  .orbit-field {
+    --s: 0.68;
+    top: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .orbit-field {
+    --s: 0.86;
+  }
+}
+@media (min-width: 1440px) {
+  .orbit-field {
+    --s: 1;
+  }
+}
+.orbit-icons {
+  opacity: calc(1 - var(--p) * 1.6);
+}
+.orbit-app {
+  pointer-events: auto;
+}
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.orbit {
+  animation: orbit-spin var(--dur, 200s) linear infinite;
+  animation-direction: var(--dir, normal);
+}
+.orbit-counter {
+  animation: orbit-spin var(--dur, 200s) linear infinite;
+  animation-direction: var(--counter, reverse);
+}
+/* Hovering or focusing an icon holds its orbit still, so it can be clicked. */
+.orbit:has(.orbit-app:hover),
+.orbit:has(.orbit-app:hover) .orbit-counter,
+.orbit:has(.orbit-app:focus-visible),
+.orbit:has(.orbit-app:focus-visible) .orbit-counter {
+  animation-play-state: paused;
+}
+
 /* Server-rendered cookie banner for visitors who already chose (see Consent.tsx) */
 html[data-kj-consent] .kj-consent-pending {
   display: none;
@@ -396,8 +456,16 @@ html.js [data-reveal].is-in {
     scroll-behavior: auto;
   }
   .animate-float,
-  .rise-in {
+  .rise-in,
+  .orbit,
+  .orbit-counter {
     animation: none;
+  }
+  .orbit-field {
+    transform: translate(-50%, -50%) scale(var(--s));
+  }
+  .orbit-icons {
+    opacity: 1;
   }
   html.js [data-reveal] {
     opacity: 1;
