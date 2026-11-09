@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check, CloudOff, FileText, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, Check, CloudOff, FileText, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import PerspectiveTunnelHero from "@/components/ui/perspective-tunnel-hero";
 import MacWindow from "@/components/ui/mac-window";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadButton from "@/components/software/DownloadButton";
 import PricingCards from "@/components/software/PricingCards";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
-import { APPS, APP_GROUPS, getApp, shotFor } from "@/lib/apps";
+import SectionBar from "@/components/instrument/SectionBar";
+import { APPS, appInk, getApp, shotFor } from "@/lib/apps";
 import { ARTICLES } from "@/lib/ratgeber";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import { SOFTWARE_FAQ } from "@/lib/software-faq";
@@ -112,11 +113,8 @@ const breadcrumbJsonLd = {
   ],
 };
 
-// FilmKoja's screenshots show stills from third-party films; they stay off the most-seen surfaces.
-const tunnelItems = APPS.filter((a) => a.slug !== "film-koja").map((a) => {
-  const s = a.shots[0];
-  return { src: s?.src ?? "", alt: s?.alt ?? a.name, label: a.name, icon: `/apps/${a.slug}/icon.webp` };
-}).filter((i) => i.src);
+const pad = "px-5 md:px-10";
+const two = (n: number) => String(n).padStart(2, "0");
 
 export default function SoftwarePage() {
   // Placeholder slots for real customer quotes: visible on preview deployments only, never in production.
@@ -130,143 +128,174 @@ export default function SoftwarePage() {
       <TrackView name="software" />
       <Navigation />
 
-      <main>
-        <PerspectiveTunnelHero items={tunnelItems}>
-          <div className="flex max-w-3xl flex-col items-center text-center">
-            <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted">Koja-Apps für den Mac · frühe Alpha-Versionen</p>
-            <h1 className="display mt-5 text-[clamp(2.4rem,5.6vw,4.6rem)]">
-              Foto, Video und Office: <span className="whitespace-nowrap">13 Mac-Apps</span> für{" "}
-              <span className="whitespace-nowrap text-highlight">2,99 €</span> im Monat.
-            </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              Fotos bearbeiten, Layouts setzen, Videos schneiden, Texte schreiben und PDFs ordnen: in echten Mac-Apps, die
-              offline laufen und kein Konto brauchen. Teste alle Apps {TRIAL_DAYS} Tage kostenlos.
-            </p>
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-              <DownloadButton source="software-hero" />
-              <Link href="#preise" className="btn-secondary">
-                Preise ansehen
-              </Link>
-            </div>
-            <p className="mt-4 text-sm text-foreground/70">macOS · ohne Konto · jederzeit online kündbar</p>
-            <ul className="mt-7 flex max-w-[600px] flex-wrap justify-center gap-2" aria-label="Alle 13 Apps">
-              {APPS.map((a) => (
-                <li key={a.slug}>
-                  <Link href={`/software/${a.slug}`} prefetch={false} title={`${a.name}: ${a.kind}`} className="block transition-transform hover:-translate-y-0.5">
-                    <AppIcon slug={a.slug} name={a.name} size={34} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </PerspectiveTunnelHero>
-
-        {/* Problem → solution */}
-        <section className="px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-7xl">
-          <p className="eyebrow">Warum Leute wechseln</p>
-          <h2 className="display mt-3 max-w-4xl text-4xl sm:text-5xl md:text-6xl">
-            Du willst etwas erschaffen. <span className="text-muted">Keine Abos verwalten.</span>
-          </h2>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {problems.map((p) => (
-              <div key={p.pain} className="rounded-[22px] border border-border p-6">
-                <p className="text-muted line-through decoration-muted/40">{p.pain}</p>
-                <p className="mt-4 flex items-start gap-2 text-lg font-semibold">
-                  <ArrowRight className="mt-1 shrink-0 text-accent" size={18} aria-hidden />
-                  {p.fix}
-                </p>
+      <main className="pt-12">
+        {/* 01 Hero: headline and buttons left, the 13 apps as an instrument panel right */}
+        <section className="rail">
+          <SectionBar index="01" label="Koja-Apps für den Mac" meta="13 Apps · macOS · frühe Alpha-Versionen" />
+          <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center ${pad}`}>
+            <div>
+              <h1 className="display rise-in text-[clamp(2.1rem,5.4vw,4.6rem)]">
+                13 Mac-Apps für <span className="whitespace-nowrap text-highlight">{PLANS.monthly.label}</span>{" "}
+                <span className="whitespace-nowrap">im Monat.</span>
+              </h1>
+              <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
+                Bildbearbeitung, RAW-Fotos, Layout, Video, Audio, Office, PDF und CAD: echte Mac-Apps, die offline laufen und kein
+                Konto brauchen. Teste alle {TRIAL_DAYS} Tage kostenlos.
+              </p>
+              <div className="rise-in mt-9 flex flex-col gap-3 [--i:2] sm:flex-row">
+                <DownloadButton source="software-hero" />
+                <Link href="#preise" className="btn-secondary">
+                  Preise ansehen
+                </Link>
               </div>
-            ))}
-          </div>
-          </div>
-        </section>
-
-        {/* App gallery */}
-        <section id="apps" className="scroll-mt-16 bg-surface px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div>
-                <p className="eyebrow">Die Apps</p>
-                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Apps. Ein Preis.</h2>
-              </div>
-              <p className="max-w-md text-muted">
-                Vom schnellen PDF bis zum fertigen Film. Installiere nur die Apps, die du brauchst. Alle sind enthalten, ob im Monatsabo
-                oder mit der Einmal-Lizenz.
+              <p className="hud rise-in mt-5 [--i:3]">Für macOS · Kojalytics Launcher (DMG) · ohne Konto · jederzeit online kündbar</p>
+              <p className="rise-in mt-6 max-w-xl text-[15px] leading-relaxed text-muted [--i:4]">
+                <span className="text-foreground">Empfohlen:</span> Der Kojalytics Launcher installiert jede App, die du brauchst, und hält
+                alle aktuell.
               </p>
             </div>
 
-            {APP_GROUPS.map((group) => {
-              const apps = APPS.filter((a) => a.group === group);
-              return (
-                <div key={group} className="mt-14">
-                  <h3 className="mb-5 text-lg font-semibold">{group}</h3>
-                  {/* Phones: one swipeable row per group. Desktop: 3 per row; with 5 apps the last two share the row. */}
-                  <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6">
-                    {apps.map((app, i) => {
-                      const shot = app.shots[0];
-                      const wide = apps.length % 3 === 2 && i >= apps.length - 2;
-                      return (
-                        <Link
-                          key={app.slug}
-                          href={`/software/${app.slug}`}
-                          prefetch={false}
-                          className={`group flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-[22px] border border-border bg-white transition-[box-shadow,border-color] hover:border-[#d6d3d1] hover:shadow-[0_20px_40px_-24px_rgba(17,17,19,0.3)] sm:w-auto ${
-                            wide ? "lg:col-span-3" : "lg:col-span-2"
-                          } ${apps.length % 2 === 1 && i === apps.length - 1 ? "sm:max-lg:col-span-2" : ""}`}
-                        >
-                          {shot && (
-                            <div className="bg-[linear-gradient(160deg,var(--c)_0%,transparent_75%)] p-5 pb-0" style={{ ["--c" as string]: `${app.color}22` }}>
-                              <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 640px) 70vw, (max-width: 1024px) 45vw, 30vw" fixedRatio className="translate-y-2 transition-transform duration-500 group-hover:translate-y-0" />
-                            </div>
-                          )}
-                          <div className="flex flex-1 flex-col border-t border-border p-5">
-                            <div className="flex items-center gap-3">
-                              <AppIcon slug={app.slug} name={app.name} size={40} />
-                              <div>
-                                <p className="font-semibold">{app.name}</p>
-                                <p className="text-sm text-muted">{app.kind}</p>
-                              </div>
-                            </div>
-                            <p className="mt-4 flex-1 text-[15px] leading-relaxed text-muted">{app.benefit}</p>
-                            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold">
-                              Mehr zu {app.name} <ArrowRight size={16} aria-hidden />
-                            </span>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-
-            <div className="mt-14 flex flex-col items-start justify-between gap-5 rounded-[22px] bg-white p-6 sm:flex-row sm:items-center sm:p-8">
-              <div>
-                <p className="text-xl font-semibold">Probier es mit deinen eigenen Dateien.</p>
-                <p className="mt-1 text-muted">Alle 13 Apps {TRIAL_DAYS} Tage kostenlos, ohne Zahlungsdaten.</p>
-              </div>
-              <DownloadButton source="software-mid" />
+            <div className="rise-in [--i:2]">
+              <ul className="cells grid-cols-4 border border-border" aria-label="Alle 13 Apps">
+                {APPS.map((a) => (
+                  <li key={a.slug}>
+                    <Link
+                      href={`/software/${a.slug}`}
+                      prefetch={false}
+                      title={`${a.name}: ${a.kind}`}
+                      className="group flex flex-col items-center gap-2 px-1 py-4 transition-colors hover:bg-surface"
+                    >
+                      <span className="transition-transform group-hover:-translate-y-0.5">
+                        <AppIcon slug={a.slug} name={a.name} size={52} />
+                      </span>
+                      <span className="text-center text-[11.5px] leading-tight text-muted">{a.name}</span>
+                    </Link>
+                  </li>
+                ))}
+                <li className="col-span-3 flex flex-col justify-center gap-1 px-4 py-4">
+                  <span className="hud text-foreground">13 Apps · 1 Preis</span>
+                  <span className="hud">
+                    {PLANS.monthly.label} / Monat · {PLANS.lifetime.label} einmalig
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* Showcase */}
-        <section className="px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto grid max-w-7xl gap-24">
+        {/* 02 Lineup */}
+        <section id="apps" className="rail crosshairs scroll-mt-12">
+          <SectionBar index="02" label="Die Apps" meta="Wähle eine App" />
+          <div className="cells -mx-0 border-b border-border max-sm:flex max-sm:snap-x max-sm:snap-mandatory max-sm:overflow-x-auto sm:grid-cols-2 lg:grid-cols-4">
+            {APPS.map((app, i) => {
+              const shot = app.shots[0];
+              const ink = appInk(app.color);
+              return (
+                <Link
+                  key={app.slug}
+                  href={`/software/${app.slug}`}
+                  prefetch={false}
+                  data-reveal
+                  style={{ ["--i" as string]: i % 4 }}
+                  className="group flex shrink-0 flex-col max-sm:w-[84%] max-sm:snap-start"
+                >
+                  <div className="flex items-center justify-between gap-3 px-5 py-3">
+                    <span className="grid h-6 min-w-8 place-items-center px-1.5 font-mono text-[11px] font-semibold text-white" style={{ background: ink }}>
+                      {two(i + 1)}
+                    </span>
+                    <span className="hud truncate">{app.kind}</span>
+                  </div>
+                  {shot && (
+                    <div className="relative aspect-[16/10] overflow-hidden border-y border-border bg-surface">
+                      <Image
+                        src={shot.src}
+                        alt={shot.alt}
+                        fill
+                        sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 320px"
+                        className="object-cover object-left-top transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col px-5 pb-6">
+                    <div className="relative z-10 -mt-7 mb-4">
+                      <AppIcon slug={app.slug} name={app.name} size={56} />
+                    </div>
+                    <h3 className="display text-[1.55rem]">
+                      {app.name.slice(0, -4)}
+                      <span style={{ color: ink }}>Koja</span>
+                    </h3>
+                    <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{app.benefit}</p>
+                    <div className="mt-5 flex flex-wrap gap-1.5">
+                      <span className="tag" style={{ color: ink, borderColor: `${ink}66` }}>
+                        {app.status}
+                      </span>
+                      <span className="tag">macOS</span>
+                    </div>
+                    <span className="link-hud mt-6">
+                      Mehr zu {app.name} <ArrowUpRight size={14} aria-hidden />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+            <div className="hidden flex-col justify-between gap-6 p-6 sm:flex lg:col-span-3 lg:p-8">
+              <p className="hud">Nächster Schritt</p>
+              <div>
+                <p className="display text-3xl">
+                  Probier es mit <span className="text-highlight">deinen</span> Dateien.
+                </p>
+                <p className="mt-3 max-w-lg text-muted">Alle 13 Apps {TRIAL_DAYS} Tage kostenlos, ohne Zahlungsdaten.</p>
+              </div>
+              <div>
+                <DownloadButton source="software-mid" />
+              </div>
+            </div>
+          </div>
+          <div className={`flex flex-col gap-4 py-8 sm:hidden ${pad}`}>
+            <p className="hud">Wischen für alle 13 Apps →</p>
+            <DownloadButton source="software-mid" />
+          </div>
+        </section>
+
+        {/* 03 Why people switch */}
+        <section className="rail crosshairs">
+          <SectionBar index="03" label="Warum Leute wechseln" meta="Abo-Frust, gelöst" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h2 className="display max-w-4xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              Du willst etwas erschaffen. <span className="text-highlight">Keine</span> Abos verwalten.
+            </h2>
+          </div>
+          <div className="cells border-y border-border md:grid-cols-3">
+            {problems.map((p, i) => (
+              <div key={p.pain} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
+                <p className="hud text-faint">{two(i + 1)}</p>
+                <p className="mt-5 text-muted line-through decoration-muted/40">{p.pain}</p>
+                <p className="mt-4 text-lg font-semibold leading-snug">{p.fix}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 04 In use */}
+        <section className="rail crosshairs">
+          <SectionBar index="04" label="Im Einsatz" meta="Echte Bildschirmfotos" />
+          <div className="cells border-b border-border">
             {showcase.map((s, i) => {
               const app = getApp(s.app);
               const shot = app && shotFor(app);
               return (
-                <div key={s.title} className={`grid gap-10 lg:items-center ${i % 2 ? "lg:grid-cols-[1.2fr_0.8fr]" : "lg:grid-cols-[0.8fr_1.2fr]"}`}>
+                <div key={s.title} className={`grid gap-10 py-14 md:py-20 lg:grid-cols-2 lg:items-center ${pad}`} data-reveal>
                   <div className={i % 2 ? "lg:order-2" : ""}>
-                    <h2 className="display text-4xl sm:text-5xl">{s.title}</h2>
+                    <p className="hud text-faint">
+                      {two(i + 1)} / {app?.name}
+                    </p>
+                    <h2 className="display mt-4 text-[clamp(1.8rem,3.4vw,2.8rem)]">{s.title}</h2>
                     <p className="mt-5 text-lg leading-relaxed text-muted">{s.text}</p>
                   </div>
                   {shot && app && (
                     <figure className={`m-0 ${i % 2 ? "lg:order-1" : ""}`}>
-                      <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 1024px) 100vw, 60vw" />
-                      <figcaption className="mt-3 text-sm text-muted">{shot.caption}</figcaption>
+                      <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} label={app.name} sizes="(max-width: 1024px) 100vw, 600px" />
+                      <figcaption className="hud mt-3 normal-case tracking-normal">{shot.caption}</figcaption>
                     </figure>
                   )}
                 </div>
@@ -275,33 +304,45 @@ export default function SoftwarePage() {
           </div>
         </section>
 
-        {/* Benefits */}
-        <section className="bg-surface px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-7xl">
-            <p className="eyebrow">Was du bekommst</p>
-            <h2 className="display mt-3 max-w-3xl text-4xl sm:text-5xl md:text-6xl">Gebaut für deinen Mac, nicht für ein Abo-Dashboard.</h2>
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {benefits.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-[22px] bg-white p-6">
-                  <Icon size={24} className="text-accent" aria-hidden />
-                  <h3 className="mt-5 text-lg font-semibold">{title}</h3>
-                  <p className="mt-2 leading-relaxed text-muted">{text}</p>
+        {/* 05 Principles */}
+        <section className="rail crosshairs">
+          <SectionBar index="05" label="Was du bekommst" meta="Für jede App gleich" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              Gebaut für deinen <span className="text-highlight">Mac</span>.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted" data-reveal>
+              Nicht für ein Abo-Dashboard. Jede Koja-App folgt denselben Regeln.
+            </p>
+          </div>
+          <div className="cells border-y border-border sm:grid-cols-2 lg:grid-cols-3">
+            {benefits.map(({ icon: Icon, title, text }, i) => (
+              <div key={title} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i % 3 }}>
+                <div className="flex items-start justify-between">
+                  <span className="icon-box">
+                    <Icon size={18} aria-hidden />
+                  </span>
+                  <span className="hud text-faint">{two(i + 1)}</span>
                 </div>
-              ))}
-            </div>
+                <h3 className="display mt-6 text-[1.35rem]">{title}</h3>
+                <p className="mt-3 leading-relaxed text-muted">{text}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Price comparison */}
-        <section className="px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-5xl">
-            <p className="eyebrow">Preisvergleich</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">Was du im Jahr zahlst</h2>
+        {/* 06 Price comparison */}
+        <section className="rail crosshairs">
+          <SectionBar index="06" label="Preisvergleich" meta="Was du im Jahr zahlst" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              Was du im <span className="text-highlight">Jahr</span> zahlst.
+            </h2>
             <div className="mt-10 grid gap-3 md:hidden">
               {compare.rows.map((r) => (
-                <div key={r.label} className="rounded-[18px] border border-border p-4">
-                  <p className="text-sm font-medium text-muted">{r.label}</p>
-                  <dl className="mt-2 grid gap-1.5 text-[15px]">
+                <div key={r.label} className="border border-border p-4">
+                  <p className="hud">{r.label}</p>
+                  <dl className="mt-3 grid gap-2 text-[15px]">
                     {r.values.map((v, i) => (
                       <div key={i}>
                         <dt className={`font-semibold ${i === 0 ? "text-accent" : ""}`}>{compare.columns[i]}</dt>
@@ -312,13 +353,13 @@ export default function SoftwarePage() {
                 </div>
               ))}
             </div>
-            <div className="mt-10 hidden overflow-x-auto rounded-[22px] border border-border md:block">
+            <div className="mt-10 hidden overflow-x-auto border border-border md:block" data-reveal>
               <table className="w-full text-left text-[15px]">
-                <thead className="bg-surface text-sm">
-                  <tr>
+                <thead>
+                  <tr className="border-b border-border">
                     <th scope="col" className="p-4"></th>
                     {compare.columns.map((c, i) => (
-                      <th key={c} scope="col" className={`p-4 font-semibold ${i === 0 ? "text-accent" : ""}`}>
+                      <th key={c} scope="col" className={`hud p-4 ${i === 0 ? "!text-accent" : "!text-foreground"}`}>
                         {c}
                       </th>
                     ))}
@@ -326,10 +367,12 @@ export default function SoftwarePage() {
                 </thead>
                 <tbody>
                   {compare.rows.map((r) => (
-                    <tr key={r.label} className="border-t border-border align-top">
-                      <th scope="row" className="p-4 font-medium text-muted">{r.label}</th>
+                    <tr key={r.label} className="border-t border-border align-top first:border-t-0">
+                      <th scope="row" className="p-4 font-medium text-muted">
+                        {r.label}
+                      </th>
                       {r.values.map((v, i) => (
-                        <td key={i} className={`p-4 ${i === 0 ? "font-semibold" : ""}`}>
+                        <td key={i} className={`border-l border-border p-4 ${i === 0 ? "bg-[#f4f7fd] font-semibold" : ""}`}>
                           {v}
                         </td>
                       ))}
@@ -342,14 +385,16 @@ export default function SoftwarePage() {
           </div>
         </section>
 
-        {/* Pricing */}
-        <section id="preise" className="scroll-mt-16 bg-surface px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-5xl">
-            <p className="eyebrow">Preise</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">Erst testen. Dann entscheiden.</h2>
-            <p className="mt-5 max-w-2xl text-lg text-muted">
-              Nutze alle Apps {TRIAL_DAYS} Tage kostenlos. Danach bleibst du für {PLANS.monthly.label} im Monat und gehst, wann du willst,
-              oder du zahlst einmal {PLANS.lifetime.label} und denkst nie wieder darüber nach.
+        {/* 07 Pricing */}
+        <section id="preise" className="rail crosshairs scroll-mt-12">
+          <SectionBar index="07" label="Preise" meta={`${TRIAL_DAYS} Tage kostenlos · dann monatlich oder einmalig`} />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              Erst testen. Dann <span className="text-highlight">entscheiden</span>.
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted" data-reveal>
+              Nutze alle Apps {TRIAL_DAYS} Tage kostenlos. Danach bleibst du für <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im
+              Monat und gehst, wann du willst, oder du zahlst einmal <span className="whitespace-nowrap">{PLANS.lifetime.label}</span>.
             </p>
             <div className="mt-12">
               <PricingCards source="software-pricing" />
@@ -357,27 +402,29 @@ export default function SoftwarePage() {
           </div>
         </section>
 
-        {/* Trust */}
-        <section className="px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="eyebrow">Wer hinter Koja steht</p>
-              <h2 className="display mt-3 text-4xl sm:text-5xl">Ein kleines Studio. Offener Code.</h2>
+        {/* 08 Trust */}
+        <section className="rail crosshairs">
+          <SectionBar index="08" label="Wer dahinter steht" meta="Kojalytics · Hamburg" />
+          <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-2 lg:items-center ${pad}`}>
+            <div data-reveal>
+              <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]">
+                Ein kleines Studio. <span className="text-highlight">Offener</span> Code.
+              </h2>
               <p className="mt-6 text-lg leading-relaxed text-muted">
-                Kojalytics ist ein Software-Studio aus Deutschland. Die Koja-Apps basieren auf quelloffener Software des
-                ArtCraft-Teams. Wir liefern sie als signierte Mac-Apps aus, halten sie über den Kojalytics Launcher aktuell und
-                beantworten deine E-Mails selbst. Die Apps sind frühe Versionen und werden laufend weiterentwickelt. Deshalb
-                testest du alles {TRIAL_DAYS} Tage kostenlos, bevor du zahlst.
+                Kojalytics ist ein Software-Studio aus Hamburg. Die Koja-Apps basieren auf quelloffener Software des ArtCraft-Teams. Wir
+                liefern sie als signierte Mac-Apps aus, halten sie über den Kojalytics Launcher aktuell und beantworten deine E-Mails
+                selbst. Die Apps sind frühe Versionen und werden laufend weiterentwickelt. Deshalb testest du alles {TRIAL_DAYS} Tage
+                kostenlos, bevor du zahlst.
               </p>
               <ul className="mt-6 grid gap-2.5">
                 {["Sichere Zahlung über Stripe", "Unternehmen mit Sitz in Hamburg"].map((t) => (
                   <li key={t} className="flex gap-3">
-                    <Check size={18} strokeWidth={2.6} className="mt-1 shrink-0 text-success" aria-hidden />
+                    <Check size={18} strokeWidth={2.4} className="mt-1 shrink-0 text-success" aria-hidden />
                     {t}
                   </li>
                 ))}
                 <li className="flex gap-3">
-                  <Check size={18} strokeWidth={2.6} className="mt-1 shrink-0 text-success" aria-hidden />
+                  <Check size={18} strokeWidth={2.4} className="mt-1 shrink-0 text-success" aria-hidden />
                   <span>
                     Support unter{" "}
                     <a href="mailto:support@kojalytics.com" className="underline underline-offset-4">
@@ -387,69 +434,80 @@ export default function SoftwarePage() {
                 </li>
               </ul>
               {showPlaceholders && (
-                <div className="mt-8 rounded-[18px] border border-dashed border-accent p-5 text-sm text-accent">
+                <div className="mt-8 border border-dashed border-accent p-5 text-sm text-accent">
                   [Platzhalter, nur in der Vorschau sichtbar] Hier 2–3 echte Kundenstimmen mit Name und Tätigkeit einsetzen. Keine
                   erfundenen Zitate.
                 </div>
               )}
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="cells grid-cols-2 border border-border" data-reveal>
               {["grid-koja", "light-koja", "vector-koja", "deck-koja"].map((slug) => {
                 const app = getApp(slug);
                 const shot = app && shotFor(app);
                 return shot && app ? (
-                  <MacWindow key={slug} src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 1024px) 45vw, 25vw" fixedRatio />
+                  <div key={slug} className="p-3">
+                    <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 1024px) 45vw, 300px" fixedRatio label={app.name} />
+                  </div>
                 ) : null;
               })}
             </div>
           </div>
         </section>
 
-        {/* Guides */}
+        {/* 09 Guides */}
         {ARTICLES.length > 0 && (
-          <section className="border-t border-border px-5 py-20 md:px-6 md:py-24">
-            <div className="mx-auto max-w-7xl">
-              <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                <h2 className="display text-4xl sm:text-5xl">Ratgeber zum Umstieg</h2>
-                <Link href="/ratgeber" className="inline-flex items-center gap-1.5 font-semibold">
-                  Alle Ratgeber <ArrowRight size={18} aria-hidden />
+          <section className="rail crosshairs">
+            <SectionBar index="09" label="Ratgeber" meta="Umstieg ohne Abo" />
+            <div className={`flex flex-col justify-between gap-4 py-14 md:flex-row md:items-end md:py-20 ${pad}`}>
+              <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+                Ratgeber zum <span className="text-highlight">Umstieg</span>.
+              </h2>
+              <Link href="/ratgeber" className="link-hud">
+                Alle Ratgeber <ArrowUpRight size={14} aria-hidden />
+              </Link>
+            </div>
+            <div className="cells border-y border-border md:grid-cols-3">
+              {ARTICLES.slice(0, 3).map((a, i) => (
+                <Link key={a.slug} href={`/ratgeber/${a.slug}`} className="group flex flex-col p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
+                  <p className="hud">
+                    <span className="text-faint">{two(i + 1)}</span> · {a.readingMinutes} Min. Lesezeit
+                  </p>
+                  <h3 className="mt-5 text-xl font-semibold leading-snug group-hover:text-accent">{a.h1}</h3>
+                  <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{a.metaDescription}</p>
+                  <span className="link-hud mt-6">
+                    Lesen <ArrowUpRight size={14} aria-hidden />
+                  </span>
                 </Link>
-              </div>
-              <div className="mt-10 grid gap-4 md:grid-cols-3">
-                {ARTICLES.slice(0, 3).map((a) => (
-                  <Link key={a.slug} href={`/ratgeber/${a.slug}`} className="rounded-[22px] border border-border p-6 transition-colors hover:border-foreground/40">
-                    <p className="text-sm text-muted">{a.readingMinutes} Min. Lesezeit</p>
-                    <h3 className="mt-3 text-xl font-semibold leading-snug">{a.h1}</h3>
-                    <p className="mt-3 text-[15px] leading-relaxed text-muted">{a.metaDescription}</p>
-                  </Link>
-                ))}
-              </div>
+              ))}
             </div>
           </section>
         )}
 
-        {/* FAQ */}
-        <section id="fragen" className="bg-surface px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-4xl">
-            <p className="eyebrow">Fragen</p>
-            <h2 className="display mb-10 mt-3 text-4xl sm:text-5xl">Bevor du lädst</h2>
+        {/* 10 FAQ */}
+        <section id="fragen" className="rail crosshairs scroll-mt-12">
+          <SectionBar index="10" label="Fragen" meta="Bevor du lädst" />
+          <div className={`grid gap-10 py-14 md:py-20 lg:grid-cols-[0.8fr_1.2fr] ${pad}`}>
+            <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              Bevor du <span className="text-highlight">lädst</span>.
+            </h2>
             <Faq items={SOFTWARE_FAQ} />
           </div>
         </section>
 
         {/* Final CTA */}
-        <section className="px-5 py-24 md:px-6 md:py-32">
-          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <div className="flex -space-x-3">
+        <section className="rail crosshairs border-t border-border">
+          <div className={`flex flex-col items-center py-20 text-center md:py-28 ${pad}`}>
+            <p className="hud">Offline · ohne Konto · jederzeit online kündbar</p>
+            <div className="mt-8 flex -space-x-2">
               {APPS.slice(0, 7).map((a) => (
-                <AppIcon key={a.slug} slug={a.slug} name={a.name} size={52} />
+                <AppIcon key={a.slug} slug={a.slug} name={a.name} size={48} />
               ))}
             </div>
-            <h2 className="display mt-8 text-5xl sm:text-6xl md:text-7xl">
-              Dein Kreativ- und Büro-Paket für <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat.
+            <h2 className="display mt-8 max-w-4xl text-[clamp(2.2rem,5vw,4.4rem)]" data-reveal>
+              Dein Kreativ- und Büro-Paket für <span className="whitespace-nowrap text-highlight">{PLANS.monthly.label}</span> im Monat.
             </h2>
             <p className="mt-5 max-w-xl text-lg text-muted">13 Apps, {TRIAL_DAYS} Tage kostenlos, jederzeit online kündbar.</p>
-            <div className="mt-8">
+            <div className="mt-9">
               <DownloadButton source="software-final-cta" />
             </div>
           </div>

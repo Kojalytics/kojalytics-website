@@ -29,12 +29,12 @@ export default function DownloadButton({
 }) {
   const isMac = useSyncExternalStore(subscribe, isMacNow, () => true);
   const [copied, setCopied] = useState(false);
-  const cls = `btn-primary text-base sm:whitespace-nowrap ${className}`;
+  const cls = `btn-primary sm:whitespace-nowrap ${className}`;
 
   if (isMac) {
     return (
       <a href={DOWNLOAD_PATH} onClick={() => track("Lead", { content_name: source })} className={cls}>
-        <Download size={18} strokeWidth={2.4} aria-hidden />
+        <Download size={15} strokeWidth={2.2} aria-hidden />
         {label}
       </a>
     );
@@ -58,7 +58,7 @@ export default function DownloadButton({
 
   return (
     <button type="button" onClick={sendToMac} className={cls}>
-      <Send size={18} strokeWidth={2.4} aria-hidden />
+      <Send size={15} strokeWidth={2.2} aria-hidden />
       <span aria-live="polite">{copied ? "Link kopiert, öffne ihn am Mac" : shareLabel}</span>
     </button>
   );

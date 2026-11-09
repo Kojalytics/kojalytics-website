@@ -44,24 +44,26 @@ type AppBase = {
   upstream: string;
   group: AppGroup;
   color: string;
+  /** Development stage of the upstream build, shown as a tag. */
+  status: "Alpha" | "Pre-Alpha";
   /** The product people search an alternative for, with its owner for the trademark note. */
   familiar: { product: string; owner: string };
 };
 
 const BASE: AppBase[] = [
-  { slug: "photo-koja", name: "PhotoKoja", upstream: "PhotoCraft", group: "Foto & Design", color: "#2f7bf5", familiar: { product: "Photoshop", owner: "Adobe Inc." } },
-  { slug: "light-koja", name: "LightKoja", upstream: "LightCraft", group: "Foto & Design", color: "#f3a617", familiar: { product: "Lightroom", owner: "Adobe Inc." } },
-  { slug: "vector-koja", name: "VectorKoja", upstream: "VectorCraft", group: "Foto & Design", color: "#e7573e", familiar: { product: "Illustrator", owner: "Adobe Inc." } },
-  { slug: "design-koja", name: "DesignKoja", upstream: "DesignCraft", group: "Foto & Design", color: "#7ab51b", familiar: { product: "InDesign", owner: "Adobe Inc." } },
-  { slug: "fig-koja", name: "FigKoja", upstream: "FigCraft", group: "Foto & Design", color: "#02c98a", familiar: { product: "Figma", owner: "Figma, Inc." } },
-  { slug: "film-koja", name: "FilmKoja", upstream: "FilmCraft", group: "Video & Audio", color: "#8a5cf6", familiar: { product: "Premiere Pro", owner: "Adobe Inc." } },
-  { slug: "effect-koja", name: "EffectKoja", upstream: "EffectCraft", group: "Video & Audio", color: "#e03690", familiar: { product: "After Effects", owner: "Adobe Inc." } },
-  { slug: "sound-koja", name: "SoundKoja", upstream: "SoundCraft", group: "Video & Audio", color: "#2fa8c0", familiar: { product: "Pro Tools", owner: "Avid Technology, Inc." } },
-  { slug: "word-koja", name: "WordKoja", upstream: "WordCraft", group: "Büro & Technik", color: "#3c5bdc", familiar: { product: "Microsoft Word", owner: "Microsoft Corporation" } },
-  { slug: "grid-koja", name: "GridKoja", upstream: "GridCraft", group: "Büro & Technik", color: "#1d9d54", familiar: { product: "Microsoft Excel", owner: "Microsoft Corporation" } },
-  { slug: "deck-koja", name: "DeckKoja", upstream: "DeckCraft", group: "Büro & Technik", color: "#ef641b", familiar: { product: "Microsoft PowerPoint", owner: "Microsoft Corporation" } },
-  { slug: "pdf-koja", name: "PdfKoja", upstream: "PdfCraft", group: "Büro & Technik", color: "#11a58a", familiar: { product: "Adobe Acrobat", owner: "Adobe Inc." } },
-  { slug: "cad-koja", name: "CADKoja", upstream: "CADCraft", group: "Büro & Technik", color: "#13a4c7", familiar: { product: "AutoCAD", owner: "Autodesk, Inc." } },
+  { slug: "photo-koja", name: "PhotoKoja", upstream: "PhotoCraft", group: "Foto & Design", color: "#2f7bf5", status: "Alpha", familiar: { product: "Photoshop", owner: "Adobe Inc." } },
+  { slug: "light-koja", name: "LightKoja", upstream: "LightCraft", group: "Foto & Design", color: "#f3a617", status: "Alpha", familiar: { product: "Lightroom", owner: "Adobe Inc." } },
+  { slug: "vector-koja", name: "VectorKoja", upstream: "VectorCraft", group: "Foto & Design", color: "#e7573e", status: "Alpha", familiar: { product: "Illustrator", owner: "Adobe Inc." } },
+  { slug: "design-koja", name: "DesignKoja", upstream: "DesignCraft", group: "Foto & Design", color: "#7ab51b", status: "Pre-Alpha", familiar: { product: "InDesign", owner: "Adobe Inc." } },
+  { slug: "fig-koja", name: "FigKoja", upstream: "FigCraft", group: "Foto & Design", color: "#02c98a", status: "Alpha", familiar: { product: "Figma", owner: "Figma, Inc." } },
+  { slug: "film-koja", name: "FilmKoja", upstream: "FilmCraft", group: "Video & Audio", color: "#8a5cf6", status: "Alpha", familiar: { product: "Premiere Pro", owner: "Adobe Inc." } },
+  { slug: "effect-koja", name: "EffectKoja", upstream: "EffectCraft", group: "Video & Audio", color: "#e03690", status: "Alpha", familiar: { product: "After Effects", owner: "Adobe Inc." } },
+  { slug: "sound-koja", name: "SoundKoja", upstream: "SoundCraft", group: "Video & Audio", color: "#2fa8c0", status: "Pre-Alpha", familiar: { product: "Pro Tools", owner: "Avid Technology, Inc." } },
+  { slug: "word-koja", name: "WordKoja", upstream: "WordCraft", group: "Büro & Technik", color: "#3c5bdc", status: "Alpha", familiar: { product: "Microsoft Word", owner: "Microsoft Corporation" } },
+  { slug: "grid-koja", name: "GridKoja", upstream: "GridCraft", group: "Büro & Technik", color: "#1d9d54", status: "Alpha", familiar: { product: "Microsoft Excel", owner: "Microsoft Corporation" } },
+  { slug: "deck-koja", name: "DeckKoja", upstream: "DeckCraft", group: "Büro & Technik", color: "#ef641b", status: "Alpha", familiar: { product: "Microsoft PowerPoint", owner: "Microsoft Corporation" } },
+  { slug: "pdf-koja", name: "PdfKoja", upstream: "PdfCraft", group: "Büro & Technik", color: "#11a58a", status: "Alpha", familiar: { product: "Adobe Acrobat", owner: "Adobe Inc." } },
+  { slug: "cad-koja", name: "CADKoja", upstream: "CADCraft", group: "Büro & Technik", color: "#13a4c7", status: "Pre-Alpha", familiar: { product: "AutoCAD", owner: "Autodesk, Inc." } },
 ];
 
 const CONTENT: Record<string, AppContent> = {
@@ -99,6 +101,23 @@ function withShots(base: AppBase): KojaApp {
 }
 
 export const APPS: KojaApp[] = BASE.map(withShots);
+
+/**
+ * The app colour darkened until it reads as text on white (WCAG AA, 4.5:1), e.g. for the "Koja" part
+ * of an app name. Light icon colours like LightKoja's amber become a deep ochre.
+ */
+export function appInk(hex: string) {
+  let [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const lum = (v: number[]) => {
+    const [R, G, B] = v.map((c) => {
+      const x = c / 255;
+      return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * R + 0.7152 * G + 0.0722 * B;
+  };
+  while (1.05 / (lum([r, g, b]) + 0.05) < 4.5) [r, g, b] = [r, g, b].map((c) => Math.round(c * 0.92));
+  return `#${[r, g, b].map((c) => c.toString(16).padStart(2, "0")).join("")}`;
+}
 
 export const APP_GROUPS: AppGroup[] = ["Foto & Design", "Video & Audio", "Büro & Technik"];
 
