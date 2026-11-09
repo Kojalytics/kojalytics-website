@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import MacWindow from "@/components/ui/mac-window";
 import AppIcon from "@/components/ui/app-icon";
 import ProjectCard from "@/components/studio/ProjectCard";
 import ContactCta from "@/components/studio/ContactCta";
-import { APPS, getApp, shotFor } from "@/lib/apps";
+import SectionBar from "@/components/instrument/SectionBar";
+import { APPS, appInk, getApp, shotFor } from "@/lib/apps";
 import { ARTICLES } from "@/lib/ratgeber";
 import { PROJECTS, SERVICES } from "@/lib/studio";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
@@ -21,143 +22,221 @@ export const metadata: Metadata = {
   openGraph: { ...OG_BASE, url: "/", title: "Kojalytics: Software-Studio aus Deutschland", images: [DEFAULT_OG_IMAGE] },
 };
 
-function Shot({ slug, className, priority = false, sizes }: { slug: string; className?: string; priority?: boolean; sizes: string }) {
-  const app = getApp(slug);
-  const shot = app && shotFor(app);
-  if (!shot) return null;
-  return <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} priority={priority} sizes={sizes} className={className} />;
-}
+/** The hero panel: one large window, two small ones below, each labelled like a figure. */
+const heroShots = [
+  { slug: "photo-koja", mark: "A", wide: true },
+  { slug: "grid-koja", mark: "B", wide: false },
+  { slug: "design-koja", mark: "C", wide: false },
+];
+
+const pad = "px-5 md:px-10";
+const two = (n: number) => String(n).padStart(2, "0");
 
 export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(WEBSITE_JSON_LD)} />
       <Navigation />
-      <main>
-        {/* Hero */}
-        <section className="overflow-hidden bg-[linear-gradient(180deg,#f5f5f4_0%,#ffffff_100%)] px-5 pb-20 pt-28 md:px-6 md:pt-36">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <main className="pt-12">
+        {/* 01 Hero: studio and Koja-Apps left, real screenshots as an instrument panel right */}
+        <section className="rail">
+          <SectionBar index="01" label="Software-Studio aus Deutschland" meta="Kundenprojekte · eigene Mac-Apps" />
+          <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center ${pad}`}>
             <div>
-              <p className="rounded-full border border-border bg-white px-3 py-1 text-sm font-medium text-muted w-fit">Software-Studio aus Deutschland</p>
-              <h1 className="display mt-6 text-[clamp(2.75rem,5.6vw,4.75rem)]">
-                Wir bauen Apps. <span className="whitespace-nowrap">Für Kunden</span> und für deinen Mac.
+              <h1 className="display rise-in text-[clamp(2.1rem,5.4vw,4.4rem)]">
+                Wir bauen <span className="text-highlight">Apps</span>. <span className="whitespace-nowrap">Für Kunden</span> und für deinen Mac.
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+              <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
                 Kojalytics entwickelt iOS-Apps, Web-Plattformen und KI-Funktionen für Unternehmen und Gründer. Und wir machen die
                 Koja-Apps: 13 Mac-Apps für Kreativ- und Büroarbeit, für {PLANS.monthly.label} im Monat.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/software" className="btn-primary text-base">
-                  Koja-Apps entdecken <ArrowRight size={18} aria-hidden />
+              <div className="rise-in mt-9 flex flex-col gap-3 [--i:2] sm:flex-row">
+                <Link href="/software" className="btn-primary">
+                  Koja-Apps entdecken <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
                 </Link>
-                <Link href="/kontakt" className="btn-secondary text-base">
+                <Link href="/kontakt" className="btn-secondary">
                   Projekt anfragen
                 </Link>
               </div>
+              <p className="hud rise-in mt-5 [--i:3]">iOS · Web · KI · 13 Mac-Apps</p>
             </div>
-            <div className="relative">
-              <Shot slug="photo-koja" priority sizes="(max-width: 1024px) 92vw, 50vw" className="relative z-10" />
-              <Shot slug="grid-koja" sizes="(max-width: 1024px) 50vw, 26vw" className="absolute -bottom-10 -left-6 z-20 hidden w-[46%] sm:block" />
-              <Shot slug="design-koja" sizes="(max-width: 1024px) 50vw, 26vw" className="absolute -right-4 -top-16 z-0 hidden w-[44%] sm:block lg:-right-10 lg:-top-20" />
-            </div>
+
+            <figure className="rise-in m-0 border border-border [--i:2]">
+              <div className="flex items-center justify-between gap-4 border-b border-border px-4 py-2.5">
+                <span className="hud">
+                  <span className="text-faint">Abb. 01</span> · Koja-Apps auf dem Mac
+                </span>
+                <span className="hud hidden text-faint sm:inline lg:hidden xl:inline">macOS</span>
+              </div>
+              <div className="cells grid-cols-2">
+                {heroShots.map(({ slug, mark, wide }) => {
+                  const app = getApp(slug);
+                  const shot = app && shotFor(app);
+                  if (!app || !shot) return null;
+                  return (
+                    <div key={slug} className={wide ? "col-span-2 p-4 sm:p-5" : "min-w-0 p-3 sm:p-4"}>
+                      <p className="hud mb-3 truncate">
+                        <span className="text-faint">{mark}</span>
+                        <span className={wide ? "" : "hidden sm:inline lg:hidden xl:inline"}> · {app.kind}</span>
+                      </p>
+                      <MacWindow
+                        src={shot.src}
+                        alt={shot.alt}
+                        width={shot.width}
+                        height={shot.height}
+                        label={app.name}
+                        fixedRatio={!wide}
+                        priority={wide}
+                        sizes={wide ? "(max-width: 1024px) 92vw, 600px" : "(max-width: 1024px) 46vw, 300px"}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+              <figcaption className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-border px-4 py-2.5">
+                <span className="hud whitespace-nowrap">13 Apps · offline · ohne Konto</span>
+                <span className="hud whitespace-nowrap text-foreground">{PLANS.monthly.label} / Monat</span>
+              </figcaption>
+            </figure>
           </div>
         </section>
 
-        {/* Koja apps */}
-        <section className="px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
-              <div>
-                <p className="eyebrow">Koja-Apps für den Mac</p>
-                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">13 Mac-Apps. {PLANS.monthly.label} im Monat.</h2>
-              </div>
-              <p className="text-lg leading-relaxed text-muted">
-                Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD. Offline, ohne Konto, jederzeit online kündbar. Teste alle Apps{" "}
-                {TRIAL_DAYS} Tage kostenlos oder zahle einmalig {PLANS.lifetime.label}.
-              </p>
-            </div>
-            <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-              {APPS.map((a) => (
-                <li key={a.slug}>
-                  <Link href={`/software/${a.slug}`} prefetch={false} className="flex h-full items-center gap-3 rounded-[16px] border border-border p-3 transition-colors hover:border-foreground/40">
-                    <AppIcon slug={a.slug} name={a.name} size={40} />
-                    <span className="min-w-0">
-                      <span className="block truncate font-semibold">{a.name}</span>
-                      <span className="block text-sm leading-snug text-muted hyphens-auto">{a.kind}</span>
+        {/* 02 Koja-Apps */}
+        <section className="rail crosshairs">
+          <SectionBar index="02" label="Koja-Apps für den Mac" meta="Offline · ohne Konto · jederzeit online kündbar" />
+          <div className={`grid gap-6 py-14 md:py-20 lg:grid-cols-2 lg:items-end lg:gap-10 ${pad}`}>
+            <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              13 Mac-Apps. <span className="whitespace-nowrap text-highlight">{PLANS.monthly.label}</span>{" "}
+              <span className="whitespace-nowrap">im Monat.</span>
+            </h2>
+            <p className="max-w-xl text-lg leading-relaxed text-muted" data-reveal>
+              Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD. Offline, ohne Konto, jederzeit online kündbar. Teste alle Apps{" "}
+              {TRIAL_DAYS} Tage kostenlos oder zahle einmalig {PLANS.lifetime.label}.
+            </p>
+          </div>
+          <ul className="cells grid-cols-2 border-t border-border sm:grid-cols-3 lg:grid-cols-4">
+            {APPS.map((a, i) => (
+              <li key={a.slug}>
+                <Link
+                  href={`/software/${a.slug}`}
+                  prefetch={false}
+                  data-reveal
+                  style={{ ["--i" as string]: i % 4 }}
+                  className="group flex h-full flex-col gap-6 p-4 transition-colors hover:bg-surface sm:p-6"
+                >
+                  <span className="flex items-start justify-between gap-3">
+                    <span className="transition-transform group-hover:-translate-y-0.5">
+                      <AppIcon slug={a.slug} name={a.name} size={44} />
                     </span>
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/software" className="flex h-full items-center justify-center gap-2 rounded-[16px] bg-foreground p-3 font-semibold text-white">
-                  Alle ansehen <ArrowRight size={16} aria-hidden />
+                    <span className="hud text-faint">{two(i + 1)}</span>
+                  </span>
+                  <span className="mt-auto block min-w-0">
+                    <span className="flex items-center justify-between gap-2">
+                      <span className="truncate font-semibold">
+                        {a.name.slice(0, -4)}
+                        <span style={{ color: appInk(a.color) }}>Koja</span>
+                      </span>
+                      <ArrowUpRight size={14} className="shrink-0 text-faint transition-colors group-hover:text-accent" aria-hidden />
+                    </span>
+                    <span className="mt-1 block text-sm leading-snug text-muted hyphens-auto">{a.kind}</span>
+                  </span>
                 </Link>
               </li>
-            </ul>
-          </div>
+            ))}
+            <li className="sm:col-span-2 lg:col-span-3">
+              <Link href="/software" data-reveal style={{ ["--i" as string]: 1 }} className="group flex h-full flex-col justify-between gap-6 p-4 transition-colors hover:bg-surface sm:p-6 lg:p-8">
+                <span className="grid gap-1">
+                  <span className="hud text-foreground">13 Apps · 1 Preis</span>
+                  <span className="hud hidden sm:block">
+                    {PLANS.monthly.label} / Monat · {PLANS.lifetime.label} einmalig
+                  </span>
+                </span>
+                <span className="link-hud group-hover:text-accent">
+                  Alle ansehen <ArrowUpRight size={14} aria-hidden />
+                </span>
+              </Link>
+            </li>
+          </ul>
         </section>
 
-        {/* Services */}
-        <section className="bg-surface px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div>
-                <p className="eyebrow">Leistungen</p>
-                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">Von der Idee bis in den App Store.</h2>
-              </div>
-              <Link href="/leistungen" className="inline-flex items-center gap-1.5 font-semibold">
-                Alle Leistungen <ArrowRight size={18} aria-hidden />
-              </Link>
-            </div>
-            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-              {SERVICES.map((s) => (
-                <Link key={s.slug} href={`/leistungen#${s.slug}`} className="rounded-[22px] bg-white p-6 transition-shadow hover:shadow-[0_20px_40px_-24px_rgba(17,17,19,0.3)]">
-                  <h3 className="text-lg font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{s.summary}</p>
+        {/* 03 Services */}
+        <section className="rail crosshairs">
+          <SectionBar index="03" label="Leistungen" meta="iOS · Web · KI · Design · Backend" />
+          <div className={`flex flex-col justify-between gap-4 py-14 md:flex-row md:items-end md:py-20 ${pad}`}>
+            <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              Von der Idee bis in den <span className="whitespace-nowrap text-highlight">App Store</span>.
+            </h2>
+            <Link href="/leistungen" className="link-hud min-h-11 shrink-0">
+              Alle Leistungen <ArrowUpRight size={14} aria-hidden />
+            </Link>
+          </div>
+          <ul className="cells border-t border-border">
+            {SERVICES.map((s, i) => (
+              <li key={s.slug}>
+                <Link
+                  href={`/leistungen#${s.slug}`}
+                  data-reveal
+                  style={{ ["--i" as string]: i }}
+                  className={`group grid gap-3 py-6 transition-colors hover:bg-surface md:grid-cols-[3.5rem_minmax(0,1fr)_minmax(0,1.25fr)_1.5rem] md:items-baseline md:gap-8 md:py-8 ${pad}`}
+                >
+                  <span className="hud text-faint">{two(i + 1)}</span>
+                  <h3 className="display text-[1.35rem] transition-colors group-hover:text-accent md:text-[1.55rem]">{s.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-muted">{s.summary}</p>
+                  <ArrowUpRight size={16} className="hidden justify-self-end text-faint transition-colors group-hover:text-accent md:block" aria-hidden />
                 </Link>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </section>
 
-        {/* Work */}
-        <section className="px-5 py-20 md:px-6 md:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div>
-                <p className="eyebrow">Projekte</p>
-                <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">Ausgeliefert, nicht nur entworfen.</h2>
+        {/* 04 Projects */}
+        <section className="rail crosshairs">
+          <SectionBar index="04" label="Projekte" meta="macOS · iOS · Web · Shopify" />
+          <div className={`flex flex-col justify-between gap-4 py-14 md:flex-row md:items-end md:py-20 ${pad}`}>
+            <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              <span className="text-highlight">Ausgeliefert</span>, nicht nur entworfen.
+            </h2>
+            <Link href="/projekte" className="link-hud min-h-11 shrink-0">
+              Alle Projekte <ArrowUpRight size={14} aria-hidden />
+            </Link>
+          </div>
+          <div className="cells border-t border-border md:grid-cols-3">
+            {PROJECTS.map((p, i) => (
+              <div key={p.slug}>
+                <div className="h-full" data-reveal style={{ ["--i" as string]: i }}>
+                  <ProjectCard project={p} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 33vw, 427px" />
+                </div>
               </div>
-              <Link href="/projekte" className="inline-flex items-center gap-1.5 font-semibold">
-                Alle Projekte <ArrowRight size={18} aria-hidden />
-              </Link>
-            </div>
-            <div className="mt-12 grid gap-4 md:grid-cols-3">
-              {PROJECTS.map((p) => (
-                <ProjectCard key={p.slug} project={p} sizes="(max-width: 768px) 100vw, 33vw" />
-              ))}
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* Guides */}
+        {/* 05 Guides */}
         {ARTICLES.length > 0 && (
-          <section className="border-t border-border px-5 py-20 md:px-6 md:py-24">
-            <div className="mx-auto max-w-7xl">
-              <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                <h2 className="display text-4xl sm:text-5xl">Aus dem Ratgeber</h2>
-                <Link href="/ratgeber" className="inline-flex items-center gap-1.5 font-semibold">
-                  Alle Ratgeber <ArrowRight size={18} aria-hidden />
-                </Link>
-              </div>
-              <div className="mt-10 grid gap-4 md:grid-cols-3">
-                {ARTICLES.slice(0, 3).map((a) => (
-                  <Link key={a.slug} href={`/ratgeber/${a.slug}`} className="rounded-[22px] border border-border p-6 transition-colors hover:border-foreground/40">
-                    <p className="text-sm text-muted">{a.readingMinutes} Min. Lesezeit</p>
-                    <h3 className="mt-3 text-xl font-semibold leading-snug">{a.h1}</h3>
+          <section className="rail crosshairs">
+            <SectionBar index="05" label="Ratgeber" meta="Umstieg ohne Abo" />
+            <div className={`flex flex-col justify-between gap-4 py-14 md:flex-row md:items-end md:py-20 ${pad}`}>
+              <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+                Aus dem <span className="text-highlight">Ratgeber</span>
+              </h2>
+              <Link href="/ratgeber" className="link-hud min-h-11 shrink-0">
+                Alle Ratgeber <ArrowUpRight size={14} aria-hidden />
+              </Link>
+            </div>
+            <div className="cells border-t border-border md:grid-cols-3">
+              {ARTICLES.slice(0, 3).map((a, i) => (
+                <div key={a.slug}>
+                  <Link href={`/ratgeber/${a.slug}`} className="group flex h-full flex-col p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
+                    <p className="hud">
+                      <span className="text-faint">{two(i + 1)}</span> · {a.readingMinutes} Min. Lesezeit
+                    </p>
+                    <h3 className="mt-5 flex-1 text-xl font-semibold leading-snug group-hover:text-accent">{a.h1}</h3>
+                    <span className="link-hud mt-6 group-hover:text-accent">
+                      Lesen <ArrowUpRight size={14} aria-hidden />
+                    </span>
                   </Link>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </section>
         )}
