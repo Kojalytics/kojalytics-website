@@ -312,25 +312,31 @@ body {
  */
 .orbit-field {
   /* Phones: the field sits in the top part of the hero around the K mark; the copy follows below. */
-  --s: 0.36;
+  --s: 0.5;
   --p: 0;
   position: absolute;
   left: 50%;
-  top: 195px;
+  top: 215px;
   width: 2400px;
   height: 2400px;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(calc(var(--s) * (1 + var(--p) * 0.45)));
 }
-@media (min-width: 640px) {
+/* From md up: wide orbits around the copy, scaled so the outer orbit always fits the screen width. */
+@media (min-width: 768px) {
   .orbit-field {
-    --s: 0.68;
+    --s: 0.54;
     top: 50%;
   }
 }
 @media (min-width: 1024px) {
   .orbit-field {
-    --s: 0.86;
+    --s: 0.72;
+  }
+}
+@media (min-width: 1280px) {
+  .orbit-field {
+    --s: 0.9;
   }
 }
 @media (min-width: 1440px) {
@@ -344,25 +350,36 @@ body {
 .orbit-app {
   pointer-events: auto;
 }
-@keyframes orbit-spin {
+/* Each icon rides its ellipse (offset-path set inline), starting at --d and staying upright. */
+.orbit-rider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  offset-anchor: center;
+  offset-rotate: 0deg;
+  offset-distance: var(--d, 0%);
+  animation: orbit-ride 60s linear infinite;
+}
+@keyframes orbit-ride {
+  from {
+    offset-distance: var(--d, 0%);
+  }
   to {
-    transform: rotate(360deg);
+    offset-distance: calc(var(--d, 0%) + 100%);
   }
 }
-.orbit {
-  animation: orbit-spin var(--dur, 200s) linear infinite;
-  animation-direction: var(--dir, normal);
-}
-.orbit-counter {
-  animation: orbit-spin var(--dur, 200s) linear infinite;
-  animation-direction: var(--counter, reverse);
-}
-/* Hovering or focusing an icon holds its orbit still, so it can be clicked. */
-.orbit:has(.orbit-app:hover),
-.orbit:has(.orbit-app:hover) .orbit-counter,
-.orbit:has(.orbit-app:focus-visible),
-.orbit:has(.orbit-app:focus-visible) .orbit-counter {
+/* Hovering or focusing an icon holds it still, so it can be clicked. */
+.orbit-rider:hover,
+.orbit-rider:focus-within {
   animation-play-state: paused;
+}
+.orbit-arc {
+  animation: orbit-sweep 20s linear infinite;
+}
+@keyframes orbit-sweep {
+  to {
+    stroke-dashoffset: -1000;
+  }
 }
 
 /* Server-rendered cookie banner for visitors who already chose (see Consent.tsx) */
@@ -489,8 +506,8 @@ html.js .cells > [data-reveal].is-in > * {
   }
   .animate-float,
   .rise-in,
-  .orbit,
-  .orbit-counter {
+  .orbit-rider,
+  .orbit-arc {
     animation: none;
   }
   .orbit-field {

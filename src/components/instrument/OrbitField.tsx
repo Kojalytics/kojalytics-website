@@ -7,28 +7,54 @@ import Link from "next/link";
 export type OrbitApp = { slug: string; name: string; kind: string };
 
 /**
- * Background of the /software hero: hairline orbit rings with tick marks around the centre, darker arcs
- * sweeping along some rings, and the app icons travelling on four orbits at different radii and speeds.
- * CSS animations only (icons counter-rotate so they stay upright). On scroll the field widens and the
- * icons fade out. Reduced motion: everything stands still. The field is a 2400px square, scaled per
- * breakpoint in globals.css (.orbit-field).
+ * Background of the /software hero: the app icons ride on elliptical orbits around the centre, so all
+ * 13 are on screen at once (CSS motion paths; icons stay upright). Hairline rings with tick marks and
+ * darker arcs sweeping along them complete the instrument look. On scroll the field widens and the
+ * icons fade out. Reduced motion: icons stand still, evenly spread on their orbits.
+ *
+ * The field is a 2400px square, scaled per breakpoint in globals.css (.orbit-field). Phones (< md) get
+ * their own, rounder orbits around the K mark; from md up the orbits are wide ellipses around the copy.
  */
 
 const C = 1200; // centre of the 2400px field
-const RINGS = [250, 430, 545, 670, 810, 960, 1130];
-const ORBITS = [
-  { r: 430, dur: 150, dir: "normal", start: 205, count: 3 },
-  { r: 545, dur: 190, dir: "reverse", start: 20, count: 4 },
-  { r: 670, dur: 230, dir: "normal", start: 115, count: 3 },
-  { r: 810, dur: 280, dir: "reverse", start: 300, count: 3 },
-] as const;
-const ARCS = [
-  { r: 545, len: 0.2, dur: 70, dir: "normal", from: 40 },
-  { r: 810, len: 0.14, dur: 110, dir: "reverse", from: 210 },
-  { r: 960, len: 0.1, dur: 150, dir: "normal", from: 120 },
-] as const;
+type Orbit = { rx: number; ry: number; dur: number; reverse?: boolean; count: number };
+type Layout = { key: "wide" | "phone"; orbits: Orbit[]; rings: [number, number][]; ticks: [number, number][]; arcs: [number, number, number][] };
 
-const ticks = (r: number, n: number) => `1.5 ${((2 * Math.PI * r) / n - 1.5).toFixed(2)}`;
+const LAYOUTS: Layout[] = [
+  {
+    key: "wide",
+    orbits: [
+      { rx: 470, ry: 290, dur: 55, count: 6 },
+      { rx: 640, ry: 375, dur: 70, reverse: true, count: 7 },
+    ],
+    rings: [[300, 190], [470, 290], [640, 375], [830, 490], [1030, 610]],
+    ticks: [[470, 290], [830, 490]],
+    // rx, ry, seconds per sweep
+    arcs: [[470, 290, 18], [640, 375, 26], [830, 490, 34]],
+  },
+  {
+    key: "phone",
+    orbits: [
+      { rx: 230, ry: 200, dur: 40, count: 5 },
+      { rx: 350, ry: 330, dur: 52, reverse: true, count: 8 },
+    ],
+    rings: [[130, 120], [230, 200], [350, 330], [480, 450], [620, 580]],
+    ticks: [[230, 200], [480, 450]],
+    arcs: [[230, 200, 14], [350, 330, 20], [480, 450, 28]],
+  },
+];
+
+// Closed ("Z"), so offset-distance past 100% wraps around instead of parking icons at the end point.
+const ellipsePath = (rx: number, ry: number) => `M ${C - rx},${C} a ${rx},${ry} 0 1,0 ${2 * rx},0 a ${rx},${ry} 0 1,0 ${-2 * rx},0 Z`;
+
+// The apps of each orbit, in order: the first `count` apps on the inner orbit, the rest on the outer one.
+function ridersFor(layout: Layout, apps: OrbitApp[]) {
+  return layout.orbits.flatMap((o, oi) => {
+    const first = layout.orbits.slice(0, oi).reduce((sum, prev) => sum + prev.count, 0);
+    const items = apps.slice(first, first + o.count);
+    return items.map((app, i) => ({ app, orbit: o, distance: (100 / items.length) * i + (o.reverse ? 7 : 0) }));
+  });
+}
 
 export default function OrbitField({ apps }: { apps: OrbitApp[] }) {
   const field = useRef<HTMLDivElement>(null);
@@ -55,76 +81,74 @@ export default function OrbitField({ apps }: { apps: OrbitApp[] }) {
     };
   }, []);
 
-  // Hand the apps out to the orbits in order: the first 3 on the inner orbit, the next 4 on the second, …
-  const groups = ORBITS.map((o, gi) => {
-    const first = ORBITS.slice(0, gi).reduce((sum, prev) => sum + prev.count, 0);
-    return { ...o, items: apps.slice(first, first + o.count) };
-  });
-
   return (
     <div ref={field} className="orbit-field">
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 2400 2400" aria-hidden>
-        {RINGS.map((r, i) => (
-          <circle key={r} cx={C} cy={C} r={r} fill="none" stroke={i % 2 ? "#e7e7e4" : "#dadad7"} strokeWidth={1.5} />
-        ))}
-        {[430, 670, 960].map((r) => (
-          <circle key={`t${r}`} cx={C} cy={C} r={r} fill="none" stroke="#cdcdc9" strokeWidth={10} strokeDasharray={ticks(r, 96)} />
-        ))}
-        {[545, 810, 1130].map((r) => (
-          <circle key={`f${r}`} cx={C} cy={C} r={r} fill="none" stroke="#dfdfdc" strokeWidth={6} strokeDasharray={ticks(r, 240)} />
-        ))}
-      </svg>
+      {LAYOUTS.map((layout) => (
+        <div key={layout.key} className={`absolute inset-0 ${layout.key === "wide" ? "max-md:hidden" : "md:hidden"}`}>
+          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 2400 2400" aria-hidden>
+            {layout.rings.map(([rx, ry], i) => (
+              <ellipse key={`r${rx}`} cx={C} cy={C} rx={rx} ry={ry} fill="none" stroke={i % 2 ? "#e4e4e1" : "#d8d8d5"} strokeWidth={1.5} />
+            ))}
+            {layout.ticks.map(([rx, ry]) => (
+              <ellipse key={`t${rx}`} cx={C} cy={C} rx={rx} ry={ry} fill="none" stroke="#c9c9c5" strokeWidth={10} pathLength={1000} strokeDasharray="1.2 9.2" />
+            ))}
+            {layout.arcs.map(([rx, ry, s], i) => (
+              <ellipse
+                key={`a${rx}`}
+                className="orbit-arc"
+                cx={C}
+                cy={C}
+                rx={rx}
+                ry={ry}
+                fill="none"
+                stroke="#7d7d83"
+                strokeWidth={2.5}
+                strokeLinecap="round"
+                pathLength={1000}
+                strokeDasharray="110 890"
+                style={{ animationDuration: `${s}s`, animationDirection: i % 2 ? "reverse" : "normal" }}
+              />
+            ))}
+          </svg>
 
-      {ARCS.map((a) => {
-        const circ = 2 * Math.PI * a.r;
-        return (
-          <div key={`a${a.r}`} className="orbit absolute inset-0" style={{ "--dur": `${a.dur}s`, "--dir": a.dir, rotate: `${a.from}deg` } as CSSProperties}>
-            <svg className="h-full w-full" viewBox="0 0 2400 2400" aria-hidden>
-              <circle cx={C} cy={C} r={a.r} fill="none" stroke="#7d7d83" strokeWidth={2.5} strokeLinecap="round" strokeDasharray={`${(circ * a.len).toFixed(1)} ${circ.toFixed(1)}`} />
-            </svg>
+          <div className="orbit-icons absolute inset-0">
+            {ridersFor(layout, apps).map(({ app, orbit, distance }) => (
+              <div
+                key={`${layout.key}-${app.slug}`}
+                className="orbit-rider"
+                style={
+                  {
+                    offsetPath: `path("${ellipsePath(orbit.rx, orbit.ry)}")`,
+                    "--d": `${distance.toFixed(2)}%`,
+                    animationDuration: `${orbit.dur}s`,
+                    animationDirection: orbit.reverse ? "reverse" : "normal",
+                  } as CSSProperties
+                }
+              >
+                <Link
+                  href={`/software/${app.slug}`}
+                  prefetch={false}
+                  className="orbit-app group relative block h-[104px] w-[104px]"
+                  aria-label={`${app.name}: ${app.kind}`}
+                >
+                  <Image
+                    src={`/apps/${app.slug}/icon.webp`}
+                    alt=""
+                    width={104}
+                    height={104}
+                    loading="lazy"
+                    fetchPriority="low"
+                    className="h-full w-full rounded-[22%] shadow-[0_22px_34px_-16px_rgba(14,14,16,0.5)] transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <span className="pointer-events-none absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap border border-border bg-white px-2 py-1 font-mono text-[15px] uppercase tracking-[0.14em] text-foreground opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                    {app.name}
+                  </span>
+                </Link>
+              </div>
+            ))}
           </div>
-        );
-      })}
-
-      <div className="orbit-icons absolute inset-0">
-        {groups.map((g) => (
-          <div
-            key={g.r}
-            className="orbit absolute inset-0"
-            style={{ "--dur": `${g.dur}s`, "--dir": g.dir, "--counter": g.dir === "normal" ? "reverse" : "normal" } as CSSProperties}
-          >
-            {g.items.map((app, i) => {
-              const angle = g.start + (360 / g.items.length) * i;
-              return (
-                <div key={app.slug} className="absolute left-1/2 top-1/2" style={{ transform: `rotate(${angle}deg) translateX(${g.r}px) rotate(${-angle}deg)` }}>
-                  {/* 0×0 box: it turns around the orbit point itself, so the icon stays upright in place */}
-                  <div className="orbit-counter absolute left-0 top-0 h-0 w-0">
-                    <Link
-                      href={`/software/${app.slug}`}
-                      prefetch={false}
-                      className="orbit-app group absolute -left-[52px] -top-[52px] block h-[104px] w-[104px]"
-                      aria-label={`${app.name}: ${app.kind}`}
-                    >
-                      <Image
-                        src={`/apps/${app.slug}/icon.webp`}
-                        alt=""
-                        width={104}
-                        height={104}
-                        loading="lazy"
-                        fetchPriority="low"
-                        className="h-full w-full rounded-[22%] shadow-[0_22px_34px_-16px_rgba(14,14,16,0.5)] transition-transform duration-300 group-hover:scale-110"
-                      />
-                      <span className="pointer-events-none absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap border border-border bg-white px-2 py-1 font-mono text-[15px] uppercase tracking-[0.14em] text-foreground opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-                        {app.name}
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }

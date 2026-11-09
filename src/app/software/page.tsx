@@ -136,20 +136,20 @@ export default function SoftwarePage() {
           {/* White veil keeps the copy readable: below the orbits on phones, a soft halo behind the copy from sm up */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_0px,rgba(255,255,255,0)_310px,#fff_375px)] sm:bg-[radial-gradient(ellipse_40%_46%_at_50%_50%,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.85)_60%,rgba(255,255,255,0)_100%)]"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_0px,rgba(255,255,255,0)_395px,#fff_445px)] md:bg-[radial-gradient(ellipse_40%_46%_at_50%_50%,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.85)_60%,rgba(255,255,255,0)_100%)]"
           />
           {/* Phones: the K mark is the centre the apps orbit around */}
-          <div aria-hidden className="pointer-events-none absolute left-1/2 top-[195px] z-[5] grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center bg-foreground sm:hidden">
+          <div aria-hidden className="pointer-events-none absolute left-1/2 top-[215px] z-[5] grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center bg-foreground md:hidden">
             <span className="display text-[34px] leading-none text-white">K</span>
           </div>
-          <div className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100svh-3rem)] max-w-3xl flex-col items-center justify-start px-5 pb-16 pt-[370px] text-center sm:justify-center sm:py-20">
-            <p aria-label="Kojalytics" className="display rise-in flex items-center gap-[0.2em] text-[clamp(2rem,6.2vw,5rem)] uppercase tracking-[-0.02em] max-sm:hidden">
+          <div className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100svh-3rem)] max-w-3xl flex-col items-center justify-start px-5 pb-16 pt-[440px] text-center md:justify-center md:py-20">
+            <p aria-label="Kojalytics" className="display rise-in flex items-center gap-[0.2em] text-[clamp(2rem,6.2vw,5rem)] uppercase tracking-[-0.02em] max-md:hidden">
               <span aria-hidden className="inline-grid h-[0.82em] w-[0.82em] shrink-0 place-items-center bg-foreground max-sm:hidden">
                 <span className="text-[0.56em] leading-none text-white">K</span>
               </span>
               <span aria-hidden>Kojalytics</span>
             </p>
-            <h1 className="display rise-in text-[clamp(1.75rem,3.6vw,2.9rem)] [--i:1] sm:mt-7">
+            <h1 className="display rise-in text-[clamp(1.75rem,3.6vw,2.9rem)] [--i:1] md:mt-7">
               13 Mac-Apps für <span className="whitespace-nowrap text-highlight">{PLANS.monthly.label}</span>{" "}
               <span className="whitespace-nowrap">im Monat.</span>
             </h1>
