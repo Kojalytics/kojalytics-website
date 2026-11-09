@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import DownloadButton from "@/components/software/DownloadButton";
 import TrackPurchase from "@/components/software/TrackPurchase";
+import SectionBar from "@/components/instrument/SectionBar";
 import { issueLicenseForSession, LICENSE_DEVICES } from "@/lib/license-sales";
 
 export const dynamic = "force-dynamic";
@@ -35,6 +36,9 @@ const steps = [
   "Installiere die Koja-Apps, die du brauchst, direkt im Launcher.",
 ];
 
+const pad = "px-5 md:px-10";
+const two = (n: number) => String(n).padStart(2, "0");
+
 export default async function ThanksPage({ searchParams }: { searchParams: Promise<{ session_id?: string }> }) {
   // Set by /software/danke/start; the query parameter only covers links from before that route existed.
   const session_id = (await cookies()).get("kj_session")?.value ?? (await searchParams).session_id;
@@ -43,53 +47,86 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <Navigation />
-      <main className="mx-auto max-w-3xl px-5 pb-24 pt-28 md:pt-36">
+      <main className="pt-12">
         {purchase ? (
           <>
             <TrackPurchase orderId={purchase.orderId} value={purchase.amount} subscription={purchase.license.subscription} />
-            <p className="eyebrow text-success">Zahlung erfolgreich</p>
-            <h1 className="display mt-3 text-5xl sm:text-6xl">Danke! Hier ist dein Schlüssel.</h1>
-            <div data-clarity-mask="true" className="mt-8 select-all break-all rounded-[16px] border border-border bg-surface p-5 font-mono text-lg tracking-wider">
-              {purchase.license.key}
-            </div>
-            <p className="mt-3 text-sm text-muted">
-              {purchase.license.email ? `Wir haben ihn auch an ${purchase.license.email} geschickt.` : "Bitte kopiere ihn jetzt und bewahre ihn gut auf."}
-            </p>
-            <div className="mt-8">
-              <DownloadButton source="danke" label="Launcher laden · macOS" />
-            </div>
-            <ol className="mt-10 grid gap-3">
-              {steps.map((s, i) => (
-                <li key={s} className="flex gap-4 rounded-[16px] border border-border p-4">
-                  <span className="display text-2xl text-accent">{i + 1}</span>
-                  <span className="pt-0.5 leading-relaxed">{s}</span>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-8 text-sm leading-relaxed text-muted">
-              {purchase.license.subscription
-                ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit online unter `
-                : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs.`}
-              {purchase.license.subscription && (
-                <Link href="/kuendigen" className="text-foreground underline underline-offset-2">
-                  Verträge hier kündigen
-                </Link>
-              )}
-            </p>
+            {/* 01 Licence key and download */}
+            <section className="rail">
+              <SectionBar index="01" label="Dein Kauf" meta="Lizenzschlüssel · Kojalytics Launcher" />
+              <div className={`py-14 md:py-20 ${pad}`}>
+                <div className="max-w-3xl">
+                  <p className="hud rise-in flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-success" aria-hidden />
+                    <span className="text-success">Zahlung erfolgreich</span>
+                  </p>
+                  <h1 className="display rise-in mt-5 text-[clamp(2rem,4vw,3.2rem)] [--i:1]">
+                    Danke! Hier ist dein <span className="text-highlight">Schlüssel</span>.
+                  </h1>
+                  <div
+                    data-clarity-mask="true"
+                    className="rise-in mt-8 select-all border border-border-strong bg-surface p-5 font-mono text-base tracking-wider wrap-anywhere [--i:2] sm:text-lg"
+                  >
+                    {purchase.license.key}
+                  </div>
+                  <p className="rise-in mt-3 text-sm text-muted [--i:2]">
+                    {purchase.license.email ? `Wir haben ihn auch an ${purchase.license.email} geschickt.` : "Bitte kopiere ihn jetzt und bewahre ihn gut auf."}
+                  </p>
+                  <div className="rise-in mt-8 [--i:3]">
+                    <DownloadButton source="danke" label="Launcher laden · macOS" />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 02 Setup steps */}
+            <section className="rail crosshairs">
+              <SectionBar index="02" label="Einrichtung" meta={`${steps.length} Schritte · Kojalytics Launcher`} />
+              <ol className="cells border-b border-border sm:grid-cols-2 lg:grid-cols-4">
+                {steps.map((s, i) => (
+                  <li key={s} className="flex flex-col gap-5 p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
+                    <span className="hud text-faint">{two(i + 1)}</span>
+                    <span className="leading-relaxed">{s}</span>
+                  </li>
+                ))}
+              </ol>
+              <div className={`py-8 md:py-10 ${pad}`}>
+                <p className="max-w-3xl text-[15px] leading-relaxed text-muted" data-reveal>
+                  {purchase.license.subscription
+                    ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit online unter `
+                    : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs.`}
+                  {purchase.license.subscription && (
+                    <Link href="/kuendigen" className="text-foreground underline underline-offset-4">
+                      Verträge hier kündigen
+                    </Link>
+                  )}
+                </p>
+              </div>
+            </section>
           </>
         ) : (
-          <>
-            <p className="eyebrow">Einen Moment</p>
-            <h1 className="display mt-3 text-5xl sm:text-6xl">Wir finden deinen Kauf noch nicht.</h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
-              Wenn du gerade bezahlt hast, lade die Seite in ein paar Sekunden neu. Dein Schlüssel kommt außerdem per E-Mail. Fragen?
-              Schreib an support@kojalytics.com oder nutze die{" "}
-              <Link href="/kontakt" className="text-foreground underline underline-offset-2">
-                Kontaktseite
-              </Link>
-              .
-            </p>
-          </>
+          <section className="rail">
+            <SectionBar index="01" label="Dein Kauf" meta="Lizenzschlüssel · Kojalytics Launcher" />
+            <div className={`py-14 md:py-20 ${pad}`}>
+              <div className="max-w-3xl">
+                <p className="hud rise-in flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-faint" aria-hidden />
+                  Einen Moment
+                </p>
+                <h1 className="display rise-in mt-5 text-[clamp(2rem,4vw,3.2rem)] [--i:1]">
+                  Wir finden deinen Kauf <span className="text-highlight">noch</span> nicht.
+                </h1>
+                <p className="rise-in mt-6 text-lg leading-relaxed text-muted [--i:2]">
+                  Wenn du gerade bezahlt hast, lade die Seite in ein paar Sekunden neu. Dein Schlüssel kommt außerdem per E-Mail. Fragen?
+                  Schreib an support@kojalytics.com oder nutze die{" "}
+                  <Link href="/kontakt" className="text-foreground underline underline-offset-4">
+                    Kontaktseite
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+          </section>
         )}
       </main>
       <Footer />

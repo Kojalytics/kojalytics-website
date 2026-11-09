@@ -89,7 +89,7 @@ export default function Consent() {
           className={`fixed inset-x-0 bottom-0 z-[60] p-3 outline-none sm:p-4 ${pending ? "kj-consent-pending" : ""}`}
           style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
         >
-          <div className="mx-auto flex max-w-5xl flex-col gap-3 rounded-[18px] border border-border bg-white p-4 shadow-[0_20px_50px_-20px_rgba(17,17,19,0.35)] sm:flex-row sm:items-center sm:gap-4 sm:p-5">
+          <div className="mx-auto flex max-w-5xl flex-col gap-3 border border-foreground bg-white p-4 shadow-[0_20px_50px_-24px_rgba(14,14,16,0.4)] sm:flex-row sm:items-center sm:gap-5 sm:p-5">
             <h2 id="kj-consent-title" className="sr-only">
               Cookie-Einstellungen
             </h2>
@@ -104,10 +104,10 @@ export default function Consent() {
               .
             </p>
             <div className="grid shrink-0 grid-cols-2 gap-2">
-              <button onClick={() => decide("denied")} className="btn-primary text-sm !px-5 !py-2.5">
+              <button onClick={() => decide("denied")} className="btn-primary !min-h-10 !px-5">
                 Ablehnen
               </button>
-              <button onClick={() => decide("granted")} className="btn-primary text-sm !px-5 !py-2.5">
+              <button onClick={() => decide("granted")} className="btn-primary !min-h-10 !px-5">
                 Akzeptieren
               </button>
             </div>

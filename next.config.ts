@@ -17,6 +17,11 @@ const privacySlugs: Record<string, string> = {
 const nextConfig: NextConfig = {
   // Screenshots rarely change: cache optimised images for 31 days. A replaced screenshot needs a new file name.
   images: { minimumCacheTTL: 2678400 },
+  // This checkout can sit inside another copy of the repo (git worktree): pin the project root so
+  // Turbopack does not pick the outer folder's lockfile after a restart.
+  turbopack: { root: process.cwd() },
+  // The persistent dev cache went stale and corrupted .next/dev manifests under heavy load; dev only.
+  experimental: { turbopackFileSystemCacheForDev: false },
   async redirects() {
     // Exact paths come before the :path* rules: the first match wins, so nothing redirects twice.
     return [

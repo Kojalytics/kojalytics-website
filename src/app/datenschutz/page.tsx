@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { ArrowDown } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SectionBar from "@/components/instrument/SectionBar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,51 +15,58 @@ export const metadata: Metadata = {
 const USA_TRANSFER =
   "Grundlage für eine Übermittlung in die USA ist der Angemessenheitsbeschluss der EU-Kommission zum EU-US Data Privacy Framework (Art. 45 DSGVO), soweit der Empfänger danach zertifiziert ist, im Übrigen die Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO).";
 
+const pad = "px-5 md:px-10";
+
 export default function DatenschutzPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-32 pb-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-accent-light text-sm font-medium tracking-wide uppercase mb-3">
-            Rechtliches
-          </p>
-          <h1 className="mb-3 text-[2rem] font-bold tracking-tight hyphens-auto sm:text-4xl">
-            Datenschutzerklärung
-          </h1>
-          <p className="text-muted text-sm mb-6">Stand: 7. November 2026</p>
-          <p className="text-muted leading-relaxed mb-6">
-            Hier erfährst du, welche personenbezogenen Daten wir verarbeiten,
-            wenn du kojalytics.com besuchst, die Koja-Apps kaufst und nutzt oder
-            die iOS-App AI Headshot verwendest. Teil A gilt für die Website und
-            die Koja-Apps, Teil B für AI Headshot.
-          </p>
-          <nav
-            aria-label="Inhalt"
-            className="bg-accent/10 border border-accent/20 rounded-xl p-5 mb-10"
-          >
-            <ul className="space-y-2 text-sm font-medium">
-              <li>
-                <a href="#website" className="text-accent-light hover:underline">
-                  Teil A: Website kojalytics.com und Koja-Apps
-                </a>
-              </li>
-              <li>
-                <a href="#ai-headshot" className="text-accent-light hover:underline">
-                  Teil B: AI Headshot (iOS-App)
-                </a>
-              </li>
-            </ul>
-          </nav>
+      <main className="pt-12">
+        {/* 01 Title and contents */}
+        <section className="rail">
+          <SectionBar index="01" label="Rechtliches" meta="DSGVO · Teil A und Teil B" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h1 className="display rise-in hyphens-auto break-words text-[clamp(2rem,4vw,3.2rem)]">
+              Datenschutzerklärung
+            </h1>
+            <p className="hud rise-in mt-5 [--i:1]">Stand: 7. November 2026</p>
+            <p className="rise-in mt-6 max-w-3xl text-lg leading-relaxed text-muted [--i:2]">
+              Hier erfährst du, welche personenbezogenen Daten wir verarbeiten,
+              wenn du kojalytics.com besuchst, die Koja-Apps kaufst und nutzt oder
+              die iOS-App AI Headshot verwendest. Teil A gilt für die Website und
+              die Koja-Apps, Teil B für AI Headshot.
+            </p>
+            <nav aria-label="Inhalt" className="rise-in mt-10 max-w-3xl border border-border [--i:3]">
+              <ul className="cells sm:grid-cols-2">
+                <li>
+                  <a href="#website" className="group flex min-h-14 items-center justify-between gap-4 p-5 font-medium hover:text-accent">
+                    <span>Teil A: Website kojalytics.com und Koja-Apps</span>
+                    <ArrowDown size={16} className="shrink-0 text-faint group-hover:text-accent" aria-hidden />
+                  </a>
+                </li>
+                <li>
+                  <a href="#ai-headshot" className="group flex min-h-14 items-center justify-between gap-4 p-5 font-medium hover:text-accent">
+                    <span>Teil B: AI Headshot (iOS-App)</span>
+                    <ArrowDown size={16} className="shrink-0 text-faint group-hover:text-accent" aria-hidden />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </section>
 
-          {/* Teil A */}
-          <div id="website" className="glass-card rounded-2xl p-10 space-y-10 scroll-mt-28">
-            <h2 className="text-2xl font-bold tracking-tight">
-              Teil A: Website kojalytics.com und Koja-Apps
+        {/* 02 Part A */}
+        <section id="website" className="rail crosshairs scroll-mt-12">
+          <SectionBar index="02" label="Teil A" meta="Website und Koja-Apps · Abschnitte 1–13" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h2 className="display max-w-4xl text-[clamp(1.8rem,3.4vw,2.8rem)]" data-reveal>
+              Teil <span className="text-highlight">A</span>: Website kojalytics.com und Koja-Apps
             </h2>
+          </div>
+          <div className="divide-y divide-border border-t border-border">
 
             <Section title="1. Verantwortlicher">
-              <P className="mb-3">
+              <P>
                 Verantwortlich für die Datenverarbeitung im Sinne der
                 Datenschutz-Grundverordnung (DSGVO) ist:
               </P>
@@ -77,7 +86,7 @@ export default function DatenschutzPage() {
             </Section>
 
             <Section title="2. Hosting und Server-Logfiles">
-              <P className="mb-3">
+              <P>
                 Unsere Website wird bei Vercel Inc. (USA) gehostet. Bei jedem
                 Seitenaufruf verarbeitet Vercel automatisch Daten, die dein
                 Browser übermittelt (Server-Logfiles):
@@ -89,7 +98,7 @@ export default function DatenschutzPage() {
                 <li>Referrer-URL (die zuvor besuchte Seite), soweit übermittelt</li>
                 <li>Browser, Betriebssystem und Gerätetyp (User-Agent)</li>
               </List>
-              <P className="mt-3">
+              <P>
                 Wir brauchen diese Daten, um die Website auszuliefern, ihre
                 Sicherheit und Stabilität zu gewährleisten und Angriffe
                 abzuwehren. Rechtsgrundlage ist unser berechtigtes Interesse an
@@ -97,7 +106,7 @@ export default function DatenschutzPage() {
                 DSGVO); der Zugriff auf dein Endgerät ist dafür technisch
                 erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG).
               </P>
-              <P className="mt-3">
+              <P>
                 Vercel verarbeitet die Daten in unserem Auftrag (Art. 28 DSGVO)
                 und betreibt ein weltweites Servernetz, sodass Daten auch in den
                 USA verarbeitet werden können. {USA_TRANSFER} Wir speichern die
@@ -105,7 +114,7 @@ export default function DatenschutzPage() {
                 Fristen. Wir werten sie nur aus, wenn das zur Fehlersuche oder
                 zur Abwehr von Angriffen nötig ist.
               </P>
-              <P className="mt-3">
+              <P>
                 Schriftarten und Bilder laden wir von unserem eigenen Server. Es
                 wird dafür keine Verbindung zu Google Fonts oder anderen
                 Drittanbietern aufgebaut. Die Verbindung zu unserer Website ist
@@ -120,17 +129,17 @@ export default function DatenschutzPage() {
                 bis 6). Solange du nicht auf „Akzeptieren“ geklickt hast, laden
                 wir keinen dieser Dienste, und sie können keine Cookies setzen.
               </P>
-              <P className="mt-3">
+              <P>
                 Deine Auswahl („Akzeptieren“ oder „Ablehnen“) speichern wir im
                 lokalen Speicher deines Browsers (localStorage) unter dem
-                Schlüssel <code>kj-consent-v1</code>. Dieser Eintrag ist kein
+                Schlüssel <code className="font-mono text-[0.92em]">kj-consent-v1</code>. Dieser Eintrag ist kein
                 Cookie, wird nicht an uns übertragen und bleibt gespeichert, bis
                 du ihn in deinem Browser löschst oder deine Auswahl änderst. Er
                 ist technisch erforderlich, damit wir dich nicht bei jedem
                 Seitenaufruf erneut fragen (§ 25 Abs. 2 Nr. 2 TDDDG, Art. 6 Abs.
                 1 lit. f DSGVO).
               </P>
-              <P className="mt-3">
+              <P>
                 Rechtsgrundlage für die Dienste in den Abschnitten 4 bis 6 ist
                 deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1
                 TDDDG). Sie ist freiwillig. Du kannst sie jederzeit mit Wirkung
@@ -238,7 +247,7 @@ export default function DatenschutzPage() {
                 kaufst, verarbeiten wir die Daten, die für Vertragsschluss,
                 Zahlung und Lieferung deines Lizenzschlüssels nötig sind.
               </P>
-              <P className="mt-3">
+              <P>
                 <B>Zahlung über Stripe:</B> Die Zahlung wickelt Stripe Payments
                 Europe, Limited (Irland) über Stripe Checkout ab. Dort gibst du
                 deine E-Mail-Adresse und deine Zahlungsdaten ein; je nach
@@ -253,15 +262,15 @@ export default function DatenschutzPage() {
                 Zahlungsdienstleister. Stripe kann Daten an die Stripe, Inc. in
                 den USA übermitteln. {USA_TRANSFER}
               </P>
-              <P className="mt-3">
+              <P>
                 <B>Bestätigungsseite:</B> Nach der Zahlung leitet Stripe dich zu
                 uns zurück. Wir setzen dann für eine Stunde ein technisch
-                notwendiges Cookie (<code>kj_session</code>) mit der Kennung
+                notwendiges Cookie (<code className="font-mono text-[0.92em]">kj_session</code>) mit der Kennung
                 deiner Bezahlsitzung, damit nur du auf der Bestätigungsseite
                 deinen Lizenzschlüssel siehst (§ 25 Abs. 2 Nr. 2 TDDDG, Art. 6
                 Abs. 1 lit. b DSGVO).
               </P>
-              <P className="mt-3">
+              <P>
                 <B>Lizenzdatenbank (Supabase):</B> Nach der Zahlung erzeugen wir
                 deinen Lizenzschlüssel und speichern in unserer Datenbank bei
                 Supabase (Server in der EU) deine E-Mail-Adresse, den
@@ -271,19 +280,19 @@ export default function DatenschutzPage() {
                 verarbeitet die Daten in unserem Auftrag (Art. 28 DSGVO). Soweit
                 dabei ein Zugriff aus den USA möglich ist, gilt: {USA_TRANSFER}
               </P>
-              <P className="mt-3">
+              <P>
                 <B>E-Mail-Versand (Resend):</B> Deinen Lizenzschlüssel und die
                 Kaufbestätigung senden wir dir per E-Mail über Resend, Inc.
                 (USA). Resend verarbeitet dafür deine E-Mail-Adresse und den
                 Inhalt der E-Mail in unserem Auftrag. {USA_TRANSFER}
               </P>
-              <P className="mt-3">
+              <P>
                 <B>Rechtsgrundlage:</B> Erfüllung des Vertrags (Art. 6 Abs. 1
                 lit. b DSGVO) und gesetzliche Aufbewahrungspflichten (Art. 6 Abs.
                 1 lit. c DSGVO). Ohne E-Mail-Adresse und Zahlungsdaten können wir
                 den Vertrag nicht abschließen.
               </P>
-              <P className="mt-3">
+              <P>
                 <B>Speicherdauer:</B> Die Lizenzdaten speichern wir, solange
                 deine Lizenz besteht. Danach bewahren wir die Daten auf, die wir
                 nach Handels- und Steuerrecht aufbewahren müssen (§ 147 AO, § 257
@@ -306,7 +315,7 @@ export default function DatenschutzPage() {
                 unserer Datenbank bei Supabase (Abschnitt 7). Dabei verarbeitet
                 unser Hoster Vercel auch deine IP-Adresse (Abschnitt 2).
               </P>
-              <P className="mt-3">
+              <P>
                 Zweck ist die Bereitstellung deiner Lizenz und der Schutz vor
                 Missbrauch. Rechtsgrundlage ist die Erfüllung des Vertrags (Art.
                 6 Abs. 1 lit. b DSGVO) und unser berechtigtes Interesse, die
@@ -327,7 +336,7 @@ export default function DatenschutzPage() {
                 Downloads. Wie GitHub diese Daten verarbeitet, regelt die
                 Datenschutzerklärung von GitHub. {USA_TRANSFER}
               </P>
-              <P className="mt-3">
+              <P>
                 Rechtsgrundlage ist unser berechtigtes Interesse an einer
                 zuverlässigen Bereitstellung des Downloads (Art. 6 Abs. 1 lit. f
                 DSGVO) und, wenn du die Apps gekauft hast, die Erfüllung des
@@ -340,7 +349,7 @@ export default function DatenschutzPage() {
             <Section title="10. Kündigungsformular">
               <P>
                 Über{" "}
-                <Link href="/kuendigen" className="text-accent-light hover:underline">
+                <Link href="/kuendigen">
                   „Verträge hier kündigen“
                 </Link>{" "}
                 kannst du dein Abo kündigen. Dabei verarbeiten wir deinen Namen,
@@ -353,7 +362,7 @@ export default function DatenschutzPage() {
                 Eingangsbestätigung senden wir dir per E-Mail über Resend
                 (Abschnitt 7); eine Kopie geht an support@kojalytics.com.
               </P>
-              <P className="mt-3">
+              <P>
                 Rechtsgrundlage ist die Abwicklung des Vertrags (Art. 6 Abs. 1
                 lit. b DSGVO) und unsere gesetzliche Pflicht, Kündigungen
                 entgegenzunehmen und zu bestätigen (Art. 6 Abs. 1 lit. c DSGVO in
@@ -368,7 +377,7 @@ export default function DatenschutzPage() {
             <Section title="11. Kontakt per E-Mail">
               <P>
                 Unsere{" "}
-                <Link href="/kontakt" className="text-accent-light hover:underline">
+                <Link href="/kontakt">
                   Kontaktseite
                 </Link>{" "}
                 sendet keine Daten an unseren Server. Sie öffnet nur dein
@@ -379,7 +388,7 @@ export default function DatenschutzPage() {
                 unter @kojalytics.com empfangen wir über Resend (Abschnitt 7) und
                 leiten sie an unser Postfach weiter.
               </P>
-              <P className="mt-3">
+              <P>
                 Wir nutzen die Daten nur, um deine Anfrage zu beantworten.
                 Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn es um einen
                 Vertrag oder dessen Anbahnung geht, sonst unser berechtigtes
@@ -391,7 +400,7 @@ export default function DatenschutzPage() {
             </Section>
 
             <Section title="12. Deine Rechte">
-              <P className="mb-3">Du hast gegenüber uns das Recht auf:</P>
+              <P>Du hast gegenüber uns das Recht auf:</P>
               <List>
                 <li>Auskunft über deine gespeicherten Daten (Art. 15 DSGVO)</li>
                 <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
@@ -403,13 +412,13 @@ export default function DatenschutzPage() {
                   Abs. 3 DSGVO)
                 </li>
               </List>
-              <P className="mt-3">
+              <P>
                 <B>Widerspruchsrecht (Art. 21 DSGVO):</B> Verarbeiten wir Daten
                 auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit.
                 f DSGVO), kannst du der Verarbeitung aus Gründen, die sich aus
                 deiner besonderen Situation ergeben, jederzeit widersprechen.
               </P>
-              <P className="mt-3">
+              <P>
                 Schreib uns dafür einfach an <SupportMail />. Außerdem kannst du
                 dich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77
                 DSGVO). Für uns zuständig ist der Hamburgische Beauftragte für
@@ -426,28 +435,29 @@ export default function DatenschutzPage() {
               </P>
             </Section>
           </div>
+        </section>
 
-          {/* Teil B */}
-          <div id="ai-headshot" className="glass-card rounded-2xl p-10 space-y-10 mt-10 scroll-mt-28">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight mb-3">
-                Teil B: AI Headshot (iOS-App)
-              </h2>
-              <P>
-                Dieser Teil gilt für die iOS-App AI Headshot, ein eigenes Angebot
-                von Kojalytics.
-              </P>
-            </div>
-
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-5">
-              <p className="text-accent-light font-medium text-sm leading-relaxed">
+        {/* 03 Part B */}
+        <section id="ai-headshot" className="rail crosshairs scroll-mt-12">
+          <SectionBar index="03" label="Teil B" meta="AI Headshot · iOS-App · Abschnitte B1–B12" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h2 className="display max-w-4xl text-[clamp(1.8rem,3.4vw,2.8rem)]" data-reveal>
+              Teil <span className="text-highlight">B</span>: AI Headshot (iOS-App)
+            </h2>
+            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted" data-reveal>
+              Dieser Teil gilt für die iOS-App AI Headshot, ein eigenes Angebot
+              von Kojalytics.
+            </p>
+            <div className="mt-8 max-w-3xl border border-border border-t-2 border-t-foreground p-5" data-reveal>
+              <p className="font-medium leading-relaxed">
                 AI Headshot braucht kein Nutzerkonto, erstellt keine
                 Nutzerprofile und verwendet keinerlei Tracking oder
                 Analyse-Tools. Deine Fotos verarbeiten wir nur, um deine
                 Portraits zu erstellen.
               </p>
             </div>
-
+          </div>
+          <div className="divide-y divide-border border-t border-border">
             <Section title="B1. Verantwortlicher">
               <P>
                 Kojalytics
@@ -459,17 +469,12 @@ export default function DatenschutzPage() {
                 E-Mail: <SupportMail />
                 <br />
                 Website:{" "}
-                <a
-                  href="https://www.kojalytics.com"
-                  className="text-accent-light hover:underline"
-                >
-                  www.kojalytics.com
-                </a>
+                <a href="https://www.kojalytics.com">www.kojalytics.com</a>
               </P>
             </Section>
 
             <Section title="B2. Welche Daten werden verarbeitet?">
-              <P className="mb-3">
+              <P>
                 AI Headshot verarbeitet ausschließlich die Daten, die für die
                 Erstellung von KI-generierten Portraits notwendig sind:
               </P>
@@ -491,8 +496,8 @@ export default function DatenschutzPage() {
                   erfolgt ausschließlich durch Apple.
                 </li>
               </List>
-              <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mt-4">
-                <p className="text-accent-light font-medium text-sm leading-relaxed">
+              <div className="mt-6 border border-border border-t-2 border-t-foreground p-5">
+                <p className="font-medium text-foreground">
                   Wichtig: Vor der ersten Übermittlung deiner Fotos an den
                   KI-Dienst bittet dich die App um deine ausdrückliche
                   Einwilligung. Ohne deine Zustimmung werden keine Fotos an
@@ -516,7 +521,7 @@ export default function DatenschutzPage() {
             </Section>
 
             <Section title="B4. Wie werden deine Fotos verarbeitet?">
-              <P className="mb-3">Deine Referenzfotos werden wie folgt verarbeitet:</P>
+              <P>Deine Referenzfotos werden wie folgt verarbeitet:</P>
               <List>
                 <li>
                   Die Fotos werden verschlüsselt (HTTPS) an unseren Server
@@ -526,7 +531,7 @@ export default function DatenschutzPage() {
                   <B>Drittanbieter-KI-Dienst:</B> Zur Bildgenerierung werden
                   deine Referenzfotos an die <B>Google Gemini API</B> (ein
                   KI-Dienst der Google Ireland Limited) weitergeleitet.
-                  <ul className="mt-2 ml-4 space-y-1 list-disc list-inside">
+                  <ul className="mb-0 mt-2">
                     <li>
                       <B>Übermittelte Daten:</B> Deine Referenzfotos
                       (Gesichtsbilder) sowie Stil- und
@@ -548,7 +553,6 @@ export default function DatenschutzPage() {
                         href="https://policies.google.com/privacy"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-accent-light hover:underline"
                       >
                         Google-Datenschutzrichtlinie
                       </a>{" "}
@@ -568,10 +572,10 @@ export default function DatenschutzPage() {
             </Section>
 
             <Section title="B5. Datenspeicherung">
-              <p className="mb-3 font-medium text-foreground text-sm">
+              <p className="font-semibold text-foreground">
                 Auf deinem Gerät (lokal):
               </p>
-              <List className="space-y-2 mb-4">
+              <List className="mt-2">
                 <li>Generierte Portraits und Vorschaubilder im App-Speicher</li>
                 <li>
                   Kaufbelege und Einstellungen im verschlüsselten
@@ -582,10 +586,10 @@ export default function DatenschutzPage() {
                   je nach Paket)
                 </li>
               </List>
-              <p className="mb-3 font-medium text-foreground text-sm">
+              <p className="mt-6 font-semibold text-foreground">
                 Auf unserem Server:
               </p>
-              <List>
+              <List className="mt-2">
                 <li>Referenzfotos werden nach der Verarbeitung gelöscht</li>
                 <li>
                   Generierte Portraits werden temporär gespeichert und sind nur
@@ -596,7 +600,7 @@ export default function DatenschutzPage() {
                   ohne Personenbezug
                 </li>
               </List>
-              <P className="mt-3">
+              <P>
                 Die lokal gespeicherten Portraits, Tresor-Einträge und
                 Einstellungen kannst du jederzeit in der App unter Einstellungen
                 › „Alle meine Daten löschen“ entfernen.
@@ -604,8 +608,8 @@ export default function DatenschutzPage() {
             </Section>
 
             <Section title="B6. Drittanbieter">
-              <P className="mb-3">Die App nutzt folgende Drittanbieter-Dienste:</P>
-              <List className="space-y-3">
+              <P>Die App nutzt folgende Drittanbieter-Dienste:</P>
+              <List className="[&>li+li]:mt-3">
                 <li>
                   <B>Google Gemini API (Drittanbieter-KI-Dienst):</B> Zur
                   KI-basierten Bildgenerierung. Deine Referenzfotos
@@ -617,7 +621,6 @@ export default function DatenschutzPage() {
                     href="https://policies.google.com/privacy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent-light hover:underline"
                   >
                     Google-Datenschutzrichtlinie
                   </a>{" "}
@@ -636,7 +639,6 @@ export default function DatenschutzPage() {
                     href="https://www.apple.com/legal/privacy/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent-light hover:underline"
                   >
                     Apple-Datenschutzrichtlinie
                   </a>
@@ -658,7 +660,7 @@ export default function DatenschutzPage() {
             </Section>
 
             <Section title="B8. Deine Rechte (DSGVO)">
-              <P className="mb-3">
+              <P>
                 Als Nutzer:in innerhalb der EU hast du insbesondere folgende
                 Rechte:
               </P>
@@ -684,7 +686,7 @@ export default function DatenschutzPage() {
                   Wirkung für die Zukunft widerrufen.
                 </li>
               </List>
-              <P className="mt-3">
+              <P>
                 Da die App keine Nutzerkonten verwendet, werden keine
                 personenbezogenen Daten dauerhaft gespeichert. Alle weiteren
                 Rechte, auch das Beschwerderecht bei einer Aufsichtsbehörde,
@@ -704,7 +706,7 @@ export default function DatenschutzPage() {
                   Portraits in deiner Fotobibliothek.
                 </li>
               </List>
-              <P className="mt-3">
+              <P>
                 Es werden keine weiteren Berechtigungen benötigt (kein Kamera-,
                 Mikrofon-, Standort- oder Kontaktzugriff).
               </P>
@@ -731,48 +733,48 @@ export default function DatenschutzPage() {
               </P>
             </Section>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </>
   );
 }
 
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+/** One numbered section: title left (sticky on wide screens), text right in a readable column. */
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      {children}
+    <section className={`grid gap-4 py-10 md:py-12 lg:grid-cols-[17rem_minmax(0,48rem)] lg:gap-12 ${pad}`} data-reveal>
+      <h3 className="text-[1.125rem] font-semibold leading-snug lg:sticky lg:top-20 lg:self-start">{title}</h3>
+      <div className="prose-de [&>:first-child]:mt-0 [&>:last-child]:mb-0">{children}</div>
     </section>
   );
 }
 
-function P({ className = "", children }: { className?: string; children: React.ReactNode }) {
-  return <p className={`text-muted leading-relaxed ${className}`}>{children}</p>;
+function P({ children }: { children: React.ReactNode }) {
+  return <p>{children}</p>;
 }
 
 function B({ children }: { children: React.ReactNode }) {
   return <strong className="text-foreground">{children}</strong>;
 }
 
-function List({ className = "space-y-2", children }: { className?: string; children: React.ReactNode }) {
-  return <ul className={`text-muted list-disc list-inside leading-relaxed ${className}`}>{children}</ul>;
+function List({ className = "", children }: { className?: string; children: React.ReactNode }) {
+  return <ul className={className}>{children}</ul>;
 }
 
-/** Label/value rows for the services that run with consent. */
+/** Label/value rows for the services that run with consent: mono label left, text right, hairlines between. */
 function Facts({ items }: { items: [string, string][] }) {
   return (
-    <dl className="space-y-3">
+    <dl className="border-t border-border lg:border-t-0">
       {items.map(([label, text]) => (
-        <div key={label}>
-          <dt className="font-medium text-foreground text-sm">{label}</dt>
-          <dd className="text-muted leading-relaxed">{text}</dd>
+        <div
+          key={label}
+          className="grid gap-1 border-b border-border py-4 last:border-b-0 last:pb-0 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-6 lg:first:pt-0"
+        >
+          <dt className="hud sm:pt-[7px]">{label}</dt>
+          <dd>
+            <p>{text}</p>
+          </dd>
         </div>
       ))}
     </dl>
@@ -780,9 +782,5 @@ function Facts({ items }: { items: [string, string][] }) {
 }
 
 function SupportMail() {
-  return (
-    <a href="mailto:support@kojalytics.com" className="text-accent-light hover:underline">
-      support@kojalytics.com
-    </a>
-  );
+  return <a href="mailto:support@kojalytics.com">support@kojalytics.com</a>;
 }

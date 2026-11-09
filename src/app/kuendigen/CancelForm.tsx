@@ -39,34 +39,34 @@ export default function CancelForm() {
     const date = at.toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Berlin" });
     const time = at.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Berlin" });
     return (
-      <div className="rounded-[22px] border border-success/40 bg-[#f0fdf4] p-6 sm:p-8" role="status">
-        <p className="display text-3xl">Kündigung eingegangen</p>
+      <div className="border border-border border-t-2 border-t-success p-5 sm:p-8" role="status">
+        <p className="display text-[clamp(1.6rem,3vw,2.1rem)]">Kündigung eingegangen</p>
         <p className="mt-4 font-semibold">
           Eingegangen am {date} um {time} Uhr
         </p>
-        <dl className="mt-3 grid gap-1 text-[15px] text-muted">
-          <div>
-            <dt className="inline">Art: </dt>
-            <dd className="inline text-foreground">
+        <dl className="mt-5 border-t border-border text-[15px]">
+          <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-border py-2.5">
+            <dt className="hud pt-[3px]">Art: </dt>
+            <dd className="break-words text-foreground">
               {type === "extraordinary" ? "außerordentlich (aus wichtigem Grund)" : "ordentlich, zum nächstmöglichen Zeitpunkt"}
             </dd>
           </div>
-          <div>
-            <dt className="inline">Name: </dt>
-            <dd className="inline text-foreground">{name}</dd>
+          <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-border py-2.5">
+            <dt className="hud pt-[3px]">Name: </dt>
+            <dd className="break-words text-foreground">{name}</dd>
           </div>
-          <div>
-            <dt className="inline">E-Mail: </dt>
-            <dd className="inline text-foreground">{email}</dd>
+          <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-border py-2.5">
+            <dt className="hud pt-[3px]">E-Mail: </dt>
+            <dd className="break-words text-foreground">{email}</dd>
           </div>
         </dl>
-        <p className="mt-4 leading-relaxed text-muted">
+        <p className="mt-5 leading-relaxed text-muted">
           Gehört zu dieser Adresse ein Koja-Apps-Abo, endet es zum Ende des laufenden Abrechnungsmonats. Danach buchen wir nichts mehr ab.{" "}
           {done.emailSent
             ? "Eine Eingangsbestätigung mit dem genauen Enddatum haben wir dir per E-Mail geschickt."
             : "Die Bestätigung per E-Mail konnten wir gerade nicht senden. Bitte speichere oder drucke diese Seite."}
         </p>
-        <button type="button" onClick={() => window.print()} className="btn-secondary mt-6">
+        <button type="button" onClick={() => window.print()} className="btn-secondary mt-6 w-full sm:w-auto">
           Seite drucken oder speichern
         </button>
       </div>
@@ -74,11 +74,11 @@ export default function CancelForm() {
   }
 
   const field =
-    "w-full rounded-[12px] border border-[#d6d3d1] bg-white px-4 py-3 text-foreground placeholder:text-muted focus:border-foreground focus:outline-none";
+    "min-h-12 w-full border border-border-strong bg-white px-4 py-3 text-foreground placeholder:text-muted focus:border-foreground focus:outline-none";
 
   return (
     <form
-      className="grid gap-5 rounded-[22px] border border-border bg-white p-6 sm:p-8"
+      className="grid gap-6 border border-border p-5 sm:p-8"
       onSubmit={(e) => {
         e.preventDefault();
         submit();
@@ -102,16 +102,18 @@ export default function CancelForm() {
         </label>
         <input id="cancel-reference" value={reference} onChange={(e) => setReference(e.target.value)} className={field} autoComplete="off" />
       </div>
-      <fieldset className="grid gap-2">
-        <legend className="mb-2 text-sm font-semibold">Art der Kündigung</legend>
-        <label className="flex items-center gap-3 text-sm">
-          <input type="radio" name="type" checked={type === "ordinary"} onChange={() => setType("ordinary")} className="h-4 w-4 accent-[#111113]" />
-          Ordentlich, zum nächstmöglichen Zeitpunkt (Ende des laufenden Abrechnungsmonats)
-        </label>
-        <label className="flex items-center gap-3 text-sm">
-          <input type="radio" name="type" checked={type === "extraordinary"} onChange={() => setType("extraordinary")} className="h-4 w-4 accent-[#111113]" />
-          Außerordentlich (aus wichtigem Grund)
-        </label>
+      <fieldset>
+        <legend className="mb-3 text-sm font-semibold">Art der Kündigung</legend>
+        <div className="cells border border-border">
+          <label className="flex min-h-12 cursor-pointer items-start gap-3 px-4 py-3.5 text-sm leading-snug text-muted has-[:checked]:text-foreground">
+            <input type="radio" name="type" checked={type === "ordinary"} onChange={() => setType("ordinary")} className="mt-0.5 h-4 w-4 shrink-0 accent-foreground" />
+            Ordentlich, zum nächstmöglichen Zeitpunkt (Ende des laufenden Abrechnungsmonats)
+          </label>
+          <label className="flex min-h-12 cursor-pointer items-start gap-3 px-4 py-3.5 text-sm leading-snug text-muted has-[:checked]:text-foreground">
+            <input type="radio" name="type" checked={type === "extraordinary"} onChange={() => setType("extraordinary")} className="mt-0.5 h-4 w-4 shrink-0 accent-foreground" />
+            Außerordentlich (aus wichtigem Grund)
+          </label>
+        </div>
       </fieldset>
       {type === "extraordinary" && (
         <div className="grid gap-2">
@@ -123,13 +125,13 @@ export default function CancelForm() {
       )}
 
       {error && (
-        <p className="text-sm font-medium text-red-700" role="alert">
+        <p className="border-l-2 border-red-700 pl-3 text-sm font-medium text-red-700" role="alert">
           {error}
         </p>
       )}
 
       <div>
-        <button type="submit" className="btn-primary" disabled={busy}>
+        <button type="submit" className="btn-primary w-full sm:w-auto" disabled={busy}>
           {busy ? "Wird gekündigt …" : "Jetzt kündigen"}
         </button>
       </div>

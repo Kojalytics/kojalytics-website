@@ -53,6 +53,13 @@ function getPreferredLocale(request: NextRequest): Locale {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // People type "kojalytics.com/Software": routes are lowercase, so send any capitalised /software path there.
+  if (/^\/software(\/|$)/i.test(pathname) && pathname !== pathname.toLowerCase()) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.toLowerCase().replace(/\/$/, "") || "/";
+    return NextResponse.redirect(url, 308);
+  }
+
   // Only handle /aiheadshot routes
   if (pathname === '/aiheadshot' || pathname === '/aiheadshot/') {
     const locale = getPreferredLocale(request);
@@ -71,5 +78,14 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/aiheadshot', '/aiheadshot/', '/:locale/aiheadshot', '/:locale/aiheadshot/:path*'],
+  matcher: [
+    '/aiheadshot',
+    '/aiheadshot/',
+    '/:locale/aiheadshot',
+    '/:locale/aiheadshot/:path*',
+    '/Software',
+    '/Software/:path*',
+    '/SOFTWARE',
+    '/SOFTWARE/:path*',
+  ],
 };
