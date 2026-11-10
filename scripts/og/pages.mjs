@@ -24,8 +24,9 @@ function wrap(text, max) {
 }
 
 async function render(out, { eyebrow, title, sub, icon, shot, bar }) {
-  const lines = wrap(title, 17).slice(0, 4);
-  const size = lines.length > 3 ? 44 : 52;
+  const lines = (Array.isArray(title) ? title : wrap(title, 17)).slice(0, 4);
+  // About 0.52em per bold character: lines over 18 characters get smaller so they stay clear of the screenshot.
+  const size = Math.min(lines.length > 3 ? 44 : 52, Math.floor(960 / Math.max(...lines.map((l) => l.length))));
   const top = icon ? 236 : 186;
   const titleSvg = lines.map((l, i) => `<text x="68" y="${top + i * (size + 8)}" font-family="${SANS}" font-size="${size}" font-weight="800" fill="${INK}" letter-spacing="-1.4">${esc(l)}</text>`).join("");
   const subY = top + (lines.length - 1) * (size + 8) + 52;
@@ -52,8 +53,8 @@ for (const f of fs.readdirSync(appsDir)) {
   const app = JSON.parse(fs.readFileSync(path.join(appsDir, f), "utf8"));
   await render(`og/apps/${slug}.jpg`, {
     eyebrow: names[slug],
-    bar: { index: "01", label: names[slug], meta: "macOS · 3 Tage kostenlos" },
-    title: `${app.kind} für den Mac`,
+    bar: { index: "01", label: names[slug], meta: "macOS · Windows · 3 Tage kostenlos" },
+    title: [...wrap(app.kind, 17), "für Mac und Windows"],
     sub: "3 Tage kostenlos testen · 2,99 € im Monat",
     icon: `apps/${slug}/icon.webp`,
     shot: NO_SHOT.has(slug) ? null : `apps/${slug}/${app.screenshots[0].file}`,
