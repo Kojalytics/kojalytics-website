@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactCta from "@/components/studio/ContactCta";
+import SectionBar from "@/components/instrument/SectionBar";
 import { DEFAULT_OG_IMAGE, OG_BASE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -20,42 +21,55 @@ const principles = [
 
 const stack = ["SwiftUI", "Next.js", "React", "TypeScript", "Supabase", "Postgres", "Stripe", "Vercel", "Gemini", "Claude"];
 
+const pad = "px-5 md:px-10";
+const two = (n: number) => String(n).padStart(2, "0");
+
 export default function AboutPage() {
   return (
     <>
       <Navigation />
-      <main>
-        <section className="bg-[linear-gradient(180deg,#f5f5f4_0%,#ffffff_100%)] px-5 pb-16 pt-28 md:px-6 md:pt-36">
-          <div className="mx-auto max-w-7xl">
-            <p className="eyebrow">Über uns</p>
-            <h1 className="display mt-3 max-w-4xl text-[clamp(2.75rem,6.5vw,5rem)]">Ein kleines Studio, das ausliefert.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+      <main className="pt-12">
+        {/* 01 Hero */}
+        <section className="rail">
+          <SectionBar index="01" label="Über uns" meta="Kojalytics · Software-Studio aus Deutschland" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h1 className="display rise-in max-w-4xl text-[clamp(2.1rem,5.4vw,4.6rem)]">
+              Ein kleines Studio, das <span className="text-highlight">ausliefert</span>.
+            </h1>
+            <p className="rise-in mt-6 max-w-2xl text-lg leading-relaxed text-muted [--i:1]">
               Kojalytics ist ein Software-Studio aus Deutschland. Wir entwickeln Apps und Web-Plattformen für Kunden und betreiben eigene
               Produkte: AI Headshot, Etsy Sync und die Koja-Apps für Mac und Windows.
             </p>
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-20">
-          <div className="grid gap-4 md:grid-cols-3">
-            {principles.map((p) => (
-              <div key={p.title} className="rounded-[22px] border border-border p-6 sm:p-8">
-                <h2 className="display text-3xl">{p.title}</h2>
-                <p className="mt-4 leading-relaxed text-muted">{p.text}</p>
+        {/* 02 Principles */}
+        <section className="rail crosshairs">
+          <SectionBar index="02" label="Wie wir arbeiten" meta={`${principles.length} Grundsätze`} />
+          <div className="cells lg:grid-cols-3">
+            {principles.map((p, i) => (
+              <div key={p.title} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
+                <p className="hud text-faint">{two(i + 1)}</p>
+                <h2 className="display mt-6 text-[1.55rem]">{p.title}</h2>
+                <p className="mt-3 max-w-xl leading-relaxed text-muted">{p.text}</p>
               </div>
             ))}
           </div>
-          <div className="mt-16">
-            <p className="text-sm font-semibold">Womit wir bauen</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {stack.map((t) => (
-                <span key={t} className="rounded-full bg-surface px-4 py-2 text-sm text-muted">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
         </section>
+
+        {/* 03 Stack */}
+        <section className="rail crosshairs">
+          <SectionBar index="03" label="Womit wir bauen" meta={`${stack.length} Werkzeuge`} />
+          <ul className="cells grid-cols-2 lg:grid-cols-5">
+            {stack.map((t, i) => (
+              <li key={t} className="flex items-baseline justify-between gap-3 px-5 py-6 md:px-8 md:py-8" data-reveal style={{ ["--i" as string]: i % 5 }}>
+                <span className="text-lg font-semibold">{t}</span>
+                <span className="hud text-faint">{two(i + 1)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <ContactCta />
       </main>
       <Footer />

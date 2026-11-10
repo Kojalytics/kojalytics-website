@@ -16,13 +16,14 @@ export function faqJsonLd(items: FaqItem[]) {
 export default function Faq({ items }: { items: FaqItem[] }) {
   return (
     <div className="divide-y divide-border border-y border-border">
-      {items.map((item) => (
-        <details key={item.q} className="group py-5">
-          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-lg font-semibold [&::-webkit-details-marker]:hidden">
-            <h3>{item.q}</h3>
-            <Plus size={22} className="mt-1 shrink-0 text-muted transition-transform group-open:rotate-45" aria-hidden />
+      {items.map((item, i) => (
+        <details key={item.q} className="group">
+          <summary className="flex min-h-11 cursor-pointer list-none items-start gap-5 py-5 text-lg font-semibold [&::-webkit-details-marker]:hidden">
+            <span className="hud mt-1.5 w-6 shrink-0 text-faint">{String(i + 1).padStart(2, "0")}</span>
+            <h3 className="flex-1">{item.q}</h3>
+            <Plus size={20} className="mt-1 shrink-0 text-muted transition-transform group-open:rotate-45" aria-hidden />
           </summary>
-          <p className="mt-3 max-w-3xl leading-relaxed text-muted [&_a]:text-accent [&_a]:underline">
+          <p className="-mt-2 max-w-3xl pb-5 pl-11 leading-relaxed text-muted [&_a]:text-accent [&_a]:underline">
             <RichText text={item.a} />
           </p>
         </details>

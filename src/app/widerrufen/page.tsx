@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SectionBar from "@/components/instrument/SectionBar";
 import WithdrawForm from "./WithdrawForm";
 
 export const metadata: Metadata = {
@@ -15,23 +16,32 @@ export default function WithdrawPage() {
   return (
     <>
       <Navigation />
-      <main className="mx-auto max-w-2xl px-5 pb-24 pt-28 md:pt-36">
-        <p className="eyebrow">Koja-Apps</p>
-        <h1 className="display mt-3 text-5xl sm:text-6xl">Vertrag widerrufen</h1>
-        <p className="mt-5 leading-relaxed text-muted">
-          Hier erklärst du den Widerruf deines Kaufs. Ob dir das Widerrufsrecht noch zusteht, steht in unserer{" "}
-          <Link href="/agb#widerruf" className="text-foreground underline underline-offset-2">
-            Widerrufsbelehrung
-          </Link>
-          . Du willst nur dein Abo beenden?{" "}
-          <Link href="/kuendigen" className="text-foreground underline underline-offset-2">
-            Dann kündige es hier
-          </Link>
-          .
-        </p>
-        <div className="mt-10">
-          <WithdrawForm />
-        </div>
+      <main className="pt-12">
+        {/* 01 Withdrawal: explanation left, the form right (stacked on phones) */}
+        <section className="rail">
+          <SectionBar index="01" label="Koja-Apps" meta="Widerrufsfunktion · Eingangsbestätigung per E-Mail" />
+          <div className="grid gap-12 px-5 py-14 md:px-10 md:py-20 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div>
+              <h1 className="display rise-in text-[clamp(2rem,4vw,3.2rem)]">
+                Vertrag <span className="text-highlight">widerrufen</span>
+              </h1>
+              <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
+                Hier erklärst du den Widerruf deines Kaufs. Ob dir das Widerrufsrecht noch zusteht, steht in unserer{" "}
+                <Link href="/agb#widerruf" className="text-foreground underline underline-offset-4">
+                  Widerrufsbelehrung
+                </Link>
+                . Du willst nur dein Abo beenden?{" "}
+                <Link href="/kuendigen" className="text-foreground underline underline-offset-4">
+                  Dann kündige es hier
+                </Link>
+                .
+              </p>
+            </div>
+            <div className="rise-in [--i:2]">
+              <WithdrawForm />
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

@@ -3,6 +3,7 @@ import { Mail, MessageCircle } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Faq from "@/components/software/Faq";
+import SectionBar from "@/components/instrument/SectionBar";
 
 const kojaFaq = [
   {
@@ -46,41 +47,70 @@ const headshotFaq = [
   },
 ];
 
+const pad = "px-5 md:px-10";
+
 export default function SupportPage() {
   return (
     <>
       <Navigation />
-      <main className="px-5 pb-24 pt-28 md:px-6 md:pt-36">
-        <div className="mx-auto max-w-4xl">
-          <p className="eyebrow">Hilfe & Support</p>
-          <h1 className="display mt-3 text-[clamp(2.5rem,6vw,4.25rem)]">Wie können wir helfen?</h1>
-          <p className="mt-5 max-w-xl text-lg text-muted">Antworten auf häufige Fragen zu den Koja-Apps und AI Headshot. Oder schreib uns direkt.</p>
+      <main className="pt-12">
+        {/* 01 Hero + contact options */}
+        <section className="rail">
+          <SectionBar index="01" label="Hilfe & Support" meta="Koja-Apps · AI Headshot" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h1 className="display rise-in max-w-4xl text-[clamp(2.1rem,5.4vw,4.6rem)]">
+              Wie können wir <span className="text-highlight">helfen</span>?
+            </h1>
+            <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
+              Antworten auf häufige Fragen zu den Koja-Apps und AI Headshot. Oder schreib uns direkt.
+            </p>
+          </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            <div className="flex items-start gap-4 rounded-[22px] bg-surface p-6">
-              <Mail size={22} className="mt-0.5 shrink-0" aria-hidden />
-              <div>
-                <h2 className="font-semibold">E-Mail-Support</h2>
-                <p className="mt-1 text-sm text-muted">Antwort in der Regel innerhalb von 24 Stunden</p>
-                <p className="mt-2 select-all font-medium">support@kojalytics.com</p>
+          <div className="cells rise-in border-t border-border md:grid-cols-2 [--i:2]">
+            <div className="flex items-start gap-4 p-6 md:p-8">
+              <span className="icon-box shrink-0">
+                <Mail size={18} aria-hidden />
+              </span>
+              <div className="min-w-0">
+                <h2 className="hud">E-Mail-Support</h2>
+                <p className="mt-2 text-sm text-muted">Antwort in der Regel innerhalb von 24 Stunden</p>
+                <p className="mt-3 select-all break-all text-lg font-semibold">support@kojalytics.com</p>
               </div>
             </div>
-            <Link href="/kontakt" className="flex items-start gap-4 rounded-[22px] border border-border p-6 transition-colors hover:border-foreground/40">
-              <MessageCircle size={22} className="mt-0.5 shrink-0" aria-hidden />
+            <Link href="/kontakt" className="group flex items-start gap-4 p-6 transition-colors hover:bg-surface md:p-8">
+              <span className="icon-box shrink-0">
+                <MessageCircle size={18} aria-hidden />
+              </span>
               <div>
-                <h2 className="font-semibold">Kontaktformular</h2>
-                <p className="mt-1 text-sm text-muted">Für ausführliche Anfragen</p>
-                <p className="mt-2 font-medium">Zur Kontaktseite →</p>
+                <h2 className="hud">Kontaktformular</h2>
+                <p className="mt-2 text-sm text-muted">Für ausführliche Anfragen</p>
+                <p className="mt-3 text-lg font-semibold group-hover:text-accent">Zur Kontaktseite →</p>
               </div>
             </Link>
           </div>
+        </section>
 
-          <h2 className="display mb-6 mt-16 text-3xl">Koja-Apps</h2>
-          <Faq items={kojaFaq} />
+        {/* 02 Koja-Apps */}
+        <section className="rail crosshairs">
+          <SectionBar index="02" label="Koja-Apps" meta="Lizenz · Abo · Schlüssel" />
+          <div className={`grid gap-10 py-14 md:py-20 lg:grid-cols-[0.8fr_1.2fr] ${pad}`}>
+            <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              Koja-<span className="text-highlight">Apps</span>
+            </h2>
+            <Faq items={kojaFaq} />
+          </div>
+        </section>
 
-          <h2 className="display mb-6 mt-16 text-3xl">AI Headshot</h2>
-          <Faq items={headshotFaq} />
-        </div>
+        {/* 03 AI Headshot */}
+        <section className="rail crosshairs">
+          <SectionBar index="03" label="AI Headshot" meta="Pakete · Erstattung · Datenschutz" />
+          <div className={`grid gap-10 py-14 md:py-20 lg:grid-cols-[0.8fr_1.2fr] ${pad}`}>
+            <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              AI <span className="text-highlight">Headshot</span>
+            </h2>
+            <Faq items={headshotFaq} />
+          </div>
+        </section>
       </main>
       <Footer />
     </>

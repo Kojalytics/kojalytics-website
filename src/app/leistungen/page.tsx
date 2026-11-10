@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactCta from "@/components/studio/ContactCta";
+import SectionBar from "@/components/instrument/SectionBar";
 import { SERVICES } from "@/lib/studio";
 import { DEFAULT_OG_IMAGE, OG_BASE } from "@/lib/site";
 
@@ -14,41 +15,50 @@ export const metadata: Metadata = {
   openGraph: { ...OG_BASE, url: "/leistungen", images: [DEFAULT_OG_IMAGE] },
 };
 
+const pad = "px-5 md:px-10";
+const two = (n: number) => String(n).padStart(2, "0");
+
 export default function ServicesPage() {
   return (
     <>
       <Navigation />
-      <main>
-        <section className="bg-[linear-gradient(180deg,#f5f5f4_0%,#ffffff_100%)] px-5 pb-16 pt-28 md:px-6 md:pt-36">
-          <div className="mx-auto max-w-7xl">
-            <p className="eyebrow">Leistungen</p>
-            <h1 className="display mt-3 max-w-4xl text-[clamp(2.75rem,6.5vw,5rem)]">App-Entwicklung vom ersten Entwurf bis zum Release.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+      <main className="pt-12">
+        {/* 01 Hero */}
+        <section className="rail">
+          <SectionBar index="01" label="Leistungen" meta="Skizze → Release → Updates" />
+          <div className={`py-14 md:py-20 ${pad}`}>
+            <h1 className="display rise-in max-w-4xl text-[clamp(2.1rem,5.4vw,4.6rem)]">
+              App-Entwicklung vom ersten Entwurf bis zum <span className="text-highlight">Release</span>.
+            </h1>
+            <p className="rise-in mt-6 max-w-2xl text-lg leading-relaxed text-muted [--i:1]">
               Wir sind ein kleines Software-Studio aus Deutschland. Du sprichst direkt mit den Menschen, die deine App gestalten und
               programmieren, von der ersten Skizze bis zum Release und den Updates danach.
             </p>
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 pb-12 md:px-6">
-          <div className="grid gap-4">
-            {SERVICES.map((s) => (
-              <article key={s.slug} id={s.slug} className="grid scroll-mt-24 gap-6 rounded-[22px] border border-border p-6 sm:p-8 lg:grid-cols-2">
+        {/* 02 Services */}
+        <section className="rail crosshairs">
+          <SectionBar index="02" label="Was wir bauen" meta={`${SERVICES.length} Leistungen · iOS · Web · KI · Design · Backend`} />
+          <div className="cells">
+            {SERVICES.map((s, i) => (
+              <article key={s.slug} id={s.slug} className={`grid scroll-mt-12 gap-8 py-14 md:py-20 lg:grid-cols-2 lg:gap-12 ${pad}`} data-reveal>
                 <div>
-                  <h2 className="display text-3xl sm:text-4xl">{s.title}</h2>
-                  <p className="mt-4 max-w-md text-lg text-muted">{s.summary}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <p className="hud text-faint">{two(i + 1)}</p>
+                  <h2 className="display mt-4 text-[clamp(1.8rem,3.4vw,2.8rem)]">{s.title}</h2>
+                  <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">{s.summary}</p>
+                  <div className="mt-6 flex flex-wrap gap-1.5">
                     {s.stack.map((t) => (
-                      <span key={t} className="rounded-full bg-surface px-3 py-1 text-xs text-muted">
+                      <span key={t} className="tag">
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
-                <ul className="grid content-start gap-3">
+                <ul className="grid self-start divide-y divide-border border-y border-border">
                   {s.details.map((d) => (
-                    <li key={d} className="flex gap-3">
-                      <Check size={18} strokeWidth={2.6} className="mt-1 shrink-0 text-success" aria-hidden />
+                    <li key={d} className="flex gap-3 py-3.5">
+                      <Check size={18} strokeWidth={2.4} className="mt-1 shrink-0 text-success" aria-hidden />
                       {d}
                     </li>
                   ))}
@@ -57,6 +67,7 @@ export default function ServicesPage() {
             ))}
           </div>
         </section>
+
         <ContactCta />
       </main>
       <Footer />

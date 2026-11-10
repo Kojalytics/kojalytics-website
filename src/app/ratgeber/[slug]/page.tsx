@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, Lightbulb } from "lucide-react";
+import { ArrowUpRight, Lightbulb } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RichText from "@/components/RichText";
@@ -9,8 +9,9 @@ import AppIcon from "@/components/ui/app-icon";
 import MacWindow from "@/components/ui/mac-window";
 import DownloadButton from "@/components/software/DownloadButton";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
+import SectionBar from "@/components/instrument/SectionBar";
 import { ARTICLES, getArticle, type Block } from "@/lib/ratgeber";
-import { getApp, shotFor } from "@/lib/apps";
+import { appInk, getApp, shotFor } from "@/lib/apps";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import { OG_BASE, SITE_URL, jsonLd } from "@/lib/site";
 
@@ -41,33 +42,45 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const pad = "px-5 md:px-10";
+const two = (n: number) => String(n).padStart(2, "0");
+/** Article layout: a narrow index column (breadcrumb, table of contents) and the reading column. */
+const columns = "grid lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-14 xl:grid-cols-[16rem_minmax(0,1fr)] xl:gap-20";
+
+/** No line break between a number and its unit ("50 %", "79 €"). */
+const keepUnits = (s: string) => s.replace(/ (%|€)/g, " $1");
+
 const dateDE = (iso: string) => new Date(iso).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
 
 function AppCallout({ slug, text }: { slug: string; text: string }) {
   const app = getApp(slug);
   if (!app) return null;
   const shot = shotFor(app);
+  const ink = appInk(app.color);
   return (
-    <aside className="not-prose my-8 overflow-hidden rounded-[22px] border border-border bg-surface">
-      <div className="grid gap-0 sm:grid-cols-[1fr_1.1fr]">
+    <aside className="not-prose my-10 border border-border">
+      <div className="grid sm:grid-cols-[1fr_1.1fr]">
         <div className="p-6">
           <div className="flex items-center gap-3">
             <AppIcon slug={app.slug} name={app.name} size={44} />
             <div>
-              <p className="font-semibold">{app.name}</p>
-              <p className="text-sm text-muted">{app.kind} für macOS und Windows</p>
+              <p className="display !text-[1.25rem] !leading-tight">
+                {app.name.slice(0, -4)}
+                <span style={{ color: ink }}>Koja</span>
+              </p>
+              <p className="hud mt-1">{app.kind} für macOS und Windows</p>
             </div>
           </div>
-          <p className="mt-4 text-[15px] leading-relaxed text-[#2b2a29]">
+          <p className="mt-5 !text-[15px] !leading-relaxed">
             <RichText text={text} />
           </p>
-          <Link href={`/software/${app.slug}`} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold">
-            {app.name} ansehen <ArrowRight size={16} aria-hidden />
+          <Link href={`/software/${app.slug}`} className="link-hud mt-2 min-h-11 !text-foreground !no-underline hover:!text-accent">
+            {app.name} ansehen <ArrowUpRight size={14} aria-hidden />
           </Link>
         </div>
         {shot && (
-          <div className="p-4 sm:pl-0">
-            <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, 380px" />
+          <div className="border-t border-border p-4 sm:border-l sm:border-t-0">
+            <MacWindow src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, 380px" label={app.name} />
           </div>
         )}
       </div>
@@ -107,55 +120,62 @@ function BlockView({ block }: { block: Block }) {
       );
     case "table":
       return (
-        <div className="my-6">
-          {block.caption && <p className="mb-2 !text-sm !leading-relaxed !text-muted">{block.caption}</p>}
+        <div className="my-8">
+          {block.caption && <p className="mb-3 !text-sm !leading-relaxed !text-muted">{block.caption}</p>}
           {/* Phones: one card per row, so no column is hidden off-screen */}
           <div className="grid gap-3 sm:hidden">
             {block.rows.map((r, i) => (
-              <dl key={i} className="rounded-[18px] border border-border p-4 text-[15px]">
-                <dt className="font-semibold">
-                  <RichText text={r[0]} />
+              <dl key={i} className="border border-border p-4 text-[15px]">
+                <dt className="flex items-start gap-3 font-semibold">
+                  <span className="hud mt-[3px] shrink-0 text-faint">{two(i + 1)}</span>
+                  <span>
+                    <RichText text={r[0]} />
+                  </span>
                 </dt>
                 {r.slice(1).map((c, j) => (
-                  <dd key={j} className="mt-1.5">
-                    <span className="text-sm text-muted">{block.head[j + 1]}: </span>
+                  <dd key={j} className="mt-3 border-t border-border pt-3 leading-relaxed">
+                    <span className="hud mb-1 block">{block.head[j + 1]}</span>
                     <RichText text={c} />
                   </dd>
                 ))}
               </dl>
             ))}
           </div>
-          <div className="hidden overflow-x-auto rounded-[18px] border border-border sm:block">
-          <table className="w-full text-left text-[15px]">
-            <thead className="bg-surface">
-              <tr>
-                {block.head.map((h) => (
-                  <th key={h} scope="col" className="p-3 font-semibold">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {block.rows.map((r, i) => (
-                <tr key={i} className="border-t border-border align-top">
-                  {r.map((c, j) => (
-                    <td key={j} className={`p-3 ${j === 0 ? "font-medium" : ""}`}>
-                      <RichText text={c} />
-                    </td>
+          <div className="hidden overflow-x-auto border border-border sm:block">
+            <table className="w-full text-left text-[15px]">
+              <thead>
+                <tr className="border-b border-border">
+                  {block.head.map((h, j) => (
+                    <th key={h} scope="col" className={`hud p-3 align-bottom !text-foreground ${j > 0 ? "border-l border-border" : ""}`}>
+                      {h}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {block.rows.map((r, i) => (
+                  <tr key={i} className="border-t border-border align-top first:border-t-0">
+                    {r.map((c, j) => (
+                      <td key={j} className={`p-3 leading-relaxed ${j === 0 ? "font-medium" : "border-l border-border"}`}>
+                        <RichText text={c} />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       );
     case "tip":
       return (
-        <div className="not-prose my-6 flex gap-3 rounded-[18px] bg-[#eef4fe] p-5 text-[15px] leading-relaxed">
-          <Lightbulb size={20} className="mt-0.5 shrink-0 text-accent" aria-hidden />
-          <p>
+        // Phones: icon and label share the first row, the text gets the full width below.
+        <div className="not-prose my-8 grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-3 border border-border p-5 sm:items-start sm:gap-y-2 sm:p-6">
+          <span className="icon-box sm:row-span-2">
+            <Lightbulb size={18} aria-hidden />
+          </span>
+          <p className="hud !text-[11px] !leading-[1.4] !text-foreground">Tipp</p>
+          <p className="col-span-2 !mt-0 sm:col-span-1 sm:col-start-2">
             <RichText text={block.text} />
           </p>
         </div>
@@ -196,6 +216,13 @@ export default async function ArticlePage({ params }: Props) {
     ],
   };
 
+  // Section numbers run on without gaps, whichever of the optional sections an article has.
+  const optional = [article.faq.length > 0 && "faq", article.sources.length > 0 && "sources", related.length > 0 && "related"].filter(Boolean);
+  const indexOf = (key: string) => two(3 + optional.indexOf(key));
+
+  // One highlighted word per headline: the first word names the topic in every article title.
+  const [firstWord, ...restWords] = keepUnits(article.h1).split(" ");
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(articleJsonLd)} />
@@ -203,99 +230,158 @@ export default async function ArticlePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumb)} />
       <Navigation />
 
-      <main className="px-5 pb-20 pt-24 md:px-6 md:pt-32">
-        <article className="mx-auto max-w-3xl">
-          <nav aria-label="Brotkrumen" className="flex gap-2 text-sm text-muted">
-            <Link href="/ratgeber" className="hover:text-foreground">
-              Ratgeber
-            </Link>
-            <span aria-hidden>/</span>
-            <span className="truncate text-foreground">{article.navTitle}</span>
-          </nav>
-          <h1 className="display mt-5 text-[clamp(2.3rem,5vw,3.6rem)]">{article.h1}</h1>
-          <p className="mt-5 text-sm text-muted">
-            Aktualisiert am <time dateTime={article.updated}>{dateDE(article.updated)}</time> · {article.readingMinutes} Min. Lesezeit · von der
-            Kojalytics-Redaktion
-          </p>
-
-          <div className="prose-de mt-8">
-            {article.intro.map((p) => (
-              <p key={p} className="!text-lg">
-                <RichText text={p} />
-              </p>
-            ))}
-          </div>
-
-          <nav aria-label="Inhalt" className="mt-10 rounded-[20px] bg-surface p-6">
-            <p className="text-sm font-semibold">Inhalt</p>
-            <ol className="mt-3 grid list-decimal gap-1.5 pl-5 text-[15px]">
-              {article.sections.map((s) => (
-                <li key={s.id}>
-                  <a href={`#${s.id}`} className="hover:underline">
-                    {s.h2}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </nav>
-
-          <div className="prose-de">
-            {article.sections.map((s) => (
-              <section key={s.id} aria-labelledby={s.id}>
-                <h2 id={s.id}>{s.h2}</h2>
-                {s.blocks.map((b, i) => (
-                  <BlockView key={i} block={b} />
-                ))}
-              </section>
-            ))}
-          </div>
-
-          <div className="mt-14 rounded-[24px] bg-foreground p-8 text-white sm:p-10">
-            <p className="display text-3xl sm:text-4xl">Alle 13 Koja-Apps {TRIAL_DAYS} Tage kostenlos testen</p>
-            <p className="mt-3 text-white/75">
-              Danach {PLANS.monthly.label} im Monat, jederzeit online kündbar. Oder einmalig {PLANS.lifetime.label}. Für macOS und Windows, ohne Konto.
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <DownloadButton source={`ratgeber-${article.slug}`} className="!bg-white !text-foreground hover:!bg-white/90" />
-              <Link href="/software" className="btn-secondary !border-white/30 !bg-transparent !text-white">
-                Alle Apps ansehen
-              </Link>
+      <main className="pt-12">
+        <article>
+          {/* 01 Title, meta and intro */}
+          <section className="rail">
+            <SectionBar
+              index="01"
+              label="Ratgeber"
+              meta={`${article.readingMinutes} Min. Lesezeit · ${article.sources.length} Quellen`}
+            />
+            <div className={`gap-6 py-14 md:py-20 ${pad} ${columns}`}>
+              <nav aria-label="Brotkrumen" className="hud rise-in flex min-w-0 items-baseline gap-2">
+                <Link href="/ratgeber" className="-my-3 inline-flex min-h-11 shrink-0 items-center hover:text-foreground">
+                  Ratgeber
+                </Link>
+                <span aria-hidden className="text-faint">
+                  /
+                </span>
+                <span className="truncate text-foreground lg:whitespace-normal">{article.navTitle}</span>
+              </nav>
+              <div className="min-w-0">
+                <h1 className="display rise-in max-w-4xl text-[clamp(2rem,4vw,3.4rem)] [--i:1]">
+                  <span className="text-highlight">{firstWord}</span> {restWords.join(" ")}
+                </h1>
+                <p className="hud rise-in mt-6 [--i:2]">
+                  <span className="whitespace-nowrap">
+                    Aktualisiert am <time dateTime={article.updated}>{dateDE(article.updated)}</time>
+                  </span>{" "}
+                  · <span className="whitespace-nowrap">{article.readingMinutes} Min. Lesezeit</span> ·{" "}
+                  <span className="whitespace-nowrap">von der Kojalytics-Redaktion</span>
+                </p>
+                <div className="prose-de rise-in mt-10 max-w-3xl border-t border-border pt-8 [--i:3]">
+                  {article.intro.map((p) => (
+                    <p key={p} className="!text-lg">
+                      <RichText text={p} />
+                    </p>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
 
+          {/* 02 Contents and body */}
+          <section className="rail crosshairs">
+            <SectionBar index="02" label={article.navTitle} meta={`${article.sections.length} Abschnitte`} />
+            <div className={`gap-12 py-14 md:py-20 ${pad} ${columns}`}>
+              <nav aria-label="Inhalt" className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto" data-reveal>
+                <p className="hud">
+                  <span className="text-foreground">Inhalt</span>
+                </p>
+                <ol className="mt-4 border-t border-border">
+                  {article.sections.map((s, i) => (
+                    <li key={s.id} className="border-b border-border">
+                      <a href={`#${s.id}`} className="flex min-h-11 gap-4 py-3 text-[15px] leading-snug text-muted transition-colors hover:text-foreground">
+                        <span className="hud mt-[3px] w-6 shrink-0 text-faint">{two(i + 1)}</span>
+                        <span>{s.h2}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+
+              <div className="min-w-0 max-w-3xl">
+                <div className="prose-de [&>section:first-child>h2]:mt-0">
+                  {article.sections.map((s) => (
+                    <section key={s.id} aria-labelledby={s.id} data-reveal>
+                      <h2 id={s.id}>{s.h2}</h2>
+                      {s.blocks.map((b, i) => (
+                        <BlockView key={i} block={b} />
+                      ))}
+                    </section>
+                  ))}
+                </div>
+
+                <div className="mt-16 border border-foreground p-6 sm:p-10" data-reveal>
+                  <div className="flex -space-x-2">
+                    {article.apps.slice(0, 6).map((slug) => {
+                      const app = getApp(slug);
+                      return app ? <AppIcon key={slug} slug={slug} name={app.name} size={40} /> : null;
+                    })}
+                  </div>
+                  <p className="display mt-7 text-[clamp(1.7rem,3.2vw,2.5rem)]">
+                    Alle 13 <span className="whitespace-nowrap">Koja-Apps</span> <span className="whitespace-nowrap">{TRIAL_DAYS} Tage</span> <span className="text-highlight">kostenlos</span> testen
+                  </p>
+                  <p className="mt-4 leading-relaxed text-muted">
+                    Danach {PLANS.monthly.label} im Monat, jederzeit online kündbar. Oder einmalig {PLANS.lifetime.label}. Für macOS und Windows, ohne Konto.
+                  </p>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <DownloadButton source={`ratgeber-${article.slug}`} />
+                    <Link href="/software" className="btn-secondary">
+                      Alle Apps ansehen
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ */}
           {article.faq.length > 0 && (
-            <section className="mt-16" aria-labelledby="faq">
-              <h2 id="faq" className="display mb-8 text-3xl sm:text-4xl">
-                Häufige Fragen
-              </h2>
-              <Faq items={article.faq} />
+            <section className="rail crosshairs" aria-labelledby="faq">
+              <SectionBar index={indexOf("faq")} label="Fragen" meta={`${article.faq.length} Antworten`} />
+              <div className={`gap-10 py-14 md:py-20 ${pad} ${columns}`}>
+                <h2 id="faq" className="display text-[clamp(1.8rem,3.4vw,2.8rem)] lg:sticky lg:top-20 lg:self-start" data-reveal>
+                  Häufige <span className="text-highlight">Fragen</span>
+                </h2>
+                <div className="min-w-0 max-w-3xl">
+                  <Faq items={article.faq} />
+                </div>
+              </div>
             </section>
           )}
 
+          {/* Sources */}
           {article.sources.length > 0 && (
-            <section className="mt-12 text-sm text-muted" aria-labelledby="quellen">
-              <h2 id="quellen" className="font-semibold text-foreground">
-                Quellen
-              </h2>
-              <ul className="mt-3 grid gap-1.5">
-                {article.sources.map((s) => (
-                  <li key={s.url}>
-                    {s.label} <span className="text-muted/80">({new URL(s.url).hostname.replace(/^www\./, "")})</span>
-                  </li>
-                ))}
-              </ul>
+            <section className="rail crosshairs" aria-labelledby="quellen">
+              <SectionBar index={indexOf("sources")} label="Quellen" meta={`Stand ${dateDE(article.updated)}`} />
+              <div className={`gap-4 py-14 md:py-20 ${pad} ${columns}`}>
+                <h2 id="quellen" className="hud max-lg:sr-only lg:sticky lg:top-20 lg:self-start lg:pt-3" data-reveal>
+                  <span className="text-foreground">Quellen</span>
+                </h2>
+                <ol className="min-w-0 max-w-3xl border-t border-border" data-reveal>
+                  {article.sources.map((s, i) => (
+                    <li key={s.url} className="flex gap-4 border-b border-border py-2.5 text-sm leading-relaxed text-muted">
+                      <span className="hud mt-[3px] w-6 shrink-0 text-faint">{two(i + 1)}</span>
+                      <span className="min-w-0 [overflow-wrap:anywhere]">
+                        {s.label}{" "}
+                        <span className="font-mono text-[11.5px] text-faint">({new URL(s.url).hostname.replace(/^www\./, "")})</span>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </section>
           )}
         </article>
 
         {related.length > 0 && (
-          <aside className="mx-auto mt-20 max-w-7xl border-t border-border pt-12">
-            <h2 className="display text-3xl">Weiterlesen</h2>
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {related.map((a) => (
-                <Link key={a.slug} href={`/ratgeber/${a.slug}`} className="rounded-[22px] border border-border p-6 transition-colors hover:border-foreground/40">
-                  <p className="text-sm text-muted">{a.readingMinutes} Min. Lesezeit</p>
-                  <h3 className="mt-3 text-lg font-semibold leading-snug">{a.h1}</h3>
+          <aside className="rail crosshairs" aria-labelledby="weiterlesen">
+            <SectionBar index={indexOf("related")} label="Weiterlesen" meta="Passende Ratgeber" />
+            <h2 id="weiterlesen" className="sr-only">
+              Weiterlesen
+            </h2>
+            <div className={`cells ${related.length === 3 ? "md:grid-cols-3" : related.length === 2 ? "md:grid-cols-2" : ""}`}>
+              {related.map((a, i) => (
+                <Link key={a.slug} href={`/ratgeber/${a.slug}`} className="group flex flex-col p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
+                  <p className="hud">
+                    <span className="text-faint">{two(i + 1)}</span> · {a.readingMinutes} Min. Lesezeit
+                  </p>
+                  <h3 className="mt-5 flex-1 text-xl font-semibold leading-snug group-hover:text-accent">{keepUnits(a.h1)}</h3>
+                  <span className="link-hud mt-6">
+                    Lesen <ArrowUpRight size={14} aria-hidden />
+                  </span>
                 </Link>
               ))}
             </div>

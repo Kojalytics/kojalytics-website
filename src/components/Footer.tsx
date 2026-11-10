@@ -2,6 +2,7 @@ import Link from "next/link";
 import { APPS } from "@/lib/apps";
 import { ARTICLES } from "@/lib/ratgeber";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
+import SectionBar from "@/components/instrument/SectionBar";
 import { Logo } from "@/components/Navigation";
 
 const company = [
@@ -25,22 +26,23 @@ const linkCls = "text-sm text-muted transition-colors hover:text-foreground";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-surface px-5 pb-12 pt-16 md:px-6">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-12">
-          <div className="col-span-2 md:col-span-3">
+    <footer>
+      <div className="rail crosshairs">
+        <SectionBar index="—" label="Kojalytics" meta="Software-Studio aus Hamburg" />
+        <div className="cells grid-cols-2 border-b border-border md:grid-cols-12">
+          <div className="col-span-2 p-6 md:col-span-3 md:p-8">
             <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Software-Studio aus Deutschland. Wir entwickeln Apps für Kunden und bieten die Koja-Apps für Mac und Windows an.
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
+              Wir entwickeln Apps für Kunden und bieten die Koja-Apps für Mac und Windows an.
             </p>
-            <a href="mailto:support@kojalytics.com" className="mt-4 block text-sm text-muted underline-offset-4 hover:text-foreground hover:underline">
+            <a href="mailto:support@kojalytics.com" className="hud mt-6 block hover:text-foreground">
               support@kojalytics.com
             </a>
           </div>
 
-          <div className="col-span-2 md:col-span-4">
-            <p className="mb-4 text-sm font-semibold">Koja-Apps für Mac und Windows</p>
-            <ul className="grid grid-cols-2 gap-x-10 gap-y-2.5">
+          <div className="col-span-2 p-6 md:col-span-4 md:p-8">
+            <p className="hud mb-5">Koja-Apps für Mac und Windows</p>
+            <ul className="grid grid-cols-2 gap-x-8 gap-y-2.5">
               {APPS.map((app) => (
                 <li key={app.slug}>
                   <Link href={`/software/${app.slug}`} prefetch={false} className={linkCls}>
@@ -52,8 +54,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="mb-4 text-sm font-semibold">Ratgeber</p>
+          <div className="p-6 md:col-span-3 md:p-8">
+            <p className="hud mb-5">Ratgeber</p>
             <ul className="space-y-2.5">
               {ARTICLES.map((a) => (
                 <li key={a.slug}>
@@ -65,8 +67,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
-            <p className="mb-4 text-sm font-semibold">Unternehmen</p>
+          <div className="p-6 md:col-span-2 md:p-8">
+            <p className="hud mb-5">Unternehmen</p>
             <ul className="space-y-2.5">
               {company.map((l) => (
                 <li key={l.href}>
@@ -76,7 +78,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="mb-4 mt-8 text-sm font-semibold">Hilfe & Rechtliches</p>
+            <p className="hud mb-5 mt-9">Hilfe & Recht</p>
             <ul className="space-y-2.5">
               {help.map((l) => (
                 <li key={l.href}>
@@ -92,8 +94,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 text-xs leading-relaxed text-muted md:flex-row md:justify-between">
-          <p>&copy; {new Date().getFullYear()} Kojalytics. Alle Rechte vorbehalten.</p>
+        <div className="flex flex-col gap-3 px-5 py-6 text-xs leading-relaxed text-muted md:flex-row md:justify-between md:px-10">
+          <p className="hud">&copy; {new Date().getFullYear()} Kojalytics</p>
           <p className="max-w-2xl md:text-right">
             Die Koja-Apps basieren auf quelloffener Software des ArtCraft-Teams (MIT / Apache-2.0) und sind ein eigenständiges
             Angebot von Kojalytics. Genannte Produktnamen anderer Unternehmen sind Marken ihrer Inhaber.

@@ -8,19 +8,7 @@ const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const require = createRequire(path.join(repo, "package.json"));
 const sharp = require("sharp");
 const P = (p) => path.join(repo, "public", p);
-const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
-const FONT = "Helvetica Neue, Helvetica, Arial";
-
-async function windowShot(file, width) {
-  const img = await sharp(P(file)).resize({ width, height: Math.round(width / 1.6), fit: "cover", position: "top" }).toBuffer({ resolveWithObject: true });
-  const h = img.info.height + 28;
-  const chrome = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${h}">
-    <defs><clipPath id="r"><rect width="${width}" height="${h}" rx="14"/></clipPath></defs>
-    <g clip-path="url(#r)"><rect width="${width}" height="${h}" fill="#ececeb"/>
-    <circle cx="18" cy="14" r="6" fill="#ff5f57"/><circle cx="38" cy="14" r="6" fill="#febc2e"/><circle cx="58" cy="14" r="6" fill="#28c840"/></g></svg>`);
-  const mask = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${h}"><rect width="${width}" height="${h}" rx="14" fill="#fff"/></svg>`);
-  return sharp(chrome).composite([{ input: img.data, top: 28, left: 0 }, { input: mask, blend: "dest-in" }]).png().toBuffer();
-}
+import { H, INK, MUTED, SANS, W, esc, frameSvg, windowShot } from "./style.mjs";
 
 function wrap(text, max) {
   const lines = [];
@@ -35,25 +23,20 @@ function wrap(text, max) {
   return lines;
 }
 
-async function render(out, { eyebrow, title, sub, icon, shot }) {
-  const W = 1200, H = 630;
+async function render(out, { eyebrow, title, sub, icon, shot, bar }) {
   const lines = wrap(title, 17).slice(0, 4);
-  const size = lines.length > 3 ? 46 : 54;
-  const top = 196;
-  const titleSvg = lines.map((l, i) => `<text x="64" y="${top + i * (size + 8)}" font-family="${FONT}" font-size="${size}" font-weight="800" fill="#111113" letter-spacing="-1.5">${esc(l)}</text>`).join("");
-  const subY = top + lines.length * (size + 8) + 14;
-  const text = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
-    <text x="${icon ? 136 : 64}" y="${icon ? 112 : 112}" font-family="${FONT}" font-size="24" font-weight="700" fill="#57534e">${esc(eyebrow)}</text>
+  const size = lines.length > 3 ? 44 : 52;
+  const top = icon ? 236 : 186;
+  const titleSvg = lines.map((l, i) => `<text x="68" y="${top + i * (size + 8)}" font-family="${SANS}" font-size="${size}" font-weight="800" fill="${INK}" letter-spacing="-1.4">${esc(l)}</text>`).join("");
+  const subY = top + (lines.length - 1) * (size + 8) + 52;
+  const body = `${icon ? `<text x="136" y="160" font-family="${SANS}" font-size="24" font-weight="700" fill="${MUTED}">${esc(eyebrow)}</text>` : ""}
     ${titleSvg}
-    <text x="64" y="${subY}" font-family="${FONT}" font-size="25" fill="#57534e">${esc(sub)}</text>
-    <rect x="64" y="560" width="32" height="32" rx="8" fill="#111113"/>
-    <text x="72" y="584" font-family="${FONT}" font-size="20" font-weight="800" fill="#fff">K</text>
-    <text x="106" y="584" font-family="${FONT}" font-size="22" font-weight="800" fill="#111113">Kojalytics</text></svg>`);
+    <text x="68" y="${subY}" font-family="${SANS}" font-size="24" fill="${MUTED}">${esc(sub)}</text>`;
   const layers = [];
-  if (shot) layers.push({ input: await windowShot(shot, 640), left: 600, top: 150 });
-  if (icon) layers.push({ input: await sharp(P(icon)).resize(56, 56).png().toBuffer(), left: 64, top: 76 });
-  layers.push({ input: text, left: 0, top: 0 });
-  await sharp({ create: { width: W, height: H, channels: 3, background: "#f5f5f4" } }).composite(layers).jpeg({ quality: 84 }).toFile(P(out));
+  if (shot) layers.push({ input: await windowShot(sharp, P(shot), 540), left: 600, top: 150 });
+  if (icon) layers.push({ input: await sharp(P(icon)).resize(52, 52).png().toBuffer(), left: 68, top: 120 });
+  layers.push({ input: frameSvg({ ...bar, body }), left: 0, top: 0 });
+  await sharp({ create: { width: W, height: H, channels: 3, background: "#ffffff" } }).composite(layers).jpeg({ quality: 84 }).toFile(P(out));
 }
 
 // FilmKoja's screenshots show stills from third-party films: no screenshot in its share images.
@@ -69,6 +52,7 @@ for (const f of fs.readdirSync(appsDir)) {
   const app = JSON.parse(fs.readFileSync(path.join(appsDir, f), "utf8"));
   await render(`og/apps/${slug}.jpg`, {
     eyebrow: names[slug],
+    bar: { index: "01", label: names[slug], meta: "macOS · 3 Tage kostenlos" },
     title: `${app.kind} für den Mac`,
     sub: "3 Tage kostenlos testen · 2,99 € im Monat",
     icon: `apps/${slug}/icon.webp`,
@@ -82,6 +66,7 @@ for (const f of fs.readdirSync(artDir).filter((f) => f.endsWith(".json"))) {
   const appJson = appSlug && JSON.parse(fs.readFileSync(path.join(appsDir, `${appSlug}.json`), "utf8"));
   await render(`og/ratgeber/${a.slug}.jpg`, {
     eyebrow: "Ratgeber",
+    bar: { index: "01", label: "Ratgeber", meta: `${a.readingMinutes} Min. Lesezeit` },
     title: a.navTitle,
     sub: `Aktualisiert: ${new Date(a.updated).toLocaleDateString("de-DE", { month: "long", year: "numeric" })}`,
     shot: appJson ? `apps/${appSlug}/${appJson.screenshots[0].file}` : null,

@@ -66,26 +66,23 @@ export default function PricingCards({ source }: { source: string }) {
 
   return (
     <div className="grid gap-6">
-      <div className="grid gap-4 md:grid-cols-2">
-        {(["monthly", "lifetime"] as const).map((plan) => {
+      <div className="cells border border-border md:grid-cols-2">
+        {(["monthly", "lifetime"] as const).map((plan, i) => {
           const p = PLANS[plan];
           const highlight = plan === "monthly";
           return (
-            <div
-              key={plan}
-              className={`relative flex flex-col rounded-[22px] border bg-white p-6 sm:p-8 ${
-                highlight ? "border-foreground shadow-[0_24px_60px_-30px_rgba(17,17,19,0.35)]" : "border-border"
-              }`}
-            >
-              {highlight && (
-                <span className="absolute -top-3 left-6 rounded-full bg-foreground px-3 py-1 text-xs font-semibold text-white">
-                  Flexibel starten
-                </span>
-              )}
-              <p className="text-sm font-semibold text-muted">{p.name}</p>
-              <p className="mt-3 flex items-baseline gap-2">
+            <div key={plan} className="relative flex flex-col p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-3">
+                <p className="hud">
+                  <span className="text-faint">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="mx-2 text-faint">/</span>
+                  <span className="text-foreground">{p.name}</span>
+                </p>
+                {highlight && <span className="tag !border-foreground bg-foreground !text-white">Flexibel starten</span>}
+              </div>
+              <p className="mt-6 flex items-baseline gap-3">
                 <span className="display whitespace-nowrap text-6xl">{p.label}</span>
-                <span className="text-muted">{p.per}</span>
+                <span className="hud">{p.per}</span>
               </p>
               <p className="mt-2 text-sm text-muted">{note[plan]}</p>
               <ul className="mb-8 mt-6 grid gap-3">
@@ -98,7 +95,7 @@ export default function PricingCards({ source }: { source: string }) {
               </ul>
 
               {open === plan ? (
-                <div className="mt-auto grid gap-4 rounded-[16px] bg-surface p-4 sm:p-5">
+                <div className="mt-auto grid gap-4 border border-border bg-surface p-4 sm:p-5">
                   <label className="flex items-start gap-3 text-sm leading-relaxed">
                     <input type="checkbox" checked={alpha} onChange={(e) => setAlpha(e.target.checked)} className={box} />
                     <span>
@@ -145,9 +142,9 @@ export default function PricingCards({ source }: { source: string }) {
         })}
       </div>
 
-      <div className="flex flex-col items-start gap-3 rounded-[22px] border border-dashed border-[#d6d3d1] bg-surface-light p-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col items-start gap-4 border border-border p-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[15px]">
-          <span className="font-semibold">Erst testen?</span>{" "}
+          <span className="hud mr-2 text-foreground">Erst testen?</span>
           <span className="text-muted">Lade die Apps und nutze sie {TRIAL_DAYS} Tage lang kostenlos, ohne Zahlungsdaten.</span>
         </p>
         <DownloadButton source={source} label="Kostenlos laden" />

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Geist } from "next/font/google";
+import { Archivo, Geist, Geist_Mono } from "next/font/google";
 import Consent from "@/components/Consent";
 import { ORGANIZATION_JSON_LD, SITE_NAME, SITE_URL, jsonLd } from "@/lib/site";
 import "./globals.css";
 
-const heading = Bricolage_Grotesque({
+// Headlines: Archivo with its width axis, set wide in globals.css (.display).
+const heading = Archivo({
   subsets: ["latin"],
-  weight: ["700", "800"],
+  axes: ["wdth"],
   variable: "--font-heading",
   display: "swap",
 });
@@ -15,6 +16,15 @@ const body = Geist({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
+});
+
+// Mono micro-labels (.hud, buttons, tags).
+const mono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-ui",
+  display: "swap",
+  // Small labels only: not worth a preload that competes with the headline font.
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -40,13 +50,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning: the inline script below may add data-kj-consent to <html> before hydration.
-    <html lang="de" className={`${heading.variable} ${body.variable}`} suppressHydrationWarning>
+    // suppressHydrationWarning: the inline script below adds "js" and data-kj-consent to <html> before hydration.
+    <html lang="de" className={`${heading.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="antialiased">
-        {/* Hides the server-rendered cookie banner before the first paint for visitors who already chose. */}
+        {/* Marks JS as available (for scroll reveals) and hides the server-rendered cookie banner before the
+            first paint for visitors who already chose. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "try{if(localStorage.getItem('kj-consent-v1'))document.documentElement.setAttribute('data-kj-consent','')}catch(e){}",
+            __html:
+              "document.documentElement.classList.add('js');try{if(localStorage.getItem('kj-consent-v1'))document.documentElement.setAttribute('data-kj-consent','')}catch(e){}",
           }}
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ORGANIZATION_JSON_LD)} />
