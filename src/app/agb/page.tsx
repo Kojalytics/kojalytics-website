@@ -67,7 +67,8 @@ export default function TermsPage() {
                 Die Apps laufen unter macOS und Windows. Für Download und Aktivierung brauchst du eine Internetverbindung.
               </P>
               <P>
-                Vor dem Kauf kannst du die Apps nach dem Download {TRIAL_DAYS} Tage kostenlos testen. Der Test endet automatisch
+                Vor dem Kauf kannst du die Apps nach dem Download {TRIAL_DAYS} Tage kostenlos testen; du startest den Test im
+                Kojalytics Launcher, einmal pro Gerät. Der Test endet automatisch
                 und verursacht keine Kosten.
               </P>
               <P>
