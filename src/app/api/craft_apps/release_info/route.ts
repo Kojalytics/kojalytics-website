@@ -4,17 +4,19 @@ import { NextResponse } from 'next/server';
  * GET → the release feed of the Kojalytics Launcher (read by craft-launcher/crates/core/src/feed.rs).
  *
  * The launcher asks here first and only goes to GitHub for apps this feed doesn't vouch for, so
- * customers don't run into GitHub's limit of 60 requests an hour. We ask GitHub instead: each repo
- * at most every 10 minutes with GITHUB_TOKEN (read-only, public repos), every 30 minutes without.
+ * customers don't run into GitHub's limit of 60 requests an hour. We ask GitHub instead, each time
+ * the CDN's copy of this answer runs out: every 5 minutes with GITHUB_TOKEN (read-only, public
+ * repos), every 30 minutes without.
  */
 
-// Built per request, never at build time (a GitHub hiccup can't fail a deploy). The fetch cache
-// below keeps GitHub's last good answer, the CDN keeps ours.
+// Built per request, never at build time (a GitHub hiccup can't fail a deploy). Only the CDN keeps
+// our answer: Next's fetch cache stopped refreshing it (2026-11-10 it still served 2026-11-09 18:22),
+// so a new release never reached the launcher.
 export const dynamic = 'force-dynamic';
 
 const TOKEN = process.env.GITHUB_TOKEN?.trim();
 // Without a token: 14 repos every 30 minutes stay below the 60 an hour.
-const REFRESH_SECONDS = TOKEN ? 600 : 1800;
+const CDN_SECONDS = TOKEN ? 300 : 1800;
 
 // Ids and repos as in the launcher's catalog (crates/core/src/catalog.rs), plus the launcher itself.
 const APPS = [
@@ -59,10 +61,10 @@ async function appEntry(app: (typeof APPS)[number]) {
         'X-GitHub-Api-Version': '2022-11-28',
         ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
       },
-      next: { revalidate: REFRESH_SECONDS },
+      cache: 'no-store',
     });
-    // GitHub's own timestamp, kept with the cached answer: how old the data really is. After a
-    // day without a fresh answer the launcher stops trusting the entry and asks GitHub itself.
+    // GitHub's own timestamp: how old the data really is. After a day without a fresh answer the
+    // launcher stops trusting the entry and asks GitHub itself.
     const fetchedAt = rfc3339(new Date(res.headers.get('date') ?? Date.now()));
     if (res.status === 404) {
       return { ...entry, latest_release: null, app_last_fetched: fetchedAt };
@@ -110,6 +112,6 @@ export async function GET() {
       repo_renames: [],
       important_notices: { announcements: [], alerts: [] },
     },
-    { headers: { 'Cache-Control': 'public, max-age=0, s-maxage=300, stale-while-revalidate=86400' } },
+    { headers: { 'Cache-Control': `public, max-age=0, s-maxage=${CDN_SECONDS}, stale-while-revalidate=86400` } },
   );
 }
