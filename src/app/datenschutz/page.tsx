@@ -303,7 +303,7 @@ export default function DatenschutzPage() {
               </P>
             </Section>
 
-            <Section title="8. Lizenzaktivierung im Kojalytics Launcher">
+            <Section title="8. Lizenzaktivierung und kostenloser Test im Kojalytics Launcher">
               <P>
                 Wenn du deinen Lizenzschlüssel im Kojalytics Launcher
                 aktivierst, sendet der Launcher an unseren Server: den
@@ -323,6 +323,20 @@ export default function DatenschutzPage() {
                 DSGVO). Die Aktivierungsdaten speichern wir, solange deine Lizenz
                 besteht, und löschen sie danach, soweit keine
                 Aufbewahrungspflicht entgegensteht.
+              </P>
+              <P>
+                Wenn du im Kojalytics Launcher den kostenlosen Test startest,
+                sendet der Launcher an unseren Server: die pseudonyme
+                Gerätekennung, soweit übermittelt den Gerätenamen, die App und
+                ihre Version. Wir speichern, wann der Test auf diesem Gerät
+                begonnen hat, damit er nach 3 Tagen endet und pro Gerät nur
+                einmal möglich ist, ebenfalls bei Supabase. Zweck ist die
+                Bereitstellung des Tests und der Schutz vor Missbrauch.
+                Rechtsgrundlage sind vorvertragliche Maßnahmen auf deine Anfrage
+                (Art. 6 Abs. 1 lit. b DSGVO) und unser berechtigtes Interesse,
+                den Test auf einmal pro Gerät zu begrenzen (Art. 6 Abs. 1 lit. f
+                DSGVO). Die Testdaten löschen wir, sobald sie dafür nicht mehr
+                nötig sind, spätestens wenn wir den kostenlosen Test einstellen.
               </P>
             </Section>
 
