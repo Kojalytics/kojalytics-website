@@ -8,7 +8,7 @@ export const SOFTWARE_FAQ: FaqItem[] = [
   },
   {
     q: "Wie funktioniert der kostenlose Test?",
-    a: `Du lädst den Kojalytics Launcher, installierst die Apps, die du brauchst, und nutzt sie ${TRIAL_DAYS} Tage lang kostenlos, ohne Zahlungsdaten. Danach entscheidest du dich für 2,99 € im Monat oder 79 € einmalig. Wenn du nichts tust, endet der Test einfach und du zahlst nichts.`,
+    a: `Du lädst den Kojalytics Launcher, klickst dort unter Einstellungen › Lizenz auf „${TRIAL_DAYS} Tage kostenlos testen“ und installierst die Apps, die du brauchst. ${TRIAL_DAYS} Tage lang nutzt du alle Apps kostenlos, ohne Zahlungsdaten und ohne Konto. Danach entscheidest du dich für 2,99 € im Monat oder 79 € einmalig. Wenn du nichts tust, endet der Test einfach und du zahlst nichts.`,
   },
   {
     q: "Wie kündige ich?",
