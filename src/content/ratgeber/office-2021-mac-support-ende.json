@@ -255,9 +255,9 @@
               "Quelloffen; Writer, Calc und Impress; ab macOS 11"
             ],
             [
-              "Koja-Apps (13 Mac-Apps, darunter WordKoja, GridKoja, DeckKoja)",
+              "Koja-Apps (13 Apps für Mac und Windows, darunter WordKoja, GridKoja, DeckKoja)",
               "2,99 € pro Monat oder 79 € einmalig für alle 13 Apps",
-              "Frühe Versionen (Alpha); nur macOS; bis zu 3 Macs; kein Konto nötig"
+              "Frühe Versionen (Alpha); macOS und Windows; bis zu 3 Geräte; kein Konto nötig"
             ]
           ],
           "caption": "Preise inkl. MwSt., Stand 7. November 2026. Quellen: Microsoft Store, Apple, LibreOffice, Kojalytics."
@@ -318,7 +318,7 @@
         },
         {
           "type": "p",
-          "text": "Wir bei Kojalytics bieten 13 Mac-Apps an, darunter drei Office-Programme mit einem Menüband, wie du es aus Word, Excel und PowerPoint kennst. Alle drei sind noch in früher Entwicklung (Alpha). Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen selbst, dass sie zu etwa 50 bis 60 Prozent für echte Arbeit bereit sind. Sie ersetzen Microsoft Office also nicht vollständig. Dafür sind sie günstig: Alle 13 Apps kosten zusammen 2,99 € pro Monat oder einmalig 79 €."
+          "text": "Wir bei Kojalytics bieten 13 Apps für Mac und Windows an, darunter drei Office-Programme mit einem Menüband, wie du es aus Word, Excel und PowerPoint kennst. Alle drei sind noch in früher Entwicklung (Alpha). Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen selbst, dass sie zu etwa 50 bis 60 Prozent für echte Arbeit bereit sind. Sie ersetzen Microsoft Office also nicht vollständig. Dafür sind sie günstig: Alle 13 Apps kosten zusammen 2,99 € pro Monat oder einmalig 79 €."
         },
         {
           "type": "app",
@@ -336,7 +336,7 @@
         },
         {
           "type": "p",
-          "text": "Alle Koja-Apps laufen nur auf macOS, offline und ohne Konto; Internet brauchst du nur für Download und Aktivierung. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos, am besten mit deinen eigenen Dateien. Danach zahlst du 2,99 € pro Monat, jederzeit ohne Gebühr kündbar auf [kojalytics.com/kuendigen](/kuendigen), oder einmalig 79 € für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. Details stehen unter [Preise](/software#preise)."
+          "text": "Alle Koja-Apps laufen unter macOS und Windows, offline und ohne Konto; Internet brauchst du nur für Download und Aktivierung. Du lädst sie kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage kostenlos, am besten mit deinen eigenen Dateien. Danach zahlst du 2,99 € pro Monat, jederzeit ohne Gebühr kündbar auf [kojalytics.com/kuendigen](/kuendigen), oder einmalig 79 € für eine dauerhafte Lizenz, jeweils für bis zu 3 Geräte (Mac oder Windows-PC). Details stehen unter [Preise](/software#preise)."
         }
       ]
     },

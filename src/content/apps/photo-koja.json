@@ -108,7 +108,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "koja": "macOS und Windows, auf bis zu 3 Geräten",
         "other": "macOS, Windows, Web, Tablet und Smartphone"
       },
       {
@@ -128,7 +128,7 @@
   "notFor": [
     "du täglich beruflich mit Photoshop arbeitest und dich auf jede Funktion verlassen musst: PhotoKoja ist noch eine frühe Version (Alpha), 15 Photoshop-Werkzeuge fehlen",
     "du generative KI oder Photoshop-Plug-ins brauchst",
-    "du unter Windows, auf dem iPad oder im Browser arbeitest"
+    "du auf dem iPad oder im Browser arbeitest"
   ],
   "formats": [
     "PSD (lesen und schreiben)",
@@ -155,7 +155,7 @@
     },
     {
       "q": "Gibt es PhotoKoja ohne Abo?",
-      "a": "Ja. Nach 3 kostenlosen Testtagen zahlst du einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Macs, darunter auch [LightKoja](/software/light-koja) für deine Fotobibliothek und RAW-Dateien. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit online kündbar. Mehr Hintergrund liefert der Ratgeber [Photoshop ohne Abo: alle Optionen](/ratgeber/photoshop-ohne-abo)."
+      "a": "Ja. Nach 3 kostenlosen Testtagen zahlst du einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Geräten, darunter auch [LightKoja](/software/light-koja) für deine Fotobibliothek und RAW-Dateien. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit online kündbar. Mehr Hintergrund liefert der Ratgeber [Photoshop ohne Abo: alle Optionen](/ratgeber/photoshop-ohne-abo)."
     },
     {
       "q": "Funktionieren meine Photoshop-Tastenkürzel?",
@@ -163,11 +163,11 @@
     },
     {
       "q": "PhotoKoja basiert auf Open Source. Warum kostet es Geld?",
-      "a": "Der Quellcode ist offen und steht unter der MIT- oder der Apache-2.0-Lizenz. Du bezahlst für die fertige Mac-Version, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dafür bekommst du gleich 13 Apps, von Bildbearbeitung über Videoschnitt bis Tabellenkalkulation."
+      "a": "Der Quellcode ist offen und steht unter der MIT- oder der Apache-2.0-Lizenz. Du bezahlst für die fertigen Versionen für Mac und Windows, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dafür bekommst du gleich 13 Apps, von Bildbearbeitung über Videoschnitt bis Tabellenkalkulation."
     },
     {
       "q": "Läuft PhotoKoja auch unter Windows oder im Browser?",
-      "a": "Nein, PhotoKoja gibt es nur für macOS. Die App läuft nativ und berechnet die Arbeitsfläche über Metal auf der Grafikkarte, ohne Electron und ohne Web-Ansicht. Eine Lizenz gilt auf bis zu 3 Macs."
+      "a": "Unter Windows ja, im Browser nein. PhotoKoja gibt es für macOS und Windows, aber nicht für das iPad und nicht als Web-App. Die App läuft nativ und berechnet die Arbeitsfläche auf der Grafikkarte (am Mac über Metal), ohne Electron und ohne Web-Ansicht. Eine Lizenz gilt auf bis zu 3 Geräten, Mac und Windows-PC gemischt."
     }
   ]
 }

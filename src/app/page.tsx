@@ -15,9 +15,9 @@ import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import { DEFAULT_OG_IMAGE, OG_BASE, WEBSITE_JSON_LD, jsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Kojalytics: Mac-Apps statt Abo und App-Entwicklung" },
+  title: { absolute: "Kojalytics: Mac- und Windows-Apps statt Abo und App-Entwicklung" },
   description:
-    "Kojalytics ist ein Software-Studio aus Deutschland. Wir machen die Koja-Apps für den Mac und entwickeln iOS-Apps, Web-Plattformen und KI-Funktionen.",
+    "Kojalytics ist ein Software-Studio aus Deutschland. Wir machen die Koja-Apps für Mac und Windows und entwickeln iOS-Apps, Web-Plattformen und KI-Funktionen.",
   alternates: { canonical: "/" },
   openGraph: { ...OG_BASE, url: "/", title: "Kojalytics: Software-Studio aus Deutschland", images: [DEFAULT_OG_IMAGE] },
 };
@@ -40,15 +40,15 @@ export default function Home() {
       <main className="pt-12">
         {/* 01 Hero: studio and Koja-Apps left, real screenshots as an instrument panel right */}
         <section className="rail">
-          <SectionBar index="01" label="Software-Studio aus Deutschland" meta="Kundenprojekte · eigene Mac-Apps" />
+          <SectionBar index="01" label="Software-Studio aus Deutschland" meta="Kundenprojekte · eigene Desktop-Apps" />
           <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center ${pad}`}>
             <div>
               <h1 className="display rise-in text-[clamp(2.1rem,5.4vw,4.4rem)]">
-                Wir bauen <span className="text-highlight">Apps</span>. <span className="whitespace-nowrap">Für Kunden</span> und für deinen Mac.
+                Wir bauen <span className="text-highlight">Apps</span>. <span className="whitespace-nowrap">Für Kunden</span> und für deinen Computer.
               </h1>
               <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
                 Kojalytics entwickelt iOS-Apps, Web-Plattformen und KI-Funktionen für Unternehmen und Gründer. Und wir machen die
-                Koja-Apps: 13 Mac-Apps für Kreativ- und Büroarbeit, für {PLANS.monthly.label} im Monat.
+                Koja-Apps: 13 Apps für Kreativ- und Büroarbeit auf Mac und Windows, für {PLANS.monthly.label} im Monat.
               </p>
               <div className="rise-in mt-9 flex flex-col gap-3 [--i:2] sm:flex-row">
                 <Link href="/software" className="btn-primary">
@@ -58,7 +58,7 @@ export default function Home() {
                   Projekt anfragen
                 </Link>
               </div>
-              <p className="hud rise-in mt-5 [--i:3]">iOS · Web · KI · 13 Mac-Apps</p>
+              <p className="hud rise-in mt-5 [--i:3]">iOS · Web · KI · 13 Desktop-Apps</p>
             </div>
 
             <figure className="rise-in m-0 border border-border [--i:2]">
@@ -103,10 +103,10 @@ export default function Home() {
 
         {/* 02 Koja-Apps */}
         <section className="rail crosshairs">
-          <SectionBar index="02" label="Koja-Apps für den Mac" meta="Offline · ohne Konto · jederzeit online kündbar" />
+          <SectionBar index="02" label="Koja-Apps für Mac und Windows" meta="Offline · ohne Konto · jederzeit online kündbar" />
           <div className={`grid gap-6 py-14 md:py-20 lg:grid-cols-2 lg:items-end lg:gap-10 ${pad}`}>
             <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
-              13 Mac-Apps. <span className="whitespace-nowrap text-highlight">{PLANS.monthly.label}</span>{" "}
+              13 Apps. <span className="whitespace-nowrap text-highlight">{PLANS.monthly.label}</span>{" "}
               <span className="whitespace-nowrap">im Monat.</span>
             </h2>
             <p className="max-w-xl text-lg leading-relaxed text-muted" data-reveal>
@@ -191,7 +191,7 @@ export default function Home() {
 
         {/* 04 Projects */}
         <section className="rail crosshairs">
-          <SectionBar index="04" label="Projekte" meta="macOS · iOS · Web · Shopify" />
+          <SectionBar index="04" label="Projekte" meta="macOS · Windows · iOS · Web · Shopify" />
           <div className={`flex flex-col justify-between gap-4 py-14 md:flex-row md:items-end md:py-20 ${pad}`}>
             <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
               <span className="text-highlight">Ausgeliefert</span>, nicht nur entworfen.

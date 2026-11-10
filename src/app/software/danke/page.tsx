@@ -30,7 +30,7 @@ async function purchaseFor(sessionId: string | undefined) {
 }
 
 const steps = [
-  "Öffne die geladene Datei und ziehe den Kojalytics Launcher in den Ordner „Programme“.",
+  "Öffne die geladene Datei. Mac: Ziehe den Kojalytics Launcher in den Ordner „Programme“. Windows: Folge dem Installations-Assistenten.",
   "Starte den Launcher und gehe zu Einstellungen › Lizenz.",
   "Füge deinen Schlüssel ein und klicke auf „Aktivieren“.",
   "Installiere die Koja-Apps, die du brauchst, direkt im Launcher.",
@@ -73,7 +73,7 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
                     {purchase.license.email ? `Wir haben ihn auch an ${purchase.license.email} geschickt.` : "Bitte kopiere ihn jetzt und bewahre ihn gut auf."}
                   </p>
                   <div className="rise-in mt-8 [--i:3]">
-                    <DownloadButton source="danke" label="Launcher laden · macOS" />
+                    <DownloadButton source="danke" label="Launcher laden" />
                   </div>
                 </div>
               </div>
@@ -93,8 +93,8 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
               <div className={`py-8 md:py-10 ${pad}`}>
                 <p className="max-w-3xl text-[15px] leading-relaxed text-muted" data-reveal>
                   {purchase.license.subscription
-                    ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit online unter `
-                    : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs.`}
+                    ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten (Mac oder Windows-PC). Kündigen kannst du jederzeit online unter `
+                    : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten (Mac oder Windows-PC).`}
                   {purchase.license.subscription && (
                     <Link href="/kuendigen" className="text-foreground underline underline-offset-4">
                       Verträge hier kündigen

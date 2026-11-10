@@ -113,7 +113,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "koja": "macOS und Windows, auf bis zu 3 Geräten",
         "other": "macOS, Windows, iPad, iPhone, Android und Web"
       },
       {
@@ -133,7 +133,7 @@
   "notFor": [
     "du eine deutsche Rechtschreib- und Grammatikprüfung brauchst: Die fehlt in WordKoja bisher, für Deutsch gibt es nur die Silbentrennung",
     "du täglich beruflich mit Word arbeitest und dich auf jede Funktion verlassen musst: WordKoja ist noch eine frühe Version (Alpha), und Seitenumbrüche können von Word abweichen",
-    "du in Echtzeit mit anderen in der Cloud schreibst, VBA-Makros brauchst oder unter Windows, auf dem iPad oder im Browser arbeitest"
+    "du in Echtzeit mit anderen in der Cloud schreibst, VBA-Makros brauchst oder auf dem iPad oder im Browser arbeitest"
   ],
   "formats": [
     ".docx (lesen und schreiben)",
@@ -164,7 +164,7 @@
     },
     {
       "q": "Kann ich WordKoja ohne Abo kaufen?",
-      "a": "Ja. Du zahlst einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Macs, darunter auch [GridKoja](/software/grid-koja) für Tabellen und [DeckKoja](/software/deck-koja) für Präsentationen. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit online kündbar. Zum Vergleich: Office Home 2024 kostet bei Microsoft 149 € einmalig für einen Mac, Microsoft 365 Single 99 € pro Jahr."
+      "a": "Ja. Du zahlst einmalig 79 € und nutzt alle 13 Koja-Apps dauerhaft auf bis zu 3 Geräten, darunter auch [GridKoja](/software/grid-koja) für Tabellen und [DeckKoja](/software/deck-koja) für Präsentationen. Wenn du lieber monatlich zahlst, kostet es 2,99 € im Monat, jederzeit online kündbar. Zum Vergleich: Office Home 2024 kostet bei Microsoft 149 € einmalig für einen Mac, Microsoft 365 Single 99 € pro Jahr."
     },
     {
       "q": "Word gibt es im Browser kostenlos. Warum WordKoja?",
@@ -172,7 +172,7 @@
     },
     {
       "q": "WordKoja basiert auf Open Source. Warum kostet es Geld?",
-      "a": "Der Quellcode ist offen und steht wahlweise unter der MIT- oder der Apache-2.0-Lizenz. Du bezahlst für die fertige Mac-Version, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dafür bekommst du gleich 13 Apps, von Textverarbeitung über Tabellen und Präsentationen bis Bildbearbeitung."
+      "a": "Der Quellcode ist offen und steht wahlweise unter der MIT- oder der Apache-2.0-Lizenz. Du bezahlst für die fertigen Versionen für Mac und Windows, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dafür bekommst du gleich 13 Apps, von Textverarbeitung über Tabellen und Präsentationen bis Bildbearbeitung."
     }
   ]
 }

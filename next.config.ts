@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { DOWNLOAD_PATH, LAUNCHER_DOWNLOAD_URL } from "./src/lib/pricing";
+import { DOWNLOAD_PATH, DOWNLOAD_PATH_WINDOWS, LAUNCHER_DOWNLOAD_URL, LAUNCHER_DOWNLOAD_URL_WINDOWS } from "./src/lib/pricing";
 
 // Locale-specific URL slugs for the privacy page.
 // All slugs map internally to /[locale]/aiheadshot/privacy.
@@ -28,6 +28,7 @@ const nextConfig: NextConfig = {
       // ---- Relaunch 2026-10: Koja apps live under /software ----
       // Our own download address, so buttons and e-mails show kojalytics.com instead of the GitHub file.
       { source: DOWNLOAD_PATH, destination: LAUNCHER_DOWNLOAD_URL, permanent: false },
+      { source: DOWNLOAD_PATH_WINDOWS, destination: LAUNCHER_DOWNLOAD_URL_WINDOWS, permanent: false },
       { source: '/koja-apps', destination: '/software', permanent: true },
       { source: '/koja-apps/danke', destination: '/software/danke', permanent: true },
 

@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/software/${app.slug}` },
     openGraph: {
       ...OG_BASE,
-      title: `${app.name}: ${app.kind} für den Mac`,
+      title: `${app.name}: ${app.kind} für Mac und Windows`,
       description: app.metaDescription,
       url: `/software/${app.slug}`,
       images: [{ url: `/og/apps/${app.slug}.jpg`, width: 1200, height: 630, alt: `${app.name} auf dem Mac` }],
@@ -100,7 +100,7 @@ export default async function AppPage({ params }: Props) {
     "@type": "SoftwareApplication",
     name: app.name,
     applicationCategory: app.slug === "cad-koja" ? "DesignApplication" : app.group === "Büro & Technik" ? "BusinessApplication" : "MultimediaApplication",
-    operatingSystem: "macOS",
+    operatingSystem: "macOS, Windows",
     inLanguage: "de",
     url: `${SITE_URL}/software/${app.slug}`,
     image: `${SITE_URL}/apps/${app.slug}/icon.webp`,
@@ -133,7 +133,7 @@ export default async function AppPage({ params }: Props) {
       <main className="pt-12" style={{ ["--app" as string]: app.color }}>
         {/* 01 Hero: name, headline and download left, the app's main screenshot right */}
         <section className="rail">
-          <SectionBar index={num("hero")} label={app.kind} meta={`${app.name} · macOS · ${app.status}`} />
+          <SectionBar index={num("hero")} label={app.kind} meta={`${app.name} · macOS · Windows · ${app.status}`} />
           <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center ${pad}`}>
             {/* On phones the button comes straight after the h1, so it shows on the first screen. */}
             <div className="flex min-w-0 flex-col">
@@ -154,7 +154,7 @@ export default async function AppPage({ params }: Props) {
                     <span style={{ color: ink }}>Koja</span>
                   </p>
                   <div className="mt-1.5 flex flex-wrap items-center gap-2">
-                    <span className="hud">{app.kind} für macOS</span>
+                    <span className="hud">{app.kind} für macOS und Windows</span>
                     <span className="tag" style={{ color: ink, borderColor: `${ink}66` }}>
                       {app.status}
                     </span>
@@ -171,7 +171,7 @@ export default async function AppPage({ params }: Props) {
                   Preise ansehen
                 </Link>
               </div>
-              <p className="hud rise-in mt-5 [--i:5]">macOS · {TRIAL_DAYS} Tage kostenlos · ohne Konto · jederzeit online kündbar</p>
+              <p className="hud rise-in mt-5 [--i:5]">macOS und Windows · {TRIAL_DAYS} Tage kostenlos · ohne Konto · jederzeit online kündbar</p>
               <ul className="rise-in mt-6 flex flex-wrap gap-2 [--i:6] max-sm:order-2" aria-label="Das Wichtigste">
                 {app.highlights.map((h) => (
                   <li key={h} className="tag whitespace-normal text-foreground">
@@ -472,7 +472,7 @@ export default async function AppPage({ params }: Props) {
         <section className="rail crosshairs border-t border-border">
           <div className={`flex flex-col items-center py-20 text-center md:py-28 ${pad}`}>
             <p className="hud">
-              {app.kind} · macOS · {app.status}
+              {app.kind} · macOS · Windows · {app.status}
             </p>
             <div className="mt-8">
               <AppIcon slug={app.slug} name={app.name} size={64} />

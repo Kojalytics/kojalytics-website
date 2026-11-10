@@ -33,7 +33,7 @@ export default function Footer() {
           <div className="col-span-2 p-6 md:col-span-3 md:p-8">
             <Logo />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
-              Wir entwickeln Apps für Kunden und bieten die Koja-Apps für den Mac an.
+              Wir entwickeln Apps für Kunden und bieten die Koja-Apps für Mac und Windows an.
             </p>
             <a href="mailto:support@kojalytics.com" className="hud mt-6 block hover:text-foreground">
               support@kojalytics.com
@@ -41,7 +41,7 @@ export default function Footer() {
           </div>
 
           <div className="col-span-2 p-6 md:col-span-4 md:p-8">
-            <p className="hud mb-5">Koja-Apps für den Mac</p>
+            <p className="hud mb-5">Koja-Apps für Mac und Windows</p>
             <ul className="grid grid-cols-2 gap-x-8 gap-y-2.5">
               {APPS.map((app) => (
                 <li key={app.slug}>

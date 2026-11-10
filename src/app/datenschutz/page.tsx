@@ -163,7 +163,7 @@ export default function DatenschutzPage() {
                   ],
                   [
                     "Daten",
-                    "IP-Adresse, Angaben zu Browser und Gerät, aufgerufene Seiten und Referrer, Zeitpunkt, Cookie-Kennungen und, wenn du über eine Google-Anzeige kommst, die Klick-ID. Außerdem melden wir diese Ereignisse an Google: Seitenaufruf, Ansicht einer App-Seite, Klick auf einen Download-Button, Klick auf „Link für den Mac senden“ (auf Geräten ohne macOS), Beginn des Bezahlvorgangs (mit Tarif und Preis) und abgeschlossener Kauf (mit Betrag, Währung und Bestellnummer). Bist du in einem Google-Konto angemeldet, kann Google die Daten deinem Konto zuordnen.",
+                    "IP-Adresse, Angaben zu Browser und Gerät, aufgerufene Seiten und Referrer, Zeitpunkt, Cookie-Kennungen und, wenn du über eine Google-Anzeige kommst, die Klick-ID. Außerdem melden wir diese Ereignisse an Google: Seitenaufruf, Ansicht einer App-Seite, Klick auf einen Download-Button, Klick auf „Link für den Computer senden“ (auf Geräten ohne macOS oder Windows), Beginn des Bezahlvorgangs (mit Tarif und Preis) und abgeschlossener Kauf (mit Betrag, Währung und Bestellnummer). Bist du in einem Google-Konto angemeldet, kann Google die Daten deinem Konto zuordnen.",
                   ],
                   [
                     "Speicherdauer",
@@ -191,7 +191,7 @@ export default function DatenschutzPage() {
                   ],
                   [
                     "Daten",
-                    "IP-Adresse, Angaben zu Browser und Gerät, aufgerufene Seiten und Referrer, Zeitpunkt, Cookie-Kennungen (z. B. _fbp) und diese Ereignisse: PageView (Seitenaufruf), ViewContent (Ansicht einer App-Seite), Lead (Klick auf einen Download-Button), SendToMac (Klick auf „Link für den Mac senden“ auf Geräten ohne macOS), InitiateCheckout (Beginn des Bezahlvorgangs mit Tarif und Preis) sowie Purchase oder Subscribe (abgeschlossener Kauf oder abgeschlossenes Abo mit Betrag, Währung und Bestellnummer). Bist du bei Facebook oder Instagram angemeldet, kann Meta die Daten deinem Konto zuordnen.",
+                    "IP-Adresse, Angaben zu Browser und Gerät, aufgerufene Seiten und Referrer, Zeitpunkt, Cookie-Kennungen (z. B. _fbp) und diese Ereignisse: PageView (Seitenaufruf), ViewContent (Ansicht einer App-Seite), Lead (Klick auf einen Download-Button), SendToMac (Klick auf „Link für den Computer senden“ auf Geräten ohne macOS oder Windows), InitiateCheckout (Beginn des Bezahlvorgangs mit Tarif und Preis) sowie Purchase oder Subscribe (abgeschlossener Kauf oder abgeschlossenes Abo mit Betrag, Währung und Bestellnummer). Bist du bei Facebook oder Instagram angemeldet, kann Meta die Daten deinem Konto zuordnen.",
                   ],
                   [
                     "Gemeinsame Verantwortung",
@@ -311,7 +311,7 @@ export default function DatenschutzPage() {
                 und, soweit übermittelt, den Gerätenamen (er kann deinen Namen
                 enthalten, z. B. „MacBook von Max“), die App und ihre Version.
                 Wir prüfen, ob der Schlüssel gültig ist und ob das Limit von 3
-                Macs erreicht ist, und speichern die Aktivierung mit Zeitpunkt in
+                Geräten erreicht ist, und speichern die Aktivierung mit Zeitpunkt in
                 unserer Datenbank bei Supabase (Abschnitt 7). Dabei verarbeitet
                 unser Hoster Vercel auch deine IP-Adresse (Abschnitt 2).
               </P>

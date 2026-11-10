@@ -113,7 +113,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "macOS (Apple Silicon und Intel)",
+        "koja": "macOS (Apple Silicon und Intel) und Windows",
         "other": "macOS und Windows"
       },
       {
@@ -165,11 +165,11 @@
     },
     {
       "q": "Was kostet DesignKoja im Vergleich zu InDesign?",
-      "a": "DesignKoja kostet 2,99 € im Monat für alle 13 Koja-Apps oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Macs. InDesign kostet als Einzel-App 25,99 € im Monat im Jahres-Abo mit monatlicher Abrechnung, aufs Jahr gerechnet 311,88 €. Kündigst du dieses Adobe-Abo nach den ersten 14 Tagen, zahlst du 50 % des restlichen Vertragswerts als Gebühr. Das Monatsabo für DesignKoja kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "a": "DesignKoja kostet 2,99 € im Monat für alle 13 Koja-Apps oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Geräte. InDesign kostet als Einzel-App 25,99 € im Monat im Jahres-Abo mit monatlicher Abrechnung, aufs Jahr gerechnet 311,88 €. Kündigst du dieses Adobe-Abo nach den ersten 14 Tagen, zahlst du 50 % des restlichen Vertragswerts als Gebühr. Das Monatsabo für DesignKoja kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     },
     {
       "q": "Gibt es DesignKoja kostenlos?",
-      "a": "Du kannst DesignKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DesignKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0), dessen Quellcode frei verfügbar ist. Du bezahlst uns für die fertige, signierte Mac-Version, den Launcher, der sie installiert und aktualisiert, und Support von einem Studio aus Deutschland."
+      "a": "Du kannst DesignKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DesignKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0), dessen Quellcode frei verfügbar ist. Du bezahlst uns für die fertigen, signierten Versionen für Mac und Windows, den Launcher, der sie installiert und aktualisiert, und Support von einem Studio aus Deutschland."
     }
   ]
 }

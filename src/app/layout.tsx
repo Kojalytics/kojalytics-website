@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Kojalytics",
   },
   description:
-    "Kojalytics ist ein Software-Studio aus Deutschland. Wir entwickeln Apps für Kunden und bieten die Koja-Apps für den Mac an.",
+    "Kojalytics ist ein Software-Studio aus Deutschland. Wir entwickeln Apps für Kunden und bieten die Koja-Apps für Mac und Windows an.",
   openGraph: {
     siteName: SITE_NAME,
     type: "website",

@@ -108,7 +108,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "macOS (Apple Silicon und Intel)",
+        "koja": "macOS (Apple Silicon und Intel) und Windows",
         "other": "Windows, macOS, iPad, iPhone, Android und Browser"
       },
       {
@@ -154,7 +154,7 @@
     },
     {
       "q": "Kann ich PowerPoint auf dem Mac ohne Abo nutzen?",
-      "a": "Bei Microsoft geht das auf zwei Wegen: mit einem Einmalkauf wie Office Home 2024 (149 € für einen Mac) oder kostenlos im Browser mit einem Microsoft-Konto. Die Mac-App aus dem App Store lässt sich dagegen nur mit einem Microsoft-365-Abo aktivieren, Microsoft 365 Single kostet 99 € im Jahr oder 10 € im Monat. DeckKoja gibt es für 79 € einmalig als dauerhafte Lizenz für alle 13 Koja-Apps auf bis zu 3 Macs, ohne Konto, oder für 2,99 € im Monat. Mehr dazu steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
+      "a": "Bei Microsoft geht das auf zwei Wegen: mit einem Einmalkauf wie Office Home 2024 (149 € für einen Mac) oder kostenlos im Browser mit einem Microsoft-Konto. Die Mac-App aus dem App Store lässt sich dagegen nur mit einem Microsoft-365-Abo aktivieren, Microsoft 365 Single kostet 99 € im Jahr oder 10 € im Monat. DeckKoja gibt es für 79 € einmalig als dauerhafte Lizenz für alle 13 Koja-Apps auf bis zu 3 Geräten, ohne Konto, oder für 2,99 € im Monat. Mehr dazu steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
     },
     {
       "q": "Kann ich mit DeckKoja präsentieren wie mit PowerPoint?",
@@ -166,7 +166,7 @@
     },
     {
       "q": "Gibt es DeckKoja kostenlos?",
-      "a": "Du kannst DeckKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DeckKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0). Du bezahlst uns für die fertige, signierte Mac-Version, den Launcher, der sie installiert und aktualisiert, und den Support. Das Abo für 2,99 € im Monat kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "a": "Du kannst DeckKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DeckKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0). Du bezahlst uns für die fertigen, signierten Versionen für Mac und Windows, den Launcher, der sie installiert und aktualisiert, und den Support. Das Abo für 2,99 € im Monat kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     }
   ]
 }

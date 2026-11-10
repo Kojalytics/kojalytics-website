@@ -68,7 +68,7 @@ function AppCallout({ slug, text }: { slug: string; text: string }) {
                 {app.name.slice(0, -4)}
                 <span style={{ color: ink }}>Koja</span>
               </p>
-              <p className="hud mt-1">{app.kind} für macOS</p>
+              <p className="hud mt-1">{app.kind} für macOS und Windows</p>
             </div>
           </div>
           <p className="mt-5 !text-[15px] !leading-relaxed">
@@ -314,7 +314,7 @@ export default async function ArticlePage({ params }: Props) {
                     Alle 13 <span className="whitespace-nowrap">Koja-Apps</span> <span className="whitespace-nowrap">{TRIAL_DAYS} Tage</span> <span className="text-highlight">kostenlos</span> testen
                   </p>
                   <p className="mt-4 leading-relaxed text-muted">
-                    Danach {PLANS.monthly.label} im Monat, jederzeit online kündbar. Oder einmalig {PLANS.lifetime.label}. Für macOS, ohne Konto.
+                    Danach {PLANS.monthly.label} im Monat, jederzeit online kündbar. Oder einmalig {PLANS.lifetime.label}. Für macOS und Windows, ohne Konto.
                   </p>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <DownloadButton source={`ratgeber-${article.slug}`} />

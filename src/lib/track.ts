@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-// SendToMac is our own event: a phone or PC visitor sends the page to their Mac (no download possible there).
+// SendToMac is our own event: a phone or tablet visitor sends the page to their computer (no download possible there).
 type Event = "ViewContent" | "Lead" | "InitiateCheckout" | "Subscribe" | "Purchase" | "SendToMac";
 
 // Google's recommended event names for the same moments.

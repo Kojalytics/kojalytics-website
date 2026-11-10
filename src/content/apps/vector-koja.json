@@ -123,7 +123,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS",
+        "koja": "macOS und Windows",
         "other": "macOS, Windows und iPad"
       },
       {
@@ -174,7 +174,7 @@
     },
     {
       "q": "Kann ich VectorKoja ohne Abo kaufen?",
-      "a": "Ja, neben dem Abo für 2,99 € im Monat gibt es eine dauerhafte Lizenz für 79 € einmalig. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Macs. Zum Vergleich: Illustrator allein kostet bei Adobe 25,99 € im Monat im Jahres-Abo mit monatlicher Zahlung. Alle Optionen findest du unter [Preise](/software#preise)."
+      "a": "Ja, neben dem Abo für 2,99 € im Monat gibt es eine dauerhafte Lizenz für 79 € einmalig. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Geräten. Zum Vergleich: Illustrator allein kostet bei Adobe 25,99 € im Monat im Jahres-Abo mit monatlicher Zahlung. Alle Optionen findest du unter [Preise](/software#preise)."
     },
     {
       "q": "Öffnet VectorKoja auch Affinity-Dateien?",
@@ -182,7 +182,7 @@
     },
     {
       "q": "VectorKoja basiert auf Open Source. Warum kostet es Geld?",
-      "a": "VectorKoja ist ein macOS-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Den Quellcode kann jeder frei nutzen, und das Ursprungsprojekt bietet seine App auch selbst kostenlos an. Bei uns zahlst du für die fertige Mac-App aus dem Kojalytics Launcher und bekommst 12 weitere Apps zum selben Preis dazu. Einen Überblick über alle Apps findest du unter [Software](/software)."
+      "a": "VectorKoja ist ein macOS- und Windows-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Den Quellcode kann jeder frei nutzen, und das Ursprungsprojekt bietet seine App auch selbst kostenlos an. Bei uns zahlst du für die fertige App für Mac und Windows aus dem Kojalytics Launcher und bekommst 12 weitere Apps zum selben Preis dazu. Einen Überblick über alle Apps findest du unter [Software](/software)."
     }
   ]
 }

@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { decryptKey, encryptKey, generateKey, hashKey, normalizeKey } from '@/lib/license';
-import { DOWNLOAD_PATH, LAUNCHER_DOWNLOAD_URL, PLANS } from '@/lib/pricing';
+import { DOWNLOAD_PATH, DOWNLOAD_PATH_WINDOWS, LAUNCHER_DOWNLOAD_URL, PLANS } from '@/lib/pricing';
 
 export { LAUNCHER_DOWNLOAD_URL };
 export const LICENSE_PRODUCT = 'koja_license';
@@ -100,21 +100,23 @@ async function sendLicenseEmail(to: string, key: string, subscription: boolean) 
     `Dein Kojalytics-Lizenzschlüssel: ${key}`,
     '',
     'So aktivierst du ihn:',
-    `1. Lade den Kojalytics Launcher für den Mac: https://www.kojalytics.com${DOWNLOAD_PATH}`,
-    '2. Öffne die Datei und ziehe den Launcher in den Ordner „Programme“.',
+    '1. Lade den Kojalytics Launcher:',
+    `   Mac: https://www.kojalytics.com${DOWNLOAD_PATH}`,
+    `   Windows: https://www.kojalytics.com${DOWNLOAD_PATH_WINDOWS}`,
+    '2. Mac: Öffne die Datei und ziehe den Launcher in den Ordner „Programme“. Windows: Öffne die Datei und folge dem Installations-Assistenten.',
     '3. Starte den Launcher und gehe zu Einstellungen › Lizenz.',
     '4. Füge den Schlüssel ein und klicke auf „Aktivieren“.',
     '5. Installiere deine Koja-Apps direkt im Launcher.',
     '',
     subscription
-      ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs. Kündigen kannst du jederzeit online: https://www.kojalytics.com/kuendigen`
-      : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Macs.`,
+      ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten (Mac oder Windows-PC). Kündigen kannst du jederzeit online: https://www.kojalytics.com/kuendigen`
+      : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten (Mac oder Windows-PC).`,
     '',
     // Contract confirmation (§ 312f BGB), including the declarations given before the purchase.
     'Deine Bestellung',
     subscription
-      ? `Koja-Apps · Monatlich: alle 13 Koja-Apps für den Mac, ${PLANS.monthly.label} pro Monat inkl. MwSt., monatlich kündbar.`
-      : `Koja-Apps · Dauerhaft: alle 13 Koja-Apps für den Mac, einmalig ${PLANS.lifetime.label} inkl. MwSt., ohne Ablaufdatum.`,
+      ? `Koja-Apps · Monatlich: alle 13 Koja-Apps für Mac und Windows, ${PLANS.monthly.label} pro Monat inkl. MwSt., monatlich kündbar.`
+      : `Koja-Apps · Dauerhaft: alle 13 Koja-Apps für Mac und Windows, einmalig ${PLANS.lifetime.label} inkl. MwSt., ohne Ablaufdatum.`,
     '',
     'Vor dem Kauf hast du',
     '- ausdrücklich verlangt, dass wir vor Ablauf der Widerrufsfrist mit der Ausführung des Vertrags beginnen und dir den Lizenzschlüssel sofort liefern, und bestätigt, dass du dadurch dein Widerrufsrecht verlierst,',

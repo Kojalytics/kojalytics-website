@@ -113,7 +113,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "koja": "macOS und Windows, auf bis zu 3 Geräten",
         "other": "Windows, macOS, iPhone, iPad, Android und Web. Microsoft 365 Single auf bis zu 5 Geräten"
       },
       {
@@ -133,7 +133,7 @@
   "notFor": [
     "du beruflich täglich auf Excel angewiesen bist: GridKoja ist noch eine frühe Version (Alpha), und komplexe Arbeitsmappen werden noch nicht immer originalgetreu übernommen",
     "deine Arbeitsmappen Makros (VBA) oder Power Query brauchen oder um die 100 MB groß sind",
-    "du unter Windows, auf dem iPad oder im Browser arbeitest"
+    "du auf dem iPad oder im Browser arbeitest"
   ],
   "formats": [
     "XLSX (lesen und schreiben)",
@@ -155,7 +155,7 @@
     },
     {
       "q": "Ist GridKoja kostenlos, und geht es auch ohne Abo?",
-      "a": "Du kannst GridKoja 3 Tage kostenlos testen. Willst du es danach weiter nutzen, zahlst du entweder 79 € einmalig für alle 13 Koja-Apps auf bis zu 3 Macs, ganz ohne Abo, oder 2,99 € im Monat, jederzeit online kündbar. Im Preis stecken auch [WordKoja](/software/word-koja) für Texte und [DeckKoja](/software/deck-koja) für Präsentationen. Zum Vergleich: Microsoft 365 Single kostet 99 € im Jahr, Office Home 2024 einmalig 149 € für einen Mac."
+      "a": "Du kannst GridKoja 3 Tage kostenlos testen. Willst du es danach weiter nutzen, zahlst du entweder 79 € einmalig für alle 13 Koja-Apps auf bis zu 3 Geräten, ganz ohne Abo, oder 2,99 € im Monat, jederzeit online kündbar. Im Preis stecken auch [WordKoja](/software/word-koja) für Texte und [DeckKoja](/software/deck-koja) für Präsentationen. Zum Vergleich: Microsoft 365 Single kostet 99 € im Jahr, Office Home 2024 einmalig 149 € für einen Mac."
     },
     {
       "q": "Kann ich mit GridKoja Pivot-Tabellen auf dem Mac erstellen?",
@@ -167,7 +167,7 @@
     },
     {
       "q": "Läuft GridKoja auch unter Windows, auf dem iPad oder im Browser?",
-      "a": "Nein, GridKoja gibt es nur für macOS, als Universal-App für Apple-Silicon- und Intel-Macs. Eine Lizenz gilt auf bis zu 3 Macs. Die App läuft offline und ohne Konto, Internet brauchst du nur für Download und Aktivierung."
+      "a": "Unter Windows ja, auf dem iPad und im Browser nein. GridKoja gibt es für macOS, als Universal-App für Apple-Silicon- und Intel-Macs, und für Windows 10 und 11 (64-Bit). Eine Lizenz gilt auf bis zu 3 Geräten, Mac und Windows-PC gemischt. Die App läuft offline und ohne Konto, Internet brauchst du nur für Download und Aktivierung."
     }
   ]
 }

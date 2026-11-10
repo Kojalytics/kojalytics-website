@@ -225,7 +225,7 @@
       "blocks": [
         {
           "type": "p",
-          "text": "Wir bei Kojalytics bieten mit [PhotoKoja](/software/photo-koja) eine weitere Option an und wollen sie ehrlich einordnen. PhotoKoja ist ein Bildbearbeitungsprogramm für macOS, das sich an der Arbeitsweise von Photoshop orientiert: Menüs, Bedienfelder und Kürzel wie ⌘J oder ⇧⌘D liegen dort, wo du sie erwartest. Es ist aber noch in früher Entwicklung (Alpha) und ersetzt Photoshop nicht vollständig."
+          "text": "Wir bei Kojalytics bieten mit [PhotoKoja](/software/photo-koja) eine weitere Option an und wollen sie ehrlich einordnen. PhotoKoja ist ein Bildbearbeitungsprogramm für macOS und Windows, das sich an der Arbeitsweise von Photoshop orientiert: Menüs, Bedienfelder und Kürzel wie ⌘J oder ⇧⌘D liegen dort, wo du sie erwartest. Es ist aber noch in früher Entwicklung (Alpha) und ersetzt Photoshop nicht vollständig."
         },
         {
           "type": "h3",
@@ -256,7 +256,7 @@
         },
         {
           "type": "p",
-          "text": "Zum Angebot: Du lädst die Apps kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage lang kostenlos. Danach zahlst du 2,99 € im Monat (inkl. MwSt.) oder 79 € einmalig für eine dauerhafte Lizenz. Das Abo kündigst du jederzeit online auf [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr. In beiden Fällen bekommst du alle 13 Koja-Apps auf bis zu 3 Macs, darunter [LightKoja](/software/light-koja) für RAW-Fotos und [VectorKoja](/software/vector-koja) für Vektorgrafik. Du brauchst kein Konto, und die Apps laufen offline. Internet brauchst du nur für Download und Aktivierung. Eine Windows- oder Web-Version gibt es nicht. Alle Details stehen unter [Preise](/software#preise)."
+          "text": "Zum Angebot: Du lädst die Apps kostenlos über den Kojalytics Launcher und testest alle Apps 3 Tage lang kostenlos. Danach zahlst du 2,99 € im Monat (inkl. MwSt.) oder 79 € einmalig für eine dauerhafte Lizenz. Das Abo kündigst du jederzeit online auf [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr. In beiden Fällen bekommst du alle 13 Koja-Apps auf bis zu 3 Geräten (Mac oder Windows-PC), darunter [LightKoja](/software/light-koja) für RAW-Fotos und [VectorKoja](/software/vector-koja) für Vektorgrafik. Du brauchst kein Konto, und die Apps laufen offline. Internet brauchst du nur für Download und Aktivierung. Eine Web-Version gibt es nicht. Alle Details stehen unter [Preise](/software#preise)."
         },
         {
           "type": "app",
@@ -328,7 +328,7 @@
               "Koja-Apps (13 Apps inkl. PhotoKoja)",
               "79 € einmalig oder 107,64 € im Abo",
               "Viele Kreativ-Aufgaben für wenig Geld",
-              "Frühe Versionen, nur macOS"
+              "Frühe Versionen"
             ]
           ],
           "caption": "Monatspreis mal 36 bzw. Einmalpreis, Stand 7. November 2026. Adobe-Preise können sich ändern."

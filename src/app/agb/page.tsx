@@ -62,9 +62,9 @@ export default function TermsPage() {
 
             <Section title="2. Leistungen">
               <P>
-                Du erhältst das Recht, alle Koja-Apps für macOS auf bis zu 3 eigenen Macs zu nutzen. Die Lizenz wird als
+                Du erhältst das Recht, alle Koja-Apps für macOS und Windows auf bis zu 3 eigenen Computern (Mac oder Windows-PC) zu nutzen. Die Lizenz wird als
                 Lizenzschlüssel geliefert, den du im Kojalytics Launcher aktivierst; über den Launcher installierst du die Apps.
-                Die Apps laufen nur auf dem Mac. Für Download und Aktivierung brauchst du eine Internetverbindung.
+                Die Apps laufen unter macOS und Windows. Für Download und Aktivierung brauchst du eine Internetverbindung.
               </P>
               <P>
                 Vor dem Kauf kannst du die Apps nach dem Download {TRIAL_DAYS} Tage kostenlos testen. Der Test endet automatisch

@@ -71,13 +71,13 @@ export default function Navigation() {
             <DownloadButton
               source="nav"
               label="3 Tage kostenlos testen"
-              shareLabel="An Mac senden"
+              shareLabel="An Computer senden"
               className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] lg:inline-flex"
             />
             <DownloadButton
               source="nav-mobile"
               label="Testen"
-              shareLabel="An Mac senden"
+              shareLabel="Link senden"
               className="!min-h-full !gap-2 !border-0 !px-4 !text-[11px] lg:!hidden"
             />
             <button

@@ -9,7 +9,7 @@ import { DEFAULT_OG_IMAGE, OG_BASE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projekte: Apps, die wir gebaut haben",
-  description: "Apps, die wir entworfen, entwickelt und veröffentlicht haben: die Koja-Apps für den Mac, AI Headshot für iOS und Web sowie Etsy Sync für Shopify.",
+  description: "Apps, die wir entworfen, entwickelt und veröffentlicht haben: die Koja-Apps für Mac und Windows, AI Headshot für iOS und Web sowie Etsy Sync für Shopify.",
   alternates: { canonical: "/projekte" },
   openGraph: { ...OG_BASE, url: "/projekte", images: [DEFAULT_OG_IMAGE] },
 };
@@ -36,7 +36,7 @@ export default function WorkPage() {
 
         {/* 02 Projects */}
         <section className="rail crosshairs">
-          <SectionBar index="02" label="Auswahl" meta={`${PROJECTS.length} Projekte · iOS · Web · macOS · Shopify`} />
+          <SectionBar index="02" label="Auswahl" meta={`${PROJECTS.length} Projekte · iOS · Web · macOS · Windows · Shopify`} />
           <div className="cells md:grid-cols-3">
             {PROJECTS.map((p, i) => (
               <div key={p.slug} className="grid" data-reveal style={{ ["--i" as string]: i }}>

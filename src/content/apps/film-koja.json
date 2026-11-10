@@ -108,7 +108,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS, auf bis zu 3 Macs",
+        "koja": "macOS und Windows, auf bis zu 3 Geräten",
         "other": "macOS und Windows"
       },
       {
@@ -128,7 +128,7 @@
   "notFor": [
     "du gerade ein Projekt mit festem Abgabetermin schneidest: FilmKoja ist noch in früher Entwicklung (Alpha)",
     "du auf Plugins wie VST3, Audio Units oder OpenFX oder auf Kamera-RAW angewiesen bist",
-    "du unter Windows arbeitest oder bestehende .prproj-Projekte direkt öffnen musst"
+    "du bestehende .prproj-Projekte direkt öffnen musst"
   ],
   "formats": [
     "MP4 / MOV (lesen und schreiben)",
@@ -159,7 +159,7 @@
     },
     {
       "q": "Was kostet FilmKoja im Vergleich zu Premiere Pro?",
-      "a": "Adobe Premiere (früher Premiere Pro) kostet als Einzel-App 25,99 € im Monat inkl. MwSt. im Jahres-Abo mit monatlicher Zahlung, und wer nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. FilmKoja kostet nach 3 kostenlosen Testtagen 2,99 € im Monat, darin sind alle 13 Koja-Apps enthalten. Du kündigst jederzeit online ohne Gebühr oder zahlst einmalig 79 € für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Macs. Alle Details findest du bei den [Preisen](/software#preise)."
+      "a": "Adobe Premiere (früher Premiere Pro) kostet als Einzel-App 25,99 € im Monat inkl. MwSt. im Jahres-Abo mit monatlicher Zahlung, und wer nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. FilmKoja kostet nach 3 kostenlosen Testtagen 2,99 € im Monat, darin sind alle 13 Koja-Apps enthalten. Du kündigst jederzeit online ohne Gebühr oder zahlst einmalig 79 € für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Geräten. Alle Details findest du bei den [Preisen](/software#preise)."
     },
     {
       "q": "Gibt es Premiere Pro ohne Abo?",
@@ -167,7 +167,7 @@
     },
     {
       "q": "Läuft FilmKoja ohne Internet und ohne Konto?",
-      "a": "Ja. Du brauchst kein Konto, und nach Download und Aktivierung läuft FilmKoja offline auf deinem Mac. Videos dekodiert die App mit der Hardware deines Macs (VideoToolbox), Farbkorrektur und Export-Rendering laufen aber noch auf dem Prozessor und können bei großem Material bremsen. FilmKoja läuft nur unter macOS, eine Windows- oder Web-Version gibt es nicht."
+      "a": "Ja. Du brauchst kein Konto, und nach Download und Aktivierung läuft FilmKoja offline auf deinem Mac. Videos dekodiert die App mit der Hardware deines Macs (VideoToolbox), Farbkorrektur und Export-Rendering laufen aber noch auf dem Prozessor und können bei großem Material bremsen. FilmKoja läuft unter macOS und Windows, eine Web-Version gibt es nicht."
     }
   ]
 }

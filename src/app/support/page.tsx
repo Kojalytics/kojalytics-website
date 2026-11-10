@@ -8,7 +8,7 @@ import SectionBar from "@/components/instrument/SectionBar";
 const kojaFaq = [
   {
     q: "Wie aktiviere ich meine Koja-Lizenz?",
-    a: "Starte den Kojalytics Launcher, öffne Einstellungen › Lizenz, füge deinen Schlüssel aus der Kauf-E-Mail ein und klicke auf „Aktivieren“. Eine Lizenz gilt für bis zu 3 Macs.",
+    a: "Starte den Kojalytics Launcher, öffne Einstellungen › Lizenz, füge deinen Schlüssel aus der Kauf-E-Mail ein und klicke auf „Aktivieren“. Eine Lizenz gilt für bis zu 3 Geräte, Mac und Windows-PC gemischt.",
   },
   {
     q: "Wie kündige ich mein Koja-Abo?",

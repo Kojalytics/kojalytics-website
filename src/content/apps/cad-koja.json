@@ -102,7 +102,7 @@
       },
       {
         "label": "Plattformen",
-        "koja": "Nur macOS",
+        "koja": "macOS und Windows",
         "other": "Windows und macOS, dazu Web- und Mobilversion"
       },
       {
@@ -159,7 +159,7 @@
     },
     {
       "q": "CADKoja basiert auf Open Source. Warum kostet es Geld?",
-      "a": "CADKoja ist ein macOS-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Den Quellcode kann jeder frei nutzen, und das Ursprungsprojekt bietet seine App auch selbst kostenlos an. Bei uns zahlst du für die fertige Mac-App aus dem Kojalytics Launcher und bekommst 12 weitere Apps dazu, für 2,99 € im Monat oder 79 € einmalig. Alle Optionen findest du unter [Preise](/software#preise)."
+      "a": "CADKoja ist ein macOS- und Windows-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Den Quellcode kann jeder frei nutzen, und das Ursprungsprojekt bietet seine App auch selbst kostenlos an. Bei uns zahlst du für die fertige App für Mac und Windows aus dem Kojalytics Launcher und bekommst 12 weitere Apps dazu, für 2,99 € im Monat oder 79 € einmalig. Alle Optionen findest du unter [Preise](/software#preise)."
     }
   ]
 }
