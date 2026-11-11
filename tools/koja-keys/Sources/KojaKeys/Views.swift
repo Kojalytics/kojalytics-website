@@ -146,7 +146,7 @@ struct KeysView: View {
         } message: { license in
             Text(license.devices == 0
                 ? "Er ist noch auf keinem Gerät aktiviert und lässt sich danach nicht mehr aktivieren. Du kannst ihn später wieder aktivieren."
-                : "Er lässt sich danach auf keinem weiteren Gerät aktivieren. Auf den \(license.devices) \(license.devices == 1 ? "Gerät" : "Geräten"), auf denen er schon aktiviert ist, laufen die Koja-Apps weiter. Du kannst ihn später wieder aktivieren.")
+                : "Er lässt sich danach auf keinem weiteren Gerät aktivieren. Auf den \(license.devices) \(license.devices == 1 ? "Gerät" : "Geräten"), auf denen er schon aktiviert ist, sperren sich die Koja-Apps, sobald sich dort der Kojalytics Launcher (ab Version 0.4.6) meldet, spätestens nach 30 Tagen. Du kannst ihn später wieder aktivieren; gesperrte Geräte geben den Schlüssel dann im Launcher neu ein.")
         }
         .task { await model.reload() }
     }

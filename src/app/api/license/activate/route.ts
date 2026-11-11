@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { hashKey, normalizeKey, signCertificate } from '@/lib/license';
+import { hashKey, normalizeKey, signLicenseCertificate } from '@/lib/license';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -11,7 +11,7 @@ const admin = createClient(SUPABASE_URL, SERVICE_KEY);
 
 /**
  * POST { key, device, deviceName?, app?, version? }
- * → 200 { certificate } | 400 bad input | 403 unknown or revoked key | 409 device limit reached
+ * → 200 { certificate, expires } | 400 bad input | 403 unknown or revoked key | 409 device limit reached
  */
 export async function POST(request: NextRequest) {
   if (!SIGNING_KEY) {
@@ -70,9 +70,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'License server error. Please try again later.' }, { status: 500 });
   }
 
-  const certificate = signCertificate(
-    { v: 1, license: license.id, hint: license.key_hint, device, issued: Math.floor(Date.now() / 1000) },
+  // Valid for CERTIFICATE_DAYS: the launcher renews it at /api/license/refresh.
+  const { certificate, expires } = signLicenseCertificate(
+    license,
+    device,
+    Math.floor(Date.now() / 1000),
     Buffer.from(SIGNING_KEY, 'base64').toString('utf8'),
   );
-  return NextResponse.json({ certificate });
+  return NextResponse.json({ certificate, expires });
 }

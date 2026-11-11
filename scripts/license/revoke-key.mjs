@@ -1,4 +1,5 @@
-// Revokes a license key: no new activations; devices already activated keep working offline.
+// Revokes a license key: no new activations, and /api/license/refresh stops renewing it, so devices
+// already activated lock within CERTIFICATE_DAYS (src/lib/license.ts), usually within a day.
 //
 //   node scripts/license/revoke-key.mjs KOJA-ABCDE-FGHJK-MNPQR-STVWX
 import { admin, hashKey, normalizeKey, parseArgs } from './lib.mjs';
