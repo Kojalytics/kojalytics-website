@@ -1,0 +1,40 @@
+@font-face { font-family: "Archivo"; src: url("node_modules/@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Archivo"; src: url("node_modules/@fontsource-variable/archivo/files/archivo-latin-ext-wdth-normal.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; unicode-range: U+0100-024F, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF; }
+@font-face { font-family: "Geist"; src: url("node_modules/@fontsource/geist-sans/files/geist-sans-latin-400-normal.woff2"); font-weight: 400; }
+@font-face { font-family: "Geist"; src: url("node_modules/@fontsource/geist-sans/files/geist-sans-latin-500-normal.woff2"); font-weight: 500; }
+@font-face { font-family: "Geist"; src: url("node_modules/@fontsource/geist-sans/files/geist-sans-latin-600-normal.woff2"); font-weight: 600; }
+@font-face { font-family: "Geist"; src: url("node_modules/@fontsource/geist-sans/files/geist-sans-latin-700-normal.woff2"); font-weight: 700; }
+@font-face { font-family: "GeistMono"; src: url("node_modules/@fontsource/geist-mono/files/geist-mono-latin-500-normal.woff2"); font-weight: 500; }
+@font-face { font-family: "GeistMono"; src: url("node_modules/@fontsource/geist-mono/files/geist-mono-latin-400-normal.woff2"); font-weight: 400; }
+
+:root { --fg:#0e0e10; --muted:#5a5a60; --faint:#8a8a90; --border:#e3e3e1; --strong:#c9c9c6; --surface:#f6f6f5; --accent:#2a66d8; --ok:#1d9d54; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1200px; height: 900px; overflow: hidden; background: #fff; color: var(--fg); font-family: "Geist", sans-serif; -webkit-font-smoothing: antialiased; }
+.page { position: relative; width: 1200px; height: 900px; padding: 0 44px; }
+.display { font-family: "Archivo"; font-weight: 700; font-stretch: 125%; font-variation-settings: "wdth" 125; letter-spacing: -0.025em; line-height: 1.02; }
+.hud { font-family: "GeistMono"; font-weight: 500; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.hl { color: var(--accent); }
+.bar { height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.bar .l { display: flex; gap: 14px; align-items: center; }
+.bar .idx { color: var(--fg); }
+.wordmark { font-family: "Archivo"; font-weight: 700; font-stretch: 125%; font-variation-settings: "wdth" 125; font-size: 17px; letter-spacing: -.01em; }
+/* crosshair ticks */
+.x { position: absolute; width: 13px; height: 13px; }
+.x::before, .x::after { content: ""; position: absolute; background: var(--faint); }
+.x::before { left: 6px; top: 0; width: 1px; height: 13px; }
+.x::after { top: 6px; left: 0; height: 1px; width: 13px; }
+.rail { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--border); }
+.foot { position: absolute; left: 44px; right: 44px; bottom: 0; height: 66px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 0; }
+.chip { display: flex; align-items: center; gap: 10px; font-size: 16.5px; font-weight: 500; padding: 0 22px; height: 66px; border-right: 1px solid var(--border); }
+.chip:first-child { padding-left: 0; }
+.chip:last-child { border-right: 0; }
+.chip svg { width: 20px; height: 20px; color: var(--ok); stroke-width: 2.4; }
+.chip.blue svg { color: var(--accent); stroke-width: 2; }
+.tm { position: absolute; right: 44px; bottom: 69px; font-size: 10.5px; color: var(--faint); }
+/* generic window */
+.win { position: absolute; background: #fff; border: 1px solid var(--strong); box-shadow: 0 1px 0 rgba(0,0,0,.02), 0 24px 60px -24px rgba(20,20,30,.28), 0 8px 18px -10px rgba(20,20,30,.16); overflow: hidden; border-radius: 10px; }
+.tb { height: 34px; display: flex; align-items: center; padding: 0 12px; gap: 8px; font-size: 12.5px; color: #3a3a40; border-bottom: 1px solid #e6e6e6; background: #f4f4f3; position: relative; }
+.dots { display: flex; gap: 7px; }
+.dots i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; display: block; }
+.dots i:nth-child(2) { background: #febc2e; } .dots i:nth-child(3) { background: #28c840; }
+.tb .t { position: absolute; left: 0; right: 0; text-align: center; font-weight: 500; pointer-events: none; }
