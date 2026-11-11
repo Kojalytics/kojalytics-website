@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { HONEYPOT, MIN_FILL_MS } from "@/lib/form-guard";
 
 type Done = { receivedAt: string; emailSent: boolean };
 type Contract = "monthly" | "lifetime" | "unknown";
@@ -20,15 +21,27 @@ export default function WithdrawForm() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState<Done | null>(null);
+  // When the form appeared. The server takes a form sent within MIN_FILL_MS for a bot.
+  const shownAt = useRef<number | null>(null);
+  useEffect(() => {
+    shownAt.current = performance.now();
+  }, []);
 
-  async function submit() {
+  async function submit(trap: string) {
     setBusy(true);
     setError(null);
     try {
+      // Someone very quick (e.g. with autofill) waits out the rest under "Wird gesendet …" and is never taken for a bot.
+      const shown = shownAt.current;
+      if (shown !== null) {
+        const wait = MIN_FILL_MS + 250 - (performance.now() - shown);
+        if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+      }
+      const fillMs = shown === null ? undefined : Math.round(performance.now() - shown);
       const res = await fetch("/api/withdraw", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, contract, reference }),
+        body: JSON.stringify({ name, email, contract, reference, [HONEYPOT]: trap, fillMs }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Das hat nicht geklappt. Bitte versuche es erneut.");
@@ -82,12 +95,17 @@ export default function WithdrawForm() {
 
   return (
     <form
-      className="grid gap-6 border border-border p-5 sm:p-8"
+      className="relative grid gap-6 border border-border p-5 sm:p-8"
       onSubmit={(e) => {
         e.preventDefault();
-        submit();
+        submit(String(new FormData(e.currentTarget).get(HONEYPOT) ?? ""));
       }}
     >
+      {/* Trap for bots that fill every field: off-screen, out of the tab order, hidden from screen readers. */}
+      <div aria-hidden="true" className="absolute -left-[10000px] top-0 h-px w-px overflow-hidden">
+        <label htmlFor="withdraw-website">Website</label>
+        <input id="withdraw-website" name={HONEYPOT} type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+      </div>
       <div className="grid gap-2">
         <label htmlFor="withdraw-name" className="text-sm font-semibold">
           Vor- und Nachname

@@ -1,18 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { botReason, clientIp, limiter } from '@/lib/form-guard';
 import { sendEmail } from '@/lib/license-sales';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SUPPORT = 'support@kojalytics.com';
 const CONTRACTS: Record<string, string> = { monthly: 'Koja-Apps · Monatlich', lifetime: 'Koja-Apps · Dauerhaft', unknown: 'Koja-Apps (Vertrag nicht angegeben)' };
 
-// Best effort against misuse (per server instance): at most 3 declarations per address and hour.
-const recent = new Map<string, number[]>();
-function tooMany(email: string) {
-  const now = Date.now();
-  const hits = (recent.get(email) ?? []).filter((t) => now - t < 3_600_000);
-  recent.set(email, [...hits, now]);
-  return hits.length >= 3;
-}
+// Best effort against misuse (per server instance): at most 3 declarations per address and 5 per IP address and hour.
+const tooManyForAddress = limiter(3);
+const tooManyFromIp = limiter(5);
 
 // Widerrufsfunktion (§ 356a BGB): records the withdrawal, confirms receipt to the address entered and sends a
 // copy to support, who checks it (e.g. whether the right already expired under § 356 (5) BGB) and refunds.
@@ -27,7 +23,17 @@ export async function POST(request: NextRequest) {
   if (!EMAIL.test(email) || !name) {
     return NextResponse.json({ error: 'Bitte gib deinen Namen und die E-Mail-Adresse deines Kaufs ein.' }, { status: 400 });
   }
-  if (tooMany(email)) {
+  // A bot gets the answer of a real withdrawal, but no e-mail goes to support or to the stranger it entered.
+  const bot = botReason(body);
+  if (bot) {
+    console.warn(`Withdraw: ignored a bot entry (${bot})`);
+    return NextResponse.json({ ok: true, receivedAt: new Date().toISOString(), emailSent: true });
+  }
+  const ip = clientIp(request.headers);
+  if (ip && tooManyFromIp(ip)) {
+    return NextResponse.json({ error: 'Von deinem Anschluss kamen gerade zu viele Widerrufe. Bitte versuche es in einer Stunde erneut oder schreib an support@kojalytics.com.' }, { status: 429 });
+  }
+  if (tooManyForAddress(email)) {
     return NextResponse.json({ error: 'Dein Widerruf ist bereits bei uns eingegangen. Bei Fragen schreib an support@kojalytics.com.' }, { status: 429 });
   }
   if (!process.env.RESEND_API_KEY) {
