@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { botReason, clientIp, limiter } from '@/lib/form-guard';
 import { LICENSE_PRODUCT, sendEmail } from '@/lib/license-sales';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -7,14 +8,9 @@ const SUPPORT = 'support@kojalytics.com';
 // Subscriptions that bill now or can bill again.
 const LIVE = new Set(['active', 'trialing', 'past_due', 'unpaid']);
 
-// Best effort against misuse (per server instance): at most 3 declarations per address and hour.
-const recent = new Map<string, number[]>();
-function tooMany(email: string) {
-  const now = Date.now();
-  const hits = (recent.get(email) ?? []).filter((t) => now - t < 3_600_000);
-  recent.set(email, [...hits, now]);
-  return hits.length >= 3;
-}
+// Best effort against misuse (per server instance): at most 3 declarations per address and 5 per IP address and hour.
+const tooManyForAddress = limiter(3);
+const tooManyFromIp = limiter(5);
 
 const day = (seconds: number) =>
   new Date(seconds * 1000).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Berlin' });
@@ -34,7 +30,17 @@ export async function POST(request: NextRequest) {
   if (!EMAIL.test(email) || !name) {
     return NextResponse.json({ error: 'Bitte gib deinen Namen und die E-Mail-Adresse deines Abos ein.' }, { status: 400 });
   }
-  if (tooMany(email)) {
+  // A bot gets the answer of a real cancellation, but nothing is cancelled and no e-mail goes to the stranger it entered.
+  const bot = botReason(body);
+  if (bot) {
+    console.warn(`Cancel: ignored a bot entry (${bot})`);
+    return NextResponse.json({ ok: true, receivedAt: new Date().toISOString(), emailSent: true });
+  }
+  const ip = clientIp(request.headers);
+  if (ip && tooManyFromIp(ip)) {
+    return NextResponse.json({ error: 'Von deinem Anschluss kamen gerade zu viele Kündigungen. Bitte versuche es in einer Stunde erneut oder schreib an support@kojalytics.com.' }, { status: 429 });
+  }
+  if (tooManyForAddress(email)) {
     return NextResponse.json({ error: 'Deine Kündigung ist bereits bei uns eingegangen. Bei Fragen schreib an support@kojalytics.com.' }, { status: 429 });
   }
   if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY.includes('REPLACE')) {
