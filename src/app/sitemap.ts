@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/lizenzen', 0.5),
     page('/etsy-sync', 0.5),
     page('/support', 0.4),
+    page('/support/windows-installation', 0.4),
     page('/kuendigen', 0.3, 'yearly'),
     page('/impressum', 0.2, 'yearly'),
     page('/datenschutz', 0.2, 'yearly'),
