@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Rechnung KJ-2026-10482</title>
+<style>
+@font-face { font-family: "Archivo"; src: url("../../node_modules_fonts/archivo-latin-wdth-normal.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Geist"; src: url("../../node_modules_fonts/geist-sans-latin-400-normal.woff2"); font-weight: 400; }
+@font-face { font-family: "Geist"; src: url("../../node_modules_fonts/geist-sans-latin-500-normal.woff2"); font-weight: 500; }
+@font-face { font-family: "Geist"; src: url("../../node_modules_fonts/geist-sans-latin-600-normal.woff2"); font-weight: 600; }
+@font-face { font-family: "GeistMono"; src: url("../../node_modules_fonts/geist-mono-latin-500-normal.woff2"); font-weight: 500; }
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --fg:#0e0e10; --muted:#5a5a60; --faint:#8a8a90; --border:#e3e3e1; --accent:#2a66d8; --ok:#1d9d54; }
+html, body { width: 210mm; }
+body { font-family: Geist, sans-serif; color: var(--fg); font-size: 9.6pt; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+.page { position: relative; width: 210mm; height: 297mm; padding: 0 20mm 0 25mm; }
+.fold { position: absolute; left: 6mm; width: 4mm; height: 0; border-top: 0.6pt solid #b8b8b6; }
+.wm { font-family: Archivo; font-weight: 700; font-stretch: 125%; font-variation-settings: "wdth" 125; letter-spacing: -.01em; }
+.hud { font-family: GeistMono; font-weight: 500; font-size: 7.4pt; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+header { position: absolute; left: 25mm; right: 20mm; top: 14mm; display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 4mm; border-bottom: 0.6pt solid var(--fg); }
+header .wm { font-size: 20pt; line-height: 1; }
+header .tag { margin-top: 2mm; }
+header .right { text-align: right; }
+header .right .t { font-family: Archivo; font-weight: 700; font-stretch: 125%; font-size: 15pt; letter-spacing: .02em; }
+/* DIN 5008 Form B address field: 45 mm from top, 85 x 45 mm */
+.addr { position: absolute; left: 25mm; top: 45mm; width: 85mm; height: 45mm; }
+.addr .snd { font-size: 6.6pt; color: var(--muted); border-bottom: 0.4pt solid #b8b8b6; padding-bottom: 1mm; margin-bottom: 4mm; display: inline-block; }
+.addr .to { font-size: 10.5pt; line-height: 1.5; }
+.meta { position: absolute; left: 125mm; right: 20mm; top: 50mm; }
+.meta table { width: 100%; border-collapse: collapse; font-size: 8.8pt; }
+.meta td { padding: 1.15mm 0; border-bottom: 0.4pt solid var(--border); }
+.meta td:first-child { color: var(--muted); }
+.meta td:last-child { text-align: right; font-weight: 500; }
+.body { position: absolute; left: 25mm; right: 20mm; top: 98mm; }
+h1 { font-size: 13pt; font-weight: 600; letter-spacing: -.005em; }
+.intro { margin-top: 5mm; }
+table.items { width: 100%; border-collapse: collapse; margin-top: 6mm; }
+.items th { font-family: GeistMono; font-weight: 500; font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 0 2mm; border-bottom: 0.6pt solid var(--fg); }
+.items td { padding: 2.6mm 0; border-bottom: 0.4pt solid var(--border); vertical-align: top; }
+.items .r { text-align: right; white-space: nowrap; }
+.items .pos { width: 10mm; color: var(--muted); }
+.items .desc b { font-weight: 600; font-size: 10pt; }
+.items .desc ul { list-style: none; margin-top: 1.2mm; color: var(--muted); font-size: 8.6pt; }
+.items .desc li::before { content: "– "; }
+.items .key { font-family: GeistMono; font-size: 8pt; color: var(--fg); margin-top: 1.5mm; }
+.tot { width: 78mm; margin-left: auto; margin-top: 4mm; border-collapse: collapse; }
+.tot td { padding: 1.3mm 0; }
+.tot td:last-child { text-align: right; }
+.tot .sum td { border-top: 0.6pt solid var(--fg); padding-top: 2.5mm; font-weight: 600; font-size: 11.5pt; }
+.paid { display: flex; align-items: center; gap: 3mm; margin-top: 5mm; padding: 3mm 4mm; border: 0.6pt solid #b9e2c8; background: #f1faf4; color: #146c3a; font-size: 9pt; }
+.paid svg { width: 4.6mm; height: 4.6mm; flex: none; }
+.notes { margin-top: 5mm; font-size: 8.8pt; color: var(--fg); }
+.notes p + p { margin-top: 2mm; }
+.sig { margin-top: 5mm; }
+footer { position: absolute; left: 25mm; right: 20mm; bottom: 12mm; border-top: 0.4pt solid #b8b8b6; padding-top: 3mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm; font-size: 7pt; color: var(--muted); line-height: 1.5; }
+footer b { color: var(--fg); font-weight: 600; }
+.pg { position: absolute; right: 20mm; bottom: 6mm; font-size: 6.6pt; color: var(--faint); }
+</style></head>
+<body><div class="page">
+<div class="fold" style="top:105mm"></div><div class="fold" style="top:148.5mm"></div><div class="fold" style="top:210mm"></div>
+
+<header>
+ <div><div class="wm">Kojalytics</div><div class="hud tag">Software · Hamburg</div></div>
+ <div class="right"><div class="t">RECHNUNG</div><div class="hud" style="margin-top:2mm">Nr. KJ-2026-10482</div></div>
+</header>
+
+<div class="addr">
+ <div class="snd">Kojalytics · Am Diggen 40i · 21077 Hamburg</div>
+ <div class="to">Herr<br>Max Mustermann<br>Musterstraße 12<br>12345 Musterstadt</div>
+</div>
+
+<div class="meta"><table>
+ <tr><td>Rechnungsnummer</td><td>KJ-2026-10482</td></tr>
+ <tr><td>Rechnungsdatum</td><td>12.11.2026</td></tr>
+ <tr><td>Leistungsdatum</td><td>12.11.2026</td></tr>
+ <tr><td>Kundennummer</td><td>K-58213</td></tr>
+ <tr><td>Bestellnummer</td><td>KO-2026-31907</td></tr>
+ <tr><td>Zahlungsart</td><td>PayPal</td></tr>
+</table></div>
+
+<div class="body">
+ <h1>Rechnung Nr. KJ-2026-10482</h1>
+ <p class="intro">Sehr geehrter Herr Mustermann,<br>vielen Dank für Ihren Kauf. Für Ihre Bestellung berechnen wir Ihnen folgende Leistungen:</p>
+
+ <table class="items">
+  <thead><tr><th class="pos">Pos.</th><th>Beschreibung</th><th class="r">Menge</th><th class="r" style="width:26mm">Einzelpreis</th><th class="r" style="width:24mm">Gesamt</th></tr></thead>
+  <tbody>
+   <tr><td class="pos">1</td><td class="desc"><b>Koja Office – Dauerhafte Lizenz</b>
+     <ul><li>13 Programme für macOS und Windows 10/11</li><li>Nutzung auf bis zu 3 Geräten</li><li>Alle Updates inklusive, unbefristete Laufzeit</li></ul>
+     <div class="key">Lizenzschlüssel: KOJA-7F3Q-••••-9KLA</div></td>
+     <td class="r">1</td><td class="r">79,00 €</td><td class="r">79,00 €</td></tr>
+   <tr><td class="pos">2</td><td class="desc"><b>Lizenzkarte per Post</b><ul><li>Versand innerhalb Deutschlands</li></ul></td>
+     <td class="r">1</td><td class="r">0,00 €</td><td class="r">0,00 €</td></tr>
+  </tbody>
+ </table>
+
+ <table class="tot">
+  <tr><td>Nettobetrag</td><td>66,39 €</td></tr>
+  <tr><td>zzgl. 19 % Umsatzsteuer</td><td>12,61 €</td></tr>
+  <tr class="sum"><td>Gesamtbetrag</td><td>79,00 €</td></tr>
+ </table>
+
+ <div class="paid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+  <span><b>Bezahlt</b> am 12.11.2026 per PayPal. Es ist keine weitere Zahlung erforderlich.</span></div>
+
+ <div class="notes">
+  <p>Ihr Lizenzschlüssel wurde Ihnen am 12.11.2026 per E-Mail zugestellt. Die Lizenzkarte erhalten Sie zusätzlich per Post.</p>
+  <p>Bitte bewahren Sie diese Rechnung für Ihre Unterlagen auf. Bei Fragen antworten Sie einfach auf unsere E-Mail oder schreiben Sie an support@kojalytics.com.</p>
+ </div>
+ <p class="sig">Mit freundlichen Grüßen<br>Ihr Kojalytics-Team</p>
+</div>
+
+<footer>
+ <div><b>Kojalytics</b><br>Inhaber: Farzad Khojazada<br>Am Diggen 40i<br>21077 Hamburg</div>
+ <div><b>Kontakt</b><br>support@kojalytics.com<br>www.kojalytics.com</div>
+ <div><b>Steuerliche Angaben</b><br>Steuernummer: 00/000/00000<br>Einzelunternehmen</div>
+</footer>
+<div class="pg">Seite 1 von 1</div>
+</div></body></html>
