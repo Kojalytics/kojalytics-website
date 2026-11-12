@@ -11,6 +11,10 @@ const kojaFaq = [
     a: "Starte den Kojalytics Launcher, öffne Einstellungen › Lizenz, füge deinen Schlüssel aus der Kauf-E-Mail ein und klicke auf „Aktivieren“. Eine Lizenz gilt für bis zu 3 Geräte, Mac und Windows-PC gemischt.",
   },
   {
+    q: "Windows zeigt bei der Installation eine Warnung. Was tun?",
+    a: "Das ist bei neuen Programmen normal: Der Launcher ist signiert, Windows kennt ihn nur noch nicht oft genug. Unsere [Anleitung für Windows](/support/windows-installation) zeigt dir jeden Schritt und wie du prüfst, dass die Datei echt ist.",
+  },
+  {
     q: "Wie kündige ich mein Koja-Abo?",
     a: "Unter [Verträge hier kündigen](/kuendigen), ohne Login und ohne Gebühr. Das Abo endet zum Ende des bezahlten Monats, die Bestätigung kommt sofort per E-Mail.",
   },
