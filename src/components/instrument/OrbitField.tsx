@@ -14,6 +14,7 @@ export type OrbitApp = { slug: string; name: string; kind: string };
  *
  * The field is a 2400px square, scaled per breakpoint in globals.css (.orbit-field). Phones (< md) get
  * their own, rounder orbits around the K mark; from md up the orbits are wide ellipses around the copy.
+ * `linked={false}` (the Digistore24 partner page): the icons are not links to the app pages.
  */
 
 const C = 1200; // centre of the 2400px field
@@ -56,7 +57,26 @@ function ridersFor(layout: Layout, apps: OrbitApp[]) {
   });
 }
 
-export default function OrbitField({ apps }: { apps: OrbitApp[] }) {
+function OrbitIcon({ app }: { app: OrbitApp }) {
+  return (
+    <>
+      <Image
+        src={`/apps/${app.slug}/icon.webp`}
+        alt=""
+        width={104}
+        height={104}
+        loading="lazy"
+        fetchPriority="low"
+        className="h-full w-full rounded-[22%] shadow-[0_22px_34px_-16px_rgba(14,14,16,0.5)] transition-transform duration-300 group-hover:scale-110"
+      />
+      <span className="pointer-events-none absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap border border-border bg-white px-2 py-1 font-mono text-[15px] uppercase tracking-[0.14em] text-foreground opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+        {app.name}
+      </span>
+    </>
+  );
+}
+
+export default function OrbitField({ apps, linked = true }: { apps: OrbitApp[]; linked?: boolean }) {
   const field = useRef<HTMLDivElement>(null);
 
   // How far the hero has scrolled away (0…1) as --p; CSS widens the field and fades the icons.
@@ -125,25 +145,20 @@ export default function OrbitField({ apps }: { apps: OrbitApp[] }) {
                   } as CSSProperties
                 }
               >
-                <Link
-                  href={`/software/${app.slug}`}
-                  prefetch={false}
-                  className="orbit-app group relative block h-[104px] w-[104px]"
-                  aria-label={`${app.name}: ${app.kind}`}
-                >
-                  <Image
-                    src={`/apps/${app.slug}/icon.webp`}
-                    alt=""
-                    width={104}
-                    height={104}
-                    loading="lazy"
-                    fetchPriority="low"
-                    className="h-full w-full rounded-[22%] shadow-[0_22px_34px_-16px_rgba(14,14,16,0.5)] transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <span className="pointer-events-none absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap border border-border bg-white px-2 py-1 font-mono text-[15px] uppercase tracking-[0.14em] text-foreground opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-                    {app.name}
+                {linked ? (
+                  <Link
+                    href={`/software/${app.slug}`}
+                    prefetch={false}
+                    className="orbit-app group relative block h-[104px] w-[104px]"
+                    aria-label={`${app.name}: ${app.kind}`}
+                  >
+                    <OrbitIcon app={app} />
+                  </Link>
+                ) : (
+                  <span className="orbit-app group relative block h-[104px] w-[104px]" aria-hidden>
+                    <OrbitIcon app={app} />
                   </span>
-                </Link>
+                )}
               </div>
             ))}
           </div>
