@@ -10,7 +10,7 @@ import { META_PIXEL_ID } from "@/lib/meta-pixel";
 const STORAGE_KEY = "kj-consent-v1";
 const CHANGE_EVENT = "kj:consent";
 const OPEN_EVENT = "kj:open-consent";
-const CLARITY_ID = "wrmm9ck898";
+const CLARITY_ID = "zd6llnwxwk";
 
 type Choice = "granted" | "denied";
 
