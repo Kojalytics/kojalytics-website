@@ -1,41 +1,30 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/studio";
 
 /**
- * One project as a cell: place it (or a wrapper with `data-reveal`) inside a `.cells` grid, which draws the hairlines.
+ * One project as a text cell (no picture): place it inside a `.cells` grid, which draws the hairlines. It links to our
+ * own project page only, never to the project itself.
  */
-export default function ProjectCard({ project, sizes }: { project: Project; sizes: string }) {
+export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <Link href={project.href} className="group flex h-full flex-col bg-background">
-      <div className="flex min-h-11 items-center justify-between gap-3 px-5 py-3 md:px-6">
+    <Link href={`/projekte/${project.slug}`} className="group flex h-full flex-col bg-background p-5 transition-colors hover:bg-surface md:p-6">
+      <span className="flex items-start justify-between gap-3">
         <span className="hud truncate">{project.kind}</span>
-        <ArrowUpRight size={14} className="shrink-0 text-faint transition-colors group-hover:text-accent" aria-hidden />
-      </div>
-      <div className="relative aspect-[4/3] overflow-hidden border-y border-border bg-surface">
-        <Image
-          src={project.image.src}
-          alt={project.image.alt}
-          fill
-          sizes={sizes}
-          className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-        />
-      </div>
-      <div className="flex flex-1 flex-col p-5 md:p-6">
-        <h3 className="display text-[1.55rem]">{project.title}</h3>
-        <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{project.summary}</p>
-        <div className="mt-5 flex flex-wrap gap-1.5">
-          {project.tags.map((t) => (
-            <span key={t} className="tag">
-              {t}
-            </span>
-          ))}
-        </div>
-        <span className="link-hud mt-6 group-hover:text-accent">
-          Projekt ansehen <ArrowUpRight size={14} aria-hidden />
-        </span>
-      </div>
+        <span className="hud shrink-0 text-faint">{String(index + 1).padStart(2, "0")}</span>
+      </span>
+      <h3 className="display mt-6 text-[1.4rem] transition-colors group-hover:text-accent">{project.title}</h3>
+      <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{project.summary}</p>
+      <span className="mt-5 flex flex-wrap gap-1.5">
+        {project.tags.slice(0, 3).map((t) => (
+          <span key={t} className="tag">
+            {t}
+          </span>
+        ))}
+      </span>
+      <span className="link-hud mt-5 group-hover:text-accent">
+        Mehr erfahren <ArrowUpRight size={14} aria-hidden />
+      </span>
     </Link>
   );
 }

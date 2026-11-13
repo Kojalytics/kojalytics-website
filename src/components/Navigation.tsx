@@ -9,8 +9,8 @@ import RevealManager from "@/components/instrument/RevealManager";
 import ScrollRuler from "@/components/instrument/ScrollRuler";
 
 const navLinks = [
-  { href: "/leistungen", label: "Leistungen" },
   { href: "/lizenzen", label: "Lizenzen" },
+  { href: "/leistungen", label: "Leistungen" },
   { href: "/software", label: "Software" },
   { href: "/projekte", label: "Projekte" },
   { href: "/ratgeber", label: "Ratgeber" },

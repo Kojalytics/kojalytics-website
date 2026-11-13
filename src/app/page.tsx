@@ -4,7 +4,6 @@ import { ArrowRight, ArrowUpRight, Bot, Calculator, Compass, KeyRound, LayoutGri
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AppIcon from "@/components/ui/app-icon";
-import ProjectCard from "@/components/studio/ProjectCard";
 import ContactCta from "@/components/studio/ContactCta";
 import SectionBar from "@/components/instrument/SectionBar";
 import { APPS } from "@/lib/apps";
@@ -13,23 +12,23 @@ import { PLANS } from "@/lib/pricing";
 import { DEFAULT_OG_IMAGE, OG_BASE, WEBSITE_JSON_LD, jsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Kojalytics: Beratung, App-Entwicklung und Software-Lizenzen" },
+  title: { absolute: "Kojalytics: Software-Lizenzen, Beratung und App-Entwicklung" },
   description:
-    "Kojalytics berät Unternehmen bei Digitalisierung und KI, entwickelt Apps und Websites und liefert Lizenzen für Office-, System- und Business-Software. Jetzt anfragen.",
+    "Kojalytics liefert Lizenzen für Office-, System- und Business-Software und berät Unternehmen bei Digitalisierung und KI. Dazu Apps und Websites. Jetzt anfragen.",
   alternates: { canonical: "/" },
   openGraph: {
     ...OG_BASE,
     url: "/",
-    title: "Kojalytics: Beratung, App-Entwicklung und Software-Lizenzen",
-    description: "Beratung zu Digitalisierung und KI, Apps und Websites, Lizenzen für Büro- und Business-Software. Alles aus einer Hand.",
+    title: "Kojalytics: Software-Lizenzen, Beratung und App-Entwicklung",
+    description: "Lizenzen für Büro- und Business-Software, Beratung zu Digitalisierung und KI, Apps und Websites. Alles aus einer Hand.",
     images: [DEFAULT_OG_IMAGE],
   },
 };
 
 /** The four things Kojalytics does: the overview next to the headline and the order of the sections below. */
 const AREAS = [
-  { id: "beratung", icon: Compass, title: "Beratung", text: "Digitalisierung, KI und die richtige Software für euren Alltag." },
   { id: "lizenzen", icon: KeyRound, title: "Software-Lizenzen", text: "Office, Betriebssysteme, Server- und Fachsoftware, passend lizenziert." },
+  { id: "beratung", icon: Compass, title: "Unternehmensberatung", text: "Digitalisierung, KI und die richtige Software für euren Alltag." },
   { id: "entwicklung", icon: Smartphone, title: "App- und Web-Entwicklung", text: "iOS-Apps, Web-Plattformen und KI-Funktionen, bis zum Release." },
   { id: "koja-apps", icon: LayoutGrid, title: "Koja-Apps", text: "Unsere eigene Software: 13 Apps für Mac und Windows." },
 ];
@@ -60,22 +59,22 @@ export default function Home() {
       <main className="pt-12">
         {/* 01 Hero: what Kojalytics does, with the four areas as an index on the right */}
         <section className="rail">
-          <SectionBar index="01" label="Kojalytics · Hamburg" meta="Beratung · Entwicklung · Lizenzen" />
+          <SectionBar index="01" label="Kojalytics · Hamburg" meta="Software-Handel · Lizenzen · Beratung" />
           <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center ${pad}`}>
             <div>
               <h1 className="display rise-in text-[clamp(2.1rem,5.2vw,4.3rem)]">
-                Beratung, <span className="text-highlight">Software</span> und Lizenzen für dein Unternehmen.
+                Software-<span className="text-highlight">Lizenzen</span> und Beratung für dein Unternehmen.
               </h1>
               <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
-                Kojalytics berät bei Digitalisierung und KI, entwickelt Apps und Websites und liefert die passenden Lizenzen für Büro-
-                und Business-Software. Alles aus einer Hand, mit festen Ansprechpartnern.
+                Kojalytics liefert die passenden Lizenzen für Büro- und Business-Software und berät Unternehmen bei Digitalisierung und
+                KI. Dazu entwickeln wir Apps und Websites. Alles aus einer Hand, mit festen Ansprechpartnern.
               </p>
               <div className="rise-in mt-9 flex flex-col gap-3 [--i:2] sm:flex-row">
-                <Link href="/kontakt?thema=beratung" className="btn-primary">
-                  Beratung anfragen <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
+                <Link href="/kontakt?thema=lizenzen" className="btn-primary">
+                  Lizenz anfragen <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
                 </Link>
-                <Link href="/kontakt?thema=lizenzen" className="btn-secondary">
-                  Lizenz anfragen
+                <Link href="/kontakt?thema=beratung" className="btn-secondary">
+                  Beratung anfragen
                 </Link>
               </div>
               <p className="hud rise-in mt-5 [--i:3]">Kostenloses Erstgespräch · Antwort per E-Mail</p>
@@ -111,53 +110,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 02 Consulting */}
-        <section id="beratung" className="rail crosshairs scroll-mt-12">
-          <SectionBar index="02" label="Beratung" meta="Digitalisierung · KI · Software" />
-          <div className={`grid gap-6 py-14 md:py-20 lg:grid-cols-2 lg:items-end lg:gap-10 ${pad}`}>
-            <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
-              Erst verstehen, dann <span className="text-highlight">digitalisieren</span>.
-            </h2>
-            <div data-reveal>
-              <p className="max-w-xl text-lg leading-relaxed text-muted">
-                Wir schauen uns an, wie ihr heute arbeitet, und zeigen, wo Software und KI wirklich Zeit und Geld sparen. Ohne
-                Fachchinesisch, mit einem konkreten Plan.
-              </p>
-              <Link href="/kontakt?thema=beratung" className="link-hud mt-6 min-h-11">
-                Beratung anfragen <ArrowUpRight size={14} aria-hidden />
-              </Link>
-            </div>
-          </div>
-          <div className="cells border-y border-border sm:grid-cols-2 xl:grid-cols-4">
-            {CONSULTING.map((c, i) => (
-              <div key={c.title} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
-                <div className="flex items-start justify-between">
-                  <span className="icon-box">
-                    <c.icon size={18} aria-hidden />
-                  </span>
-                  <span className="hud text-faint">{two(i + 1)}</span>
-                </div>
-                <h3 className="display mt-6 text-[1.3rem]">{c.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted">{c.text}</p>
-              </div>
-            ))}
-          </div>
-          <ol className="cells md:grid-cols-3">
-            {CONSULTING_STEPS.map((s, i) => (
-              <li key={s.title} className="flex gap-5 p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
-                <span className="display text-[2rem] leading-none text-faint">{two(i + 1)}</span>
-                <span>
-                  <span className="block font-semibold">{s.title}</span>
-                  <span className="mt-1.5 block leading-relaxed text-muted">{s.text}</span>
-                </span>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* 03 Software licences */}
+        {/* 02 Software licences: the main business */}
         <section id="lizenzen" className="rail crosshairs scroll-mt-12">
-          <SectionBar index="03" label="Software-Lizenzen" meta="Office · Betriebssysteme · Business-Software" />
+          <SectionBar index="02" label="Software-Lizenzen" meta="Office · Betriebssysteme · Business-Software" />
           <div className={`grid gap-10 py-14 md:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 ${pad}`}>
             <div>
               <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
@@ -207,6 +162,50 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 03 Consulting */}
+        <section id="beratung" className="rail crosshairs scroll-mt-12">
+          <SectionBar index="03" label="Unternehmensberatung" meta="Digitalisierung · KI · Software" />
+          <div className={`grid gap-6 py-14 md:py-20 lg:grid-cols-2 lg:items-end lg:gap-10 ${pad}`}>
+            <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+              Erst verstehen, dann <span className="text-highlight">digitalisieren</span>.
+            </h2>
+            <div data-reveal>
+              <p className="max-w-xl text-lg leading-relaxed text-muted">
+                Wir schauen uns an, wie ihr heute arbeitet, und zeigen, wo Software und KI wirklich Zeit und Geld sparen. Ohne
+                Fachchinesisch, mit einem konkreten Plan.
+              </p>
+              <Link href="/kontakt?thema=beratung" className="link-hud mt-6 min-h-11">
+                Beratung anfragen <ArrowUpRight size={14} aria-hidden />
+              </Link>
+            </div>
+          </div>
+          <div className="cells border-y border-border sm:grid-cols-2 xl:grid-cols-4">
+            {CONSULTING.map((c, i) => (
+              <div key={c.title} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
+                <div className="flex items-start justify-between">
+                  <span className="icon-box">
+                    <c.icon size={18} aria-hidden />
+                  </span>
+                  <span className="hud text-faint">{two(i + 1)}</span>
+                </div>
+                <h3 className="display mt-6 text-[1.3rem]">{c.title}</h3>
+                <p className="mt-3 leading-relaxed text-muted">{c.text}</p>
+              </div>
+            ))}
+          </div>
+          <ol className="cells md:grid-cols-3">
+            {CONSULTING_STEPS.map((s, i) => (
+              <li key={s.title} className="flex gap-5 p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
+                <span className="display text-[2rem] leading-none text-faint">{two(i + 1)}</span>
+                <span>
+                  <span className="block font-semibold">{s.title}</span>
+                  <span className="mt-1.5 block leading-relaxed text-muted">{s.text}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
         {/* 04 App and web development */}
         <section id="entwicklung" className="rail crosshairs scroll-mt-12">
           <SectionBar index="04" label="App- und Web-Entwicklung" meta="iOS · Web · KI · Design · Backend" />
@@ -239,24 +238,39 @@ export default function Home() {
 
         {/* 05 Projects */}
         <section className="rail crosshairs">
-          <SectionBar index="05" label="Projekte" meta="macOS · Windows · iOS · Web · Shopify" />
+          <SectionBar index="05" label="Projekte" meta="Apps · Websites · Shops · KI" />
           <div className={`flex flex-col justify-between gap-4 py-14 md:flex-row md:items-end md:py-20 ${pad}`}>
             <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
-              <span className="text-highlight">Ausgeliefert</span>, nicht nur entworfen.
+              Was wir schon <span className="text-highlight">gebaut</span> haben.
             </h2>
             <Link href="/projekte" className="link-hud min-h-11 shrink-0">
               Alle Projekte <ArrowUpRight size={14} aria-hidden />
             </Link>
           </div>
-          <div className="cells border-t border-border md:grid-cols-3">
+          <ul className="cells border-t border-border grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {PROJECTS.map((p, i) => (
-              <div key={p.slug}>
-                <div className="h-full" data-reveal style={{ ["--i" as string]: i }}>
-                  <ProjectCard project={p} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 33vw, 427px" />
-                </div>
-              </div>
+              <li key={p.slug}>
+                <Link
+                  href={`/projekte/${p.slug}`}
+                  data-reveal
+                  style={{ ["--i" as string]: i % 4 }}
+                  className="group flex h-full flex-col gap-3 p-4 transition-colors hover:bg-surface sm:p-6"
+                >
+                  <span className="hud truncate text-faint">{p.kind}</span>
+                  <span className="display text-[1.05rem] leading-tight transition-colors group-hover:text-accent sm:text-[1.25rem]">{p.title}</span>
+                  <span className="mt-auto hidden text-[14px] leading-snug text-muted sm:block">{p.summary}</span>
+                </Link>
+              </li>
             ))}
-          </div>
+            <li className="md:col-span-2 lg:col-span-3">
+              <Link href="/projekte" className="group flex h-full items-end justify-between gap-4 p-4 transition-colors hover:bg-surface sm:p-6">
+                <span className="hud text-foreground">{PROJECTS.length} Projekte</span>
+                <span className="link-hud group-hover:text-accent">
+                  Alle Projekte <ArrowUpRight size={14} aria-hidden />
+                </span>
+              </Link>
+            </li>
+          </ul>
         </section>
 
         {/* 06 Our own software: a short pointer to /software */}
@@ -284,10 +298,10 @@ export default function Home() {
         </section>
 
         <ContactCta
-          hud="Kontakt · Beratung · Lizenzen · Projekte"
+          hud="Kontakt · Lizenzen · Beratung · Projekte"
           title={
             <>
-              Projekt, Lizenzen oder eine Frage? <span className="text-highlight">Schreib</span> uns.
+              Lizenzen, Beratung oder ein Projekt? <span className="text-highlight">Schreib</span> uns.
             </>
           }
           text="Erzähl uns kurz, worum es geht. Du bekommst eine persönliche Antwort mit einem ersten Vorschlag."
