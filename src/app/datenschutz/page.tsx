@@ -219,7 +219,7 @@ export default function DatenschutzPage() {
                   ["Anbieter", "Microsoft Ireland Operations Limited, Irland („Microsoft“)."],
                   [
                     "Zweck",
-                    "Nach deiner Einwilligung laden wir Microsoft Clarity (Projekt wrmm9ck898). Clarity zeichnet auf, wie du unsere Website nutzt, und erstellt daraus Heatmaps (zusammengefasste Klick- und Scrollkarten) und Sitzungsaufzeichnungen (eine Wiedergabe deines Besuchs). So sehen wir, wo unsere Seiten unklar sind oder nicht funktionieren, und können sie verbessern.",
+                    "Nach deiner Einwilligung laden wir Microsoft Clarity (Projekt zd6llnwxwk). Clarity zeichnet auf, wie du unsere Website nutzt, und erstellt daraus Heatmaps (zusammengefasste Klick- und Scrollkarten) und Sitzungsaufzeichnungen (eine Wiedergabe deines Besuchs). So sehen wir, wo unsere Seiten unklar sind oder nicht funktionieren, und können sie verbessern.",
                   ],
                   [
                     "Daten",
