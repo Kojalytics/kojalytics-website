@@ -1,7 +1,8 @@
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { decryptKey, encryptKey, generateKey, hashKey, normalizeKey } from '@/lib/license';
-import { DOWNLOAD_PATH, DOWNLOAD_PATH_WINDOWS, LAUNCHER_DOWNLOAD_URL, PLANS } from '@/lib/pricing';
+import { LAUNCHER_DOWNLOAD_URL } from '@/lib/pricing';
+import { licenseEmail } from '@/lib/license-email';
 
 export { LAUNCHER_DOWNLOAD_URL };
 export const LICENSE_PRODUCT = 'koja_license';
@@ -118,7 +119,17 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
       .select('id');
     if (claimed.data?.length) {
       try {
-        await sendLicenseEmail(issued.email, issued.key, issued.subscription, session.amount_total, session.metadata?.koja_code);
+        const { html, text } = licenseEmail({
+          key: issued.key,
+          subscription: issued.subscription,
+          paidCents: session.amount_total,
+          code: session.metadata?.koja_code,
+          name: session.customer_details?.name,
+          email: issued.email,
+          date: new Date(session.created * 1000),
+          devices: LICENSE_DEVICES,
+        });
+        await sendEmail(issued.email, 'Dein Kojalytics-Lizenzschlüssel', text, { html });
       } catch (e) {
         console.error('License email failed', e);
         await db.from('koja_licenses').update({ emailed_at: null }).eq('stripe_session_id', session.id);
@@ -128,56 +139,21 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
   return issued;
 }
 
-const euro = (cents: number) => (cents / 100).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
-
-async function sendLicenseEmail(to: string, key: string, subscription: boolean, paidCents: number | null, code?: string) {
-  const plan = subscription ? PLANS.monthly : PLANS.lifetime;
-  // With a discount code: the amount actually paid (for the subscription: the first month).
-  const discounted = paidCents !== null && paidCents !== plan.cents ? ` Mit Rabattcode${code ? ` ${code}` : ''} bezahlt: ${euro(paidCents)}${subscription ? ' für den ersten Abrechnungszeitraum' : ''}.` : '';
-  const text = [
-    'Danke für deinen Kauf!',
-    '',
-    `Dein Kojalytics-Lizenzschlüssel: ${key}`,
-    '',
-    'So aktivierst du ihn:',
-    '1. Lade den Kojalytics Launcher:',
-    `   Mac: https://www.kojalytics.com${DOWNLOAD_PATH}`,
-    `   Windows: https://www.kojalytics.com${DOWNLOAD_PATH_WINDOWS}`,
-    '2. Mac: Öffne die Datei und ziehe den Launcher in den Ordner „Programme“. Windows: Öffne die Datei und folge dem Installations-Assistenten.',
-    '3. Starte den Launcher und gehe zu Einstellungen › Lizenz.',
-    '4. Füge den Schlüssel ein und klicke auf „Aktivieren“.',
-    '5. Installiere deine Koja-Apps direkt im Launcher.',
-    '',
-    subscription
-      ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten (Mac oder Windows-PC). Kündigen kannst du jederzeit online: https://www.kojalytics.com/kuendigen`
-      : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten (Mac oder Windows-PC).`,
-    '',
-    // Contract confirmation (§ 312f BGB).
-    'Deine Bestellung',
-    (subscription
-      ? `Koja-Apps · Monatlich: alle 13 Koja-Apps für Mac und Windows, ${PLANS.monthly.label} pro Monat inkl. MwSt., monatlich kündbar.`
-      : `Koja-Apps · Dauerhaft: alle 13 Koja-Apps für Mac und Windows, einmalig ${PLANS.lifetime.label} inkl. MwSt., ohne Ablaufdatum.`) + discounted,
-    'Die Koja-Apps sind frühe Versionen (Alpha, teils Pre-Alpha), die mit Updates laufend weiterentwickelt werden.',
-    '',
-    'Es gelten unsere AGB mit Widerrufsbelehrung: https://www.kojalytics.com/agb',
-    'Widerruf erklären: https://www.kojalytics.com/widerrufen',
-    'Anbieter: Kojalytics, Farzad Khojazada, Am Diggen 40i, 21077 Hamburg, support@kojalytics.com',
-    '',
-    'Bitte bewahre diese E-Mail gut auf.',
-    '',
-    'Fragen? Antworte einfach auf diese E-Mail.',
-    'Kojalytics · https://www.kojalytics.com',
-  ].join('\n');
-  await sendEmail(to, 'Dein Kojalytics-Lizenzschlüssel', text);
-}
-
-/** `scheduledAt` (ISO timestamp): Resend holds the e-mail and sends it then instead of now. */
-export async function sendEmail(to: string, subject: string, text: string, { scheduledAt }: { scheduledAt?: string } = {}) {
+/**
+ * `scheduledAt` (ISO timestamp): Resend holds the e-mail and sends it then instead of now.
+ * `html`: sent alongside `text`; mail apps show the HTML and fall back to the text.
+ */
+export async function sendEmail(
+  to: string,
+  subject: string,
+  text: string,
+  { scheduledAt, html }: { scheduledAt?: string; html?: string } = {},
+) {
   const from = process.env.LICENSE_EMAIL_FROM || 'Kojalytics <license@kojalytics.com>';
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from, to, subject, text, ...(scheduledAt && { scheduled_at: scheduledAt }) }),
+    body: JSON.stringify({ from, to, subject, text, ...(html && { html }), ...(scheduledAt && { scheduled_at: scheduledAt }) }),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
 }
