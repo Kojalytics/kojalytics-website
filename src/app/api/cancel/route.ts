@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { botReason, clientIp, limiter } from '@/lib/form-guard';
-import { LICENSE_PRODUCT, sendEmail } from '@/lib/license-sales';
+import { LICENSE_PRODUCT, licenseKeysFor, sendEmail } from '@/lib/license-sales';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SUPPORT = 'support@kojalytics.com';
@@ -54,6 +54,7 @@ export async function POST(request: NextRequest) {
     const lists = await Promise.all([...new Set([raw, email])].map((e) => stripe.customers.list({ email: e, limit: 10 })));
     const customerIds = [...new Set(lists.flatMap((l) => l.data.map((c) => c.id)))];
     const ends: number[] = [];
+    const cancelledSubs: string[] = [];
     for (const customer of customerIds) {
       const subs = await stripe.subscriptions.list({ customer, status: 'all', limit: 50 });
       for (const sub of subs.data) {
@@ -65,6 +66,7 @@ export async function POST(request: NextRequest) {
               metadata: { ...sub.metadata, cancelled_via: 'website', cancel_type: extraordinary ? 'extraordinary' : 'ordinary', cancel_reason: reason.slice(0, 450) },
             });
         ends.push(current.cancel_at ?? current.items.data[0]?.current_period_end ?? 0);
+        cancelledSubs.push(sub.id);
       }
     }
 
@@ -93,11 +95,28 @@ export async function POST(request: NextRequest) {
       } catch (e) {
         console.error('Cancel: receipt email failed', e);
       }
+      // The keys of this customer, looked up for you: the subscription's key is deactivated automatically when the
+      // subscription ends (Stripe webhook); others you can find in Koja Keys by their last group.
+      const keys = await licenseKeysFor(raw, stripe, cancelledSubs);
       try {
         await sendEmail(
           SUPPORT,
           `Kündigung eingegangen: ${email}`,
-          [`Eingang: ${when}`, `Name: ${name}`, `E-Mail: ${raw}`, `Art: ${kind}`, `Grund: ${reason || '–'}`, `Lizenz/Rechnung: ${reference || '–'}`, `Gefundene Abos: ${ends.length}${endDates ? ` (Ende ${endDates})` : ''}`, `Bestätigung gesendet: ${emailSent ? 'ja' : 'nein'}`].join('\n')
+          [
+            `Eingang: ${when}`,
+            `Name: ${name}`,
+            `E-Mail: ${raw}`,
+            `Art: ${kind}`,
+            `Grund: ${reason || '–'}`,
+            `Vom Kunden angegeben: ${reference || '–'}`,
+            `Gefundene Abos: ${ends.length}${endDates ? ` (Ende ${endDates})` : ''}`,
+            '',
+            'Lizenzschlüssel zu dieser E-Mail-Adresse (in Koja Keys nach der Endung suchen):',
+            ...(keys.length ? keys.map((k) => `- ${k}`) : ['- keiner gefunden']),
+            ends.length ? 'Der Schlüssel des Abos wird zum Abo-Ende automatisch deaktiviert.' : '',
+            '',
+            `Bestätigung gesendet: ${emailSent ? 'ja' : 'nein'}`,
+          ].join('\n')
         );
       } catch (e) {
         console.error('Cancel: support copy failed', e);

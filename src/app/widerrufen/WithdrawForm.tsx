@@ -131,9 +131,20 @@ export default function WithdrawForm() {
       </fieldset>
       <div className="grid gap-2">
         <label htmlFor="withdraw-reference" className="text-sm font-semibold">
-          Lizenzschlüssel oder Rechnungsnummer <span className="font-normal text-muted">(optional)</span>
+          Dein Lizenzschlüssel, falls zur Hand <span className="font-normal text-muted">(optional)</span>
         </label>
-        <input id="withdraw-reference" value={reference} onChange={(e) => setReference(e.target.value)} className={field} autoComplete="off" />
+        <input
+          id="withdraw-reference"
+          value={reference}
+          onChange={(e) => setReference(e.target.value)}
+          className={field}
+          autoComplete="off"
+          placeholder="KOJA-XXXXX-XXXXX-…"
+          aria-describedby="withdraw-reference-hint"
+        />
+        <p id="withdraw-reference-hint" className="text-xs leading-relaxed text-muted">
+          Er steht in der E-Mail zu deinem Kauf. Ohne ihn finden wir deinen Vertrag über deine E-Mail-Adresse.
+        </p>
       </div>
 
       {error && (
