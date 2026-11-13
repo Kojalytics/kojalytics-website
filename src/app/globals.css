@@ -387,6 +387,12 @@ html[data-kj-consent] .kj-consent-pending {
   display: none;
 }
 
+/* While the cookie banner holds the bottom edge, the download hint (DownloadToast.tsx) sits below the header instead. */
+html:has(#kj-consent-title) .kj-download-toast {
+  top: 60px;
+  bottom: auto;
+}
+
 /* Legacy page decoration hooks, now neutral */
 .aurora-bg,
 .grid-pattern {
