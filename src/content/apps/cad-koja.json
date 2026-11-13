@@ -1,11 +1,11 @@
 {
   "kind": "2D-CAD",
-  "benefit": "Grundrisse und technische 2D-Zeichnungen am Mac erstellen, mit Befehlszeile, gängigen CAD-Kurzbefehlen und DWG-Import.",
+  "benefit": "Grundrisse und technische 2D-Zeichnungen am Mac oder PC erstellen, mit Befehlszeile, gängigen CAD-Kurzbefehlen und DWG-Import.",
   "keyword": "AutoCAD Alternative Mac",
-  "metaTitle": "AutoCAD-Alternative für Mac: CADKoja für 2D-CAD",
-  "metaDescription": "CADKoja ist eine AutoCAD-Alternative für den Mac: Befehlszeile, Layer, Bemaßung, DWG und DXF. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
-  "h1": "AutoCAD-Alternative für den Mac: 2D-Zeichnungen mit DWG und DXF",
-  "lead": "CADKoja ist eine AutoCAD-Alternative für den Mac, ausgelegt auf 2D: Befehlszeile, Objektfang, Layer, Bemaßung, Schraffur, Blöcke und Layouts. Pläne plottest du maßstabsgetreu als PDF. Die App ist eine sehr frühe Version (Pre-Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Zeichnungen.",
+  "metaTitle": "AutoCAD-Alternative für Mac und Windows: CADKoja",
+  "metaDescription": "CADKoja ist eine AutoCAD-Alternative für Mac und Windows: Befehlszeile, Layer, Bemaßung, DWG und DXF. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "AutoCAD-Alternative für Mac und Windows: 2D-Zeichnungen mit DWG und DXF",
+  "lead": "CADKoja ist eine AutoCAD-Alternative für Mac und Windows, ausgelegt auf 2D: Befehlszeile, Objektfang, Layer, Bemaßung, Schraffur, Blöcke und Layouts. Pläne plottest du maßstabsgetreu als PDF. Die App ist eine sehr frühe Version (Pre-Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Zeichnungen.",
   "highlights": [
     "Befehlszeile mit CAD-Kurzbefehlen",
     "DWG und DXF öffnen",
@@ -40,7 +40,7 @@
     },
     {
       "title": "Grundrisse beschriften",
-      "text": "Texte setzt du mit TEXT und MTEXT in TrueType-Schriften, Hinweise mit Multi-Führungslinien (MLEADER) und Raum- oder Stücklisten mit TABLE. So bekommt ein Grundriss am Mac Maße, Notizen und eine Raumtabelle in derselben Zeichnung."
+      "text": "Texte setzt du mit TEXT und MTEXT in TrueType-Schriften, Hinweise mit Multi-Führungslinien (MLEADER) und Raum- oder Stücklisten mit TABLE. So bekommt ein Grundriss am Mac oder PC Maße, Notizen und eine Raumtabelle in derselben Zeichnung."
     },
     {
       "title": "Parametrische Abhängigkeiten",
@@ -65,7 +65,7 @@
     }
   ],
   "switching": {
-    "title": "Von AutoCAD zu CADKoja wechseln: die Alternative für deinen Mac",
+    "title": "Von AutoCAD zu CADKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
       "Vieles bleibt, wie du es kennst: Du arbeitest mit der Befehlszeile und englischen Befehlsnamen samt Aliasen, etwa LINE, OFFSET, TRIM, FILLET, DIMSTYLE, MLEADER, BLOCK, INSERT und PLOT. Dazu kommen Objektfang, polare Spur, Ortho, Griffe, Layereigenschaften-Manager, Eigenschaften-Palette sowie die Register für Modell und Layouts.",
       "Zu deinen Dateien: CADKoja öffnet DWG-Dateien der Versionen R13 bis 2018 und DXF-Dateien von R12 bis 2018, als ASCII oder binär. Gespeichert wird in DWG und DXF im älteren Format R2000. Elemente, die CADKoja nicht kennt, gehen dabei verloren, und ob sich mit CADKoja gespeicherte DWG-Dateien in AutoCAD sauber öffnen lassen, ist laut Projektangaben noch nicht geprüft. Arbeite deshalb mit Kopien. SHX-Schriften liest CADKoja nicht, solche Texte erscheinen in einer Ersatzschrift. Exportieren kannst du als PDF, SVG und PNG.",
@@ -114,9 +114,9 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du am Mac 2D-Zeichnungen wie Grundrisse, Möbelpläne oder einfache technische Bauteile erstellst",
-    "du mit Befehlszeile, Objektfang und Layern zeichnest und das am Mac weiter tun willst",
-    "du DWG- oder DXF-Dateien auf dem Mac öffnen, prüfen und als PDF ausgeben willst",
+    "du am Mac oder PC 2D-Zeichnungen wie Grundrisse, Möbelpläne oder einfache technische Bauteile erstellst",
+    "du mit Befehlszeile, Objektfang und Layern zeichnest und das am Mac oder PC weiter tun willst",
+    "du DWG- oder DXF-Dateien auf dem Mac oder PC öffnen, prüfen und als PDF ausgeben willst",
     "du CAD lernen oder private Projekte planen willst und dafür kein AutoCAD-Abo bezahlen möchtest"
   ],
   "notFor": [
@@ -139,14 +139,14 @@
   "faq": [
     {
       "q": "Ist CADKoja eine vollwertige AutoCAD-Alternative?",
-      "a": "Nein, noch nicht. CADKoja ist eine sehr frühe Version (Pre-Alpha) und vor allem für 2D gedacht. Laut Projektangaben (Stand: November 2026) hat etwa die Hälfte der Menüpunkte von AutoCAD für Mac schon einen funktionierenden Befehl, die Reife für echte Projektarbeit liegt nach eigener Schätzung bei etwa 38 %. Zum Öffnen von DWG-Dateien, zum Lernen und für einfache 2D-Zeichnungen kannst du es ausprobieren, für bezahlte Projekte behältst du AutoCAD vorerst besser."
+      "a": "Nein, noch nicht. CADKoja ist eine sehr frühe Version (Pre-Alpha) und vor allem für 2D gedacht. Laut Projektangaben (Stand: November 2026) hat etwa die Hälfte der Menüpunkte von AutoCAD für Mac und Windows schon einen funktionierenden Befehl, die Reife für echte Projektarbeit liegt nach eigener Schätzung bei etwa 38 %. Zum Öffnen von DWG-Dateien, zum Lernen und für einfache 2D-Zeichnungen kannst du es ausprobieren, für bezahlte Projekte behältst du AutoCAD vorerst besser."
     },
     {
-      "q": "Kann ich mit CADKoja DWG- und DXF-Dateien auf dem Mac öffnen?",
+      "q": "Kann ich mit CADKoja DWG- und DXF-Dateien auf dem Mac oder PC öffnen?",
       "a": "Ja, CADKoja öffnet DWG-Dateien der Versionen R13 bis 2018 und DXF-Dateien von R12 bis 2018; Texte in SHX-Schriften erscheinen dabei in einer Ersatzschrift. Gespeichert wird in DWG und DXF im Format R2000, dabei gehen Elemente verloren, die CADKoja nicht kennt. Öffne deshalb am besten Kopien und gib Pläne für andere als PDF weiter."
     },
     {
-      "q": "Kann ich mit CADKoja einen Grundriss am Mac zeichnen?",
+      "q": "Kann ich mit CADKoja einen Grundriss am Mac oder PC zeichnen?",
       "a": "Ja. Wände und Räume zeichnest du mit LINE, PLINE und RECTANG, Maße setzt du mit den Bemaßungsbefehlen, Hinweise mit MLEADER und eine Raumtabelle mit TABLE. Layer halten Wände, Möbel und Beschriftung auseinander. Im Papierbereich legst du ein Layout an und plottest den Plan maßstabsgetreu als PDF."
     },
     {

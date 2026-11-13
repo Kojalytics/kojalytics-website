@@ -1,15 +1,15 @@
 {
   "kind": "RAW-Entwicklung",
-  "benefit": "Verwalte deine Fotos und entwickle RAW-Dateien lokal auf dem Mac, ohne dass deine Originale verändert werden.",
+  "benefit": "Verwalte deine Fotos und entwickle RAW-Dateien lokal auf dem Mac oder PC, ohne dass deine Originale verändert werden.",
   "keyword": "lightroom alternative mac",
-  "metaTitle": "LightKoja: Lightroom-Alternative für den Mac",
-  "metaDescription": "LightKoja ist eine Lightroom-Alternative für den Mac: RAW-Fotos verwalten und entwickeln, 79 € einmalig oder 2,99 € im Monat. 3 Tage kostenlos testen.",
-  "h1": "Lightroom-Alternative für den Mac: RAW-Fotos entwickeln und verwalten",
-  "lead": "LightKoja ist eine Lightroom-Alternative für deinen Mac. Die App verwaltet deine Fotos lokal und entwickelt RAW-Dateien mit Reglern für Lichter und Tiefen, Color Grading und Masken. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "metaTitle": "Lightroom-Alternative für Mac und Windows: LightKoja",
+  "metaDescription": "LightKoja ist eine Lightroom-Alternative für Mac und Windows: RAW-Fotos verwalten und entwickeln, 79 € einmalig oder 2,99 € im Monat. 3 Tage kostenlos testen.",
+  "h1": "Lightroom-Alternative für Mac und Windows: RAW-Fotos entwickeln und verwalten",
+  "lead": "LightKoja ist eine Lightroom-Alternative für Mac und Windows. Die App verwaltet deine Fotos lokal und entwickelt RAW-Dateien mit Reglern für Lichter und Tiefen, Color Grading und Masken. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "RAW von Canon, Nikon, Sony, Fuji",
     "Originale bleiben unverändert",
-    "Lokal auf dem Mac, ohne Cloud"
+    "Lokal auf Mac und PC, ohne Cloud"
   ],
   "features": [
     {
@@ -45,7 +45,7 @@
     },
     {
       "title": "Lokal, schnell, nichtdestruktiv",
-      "text": "Alle Bearbeitungen laufen durch eine 32-Bit-Gleitkomma-Pipeline mit großem Farbraum, deine Originaldateien werden nie verändert. Gerechnet wird auf der Grafikeinheit deines Macs: Auf einem Apple M4 Pro dauert eine Regleränderung an einem 24-MP-RAW laut Projektangaben (Stand: November 2026) rund 4 Millisekunden. Fotos und Katalog bleiben auf deinem Mac, ohne Konto und ohne Cloud."
+      "text": "Alle Bearbeitungen laufen durch eine 32-Bit-Gleitkomma-Pipeline mit großem Farbraum, deine Originaldateien werden nie verändert. Gerechnet wird auf der Grafikeinheit deines Macs: Auf einem Apple M4 Pro dauert eine Regleränderung an einem 24-MP-RAW laut Projektangaben (Stand: November 2026) rund 4 Millisekunden. Fotos und Katalog bleiben auf deinem Mac oder PC, ohne Konto und ohne Cloud."
     }
   ],
   "screenshots": [
@@ -120,8 +120,8 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du RAW-Fotos am Mac entwickeln willst, ohne dich an ein Jahresabo zu binden",
-    "du deine Fotos lieber lokal auf dem Mac verwaltest als in einer Cloud",
+    "du RAW-Fotos am Mac oder PC entwickeln willst, ohne dich an ein Jahresabo zu binden",
+    "du deine Fotos lieber lokal auf dem Mac oder PC verwaltest als in einer Cloud",
     "du mit vertrauten Werkzeugen wie Masken, Presets und Color Grading weiterarbeiten willst",
     "du in deiner Freizeit fotografierst und Fotos sortieren, bearbeiten und exportieren willst"
   ],
@@ -167,7 +167,7 @@
     },
     {
       "q": "Ist LightKoja Open Source?",
-      "a": "LightKoja ist der Mac- und Windows-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Bei Kojalytics bezahlst du für die fertige, signierte App für Mac und Windows, Installation und Updates über den Kojalytics Launcher, Support und 12 weitere Apps zum selben Preis. Deine Fotos und dein Katalog bleiben dabei auf deinem Mac, den Katalog kannst du jederzeit sichern."
+      "a": "LightKoja ist der Mac- und Windows-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Bei Kojalytics bezahlst du für die fertige, signierte App für Mac und Windows, Installation und Updates über den Kojalytics Launcher, Support und 12 weitere Apps zum selben Preis. Deine Fotos und dein Katalog bleiben dabei auf deinem Mac oder PC, den Katalog kannst du jederzeit sichern."
     }
   ]
 }

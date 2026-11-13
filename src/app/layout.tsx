@@ -53,12 +53,16 @@ export default function RootLayout({
     // suppressHydrationWarning: the inline script below adds "js" and data-kj-consent to <html> before hydration.
     <html lang="de" className={`${heading.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="antialiased">
-        {/* Marks JS as available (for scroll reveals) and hides the server-rendered cookie banner before the
-            first paint for visitors who already chose. */}
+        {/* Marks JS as available (for scroll reveals), hides the server-rendered cookie banner before the
+            first paint for visitors who already chose, and plays the 2-second logo intro once per visit
+            (not when coming from another page of this site, not for bots or with reduced motion). */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "document.documentElement.classList.add('js');try{if(localStorage.getItem('kj-consent-v1'))document.documentElement.setAttribute('data-kj-consent','')}catch(e){}",
+              "(function(){var d=document.documentElement;d.classList.add('js');try{if(localStorage.getItem('kj-consent-v1'))d.setAttribute('data-kj-consent','')}catch(e){}" +
+              "try{var r=document.referrer,s=false;try{s=!!r&&new URL(r).host===location.host}catch(e){}" +
+              "if(!sessionStorage.getItem('kj-intro')&&!s&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&!/bot|crawl|spider|slurp|preview/i.test(navigator.userAgent)){d.classList.add('kj-intro');setTimeout(function(){d.classList.remove('kj-intro')},2250)}" +
+              "sessionStorage.setItem('kj-intro','1')}catch(e){}})()",
           }}
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ORGANIZATION_JSON_LD)} />

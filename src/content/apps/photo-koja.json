@@ -2,10 +2,10 @@
   "kind": "Bildbearbeitung",
   "benefit": "Bearbeite Fotos und PSD-Dateien mit Ebenen, Masken und Einstellungsebenen.",
   "keyword": "photoshop alternative mac",
-  "metaTitle": "PhotoKoja: Photoshop-Alternative für den Mac",
-  "metaDescription": "PhotoKoja ist eine Photoshop-Alternative für den Mac: PSD-Dateien mit Ebenen und Masken bearbeiten. 3 Tage kostenlos testen, dann 79 € einmalig.",
-  "h1": "Photoshop-Alternative für den Mac: PSD, Ebenen und Masken",
-  "lead": "PhotoKoja ist eine Photoshop-Alternative für den Mac, die offline und ohne Konto läuft. Du bearbeitest Fotos und PSD-Dateien mit Ebenen, Masken, Einstellungsebenen und Ebenenstilen. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "metaTitle": "Photoshop-Alternative für Mac und Windows: PhotoKoja",
+  "metaDescription": "PhotoKoja ist eine Photoshop-Alternative für Mac und Windows: PSD-Dateien mit Ebenen und Masken bearbeiten. 3 Tage kostenlos testen, dann 79 € einmalig.",
+  "h1": "Photoshop-Alternative für Mac und Windows: PSD, Ebenen und Masken",
+  "lead": "PhotoKoja ist eine Photoshop-Alternative für Mac und Windows, die offline und ohne Konto läuft. Du bearbeitest Fotos und PSD-Dateien mit Ebenen, Masken, Einstellungsebenen und Ebenenstilen. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "Öffnet und speichert PSD/PSB",
     "16 Einstellungsebenen",
@@ -28,7 +28,7 @@
     },
     {
       "title": "Auswahlen und Masken",
-      "text": "Auswahlrechteck und -ellipse, Lasso, Zauberstab, Schnellauswahl, Objektauswahl, „Motiv auswählen“ und „Auswählen und maskieren“ sind dabei. Die intelligente Auswahl rechnet auf deinem Mac, ohne Cloud und ohne Konto. Jede Auswahl wird auf Wunsch zur Ebenenmaske, zum Vektorpfad oder zur Form.",
+      "text": "Auswahlrechteck und -ellipse, Lasso, Zauberstab, Schnellauswahl, Objektauswahl, „Motiv auswählen“ und „Auswählen und maskieren“ sind dabei. Die intelligente Auswahl rechnet auf deinem Mac oder PC, ohne Cloud und ohne Konto. Jede Auswahl wird auf Wunsch zur Ebenenmaske, zum Vektorpfad oder zur Form.",
       "screenshot": "masks.webp"
     },
     {
@@ -121,8 +121,8 @@
   },
   "forWho": [
     "du Photoshop kennst und für Fotos und Grafiken kein Adobe-Abo mehr bezahlen willst",
-    "du PSD-Dateien mit Ebenen auf dem Mac öffnen und weiterbearbeiten musst",
-    "du offline und ohne Konto arbeiten möchtest und deine Bilder auf deinem Mac bleiben sollen",
+    "du PSD-Dateien mit Ebenen auf dem Mac oder PC öffnen und weiterbearbeiten musst",
+    "du offline und ohne Konto arbeiten möchtest und deine Bilder auf deinem Mac oder PC bleiben sollen",
     "du neben der Bildbearbeitung auch Layout, Vektorgrafik oder Office-Apps brauchst, denn alle 13 Koja-Apps sind im Preis enthalten"
   ],
   "notFor": [
@@ -150,7 +150,7 @@
       "a": "Noch nicht. PhotoKoja ist eine frühe Version (Alpha) und ersetzt Photoshop nicht für die tägliche Profiarbeit: Es fehlen 15 Photoshop-Werkzeuge, generative KI und Plug-ins. Ebenen, Masken, 16 Einstellungsebenen, Ebenenstile, Text und PSD-Dateien sind aber schon da. Ob das für deine Arbeit reicht, findest du in den 3 kostenlosen Testtagen mit deinen eigenen Dateien heraus."
     },
     {
-      "q": "Kann ich mit PhotoKoja PSD-Dateien auf dem Mac öffnen und bearbeiten?",
+      "q": "Kann ich mit PhotoKoja PSD-Dateien auf dem Mac oder PC öffnen und bearbeiten?",
       "a": "Ja. PhotoKoja öffnet, bearbeitet und speichert PSD- und PSB-Dateien mit Ebenen; Textebenen, Ebenenstile und Formebenen übernimmt es beim Öffnen. Laut Projektangaben (Stand: November 2026) sahen in den Tests des zugrunde liegenden Open-Source-Projekts 307 von 309 Dateien nach dem erneuten Speichern aus wie vorher. Außerdem liest PhotoKoja Dateien aus GIMP, Krita und Affinity und exportiert unter anderem PNG, JPEG, WebP und TIFF."
     },
     {
@@ -167,7 +167,7 @@
     },
     {
       "q": "Läuft PhotoKoja auch unter Windows oder im Browser?",
-      "a": "Unter Windows ja, im Browser nein. PhotoKoja gibt es für macOS und Windows, aber nicht für das iPad und nicht als Web-App. Die App läuft nativ und berechnet die Arbeitsfläche auf der Grafikkarte (am Mac über Metal), ohne Electron und ohne Web-Ansicht. Eine Lizenz gilt auf bis zu 3 Geräten, Mac und Windows-PC gemischt."
+      "a": "Unter Windows ja, im Browser nein. PhotoKoja gibt es für macOS und Windows, aber nicht für das iPad und nicht als Web-App. Die App läuft nativ und berechnet die Arbeitsfläche auf der Grafikkarte (am Mac oder PC über Metal), ohne Electron und ohne Web-Ansicht. Eine Lizenz gilt auf bis zu 3 Geräten, Mac und Windows-PC gemischt."
     }
   ]
 }

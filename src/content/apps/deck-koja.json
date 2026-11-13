@@ -1,11 +1,11 @@
 {
   "kind": "Präsentationsprogramm",
-  "benefit": "PowerPoint-Dateien im PPTX-Format auf dem Mac öffnen, bearbeiten und präsentieren, mit Morph und Referentenansicht.",
+  "benefit": "PowerPoint-Dateien im PPTX-Format auf dem Mac oder PC öffnen, bearbeiten und präsentieren, mit Morph und Referentenansicht.",
   "keyword": "PowerPoint Alternative Mac",
-  "metaTitle": "PowerPoint-Alternative für den Mac: DeckKoja",
-  "metaDescription": "DeckKoja ist eine PowerPoint-Alternative für den Mac: PPTX öffnen und speichern, Morph, Referentenansicht. 3 Tage gratis testen, dann 2,99 € im Monat.",
-  "h1": "PowerPoint-Alternative für den Mac: PPTX öffnen, bearbeiten, präsentieren",
-  "lead": "DeckKoja ist eine PowerPoint-Alternative für den Mac, mit Folienmastern, Morph-Übergängen und Referentenansicht. Die App ist eine frühe Version (Alpha) und bisher nur auf Englisch. Teste sie 3 Tage kostenlos mit deinen eigenen Folien.",
+  "metaTitle": "PowerPoint-Alternative für Mac und Windows: DeckKoja",
+  "metaDescription": "DeckKoja ist eine PowerPoint-Alternative für Mac und Windows: PPTX öffnen und speichern, Morph, Referentenansicht. 3 Tage gratis testen, dann 2,99 € im Monat.",
+  "h1": "PowerPoint-Alternative für Mac und Windows: PPTX öffnen, bearbeiten, präsentieren",
+  "lead": "DeckKoja ist eine PowerPoint-Alternative für Mac und Windows, mit Folienmastern, Morph-Übergängen und Referentenansicht. Die App ist eine frühe Version (Alpha) und bisher nur auf Englisch. Teste sie 3 Tage kostenlos mit deinen eigenen Folien.",
   "highlights": [
     "PPTX öffnen und speichern",
     "Übergänge inklusive Morph",
@@ -71,7 +71,7 @@
     }
   ],
   "switching": {
-    "title": "Von PowerPoint zu DeckKoja wechseln: die Alternative für deinen Mac",
+    "title": "Von PowerPoint zu DeckKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
       "Der Aufbau ist dir vertraut: ein Menüband mit Registern, eine Folienleiste mit Abschnitten, eine Notizleiste und ein Formatbereich für Formen. Folienmaster, Layouts, Übergänge und die Referentenansicht funktionieren nach demselben Prinzip. Die Oberfläche ist allerdings bisher nur auf Englisch, die Register heißen also „Home“ statt „Start“ und „Shape Format“ statt „Formformat“. Für Texte und Tabellen sind [WordKoja](/software/word-koja) und [GridKoja](/software/grid-koja) im Preis enthalten, ob im Monatsabo oder mit der Einmal-Lizenz.",
       "Deine Präsentationen nimmst du als PPTX mit: DeckKoja öffnet sie direkt und speichert sie auch wieder als PPTX, damit du sie mit Leuten austauschen kannst, die PowerPoint nutzen. Ältere PPT-Dateien, ODP und Präsentationen mit Makros (PPTM) öffnet DeckKoja nicht, speichere sie deshalb als PPTX, solange du PowerPoint noch hast. Beim Speichern gehen derzeit die Wiedergabeoptionen von Audio und Video und das Zurückspulen von Animationen verloren, und Schriften nutzt DeckKoja bisher nur in den Schnitten Normal, Fett und Kursiv. Wie zuverlässig aufwendige Firmenvorlagen, SmartArt und eingebettete Schriften ankommen, ist noch kaum getestet.",
@@ -120,7 +120,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du auf dem Mac PPTX-Dateien öffnen, bearbeiten und wieder als PPTX weitergeben willst, ohne ein Microsoft-365-Abo abzuschließen",
+    "du auf dem Mac oder PC PPTX-Dateien öffnen, bearbeiten und wieder als PPTX weitergeben willst, ohne ein Microsoft-365-Abo abzuschließen",
     "du mit Menüband, Folienmastern, Formatbereich und Referentenansicht arbeiten willst",
     "du Präsentationen mit Übergängen wie Morph, Animationen, Diagrammen und eingebetteten Videos gestalten willst",
     "du neben Präsentationen auch Texte, Tabellen und PDFs bearbeitest: Alle 13 Koja-Apps kosten zusammen 2,99 € im Monat oder 79 € einmalig"
@@ -149,11 +149,11 @@
       "a": "Nein, noch nicht. DeckKoja ist eine frühe Version (Alpha): PPTX öffnen und speichern, Folienmaster, Formen, Diagramme, Morph und die Referentenansicht sind da, aber Drucken, Videoexport, eine deutsche Oberfläche, Grammatikprüfung, Add-ins und Copilot fehlen. Wie gut komplexe Firmenvorlagen ankommen, ist noch kaum erprobt. Für erste Versuche und einfache eigene Vorträge kann es schon reichen, für wichtige Präsentationen solltest du PowerPoint vorerst behalten."
     },
     {
-      "q": "Kann ich PPTX-Dateien auf dem Mac ohne PowerPoint öffnen und bearbeiten?",
+      "q": "Kann ich PPTX-Dateien auf dem Mac oder PC ohne PowerPoint öffnen und bearbeiten?",
       "a": "Ja. DeckKoja öffnet PPTX-Dateien, du bearbeitest sie und speicherst sie wieder als PPTX. POTX- und PPSX-Dateien öffnet DeckKoja auch, speichert sie aber als normales PPTX; alte PPT-Dateien, ODP und PPTM gehen nicht. Weil DeckKoja noch in früher Entwicklung ist und beim Speichern derzeit die Wiedergabeoptionen von Audio und Video verloren gehen, prüfe deine wichtigsten Dateien im kostenlosen Test."
     },
     {
-      "q": "Kann ich PowerPoint auf dem Mac ohne Abo nutzen?",
+      "q": "Kann ich PowerPoint auf dem Mac oder PC ohne Abo nutzen?",
       "a": "Bei Microsoft geht das auf zwei Wegen: mit einem Einmalkauf wie Office Home 2024 (149 € für einen Mac) oder kostenlos im Browser mit einem Microsoft-Konto. Die Mac-App aus dem App Store lässt sich dagegen nur mit einem Microsoft-365-Abo aktivieren, Microsoft 365 Single kostet 99 € im Jahr oder 10 € im Monat. DeckKoja gibt es für 79 € einmalig als dauerhafte Lizenz für alle 13 Koja-Apps auf bis zu 3 Geräten, ohne Konto, oder für 2,99 € im Monat. Mehr dazu steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
     },
     {

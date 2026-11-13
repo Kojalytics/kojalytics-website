@@ -1,11 +1,11 @@
 {
   "kind": "Motion Graphics",
-  "benefit": "Titel, Animationen und Effekte am Mac gestalten, mit Ebenen, Keyframes und Zeitleiste.",
+  "benefit": "Titel, Animationen und Effekte am Mac oder PC gestalten, mit Ebenen, Keyframes und Zeitleiste.",
   "keyword": "after effects alternative mac",
-  "metaTitle": "After-Effects-Alternative für Mac: EffectKoja",
-  "metaDescription": "After-Effects-Alternative für den Mac: EffectKoja mit Keyframes, 3D und mehr als 250 Effekten. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
-  "h1": "After-Effects-Alternative für den Mac: Motion Graphics und 3D",
-  "lead": "EffectKoja ist eine After-Effects-Alternative für den Mac, mit Kompositionen, Keyframes, Graph Editor und mehr als 250 Effekten. Die App ist eine frühe Version (Alpha), teste sie also 3 Tage kostenlos mit eigenem Material.",
+  "metaTitle": "After-Effects-Alternative für Mac und Windows: EffectKoja",
+  "metaDescription": "After-Effects-Alternative für Mac und Windows: EffectKoja mit Keyframes, 3D und mehr als 250 Effekten. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "After-Effects-Alternative für Mac und Windows: Motion Graphics und 3D",
+  "lead": "EffectKoja ist eine After-Effects-Alternative für Mac und Windows, mit Kompositionen, Keyframes, Graph Editor und mehr als 250 Effekten. Die App ist eine frühe Version (Alpha), teste sie also 3 Tage kostenlos mit eigenem Material.",
   "highlights": [
     "Mehr als 250 Effekte",
     "3D mit Kameras und Lichtern",
@@ -55,7 +55,7 @@
     }
   ],
   "switching": {
-    "title": "Von After Effects zu EffectKoja wechseln: die Alternative für deinen Mac",
+    "title": "Von After Effects zu EffectKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
       "Der Aufbau ist dir vertraut: Projekt, Komposition, Zeitleiste, Effekteinstellungen, Graph Editor und Renderliste. Ebenen, Keyframes, Easy Ease mit F9, Parenting, Track Mattes, Einstellungsebenen und Expressions mit wiggle oder loopOut funktionieren nach demselben Prinzip.",
       "Zu deinen Dateien: After-Effects-Projekte (.aep und .aepx) kann EffectKoja nicht öffnen, laufende Projekte baust du also neu auf. Dein Material übernimmst du aber: PSD-, Illustrator-, SVG- und PDF-Dateien importierst du als Footage oder als Komposition. Außerdem importierst du Videos in H.264, ProRes, HEVC und AV1, Bildsequenzen etwa aus PNG- oder OpenEXR-Dateien, Lottie-JSON und 3D-Modelle als glTF, OBJ, STL oder FBX (ohne Animation). Deine eigenen Projekte speichert EffectKoja als lesbare JSON-Dateien.",
@@ -104,7 +104,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du Titel, Bauchbinden, Logo-Animationen oder Erklärvideos am Mac animierst und dafür mit Kompositionen, Ebenen und Keyframes arbeiten willst",
+    "du Titel, Bauchbinden, Logo-Animationen oder Erklärvideos am Mac oder PC animierst und dafür mit Kompositionen, Ebenen und Keyframes arbeiten willst",
     "du After Effects nur gelegentlich brauchst und dafür kein Adobe-Abo mehr bezahlen willst",
     "du Lottie-Animationen für Websites oder Apps erstellen willst",
     "du das Rendern automatisieren willst, zum Beispiel über die Kommandozeile, ohne die Oberfläche zu öffnen"

@@ -1,11 +1,11 @@
 {
   "kind": "Textverarbeitung",
-  "benefit": "Briefe, Berichte und Hausarbeiten am Mac schreiben, mit Menüband und direkter Bearbeitung von .docx-Dateien.",
+  "benefit": "Briefe, Berichte und Hausarbeiten am Mac oder PC schreiben, mit Menüband und direkter Bearbeitung von .docx-Dateien.",
   "keyword": "word alternative mac",
-  "metaTitle": "WordKoja: Word-Alternative für den Mac",
-  "metaDescription": "WordKoja ist eine Word-Alternative für den Mac: .docx öffnen und speichern, offline und ohne Konto. 3 Tage kostenlos testen, dann 79 € einmalig.",
-  "h1": "Word-Alternative für den Mac, mit Menüband und .docx",
-  "lead": "WordKoja ist eine Word-Alternative für den Mac, die .docx-Dateien direkt öffnet und speichert. Du schreibst mit Formatvorlagen, Tabellen, „Änderungen nachverfolgen“ und Inhaltsverzeichnis, offline und ohne Konto. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "metaTitle": "Word-Alternative für Mac und Windows: WordKoja",
+  "metaDescription": "WordKoja ist eine Word-Alternative für Mac und Windows: .docx öffnen und speichern, offline und ohne Konto. 3 Tage kostenlos testen, dann 79 € einmalig.",
+  "h1": "Word-Alternative für Mac und Windows, mit Menüband und .docx",
+  "lead": "WordKoja ist eine Word-Alternative für Mac und Windows, die .docx-Dateien direkt öffnet und speichert. Du schreibst mit Formatvorlagen, Tabellen, „Änderungen nachverfolgen“ und Inhaltsverzeichnis, offline und ohne Konto. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "Öffnet und speichert .docx",
     "Menüband mit Registerkarten",
@@ -76,7 +76,7 @@
     }
   ],
   "switching": {
-    "title": "Von Word zu WordKoja: so testest du die Word-Alternative am Mac",
+    "title": "Von Word zu WordKoja: so testest du die Word-Alternative am Mac oder PC",
     "paragraphs": [
       "Vieles kennst du schon: das Menüband mit Registerkarten für Einfügen, Layout, Referenzen und Überprüfen, die Formatvorlagen-Galerie, den Navigationsbereich und Kürzel wie ⌘B, F4 oder F7. Noch sind aber nicht alle Kürzel aus Word dabei: Ab Werk bringt WordKoja 140 Tastenkürzel mit. Die Oberfläche gibt es auf Deutsch, und sie folgt der Sprache deines Macs. Die Screenshots auf dieser Seite zeigen die englische Oberfläche.",
       "Deine .docx-Dateien öffnest du direkt und speicherst sie auch wieder als .docx. Laut Projektangaben ist der .docx-Import aber noch nicht systematisch mit echten Dateien aus Word, Google Docs oder Pages getestet. Alte .doc-Dateien kannst du öffnen, aber nicht wieder als .doc speichern. Rechne damit, dass Zeilen- und Seitenumbrüche von Word abweichen können, etwa weil es für die Schrift Aptos noch keinen maßgleichen Ersatz gibt. Diagramme aus Word kannst du ansehen, aber nicht bearbeiten, und Makros in .docm-Dateien werden mitgespeichert, aber nicht ausgeführt.",
@@ -125,7 +125,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du am Mac Briefe, Bewerbungen, Hausarbeiten oder Berichte schreibst und dafür kein Microsoft-365-Abo bezahlen willst",
+    "du am Mac oder PC Briefe, Bewerbungen, Hausarbeiten oder Berichte schreibst und dafür kein Microsoft-365-Abo bezahlen willst",
     "du .docx-Dateien von Kollegen, Schule oder Ämtern öffnen, bearbeiten und als .docx oder PDF zurückschicken musst",
     "du das Word-Menüband gewohnt bist und Formatvorlagen, Inhaltsverzeichnis und Fußnoten nicht neu lernen willst",
     "du offline und ohne Konto arbeiten möchtest und neben Text auch Tabellen und Präsentationen brauchst, denn alle 13 Koja-Apps sind im Preis enthalten"
@@ -155,7 +155,7 @@
       "a": "Noch nicht: WordKoja ist eine frühe Version (Alpha), und laut Projektangaben (Stand: November 2026) reicht es nach eigener Schätzung für etwa 60 % der echten Arbeit. Es fehlen unter anderem eine deutsche Rechtschreibprüfung, Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit und VBA-Makros, außerdem können Seitenumbrüche von Word abweichen. Menüband, Formatvorlagen, Tabellen, „Änderungen nachverfolgen“, Verzeichnisse und Serienbriefe sind aber schon da. Ob das für dich reicht, prüfst du im kostenlosen Test mit deinen eigenen Dateien."
     },
     {
-      "q": "Kann ich mit WordKoja .docx-Dateien auf dem Mac öffnen und bearbeiten?",
+      "q": "Kann ich mit WordKoja .docx-Dateien auf dem Mac oder PC öffnen und bearbeiten?",
       "a": "Ja, WordKoja öffnet und speichert .docx direkt, außerdem .odt, .rtf, HTML, Markdown, LaTeX und .txt. Alte .doc-Dateien öffnest du und speicherst sie als .docx, PDFs exportierst du mit markierbarem Text, Links und Lesezeichen. Zeilen- und Seitenumbrüche können aber anders fallen als in Word, und Diagramme aus Word lassen sich nur ansehen. Für PDFs gibt es mit [PdfKoja](/software/pdf-koja) eine eigene App im Paket."
     },
     {
@@ -168,7 +168,7 @@
     },
     {
       "q": "Word gibt es im Browser kostenlos. Warum WordKoja?",
-      "a": "Word für das Web kannst du mit einem kostenlosen Microsoft-Konto nutzen, dazu gibt es 5 GB OneDrive-Speicher. Es läuft aber nur im Browser mit Internetverbindung, und zum gemeinsamen Bearbeiten liegen deine Dateien auf OneDrive. WordKoja ist eine Mac-App, die ohne Konto und offline läuft, und deine Dokumente bleiben auf deinem Mac. Wenn dir die Web-Version reicht und dich Konto und Cloud nicht stören, ist sie eine gute kostenlose Lösung."
+      "a": "Word für das Web kannst du mit einem kostenlosen Microsoft-Konto nutzen, dazu gibt es 5 GB OneDrive-Speicher. Es läuft aber nur im Browser mit Internetverbindung, und zum gemeinsamen Bearbeiten liegen deine Dateien auf OneDrive. WordKoja ist eine Desktop-App für Mac und Windows, die ohne Konto und offline läuft, und deine Dokumente bleiben auf deinem Mac oder PC. Wenn dir die Web-Version reicht und dich Konto und Cloud nicht stören, ist sie eine gute kostenlose Lösung."
     },
     {
       "q": "WordKoja basiert auf Open Source. Warum kostet es Geld?",

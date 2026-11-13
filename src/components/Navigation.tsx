@@ -19,11 +19,25 @@ const navLinks = [
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5" title="Kojalytics Startseite">
-      <span aria-hidden className="grid h-7 w-7 place-items-center bg-foreground font-[family-name:var(--font-display)] text-[14px] font-extrabold text-white">
+      <span aria-hidden className="kj-logo-k grid h-7 w-7 place-items-center bg-foreground font-[family-name:var(--font-display)] text-[14px] font-extrabold text-white">
         K
       </span>
-      <span className="display text-[17px] tracking-[-0.01em]">Kojalytics</span>
+      <span className="kj-logo-word display text-[17px] tracking-[-0.01em]">Kojalytics</span>
     </Link>
+  );
+}
+
+/** The first-visit logo intro (see .kj-intro-layer in globals.css); hidden unless html.kj-intro is set. */
+function IntroLogo() {
+  return (
+    <div aria-hidden className="kj-intro-layer">
+      <div className="kj-intro-mark">
+        <span className="kj-intro-k">K</span>
+        <span className="kj-intro-word">
+          <span className="display tracking-[-0.01em]">Kojalytics</span>
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -37,6 +51,7 @@ export default function Navigation() {
 
   return (
     <>
+      <IntroLogo />
       <RevealManager />
       <ScrollRuler />
       <header className="fixed inset-x-0 top-0 z-50 h-12 border-b border-border bg-white/95 backdrop-blur-md">

@@ -1,11 +1,11 @@
 {
   "kind": "PDF-Programm",
-  "benefit": "PDFs am Mac lesen, ordnen, zusammenfügen und mit Passwort schützen, offline und ohne Konto.",
+  "benefit": "PDFs am Mac oder PC lesen, ordnen, zusammenfügen und mit Passwort schützen, offline und ohne Konto.",
   "keyword": "adobe acrobat alternative mac",
-  "metaTitle": "Adobe-Acrobat-Alternative für den Mac: PdfKoja",
-  "metaDescription": "PdfKoja ist eine Adobe-Acrobat-Alternative für den Mac: PDFs offline ordnen, zusammenfügen und schützen. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
-  "h1": "Adobe-Acrobat-Alternative für den Mac – offline und ohne Konto",
-  "lead": "PdfKoja ist eine Adobe-Acrobat-Alternative für den Mac: Du liest, ordnest, teilst und schützt PDFs und fügst sie zusammen, ohne dass deine Dokumente den Rechner verlassen. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "metaTitle": "Adobe-Acrobat-Alternative für Mac und Windows: PdfKoja",
+  "metaDescription": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: PDFs offline ordnen, zusammenfügen und schützen. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "Adobe-Acrobat-Alternative für Mac und Windows – offline und ohne Konto",
+  "lead": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: Du liest, ordnest, teilst und schützt PDFs und fügst sie zusammen, ohne dass deine Dokumente den Rechner verlassen. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "PDFs ordnen und zusammenfügen",
     "Offline, ohne Konto, ohne Cloud",
@@ -65,7 +65,7 @@
     }
   ],
   "switching": {
-    "title": "Von Adobe Acrobat zu PdfKoja wechseln: die Alternative für deinen Mac",
+    "title": "Von Adobe Acrobat zu PdfKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
       "Der Aufbau erinnert an Acrobat: Die Werkzeuge liegen nach Aufgaben geordnet in einem Katalog, etwa Kombinieren, Seiten organisieren, Kommentare, Ausfüllen und Schützen, und mit ⌘K findest du jeden Befehl per Stichwort. Die Oberfläche stellst du in den Einstellungen auf Deutsch oder auf „Auto“, dann folgt sie der Sprache deines Macs. Die Bildschirmfotos auf dieser Seite zeigen die englische Oberfläche.",
       "Deine Dateien bleiben normale PDFs. PdfKoja speichert Änderungen nach dem PDF-Standard und lässt die ursprünglichen Daten einer Datei unangetastet, verschlüsselte PDFs bleiben verschlüsselt. Du kannst deine Dokumente also weiter in Acrobat oder in der Vorschau öffnen, der Weg zurück bleibt offen.",
@@ -114,7 +114,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du PDFs am Mac vor allem liest, ordnest, zusammenfügst, ausfüllst und mit Passwort schützt",
+    "du PDFs am Mac oder PC vor allem liest, ordnest, zusammenfügst, ausfüllst und mit Passwort schützt",
     "du Verträge, Rechnungen oder Steuerunterlagen nicht bei einem Online-Dienst hochladen willst",
     "du nicht mehr 23,79 € im Monat für Acrobat Pro zahlen willst, weil du nur einen Teil der Funktionen nutzt",
     "du neben der Vorschau ein PDF-Programm mit Seitenverwaltung, Kommentar-Threads und Passwortschutz suchst"
@@ -155,7 +155,7 @@
     },
     {
       "q": "Läuft PdfKoja offline, und gibt es die App auf Deutsch?",
-      "a": "Ja, PdfKoja arbeitet komplett auf deinem Mac, ohne Konto und ohne Cloud: Deine Dokumente werden nirgendwo hochgeladen, Internet brauchst du nur für Download und Aktivierung. Die Oberfläche stellst du in den Einstellungen auf Deutsch, eine von 29 Sprachen. PdfKoja läuft auf Macs mit Apple-Chip und mit Intel-Prozessor sowie unter Windows; für das iPad oder den Browser gibt es die App nicht."
+      "a": "Ja, PdfKoja arbeitet komplett auf deinem Mac oder PC, ohne Konto und ohne Cloud: Deine Dokumente werden nirgendwo hochgeladen, Internet brauchst du nur für Download und Aktivierung. Die Oberfläche stellst du in den Einstellungen auf Deutsch, eine von 29 Sprachen. PdfKoja läuft auf Macs mit Apple-Chip und mit Intel-Prozessor sowie unter Windows; für das iPad oder den Browser gibt es die App nicht."
     }
   ]
 }

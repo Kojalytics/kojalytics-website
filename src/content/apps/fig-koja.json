@@ -1,11 +1,11 @@
 {
   "kind": "Interface-Design",
-  "benefit": "Gestalte App- und Web-Oberflächen mit Auto Layout, Komponenten und Prototypen, offline auf deinem Mac.",
+  "benefit": "Gestalte App- und Web-Oberflächen mit Auto Layout, Komponenten und Prototypen, offline auf deinem Mac oder PC.",
   "keyword": "figma alternative mac",
-  "metaTitle": "Figma-Alternative für Mac: FigKoja, offline",
-  "metaDescription": "FigKoja ist eine Figma-Alternative für den Mac: Auto Layout, Komponenten, Prototypen, offline, ohne Konto. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
-  "h1": "Figma-Alternative für den Mac: offline und ohne Konto",
-  "lead": "FigKoja ist eine Figma-Alternative für den Mac, mit der du App- und Web-Oberflächen direkt auf deinem Rechner gestaltest. Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode sind dabei. Die App ist eine frühe Version (Alpha): Teste sie 3 Tage kostenlos mit deinen eigenen Entwürfen.",
+  "metaTitle": "Figma-Alternative für Mac und Windows: FigKoja",
+  "metaDescription": "FigKoja ist eine Figma-Alternative für Mac und Windows: Auto Layout, Komponenten, Prototypen, offline, ohne Konto. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "Figma-Alternative für Mac und Windows: offline und ohne Konto",
+  "lead": "FigKoja ist eine Figma-Alternative für Mac und Windows, mit der du App- und Web-Oberflächen direkt auf deinem Rechner gestaltest. Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode sind dabei. Die App ist eine frühe Version (Alpha): Teste sie 3 Tage kostenlos mit deinen eigenen Entwürfen.",
   "highlights": [
     "Offline und ohne Konto",
     "Auto Layout und Komponenten",
@@ -41,7 +41,7 @@
     },
     {
       "title": "Offline, ohne Konto, ohne Telemetrie",
-      "text": "FigKoja ist ein natives Programm, ohne Browser im Hintergrund. Es braucht kein Konto und sendet keine Nutzungsdaten. Deine Dokumente liegen als Dateien auf deinem Mac und verlassen ihn nur, wenn du sie selbst teilst."
+      "text": "FigKoja ist ein natives Programm, ohne Browser im Hintergrund. Es braucht kein Konto und sendet keine Nutzungsdaten. Deine Dokumente liegen als Dateien auf deinem Mac oder PC und verlassen ihn nur, wenn du sie selbst teilst."
     },
     {
       "title": "Export in jeder Größe",
@@ -86,10 +86,10 @@
     }
   ],
   "switching": {
-    "title": "Von Figma zu FigKoja wechseln: so testest du die Mac-Alternative",
+    "title": "Von Figma zu FigKoja wechseln: so testest du die Alternative für Mac und Windows",
     "paragraphs": [
       "**Was gleich bleibt:** Werkzeugleiste, Ebenen-Panel, Design-Panel und Menüs liegen dort, wo du sie aus Figma erwartest, und auch die Tastenkürzel sind so angelegt. Die Begriffe kennst du ebenfalls: Frames, Auto Layout mit Hug, Fill und Fixed, Komponenten mit Varianten, Variablen mit Modi, Prototyp-Verbindungen und Dev Mode. Du lernst also keine neue Denkweise, sondern nur ein paar neue Handgriffe.",
-      "**Deine Dateien:** Figma-Dateien im .fig-Format öffnet FigKoja bisher nur eingeschränkt, rechne also mit Abweichungen. Alternativ importierst du Designs als JSON aus der öffentlichen REST-API von Figma, inklusive Prototypen und Variablen. SVG, PDF, PNG, JPG und WebP holst du direkt herein. FigKoja speichert lokal auf deinem Mac und exportiert jede Ebene als PNG, JPG, WebP, SVG oder PDF.",
+      "**Deine Dateien:** Figma-Dateien im .fig-Format öffnet FigKoja bisher nur eingeschränkt, rechne also mit Abweichungen. Alternativ importierst du Designs als JSON aus der öffentlichen REST-API von Figma, inklusive Prototypen und Variablen. SVG, PDF, PNG, JPG und WebP holst du direkt herein. FigKoja speichert lokal auf deinem Mac oder PC und exportiert jede Ebene als PNG, JPG, WebP, SVG oder PDF.",
       "**Was noch fehlt:** FigKoja ist eine frühe Version (Alpha) und hat noch Ecken und Kanten. Live-Zusammenarbeit gibt es erst als Vorschau, ohne Konten, Teams und Cloud. Figma-Plugins laufen nicht, denn FigKoja hat ein eigenes Plugin-System auf WebAssembly-Basis. Die deutsche Oberfläche ist noch ein Entwurf, und an echten Projektdateien wurde die App laut Projektangaben noch nicht geprüft.",
       "**So testest du in 3 Tagen:** Am ersten Tag lädst du den Kojalytics Launcher, installierst FigKoja und öffnest eine der acht Startvorlagen, etwa für eine Mobile App, ein Dashboard oder ein Wireframe-Kit. Am zweiten Tag holst du ein echtes Projekt herein und baust deine wichtigsten Komponenten nach. Am dritten Tag klickst du dich durch einen Prototyp und prüfst den Code im Dev Mode. Danach entscheidest du dich für [2,99 € im Monat oder 79 € einmalig](/software#preise), beides für alle 13 Apps; das Monatsabo kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     ]
@@ -135,7 +135,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website, ohne Gewähr. Koja-Preise inkl. MwSt., Figma nennt seine Preise in US-Dollar ohne Angabe zur MwSt."
   },
   "forWho": [
-    "du Apps, Websites oder Wireframes auf dem Mac gestalten willst, ohne ein Konto anzulegen.",
+    "du Apps, Websites oder Wireframes auf dem Mac oder PC gestalten willst, ohne ein Konto anzulegen.",
     "deine Entwürfe auf deinem eigenen Rechner bleiben sollen, etwa wegen Datenschutz-Vorgaben deiner Kunden.",
     "du oft ohne Internet arbeitest, zum Beispiel im Zug oder beim Kunden vor Ort.",
     "du Klick-Prototypen baust und Code für React, SwiftUI oder CSS als Startpunkt für die Entwicklung brauchst."
@@ -170,7 +170,7 @@
     },
     {
       "q": "Kann ich FigKoja offline nutzen?",
-      "a": "Ja. FigKoja läuft direkt auf deinem Mac, braucht kein Konto und sendet keine Nutzungsdaten. Deine Dokumente liegen als Dateien auf deiner Festplatte und verlassen den Mac nur, wenn du sie selbst teilst. Internet brauchst du nur für den Download und die Aktivierung."
+      "a": "Ja. FigKoja läuft direkt auf deinem Mac oder PC, braucht kein Konto und sendet keine Nutzungsdaten. Deine Dokumente liegen als Dateien auf deiner Festplatte und verlassen deinen Computer nur, wenn du sie selbst teilst. Internet brauchst du nur für den Download und die Aktivierung."
     },
     {
       "q": "Kann ich mit FigKoja im Team arbeiten?",
