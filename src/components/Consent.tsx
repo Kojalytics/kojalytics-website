@@ -64,8 +64,6 @@ export default function Consent() {
 
   const open = pending || choice === null || reopened;
   const dialogRef = useRef<HTMLDivElement>(null);
-  // Phones show a short first layer; "Details" opens the full text, which wider screens always show.
-  const [details, setDetails] = useState(false);
 
   // Move keyboard and screen-reader focus to the banner when it appears, and back when it closes.
   useEffect(() => {
@@ -91,34 +89,18 @@ export default function Consent() {
           style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
         >
           <div className="mx-auto flex max-h-[85dvh] max-w-5xl flex-col gap-3 overflow-y-auto border border-foreground bg-white p-3.5 shadow-[0_20px_50px_-24px_rgba(14,14,16,0.4)] sm:max-h-none sm:flex-row sm:items-center sm:gap-5 sm:overflow-visible sm:p-5">
-            <h2 id="kj-consent-title" className="sr-only">
-              Cookie-Einstellungen
-            </h2>
             <div className="flex-1 text-[13px] leading-snug text-muted md:leading-normal">
-              <p className={details ? "hidden" : "inline sm:hidden"}>
-                Mit deiner Einwilligung nutzen wir Google Ads, <span className="whitespace-nowrap">Meta-Pixel</span> und Microsoft
-                Clarity, um Anzeigen zu messen, passende Werbung zu zeigen und die Seite zu verbessern. Daten können in die USA
-                gehen. Widerruf jederzeit unter „Cookie-Einstellungen“.{" "}
-              </p>
-              <p id="kj-consent-text" className={details ? "" : "hidden sm:block"}>
-                Mit deiner Einwilligung nutzen wir Google Ads und das Meta-Pixel, um den Erfolg unserer Anzeigen zu messen und dir
-                passende Werbung zu zeigen, sowie Microsoft Clarity, um mit Heatmaps und Sitzungsaufzeichnungen zu verstehen, wie
-                unsere Website genutzt wird. Dabei können Daten in die USA übertragen werden. Du kannst deine Einwilligung jederzeit
-                unter „Cookie-Einstellungen“ im Footer widerrufen. Mehr in der{" "}
+              <h2 id="kj-consent-title" className="mb-1 text-[14px] font-semibold text-foreground">
+                Kurz zu Cookies
+              </h2>
+              <p id="kj-consent-text">
+                Damit wir dir das bestmögliche Erlebnis bieten, nutzen wir mit deiner Zustimmung Cookies für Statistik und
+                Werbung (Google Ads, <span className="whitespace-nowrap">Meta-Pixel</span>, Microsoft Clarity). Daten können in
+                die USA gehen. Widerruf jederzeit im Footer.{" "}
                 <Link href="/datenschutz" className="text-foreground underline underline-offset-2">
-                  Datenschutzerklärung
+                  Datenschutz
                 </Link>
-                .
               </p>
-              <button
-                type="button"
-                onClick={() => setDetails(!details)}
-                aria-expanded={details}
-                aria-controls="kj-consent-text"
-                className="font-medium text-foreground underline underline-offset-2 sm:hidden"
-              >
-                {details ? "Weniger" : "Details"}
-              </button>
             </div>
             <div className="grid shrink-0 grid-cols-2 gap-2">
               <button onClick={() => decide("denied")} className="btn-primary !min-h-10 !px-5">
