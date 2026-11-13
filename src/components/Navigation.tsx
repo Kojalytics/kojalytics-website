@@ -32,10 +32,12 @@ function IntroLogo() {
   return (
     <div aria-hidden className="kj-intro-layer">
       <div className="kj-intro-mark">
-        <span className="kj-intro-k">K</span>
-        <span className="kj-intro-word">
-          <span className="display tracking-[-0.01em]">Kojalytics</span>
-        </span>
+        <div className="kj-intro-row">
+          <span className="kj-intro-k">K</span>
+          <span className="kj-intro-word">
+            <span className="display tracking-[-0.01em]">Kojalytics</span>
+          </span>
+        </div>
       </div>
     </div>
   );
