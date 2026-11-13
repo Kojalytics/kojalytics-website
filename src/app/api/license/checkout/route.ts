@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { findDiscount } from '@/lib/discounts';
 import { LICENSE_DEVICES, LICENSE_PRODUCT } from '@/lib/license-sales';
 import { PLANS, type Plan } from '@/lib/pricing';
 
@@ -11,19 +12,23 @@ export async function POST(request: NextRequest) {
   }
   const body = await request.json().catch(() => ({}));
   const plan: Plan = body?.plan === 'monthly' ? 'monthly' : 'lifetime';
-  // Before we take payment the customer must have asked for delivery to start now (§ 356 (5) BGB)
-  // and agreed separately that the apps are early versions (§ 327h BGB).
-  if (body?.waiver !== true || body?.alpha !== true) {
-    return NextResponse.json({ error: 'Bitte bestätige zuerst beide Punkte.' }, { status: 400 });
-  }
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    // A discount code entered on the page: checked again here, then attached to the session (Stripe counts the use).
+    let discount: { promotionCodeId: string; code: string } | null = null;
+    if (body?.code) {
+      const found = await findDiscount(stripe, body.code);
+      if (!found.ok) return NextResponse.json({ error: found.error }, { status: found.status });
+      if (found.discount.prices[plan] === undefined) {
+        return NextResponse.json({ error: 'Dieser Rabattcode gilt nicht für dieses Paket.' }, { status: 400 });
+      }
+      discount = found.discount;
+    }
     // Only our own domains as redirect targets (no open redirect).
     const rawOrigin = request.headers.get('origin') || '';
     const origin = ALLOWED_ORIGINS.has(rawOrigin) ? rawOrigin : 'https://www.kojalytics.com';
-    const now = new Date().toISOString();
-    const metadata = { product: LICENSE_PRODUCT, koja_plan: plan, waiver_accepted_at: now, alpha_accepted_at: now };
+    const metadata = { product: LICENSE_PRODUCT, koja_plan: plan, ...(discount ? { koja_code: discount.code } : {}) };
     // Shown in Checkout right above the pay button (§ 312j (2) BGB): what, how long, how to end it.
     const product_data = {
       name: plan === 'monthly' ? 'Koja-Apps · Monatlich' : 'Koja-Apps · Dauerhaft',
@@ -47,6 +52,7 @@ export async function POST(request: NextRequest) {
         },
       ],
       ...(plan === 'monthly' ? { subscription_data: { metadata } } : {}),
+      ...(discount ? { discounts: [{ promotion_code: discount.promotionCodeId }] } : {}),
       success_url: `${origin}/software/danke/start?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/software#preise`,
       metadata,
