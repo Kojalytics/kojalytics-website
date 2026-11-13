@@ -21,8 +21,8 @@ export default function ContactPage() {
               Erzähl uns von deinem <span className="text-highlight">Projekt</span>.
             </h1>
             <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
-              Du planst eine App, brauchst eine Website oder hast eine Frage zu den Koja-Apps? Schreib uns. Es antworten die Menschen,
-              die es auch bauen.
+              Du suchst Beratung, brauchst Software-Lizenzen, planst eine App oder hast eine Frage zu den Koja-Apps? Schreib uns. Es
+              antworten die Menschen, die sich auch darum kümmern.
             </p>
           </div>
 

@@ -9,10 +9,11 @@ import RevealManager from "@/components/instrument/RevealManager";
 import ScrollRuler from "@/components/instrument/ScrollRuler";
 
 const navLinks = [
-  { href: "/software", label: "Software" },
-  { href: "/ratgeber", label: "Ratgeber" },
   { href: "/leistungen", label: "Leistungen" },
+  { href: "/lizenzen", label: "Lizenzen" },
+  { href: "/software", label: "Software" },
   { href: "/projekte", label: "Projekte" },
+  { href: "/ratgeber", label: "Ratgeber" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
@@ -43,7 +44,11 @@ function IntroLogo() {
   );
 }
 
-export default function Navigation() {
+/**
+ * `cta`: the button on the right. "download" (default) loads the Koja-Apps; "contact" (studio pages such as the
+ * home page) opens the contact form.
+ */
+export default function Navigation({ cta = "download" }: { cta?: "download" | "contact" }) {
   const pathname = usePathname();
   const [openFor, setOpenFor] = useState<string | null>(null);
   // The menu closes on its own when the route changes.
@@ -64,7 +69,7 @@ export default function Navigation() {
 
           <ul className="hidden items-stretch lg:flex">
             {navLinks.map((link) => (
-              <li key={link.href} className="flex items-center px-1.5 first:pl-3">
+              <li key={link.href} className="flex items-center px-1 first:pl-3 xl:px-1.5">
                 <Link
                   href={link.href}
                   aria-current={isActive(link.href) ? "page" : undefined}
@@ -81,22 +86,30 @@ export default function Navigation() {
           <div className="ml-auto flex items-stretch">
             <Link
               href="/software#preise"
-              className="hidden items-center border-l border-border px-5 font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted transition-colors hover:text-foreground lg:flex"
+              className="hidden items-center border-l border-border px-5 font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted transition-colors hover:text-foreground xl:flex"
             >
               Preise
             </Link>
-            <DownloadButton
-              source="nav"
-              label="3 Tage kostenlos testen"
-              shareLabel="An Computer senden"
-              className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] lg:inline-flex"
-            />
-            <DownloadButton
-              source="nav-mobile"
-              label="Testen"
-              shareLabel="Link senden"
-              className="!min-h-full !gap-2 !border-0 !px-4 !text-[11px] lg:!hidden"
-            />
+            {cta === "contact" ? (
+              <Link href="/kontakt" className="btn-primary !min-h-full !gap-2 !border-0 !px-4 !text-[11px] lg:!px-5 lg:!text-[11.5px]">
+                Anfrage senden
+              </Link>
+            ) : (
+              <>
+                <DownloadButton
+                  source="nav"
+                  label="3 Tage kostenlos testen"
+                  shareLabel="An Computer senden"
+                  className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] lg:inline-flex"
+                />
+                <DownloadButton
+                  source="nav-mobile"
+                  label="Testen"
+                  shareLabel="Link senden"
+                  className="!min-h-full !gap-2 !border-0 !px-4 !text-[11px] lg:!hidden"
+                />
+              </>
+            )}
             <button
               onClick={() => setOpenFor(mobileOpen ? null : pathname)}
               className="grid w-12 place-items-center border-l border-border text-foreground lg:hidden"
