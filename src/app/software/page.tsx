@@ -226,9 +226,9 @@ export default function SoftwarePage() {
         {/* 02 Lineup */}
         <section id="apps" className="rail crosshairs scroll-mt-12">
           <SectionBar index="02" label="Die Apps" meta="Wähle eine App" />
-          <div className="cells -mx-0 border-b border-border max-sm:flex max-sm:snap-x max-sm:snap-mandatory max-sm:overflow-x-auto sm:grid-cols-2 lg:grid-cols-4">
+          {/* Phones: a swipe row that only moves sideways (overflow-y hidden: the cards' reveal offset must not make it scroll up and down) */}
+          <div className="cells -mx-0 border-b border-border max-sm:flex max-sm:snap-x max-sm:snap-mandatory max-sm:overflow-x-auto max-sm:overflow-y-hidden max-sm:overscroll-x-contain sm:grid-cols-2 lg:grid-cols-4">
             {APPS.map((app, i) => {
-              const shot = app.shots[0];
               const ink = appInk(app.color);
               return (
                 <Link
@@ -245,17 +245,15 @@ export default function SoftwarePage() {
                     </span>
                     <span className="hud truncate">{app.kind}</span>
                   </div>
-                  {shot && (
-                    <div className="relative aspect-[16/10] overflow-hidden border-y border-border bg-surface">
-                      <Image
-                        src={shot.src}
-                        alt={shot.alt}
-                        fill
-                        sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 320px"
-                        className="object-cover object-left-top transition-transform duration-700 group-hover:scale-[1.03]"
-                      />
-                    </div>
-                  )}
+                  <div className="relative aspect-[16/10] overflow-hidden border-y border-border bg-surface">
+                    <Image
+                      src={app.card.src}
+                      alt={app.card.alt}
+                      fill
+                      sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 320px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
                   <div className="flex flex-1 flex-col px-5 pb-6">
                     <div className="relative z-10 -mt-7 mb-4">
                       <AppIcon slug={app.slug} name={app.name} size={56} />

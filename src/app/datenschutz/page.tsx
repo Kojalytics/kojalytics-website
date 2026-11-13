@@ -29,7 +29,7 @@ export default function DatenschutzPage() {
             <h1 className="display rise-in hyphens-auto break-words text-[clamp(2rem,4vw,3.2rem)]">
               Datenschutzerklärung
             </h1>
-            <p className="hud rise-in mt-5 [--i:1]">Stand: 7. November 2026</p>
+            <p className="hud rise-in mt-5 [--i:1]">Stand: 13. November 2026</p>
             <p className="rise-in mt-6 max-w-3xl text-lg leading-relaxed text-muted [--i:2]">
               Hier erfährst du, welche personenbezogenen Daten wir verarbeiten,
               wenn du kojalytics.com besuchst, die Koja-Apps kaufst und nutzt oder
@@ -340,7 +340,7 @@ export default function DatenschutzPage() {
               </P>
             </Section>
 
-            <Section title="9. Download über GitHub">
+            <Section title="9. Download über GitHub und Download-Link per E-Mail">
               <P>
                 Den Kojalytics Launcher stellen wir über GitHub bereit (GitHub,
                 Inc., USA). Wenn du auf einen Download-Button klickst, leiten wir
@@ -357,6 +357,32 @@ export default function DatenschutzPage() {
                 Vertrags (Art. 6 Abs. 1 lit. b DSGVO). Hast du in die
                 Werbedienste eingewilligt, wird der Klick außerdem als „Lead“ an
                 Google und Meta gemeldet (Abschnitte 4 und 5).
+              </P>
+              <P>
+                <B>Download-Link per E-Mail:</B> Auf Smartphones und Tablets
+                kannst du dir den Download-Link per E-Mail schicken lassen, um
+                die Apps am Computer zu laden. Deine E-Mail-Adresse verwenden wir
+                nur, um dir diese E-Mail zu senden. Rechtsgrundlage sind
+                vorvertragliche Maßnahmen auf deine Anfrage (Art. 6 Abs. 1 lit. b
+                DSGVO). Nur wenn du „Erinnere mich morgen noch einmal per E-Mail“
+                ankreuzt, senden wir dir 24 Stunden später eine einzige
+                Erinnerung mit denselben Links. Rechtsgrundlage dafür ist deine
+                Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Du kannst sie jederzeit
+                mit Wirkung für die Zukunft widerrufen, indem du an{" "}
+                <SupportMail /> schreibst; wir löschen die geplante Erinnerung
+                dann.
+              </P>
+              <P>
+                Beide E-Mails versenden wir über Resend (Abschnitt 7). Die
+                Erinnerung legen wir bei Resend für den Versand am nächsten Tag
+                an; bis dahin speichert Resend deine E-Mail-Adresse und den
+                Inhalt der E-Mail. In unserer eigenen Datenbank speichern wir
+                deine E-Mail-Adresse nicht. Versanddaten (z. B. Empfänger,
+                Betreff, Zeitpunkt und Zustellstatus) speichert Resend nach
+                eigenen Fristen. Gegen Missbrauch zählen wir im Arbeitsspeicher
+                unseres Servers, wie oft dieselbe E-Mail-Adresse und dieselbe
+                IP-Adresse einen Link anfordern; diese Zählung wird nicht
+                dauerhaft gespeichert (Art. 6 Abs. 1 lit. f DSGVO).
               </P>
             </Section>
 

@@ -387,6 +387,12 @@ html[data-kj-consent] .kj-consent-pending {
   display: none;
 }
 
+/* While the cookie banner holds the bottom edge, the download hint (DownloadToast.tsx) sits below the header instead. */
+html:has(#kj-consent-title) .kj-download-toast {
+  top: 60px;
+  bottom: auto;
+}
+
 /* Legacy page decoration hooks, now neutral */
 .aurora-bg,
 .grid-pattern {
@@ -489,6 +495,168 @@ html.js .cells > [data-reveal].is-in > * {
 .rise-in {
   animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+/*
+ * First-visit intro (max. 2 s, once per visit): the K mark appears in the middle, turns once, the
+ * "Kojalytics" wordmark slides out of it and back in, then the mark flies to the header logo and the
+ * page shows. The inline script in layout.tsx sets html.kj-intro (not for repeat page views, other
+ * pages of this site as referrer, bots or reduced motion) and removes it again after the intro.
+ * CSS only; the page renders underneath at full speed, so it does not delay LCP.
+ */
+.kj-intro-layer {
+  display: none;
+}
+html.kj-intro .kj-intro-layer {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #fff;
+  animation: kj-intro-layer 2s linear both;
+}
+.kj-intro-mark {
+  --x: 16px;
+  --s: 2;
+  position: absolute;
+  left: var(--x);
+  top: 9.5px;
+  display: grid;
+  grid-template-columns: 28px 0fr;
+  column-gap: 0;
+  align-items: center;
+  transform-origin: 14px 14px;
+  animation: kj-intro-mark 2s both;
+}
+@media (min-width: 768px) {
+  .kj-intro-mark {
+    --x: 20px;
+    --s: 2.6;
+  }
+}
+.kj-intro-k {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  background: var(--color-foreground);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  animation: kj-intro-k 2s both;
+}
+.kj-intro-word {
+  overflow: hidden;
+  min-width: 0;
+}
+.kj-intro-word > span {
+  display: block;
+  padding-left: 10px;
+  white-space: nowrap;
+  font-size: 17px;
+  animation: kj-intro-word 2s both;
+}
+/* Centred in the viewport at size --s: the translate keeps the whole mark (K + word) centred while the
+   word column opens, because the percentage follows the mark's own width. */
+@keyframes kj-intro-mark {
+  0% {
+    translate: calc(50vw - var(--x) - 14px + var(--s) * 14px - var(--s) * 50%) calc(50dvh - 23.5px);
+    scale: calc(var(--s) * 0.6);
+    opacity: 0;
+    grid-template-columns: 28px 0fr;
+  }
+  12% {
+    scale: var(--s);
+    opacity: 1;
+  }
+  36% {
+    grid-template-columns: 28px 0fr;
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  54%,
+  62% {
+    grid-template-columns: 28px 1fr;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  }
+  72% {
+    translate: calc(50vw - var(--x) - 14px + var(--s) * 14px - var(--s) * 50%) calc(50dvh - 23.5px);
+    scale: var(--s);
+    grid-template-columns: 28px 0fr;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1);
+  }
+  93%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+    opacity: 1;
+    grid-template-columns: 28px 0fr;
+  }
+}
+@keyframes kj-intro-k {
+  0%,
+  5% {
+    rotate: 0deg;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.2, 1);
+  }
+  36%,
+  100% {
+    rotate: 360deg;
+  }
+}
+@keyframes kj-intro-word {
+  0%,
+  36% {
+    translate: -60% 0;
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  54%,
+  62% {
+    translate: 0 0;
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  }
+  72%,
+  100% {
+    translate: -60% 0;
+    opacity: 0;
+  }
+}
+@keyframes kj-intro-layer {
+  0%,
+  74% {
+    background-color: #fff;
+  }
+  95%,
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+/* The header logo takes over where the flying mark lands: its K appears under it, its word slides out. */
+html.kj-intro .kj-logo-k {
+  animation: kj-logo-k 1.86s step-end both;
+}
+html.kj-intro .kj-logo-word {
+  animation: kj-logo-word 0.4s 1.8s cubic-bezier(0.3, 0.7, 0.2, 1) both;
+}
+@keyframes kj-logo-k {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes kj-logo-word {
+  from {
+    clip-path: inset(0 100% 0 0);
+    translate: -10px 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    translate: 0 0;
+  }
 }
 
 @keyframes float {

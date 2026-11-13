@@ -1,11 +1,11 @@
 {
   "kind": "Audioproduktion",
-  "benefit": "Musik und Podcasts am Mac schneiden und mischen, mit Edit- und Mix-Fenster.",
+  "benefit": "Musik und Podcasts am Mac oder PC schneiden und mischen, mit Edit- und Mix-Fenster.",
   "keyword": "pro tools alternative mac",
-  "metaTitle": "Pro-Tools-Alternative für den Mac: SoundKoja",
-  "metaDescription": "SoundKoja ist eine Pro-Tools-Alternative für den Mac: Edit- und Mix-Fenster, MIDI, Surround bis 9.1.6. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
-  "h1": "Pro-Tools-Alternative für den Mac: aufnehmen, schneiden, mischen",
-  "lead": "SoundKoja ist eine Pro-Tools-Alternative für den Mac, mit Edit- und Mix-Fenster, Live-Automation und Surround bis 9.1.6. Deine CLAP-, VST3- und AU-Plugins kannst du weiterverwenden. Die App ist eine frühe Version (Pre-Alpha) und bisher nur auf Englisch, teste sie also 3 Tage kostenlos mit eigenem Material.",
+  "metaTitle": "Pro-Tools-Alternative für Mac und Windows: SoundKoja",
+  "metaDescription": "SoundKoja ist eine Pro-Tools-Alternative für Mac und Windows: Edit- und Mix-Fenster, MIDI, Surround bis 9.1.6. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "Pro-Tools-Alternative für Mac und Windows: aufnehmen, schneiden, mischen",
+  "lead": "SoundKoja ist eine Pro-Tools-Alternative für Mac und Windows, mit Edit- und Mix-Fenster, Live-Automation und Surround bis 9.1.6. Deine CLAP-, VST3- und AU-Plugins kannst du weiterverwenden. Die App ist eine frühe Version (Pre-Alpha) und bisher nur auf Englisch, teste sie also 3 Tage kostenlos mit eigenem Material.",
   "highlights": [
     "Edit- und Mix-Fenster",
     "10 Inserts und 10 Sends pro Spur",
@@ -76,7 +76,7 @@
     }
   ],
   "switching": {
-    "title": "Von Pro Tools zu SoundKoja wechseln: die Alternative für deinen Mac",
+    "title": "Von Pro Tools zu SoundKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
       "Vieles bleibt, wie du es kennst: ein Edit-Fenster zum Arrangieren und Schneiden, ein Mix-Fenster zum Mischen, die Modi Shuffle, Slip, Spot und Grid und Werkzeuge wie Smart Tool, Trim, Grabber und Pencil. Auch Playlists, Memory Locations, AudioSuite, Beat Detective, Elastic-Warping und Automation mit Write, Touch, Latch und Trim sind dabei, ebenso Einzeltasten-Befehle im Commands-Focus-Modus. Laut Projektangaben (Stand: November 2026) gibt es 482 der 512 Menüpunkte von Pro Tools Ultimate auch in SoundKoja; das heißt aber nicht, dass jede dieser Funktionen schon ausgereift ist.",
       "Zu deinen Dateien: Pro-Tools-Sessions (.ptx) öffnet SoundKoja nicht, und auch AAF und OMF werden noch nicht unterstützt. Exportiere deshalb in Pro Tools deine Spuren als WAV-Dateien, die alle am selben Startpunkt beginnen, und MIDI-Spuren als Standard-MIDI-Datei, dann importierst du alles in SoundKoja. WAV, BWF, RF64, AIFF, AIFC und FLAC importiert SoundKoja in jeder Abtastrate und Bittiefe und kann sie auch schreiben; MP3, AAC, ALAC, Ogg Vorbis, CAF und den Ton aus MP4- und MOV-Videos liest es nur ein. Plugin-Einstellungen, Routing und Automation baust du neu auf.",
@@ -125,7 +125,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website, ohne Gewähr. Koja-Preise inkl. MwSt., Avid nennt die Pro-Tools-Preise in seiner Preisliste ab Mai 2024 in US-Dollar."
   },
   "forWho": [
-    "du am Mac mit Edit- und Mix-Fenster aufnehmen und mischen willst, ohne teures Abo",
+    "du am Mac oder PC mit Edit- und Mix-Fenster aufnehmen und mischen willst, ohne teures Abo",
     "du Songs, Demos oder Podcasts aus vorhandenen Aufnahmen schneidest und mischst",
     "du deine CLAP-, VST3- oder Audio-Units-Plugins in einer günstigen DAW weiterverwenden willst",
     "du Ton zum Bild anlegst oder Surround- und immersive Mixe bis 9.1.6 ausprobieren willst"

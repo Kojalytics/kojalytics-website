@@ -1,9 +1,14 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useId, useRef, useState, useSyncExternalStore } from "react";
+import dynamic from "next/dynamic";
 import { Download, Send } from "lucide-react";
 import { DOWNLOAD_PATH, DOWNLOAD_PATH_WINDOWS, TRIAL_DAYS } from "@/lib/pricing";
 import { track } from "@/lib/track";
+import DownloadToast from "./DownloadToast";
+
+// Loaded on the first tap only: most visitors never open it.
+const SendLinkDialog = dynamic(() => import("./SendLinkDialog"), { ssr: false });
 
 type Platform = "mac" | "windows" | "other";
 
@@ -15,10 +20,25 @@ const platformNow = (): Platform => {
   return "other";
 };
 
+// One download toast at a time, shown by the button clicked last (a page has several download buttons).
+let toast: { owner: string; n: number } | null = null;
+const toastListeners = new Set<() => void>();
+const setToast = (next: typeof toast) => {
+  toast = next;
+  toastListeners.forEach((listener) => listener());
+};
+const hideToast = () => setToast(null);
+const subscribeToast = (listener: () => void) => {
+  toastListeners.add(listener);
+  return () => {
+    toastListeners.delete(listener);
+  };
+};
+
 /**
- * On a Mac or a Windows PC: downloads the Kojalytics Launcher for that system. On phones and
- * tablets nothing can be installed, so the button sends the page link to the visitor's computer
- * instead (share sheet, clipboard or e-mail).
+ * On a Mac or a Windows PC: downloads the Kojalytics Launcher for that system and shows a short hint on what to do
+ * with the file. On phones and tablets nothing can be installed, so the button opens a dialog that e-mails the
+ * download links to the visitor (or shares the page) for their computer.
  * The server always renders the Mac download link, so crawlers and the first paint see a link.
  */
 export default function DownloadButton({
@@ -35,42 +55,46 @@ export default function DownloadButton({
   className?: string;
 }) {
   const platform = useSyncExternalStore(subscribe, platformNow, (): Platform => "mac");
-  const [copied, setCopied] = useState(false);
+  const id = useId();
+  const shownToast = useSyncExternalStore(subscribeToast, () => toast, () => null);
+  const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const cls = `btn-primary sm:whitespace-nowrap ${className}`;
 
   if (platform !== "other") {
     return (
-      <a
-        href={platform === "windows" ? DOWNLOAD_PATH_WINDOWS : DOWNLOAD_PATH}
-        onClick={() => track("Lead", { content_name: source })}
-        className={cls}
-      >
-        <Download size={15} strokeWidth={2.2} aria-hidden />
-        {label}
-      </a>
+      <>
+        <a
+          href={platform === "windows" ? DOWNLOAD_PATH_WINDOWS : DOWNLOAD_PATH}
+          onClick={() => {
+            track("Lead", { content_name: source });
+            setToast({ owner: id, n: (toast?.n ?? 0) + 1 });
+          }}
+          className={cls}
+        >
+          <Download size={15} strokeWidth={2.2} aria-hidden />
+          {label}
+        </a>
+        {shownToast?.owner === id && <DownloadToast key={shownToast.n} windows={platform === "windows"} onClose={hideToast} />}
+      </>
     );
   }
 
-  async function sendToComputer() {
-    track("SendToMac", { content_name: source });
-    const url = `${window.location.origin}/software`;
-    const text = `Koja-Apps für Mac und Windows: laden und ${TRIAL_DAYS} Tage kostenlos testen.`;
-    if (navigator.share) {
-      await navigator.share({ title: "Koja-Apps für Mac und Windows", text, url }).catch(() => {});
-      return;
-    }
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-    } catch {
-      window.location.href = `mailto:?subject=${encodeURIComponent("Koja-Apps für Mac und Windows")}&body=${encodeURIComponent(`${text}\n${url}`)}`;
-    }
-  }
-
   return (
-    <button type="button" onClick={sendToComputer} className={cls}>
-      <Send size={15} strokeWidth={2.2} aria-hidden />
-      <span aria-live="polite">{copied ? "Link kopiert, öffne ihn am Computer" : shareLabel}</span>
-    </button>
+    <>
+      <button ref={triggerRef} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" className={cls}>
+        <Send size={15} strokeWidth={2.2} aria-hidden />
+        {shareLabel}
+      </button>
+      {open && (
+        <SendLinkDialog
+          source={source}
+          onClose={() => {
+            setOpen(false);
+            triggerRef.current?.focus();
+          }}
+        />
+      )}
+    </>
   );
 }

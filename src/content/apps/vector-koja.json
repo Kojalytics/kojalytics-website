@@ -1,11 +1,11 @@
 {
   "kind": "Vektorgrafik",
-  "benefit": "Logos, Icons und Illustrationen am Mac zeichnen, mit Zeichenstift, Pathfinder und Formerstellung.",
+  "benefit": "Logos, Icons und Illustrationen am Mac oder PC zeichnen, mit Zeichenstift, Pathfinder und Formerstellung.",
   "keyword": "illustrator alternative mac",
-  "metaTitle": "Illustrator-Alternative für Mac: VectorKoja",
-  "metaDescription": "VectorKoja ist eine Illustrator-Alternative für den Mac: Zeichenstift, Pathfinder, SVG, PDF und .ai. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
-  "h1": "Illustrator-Alternative für den Mac: Vektorgrafik mit SVG, PDF und .ai",
-  "lead": "VectorKoja ist eine Illustrator-Alternative für den Mac, mit Zeichenstift, Direktauswahl, Pathfinder, Ebenen und deutscher Oberfläche. Die App ist eine frühe Version (Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Dateien.",
+  "metaTitle": "Illustrator-Alternative für Mac und Windows: VectorKoja",
+  "metaDescription": "VectorKoja ist eine Illustrator-Alternative für Mac und Windows: Zeichenstift, Pathfinder, SVG, PDF und .ai. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "h1": "Illustrator-Alternative für Mac und Windows: Vektorgrafik mit SVG, PDF und .ai",
+  "lead": "VectorKoja ist eine Illustrator-Alternative für Mac und Windows, mit Zeichenstift, Direktauswahl, Pathfinder, Ebenen und deutscher Oberfläche. Die App ist eine frühe Version (Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Dateien.",
   "highlights": [
     "Zeichenstift, Pathfinder, Ebenen",
     "SVG, PDF, .ai: Import und Export",
@@ -86,7 +86,7 @@
     }
   ],
   "switching": {
-    "title": "Illustrator-Alternative am Mac: so wechselst du zu VectorKoja",
+    "title": "Illustrator-Alternative am Mac oder PC: so wechselst du zu VectorKoja",
     "paragraphs": [
       "Vieles bleibt, wie du es kennst: Zeichenstift, Direktauswahl, Pathfinder, Formerstellung, intelligente Hilfslinien, Aussehen, Farbfelder und Ebenen, dazu vertraute Menüs, Panels und Tastenkürzel. Auch Zeichenflächen, Textformate und verkettete Textrahmen sind dabei, und die Oberfläche gibt es auf Deutsch.",
       "Zu deinen Dateien: SVG und PDF importierst und exportierst du, PDF auch als PDF/X. Illustrator-Dateien öffnet VectorKoja, wenn sie PDF-kompatibel gespeichert sind, und das alte .ai-Format von Illustrator 7 wird mit Ebenen, Gruppen und Text unterstützt. Auch EPS, DXF und EMF/WMF werden unterstützt. Affinity-Dateien kannst du öffnen und platzieren, aber nicht im Affinity-Format speichern.",
@@ -135,7 +135,7 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du Logos, Icons und Illustrationen am Mac zeichnest und dafür Zeichenstift, Pathfinder und Formerstellung brauchst",
+    "du Logos, Icons und Illustrationen am Mac oder PC zeichnest und dafür Zeichenstift, Pathfinder und Formerstellung brauchst",
     "du dein Adobe-Abo nur noch für gelegentliche Vektorarbeiten bezahlst",
     "du Scans, Skizzen oder Pixel-Logos in Vektorpfade umwandeln willst",
     "du technische Skizzen mit Maßen oder Zeichnungen im Perspektivenraster anlegst"
@@ -165,7 +165,7 @@
       "a": "Noch nicht. VectorKoja ist eine frühe Version (Alpha): Der Austausch von .ai-Dateien ist noch nicht zuverlässig, bei 3D gibt es nur Kreiseln, und Skripte fehlen. Laut Projektangaben (Stand: November 2026) ist die App für alltägliche Vektorillustration fast einsatzbereit, ihren Reifegrad für typische Illustrationsarbeit schätzt das zugrunde liegende Open-Source-Projekt selbst auf etwa 65 %. Teste sie 3 Tage kostenlos mit deinen eigenen Dateien, bevor du dich entscheidest."
     },
     {
-      "q": "Kann ich mit VectorKoja .ai-Dateien auf dem Mac öffnen?",
+      "q": "Kann ich mit VectorKoja .ai-Dateien auf dem Mac oder PC öffnen?",
       "a": "Ja, wenn die Datei PDF-kompatibel gespeichert wurde. Auch das alte .ai-Format von Illustrator 7 wird unterstützt, dabei bleiben Ebenen, Gruppen und Text erhalten. Bei echten Projektdateien kommt die Ebenenstruktur aber noch nicht vollständig an, und Illustrator-eigene Bearbeitungsdaten schreibt VectorKoja nicht. Prüfe deine wichtigsten Dateien deshalb in den 3 Testtagen, bevor du dich auf den Austausch verlässt."
     },
     {

@@ -134,12 +134,13 @@ async function sendLicenseEmail(to: string, key: string, subscription: boolean) 
   await sendEmail(to, 'Dein Kojalytics-Lizenzschlüssel', text);
 }
 
-export async function sendEmail(to: string, subject: string, text: string) {
+/** `scheduledAt` (ISO timestamp): Resend holds the e-mail and sends it then instead of now. */
+export async function sendEmail(to: string, subject: string, text: string, { scheduledAt }: { scheduledAt?: string } = {}) {
   const from = process.env.LICENSE_EMAIL_FROM || 'Kojalytics <license@kojalytics.com>';
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from, to, subject, text }),
+    body: JSON.stringify({ from, to, subject, text, ...(scheduledAt && { scheduled_at: scheduledAt }) }),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
 }

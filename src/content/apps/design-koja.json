@@ -1,11 +1,11 @@
 {
   "kind": "Layoutprogramm",
-  "benefit": "Flyer, Broschüren und Magazine auf dem Mac layouten, mit Musterseiten, Absatzformaten und PDF/X-4-Export.",
+  "benefit": "Flyer, Broschüren und Magazine auf dem Mac oder PC layouten, mit Musterseiten, Absatzformaten und PDF/X-4-Export.",
   "keyword": "indesign alternative mac",
-  "metaTitle": "InDesign-Alternative für den Mac: DesignKoja",
-  "metaDescription": "DesignKoja ist eine InDesign-Alternative für den Mac: Musterseiten, verkettete Textrahmen, IDML, PDF/X-4. Teste 3 Tage gratis, danach 2,99 € im Monat.",
-  "h1": "InDesign-Alternative für den Mac: Musterseiten, IDML und PDF/X-4",
-  "lead": "DesignKoja ist eine InDesign-Alternative für den Mac, mit Doppelseiten, verketteten Textrahmen und Absatzformaten für Flyer, Broschüren und Magazine. Die App ist eine frühe Version (Pre-Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Layouts.",
+  "metaTitle": "InDesign-Alternative für Mac und Windows: DesignKoja",
+  "metaDescription": "DesignKoja ist eine InDesign-Alternative für Mac und Windows: Musterseiten, verkettete Textrahmen, IDML, PDF/X-4. Teste 3 Tage gratis, danach 2,99 € im Monat.",
+  "h1": "InDesign-Alternative für Mac und Windows: Musterseiten, IDML und PDF/X-4",
+  "lead": "DesignKoja ist eine InDesign-Alternative für Mac und Windows, mit Doppelseiten, verketteten Textrahmen und Absatzformaten für Flyer, Broschüren und Magazine. Die App ist eine frühe Version (Pre-Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Layouts.",
   "highlights": [
     "Musterseiten und Doppelseiten",
     "IDML öffnen und exportieren",
@@ -76,7 +76,7 @@
     }
   ],
   "switching": {
-    "title": "Von InDesign zu DesignKoja wechseln: die Alternative für deinen Mac",
+    "title": "Von InDesign zu DesignKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
       "Die Grundbegriffe bleiben gleich: Doppelseiten, Musterseiten, Textrahmen, die du verkettest, Absatz- und Zeichenformate, Farbfelder und ein Eigenschaften-Panel für Spalten, Steg und Textumfluss. Wenn du mit InDesign gearbeitet hast, kennst du das Prinzip also schon. Bilder bearbeitest du in [PhotoKoja](/software/photo-koja), Logos und Grafiken in [VectorKoja](/software/vector-koja), beide sind im Preis enthalten, ob im Monatsabo oder mit der Einmal-Lizenz.",
       "Deine Layouts nimmst du am besten als IDML mit: Exportiere sie in InDesign als IDML und öffne sie in DesignKoja. INDD-Dateien kann DesignKoja auch direkt öffnen, das ist aber noch nicht mit echten Projekten erprobt. Auch beim IDML-Import gibt es offene Fehler, etwa Rahmen, die nicht angezeigt werden, oder Schriften, die als fehlend gemeldet werden. Exportiere deine wichtigen Dokumente deshalb als IDML und PDF, solange dein Adobe-Abo noch läuft. Wie du das Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen).",
@@ -125,9 +125,9 @@
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
   },
   "forWho": [
-    "du Flyer, Broschüren, Magazine oder eine Vereinszeitung auf dem Mac gestalten willst, ohne ein Adobe-Abo zu bezahlen",
+    "du Flyer, Broschüren, Magazine oder eine Vereinszeitung auf dem Mac oder PC gestalten willst, ohne ein Adobe-Abo zu bezahlen",
     "du mit Musterseiten, verketteten Textrahmen und Absatzformaten arbeiten willst",
-    "du IDML-Dateien auf dem Mac öffnen willst, ohne InDesign zu installieren",
+    "du IDML-Dateien auf dem Mac oder PC öffnen willst, ohne InDesign zu installieren",
     "du neben dem Layout auch Bildbearbeitung, Vektorgrafik und PDF-Werkzeuge brauchst: Alle 13 Koja-Apps kosten zusammen 2,99 € im Monat oder 79 € einmalig"
   ],
   "notFor": [
@@ -152,7 +152,7 @@
       "a": "Nein, noch nicht. DesignKoja ist in einem sehr frühen Entwicklungsstand (Pre-Alpha): Musterseiten, verkettete Textrahmen, Formate, Tabellen und PDF/X-4-Export sind da, aber deutsche Silbentrennung, PDF/X-1a, InDesign-Skripte und Plug-ins fehlen, und einige Grundfunktionen haben bekannte Fehler. Zum Ausprobieren und für einfache eigene Layouts kann es schon reichen, für Aufträge mit festem Drucktermin solltest du InDesign vorerst behalten."
     },
     {
-      "q": "Kann ich IDML- und INDD-Dateien auf dem Mac ohne InDesign öffnen?",
+      "q": "Kann ich IDML- und INDD-Dateien auf dem Mac oder PC ohne InDesign öffnen?",
       "a": "IDML-Dateien öffnest du in DesignKoja direkt und kannst sie auch wieder als IDML exportieren. INDD-Dateien öffnet DesignKoja über eine eingebaute Import-Bibliothek, das ist aber bisher nur mit künstlich erzeugten Testdateien erprobt, nicht mit echten Projekten. Auch beim IDML-Import gibt es noch offene Fehler. Prüf deine wichtigsten Dateien deshalb im kostenlosen Test, bevor du dich darauf verlässt."
     },
     {
