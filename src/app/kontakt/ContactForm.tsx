@@ -1,16 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const SUBJECTS = ["Neues Projekt", "Koja-Apps", "AI Headshot", "Software-Lizenzen", "Sonstiges"];
+const SUBJECTS = ["Beratung", "Software-Lizenzen", "Neues Projekt", "Koja-Apps", "AI Headshot", "Sonstiges"];
+
+// Links like /kontakt?thema=lizenzen open the form with the matching topic chosen.
+const TOPICS: Record<string, string> = { beratung: "Beratung", lizenzen: "Software-Lizenzen", projekt: "Neues Projekt", "koja-apps": "Koja-Apps" };
+const PLACEHOLDERS: Record<string, string> = {
+  Beratung: "Wie arbeitet ihr heute, und wobei sollen wir helfen?",
+  "Software-Lizenzen": "Welche Software brauchst du, für wie viele Personen oder Geräte?",
+};
 
 /** Writes the message into the visitor's own mail app: no data passes through our server. */
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState(SUBJECTS[0]);
+  const [subject, setSubject] = useState("Neues Projekt");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const topic = TOPICS[new URLSearchParams(window.location.search).get("thema") ?? ""];
+    // Reading the address only works in the browser; the server renders the default topic.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (topic) setSubject(topic);
+  }, []);
 
   const field =
     "block min-h-12 w-full appearance-none border border-border-strong bg-white px-4 py-3 text-foreground placeholder:text-muted transition-colors hover:border-foreground/50 focus:border-foreground focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent";
@@ -62,7 +76,7 @@ export default function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`${field} resize-y`}
-          placeholder="Erzähl uns kurz von deinem Projekt oder deiner Frage."
+          placeholder={PLACEHOLDERS[subject] ?? "Erzähl uns kurz von deinem Projekt oder deiner Frage."}
         />
       </div>
       <button type="submit" className="btn-primary w-full text-center sm:w-auto sm:justify-self-start">

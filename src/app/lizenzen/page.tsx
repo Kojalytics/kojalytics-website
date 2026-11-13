@@ -1,15 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, FileSpreadsheet, HardDrive, MessagesSquare, MonitorCog, Palette, Receipt, Wrench } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, MessagesSquare, Receipt, Wrench } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionBar from "@/components/instrument/SectionBar";
+import { LICENSE_CATEGORIES as categories } from "@/lib/studio";
 
-const categories = [
-  { icon: FileSpreadsheet, title: "Office & Produktivität", description: "Textverarbeitung, Tabellen, Präsentationen und E-Mail für Einzelne und ganze Teams." },
-  { icon: MonitorCog, title: "Betriebssysteme", description: "Desktop-Betriebssysteme für neue Rechner, Upgrades und ganze Arbeitsplatz-Flotten." },
-  { icon: HardDrive, title: "Server & Infrastruktur", description: "Server-Software und Zugriffslizenzen für Büros, Praxen und wachsende Unternehmen." },
-  { icon: Palette, title: "Kreativ- & Spezialsoftware", description: "Design, Video, Projektplanung und Diagramme für Spezialisten." },
-];
 
 const steps = [
   { title: "Sag uns, was du brauchst", description: "Anzahl der Nutzer und Geräte, wie ihr heute arbeitet und was ihr erreichen wollt." },
@@ -44,7 +39,7 @@ export default function LicensingPage() {
               brauchst, und wir empfehlen dir die passenden Lizenzen und helfen bei der Einrichtung.
             </p>
             <div className="rise-in mt-9 flex flex-col gap-3 [--i:2] sm:flex-row">
-              <Link href="/kontakt" className="btn-primary">
+              <Link href="/kontakt?thema=lizenzen" className="btn-primary">
                 Beratung anfragen <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
               </Link>
               <a href="#ablauf" className="btn-secondary">
@@ -137,7 +132,7 @@ export default function LicensingPage() {
               Schreib uns kurz, wie viele Personen und Geräte ihr habt. Du bekommst eine klare Empfehlung.
             </p>
             <div className="mt-9">
-              <Link href="/kontakt" className="btn-primary">
+              <Link href="/kontakt?thema=lizenzen" className="btn-primary">
                 Schreib uns <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
               </Link>
             </div>

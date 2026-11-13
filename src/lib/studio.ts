@@ -1,4 +1,6 @@
-// Leistungen und Projekte des Studios: eine Quelle für Startseite, /leistungen und /projekte.
+// Leistungen und Projekte des Studios: eine Quelle für Startseite, /leistungen, /lizenzen und /projekte.
+
+import { FileSpreadsheet, HardDrive, MonitorCog, Palette } from "lucide-react";
 
 export type Service = { slug: string; title: string; summary: string; details: string[]; stack: string[] };
 
@@ -78,4 +80,12 @@ export const PROJECTS: Project[] = [
     href: "/etsy-sync",
     tags: ["Shopify", "Etsy-API", "Node.js"],
   },
+];
+
+/** What we license (/lizenzen and the home page). */
+export const LICENSE_CATEGORIES = [
+  { icon: FileSpreadsheet, title: "Office & Produktivität", description: "Textverarbeitung, Tabellen, Präsentationen und E-Mail für Einzelne und ganze Teams." },
+  { icon: MonitorCog, title: "Betriebssysteme", description: "Desktop-Betriebssysteme für neue Rechner, Upgrades und ganze Arbeitsplatz-Flotten." },
+  { icon: HardDrive, title: "Server & Infrastruktur", description: "Server-Software und Zugriffslizenzen für Büros, Praxen und wachsende Unternehmen." },
+  { icon: Palette, title: "Kreativ- & Spezialsoftware", description: "Design, Video, Projektplanung und Diagramme für Spezialisten." },
 ];
