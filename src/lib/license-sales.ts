@@ -72,12 +72,41 @@ export async function revokeLicenseForSubscription(stripe: Stripe, subscriptionI
 export async function issueLicenseForSession(session: Stripe.Checkout.Session): Promise<IssuedLicense | null> {
   // A 100 % discount code makes the order free: Stripe then reports no_payment_required instead of paid.
   if (session.metadata?.product !== LICENSE_PRODUCT || (session.payment_status !== 'paid' && session.payment_status !== 'no_payment_required')) return null;
+  return issueLicense({
+    ref: session.id,
+    email: session.customer_details?.email ?? session.customer_email ?? null,
+    note: `Stripe ${session.id}`,
+    subscription: session.mode === 'subscription',
+    paidCents: session.amount_total,
+    code: session.metadata?.koja_code,
+    name: session.customer_details?.name,
+    date: new Date(session.created * 1000),
+  });
+}
+
+export type LicenseOrder = {
+  /**
+   * One key per order reference: the Stripe checkout session id, or "ds24:<order id>" for Digistore24. Stored in
+   * stripe_session_id, whose unique index keeps a repeated call from creating a second key.
+   */
+  ref: string;
+  email: string | null;
+  note: string;
+  subscription: boolean;
+  /** For the licence e-mail: what the buyer paid (null if unknown), the discount code and the buyer's name. */
+  paidCents: number | null;
+  code?: string;
+  name?: string | null;
+  date: Date;
+};
+
+/** The license of `order`: created on first call, the same one on every later call. Emails it once when Resend is configured. */
+export async function issueLicense(order: LicenseOrder): Promise<IssuedLicense> {
   const secret = process.env.LICENSE_SIGNING_PRIVATE_KEY;
   if (!secret) throw new Error('LICENSE_SIGNING_PRIVATE_KEY is not set');
   const db = admin();
-  const email = session.customer_details?.email ?? session.customer_email ?? null;
 
-  const existing = await db.from('koja_licenses').select('key_encrypted, email, emailed_at').eq('stripe_session_id', session.id).maybeSingle();
+  const existing = await db.from('koja_licenses').select('key_encrypted, email, emailed_at').eq('stripe_session_id', order.ref).maybeSingle();
   if (existing.error) throw existing.error;
   let row = existing.data;
   if (!row) {
@@ -89,16 +118,16 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
         key_hash: hashKey(body),
         key_hint: body.slice(-5),
         key_encrypted: encryptKey(key, secret),
-        email,
-        note: `Stripe ${session.id}`,
+        email: order.email,
+        note: order.note,
         max_devices: LICENSE_DEVICES,
-        stripe_session_id: session.id,
+        stripe_session_id: order.ref,
       })
       .select('key_encrypted, email, emailed_at')
       .single();
     if (inserted.error?.code === '23505') {
-      // The webhook and the success page raced: the other one created it.
-      const again = await db.from('koja_licenses').select('key_encrypted, email, emailed_at').eq('stripe_session_id', session.id).single();
+      // Two calls for the same order raced (e.g. Stripe webhook and success page): the other one created it.
+      const again = await db.from('koja_licenses').select('key_encrypted, email, emailed_at').eq('stripe_session_id', order.ref).single();
       if (again.error) throw again.error;
       row = again.data;
     } else if (inserted.error) {
@@ -108,13 +137,13 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
     }
   }
 
-  const issued = { key: decryptKey(row.key_encrypted, secret), email: row.email, subscription: session.mode === 'subscription' };
+  const issued = { key: decryptKey(row.key_encrypted, secret), email: row.email, subscription: order.subscription };
   if (!row.emailed_at && issued.email && process.env.RESEND_API_KEY) {
     // Claim the email first so a parallel call doesn't send it twice.
     const claimed = await db
       .from('koja_licenses')
       .update({ emailed_at: new Date().toISOString() })
-      .eq('stripe_session_id', session.id)
+      .eq('stripe_session_id', order.ref)
       .is('emailed_at', null)
       .select('id');
     if (claimed.data?.length) {
@@ -122,17 +151,17 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
         const { html, text } = licenseEmail({
           key: issued.key,
           subscription: issued.subscription,
-          paidCents: session.amount_total,
-          code: session.metadata?.koja_code,
-          name: session.customer_details?.name,
+          paidCents: order.paidCents,
+          code: order.code,
+          name: order.name,
           email: issued.email,
-          date: new Date(session.created * 1000),
+          date: order.date,
           devices: LICENSE_DEVICES,
         });
         await sendEmail(issued.email, 'Dein Kojalytics-Lizenzschlüssel', text, { html });
       } catch (e) {
         console.error('License email failed', e);
-        await db.from('koja_licenses').update({ emailed_at: null }).eq('stripe_session_id', session.id);
+        await db.from('koja_licenses').update({ emailed_at: null }).eq('stripe_session_id', order.ref);
       }
     }
   }
