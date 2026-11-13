@@ -15,10 +15,11 @@ export default function TrackPurchase({ orderId, value, subscription }: { orderI
       return;
     }
     // Tags load a moment after consent; give them time before reporting.
-    const t = setTimeout(
-      () => track(subscription ? "Subscribe" : "Purchase", { value, currency: "EUR", transaction_id: orderId }, { eventID: orderId }),
-      1500,
-    );
+    const t = setTimeout(() => {
+      track(subscription ? "Subscribe" : "Purchase", { value, currency: "EUR", transaction_id: orderId }, { eventID: orderId });
+      // The same purchase from our server (Conversions API), so it still arrives when a blocker stops the pixel.
+      fetch("/api/meta/purchase", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ orderId }) }).catch(() => {});
+    }, 1500);
     return () => clearTimeout(t);
   }, [orderId, value, subscription]);
   return null;
