@@ -116,7 +116,7 @@ a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important
 </style>
 </head>
 <body style="margin:0;padding:0;background-color:${SURFACE};">
-<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:${SURFACE};">Dein Lizenzschlüssel und die Einrichtung in vier Schritten.${'&#8199;&#847;'.repeat(60)}</div>
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Dein Lizenzschlüssel und die Einrichtung in vier Schritten.</div>
 <table ${TABLE} width="100%" bgcolor="${SURFACE}" style="background-color:${SURFACE};">
 <tr><td align="center" style="padding:28px 12px 32px 12px;">
 
