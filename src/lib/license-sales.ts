@@ -35,7 +35,8 @@ export async function revokeLicenseForSubscription(stripe: Stripe, subscriptionI
  * Returns null for a session that isn't a paid license purchase.
  */
 export async function issueLicenseForSession(session: Stripe.Checkout.Session): Promise<IssuedLicense | null> {
-  if (session.metadata?.product !== LICENSE_PRODUCT || session.payment_status !== 'paid') return null;
+  // A 100 % discount code makes the order free: Stripe then reports no_payment_required instead of paid.
+  if (session.metadata?.product !== LICENSE_PRODUCT || (session.payment_status !== 'paid' && session.payment_status !== 'no_payment_required')) return null;
   const secret = process.env.LICENSE_SIGNING_PRIVATE_KEY;
   if (!secret) throw new Error('LICENSE_SIGNING_PRIVATE_KEY is not set');
   const db = admin();
@@ -83,7 +84,7 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
       .select('id');
     if (claimed.data?.length) {
       try {
-        await sendLicenseEmail(issued.email, issued.key, issued.subscription);
+        await sendLicenseEmail(issued.email, issued.key, issued.subscription, session.amount_total, session.metadata?.koja_code);
       } catch (e) {
         console.error('License email failed', e);
         await db.from('koja_licenses').update({ emailed_at: null }).eq('stripe_session_id', session.id);
@@ -93,7 +94,12 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
   return issued;
 }
 
-async function sendLicenseEmail(to: string, key: string, subscription: boolean) {
+const euro = (cents: number) => (cents / 100).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+
+async function sendLicenseEmail(to: string, key: string, subscription: boolean, paidCents: number | null, code?: string) {
+  const plan = subscription ? PLANS.monthly : PLANS.lifetime;
+  // With a discount code: the amount actually paid (for the subscription: the first month).
+  const discounted = paidCents !== null && paidCents !== plan.cents ? ` Mit Rabattcode${code ? ` ${code}` : ''} bezahlt: ${euro(paidCents)}${subscription ? ' für den ersten Abrechnungszeitraum' : ''}.` : '';
   const text = [
     'Danke für deinen Kauf!',
     '',
@@ -112,15 +118,12 @@ async function sendLicenseEmail(to: string, key: string, subscription: boolean) 
       ? `Dein Monatsabo gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten (Mac oder Windows-PC). Kündigen kannst du jederzeit online: https://www.kojalytics.com/kuendigen`
       : `Deine dauerhafte Lizenz gilt für alle Koja-Apps auf bis zu ${LICENSE_DEVICES} Geräten (Mac oder Windows-PC).`,
     '',
-    // Contract confirmation (§ 312f BGB), including the declarations given before the purchase.
+    // Contract confirmation (§ 312f BGB).
     'Deine Bestellung',
-    subscription
+    (subscription
       ? `Koja-Apps · Monatlich: alle 13 Koja-Apps für Mac und Windows, ${PLANS.monthly.label} pro Monat inkl. MwSt., monatlich kündbar.`
-      : `Koja-Apps · Dauerhaft: alle 13 Koja-Apps für Mac und Windows, einmalig ${PLANS.lifetime.label} inkl. MwSt., ohne Ablaufdatum.`,
-    '',
-    'Vor dem Kauf hast du',
-    '- ausdrücklich verlangt, dass wir vor Ablauf der Widerrufsfrist mit der Ausführung des Vertrags beginnen und dir den Lizenzschlüssel sofort liefern, und bestätigt, dass du dadurch dein Widerrufsrecht verlierst,',
-    '- zugestimmt, dass die Koja-Apps frühe Versionen (Alpha, teils Pre-Alpha) sind, bei denen einzelne Funktionen fehlen und Fehler auftreten können.',
+      : `Koja-Apps · Dauerhaft: alle 13 Koja-Apps für Mac und Windows, einmalig ${PLANS.lifetime.label} inkl. MwSt., ohne Ablaufdatum.`) + discounted,
+    'Die Koja-Apps sind frühe Versionen (Alpha, teils Pre-Alpha), die mit Updates laufend weiterentwickelt werden.',
     '',
     'Es gelten unsere AGB mit Widerrufsbelehrung: https://www.kojalytics.com/agb',
     'Widerruf erklären: https://www.kojalytics.com/widerrufen',

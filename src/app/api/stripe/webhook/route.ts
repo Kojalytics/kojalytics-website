@@ -65,16 +65,8 @@ export async function POST(request: NextRequest) {
     const plan = session.metadata?.plan;
     const userId = session.metadata?.userId;
 
-    // Only honour sessions that actually paid. Stripe signature validates the
-    // event is authentic, but a pending/unpaid session should never mint a
-    // purchase. If someone somehow gets a test webhook delivery for a pending
-    // session, we refuse to grant entitlement.
-    if (session.payment_status !== 'paid') {
-      console.warn('Webhook: session not paid', { sessionId: session.id, status: session.payment_status });
-      return NextResponse.json({ received: true, warning: 'session not paid' });
-    }
-
-    // Koja app license: create the key and email it (idempotent per session).
+    // Koja app license: create the key and email it (idempotent per session). issueLicenseForSession only issues
+    // for a paid session, or a free one (100 % discount code: no_payment_required).
     if (session.metadata?.product === LICENSE_PRODUCT) {
       try {
         await issueLicenseForSession(session);
@@ -83,6 +75,15 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'License error' }, { status: 500 });
       }
       return NextResponse.json({ received: true });
+    }
+
+    // Only honour sessions that actually paid. Stripe signature validates the
+    // event is authentic, but a pending/unpaid session should never mint a
+    // purchase. If someone somehow gets a test webhook delivery for a pending
+    // session, we refuse to grant entitlement.
+    if (session.payment_status !== 'paid') {
+      console.warn('Webhook: session not paid', { sessionId: session.id, status: session.payment_status });
+      return NextResponse.json({ received: true, warning: 'session not paid' });
     }
 
     if (!userId || typeof userId !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId)) {

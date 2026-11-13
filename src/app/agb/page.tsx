@@ -29,7 +29,7 @@ export default function TermsPage() {
             <h1 className="display rise-in text-[clamp(2rem,4vw,3.2rem)]">
               AGB für die <span className="text-highlight">Koja-Apps</span>
             </h1>
-            <p className="hud rise-in mt-5 [--i:1]">Stand: 7. November 2026</p>
+            <p className="hud rise-in mt-5 [--i:1]">Stand: 13. November 2026</p>
             {preview && (
               <p className="rise-in mt-8 max-w-3xl border border-dashed border-accent p-4 text-sm text-accent [--i:2]">
                 [Nur in der Vorschau sichtbar] Vor dem Livegang von einem Anwalt prüfen lassen.
@@ -74,9 +74,8 @@ export default function TermsPage() {
               <P>
                 <strong className="text-foreground">Frühe Versionen:</strong> Die Koja-Apps befinden sich in einem frühen
                 Entwicklungsstadium (Alpha, einzelne Apps Pre-Alpha). Einige Funktionen fehlen noch, Fehler und Abstürze sind
-                möglich, und die Apps erfüllen nicht in jeder Hinsicht die Erwartungen an fertige Software. Diese Abweichung von
-                den objektiven Anforderungen an digitale Produkte (§ 327e Abs. 3 BGB) vereinbaren wir vor dem Kauf im
-                Bestellvorgang ausdrücklich und gesondert mit dir (§ 327h BGB). Sichere deine Dateien deshalb regelmäßig.
+                möglich, und die Apps erfüllen nicht in jeder Hinsicht die Erwartungen an fertige Software. Wir entwickeln sie mit
+                Updates laufend weiter. Sichere deine Dateien regelmäßig.
               </P>
             </Section>
 
@@ -86,9 +85,8 @@ export default function TermsPage() {
               </P>
               <ol>
                 <li>
-                  Du wählst auf kojalytics.com das Monatsabo oder die dauerhafte Lizenz und bestätigst zwei Punkte: dass dir der
-                  Entwicklungsstand der Apps bekannt ist (Abschnitt 2) und dass wir sofort mit der Ausführung des Vertrags
-                  beginnen sollen (Abschnitt 9).
+                  Du wählst auf kojalytics.com das Monatsabo oder die dauerhafte Lizenz und gibst, wenn du einen hast, einen
+                  Rabattcode ein. Der Preis mit Rabatt wird dir vor dem Kauf angezeigt.
                 </li>
                 <li>
                   Du wirst zu Stripe Checkout weitergeleitet, der Bezahlseite unseres Zahlungsdienstleisters Stripe. Dort gibst
@@ -214,20 +212,6 @@ export default function TermsPage() {
               in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.
             </P>
 
-            <h3 className="text-[1.0625rem]">Vorzeitiges Erlöschen des Widerrufsrechts</h3>
-            <P>
-              Bei einem Vertrag über die Bereitstellung von digitalen Inhalten, die sich nicht auf einem körperlichen
-              Datenträger befinden, erlischt Ihr Widerrufsrecht vorzeitig, wenn wir mit der Vertragserfüllung begonnen haben,
-              nachdem Sie
-            </P>
-            <ol>
-              <li>ausdrücklich zugestimmt haben, dass wir vor Ablauf der Widerrufsfrist mit der Vertragserfüllung beginnen,</li>
-              <li>
-                Ihre Kenntnis davon bestätigt haben, dass Sie durch Ihre Zustimmung mit Beginn der Vertragserfüllung Ihr
-                Widerrufsrecht verlieren, und
-              </li>
-              <li>wir Ihnen eine Bestätigung nach § 312f BGB zur Verfügung gestellt haben (§ 356 Abs. 5 BGB).</li>
-            </ol>
             <P>Ende der Widerrufsbelehrung</P>
           </Section>
         </section>
