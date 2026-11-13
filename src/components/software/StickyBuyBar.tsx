@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { PLANS } from "@/lib/pricing";
+import { euro, useDiscount } from "@/lib/discount-store";
 import BuyButton from "./BuyButton";
 
 /**
@@ -11,6 +12,7 @@ import BuyButton from "./BuyButton";
  */
 export default function StickyBuyBar({ source }: { source: string }) {
   const [show, setShow] = useState(false);
+  const reduced = useDiscount()?.prices.lifetime;
 
   useEffect(() => {
     const prices = document.getElementById("preise");
@@ -40,7 +42,10 @@ export default function StickyBuyBar({ source }: { source: string }) {
     >
       <div className="mx-auto flex max-w-xl items-center justify-between gap-3">
         <div className="min-w-0">
-          <p className="display text-[1.35rem] leading-none text-buy">{PLANS.lifetime.label}</p>
+          <p className="display whitespace-nowrap text-[1.35rem] leading-none text-buy">
+            {reduced !== undefined && <s className="text-[0.75em] text-faint decoration-2">{PLANS.lifetime.label}</s>}
+            {reduced !== undefined ? ` ${euro(reduced)}` : PLANS.lifetime.label}
+          </p>
           <p className="mt-1 text-[12.5px] leading-tight text-muted">
             einmalig, kein Abo ·{" "}
             <a href="#preise" tabIndex={show ? 0 : -1} className="text-foreground underline underline-offset-2">

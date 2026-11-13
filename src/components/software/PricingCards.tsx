@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Check, Tag, X } from "lucide-react";
 import { PLANS, TRIAL_DAYS, type Plan } from "@/lib/pricing";
+import { applyDiscount, clearDiscount, euro, useDiscount } from "@/lib/discount-store";
 import { track } from "@/lib/track";
 import DownloadButton from "./DownloadButton";
 
@@ -28,24 +29,14 @@ const cta: Record<Plan, string> = {
 // The one-time purchase is the plan we recommend; it comes first and gets the dark button.
 const ORDER: Plan[] = ["lifetime", "monthly"];
 
-type Discount = {
-  code: string;
-  label: string;
-  duration: "once" | "repeating" | "forever";
-  months: number | null;
-  prices: Partial<Record<Plan, number>>;
-};
-
-const euro = (cents: number) =>
-  (cents / 100).toLocaleString("de-DE", { minimumFractionDigits: cents % 100 ? 2 : 0, maximumFractionDigits: 2 }) + " €";
-
 export default function PricingCards({ source }: { source: string }) {
   const [busy, setBusy] = useState<Plan | null>(null);
   const [error, setError] = useState<{ plan: Plan; message: string } | null>(null);
   const [code, setCode] = useState("");
   const [checking, setChecking] = useState(false);
   const [codeError, setCodeError] = useState<string | null>(null);
-  const [discount, setDiscount] = useState<Discount | null>(null);
+  // Shared with the other buy buttons; an ad link (?code=X) fills it on its own.
+  const discount = useDiscount();
 
   // Coming back from Stripe with the Back button restores this page from the back/forward cache: unlock it again.
   useEffect(() => {
@@ -72,7 +63,7 @@ export default function PricingCards({ source }: { source: string }) {
         setCodeError(data.error || "Der Code konnte nicht geprüft werden.");
         return;
       }
-      setDiscount(data);
+      applyDiscount(data);
     } catch {
       setCodeError("Der Code konnte nicht geprüft werden. Bitte versuche es gleich noch einmal.");
     } finally {
@@ -111,13 +102,13 @@ export default function PricingCards({ source }: { source: string }) {
               <Tag size={16} className="shrink-0 text-success" aria-hidden />
               <span>
                 Rabattcode <span className="font-mono font-semibold tracking-[0.06em]">{discount.code}</span> angewendet:{" "}
-                <span className="font-semibold">{discount.label}</span>
+                <span className="whitespace-nowrap font-semibold">{discount.label}</span>
               </span>
             </p>
             <button
               type="button"
               onClick={() => {
-                setDiscount(null);
+                clearDiscount();
                 setCode("");
               }}
               className="hud -my-2 inline-flex min-h-11 items-center gap-1.5 hover:text-foreground"
