@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadButton from "@/components/software/DownloadButton";
 import BuyButton from "@/components/software/BuyButton";
+import LifetimePrice, { ActiveDiscountNote } from "@/components/software/LifetimePrice";
 import PricingCards from "@/components/software/PricingCards";
 import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
@@ -133,13 +134,14 @@ export default function SoftwarePage() {
               <span aria-hidden>Kojalytics</span>
             </p>
             <h1 className="display rise-in text-[clamp(1.75rem,3.6vw,2.9rem)] [--i:1] md:mt-7">
-              13 Apps für Mac und Windows. <span className="whitespace-nowrap">Einmal <span className="text-highlight">{PLANS.lifetime.label}</span>,</span>{" "}
+              13 Apps für Mac und Windows. <span className="whitespace-nowrap">Einmal <LifetimePrice />,</span>{" "}
               <span className="whitespace-nowrap">kein Abo.</span>
             </h1>
             <div className="pointer-events-auto rise-in mt-6 flex w-full flex-col justify-center gap-3 [--i:2] sm:w-auto sm:flex-row md:mt-8">
               <BuyButton source="software-hero" />
               <DownloadButton source="software-hero" variant="secondary" label={`${TRIAL_DAYS} Tage kostenlos testen`} />
             </div>
+            <ActiveDiscountNote />
             <p className="rise-in mt-6 max-w-xl text-[17px] leading-relaxed text-muted [--i:3] md:text-lg">
               Office, PDF, Bildbearbeitung, Video, Audio und CAD: echte Desktop-Apps, die offline laufen und kein Konto brauchen. Oder für{" "}
               <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat, jederzeit online kündbar.
@@ -494,7 +496,7 @@ export default function SoftwarePage() {
               ))}
             </div>
             <h2 className="display mt-8 max-w-4xl text-[clamp(2.2rem,5vw,4.4rem)]" data-reveal>
-              Dein Kreativ- und Büro-Paket für einmal <span className="whitespace-nowrap text-highlight">{PLANS.lifetime.label}</span>.
+              Dein Kreativ- und Büro-Paket für einmal <span className="whitespace-nowrap"><LifetimePrice /></span>.
             </h2>
             <p className="mt-5 max-w-xl text-lg text-muted">
               13 Apps ohne Ablaufdatum. Oder <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat, jederzeit online kündbar.
