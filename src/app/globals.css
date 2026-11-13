@@ -512,30 +512,32 @@ html.kj-intro .kj-intro-layer {
   position: fixed;
   inset: 0;
   z-index: 100;
+  overflow: hidden;
   background: #fff;
   animation: kj-intro-layer 2s linear both;
 }
+/* The mark centres itself (left/top 50% minus half its own size), so it stays in the middle of the
+   screen while the word opens. Then it moves onto the header logo: the K's centre sits 30px (md: 34px)
+   from the left and 23.5px from the top. Only plain values in the keyframes (no custom properties, no
+   grid tracks), which every mobile browser animates the same way. */
 .kj-intro-mark {
-  --x: 16px;
-  --s: 2;
   position: absolute;
-  left: var(--x);
-  top: 9.5px;
-  display: grid;
-  grid-template-columns: 28px 0fr;
-  column-gap: 0;
+  left: 50%;
+  top: 50%;
+  display: flex;
   align-items: center;
-  transform-origin: 14px 14px;
-  animation: kj-intro-mark 2s both;
+  height: 28px;
+  translate: -50% -50%;
+  animation: kj-intro-mark-sm 2s both;
 }
 @media (min-width: 768px) {
   .kj-intro-mark {
-    --x: 20px;
-    --s: 2.6;
+    animation-name: kj-intro-mark-md;
   }
 }
 .kj-intro-k {
   display: grid;
+  flex: none;
   place-items: center;
   width: 28px;
   height: 28px;
@@ -547,50 +549,66 @@ html.kj-intro .kj-intro-layer {
   animation: kj-intro-k 2s both;
 }
 .kj-intro-word {
+  max-width: 0;
   overflow: hidden;
-  min-width: 0;
+  animation: kj-intro-open 2s both;
 }
 .kj-intro-word > span {
   display: block;
-  padding-left: 10px;
+  padding: 0 2px 0 10px;
   white-space: nowrap;
   font-size: 17px;
+  line-height: 28px;
   animation: kj-intro-word 2s both;
 }
-/* Centred in the viewport at size --s: the translate keeps the whole mark (K + word) centred while the
-   word column opens, because the percentage follows the mark's own width. */
-@keyframes kj-intro-mark {
+@keyframes kj-intro-mark-sm {
   0% {
-    translate: calc(50vw - var(--x) - 14px + var(--s) * 14px - var(--s) * 50%) calc(50dvh - 23.5px);
-    scale: calc(var(--s) * 0.6);
+    left: 50%;
+    top: 50%;
+    scale: 0.9;
     opacity: 0;
-    grid-template-columns: 28px 0fr;
   }
   12% {
-    scale: var(--s);
+    scale: 1.5;
     opacity: 1;
   }
-  36% {
-    grid-template-columns: 28px 0fr;
-    animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
-  }
-  54%,
-  62% {
-    grid-template-columns: 28px 1fr;
-    animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
-  }
   72% {
-    translate: calc(50vw - var(--x) - 14px + var(--s) * 14px - var(--s) * 50%) calc(50dvh - 23.5px);
-    scale: var(--s);
-    grid-template-columns: 28px 0fr;
+    left: 50%;
+    top: 50%;
+    scale: 1.5;
     animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1);
   }
   93%,
   100% {
-    translate: 0 0;
+    left: 30px;
+    top: 23.5px;
     scale: 1;
     opacity: 1;
-    grid-template-columns: 28px 0fr;
+  }
+}
+@keyframes kj-intro-mark-md {
+  0% {
+    left: 50%;
+    top: 50%;
+    scale: 1.3;
+    opacity: 0;
+  }
+  12% {
+    scale: 2.2;
+    opacity: 1;
+  }
+  72% {
+    left: 50%;
+    top: 50%;
+    scale: 2.2;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1);
+  }
+  93%,
+  100% {
+    left: 34px;
+    top: 23.5px;
+    scale: 1;
+    opacity: 1;
   }
 }
 @keyframes kj-intro-k {
@@ -604,10 +622,27 @@ html.kj-intro .kj-intro-layer {
     rotate: 360deg;
   }
 }
+/* The word's box opens (max-width a little above the word's width) and closes again; the text slides with it. */
+@keyframes kj-intro-open {
+  0%,
+  36% {
+    max-width: 0;
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  54%,
+  62% {
+    max-width: 130px;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  }
+  72%,
+  100% {
+    max-width: 0;
+  }
+}
 @keyframes kj-intro-word {
   0%,
   36% {
-    translate: -60% 0;
+    translate: -40% 0;
     opacity: 0;
     animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
   }
@@ -619,7 +654,7 @@ html.kj-intro .kj-intro-layer {
   }
   72%,
   100% {
-    translate: -60% 0;
+    translate: -40% 0;
     opacity: 0;
   }
 }
