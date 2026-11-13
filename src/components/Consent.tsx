@@ -91,17 +91,15 @@ export default function Consent() {
           <div className="mx-auto flex max-h-[85dvh] max-w-5xl flex-col gap-3 overflow-y-auto border border-foreground bg-white p-3.5 shadow-[0_20px_50px_-24px_rgba(14,14,16,0.4)] sm:max-h-none sm:flex-row sm:items-center sm:gap-5 sm:overflow-visible sm:p-5">
             <div className="flex-1 text-[13px] leading-snug text-muted md:leading-normal">
               <h2 id="kj-consent-title" className="mb-1 text-[14px] font-semibold text-foreground">
-                Ein Keks, kein Abo 🍪
+                Kurz zu Cookies
               </h2>
               <p id="kj-consent-text">
-                Damit Koja Office bezahlbar bleibt, messen wir mit deiner Zustimmung per Google Ads und{" "}
-                <span className="whitespace-nowrap">Meta-Pixel</span>, welche Anzeigen wirken, und zeigen dir passende. Microsoft
-                Clarity verrät uns mit Heatmaps und Aufzeichnungen, wo die Seite hakt. Daten können in die USA gehen. Widerruf
-                jederzeit im Footer, mehr in der{" "}
+                Damit wir dir das bestmögliche Erlebnis bieten, nutzen wir mit deiner Zustimmung Cookies für Statistik und
+                Werbung (Google Ads, <span className="whitespace-nowrap">Meta-Pixel</span>, Microsoft Clarity). Daten können in
+                die USA gehen. Widerruf jederzeit im Footer.{" "}
                 <Link href="/datenschutz" className="text-foreground underline underline-offset-2">
-                  Datenschutzerklärung
+                  Datenschutz
                 </Link>
-                .
               </p>
             </div>
             <div className="grid shrink-0 grid-cols-2 gap-2">
