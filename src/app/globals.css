@@ -516,19 +516,30 @@ html.kj-intro .kj-intro-layer {
   background: #fff;
   animation: kj-intro-layer 2s linear both;
 }
-/* The mark centres itself (left/top 50% minus half its own size), so it stays in the middle of the
-   screen while the word opens. Then it moves onto the header logo: the K's centre sits 30px (md: 34px)
-   from the left and 23.5px from the top. Only plain values in the keyframes (no custom properties, no
-   grid tracks), which every mobile browser animates the same way. */
+/* The mark is a point that starts in the middle of the screen and moves onto the header logo (the K's
+   centre sits 30px, md: 34px, from the left and 23.5px from the top); it scales around itself. Only plain
+   values in the keyframes (no custom properties, no grid tracks, no percentage shifts), which every mobile
+   browser animates the same way. */
 .kj-intro-mark {
   position: absolute;
   left: 50%;
   top: 50%;
-  display: flex;
-  align-items: center;
-  height: 28px;
-  translate: -50% -50%;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
   animation: kj-intro-mark-sm 2s both;
+}
+/* A wide row centred on that point by flexbox: K and word move apart evenly to both sides while the word
+   opens (Safari does not re-centre a percentage translate while it animates scale on the same element). */
+.kj-intro-row {
+  position: absolute;
+  left: -400px;
+  top: -14px;
+  width: 800px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .kj-intro-mark {
