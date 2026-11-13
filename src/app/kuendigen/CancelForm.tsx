@@ -116,9 +116,20 @@ export default function CancelForm() {
       </div>
       <div className="grid gap-2">
         <label htmlFor="cancel-reference" className="text-sm font-semibold">
-          Lizenzschlüssel oder Rechnungsnummer <span className="font-normal text-muted">(optional)</span>
+          Dein Lizenzschlüssel, falls zur Hand <span className="font-normal text-muted">(optional)</span>
         </label>
-        <input id="cancel-reference" value={reference} onChange={(e) => setReference(e.target.value)} className={field} autoComplete="off" />
+        <input
+          id="cancel-reference"
+          value={reference}
+          onChange={(e) => setReference(e.target.value)}
+          className={field}
+          autoComplete="off"
+          placeholder="KOJA-XXXXX-XXXXX-…"
+          aria-describedby="cancel-reference-hint"
+        />
+        <p id="cancel-reference-hint" className="text-xs leading-relaxed text-muted">
+          Er steht in der E-Mail zu deinem Kauf. Ohne ihn finden wir deinen Vertrag über deine E-Mail-Adresse.
+        </p>
       </div>
       <fieldset>
         <legend className="mb-3 text-sm font-semibold">Art der Kündigung</legend>

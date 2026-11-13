@@ -12,6 +12,40 @@ const admin = () => createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.
 export type IssuedLicense = { key: string; email: string | null; subscription: boolean };
 
 /**
+ * The licence keys of a customer, for the support copy of a cancellation or withdrawal, so they can be found in
+ * Koja Keys at once: found via the subscriptions' checkout sessions and via the e-mail address stored with the key.
+ * One line per key: its last group (search it in Koja Keys), active or deactivated, and when it was bought.
+ * Never throws: a failed lookup must not stop the cancellation.
+ */
+export async function licenseKeysFor(email: string, stripe?: Stripe, subscriptionIds: string[] = []): Promise<string[]> {
+  try {
+    const db = admin();
+    const sessionIds: string[] = [];
+    if (stripe) {
+      for (const id of subscriptionIds) {
+        const sessions = await stripe.checkout.sessions.list({ subscription: id, limit: 5 });
+        sessionIds.push(...sessions.data.map((s) => s.id));
+      }
+    }
+    const columns = 'id, key_hint, revoked_at, created_at';
+    const [bySession, byEmail] = await Promise.all([
+      sessionIds.length ? db.from('koja_licenses').select(columns).in('stripe_session_id', sessionIds) : Promise.resolve({ data: [] }),
+      // ilike without wildcards: the address case-insensitively ("_" and "%" escaped).
+      db.from('koja_licenses').select(columns).ilike('email', email.replace(/[\\%_]/g, (c) => `\\${c}`)),
+    ]);
+    const rows = new Map<string, { key_hint: string; revoked_at: string | null; created_at: string }>();
+    for (const r of [...(bySession.data ?? []), ...(byEmail.data ?? [])]) rows.set(r.id, r);
+    return [...rows.values()].map(
+      (r) =>
+        `Schlüssel endet auf ${r.key_hint} (${r.revoked_at ? 'schon deaktiviert' : 'aktiv'}, erstellt am ${new Date(r.created_at).toLocaleDateString('de-DE', { timeZone: 'Europe/Berlin' })})`,
+    );
+  } catch (e) {
+    console.error('Licence lookup failed', e);
+    return [];
+  }
+}
+
+/**
  * A cancelled subscription ends: the key bought with its first checkout stops activating.
  * Returns how many keys were revoked.
  */

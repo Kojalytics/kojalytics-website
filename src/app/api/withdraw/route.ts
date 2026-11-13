@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { botReason, clientIp, limiter } from '@/lib/form-guard';
-import { sendEmail } from '@/lib/license-sales';
+import { licenseKeysFor, sendEmail } from '@/lib/license-sales';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SUPPORT = 'support@kojalytics.com';
@@ -42,11 +42,22 @@ export async function POST(request: NextRequest) {
 
   const receivedAt = new Date();
   const when = receivedAt.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', dateStyle: 'long', timeStyle: 'short' });
+  // The keys of this customer, looked up for you: after the refund, deactivate them in Koja Keys (search the last group).
+  const keys = await licenseKeysFor(raw);
   try {
     await sendEmail(
       SUPPORT,
       `Widerruf eingegangen: ${email}`,
-      [`Eingang: ${when}`, `Name: ${name}`, `E-Mail: ${raw}`, `Vertrag: ${contract}`, `Lizenz/Rechnung: ${reference || '–'}`].join('\n')
+      [
+        `Eingang: ${when}`,
+        `Name: ${name}`,
+        `E-Mail: ${raw}`,
+        `Vertrag: ${contract}`,
+        `Vom Kunden angegeben: ${reference || '–'}`,
+        '',
+        'Lizenzschlüssel zu dieser E-Mail-Adresse (nach der Erstattung in Koja Keys deaktivieren, nach der Endung suchen):',
+        ...(keys.length ? keys.map((k) => `- ${k}`) : ['- keiner gefunden']),
+      ].join('\n')
     );
   } catch (e) {
     console.error('Withdraw: support copy failed', e);
