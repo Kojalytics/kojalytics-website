@@ -5,13 +5,12 @@ import Script from "next/script";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GOOGLE_ADS_ID } from "@/lib/gtag";
+import { META_PIXEL_ID } from "@/lib/meta-pixel";
 
 const STORAGE_KEY = "kj-consent-v1";
 const CHANGE_EVENT = "kj:consent";
 const OPEN_EVENT = "kj:open-consent";
 const CLARITY_ID = "wrmm9ck898";
-// Dataset "Kojalytics" in the DayRoutin business (Meta Events Manager). Public anyway: it ends up in the page source.
-const META_PIXEL_ID = "1160203439679240";
 
 type Choice = "granted" | "denied";
 
