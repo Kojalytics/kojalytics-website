@@ -52,7 +52,8 @@ export async function POST(request: NextRequest) {
         },
       ],
       ...(plan === 'monthly' ? { subscription_data: { metadata } } : {}),
-      ...(discount ? { discounts: [{ promotion_code: discount.promotionCodeId }] } : {}),
+      // A code from our page is attached here; otherwise Stripe's page shows its own discount code field.
+      ...(discount ? { discounts: [{ promotion_code: discount.promotionCodeId }] } : { allow_promotion_codes: true }),
       success_url: `${origin}/software/danke/start?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/software#preise`,
       metadata,

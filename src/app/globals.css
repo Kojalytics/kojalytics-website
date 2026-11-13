@@ -21,6 +21,9 @@
   --color-accent-dim: #1f55c0;
   --color-accent-ink: #ffffff;
   --color-success: #15803d;
+  /* Signal colour for buying only (buy buttons, the recommended price, the discount field): nothing else uses it. */
+  --color-buy: #15803d;
+  --color-buy-dim: #0f6a31;
   --font-sans: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: var(--font-heading), var(--font-body), system-ui, sans-serif;
   --font-mono: var(--font-mono-ui), ui-monospace, Menlo, SFMono-Regular, monospace;
@@ -243,6 +246,7 @@ body {
   /* Buttons: square, mono uppercase label. In the components layer so utilities (hidden, w-full, !px-…) still apply. */
   .btn-gradient,
   .btn-primary,
+  .btn-buy,
   .btn-outline,
   .btn-secondary {
     display: inline-flex;
@@ -270,6 +274,17 @@ body {
   .btn-gradient:hover,
   .btn-primary:hover {
     background: #2a2a2f;
+  }
+
+  .btn-buy {
+    background: var(--color-buy);
+    border-color: var(--color-buy);
+    color: #fff;
+  }
+
+  .btn-buy:hover {
+    background: var(--color-buy-dim);
+    border-color: var(--color-buy-dim);
   }
 
   .btn-outline,
@@ -311,12 +326,13 @@ body {
  * --p is the scroll progress (0…1) set by the component: the field widens and the icons fade out.
  */
 .orbit-field {
-  /* Phones: the field sits in the top part of the hero around the K mark; the copy follows below. */
-  --s: 0.5;
+  /* Phones: a compact field in the top part of the hero around the K mark, so headline and buy button follow on the
+     first screen. */
+  --s: 0.36;
   --p: 0;
   position: absolute;
   left: 50%;
-  top: 215px;
+  top: 150px;
   width: 2400px;
   height: 2400px;
   pointer-events: none;
@@ -391,6 +407,10 @@ html[data-kj-consent] .kj-consent-pending {
 html:has(#kj-consent-title) .kj-download-toast {
   top: 60px;
   bottom: auto;
+}
+/* The phone buy bar (StickyBuyBar.tsx) waits until the cookie banner is answered. */
+html:has(#kj-consent-title) .kj-buybar {
+  display: none;
 }
 
 /* Legacy page decoration hooks, now neutral */

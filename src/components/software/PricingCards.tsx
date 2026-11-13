@@ -104,7 +104,7 @@ export default function PricingCards({ source }: { source: string }) {
   return (
     <div className="grid gap-6">
       {/* Discount code: checked with Stripe, the prices below change right away */}
-      <div className="border border-border p-4 sm:p-5">
+      <div className="border-2 border-dashed border-buy bg-[color-mix(in_srgb,var(--color-buy)_5%,#fff)] p-4 sm:p-5">
         {discount ? (
           <div className="flex flex-wrap items-center justify-between gap-3" role="status">
             <p className="flex items-center gap-2.5 text-[15px]">
@@ -127,8 +127,8 @@ export default function PricingCards({ source }: { source: string }) {
           </div>
         ) : (
           <form onSubmit={redeem} className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <label htmlFor="discount-code" className="hud shrink-0 text-foreground">
-              Rabattcode
+            <label htmlFor="discount-code" className="flex shrink-0 items-center gap-2 text-[15px] font-semibold text-foreground">
+              <Tag size={17} className="text-buy" aria-hidden /> Rabattcode einlösen
             </label>
             <input
               id="discount-code"
@@ -143,7 +143,7 @@ export default function PricingCards({ source }: { source: string }) {
               aria-describedby={codeError ? "discount-error" : undefined}
               className="min-h-12 w-full flex-1 border border-border-strong bg-white px-4 font-mono uppercase tracking-[0.06em] text-foreground placeholder:normal-case placeholder:tracking-normal placeholder:text-muted focus:border-foreground focus:outline-none"
             />
-            <button type="submit" disabled={checking || !code.trim()} className="btn-secondary sm:w-auto">
+            <button type="submit" disabled={checking || !code.trim()} className="btn-primary sm:w-auto">
               {checking ? "Wird geprüft …" : "Einlösen"}
             </button>
           </form>
@@ -162,14 +162,14 @@ export default function PricingCards({ source }: { source: string }) {
           const reduced = discount?.prices[plan];
           const firstMonthOnly = plan === "monthly" && reduced !== undefined && discount?.duration !== "forever";
           return (
-            <div key={plan} className={`relative flex flex-col p-6 sm:p-8 ${recommended ? "outline outline-2 -outline-offset-1 outline-foreground" : ""}`}>
+            <div key={plan} className={`relative flex flex-col p-6 sm:p-8 ${recommended ? "outline outline-2 -outline-offset-1 outline-buy" : ""}`}>
               <div className="flex items-center justify-between gap-3">
                 <p className="hud">
                   <span className="text-faint">{String(i + 1).padStart(2, "0")}</span>
                   <span className="mx-2 text-faint">/</span>
                   <span className="text-foreground">{p.name}</span>
                 </p>
-                {recommended && <span className="tag !border-foreground bg-foreground !text-white">Empfohlen</span>}
+                {recommended && <span className="tag !border-buy bg-buy !text-white">Empfohlen</span>}
               </div>
               <p className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 {reduced !== undefined && (
@@ -181,6 +181,12 @@ export default function PricingCards({ source }: { source: string }) {
               <p className="mt-2 text-sm text-muted">
                 {firstMonthOnly ? `Danach ${p.label} pro Monat, monatlich kündbar. Inkl. MwSt.` : note(plan, reduced ?? p.cents)}
               </p>
+              {recommended && (
+                <p className="mt-3 border-l-2 border-buy pl-3 text-sm leading-relaxed text-foreground">
+                  Zum Vergleich: Adobe Creative Cloud Pro kostet 77,99 € im Monat, Microsoft 365 Single 99 € im Jahr.{" "}
+                  <span className="text-muted">(Stand November 2026)</span>
+                </p>
+              )}
               <ul className="mb-8 mt-6 grid gap-3">
                 {included[plan].map((item) => (
                   <li key={item} className="flex gap-3 text-[15px]">
@@ -190,7 +196,7 @@ export default function PricingCards({ source }: { source: string }) {
                 ))}
               </ul>
               <div className="mt-auto grid gap-3">
-                <button onClick={() => checkout(plan)} disabled={busy !== null} className={`w-full ${recommended ? "btn-primary" : "btn-secondary"}`}>
+                <button onClick={() => checkout(plan)} disabled={busy !== null} className={`w-full ${recommended ? "btn-buy" : "btn-secondary"}`}>
                   {busy === plan ? "Sicherer Checkout öffnet sich …" : reduced !== undefined ? `Für ${euro(reduced)} ${plan === "lifetime" ? "dauerhaft kaufen" : "abonnieren"}` : cta[plan]}
                 </button>
                 {error?.plan === plan && busy === null && (
@@ -205,7 +211,7 @@ export default function PricingCards({ source }: { source: string }) {
       </div>
 
       <p className="-mt-2 text-xs leading-relaxed text-muted">
-        Sichere Zahlung über Stripe per Kredit- oder Debitkarte oder einer anderen dort angezeigten Zahlungsart. Es gelten unsere{" "}
+        Die Koja-Apps sind frühe Versionen (Alpha, teils Pre-Alpha) und werden mit Updates laufend weiterentwickelt. Sichere Zahlung über Stripe per Kredit- oder Debitkarte oder einer anderen dort angezeigten Zahlungsart. Es gelten unsere{" "}
         <Link href="/agb" className="text-foreground underline underline-offset-2">
           AGB mit Widerrufsbelehrung
         </Link>
