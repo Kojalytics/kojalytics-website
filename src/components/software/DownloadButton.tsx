@@ -46,6 +46,7 @@ export default function DownloadButton({
   shareLabel = "Link für den Computer senden",
   source,
   className = "",
+  variant = "primary",
 }: {
   label?: string;
   /** Label on devices that cannot install the apps. */
@@ -53,13 +54,15 @@ export default function DownloadButton({
   /** Where on the site the click happened, for the ad reports. */
   source: string;
   className?: string;
+  /** "secondary": the outlined look, next to a buy button. */
+  variant?: "primary" | "secondary";
 }) {
   const platform = useSyncExternalStore(subscribe, platformNow, (): Platform => "mac");
   const id = useId();
   const shownToast = useSyncExternalStore(subscribeToast, () => toast, () => null);
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const cls = `btn-primary sm:whitespace-nowrap ${className}`;
+  const cls = `${variant === "secondary" ? "btn-secondary" : "btn-primary"} sm:whitespace-nowrap ${className}`;
 
   if (platform !== "other") {
     return (

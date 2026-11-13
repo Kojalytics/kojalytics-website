@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import DownloadButton from "@/components/software/DownloadButton";
+import BuyButton from "@/components/software/BuyButton";
 import RevealManager from "@/components/instrument/RevealManager";
 import ScrollRuler from "@/components/instrument/ScrollRuler";
 
@@ -45,10 +46,11 @@ function IntroLogo() {
 }
 
 /**
- * `cta`: the button on the right. "download" (default) loads the Koja-Apps; "contact" (studio pages such as the
- * home page) opens the contact form.
+ * `cta`: the button on the right. "download" (default) loads the Koja-Apps; "buy" (the Koja-Apps pages) buys the 79 €
+ * licence from lg up and keeps the trial button on phones; "contact" (studio pages such as the home page) opens the
+ * contact form.
  */
-export default function Navigation({ cta = "download" }: { cta?: "download" | "contact" }) {
+export default function Navigation({ cta = "download" }: { cta?: "download" | "contact" | "buy" }) {
   const pathname = usePathname();
   const [openFor, setOpenFor] = useState<string | null>(null);
   // The menu closes on its own when the route changes.
@@ -96,12 +98,16 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
               </Link>
             ) : (
               <>
-                <DownloadButton
-                  source="nav"
-                  label="3 Tage kostenlos testen"
-                  shareLabel="An Computer senden"
-                  className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] lg:inline-flex"
-                />
+                {cta === "buy" ? (
+                  <BuyButton source="nav" className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] lg:inline-flex" />
+                ) : (
+                  <DownloadButton
+                    source="nav"
+                    label="3 Tage kostenlos testen"
+                    shareLabel="An Computer senden"
+                    className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] lg:inline-flex"
+                  />
+                )}
                 <DownloadButton
                   source="nav-mobile"
                   label="Testen"

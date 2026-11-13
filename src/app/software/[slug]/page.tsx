@@ -9,6 +9,7 @@ import MacWindow from "@/components/ui/mac-window";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadButton from "@/components/software/DownloadButton";
 import PricingCards from "@/components/software/PricingCards";
+import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
 import SectionBar from "@/components/instrument/SectionBar";
@@ -128,7 +129,7 @@ export default async function AppPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(faq))} />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumb)} />
       <TrackView name={app.slug} />
-      <Navigation />
+      <Navigation cta="buy" />
 
       <main className="pt-12" style={{ ["--app" as string]: app.color }}>
         {/* 01 Hero: name, headline and download left, the app's main screenshot right */}
@@ -425,14 +426,15 @@ export default async function AppPage({ params }: Props) {
 
         {/* 07 Pricing */}
         <section id="preise" className="rail crosshairs scroll-mt-12">
-          <SectionBar index={num("pricing")} label="Preise" meta={`${TRIAL_DAYS} Tage kostenlos · dann monatlich oder einmalig`} />
+          <SectionBar index={num("pricing")} label="Preise" meta="Einmal oder monatlich · Rabattcode einlösen" />
           <div className={`py-14 md:py-20 ${pad}`}>
             <h2 className="display max-w-4xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
               {app.name} und 12 weitere Apps. Ein <span className="text-highlight">Preis</span>.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted" data-reveal>
-              Teste alles {TRIAL_DAYS} Tage kostenlos. Danach <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat,
-              jederzeit online kündbar, oder einmalig <span className="whitespace-nowrap">{PLANS.lifetime.label}</span>.
+              Einmalig <span className="whitespace-nowrap">{PLANS.lifetime.label}</span> für alle 13 Apps, ohne Abo. Oder{" "}
+              <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat, jederzeit online kündbar. Vorher {TRIAL_DAYS} Tage kostenlos
+              testen.
             </p>
             <div className="mt-12">
               <PricingCards source={`app-${app.slug}-pricing`} />
@@ -498,6 +500,7 @@ export default async function AppPage({ params }: Props) {
         </section>
       </main>
       <Footer />
+      <StickyBuyBar source={`app-${app.slug}-buybar`} />
     </>
   );
 }
