@@ -7,7 +7,8 @@ export const PLANS = {
 
 export type Plan = keyof typeof PLANS;
 
-// The release files on GitHub. Visitors and e-mails use the DOWNLOAD_PATH addresses, which redirect there (see next.config.ts).
+// The release files on GitHub. Visitors and e-mails only see the DOWNLOAD_PATH addresses: our server fetches the file
+// from GitHub and streams it under kojalytics.com (src/app/download/[platform]/route.ts).
 export const LAUNCHER_DOWNLOAD_URL =
   "https://github.com/Kojalytics/craft-launcher/releases/latest/download/Kojalytics-Launcher.dmg";
 export const DOWNLOAD_PATH = "/download/mac";

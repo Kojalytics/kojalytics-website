@@ -340,15 +340,16 @@ export default function DatenschutzPage() {
               </P>
             </Section>
 
-            <Section title="9. Download über GitHub und Download-Link per E-Mail">
+            <Section title="9. Download und Download-Link per E-Mail">
               <P>
-                Den Kojalytics Launcher stellen wir über GitHub bereit (GitHub,
-                Inc., USA). Wenn du auf einen Download-Button klickst, leiten wir
-                dich zur Datei auf GitHub weiter, und dein Browser lädt sie direkt
-                von dort. Dabei erhält GitHub deine
-                IP-Adresse, Angaben zu Browser und Gerät sowie den Zeitpunkt des
-                Downloads. Wie GitHub diese Daten verarbeitet, regelt die
-                Datenschutzerklärung von GitHub. {USA_TRANSFER}
+                Den Kojalytics Launcher laden wir dir direkt über unsere Website
+                herunter. Die Installationsdateien legen wir bei GitHub (GitHub,
+                Inc., USA) ab. Wenn du auf einen Download-Button klickst, ruft
+                unser Server die Datei dort ab und überträgt sie an dich. GitHub
+                erhält dabei nicht deine IP-Adresse oder Angaben zu deinem
+                Browser, sondern nur die Anfrage unseres Servers. Die Verbindung
+                zu dir läuft wie jeder Seitenaufruf über unseren Hoster Vercel
+                (Abschnitt 2).
               </P>
               <P>
                 Rechtsgrundlage ist unser berechtigtes Interesse an einer
