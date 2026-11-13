@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Check, CloudOff, FileText, LayoutGrid, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -8,7 +9,6 @@ import AppIcon from "@/components/ui/app-icon";
 import DownloadButton from "@/components/software/DownloadButton";
 import PricingCards from "@/components/software/PricingCards";
 import TrackView from "@/components/software/TrackView";
-import AppPreview from "@/components/software/AppPreview";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
 import SectionBar from "@/components/instrument/SectionBar";
 import OrbitField from "@/components/instrument/OrbitField";
@@ -246,7 +246,13 @@ export default function SoftwarePage() {
                     <span className="hud truncate">{app.kind}</span>
                   </div>
                   <div className="relative aspect-[16/10] overflow-hidden border-y border-border bg-surface">
-                    <AppPreview app={app} sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 320px" />
+                    <Image
+                      src={app.card.src}
+                      alt={app.card.alt}
+                      fill
+                      sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 320px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
                   </div>
                   <div className="flex flex-1 flex-col px-5 pb-6">
                     <div className="relative z-10 -mt-7 mb-4">

@@ -1,0 +1,312 @@
+<!doctype html>
+<!--
+  App card pictures for "02 / Die Apps" (render with: node scripts/app-cards/render.mjs).
+  One design rule for all 13: the same light window on graph paper in the app colour, the same layout
+  (title bar, menu row, list on the left, canvas, inspector on the right), the same type, and the app
+  colour as the only accent. Only the canvas motif changes per app. These are illustrations, not
+  screenshots; the alt texts say so.
+-->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=block">
+<style>
+  :root { --fg:#0e0e10; --muted:#5a5a60; --faint:#8b8b91; --line:#e3e3e1; --line2:#c9c9c6; --panel:#f7f7f5; --canvas:#eeeeeb; --bar:#dcdcd8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:960px; height:600px; overflow:hidden; font-family:'Geist',sans-serif; color:var(--fg); -webkit-font-smoothing:antialiased; }
+  .stage { position:relative; width:960px; height:600px; overflow:hidden;
+    background-color:var(--t0);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:24px 24px; background-position:-1px -1px; }
+  .win { position:absolute; left:48px; top:48px; width:912px; height:600px; background:#fff; border:1px solid var(--line2);
+    box-shadow:0 28px 60px -28px rgba(14,14,16,.38); display:flex; flex-direction:column; }
+  .bar { height:32px; flex:none; display:flex; align-items:center; gap:7px; padding:0 13px; border-bottom:1px solid var(--line); position:relative; }
+  .bar i { width:10px; height:10px; border-radius:50%; background:#ff5f57; } .bar i:nth-child(2){background:#febc2e} .bar i:nth-child(3){background:#28c840}
+  .bar .title { position:absolute; left:0; right:0; text-align:center; font-size:12px; font-weight:500; color:var(--muted); }
+  .menu { height:34px; flex:none; display:flex; align-items:stretch; gap:20px; padding:0 18px; border-bottom:1px solid var(--line); font-size:12.5px; color:var(--muted); }
+  .menu span { display:flex; align-items:center; border-bottom:2px solid transparent; margin-bottom:-1px; }
+  .menu span.on { color:var(--ink); border-color:var(--c); font-weight:600; }
+  .body { flex:1; display:grid; grid-template-columns:156px 1fr 200px; min-height:0; }
+  .side, .panel { background:var(--panel); padding:14px 12px; overflow:hidden; }
+  .side { border-right:1px solid var(--line); } .panel { border-left:1px solid var(--line); padding:14px 14px; }
+  .lbl { font-family:'Geist Mono',monospace; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); margin:0 0 10px; }
+  .lbl + .lbl, * + .lbl { margin-top:16px; }
+  .row { display:flex; align-items:center; gap:8px; height:28px; padding:0 7px; margin:0 -5px 2px; font-size:11.5px; color:var(--fg); white-space:nowrap; }
+  .row.on { background:var(--t1); box-shadow:inset 2px 0 0 var(--c); font-weight:600; }
+  .row .th { width:16px; height:16px; flex:none; background:var(--bar); }
+  .row .meta { margin-left:auto; color:var(--faint); font-family:'Geist Mono',monospace; font-size:9.5px; }
+  .canvas { position:relative; background:var(--canvas); overflow:hidden; }
+  .sl { margin-bottom:12px; } .sl .t { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-bottom:6px; }
+  .sl .t b { font-family:'Geist Mono',monospace; font-weight:500; color:var(--fg); font-size:10.5px; }
+  .sl .tr { position:relative; height:4px; background:var(--bar); }
+  .sl .tr::before { content:''; position:absolute; left:0; top:0; bottom:0; width:var(--p); background:var(--c); }
+  .sl .tr::after { content:''; position:absolute; left:var(--p); top:50%; width:11px; height:11px; margin:-5.5px 0 0 -5.5px; background:#fff; border:2px solid var(--c); border-radius:50%; }
+  .fld { display:flex; justify-content:space-between; align-items:center; height:28px; padding:0 9px; margin-bottom:7px; background:#fff; border:1px solid var(--line2); font-size:11.5px; }
+  .fld span { color:var(--muted); } .fld b { font-weight:500; font-family:'Geist Mono',monospace; font-size:10.5px; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+  .chip { height:26px; padding:0 10px; display:flex; align-items:center; font-size:11px; border:1px solid var(--line2); background:#fff; color:var(--muted); }
+  .chip.on { background:var(--c); border-color:var(--c); color:#fff; font-weight:600; }
+  .sw { display:flex; gap:6px; } .sw i { width:22px; height:22px; border:1px solid rgba(0,0,0,.06); }
+  .abs { position:absolute; } .paper { background:#fff; border:1px solid var(--line); box-shadow:0 10px 24px -14px rgba(14,14,16,.28); }
+  .disp { font-family:'Archivo',sans-serif; font-stretch:118%; font-weight:800; letter-spacing:-.01em; line-height:1.05; }
+  .mono { font-family:'Geist Mono',monospace; }
+  .ln { height:6px; background:var(--bar); margin-bottom:8px; }
+  .hd { position:absolute; width:8px; height:8px; background:#fff; border:1.5px solid var(--c); }
+</style>
+</head>
+<body>
+<div class="stage" id="stage"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const slug = q.get('app'), C = '#' + q.get('c'), NAME = q.get('name');
+
+// Same as appInk() in src/lib/apps.ts: the app colour darkened to 4.5:1 on white.
+function ink(hex) {
+  let [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const lum = (v) => { const [R, G, B] = v.map((c) => { const x = c / 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; }); return 0.2126 * R + 0.7152 * G + 0.0722 * B; };
+  while (1.05 / (lum([r, g, b]) + 0.05) < 4.5) [r, g, b] = [r, g, b].map((c) => Math.round(c * 0.92));
+  return '#' + [r, g, b].map((c) => c.toString(16).padStart(2, '0')).join('');
+}
+const mix = (p, w = '#fff') => `color-mix(in srgb, ${C} ${p}%, ${w})`;
+const dark = (p) => mix(100 - p, '#000');
+const s = document.documentElement.style;
+s.setProperty('--c', C); s.setProperty('--ink', ink(C));
+s.setProperty('--t0', mix(6)); s.setProperty('--grid', `color-mix(in srgb, ${C} 14%, transparent)`);
+s.setProperty('--t1', mix(12)); s.setProperty('--t2', mix(24)); s.setProperty('--t3', mix(45)); s.setProperty('--t4', mix(70));
+
+// Seeded random numbers, so every render is identical.
+let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+const row = (t, o = {}) => `<div class="row${o.on ? ' on' : ''}">${o.th !== false ? `<span class="th" style="${o.th || ''}"></span>` : ''}${t}${o.meta ? `<span class="meta">${o.meta}</span>` : ''}</div>`;
+const sl = (t, v, p) => `<div class="sl"><div class="t">${t}<b>${v}</b></div><div class="tr" style="--p:${p}%"></div></div>`;
+const fld = (t, v) => `<div class="fld"><span>${t}</span><b>${v}</b></div>`;
+const chips = (a, on = 0) => `<div class="chips">${a.map((x, i) => `<span class="chip${i === on ? ' on' : ''}">${x}</span>`).join('')}</div>`;
+const sw = () => `<div class="sw">${[100, 70, 45, 24, 12].map((p) => `<i style="background:${mix(p)}"></i>`).join('')}</div>`;
+const lines = (ws, h = 6, gap = 8, col = 'var(--bar)') => ws.map((w) => `<div style="height:${h}px;width:${w}px;background:${col};margin-bottom:${gap}px"></div>`).join('');
+const handles = (x, y, w, h) => [[x, y], [x + w, y], [x, y + h], [x + w, y + h]].map(([a, b]) => `<i class="hd" style="left:${a - 4}px;top:${b - 4}px"></i>`).join('');
+const wave = (w, h, n, col, amp = 1) => { let p = ''; for (let i = 0; i < n; i++) { const v = (0.25 + 0.75 * Math.abs(Math.sin(i / 5) * rnd())) * amp * h / 2; p += `<rect x="${(i * w) / n}" y="${h / 2 - v}" width="${Math.max(1, w / n - 1.2)}" height="${v * 2}"/>`; } return `<svg width="${w}" height="${h}" fill="${col}">${p}</svg>`; };
+
+const SCENES = {
+  'word-koja': {
+    file: 'Bewerbung_Hoffmann.docx', menu: ['Datei', 'Start', 'Einfügen', 'Layout', 'Referenzen', 'Überprüfen'], on: 1,
+    side: ['Navigation', row('Anschreiben', { on: 1, th: false }) + row('Lebenslauf', { th: false }) + row('Zeugnisse', { th: false }) + row('Anlagen', { th: false })],
+    panel: ['Formatvorlagen', `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px">
+        <div class="fld" style="height:44px;border:2px solid var(--c);font-size:11px;display:block;padding:7px 8px">Standard<div class="mono" style="font-size:8.5px;color:var(--faint);margin-top:3px">Aptos 11</div></div>
+        <div class="fld" style="height:44px;display:block;padding:7px 8px"><span class="disp" style="font-size:15px;color:var(--fg)">Titel</span></div>
+        <div class="fld" style="height:44px;display:block;padding:7px 8px;color:var(--ink);font-weight:600">Überschrift</div>
+        <div class="fld" style="height:44px;display:block;padding:7px 8px;font-style:italic">Zitat</div></div>
+        <div class="lbl">Schrift</div>${fld('Aptos', '11 pt')}${chips(['F', 'K', 'U', 'A'], 0)}`],
+    canvas: `<div class="abs paper" style="left:58px;top:24px;width:360px;height:520px;padding:34px 34px">
+        <div style="position:absolute;right:34px;top:30px;width:62px;height:78px;background:var(--t2);overflow:hidden"><i style="position:absolute;left:19px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--t4)"></i><i style="position:absolute;left:8px;top:42px;width:46px;height:44px;border-radius:23px 23px 0 0;background:var(--c)"></i></div><div class="disp" style="font-size:22px;color:var(--ink)">Lena Hoffmann</div>
+        <div style="margin:8px 0 22px">${lines([180], 4, 0, '#e6e6e3')}</div>
+        ${lines([118, 132, 96, 110], 5, 6)}
+        <div style="font-size:11.5px;font-weight:600;margin:16px 0 12px">Bewerbung als Projektkoordinatorin</div>
+        ${lines([292, 286, 274])}
+        <div style="display:flex;gap:0;margin-bottom:8px"><div style="height:6px;width:96px;background:var(--bar)"></div><div style="height:12px;margin-top:-3px;width:150px;background:var(--t2);position:relative"><div style="position:absolute;left:4px;right:4px;top:3px;height:6px;background:var(--t4)"></div></div></div>
+        ${lines([210])}<div style="height:10px"></div>${lines([290, 280])}
+        <div style="height:6px;width:230px;background:var(--c);opacity:.55;margin-bottom:8px"></div>${lines([150])}</div>
+      ${[['MK', 'Markus K.', 104, 'var(--c)'], ['LH', 'Lena H.', 222, 'var(--t4)']].map(([a, n, y, col]) => `<div class="abs paper" style="left:426px;top:${y}px;width:126px;padding:11px 12px;box-shadow:inset 3px 0 0 ${col},0 10px 24px -14px rgba(14,14,16,.28)">
+        <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px"><span style="width:20px;height:20px;border-radius:50%;background:${col};color:#fff;font-size:8.5px;font-weight:600;display:grid;place-items:center">${a}</span><span style="font-size:11px;font-weight:600">${n}</span></div>
+        ${lines([108, 92, 70], 5, 6)}<div class="mono" style="font-size:8.5px;color:var(--faint)">Heute, 09:41</div></div>`).join('')}`,
+  },
+  'grid-koja': {
+    file: 'Haushaltsbuch_2026.xlsx', menu: ['Datei', 'Start', 'Einfügen', 'Formeln', 'Daten', 'Ansicht'], on: 3,
+    side: ['Blätter', row('November', { on: 1, th: 'background:var(--c)' }) + row('Oktober') + row('Jahresübersicht') + row('Urlaubskasse')],
+    panel: ['Diagramm', chips(['Ring', 'Balken', 'Linie'], 0) + '<div class="lbl">Farben</div>' + sw() + '<div style="height:14px"></div>' + sl('Lochgröße', '55 %', 55) + fld('Titel', 'Ausgaben')],
+    canvas: (() => {
+      const data = [['Miete', '950,00', '950,00', '0,00'], ['Lebensmittel', '450,00', '512,00', '−62,00'], ['Strom & Gas', '120,00', '118,00', '2,00'], ['Handy', '60,00', '55,00', '5,00'], ['Versicherung', '140,00', '140,00', '0,00'], ['Auto', '220,00', '247,00', '−27,00'], ['Freizeit', '150,00', '96,00', '54,00'], ['Sparen', '300,00', '300,00', '0,00']];
+      const cols = [28, 132, 82, 82, 76]; const W = cols.reduce((a, b) => a + b);
+      const cell = (t, w, st = '') => `<div style="width:${w}px;flex:none;height:100%;border-right:1px solid var(--line);display:flex;align-items:center;padding:0 8px;${st}">${t}</div>`;
+      const r = (cells, st = '', h = 25) => `<div style="display:flex;height:${h}px;border-bottom:1px solid var(--line);font-size:11px;${st}">${cells.join('')}</div>`;
+      let rows = r(['', 'A', 'B', 'C', 'D'].map((t, i) => cell(t, cols[i], 'justify-content:center;color:var(--faint);font-size:10px;background:#f4f4f2')), '', 22);
+      rows += r([cell('1', cols[0], 'color:var(--faint);justify-content:center;background:#f4f4f2'), `<div style="flex:1;display:flex;align-items:center;padding:0 8px;font-weight:700;font-size:13px;color:var(--ink)">Haushaltsbuch · November</div>`], '', 30);
+      rows += r([cell('2', cols[0], 'color:var(--faint);justify-content:center;background:#f4f4f2;color:var(--faint)'), ...['Kategorie', 'Budget', 'Ausgaben', 'Differenz'].map((t, i) => cell(t, cols[i + 1], `background:var(--c);color:#fff;font-weight:600;${i ? 'justify-content:flex-end' : ''}`))]);
+      data.forEach((d, n) => { rows += r([cell(String(n + 3), cols[0], 'color:var(--faint);justify-content:center;background:#f4f4f2'), ...d.map((t, i) => cell(i ? t + ' €' : t, cols[i + 1], `${i ? 'justify-content:flex-end;font-family:Geist Mono;font-size:10.5px' : ''}${i === 3 && t.startsWith('−') ? ';background:var(--t1);color:var(--ink);font-weight:600' : ''}`))]); });
+      rows += r([cell('11', cols[0], 'color:var(--faint);justify-content:center;background:#f4f4f2'), ...['Summe', '2.390,00 €', '2.418,00 €', '−28,00 €'].map((t, i) => cell(t, cols[i + 1], `font-weight:700;${i ? 'justify-content:flex-end;font-family:Geist Mono;font-size:10.5px' : ''}${i === 2 ? ';outline:2px solid var(--c);outline-offset:-2px;background:#fff;position:relative' : ''}`))], 'border-top:2px solid var(--c)', 27);
+      return `<div class="abs" style="left:0;top:0;right:0;height:30px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:0 12px;font-size:11px"><span class="mono" style="border-right:1px solid var(--line);padding-right:12px">C11</span><i style="font-style:italic;color:var(--faint)">fx</i><span class="mono">=SUMME(<b style="color:var(--ink)">C3:C10</b>)</span></div>
+        <div class="abs" style="left:0;top:30px;width:${W}px;background:#fff">${rows}</div>
+        <div class="abs paper" style="left:336px;top:150px;width:206px;padding:14px 16px 16px">
+          <div style="font-size:12px;font-weight:600;margin-bottom:12px">Wohin geht mein Geld?</div>
+          <div style="position:relative;width:132px;height:132px;margin:0 auto 14px;border-radius:50%;background:conic-gradient(var(--c) 0 39%,var(--t4) 39% 60%,var(--ink) 60% 70%,var(--t3) 70% 82%,var(--t2) 82% 100%)">
+            <div style="position:absolute;inset:30px;background:#fff;border-radius:50%;display:grid;place-items:center;text-align:center"><div><div style="font-size:9px;color:var(--faint)">Ausgaben</div><div style="font-size:13px;font-weight:700">2.418 €</div></div></div></div>
+          ${[['Miete', 'var(--c)'], ['Lebensmittel', 'var(--t4)'], ['Sparen', 'var(--ink)']].map(([t, c]) => `<div style="display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--muted);margin-top:5px"><i style="width:9px;height:9px;background:${c}"></i>${t}</div>`).join('')}</div>`;
+    })(),
+  },
+  'deck-koja': {
+    file: 'Q3_Bericht.pptx', menu: ['Datei', 'Start', 'Einfügen', 'Übergänge', 'Bildschirmpräsentation'], on: 3,
+    side: ['Folien', [1, 2, 3, 4].map((n) => `<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:12px"><span class="mono" style="font-size:9.5px;color:var(--faint);width:9px">${n}</span><div style="width:112px;height:63px;background:#fff;border:${n === 2 ? '2px solid var(--c)' : '1px solid var(--line2)'};padding:8px"><div style="height:4px;width:40px;background:${n === 2 ? 'var(--c)' : 'var(--t3)'};margin-bottom:5px"></div><div style="height:6px;width:70px;background:var(--fg);opacity:.75;margin-bottom:6px"></div><div style="display:flex;gap:3px;align-items:flex-end;height:20px">${[8, 13, 20].map((h, i) => `<i style="width:9px;height:${h}px;background:${['var(--t2)', 'var(--t3)', 'var(--c)'][i]}"></i>`).join('')}</div></div></div>`).join('')],
+    panel: ['Übergang', `<div style="display:grid;gap:6px;margin-bottom:12px">${['Morph', 'Überblenden', 'Schieben', 'Zoom'].map((t, i) => `<span class="chip${i ? '' : ' on'}" style="height:30px">${t}</span>`).join('')}</div>` + sl('Dauer', '1,2 s', 40) + fld('Start', 'Klick')],
+    canvas: `<div class="abs paper" style="left:28px;top:24px;width:524px;height:295px;padding:26px 28px">
+        <div class="mono" style="font-size:10px;letter-spacing:.16em;color:var(--ink);font-weight:600">QUARTALSBERICHT · Q3 2026</div>
+        <div class="disp" style="font-size:25px;margin-top:8px">Unser stärkstes Quartal</div>
+        <div class="disp" style="font-size:78px;color:var(--c);margin-top:26px">+18 %</div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:10px;width:220px;line-height:1.4">Umsatz gegenüber dem Vorquartal</div>
+        <div class="abs" style="right:34px;bottom:30px;display:flex;gap:16px;align-items:flex-end">${[['412', 92, 'var(--t2)', 'Q1'], ['515', 122, 'var(--t3)', 'Q2'], ['608', 156, 'var(--c)', 'Q3']].map(([v, h, c, l]) => `<div style="text-align:center"><div style="font-size:10.5px;font-weight:600;margin-bottom:5px">${v} T€</div><div style="width:48px;height:${h}px;background:${c}"></div><div class="mono" style="font-size:9px;color:var(--faint);margin-top:5px">${l}</div></div>`).join('')}</div></div>
+      <div class="abs paper" style="left:28px;top:336px;width:524px;height:150px;padding:14px 18px;box-shadow:none"><div class="lbl" style="margin-bottom:12px">Notizen</div>${lines([380, 420, 300], 6, 9)}</div>`,
+  },
+  'pdf-koja': {
+    file: 'Steuer_2026_komplett.pdf', menu: ['Seiten ordnen', 'Zusammenfügen', 'Drehen', 'Schützen', 'Bearbeiten'], on: 0,
+    side: ['Lesezeichen', row('Lohnsteuer', { meta: '1–2', th: false }) + row('Handwerker', { on: 1, meta: '3', th: false }) + row('Nebenkosten', { meta: '4–5', th: false }) + row('Spenden', { meta: '6', th: false }) + row('Arztrechnung', { meta: '7', th: false }) + row('Riester', { meta: '8', th: false })],
+    panel: ['Seite 3', fld('Format', 'A4') + fld('Drehung', '0°') + fld('Größe', '1,2 MB') + '<div class="lbl">Schutz</div>' + `<div style="display:flex;align-items:center;justify-content:space-between;font-size:11.5px;margin-bottom:8px">Passwort<span style="width:30px;height:17px;border-radius:9px;background:var(--c);position:relative"><i style="position:absolute;right:2px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff"></i></span></div>` + fld('Verschl.', 'AES-256')],
+    canvas: (() => {
+      const page = (x, y, n, o = {}) => `<div class="abs" style="left:${x}px;top:${y}px;text-align:center;${o.rot ? `transform:rotate(${o.rot}deg);` : ''}"><div class="paper" style="width:108px;height:146px;padding:12px 11px;text-align:left;${o.sel ? 'outline:2px solid var(--c);outline-offset:3px;' : ''}${o.rot ? 'box-shadow:0 22px 40px -16px rgba(14,14,16,.45);' : ''}"><div style="height:5px;width:26px;background:var(--c);margin-bottom:8px"></div>${lines([62, 44], 5, 5, '#a9a9ae')}<div style="height:6px"></div>${lines([86, 80, 84], 4, 5)}<div style="height:22px;border:1px solid var(--line2);margin:6px 0 8px"></div>${lines([82, 70, 76], 4, 5)}</div><div style="font-size:10px;color:var(--faint);margin-top:9px">Seite ${n}</div></div>`;
+      return page(30, 22, 1) + page(168, 22, 2) + page(306, 22, 3, { sel: 1 }) + page(444, 22, 4) + page(30, 220, 5, { rot: -5 }) + page(168, 220, 6) +
+        `<div class="abs paper" style="left:300px;top:226px;width:262px;padding:18px 18px;box-shadow:0 24px 48px -18px rgba(14,14,16,.42)">
+          <div style="display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600"><svg width="18" height="20" viewBox="0 0 18 20" fill="none" stroke="var(--c)" stroke-width="2"><path d="M9 1 2 4v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V4Z"/><path d="m6 10 2 2 4-4"/></svg>Dokument schützen</div>
+          <div style="font-size:11px;color:var(--muted);margin:6px 0 14px">Ohne Passwort lässt sich die Datei nicht öffnen.</div>
+          <div class="fld" style="height:32px"><b style="letter-spacing:.2em;font-size:13px">••••••••••</b></div>
+          <div style="display:flex;gap:4px;margin:2px 0 14px">${[1, 1, 1, 0].map((f) => `<i style="flex:1;height:4px;background:${f ? 'var(--c)' : 'var(--bar)'}"></i>`).join('')}</div>
+          <div style="display:flex;justify-content:flex-end;gap:8px"><span class="chip" style="height:30px">Abbrechen</span><span class="chip on" style="height:30px">Schützen</span></div></div>`;
+    })(),
+  },
+  'photo-koja': {
+    file: 'Sommerfest_Plakat.psd', menu: ['Datei', 'Bearbeiten', 'Bild', 'Ebene', 'Filter', 'Ansicht'], on: 3,
+    side: ['Ebenen', row('Sommerfest', { on: 1, th: 'background:#fff;border:1px solid var(--line2)' }) + row('Datum', { th: 'background:#fff;border:1px solid var(--line2)' }) + row('Hügel', { th: `background:${dark(45)}` }) + row('Sonne', { th: 'background:var(--t2)' }) + row('Himmel', { th: `background:linear-gradient(${dark(55)},var(--c))` })],
+    panel: ['Ebenenstil', `<div style="display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;margin-bottom:14px"><span style="width:14px;height:14px;background:var(--c);display:grid;place-items:center;color:#fff;font-size:10px">✓</span>Schlagschatten</div>` + sl('Deckkraft', '38 %', 38) + sl('Winkel', '120°', 66) + sl('Abstand', '10 px', 25) + sl('Größe', '18 px', 36)],
+    canvas: `<div class="abs" style="left:30px;top:24px;width:520px;height:340px;overflow:hidden;background:linear-gradient(180deg,${dark(62)} 0%,${dark(25)} 42%,var(--c) 68%,var(--t3) 100%)">
+        ${Array.from({ length: 22 }, () => `<i style="position:absolute;left:${rnd() * 510}px;top:${4 + rnd() * 30}px;width:2px;height:2px;border-radius:50%;background:#fff;opacity:${0.4 + rnd() * 0.6}"></i>`).join('')}
+        <div style="position:absolute;left:190px;top:178px;width:140px;height:140px;border-radius:50%;background:var(--t1);box-shadow:0 0 70px 20px ${mix(40, 'transparent')}"></div>
+        <svg class="abs" style="left:0;bottom:0" width="520" height="150" viewBox="0 0 520 150"><path d="M0 70 C90 30 170 40 250 80 S420 40 520 66 V150 H0Z" fill="${dark(42)}"/><path d="M0 110 C120 70 240 90 330 112 S470 96 520 104 V150 H0Z" fill="${dark(64)}"/></svg>
+        <div class="abs" style="left:0;right:0;top:44px;text-align:center"><div class="mono" style="color:#fff;font-size:10px;letter-spacing:.42em;opacity:.85">STADTPARK · EINTRITT FREI</div>
+        <div class="disp" style="display:inline-block;position:relative;margin-top:10px;font-size:52px;color:#fff;padding:2px 10px;outline:1px dashed rgba(255,255,255,.8);text-shadow:0 6px 16px ${dark(70)}">SOMMERFEST${['left:-5px;top:-5px', 'right:-5px;top:-5px', 'left:-5px;bottom:-5px', 'right:-5px;bottom:-5px'].map((p) => `<i class="hd" style="${p}"></i>`).join('')}</div>
+        <div style="margin-top:14px"><span style="background:#fff;color:var(--ink);font-size:12px;font-weight:600;padding:6px 14px;border-radius:14px">Samstag, 18. Juli · ab 14 Uhr</span></div></div></div>
+      <div class="abs mono" style="left:30px;top:376px;font-size:10px;color:var(--faint)">50 % · 2480 × 1646 px · 5 Ebenen</div>`,
+  },
+  'film-koja': {
+    file: 'Urlaub_2026 · Sequenz 1', menu: ['Datei', 'Bearbeiten', 'Clip', 'Sequenz', 'Effekte'], on: 3,
+    side: ['Projekt', row('Strand_01.mp4', { on: 1, th: 'background:var(--t3)' }) + row('Drohne_02.mov', { th: `background:${dark(30)}` }) + row('Interview.mov', { th: 'background:var(--t2)' }) + row('Abend_04.mp4', { th: `background:${dark(55)}` }) + row('Musik.wav', { th: 'background:var(--t1)' })],
+    panel: ['Farbe', `<div style="width:78px;height:78px;border-radius:50%;margin:0 0 14px 14px;background:conic-gradient(from 90deg,var(--t1),var(--t3),var(--c),var(--t3),var(--t1));position:relative"><i style="position:absolute;inset:14px;border-radius:50%;background:radial-gradient(#fff 40%,transparent 72%)"></i><i style="position:absolute;left:46px;top:20px;width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid var(--fg)"></i></div>` + sl('Belichtung', '+0,3', 58) + sl('Kontrast', '12', 62) + sl('Sättigung', '−8', 44)],
+    canvas: (() => {
+      const clip = (x, w, y, t, st) => `<div class="abs" style="left:${x}px;top:${y}px;width:${w}px;height:26px;${st};font-size:9.5px;padding:0 7px;display:flex;align-items:center;overflow:hidden;white-space:nowrap">${t}</div>`;
+      return `<div class="abs" style="left:34px;top:16px;width:512px;height:246px;overflow:hidden;background:linear-gradient(180deg,${dark(58)},${dark(20)} 45%,var(--t4) 70%,var(--t2))">
+          <div style="position:absolute;left:300px;top:96px;width:74px;height:74px;border-radius:50%;background:var(--t1);box-shadow:0 0 50px 14px ${mix(50, 'transparent')}"></div>
+          <svg class="abs" style="left:0;bottom:0" width="512" height="130"><path d="M0 60 L70 20 L140 58 L210 12 L300 70 L380 30 L512 74 V130 H0Z" fill="${dark(48)}"/><path d="M0 92 C120 70 260 100 380 84 S480 86 512 90 V130 H0Z" fill="${dark(70)}"/></svg>
+          <div class="abs" style="left:0;right:0;top:0;height:16px;background:#000"></div><div class="abs" style="left:0;right:0;bottom:0;height:16px;background:#000"></div></div>
+        <div class="abs" style="left:34px;top:268px;width:512px;display:flex;justify-content:space-between;align-items:center;font-size:11px"><span class="mono" style="color:var(--ink);font-weight:600">00:01:24:12</span><svg width="14" height="14"><path d="M3 2 12 7 3 12Z" fill="var(--fg)"/></svg><span style="color:var(--faint)">Anpassen</span></div>
+        <div class="abs" style="left:0;right:0;top:296px;bottom:0;background:#fff;border-top:1px solid var(--line)">
+          <div style="height:20px;border-bottom:1px solid var(--line);position:relative;margin-left:40px">${[0, 1, 2, 3, 4].map((i) => `<span class="mono" style="position:absolute;left:${i * 120 + 4}px;top:4px;font-size:9px;color:var(--faint)">0${i}:${i ? '30' : '00'}</span><i style="position:absolute;left:${i * 120}px;bottom:0;width:1px;height:7px;background:var(--line2)"></i>`).join('')}</div>
+          ${['V2', 'V1', 'A1', 'A2'].map((t, i) => `<div class="mono abs" style="left:10px;top:${30 + i * 36 + (i > 1 ? 8 : 0)}px;font-size:9.5px;color:var(--faint);line-height:26px">${t}</div>`).join('')}
+          ${clip(150, 110, 28, 'Titel', 'background:var(--c);color:#fff;font-weight:600')}
+          ${clip(40, 168, 64, 'Strand_01', 'background:var(--t2);border:1px solid var(--t4);color:var(--ink);font-weight:600')}${clip(210, 140, 64, 'Drohne_02', 'background:var(--t2);border:2px solid var(--c);color:var(--ink);font-weight:600')}${clip(352, 200, 64, 'Abend_04', 'background:var(--t2);border:1px solid var(--t4);color:var(--ink);font-weight:600')}
+          <div class="abs" style="left:40px;top:108px;width:512px;height:26px;background:var(--t1);border:1px solid var(--t3);display:flex;align-items:center;padding:0 4px">${wave(500, 20, 120, 'var(--t4)')}</div>
+          <div class="abs" style="left:40px;top:144px;width:300px;height:26px;background:var(--t1);border:1px solid var(--t3);display:flex;align-items:center;padding:0 4px">${wave(290, 20, 70, 'var(--t3)', 0.7)}</div>
+          <div class="abs" style="left:296px;top:12px;bottom:0;width:2px;background:var(--c)"></div><div class="abs" style="left:290px;top:4px;width:14px;height:10px;background:var(--c);clip-path:polygon(0 0,100% 0,50% 100%)"></div></div>`;
+    })(),
+  },
+  'sound-koja': {
+    file: 'Podcast_Folge_12', menu: ['Datei', 'Bearbeiten', 'Spur', 'Clip', 'Mix', 'Fenster'], on: 4,
+    side: ['Spuren', row('Moderation', { on: 1, th: 'background:var(--c)' }) + row('Gast', { th: 'background:var(--t4)' }) + row('Intro-Musik', { th: 'background:var(--t3)' }) + row('Atmo', { th: 'background:var(--t2)' }) + row('Master', { th: 'background:var(--fg)' })],
+    panel: ['Mix', `<div style="display:flex;gap:12px;height:190px;margin-bottom:10px">${[[0.78, 0.62, 'M'], [0.64, 0.55, 'G'], [0.48, 0.7, 'I'], [0.36, 0.45, 'A']].map(([lv, fd, t], i) => `<div style="flex:none;width:26px;display:flex;flex-direction:column;align-items:center;gap:6px"><i style="width:18px;height:18px;border-radius:50%;border:2px solid var(--line2);position:relative"><b style="position:absolute;left:6px;top:0;width:2px;height:7px;background:var(--fg);transform:rotate(${i * 30 - 40}deg);transform-origin:1px 7px"></b></i><div style="position:relative;flex:1;width:26px"><i style="position:absolute;left:3px;bottom:0;width:5px;height:${lv * 100}%;background:var(--c)"></i><i style="position:absolute;left:13px;top:0;bottom:0;width:2px;background:var(--line2)"></i><i style="position:absolute;left:6px;bottom:${fd * 100}%;width:16px;height:10px;background:#fff;border:1.5px solid var(--fg)"></i></div><span class="mono" style="font-size:9.5px;color:var(--faint)">${t}</span></div>`).join('')}</div>` + fld('Master', '−3,0 dB')],
+    canvas: (() => {
+      const lanes = [['Moderation', 'var(--c)', 1, [[14, 300], [326, 230]]], ['Gast', 'var(--t4)', 0.85, [[120, 330]]], ['Intro-Musik', 'var(--t3)', 0.6, [[14, 160]]], ['Atmo', 'var(--t3)', 0.35, [[14, 540]]]];
+      return `<div class="abs" style="left:0;right:0;top:0;height:22px;background:#fff;border-bottom:1px solid var(--line)">${[0, 1, 2, 3, 4].map((i) => `<span class="mono" style="position:absolute;left:${i * 120 + 16}px;top:5px;font-size:9px;color:var(--faint)">${i * 5}:00</span>`).join('')}</div>` +
+        lanes.map(([t, col, amp, regs], li) => regs.map(([x, w], ri) => `<div class="abs" style="left:${x}px;top:${34 + li * 108}px;width:${w}px;height:92px;background:${li === 0 && ri === 0 ? 'var(--t2)' : 'var(--t1)'};border:${li === 0 && ri === 0 ? '2px solid var(--c)' : '1px solid var(--t3)'}"><div style="font-size:9.5px;font-weight:600;color:var(--ink);padding:4px 7px">${t}</div><div style="padding:0 6px">${wave(w - 14, 62, Math.round(w / 3.2), col, amp)}</div></div>`).join('')).join('') +
+        `<div class="abs" style="left:236px;top:22px;bottom:0;width:2px;background:var(--fg)"></div>`;
+    })(),
+  },
+  'design-koja': {
+    file: 'Stadtmagazin_Herbst.idml', menu: ['Datei', 'Bearbeiten', 'Layout', 'Text', 'Objekt', 'Ansicht'], on: 3,
+    side: ['Seiten', row('A-Musterseite', { th: false }) + ['1', '2–3', '4–5', '6–7'].map((n, i) => `<div style="display:flex;align-items:center;gap:8px;margin:6px 0 10px"><div style="display:flex;border:${i === 1 ? '2px solid var(--c)' : '1px solid var(--line2)'}"><i style="width:34px;height:46px;background:#fff;border-right:1px solid var(--line)"></i><i style="width:34px;height:46px;background:${i % 2 ? 'var(--t2)' : '#fff'}"></i></div><span class="mono" style="font-size:9.5px;color:var(--faint)">${n}</span></div>`).join('')],
+    panel: ['Absatzformate', row('Grundtext', { on: 1, th: false }) + row('Vorspann', { th: false }) + row('Überschrift', { th: false }) + row('Zitat', { th: false }) + '<div class="lbl">Raster</div>' + fld('Spalten', '2') + fld('Abstand', '4,2 mm')],
+    canvas: `<div class="abs paper" style="left:26px;top:20px;width:528px;height:400px;display:flex">
+        <div style="position:relative;width:264px;height:100%;border-right:1px solid var(--line2);padding:18px">
+          <div style="height:170px;overflow:hidden;position:relative;background:linear-gradient(180deg,var(--t2),var(--t4))"><div style="position:absolute;left:150px;top:30px;width:44px;height:44px;border-radius:50%;background:var(--t1)"></div><svg class="abs" style="left:0;bottom:0" width="228" height="110"><path d="M0 60 L20 60 L20 30 L44 30 L44 50 L60 50 L60 14 L82 14 L82 46 L104 46 L104 26 L128 26 L128 54 L150 54 L150 36 L176 36 L176 60 L228 60 V110 H0Z" fill="${dark(30)}"/><path d="M0 84 C60 70 120 92 228 76 V110 H0Z" fill="${dark(55)}"/></svg></div>
+          <div class="mono" style="font-size:9px;letter-spacing:.2em;color:var(--ink);font-weight:600;margin:16px 0 6px">REPORTAGE</div>
+          <div class="disp" style="font-size:24px">Herbst in<br>der Stadt</div>
+          <div style="margin-top:12px">${lines([210, 222, 190, 160], 5, 6)}</div></div>
+        <div style="position:relative;width:264px;height:100%;padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start">
+          <div>${lines(Array.from({ length: 13 }, () => 70 + rnd() * 34), 4, 6)}</div>
+          <div style="position:relative;outline:1.5px solid var(--c);outline-offset:3px">${lines(Array.from({ length: 13 }, () => 70 + rnd() * 34), 4, 6)}${handles(-3, -3, 110, 166)}<i style="position:absolute;right:-12px;bottom:-12px;width:12px;height:12px;background:#fff;border:1.5px solid var(--c);display:grid;place-items:center;font-size:9px;line-height:1;color:var(--c)">▸</i></div>
+          <div class="disp" style="grid-column:1/3;font-size:15px;font-weight:700;font-style:italic;color:var(--ink);border-top:2px solid var(--c);padding-top:10px;margin-top:6px">„Die Stadt wird leiser, das Licht wärmer.“</div>
+          <div>${lines(Array.from({ length: 6 }, () => 70 + rnd() * 34), 4, 6)}</div><div>${lines(Array.from({ length: 6 }, () => 70 + rnd() * 34), 4, 6)}</div></div>
+        <div class="abs" style="inset:12px;border:1px solid ${mix(55, 'transparent')};pointer-events:none"></div></div>`,
+  },
+  'fig-koja': {
+    file: 'Shop-App · Startseite', menu: ['Entwurf', 'Prototyp', 'Dev-Modus'], on: 0,
+    side: ['Ebenen', row('Start', { on: 1, th: 'border:1.5px solid var(--c);background:transparent' }) + row('&nbsp;&nbsp;Kopfzeile') + row('&nbsp;&nbsp;Produktkarte') + row('&nbsp;&nbsp;Button / Primär', { th: 'background:var(--c)' }) + row('&nbsp;&nbsp;Tab-Leiste') + row('Produkt', { th: 'border:1.5px solid var(--line2);background:transparent' })],
+    panel: ['Auto Layout', chips(['↓ Vertikal', '→'], 0) + fld('Abstand', '16') + fld('Innen', '24') + '<div class="lbl">Füllung</div>' + `<div class="fld"><span style="display:flex;align-items:center;gap:7px"><i style="width:14px;height:14px;background:var(--c)"></i>${C.toUpperCase()}</span><b>100 %</b></div>`],
+    canvas: (() => {
+      const phone = (x, label, inner, sel) => `<div class="abs mono" style="left:${x}px;top:16px;font-size:9.5px;color:${sel ? 'var(--ink)' : 'var(--faint)'};font-weight:600">${label}</div><div class="abs" style="left:${x}px;top:34px;width:196px;height:416px;background:#fff;border:1px solid var(--line2);border-radius:20px;overflow:hidden;${sel ? 'outline:1.5px solid var(--c);outline-offset:4px;' : ''}">${inner}</div>${sel ? `<div class="abs mono" style="left:${x + 58}px;top:458px;background:var(--c);color:#fff;font-size:9px;padding:3px 7px">390 × 844</div>` : ''}`;
+      const a = `<div style="padding:22px 16px 0"><div style="display:flex;justify-content:space-between;margin-bottom:14px"><i style="width:30px;height:5px;background:var(--fg)"></i><i style="width:16px;height:5px;background:var(--bar)"></i></div><div class="disp" style="font-size:17px;margin-bottom:12px">Neu im Shop</div>
+        <div style="height:110px;background:var(--t2);position:relative;margin-bottom:12px"><i style="position:absolute;left:96px;top:22px;width:60px;height:60px;border-radius:50%;background:var(--c)"></i><i style="position:absolute;left:18px;bottom:16px;width:60px;height:7px;background:var(--fg)"></i></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative">${[0, 1].map(() => `<div><div style="height:62px;background:var(--t1);margin-bottom:6px"></div>${lines([60, 36], 5, 5)}</div>`).join('')}<i style="position:absolute;left:78px;top:24px;width:10px;height:14px;border-left:1px dashed var(--c);border-right:1px dashed var(--c)"></i><span class="mono" style="position:absolute;left:76px;top:40px;font-size:8px;color:var(--c);font-weight:600">16</span></div>
+        <div style="margin-top:10px;height:34px;background:var(--c);color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center">In den Warenkorb</div></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:46px;border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:center">${[1, 0, 0, 0].map((o) => `<i style="width:16px;height:16px;border-radius:5px;background:${o ? 'var(--c)' : 'var(--bar)'}"></i>`).join('')}</div>`;
+      const b = `<div style="height:190px;background:var(--t2);position:relative"><i style="position:absolute;left:58px;top:42px;width:80px;height:100px;background:var(--t4)"></i></div><div style="padding:16px"><div style="font-size:13px;font-weight:600;margin-bottom:8px">Leinen-Tasche</div>${lines([150, 120, 140], 5, 6)}<div class="disp" style="font-size:17px;margin:8px 0 12px">29,90 €</div><div style="height:34px;background:var(--c);color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center">Kaufen</div></div>`;
+      return `<div class="abs" style="inset:0;background-image:radial-gradient(var(--line2) 1px,transparent 1px);background-size:16px 16px"></div>` + phone(48, 'Start', a, 1) + phone(336, 'Produkt', b, 0) +
+        `<svg class="abs" style="left:0;top:0" width="580" height="480" fill="none"><path d="M226 372 C290 372 280 210 330 210" stroke="var(--c)" stroke-width="2"/><circle cx="226" cy="372" r="5" fill="var(--c)"/><path d="M324 204 332 210 324 216" stroke="var(--c)" stroke-width="2"/></svg>`;
+    })(),
+  },
+  'vector-koja': {
+    file: 'Logo_Baeckerei_Sonne.ai', menu: ['Datei', 'Bearbeiten', 'Objekt', 'Schrift', 'Auswahl', 'Effekt'], on: 2,
+    side: ['Ebenen', row('Bildmarke', { on: 1, th: 'background:var(--c)' }) + row('Schriftzug', { th: 'background:var(--fg)' }) + row('Hintergrund', { th: 'background:var(--t1)' })],
+    panel: ['Kontur', fld('Stärke', '4 pt') + chips(['Rund', 'Spitz'], 0) + '<div class="lbl">Fläche</div>' + sw() + '<div class="lbl">Pathfinder</div>' + `<div style="display:flex;gap:6px">${['<i style="position:absolute;left:3px;top:3px;width:12px;height:12px;background:var(--fg)"></i><i style="position:absolute;left:9px;top:9px;width:12px;height:12px;background:var(--fg)"></i>', '<i style="position:absolute;left:3px;top:3px;width:12px;height:12px;border:1.5px solid var(--fg)"></i><i style="position:absolute;left:9px;top:9px;width:12px;height:12px;background:var(--fg)"></i>', '<i style="position:absolute;left:9px;top:9px;width:6px;height:6px;background:var(--fg)"></i><i style="position:absolute;left:3px;top:3px;width:12px;height:12px;border:1.5px solid var(--fg)"></i>'].map((h) => `<span style="position:relative;width:28px;height:28px;background:#fff;border:1px solid var(--line2)">${h}</span>`).join('')}</div>`],
+    canvas: `<div class="abs mono" style="left:46px;top:12px;font-size:9.5px;color:var(--faint)">Zeichenfläche 1</div>
+      <div class="abs paper" style="left:46px;top:30px;width:392px;height:420px"></div>
+      <svg class="abs" style="left:46px;top:30px" width="392" height="420" viewBox="0 0 392 420" fill="none">
+        <circle cx="196" cy="170" r="118" fill="var(--t1)"/>
+        <circle cx="196" cy="150" r="58" fill="var(--c)"/>
+        <path d="M78 210 C130 168 170 176 214 204 C246 186 290 176 314 196 C300 250 250 288 196 288 C140 288 92 254 78 210Z" fill="${dark(35)}"/>
+        <path d="M84 236 C140 214 230 214 308 228 C290 262 246 288 196 288 C150 288 108 266 84 236Z" fill="${dark(58)}"/>
+        <path d="M78 210 C130 168 170 176 214 204" stroke="var(--ink)" stroke-width="1.5"/>
+        <path d="M130 178 L160 152 M214 204 L244 186" stroke="var(--ink)" stroke-width="1"/>
+        ${[[78, 210], [214, 204], [314, 196]].map(([x, y], i) => `<rect x="${x - 5}" y="${y - 5}" width="10" height="10" fill="${i === 1 ? 'var(--ink)' : '#fff'}" stroke="var(--ink)" stroke-width="1.5"/>`).join('')}
+        ${[[130, 178], [160, 152], [244, 186]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="4" fill="#fff" stroke="var(--ink)" stroke-width="1.5"/>`).join('')}
+        <text x="196" y="350" text-anchor="middle" font-family="Archivo" font-stretch="125%" font-weight="800" font-size="22" letter-spacing="3" fill="var(--fg)">BÄCKEREI SONNE</text>
+        <text x="196" y="374" text-anchor="middle" font-family="Geist Mono" font-size="10" letter-spacing="3" fill="var(--faint)">SEIT 1962</text></svg>
+      <svg class="abs" style="left:262px;top:200px" width="26" height="26" viewBox="0 0 24 24" fill="#fff" stroke="var(--fg)" stroke-width="1.6"><path d="M4 20 8 9l7-3 3 3-3 7-11 4Z"/><circle cx="11" cy="13" r="1.6"/></svg>`,
+  },
+  'light-koja': {
+    file: 'DSC_4182.NEF', menu: ['Bibliothek', 'Entwickeln', 'Karte', 'Export'], on: 1,
+    side: ['Sammlungen', row('Alle Fotos', { meta: '2.418', th: false }) + row('Dolomiten', { on: 1, meta: '312', th: false }) + row('Familie', { meta: '864', th: false }) + row('Favoriten', { meta: '57', th: false })],
+    panel: ['Histogramm', `<svg width="170" height="64" style="display:block;margin-bottom:14px;background:#fff;border:1px solid var(--line2)"><path d="M0 64 C20 60 30 40 46 44 S70 18 88 26 S118 52 132 34 S158 30 170 50 V64Z" fill="var(--t3)" stroke="var(--c)" stroke-width="1.5"/></svg>` + sl('Belichtung', '+0,45', 60) + sl('Kontrast', '+12', 56) + sl('Lichter', '−30', 34) + sl('Tiefen', '+25', 63)],
+    canvas: `<div class="abs" style="left:28px;top:20px;width:524px;height:330px;overflow:hidden;background:linear-gradient(180deg,${dark(50)} 0%,${dark(10)} 38%,var(--t4) 54%,var(--t2) 56%)">
+        <div style="position:absolute;left:330px;top:70px;width:66px;height:66px;border-radius:50%;background:var(--t1);box-shadow:0 0 60px 18px ${mix(55, 'transparent')}"></div>
+        <svg class="abs" style="left:0;top:0" width="524" height="330"><path d="M0 182 L60 120 L104 150 L176 64 L236 140 L282 108 L352 170 L420 96 L524 176 V186 H0Z" fill="${dark(52)}"/><path d="M0 186 L90 150 L170 178 L260 140 L330 182 L430 150 L524 186Z" fill="${dark(70)}"/>
+        <path d="M0 186 L60 248 L104 218 L176 304 L236 228 L282 260 L352 198 L420 272 L524 192 V186 H0Z" fill="${dark(52)}" opacity=".35"/>${Array.from({ length: 9 }, (_, i) => `<rect x="${40 + rnd() * 400}" y="${200 + i * 13}" width="${30 + rnd() * 70}" height="1.5" fill="#fff" opacity=".35"/>`).join('')}</svg></div>
+      <div class="abs" style="left:28px;top:364px;display:flex;gap:8px">${[60, 20, 40, 75, 30, 50].map((p, i) => `<div style="width:80px;height:56px;background:linear-gradient(180deg,${dark(p)},var(--t3));${i === 0 ? 'outline:2px solid var(--c);outline-offset:2px' : ''}"></div>`).join('')}</div>`,
+  },
+  'effect-koja': {
+    file: 'Intro_Titel · Komp 1', menu: ['Datei', 'Komposition', 'Ebene', 'Effekt', 'Animation'], on: 1,
+    side: ['Projekt', row('Komp 1', { on: 1, th: 'background:var(--c)' }) + row('Titel', { th: 'background:var(--t3)' }) + row('Logo.png', { th: 'background:var(--t2)' }) + row('Partikel', { th: `background:${dark(40)}` }) + row('Kamera', { th: 'background:var(--bar)' })],
+    panel: ['Effekte', row('Leuchten', { on: 1, th: false }) + row('3D-Kamera', { th: false }) + row('Unschärfe', { th: false }) + '<div style="height:10px"></div>' + sl('Intensität', '70 %', 70) + sl('Radius', '42 px', 45)],
+    canvas: `<div class="abs" style="left:34px;top:16px;width:512px;height:250px;overflow:hidden;background:radial-gradient(ellipse 60% 70% at 50% 55%,${dark(35)},${dark(80)})">
+        ${Array.from({ length: 30 }, () => `<i style="position:absolute;left:${rnd() * 510}px;top:${rnd() * 250}px;width:${2 + rnd() * 3}px;height:${2 + rnd() * 3}px;border-radius:50%;background:var(--t2);opacity:${0.3 + rnd() * 0.6}"></i>`).join('')}
+        <div style="position:absolute;inset:0;display:grid;place-items:center;perspective:500px"><div class="disp" style="font-size:86px;color:#fff;transform:rotateX(22deg) rotateY(-14deg);text-shadow:${Array.from({ length: 10 }, (_, i) => `${i + 1}px ${i + 1}px 0 ${mix(100 - i * 5, '#000')}`).join(',')},0 0 40px ${mix(80, 'transparent')}">INTRO</div></div>
+        <svg class="abs" style="left:56px;bottom:30px" width="40" height="40"><path d="M6 34 V6" stroke="#fff" stroke-width="2"/><path d="M6 34 H34" stroke="var(--t3)" stroke-width="2"/><path d="M6 34 L22 22" stroke="var(--c)" stroke-width="2"/></svg></div>
+      <div class="abs mono" style="left:34px;top:272px;font-size:11px;color:var(--ink);font-weight:600">0:00:02:12</div>
+      <div class="abs" style="left:0;right:0;top:294px;bottom:0;background:#fff;border-top:1px solid var(--line)">
+        <div style="height:20px;border-bottom:1px solid var(--line);position:relative;margin-left:96px">${[0, 1, 2, 3].map((i) => `<span class="mono" style="position:absolute;left:${i * 120 + 4}px;top:4px;font-size:9px;color:var(--faint)">${i}s</span>`).join('')}</div>
+        ${['Titel', 'Logo', 'Partikel', 'Kamera'].map((t, i) => `<div style="position:absolute;left:0;right:0;top:${22 + i * 26}px;height:26px;border-bottom:1px solid var(--line);font-size:10.5px;padding:0 12px;line-height:26px;${i === 0 ? 'background:var(--t1);font-weight:600' : ''}">${t}</div>`).join('')}
+        ${[[0, [110, 180, 300]], [1, [150, 260]], [2, [120, 210, 330, 420]], [3, [100, 380]]].map(([r, xs]) => xs.map((x) => `<i style="position:absolute;left:${x}px;top:${30 + r * 26}px;width:10px;height:10px;background:${r === 0 ? 'var(--c)' : 'var(--t3)'};transform:rotate(45deg)"></i>`).join('')).join('')}
+        <svg class="abs" style="left:96px;top:130px" width="470" height="60" fill="none"><path d="M0 52 C90 52 110 8 200 8 S330 40 470 30" stroke="var(--c)" stroke-width="2"/><path d="M110 8 H290" stroke="var(--line2)"/><circle cx="110" cy="8" r="3.5" fill="#fff" stroke="var(--ink)"/><circle cx="290" cy="8" r="3.5" fill="#fff" stroke="var(--ink)"/><circle cx="200" cy="8" r="4.5" fill="var(--c)"/></svg>
+        <div class="abs" style="left:236px;top:6px;bottom:0;width:2px;background:var(--c)"></div></div>`,
+  },
+  'cad-koja': {
+    file: 'Grundriss_EG.dwg', menu: ['Start', 'Einfügen', 'Beschriften', 'Ansicht', 'Ausgabe'], on: 2,
+    side: ['Layer', row('Wände', { on: 1, th: 'background:var(--fg)' }) + row('Türen', { th: 'background:var(--c)' }) + row('Möbel', { th: 'background:var(--t3)' }) + row('Bemaßung', { th: 'background:var(--ink)' }) + row('Text', { th: 'background:var(--bar)' })],
+    panel: ['Eigenschaften', fld('Layer', 'Wände') + fld('Farbe', 'VonLayer') + fld('Linie', 'Durchg.') + fld('Stärke', '0,50 mm') + '<div class="lbl">Fang</div>' + chips(['Endpunkt', 'Mitte'], 0)],
+    canvas: `<div class="abs" style="inset:0;background-color:#fff;background-image:linear-gradient(#f0f0ee 1px,transparent 1px),linear-gradient(90deg,#f0f0ee 1px,transparent 1px);background-size:20px 20px"></div>
+      <svg class="abs" style="left:0;top:0" width="580" height="440" viewBox="0 0 580 440" fill="none">
+        <path d="M60 50 H520 V390 H60 Z" stroke="var(--fg)" stroke-width="9"/>
+        <path d="M300 50 V180 M300 230 V390 M60 240 H160 M210 240 H300 M300 280 H400 M450 280 H520" stroke="var(--fg)" stroke-width="5"/>
+        <path d="M160 240 A50 50 0 0 1 210 190 M300 180 A50 50 0 0 0 350 230 M400 280 A50 50 0 0 1 450 230" stroke="var(--c)" stroke-width="1.5"/><path d="M210 190 V240 M350 230 H300 M450 230 V280" stroke="var(--c)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <path d="M120 46 H220 M120 54 H220 M380 386 H470 M380 394 H470" stroke="var(--c)" stroke-width="1.5"/>
+        <rect x="90" y="80" width="130" height="56" stroke="var(--t4)" stroke-width="1.5"/><rect x="96" y="86" width="118" height="12" stroke="var(--t4)"/><circle cx="240" cy="160" r="22" stroke="var(--t4)" stroke-width="1.5"/>
+        <rect x="380" y="300" width="100" height="70" stroke="var(--t4)" stroke-width="1.5"/><rect x="330" y="80" width="160" height="34" stroke="var(--t4)" stroke-width="1.5"/>
+        <path d="M60 20 H520 M60 14 V26 M520 14 V26 M536 50 V390 M530 50 H542 M530 390 H542" stroke="var(--ink)" stroke-width="1.2"/>
+        <text x="290" y="16" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="var(--ink)">8,40</text><text x="546" y="224" font-family="Geist Mono" font-size="11" fill="var(--ink)" transform="rotate(90 546 224)">6,20</text>
+        ${[['Wohnen', '24,6 m²', 150, 190], ['Küche', '9,8 m²', 410, 160], ['Schlafen', '14,2 m²', 410, 340], ['Bad', '6,1 m²', 180, 320]].map(([a, b, x, y]) => `<text x="${x}" y="${y}" text-anchor="middle" font-family="Geist" font-weight="600" font-size="12" fill="var(--fg)">${a}</text><text x="${x}" y="${y + 15}" text-anchor="middle" font-family="Geist Mono" font-size="10" fill="var(--muted)">${b}</text>`).join('')}
+        <path d="M250 290 H330 M290 250 V330" stroke="var(--c)" stroke-width="1.2"/><rect x="284" y="284" width="12" height="12" stroke="var(--c)" stroke-width="1.5"/></svg>
+      <div class="abs mono" style="left:0;right:0;bottom:0;height:46px;background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:0 14px;font-size:11px"><b style="color:var(--ink)">Befehl:</b>BEMASSUNG<span style="color:var(--faint)">Ersten Punkt wählen</span><i style="width:7px;height:14px;background:var(--c)"></i></div>`,
+  },
+};
+
+const sc = SCENES[slug];
+document.getElementById('stage').innerHTML = `<div class="win">
+  <div class="bar"><i></i><i></i><i></i><span class="title">${sc.file} — ${NAME}</span></div>
+  <div class="menu">${sc.menu.map((m, i) => `<span class="${i === sc.on ? 'on' : ''}">${m}</span>`).join('')}</div>
+  <div class="body"><aside class="side"><div class="lbl">${sc.side[0]}</div>${sc.side[1]}</aside><main class="canvas">${sc.canvas}</main><aside class="panel"><div class="lbl">${sc.panel[0]}</div>${sc.panel[1]}</aside></div></div>`;
+</script>
+</body>
+</html>

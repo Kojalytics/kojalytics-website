@@ -84,40 +84,30 @@ const CONTENT: Record<string, AppContent> = {
 };
 
 /**
- * Our own product pictures in the Kojalytics look (public/apps/<slug>/produkt.webp, 1600×862), cut to the
- * app window from the owner's product images. Apps without one show a file-type tile instead.
+ * Card pictures for "02 / Die Apps" (public/apps/<slug>/karte.webp, 1440×900): illustrations of each app in one
+ * shared design, made by scripts/app-cards (no third-party screenshots). The alt text says what is shown.
  */
-const PRODUCT: Record<string, string> = {
-  "word-koja": "WordKoja: Bewerbung als .docx mit Kommentaren und nachverfolgten Änderungen",
-  "grid-koja": "GridKoja: Haushaltsbuch als .xlsx mit SUMME-Formel und Ringdiagramm",
-  "deck-koja": "DeckKoja: Referentenansicht mit aktueller Folie, nächster Folie und Notizen",
-  "pdf-koja": "PdfKoja: Seiten einer PDF ordnen und das Dokument mit Passwort schützen",
-  "photo-koja": "PhotoKoja: Plakat mit Ebenen und Schlagschatten als Ebenenstil",
-};
-
-/** Three file types each app opens, short enough for the file-type tile. */
-const FILE_TYPES: Record<string, [string, string, string]> = {
-  "word-koja": ["DOCX", "ODT", "RTF"],
-  "grid-koja": ["XLSX", "CSV", "ODS"],
-  "deck-koja": ["PPTX", "POTX", "PDF"],
-  "pdf-koja": ["PDF", "XFA", "DOCX"],
-  "photo-koja": ["PSD", "TIFF", "PNG"],
-  "film-koja": ["MP4", "MOV", "ProRes"],
-  "sound-koja": ["WAV", "FLAC", "AIFF"],
-  "design-koja": ["IDML", "PDF/X", "INDD"],
-  "fig-koja": ["SVG", "PNG", "PDF"],
-  "vector-koja": ["SVG", "AI", "EPS"],
-  "light-koja": ["CR3", "NEF", "ARW"],
-  "effect-koja": ["PSD", "H.264", "WebM"],
-  "cad-koja": ["DWG", "DXF", "PDF"],
+const CARD_ALT: Record<string, string> = {
+  "word-koja": "Illustration: WordKoja mit einer Bewerbung, Kommentaren und Formatvorlagen",
+  "grid-koja": "Illustration: GridKoja mit einem Haushaltsbuch, SUMME-Formel und Ringdiagramm",
+  "deck-koja": "Illustration: DeckKoja mit einer Folie zum Quartalsbericht und dem Übergang Morph",
+  "pdf-koja": "Illustration: PdfKoja beim Ordnen von PDF-Seiten und Schützen mit Passwort",
+  "photo-koja": "Illustration: PhotoKoja mit einem Plakat, Ebenen und Schlagschatten",
+  "film-koja": "Illustration: FilmKoja mit Vorschau, Timeline und Farbkorrektur",
+  "sound-koja": "Illustration: SoundKoja mit Podcast-Spuren, Wellenformen und Mischpult",
+  "design-koja": "Illustration: DesignKoja mit einer Magazin-Doppelseite und Absatzformaten",
+  "fig-koja": "Illustration: FigKoja mit zwei App-Bildschirmen, Auto Layout und Prototyp-Verbindung",
+  "vector-koja": "Illustration: VectorKoja mit einem Logo, Ankerpunkten und Pathfinder",
+  "light-koja": "Illustration: LightKoja beim Entwickeln eines Bergfotos mit Histogramm",
+  "effect-koja": "Illustration: EffectKoja mit einem 3D-Titel, Keyframes und Kurveneditor",
+  "cad-koja": "Illustration: CADKoja mit einem bemaßten Grundriss und der Befehlszeile",
 };
 
 export type Screenshot = { src: string; width: number; height: number; alt: string; caption: string };
 export type KojaApp = AppBase &
   AppContent & {
     shots: Screenshot[];
-    product?: { src: string; width: number; height: number; alt: string };
-    fileTypes: [string, string, string];
+    card: { src: string; width: number; height: number; alt: string };
   };
 
 /** Sizes of the screenshots in public/apps (from the ArtCraft press kit, cropped where ArtCraft branding was visible). */
@@ -132,9 +122,8 @@ function withShots(base: AppBase): KojaApp {
       return size ? { src: `/apps/${key}`, width: size.width, height: size.height, alt: s.alt, caption: s.caption } : null;
     })
     .filter((s): s is Screenshot => s !== null);
-  const alt = PRODUCT[base.slug];
-  const product = alt ? { src: `/apps/${base.slug}/produkt.webp`, width: 1600, height: 862, alt } : undefined;
-  return { ...base, ...content, shots, product, fileTypes: FILE_TYPES[base.slug] };
+  const card = { src: `/apps/${base.slug}/karte.webp`, width: 1440, height: 900, alt: CARD_ALT[base.slug] };
+  return { ...base, ...content, shots, card };
 }
 
 export const APPS: KojaApp[] = BASE.map(withShots);

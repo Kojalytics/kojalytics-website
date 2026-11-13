@@ -52,8 +52,10 @@ Geist Mono (`font-mono`, `.hud`).
 - `.icon-box`: 40px square outlined box for a lucide icon (`size={18}`), top-left of a feature cell,
   with the cell's index (`.hud text-faint`, "01") top-right.
 - `<MacWindow label="PhotoKoja" />`: screenshots in a square hairline window frame.
-- `<AppPreview app />`: picture on app cards. Our own product picture (`public/apps/<slug>/produkt.webp`)
-  where one exists, otherwise a file-type tile. App order everywhere = order of `BASE` in src/lib/apps.ts.
+- App card pictures (`app.card`, `public/apps/<slug>/karte.webp`): illustrations from `scripts/app-cards`
+  (`node scripts/app-cards/render.mjs`). One rule for all: the same light window on graph paper in the app
+  colour, same layout and type, the app colour as the only accent; only the canvas motif differs. Change
+  the template, not single pictures. App order everywhere = order of `BASE` in src/lib/apps.ts.
 - `<AppIcon />`: the only rounded element on the site (app icons are squircles by nature).
 - `<Faq items />`: numbered accordion with hairlines.
 - `<PricingCards source="…" />`: the two plans in a `.cells` grid; do not restyle per page.
