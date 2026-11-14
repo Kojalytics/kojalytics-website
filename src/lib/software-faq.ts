@@ -58,11 +58,11 @@ export const SOFTWARE_FAQ: FaqItem[] = [
 export const PARTNER_FAQ: FaqItem[] = [
   {
     q: `Was bekomme ich für ${PLANS.lifetime.label}?`,
-    a: `Alle 13 Koja-Apps für Mac und Windows, ohne Ablaufdatum: ${APP_LIST}. Updates bekommst du über den Kojalytics Launcher, und du nutzt die Apps auf bis zu 3 Geräten, Mac und Windows-PC gemischt.`,
+    a: `Alle 13 Koja-Apps für Mac und Windows: ${APP_LIST}. Updates bekommst du über den Kojalytics Launcher, und du nutzt die Apps auf bis zu 3 Geräten, Mac und Windows-PC gemischt.`,
   },
   {
     q: "Ist das ein Abo?",
-    a: `Nein. Du zahlst einmal ${PLANS.lifetime.label} und nutzt die Apps ohne Ablaufdatum. Es verlängert sich nichts, und du musst nichts kündigen.`,
+    a: `Nein. Du zahlst einmal ${PLANS.lifetime.label}. Es verlängert sich nichts, und du musst nichts kündigen.`,
   },
   {
     q: "Wie läuft die Bestellung ab?",
