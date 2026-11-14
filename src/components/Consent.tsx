@@ -78,36 +78,48 @@ export default function Consent() {
   return (
     <>
       {choice === "granted" && <TrackingScripts />}
+      {/* Centred dialog over a dimmed page, on phones too. Server-rendered and without animation, so it is there
+          with the first paint. */}
       {open && (
         <div
-          ref={dialogRef}
-          role="dialog"
-          aria-labelledby="kj-consent-title"
-          aria-describedby="kj-consent-text"
-          tabIndex={-1}
-          className={`fixed inset-x-0 bottom-0 z-[60] p-3 outline-none sm:p-4 ${pending ? "kj-consent-pending" : ""}`}
-          style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
+          className={`kj-consent fixed inset-0 z-[60] flex items-center justify-center bg-[rgba(14,14,16,0.55)] p-4 ${
+            pending ? "kj-consent-pending" : ""
+          }`}
         >
-          <div className="mx-auto flex max-h-[85dvh] max-w-5xl flex-col gap-3 overflow-y-auto border border-foreground bg-white p-3.5 shadow-[0_20px_50px_-24px_rgba(14,14,16,0.4)] sm:max-h-none sm:flex-row sm:items-center sm:gap-5 sm:overflow-visible sm:p-5">
-            <div className="flex-1 text-[13px] leading-snug text-muted md:leading-normal">
-              <h2 id="kj-consent-title" className="mb-1 text-[14px] font-semibold text-foreground">
-                Kurz zu Cookies
+          <div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="kj-consent-title"
+            aria-describedby="kj-consent-text"
+            tabIndex={-1}
+            className="flex max-h-[min(36rem,calc(100dvh-2rem))] w-full max-w-[34rem] flex-col overflow-hidden rounded-2xl bg-white shadow-[0_24px_60px_-20px_rgba(14,14,16,0.45)] outline-none"
+          >
+            <div className="overflow-y-auto px-6 pb-5 pt-6 sm:px-7 sm:pt-7">
+              <h2 id="kj-consent-title" className="text-[1.3rem] font-bold leading-snug text-foreground sm:text-[1.45rem]">
+                Cookies von Kojalytics in diesem Browser erlauben?
               </h2>
-              <p id="kj-consent-text">
-                Damit wir dir das bestmögliche Erlebnis bieten, nutzen wir mit deiner Zustimmung Cookies für Statistik und
-                Werbung (Google Ads, <span className="whitespace-nowrap">Meta-Pixel</span>, Microsoft Clarity). Daten können in
-                die USA gehen. Widerruf jederzeit im Footer.{" "}
-                <Link href="/datenschutz" className="text-foreground underline underline-offset-2">
+              <p id="kj-consent-text" className="mt-3 text-[14.5px] leading-relaxed text-foreground/80">
+                Mit deiner Zustimmung nutzen wir optionale Cookies für Statistik und Werbung (Google Ads,{" "}
+                <span className="whitespace-nowrap">Meta-Pixel</span>, Microsoft Clarity). Dabei können Daten in die USA gehen.
+                Deine Auswahl kannst du jederzeit im Footer unter „Cookie-Einstellungen“ ändern.{" "}
+                <Link href="/datenschutz" className="font-medium text-foreground underline underline-offset-2">
                   Datenschutz
                 </Link>
               </p>
             </div>
-            <div className="grid shrink-0 grid-cols-2 gap-2">
-              <button onClick={() => decide("denied")} className="btn-primary !min-h-10 !px-5">
-                Ablehnen
+            <div className="grid shrink-0 grid-cols-2 gap-3 border-t border-border px-4 py-3.5 sm:px-5">
+              <button
+                onClick={() => decide("denied")}
+                className="min-h-11 rounded-full px-3 text-[14.5px] font-semibold leading-tight text-foreground transition-colors hover:bg-surface"
+              >
+                Optionale Cookies ablehnen
               </button>
-              <button onClick={() => decide("granted")} className="btn-primary !min-h-10 !px-5">
-                Akzeptieren
+              <button
+                onClick={() => decide("granted")}
+                className="min-h-11 rounded-full bg-foreground px-3 text-[14.5px] font-semibold leading-tight text-white transition-colors hover:bg-[#2a2a2e]"
+              >
+                Alle Cookies erlauben
               </button>
             </div>
           </div>
