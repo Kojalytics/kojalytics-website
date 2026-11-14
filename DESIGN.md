@@ -94,7 +94,8 @@ Geist Mono (`font-mono`, `.hud`).
 
 ## Don'ts
 
-- No rounded corners (`rounded-*`) except `AppIcon` and the tiny traffic-light dots / status dots.
+- No rounded corners (`rounded-*`) except `AppIcon`, the tiny traffic-light dots / status dots and the cookie dialog
+  (`Consent.tsx`: centred, rounded card with pill buttons, built after Facebook's cookie dialog on owner request).
 - No drop shadows except the one built into `MacWindow` and the cookie banner.
 - No grey or coloured section backgrounds (`bg-surface` sections are gone): white everywhere.
 - No gradients, glass, blur effects (the header's backdrop blur is the only one).

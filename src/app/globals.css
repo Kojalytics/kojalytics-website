@@ -403,10 +403,10 @@ html[data-kj-consent] .kj-consent-pending {
   display: none;
 }
 
-/* While the cookie banner holds the bottom edge, the download hint (DownloadToast.tsx) sits below the header instead. */
-html:has(#kj-consent-title) .kj-download-toast {
-  top: 60px;
-  bottom: auto;
+/* The page behind the open cookie dialog doesn't scroll. */
+html:not([data-kj-consent]):has(.kj-consent),
+html:has(.kj-consent:not(.kj-consent-pending)) {
+  overflow: hidden;
 }
 /* The phone buy bar (StickyBuyBar.tsx) waits until the cookie banner is answered. */
 html:has(#kj-consent-title) .kj-buybar {
