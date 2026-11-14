@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
       name: plan === 'monthly' ? 'Koja-Apps · Monatlich' : 'Koja-Apps · Dauerhaft',
       description:
         plan === 'monthly'
-          ? `Frühe Versionen (Alpha) aller 13 Koja-Apps für Mac und Windows, auf bis zu ${LICENSE_DEVICES} Geräten. Läuft monatlich und verlängert sich jeweils um einen Monat, bis du kündigst. Jederzeit zum Ende des Abrechnungsmonats online kündbar.`
-          : `Frühe Versionen (Alpha) aller 13 Koja-Apps für Mac und Windows, auf bis zu ${LICENSE_DEVICES} Geräten. Einmalzahlung, keine Verlängerung, ohne Ablaufdatum.`,
+          ? `Alle 13 Koja-Apps für Mac und Windows mit kostenlosen Updates, auf bis zu ${LICENSE_DEVICES} Geräten. Läuft monatlich und verlängert sich jeweils um einen Monat, bis du kündigst. Jederzeit zum Ende des Abrechnungsmonats online kündbar.`
+          : `Alle 13 Koja-Apps für Mac und Windows mit kostenlosen Updates, auf bis zu ${LICENSE_DEVICES} Geräten. Einmalzahlung, keine Verlängerung, ohne Ablaufdatum.`,
     };
 
     const session = await stripe.checkout.sessions.create({

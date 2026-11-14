@@ -95,7 +95,7 @@ body {
     color: var(--color-muted);
   }
 
-  /* Bordered mono tag, e.g. "Alpha", "macOS". Colour it with style={{ color, borderColor }}. */
+  /* Bordered mono tag, e.g. "macOS", "Windows". Colour it with style={{ color, borderColor }}. */
   .tag {
     display: inline-flex;
     align-items: center;

@@ -136,7 +136,7 @@ export default async function AppPage({ params }: Props) {
       <main className="pt-12" style={{ ["--app" as string]: app.color }}>
         {/* 01 Hero: name, headline and download left, the app's main screenshot right */}
         <section className="rail">
-          <SectionBar index={num("hero")} label={app.kind} meta={`${app.name} · macOS · Windows · ${app.status}`} />
+          <SectionBar index={num("hero")} label={app.kind} meta={`${app.name} · macOS · Windows`} />
           <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center ${pad}`}>
             {/* On phones the button comes straight after the h1, so it shows on the first screen. */}
             <div className="flex min-w-0 flex-col">
@@ -158,9 +158,6 @@ export default async function AppPage({ params }: Props) {
                   </p>
                   <div className="mt-1.5 flex flex-wrap items-center gap-2">
                     <span className="hud">{app.kind} für macOS und Windows</span>
-                    <span className="tag" style={{ color: ink, borderColor: `${ink}66` }}>
-                      {app.status}
-                    </span>
                   </div>
                 </div>
               </div>
@@ -493,7 +490,7 @@ export default async function AppPage({ params }: Props) {
         <section className="rail crosshairs border-t border-border">
           <div className={`flex flex-col items-center py-20 text-center md:py-28 ${pad}`}>
             <p className="hud">
-              {app.kind} · macOS · Windows · {app.status}
+              {app.kind} · macOS · Windows
             </p>
             <div className="mt-8">
               <AppIcon slug={app.slug} name={app.name} size={64} />
@@ -513,7 +510,7 @@ export default async function AppPage({ params }: Props) {
             <p className="max-w-4xl text-xs leading-relaxed text-muted">
               {app.familiar.product} ist eine Marke von {app.familiar.owner}
               {app.familiar.owner.endsWith(".") ? "" : "."} {app.name} steht in keiner Verbindung zu {app.familiar.owner} und wird von{" "}
-              {app.familiar.owner} weder unterstützt noch empfohlen. {app.name} basiert auf quelloffener Software unter den Lizenzen Apache 2.0 und MIT.
+              {app.familiar.owner} weder unterstützt noch empfohlen.
             </p>
           </div>
         </section>

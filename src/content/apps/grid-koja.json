@@ -5,7 +5,7 @@
   "metaTitle": "Excel-Alternative für Mac und Windows: GridKoja",
   "metaDescription": "Excel-Alternative für Mac und Windows: GridKoja bearbeitet XLSX mit Formeln und Pivot-Tabellen. 3 Tage kostenlos testen, dann 2,99 € im Monat oder 79 € einmalig.",
   "h1": "Excel-Alternative für Mac und Windows: Formeln, Pivot-Tabellen, XLSX",
-  "lead": "GridKoja ist eine Excel-Alternative für Mac und Windows, die XLSX-Dateien direkt öffnet und speichert. Du rechnest mit über 500 Funktionen und wertest mit Pivot-Tabellen, Diagrammen und bedingter Formatierung aus. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "lead": "GridKoja ist eine Excel-Alternative für Mac und Windows, die XLSX-Dateien direkt öffnet und speichert. Du rechnest mit über 500 Funktionen und wertest mit Pivot-Tabellen, Diagrammen und bedingter Formatierung aus. GridKoja testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "XLSX öffnen und speichern",
     "500+ Funktionen, Pivot-Tabellen",
@@ -67,9 +67,9 @@
   "switching": {
     "title": "Von Excel zu GridKoja wechseln: die Excel-Alternative am Mac oder PC testen",
     "paragraphs": [
-      "Vieles kennst du schon: Menüband, Bearbeitungsleiste, Namenfeld, Blattregister und Ausfüllkästchen sitzen an den gewohnten Stellen, ebenso „Zellen formatieren“ und „Inhalte einfügen“. Moderne Formeln mit dynamischen Arrays, LET, LAMBDA und strukturierten Tabellenbezügen funktionieren. Ist dein Mac auf Deutsch eingestellt, erscheint das Menüband auf Deutsch. Viele Dialoge und Meldungen sind aber noch englisch, und Formeln schreibst du mit englischen Funktionsnamen, also SUM statt SUMME und IF statt WENN.",
-      "Deine XLSX-Dateien öffnest und speicherst du direkt. Formatvorlagen, Formeln, Tabellen, bedingte Formate, Datenüberprüfung, Kommentare, Bilder, Sparklines, Pivot-Tabellen und Druckeinstellungen bleiben dabei erhalten. Bei Diagrammen können Typ und Optionen beim Speichern noch verloren gehen, und ob Excel jede gespeicherte Datei ohne Reparaturhinweis öffnet, ist noch nicht an vielen echten Dateien geprüft. Arbeite anfangs also mit Kopien. Ältere XLS-Dateien öffnet GridKoja mit Werten, Formeln und Zahlenformaten, aber noch ohne weitere Formatierung und Objekte. Aus XLSB und ODS übernimmt es nur die Werte.",
-      "Was noch fehlt: Makros (VBA) sind nicht geplant, Power Query und das Datenmodell gibt es erst in Ansätzen. Sehr große Arbeitsmappen um 100 MB öffnen derzeit nicht, und einen eingebauten KI-Assistenten gibt es nicht. GridKoja ist noch in früher Entwicklung (Alpha), rechne also mit Ecken und Kanten.",
+      "Vieles kennst du schon: Menüband, Bearbeitungsleiste, Namenfeld, Blattregister und Ausfüllkästchen sitzen an den gewohnten Stellen, ebenso „Zellen formatieren“ und „Inhalte einfügen“. Moderne Formeln mit dynamischen Arrays, LET, LAMBDA und strukturierten Tabellenbezügen funktionieren. Ist dein Mac auf Deutsch eingestellt, erscheint das Menüband auf Deutsch. Viele Dialoge und Meldungen sind englisch, und Formeln schreibst du mit englischen Funktionsnamen, also SUM statt SUMME und IF statt WENN.",
+      "Deine XLSX-Dateien öffnest und speicherst du direkt. Formatvorlagen, Formeln, Tabellen, bedingte Formate, Datenüberprüfung, Kommentare, Bilder, Sparklines, Pivot-Tabellen und Druckeinstellungen bleiben dabei erhalten. Bei Diagrammen können Typ und Optionen beim Speichern verloren gehen. Arbeite anfangs also mit Kopien und prüfe wichtige Dateien in Excel. Ältere XLS-Dateien öffnet GridKoja mit Werten, Formeln und Zahlenformaten, ohne weitere Formatierung und Objekte. Aus XLSB und ODS übernimmt es nur die Werte.",
+      "Gut zu wissen: Makros (VBA) sind nicht geplant, Power Query und das Datenmodell gibt es in Ansätzen. Sehr große Arbeitsmappen um 100 MB öffnen nicht, und einen eingebauten KI-Assistenten gibt es nicht. GridKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
       "So testest du in 3 Tagen, ob es für dich reicht: Lade den Kojalytics Launcher herunter, installiere GridKoja und öffne zwei, drei echte Arbeitsmappen, etwa dein Haushaltsbuch oder eine Auswertung mit Pivot-Tabelle. Prüfe, ob die Formeln dieselben Ergebnisse liefern, und speichere eine Kopie. Kündige Microsoft 365 erst, wenn du sicher bist. Welche Möglichkeiten es für Word und PowerPoint gibt, steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
     ]
   },
@@ -106,9 +106,9 @@
         "other": "Windows, macOS, iPhone, iPad, Android und Web. Microsoft 365 Single auf bis zu 5 Geräten"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "Frühe Version (Alpha), ohne Makros, Dateitreue noch in Arbeit",
-        "other": "Ausgereift, mit Makros (VBA) und Power Query"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
@@ -120,7 +120,7 @@
     "du offline und ohne Konto arbeiten willst und auch Apps für Texte, Präsentationen und PDFs gebrauchen kannst, denn alle 13 Koja-Apps sind im Preis enthalten"
   ],
   "notFor": [
-    "du beruflich täglich auf Excel angewiesen bist: GridKoja ist noch eine frühe Version (Alpha), und komplexe Arbeitsmappen werden noch nicht immer originalgetreu übernommen",
+    "du komplexe Excel-Arbeitsmappen mit vielen Diagrammen austauschst, die exakt gleich aussehen müssen: Typ und Optionen von Diagrammen können beim Speichern verloren gehen",
     "deine Arbeitsmappen Makros (VBA) oder Power Query brauchen oder um die 100 MB groß sind",
     "du auf dem iPad oder im Browser arbeitest"
   ],
@@ -136,11 +136,11 @@
   "faq": [
     {
       "q": "Ist GridKoja eine vollwertige Excel-Alternative?",
-      "a": "Noch nicht. GridKoja ist eine frühe Version (Alpha), und laut Projektangaben (Stand: November 2026) ist es nach eigener Schätzung des Open-Source-Projekts dahinter erst zu etwa 50 % bereit für echte Arbeit. Es fehlen unter anderem Makros (VBA), große Teile von Power Query und die Unterstützung sehr großer Arbeitsmappen. Formeln, Pivot-Tabellen, bedingte Formatierung, 17 Diagrammtypen und XLSX als Standardformat sind aber schon da, und ob das für deine Tabellen reicht, zeigt dir der kostenlose Test mit deinen eigenen Dateien."
+      "a": "Für viele Aufgaben ja: Formeln, Pivot-Tabellen, bedingte Formatierung, 17 Diagrammtypen und XLSX als Standardformat sind dabei. Nicht enthalten sind unter anderem Makros (VBA), große Teile von Power Query und die Unterstützung sehr großer Arbeitsmappen. GridKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Ob das für deine Tabellen reicht, zeigt dir der kostenlose Test mit deinen eigenen Dateien."
     },
     {
       "q": "Kann ich XLSX-Dateien auf dem Mac oder PC ohne Excel öffnen und bearbeiten?",
-      "a": "Ja. XLSX ist das Standardformat von GridKoja: Formeln, Formatvorlagen, Tabellen, bedingte Formate, Kommentare und Pivot-Tabellen bleiben beim Öffnen und Speichern erhalten. Bei komplexen Excel-Dateien ist die Kompatibilität aber noch nicht ausgereift, bei Diagrammen können Typ und Optionen verloren gehen, und Arbeitsmappen um 100 MB öffnen nicht. Ältere XLS-Dateien öffnet GridKoja mit Werten, Formeln und Zahlenformaten, aus XLSB und ODS übernimmt es nur die Werte."
+      "a": "Ja. XLSX ist das Standardformat von GridKoja: Formeln, Formatvorlagen, Tabellen, bedingte Formate, Kommentare und Pivot-Tabellen bleiben beim Öffnen und Speichern erhalten. Bei komplexen Excel-Dateien können Details abweichen, bei Diagrammen können Typ und Optionen verloren gehen, und Arbeitsmappen um 100 MB öffnen nicht. Ältere XLS-Dateien öffnet GridKoja mit Werten, Formeln und Zahlenformaten, aus XLSB und ODS übernimmt es nur die Werte."
     },
     {
       "q": "Ist GridKoja kostenlos, und geht es auch ohne Abo?",
@@ -152,7 +152,7 @@
     },
     {
       "q": "Funktionieren deutsche Formeln wie SUMME oder WENN?",
-      "a": "Noch nicht. Formeln schreibst du derzeit mit englischen Funktionsnamen, also SUM statt SUMME oder IF statt WENN, und auch Zahlenformate folgen bisher der US-Schreibweise. Deutsche Funktionsnamen sind in Arbeit, aber noch nicht fertig. Deine Dateien betrifft das nicht, denn XLSX speichert Formeln intern ohnehin mit englischen Namen."
+      "a": "Nein. Formeln schreibst du mit englischen Funktionsnamen, also SUM statt SUMME oder IF statt WENN, und auch Zahlenformate folgen der US-Schreibweise. Deutsche Funktionsnamen sind in Arbeit. Deine Dateien betrifft das nicht, denn XLSX speichert Formeln intern ohnehin mit englischen Namen."
     },
     {
       "q": "Läuft GridKoja auch unter Windows, auf dem iPad oder im Browser?",

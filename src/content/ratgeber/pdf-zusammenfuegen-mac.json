@@ -56,7 +56,7 @@
               "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig",
               "nein",
               "regelmäßiges Zusammenfügen mit Lesezeichen pro Datei, Teilen, Seiten ordnen",
-              "noch in früher Entwicklung (Alpha)"
+              "laufend weiterentwickelt, Updates kostenlos"
             ],
             [
               "Adobe Acrobat online",
@@ -129,7 +129,7 @@
         },
         {
           "type": "p",
-          "text": "Danach fügst du die neuen PDFs wie oben beschrieben zusammen. Arbeitest du mit Word-Dateien, aber ohne Microsoft-Abo, kann [WordKoja](/software/word-koja) helfen: Die App öffnet .docx-Dateien und exportiert PDFs mit markierbarem Text, Links und Lesezeichen. Sie ist allerdings noch in früher Entwicklung (Alpha), und Seiten- und Zeilenumbrüche können noch von Word abweichen."
+          "text": "Danach fügst du die neuen PDFs wie oben beschrieben zusammen. Arbeitest du mit Word-Dateien, aber ohne Microsoft-Abo, kann [WordKoja](/software/word-koja) helfen: Die App öffnet .docx-Dateien und exportiert PDFs mit markierbarem Text, Links und Lesezeichen. Seiten- und Zeilenumbrüche können allerdings von Word abweichen."
         }
       ]
     },
@@ -224,7 +224,7 @@
         },
         {
           "type": "p",
-          "text": "[PdfKoja](/software/pdf-koja) ist die PDF-App unter den Koja-Apps. Sie läuft nativ auf dem Mac (Apple Silicon und Intel), offline, ohne Konto und ohne Telemetrie. Die Oberfläche gibt es auf Deutsch. Fürs Zusammenfügen bringt sie laut den Entwicklern Folgendes mit:"
+          "text": "[PdfKoja](/software/pdf-koja) ist die PDF-App unter den Koja-Apps. Sie läuft nativ auf dem Mac (Apple Silicon und Intel), offline, ohne Konto und ohne Telemetrie. Die Oberfläche gibt es auf Deutsch. Fürs Zusammenfügen bringt sie Folgendes mit:"
         },
         {
           "type": "ul",
@@ -240,11 +240,11 @@
         {
           "type": "app",
           "app": "pdf-koja",
-          "text": "PDFs zusammenfügen, aufteilen und Seiten ordnen, offline und ohne Konto, mit einem Lesezeichen pro Ausgangsdatei. Noch in früher Entwicklung, aber genau diese Aufgaben zählen die Entwickler zu den Bereichen, die heute gut funktionieren."
+          "text": "PDFs zusammenfügen, aufteilen und Seiten ordnen, offline und ohne Konto, mit einem Lesezeichen pro Ausgangsdatei. Genau für diese Aufgaben ist PdfKoja gemacht."
         },
         {
           "type": "p",
-          "text": "**Ehrlich gesagt:** PdfKoja ist noch in früher Entwicklung (Alpha) und ersetzt Adobe Acrobat nicht vollständig. Office-Dokumente kann die App nicht in PDF umwandeln, die Texterkennung (OCR) funktioniert nur für lateinische Schrift, und das Bearbeiten von vorhandenem Text ist noch schwach. Bei absichtlich beschädigten Testdateien finden die Entwickler noch Abstürze und Hänger, die sie nach und nach beheben. Für wichtige Dokumente gilt deshalb: Originale aufbewahren und das Ergebnis kurz prüfen."
+          "text": "**Ehrlich gesagt:** PdfKoja bietet nicht jede Funktion von Adobe Acrobat. Office-Dokumente kann die App nicht in PDF umwandeln, die Texterkennung (OCR) funktioniert nur für lateinische Schrift, und vorhandenen Text bearbeitest du nur eingeschränkt. PdfKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Für wichtige Dokumente gilt deshalb: Originale aufbewahren und das Ergebnis kurz prüfen."
         },
         {
           "type": "p",
@@ -388,7 +388,7 @@
         },
         {
           "type": "p",
-          "text": "**Fazit:** Für gelegentliches Zusammenfügen reichen Finder und Vorschau, beide kostenlos und lokal. Wer oft mit PDFs arbeitet und mehr Struktur im Ergebnis braucht, kann PDFsam Basic oder das noch junge PdfKoja ausprobieren. Auch diese Programme arbeiten ohne Upload. Wie du PDFs darüber hinaus bearbeitest, zeigt der Ratgeber [PDF bearbeiten am Mac](/ratgeber/pdf-bearbeiten-mac)."
+          "text": "**Fazit:** Für gelegentliches Zusammenfügen reichen Finder und Vorschau, beide kostenlos und lokal. Wer oft mit PDFs arbeitet und mehr Struktur im Ergebnis braucht, kann PDFsam Basic oder PdfKoja ausprobieren. Auch diese Programme arbeiten ohne Upload. Wie du PDFs darüber hinaus bearbeitest, zeigt der Ratgeber [PDF bearbeiten am Mac](/ratgeber/pdf-bearbeiten-mac)."
         }
       ]
     }
@@ -416,7 +416,7 @@
     },
     {
       "q": "Kann ich PDFs ohne Adobe Acrobat zusammenfügen?",
-      "a": "Ja. Am Mac erledigen Finder und Vorschau das kostenlos. Für mehr Funktionen gibt es lokale Programme wie PDFsam Basic oder PdfKoja, das allerdings noch in früher Entwicklung ist. Acrobat Standard und Pro kosten im Jahres-Abo mit monatlicher Abrechnung 17,99 € bzw. 23,79 € pro Monat."
+      "a": "Ja. Am Mac erledigen Finder und Vorschau das kostenlos. Für mehr Funktionen gibt es lokale Programme wie PDFsam Basic oder PdfKoja. Acrobat Standard und Pro kosten im Jahres-Abo mit monatlicher Abrechnung 17,99 € bzw. 23,79 € pro Monat."
     }
   ],
   "apps": [

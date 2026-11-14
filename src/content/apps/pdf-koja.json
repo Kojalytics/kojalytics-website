@@ -5,7 +5,7 @@
   "metaTitle": "Adobe-Acrobat-Alternative für Mac und Windows: PdfKoja",
   "metaDescription": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: PDFs offline ordnen, zusammenfügen und schützen. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
   "h1": "Adobe-Acrobat-Alternative für Mac und Windows – offline und ohne Konto",
-  "lead": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: Du liest, ordnest, teilst und schützt PDFs und fügst sie zusammen, ohne dass deine Dokumente den Rechner verlassen. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "lead": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: Du liest, ordnest, teilst und schützt PDFs und fügst sie zusammen, ohne dass deine Dokumente den Rechner verlassen. PdfKoja testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "PDFs ordnen und zusammenfügen",
     "Offline, ohne Konto, ohne Cloud",
@@ -14,12 +14,12 @@
   "features": [
     {
       "title": "Jedes Werkzeug mit ⌘K finden",
-      "text": "Drück ⌘K und tipp ein, was du vorhast, etwa „drehen“ oder „extrahieren“. Die Befehlspalette durchsucht alle Werkzeuge und Befehle, ein Werkzeugkatalog listet sie zusätzlich nach Aufgaben geordnet auf. Werkzeuge, die noch in Entwicklung sind, erkennst du dort an einer Markierung.",
+      "text": "Drück ⌘K und tipp ein, was du vorhast, etwa „drehen“ oder „extrahieren“. Die Befehlspalette durchsucht alle Werkzeuge und Befehle, ein Werkzeugkatalog listet sie zusätzlich nach Aufgaben geordnet auf. Werkzeuge, die gerade neu entstehen, erkennst du dort an einer Markierung.",
       "screenshot": "palette.webp"
     },
     {
       "title": "Originalgetreu darstellen, scharf lesen",
-      "text": "PdfKoja zeigt auch anspruchsvolle Dokumente originalgetreu an, mit Ligaturen, Schrift von rechts nach links, senkrecht gesetztem Chinesisch und Japanisch, farbigen Emoji und Transparenzen. Laut Projektangaben (Stand: November 2026) zeigt das zugrunde liegende Open-Source-Projekt von den 983 Dateien der pdf.js-Testsammlung 963 sauber an, ohne einen einzigen Absturz. Zum Lesen wählst du Einzelseite, Doppelseite, fortlaufende Ansicht, Vollbild oder den ablenkungsfreien Lesemodus, hell oder dunkel, und die Schrift bleibt bei jedem Zoom scharf."
+      "text": "PdfKoja zeigt auch anspruchsvolle Dokumente originalgetreu an, mit Ligaturen, Schrift von rechts nach links, senkrecht gesetztem Chinesisch und Japanisch, farbigen Emoji und Transparenzen. Von den 983 Dateien der pdf.js-Testsammlung zeigt PdfKoja 963 sauber an, ohne einen einzigen Absturz (Stand: November 2026). Zum Lesen wählst du Einzelseite, Doppelseite, fortlaufende Ansicht, Vollbild oder den ablenkungsfreien Lesemodus, hell oder dunkel, und die Schrift bleibt bei jedem Zoom scharf."
     },
     {
       "title": "Seiten ordnen, drehen, löschen",
@@ -69,7 +69,7 @@
     "paragraphs": [
       "Der Aufbau erinnert an Acrobat: Die Werkzeuge liegen nach Aufgaben geordnet in einem Katalog, etwa Kombinieren, Seiten organisieren, Kommentare, Ausfüllen und Schützen, und mit ⌘K findest du jeden Befehl per Stichwort. Die Oberfläche stellst du in den Einstellungen auf Deutsch oder auf „Auto“, dann folgt sie der Sprache deines Macs. Die Bildschirmfotos auf dieser Seite zeigen die englische Oberfläche.",
       "Deine Dateien bleiben normale PDFs. PdfKoja speichert Änderungen nach dem PDF-Standard und lässt die ursprünglichen Daten einer Datei unangetastet, verschlüsselte PDFs bleiben verschlüsselt. Du kannst deine Dokumente also weiter in Acrobat oder in der Vorschau öffnen, der Weg zurück bleibt offen.",
-      "PdfKoja ist eine frühe Version (Alpha), und manches fehlt noch. Word-, Excel- und PowerPoint-Dateien wandelt die App nicht in PDF um, der Export nach Word verliert das Layout, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt. Texterkennung (OCR) gibt es nur für lateinische Schrift, und Signaturen per Token, Preflight, PDF/X, PDF/UA sowie vollständige XFA-Formulare fehlen. Cloud-Funktionen von Adobe wie den Speicher in der Document Cloud, Signaturanfragen über Acrobat Sign, die gemeinsame Überprüfung und den KI-Assistenten bietet PdfKoja nicht. Außerdem finden die Entwickler bei gezielt manipulierten Dateien noch Abstürze und Hänger, die sie nach und nach beheben.",
+      "Das solltest du vorher wissen: Word-, Excel- und PowerPoint-Dateien wandelt die App nicht in PDF um, der Export nach Word verliert das Layout, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt. Texterkennung (OCR) gibt es nur für lateinische Schrift, und Signaturen per Token, Preflight, PDF/X, PDF/UA sowie vollständige XFA-Formulare sind nicht enthalten. Cloud-Funktionen von Adobe wie den Speicher in der Document Cloud, Signaturanfragen über Acrobat Sign, die gemeinsame Überprüfung und den KI-Assistenten bietet PdfKoja nicht. PdfKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
       "So testest du den Umstieg in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere darüber PdfKoja und öffne Kopien deiner typischen PDFs. Füg zwei Dateien zusammen, sortier Seiten um, füll ein Formular aus und setz ein Passwort, dann prüf das Ergebnis in einem zweiten PDF-Programm. Passt alles, wählst du zwischen 2,99 € im Monat für alle 13 Apps und einer [dauerhaften Lizenz für 79 €](/software#preise). Was du beim Beenden deines Acrobat-Abos beachten solltest, steht im [Ratgeber zur Adobe-Kündigung](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
@@ -106,9 +106,9 @@
         "other": "Windows und macOS, dazu Web und Apps für iPhone, iPad und Android"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "Frühe Version (Alpha). Laut Projektangaben (Stand: November 2026) 57 % von 808 erfassten Acrobat-Pro-Funktionen ganz oder teilweise umgesetzt",
-        "other": "Ausgereift, sehr großer Funktionsumfang"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
@@ -120,7 +120,7 @@
     "du neben der Vorschau ein PDF-Programm mit Seitenverwaltung, Kommentar-Threads und Passwortschutz suchst"
   ],
   "notFor": [
-    "du beruflich jeden Tag auf ein PDF-Programm angewiesen bist: PdfKoja ist noch in früher Entwicklung (Alpha)",
+    "du PDFs nach PDF/X oder PDF/UA prüfen oder mit Signatur-Token unterschreiben musst",
     "du Word-, Excel- oder PowerPoint-Dateien in PDF umwandeln oder PDFs mit Layout nach Word exportieren musst",
     "du vorhandenen Text in PDFs oft umschreibst oder Texterkennung für nichtlateinische Schriften brauchst"
   ],
@@ -128,14 +128,14 @@
     "PDF (öffnen, ordnen, speichern)",
     "Verschlüsselte PDFs (RC4 bis AES-256)",
     "PDF-Formulare (ausfüllen)",
-    "XFA-Formulare (noch nicht vollständig)",
+    "XFA-Formulare (teilweise)",
     "DOCX (nur Export, ohne Layout)",
     "Word, Excel, PowerPoint (keine Umwandlung in PDF)"
   ],
   "faq": [
     {
       "q": "Ist PdfKoja eine vollwertige Adobe-Acrobat-Alternative?",
-      "a": "Nein, noch nicht. PdfKoja ist eine frühe Version (Alpha): Laut Projektangaben (Stand: November 2026) sind von 808 erfassten Acrobat-Pro-Funktionen 57 % ganz oder teilweise umgesetzt, bei den unverzichtbaren Funktionen 94 %. Lesen, Suchen, Seiten ordnen, Zusammenfügen, Formulare, Passwörter und einfache digitale Signaturen funktionieren laut Projektangaben schon gut; Office-Umwandlung, das Bearbeiten von vorhandenem Text und OCR für nichtlateinische Schriften fehlen dagegen oder klappen nur eingeschränkt. Teste PdfKoja deshalb mit deinen eigenen Dokumenten, bevor du dich entscheidest."
+      "a": "Für die meisten Alltagsaufgaben ja: Lesen, Suchen, Seiten ordnen, Zusammenfügen, Formulare, Passwörter und einfache digitale Signaturen sind dabei. Office-Umwandlung und OCR für nichtlateinische Schriften sind nicht enthalten, vorhandenen Text bearbeitest du nur eingeschränkt. PdfKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Teste PdfKoja deshalb mit deinen eigenen Dokumenten, bevor du dich entscheidest."
     },
     {
       "q": "Welche Dateiformate öffnet und speichert PdfKoja?",

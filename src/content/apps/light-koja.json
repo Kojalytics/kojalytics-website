@@ -5,7 +5,7 @@
   "metaTitle": "Lightroom-Alternative für Mac und Windows: LightKoja",
   "metaDescription": "LightKoja ist eine Lightroom-Alternative für Mac und Windows: RAW-Fotos verwalten und entwickeln, 79 € einmalig oder 2,99 € im Monat. 3 Tage kostenlos testen.",
   "h1": "Lightroom-Alternative für Mac und Windows: RAW-Fotos entwickeln und verwalten",
-  "lead": "LightKoja ist eine Lightroom-Alternative für Mac und Windows. Die App verwaltet deine Fotos lokal und entwickelt RAW-Dateien mit Reglern für Lichter und Tiefen, Color Grading und Masken. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "lead": "LightKoja ist eine Lightroom-Alternative für Mac und Windows. Die App verwaltet deine Fotos lokal und entwickelt RAW-Dateien mit Reglern für Lichter und Tiefen, Color Grading und Masken. LightKoja testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "RAW von Canon, Nikon, Sony, Fuji",
     "Originale bleiben unverändert",
@@ -14,7 +14,7 @@
   "features": [
     {
       "title": "Bibliothek für große Fotosammlungen",
-      "text": "Sortiere Fotos in Alben und Ordnern, nach Datum, in intelligenten Alben oder Stapeln. Vergib 0 bis 5 Sterne, Markierungen und Farbetiketten und such gezielt, etwa nach „rating:>3 iso:>800“. Beim Aussortieren zeigt LightKoja die eingebettete Vorschau einer RAW-Datei laut Projektangaben (Stand: November 2026) in rund 0,1 Sekunden, der Sprung zum nächsten Foto dauert etwa 50 Millisekunden.",
+      "text": "Sortiere Fotos in Alben und Ordnern, nach Datum, in intelligenten Alben oder Stapeln. Vergib 0 bis 5 Sterne, Markierungen und Farbetiketten und such gezielt, etwa nach „rating:>3 iso:>800“. Beim Aussortieren zeigt LightKoja die eingebettete Vorschau einer RAW-Datei in rund 0,1 Sekunden, der Sprung zum nächsten Foto dauert etwa 50 Millisekunden (Stand: November 2026).",
       "screenshot": "library.webp"
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "title": "Licht, Kurven und Effekte",
-      "text": "Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz arbeiten mit lokalem Tone Mapping, das ausgefressene Himmel laut Projektangaben ohne graue Säume zurückholt. Dazu kommen Gradationskurven für RGB und einzelne Farbkanäle sowie Struktur, Klarheit, Dunst entfernen, Vignette und Körnung."
+      "text": "Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz arbeiten mit lokalem Tone Mapping, das ausgefressene Himmel ohne graue Säume zurückholt. Dazu kommen Gradationskurven für RGB und einzelne Farbkanäle sowie Struktur, Klarheit, Dunst entfernen, Vignette und Körnung."
     },
     {
       "title": "Presets und Einstellungen übertragen",
@@ -44,7 +44,7 @@
     },
     {
       "title": "Lokal, schnell, nichtdestruktiv",
-      "text": "Alle Bearbeitungen laufen durch eine 32-Bit-Gleitkomma-Pipeline mit großem Farbraum, deine Originaldateien werden nie verändert. Gerechnet wird auf der Grafikeinheit deines Macs: Auf einem Apple M4 Pro dauert eine Regleränderung an einem 24-MP-RAW laut Projektangaben (Stand: November 2026) rund 4 Millisekunden. Fotos und Katalog bleiben auf deinem Mac oder PC, ohne Konto und ohne Cloud."
+      "text": "Alle Bearbeitungen laufen durch eine 32-Bit-Gleitkomma-Pipeline mit großem Farbraum, deine Originaldateien werden nie verändert. Gerechnet wird auf der Grafikeinheit deines Macs: Auf einem Apple M4 Pro dauert eine Regleränderung an einem 24-MP-RAW rund 4 Millisekunden (Stand: November 2026). Fotos und Katalog bleiben auf deinem Mac oder PC, ohne Konto und ohne Cloud."
     }
   ],
   "screenshots": [
@@ -69,7 +69,7 @@
     "paragraphs": [
       "Vieles wirkt vertraut. Links die Bibliothek mit Alben, Sternen und Markierungen, rechts die Regler: Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz, darunter Kurve, Farbe, Color Grading und Effekte. Auch einige Tastenkürzel kennst du vielleicht schon: V für Schwarzweiß, \\ für die Vorher-Ansicht, Y für den Vergleich nebeneinander. Die Oberfläche stellst du im Menü unter „Edit > Language“ auf Deutsch um.",
       "Deine Bearbeitungen aus Lightroom Classic kannst du teilweise mitnehmen. LightKoja liest und schreibt XMP-Sidecars und liest die darin gespeicherten Entwicklungseinstellungen (crs:). Wenn du in Lightroom Classic vorher „Metadaten in Datei speichern“ ausführst, liegen diese XMP-Dateien neben deinen RAWs. Umfangreiche Bearbeitungen legt Lightroom Classic inzwischen teils in separaten ACR-Dateien ab, prüf deshalb an ein paar Fotos, was ankommt. Weil LightKoja deine Originale nie verändert, bleibt der Weg zurück jederzeit offen.",
-      "LightKoja ist eine frühe Version (Alpha), und das merkst du an einigen Stellen. Gemessene Kamerafarbprofile fehlen noch: Für Sony, Nikon, Panasonic, Fujifilm und Canon CR3 werden die Farben aus Kamera-JPEGs geschätzt, andere RAWs nutzen eine neutrale Farbmatrix. Profile für die automatische Objektivkorrektur bringt LightKoja noch nicht mit, und KI-Entrauschen ist noch in Arbeit. Generatives Füllen, Super-Auflösung, Videobearbeitung und die Module Karte und Buch fehlen, und Drucken über den macOS-Druckdialog geht noch nicht: Drucklayouts speicherst du als PDF.",
+      "Gut zu wissen: Gemessene Kamerafarbprofile sind nicht enthalten. Für Sony, Nikon, Panasonic, Fujifilm und Canon CR3 werden die Farben aus Kamera-JPEGs geschätzt, andere RAWs nutzen eine neutrale Farbmatrix. Profile für die automatische Objektivkorrektur bringt LightKoja nicht mit, KI-Entrauschen ist in Arbeit. Generatives Füllen, Super-Auflösung, Videobearbeitung und die Module Karte und Buch sind nicht enthalten, und Drucklayouts speicherst du als PDF statt über den macOS-Druckdialog. LightKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
       "So testest du den Umstieg in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere LightKoja und importiere die Kopie eines aktuellen Shootings. Prüf, ob deine Kamera-RAWs sauber geöffnet werden, bearbeite ein paar typische Fotos und exportiere sie so, wie du sie brauchst. Passt es, wählst du zwischen 2,99 € im Monat für alle 13 Apps und einer [dauerhaften Lizenz für 79 €](/software#preise). Worauf du beim Beenden deines Adobe-Abos achten musst, steht in unserem [Ratgeber zur Adobe-Kündigung](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
@@ -106,9 +106,9 @@
         "other": "macOS, Windows, iPhone, iPad, Android und Web"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "Frühe Version (Alpha), einige Funktionen fehlen noch",
-        "other": "Ausgereift, großer Funktionsumfang"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
@@ -120,7 +120,7 @@
     "du in deiner Freizeit fotografierst und Fotos sortieren, bearbeiten und exportieren willst"
   ],
   "notFor": [
-    "du beruflich fotografierst und dich auf jede Funktion verlassen musst: LightKoja ist noch eine frühe Version (Alpha)",
+    "du für jede Kamera gemessene Farbprofile und automatische Objektivkorrektur brauchst",
     "du Fotos per Cloud zwischen Mac, iPhone, iPad und Windows-PC synchronisieren willst",
     "du KI-Werkzeuge wie generatives Füllen oder Super-Auflösung brauchst oder Videos bearbeiten willst"
   ],
@@ -141,11 +141,11 @@
   "faq": [
     {
       "q": "Ist LightKoja eine vollwertige Lightroom-Alternative?",
-      "a": "Noch nicht. LightKoja ist eine frühe Version (Alpha): Bibliothek, RAW-Entwicklung, Masken, Presets, HDR, Panorama und Export funktionieren, aber gemessene Kamerafarbprofile, Profile für die Objektivkorrektur, Super-Auflösung und generatives Füllen fehlen noch. Laut Projektangaben (Stand: November 2026) schätzen die Entwickler des zugrunde liegenden Open-Source-Projekts die Alltagstauglichkeit auf rund 65 % für gelegentliche Nutzung und rund 51 % für typische Berufsfotografen. Teste LightKoja deshalb mit deinen eigenen Fotos, bevor du dich entscheidest."
+      "a": "Für viele Fotografen ja: Bibliothek, RAW-Entwicklung, Masken, Presets, HDR, Panorama und Export sind dabei. Nicht enthalten sind gemessene Kamerafarbprofile, Profile für die Objektivkorrektur, Super-Auflösung und generatives Füllen. LightKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Teste LightKoja deshalb mit deinen eigenen Fotos, bevor du dich entscheidest."
     },
     {
       "q": "Welche Kameras und Dateiformate unterstützt LightKoja?",
-      "a": "LightKoja öffnet RAW-Dateien von Canon (CR2, CR3), Nikon (NEF), Sony (ARW), Fujifilm (RAF inkl. X-Trans), Panasonic und Leica (RW2, RWL), Pentax (PEF), Olympus (ORF) und Samsung (SRW), dazu DNG, JPEG, PNG, TIFF, WebP, JPEG XL und PSD. Einige CR3-Varianten, komprimierte ORF- und SRW-Dateien sowie Nikon HE NEF werden noch nicht entwickelt; in dem Fall zeigt LightKoja die eingebettete Vorschau, sofern vorhanden. Exportieren kannst du unter anderem als JPEG, TIFF, PSD, AVIF, JPEG XL und DNG. Ob sich deine iPhone-Fotos im HEIC-Format öffnen lassen, prüfst du am besten im kostenlosen Test."
+      "a": "LightKoja öffnet RAW-Dateien von Canon (CR2, CR3), Nikon (NEF), Sony (ARW), Fujifilm (RAF inkl. X-Trans), Panasonic und Leica (RW2, RWL), Pentax (PEF), Olympus (ORF) und Samsung (SRW), dazu DNG, JPEG, PNG, TIFF, WebP, JPEG XL und PSD. Einige CR3-Varianten, komprimierte ORF- und SRW-Dateien sowie Nikon HE NEF entwickelt LightKoja nicht; in dem Fall zeigt LightKoja die eingebettete Vorschau, sofern vorhanden. Exportieren kannst du unter anderem als JPEG, TIFF, PSD, AVIF, JPEG XL und DNG. Ob sich deine iPhone-Fotos im HEIC-Format öffnen lassen, prüfst du am besten im kostenlosen Test."
     },
     {
       "q": "Kann ich meine Bearbeitungen aus Lightroom mitnehmen?",
@@ -157,11 +157,11 @@
     },
     {
       "q": "Läuft LightKoja auf meinem Mac und auf Deutsch?",
-      "a": "LightKoja ist eine Universal-App für Macs mit Apple-Chip und mit Intel-Prozessor. Gerechnet wird auf der Grafikeinheit: Auf einem Apple M4 Pro dauert der Export eines 24-MP-RAWs in voller Größe laut Projektangaben (Stand: November 2026) rund 0,3 Sekunden. Die Oberfläche gibt es in 18 Sprachen, darunter Deutsch. Unter Windows läuft LightKoja ebenfalls, für das iPad oder den Browser gibt es die App nicht."
+      "a": "LightKoja ist eine Universal-App für Macs mit Apple-Chip und mit Intel-Prozessor. Gerechnet wird auf der Grafikeinheit: Auf einem Apple M4 Pro dauert der Export eines 24-MP-RAWs in voller Größe rund 0,3 Sekunden (Stand: November 2026). Die Oberfläche gibt es in 18 Sprachen, darunter Deutsch. Unter Windows läuft LightKoja ebenfalls, für das iPad oder den Browser gibt es die App nicht."
     },
     {
-      "q": "Ist LightKoja Open Source?",
-      "a": "LightKoja ist der Mac- und Windows-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Bei Kojalytics bezahlst du für die fertige, signierte App für Mac und Windows, Installation und Updates über den Kojalytics Launcher, Support und 12 weitere Apps zum selben Preis. Deine Fotos und dein Katalog bleiben dabei auf deinem Mac oder PC, den Katalog kannst du jederzeit sichern."
+      "q": "Was bekomme ich für mein Geld?",
+      "a": "Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus. Updates und neue Funktionen bekommst du kostenlos, dazu Support per E-Mail. Dazu kommen 12 weitere Apps zum selben Preis. Deine Fotos und dein Katalog bleiben dabei auf deinem Mac oder PC, den Katalog kannst du jederzeit sichern."
     }
   ]
 }

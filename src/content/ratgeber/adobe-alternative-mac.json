@@ -9,7 +9,7 @@
   "readingMinutes": 11,
   "intro": [
     "Eine einzige Adobe-Alternative für den Mac, die alles ersetzt, gibt es nicht. Für jedes einzelne Adobe-Programm gibt es aber Alternativen: Affinity deckt Bildbearbeitung, Vektorgrafik und Layout in einer App ab, ist für Einzelpersonen kostenlos und importiert PSD-, AI- und IDML-Dateien. Statt Premiere nimmst du das kostenlose DaVinci Resolve oder Final Cut Pro für 349,99 € einmalig. Für RAW-Fotos gibt es darktable, für viele PDF-Aufgaben reicht die Vorschau-App von macOS. Zum Vergleich: Creative Cloud Pro kostet im Jahres-Abo regulär 77,99 € pro Monat.",
-    "Hier findest du die aktuellen Adobe-Preise, eine Übersicht mit kostenlosen Programmen und Einmalkäufen für jedes Adobe-Programm und eine Anleitung für den Umstieg ohne Datenverlust. Auch unsere eigenen Koja-Apps ordnen wir ehrlich ein: günstig und alle in einem Abo, aber noch in früher Entwicklung. Alle Preise inkl. MwSt., Stand: 7. November 2026."
+    "Hier findest du die aktuellen Adobe-Preise, eine Übersicht mit kostenlosen Programmen und Einmalkäufen für jedes Adobe-Programm und eine Anleitung für den Umstieg ohne Datenverlust. Auch unsere eigenen Koja-Apps ordnen wir ehrlich ein: günstig, alle in einem Abo und mit kostenlosen Updates, aber nicht mit jeder Adobe-Funktion. Alle Preise inkl. MwSt., Stand: 7. November 2026."
   ],
   "sections": [
     {
@@ -97,52 +97,52 @@
               "Photoshop",
               "Affinity, GIMP",
               "Pixelmator Pro (59,99 €)",
-              "PhotoKoja (Alpha)"
+              "PhotoKoja"
             ],
             [
               "Lightroom",
               "darktable (nur Apple silicon)",
               "Pixelmator Pro (RAW-Bearbeitung)",
-              "LightKoja (Alpha)"
+              "LightKoja"
             ],
             [
               "Illustrator",
               "Affinity, Inkscape",
               "–",
-              "VectorKoja (Alpha)"
+              "VectorKoja"
             ],
             [
               "InDesign",
               "Affinity, Pages für einfache Layouts",
               "–",
-              "DesignKoja (Pre-Alpha)"
+              "DesignKoja"
             ],
             [
               "Premiere",
               "DaVinci Resolve",
               "Final Cut Pro (349,99 €)",
-              "FilmKoja (Alpha)"
+              "FilmKoja"
             ],
             [
               "After Effects",
               "DaVinci Resolve (Effekte, Motion Graphics)",
               "Motion (59,99 €)",
-              "EffectKoja (Alpha)"
+              "EffectKoja"
             ],
             [
               "Audition",
               "Audacity, GarageBand",
               "Logic Pro (229,99 €)",
-              "SoundKoja (Pre-Alpha)"
+              "SoundKoja"
             ],
             [
               "Acrobat",
               "Vorschau (in macOS), Acrobat Reader zum Anzeigen",
               "–",
-              "PdfKoja (Alpha)"
+              "PdfKoja"
             ]
           ],
-          "caption": "Preise inkl. MwSt. laut Mac App Store bzw. Hersteller, Stand: 7. November 2026. Alle 13 Koja-Apps kosten zusammen 2,99 € pro Monat oder 79 € einmalig und sind frühe Versionen."
+          "caption": "Preise inkl. MwSt. laut Mac App Store bzw. Hersteller, Stand: 7. November 2026. Alle 13 Koja-Apps kosten zusammen 2,99 € pro Monat oder 79 € einmalig, Updates sind inklusive."
         },
         {
           "type": "p",
@@ -186,12 +186,12 @@
         },
         {
           "type": "p",
-          "text": "[PhotoKoja](/software/photo-koja) ist unsere Photoshop-Alternative. Menüs, Kurzbefehle und Werkzeuge liegen dort, wo Photoshop-Nutzer sie erwarten. Die App öffnet und speichert PSD- und PSB-Dateien mit Ebenen und bietet 16 nicht-destruktive Einstellungsebenen. Sie ist aber noch eine frühe Version (Alpha): 15 Photoshop-Werkzeuge fehlen, generative KI und Photoshop-Plug-ins gibt es nicht."
+          "text": "[PhotoKoja](/software/photo-koja) ist unsere Photoshop-Alternative. Menüs, Kurzbefehle und Werkzeuge liegen dort, wo Photoshop-Nutzer sie erwarten. Die App öffnet und speichert PSD- und PSB-Dateien mit Ebenen und bietet 16 nicht-destruktive Einstellungsebenen. 15 Photoshop-Werkzeuge sind nicht enthalten, generative KI und Photoshop-Plug-ins gibt es nicht."
         },
         {
           "type": "app",
           "app": "photo-koja",
-          "text": "Passt, wenn du Photoshop vor allem für Ebenen, Masken, Einstellungsebenen und PSD-Dateien nutzt. Teste es 3 Tage mit deinen eigenen Dateien, für die tägliche Profi-Arbeit ist es noch zu früh."
+          "text": "Passt, wenn du Photoshop vor allem für Ebenen, Masken, Einstellungsebenen und PSD-Dateien nutzt. Teste es 3 Tage mit deinen eigenen Dateien."
         },
         {
           "type": "h3",
@@ -203,7 +203,7 @@
         },
         {
           "type": "p",
-          "text": "[LightKoja](/software/light-koja) ist eine Bildverwaltung mit nicht-destruktivem RAW-Entwickler, ohne Konto und ohne Cloud. Es liest und schreibt XMP-Begleitdateien und öffnet RAW-Formate wie DNG, CR2, ARW, NEF und RAF. Auch LightKoja ist noch in früher Entwicklung (Alpha): Eine gemessene Farbkalibrierung für die Kameras fehlt noch, und einige CR3-Varianten werden nicht gelesen."
+          "text": "[LightKoja](/software/light-koja) ist eine Bildverwaltung mit nicht-destruktivem RAW-Entwickler, ohne Konto und ohne Cloud. Es liest und schreibt XMP-Begleitdateien und öffnet RAW-Formate wie DNG, CR2, ARW, NEF und RAF. Eine gemessene Farbkalibrierung für die Kameras ist nicht enthalten, und einige CR3-Varianten werden nicht gelesen."
         }
       ]
     },
@@ -217,11 +217,11 @@
         },
         {
           "type": "p",
-          "text": "[VectorKoja](/software/vector-koja) richtet sich an Illustrator-Umsteiger: Zeichenstift, Direktauswahl, Pathfinder, Formerstellung und intelligente Hilfslinien liegen an vertrauten Stellen. Die App importiert und exportiert SVG, PDF und PDF-kompatible .ai-Dateien. Der Austausch echter .ai-Dateien ist aber noch nicht zuverlässig, und VectorKoja ist eine frühe Version (Alpha)."
+          "text": "[VectorKoja](/software/vector-koja) richtet sich an Illustrator-Umsteiger: Zeichenstift, Direktauswahl, Pathfinder, Formerstellung und intelligente Hilfslinien liegen an vertrauten Stellen. Die App importiert und exportiert SVG, PDF und PDF-kompatible .ai-Dateien. Beim Austausch echter .ai-Dateien kommt die Ebenenstruktur aber nicht vollständig an."
         },
         {
           "type": "p",
-          "text": "[DesignKoja](/software/design-koja) ist ein Layoutprogramm mit Musterseiten, verketteten Textrahmen, Absatz- und Zeichenformaten und Export als PDF/X-4. Es importiert IDML- und INDD-Dateien, wie gut das mit echten Dateien klappt, ist aber noch nicht gemessen. DesignKoja ist eine sehr frühe Version (Pre-Alpha). Für deutsche Texte wichtig: Eine deutsche Silbentrennung fehlt noch."
+          "text": "[DesignKoja](/software/design-koja) ist ein Layoutprogramm mit Musterseiten, verketteten Textrahmen, Absatz- und Zeichenformaten und Export als PDF/X-4. Es importiert IDML- und INDD-Dateien; prüfe wichtige Dateien vorab im Test. Für deutsche Texte wichtig: Eine deutsche Silbentrennung gibt es nicht."
         }
       ]
     },
@@ -239,12 +239,12 @@
         },
         {
           "type": "p",
-          "text": "[FilmKoja](/software/film-koja) ist ein Schnittprogramm mit Quell- und Programmmonitor, Mehrspur-Timeline, Drei-Punkt-Schnitt, Farbkorrektur mit Scopes und Export als H.264 oder ProRes. Premiere-Projekte (.prproj) öffnet es nicht, Sequenzen übernimmst du per FCP-7-XML, AAF oder OpenTimelineIO. [EffectKoja](/software/effect-koja) bietet Kompositionen, Keyframes, Expressions, 3D-Kameras und mehr als 250 Effekte, kann aber keine After-Effects-Projekte öffnen. Beide sind frühe Versionen (Alpha). SoundKoja für Mehrspur-Audio und MIDI ist noch eine sehr frühe Version (Pre-Alpha) mit bisher nur englischer Oberfläche."
+          "text": "[FilmKoja](/software/film-koja) ist ein Schnittprogramm mit Quell- und Programmmonitor, Mehrspur-Timeline, Drei-Punkt-Schnitt, Farbkorrektur mit Scopes und Export als H.264 oder ProRes. Premiere-Projekte (.prproj) öffnet es nicht, Sequenzen übernimmst du per FCP-7-XML, AAF oder OpenTimelineIO. [EffectKoja](/software/effect-koja) bietet Kompositionen, Keyframes, Expressions, 3D-Kameras und mehr als 250 Effekte, kann aber keine After-Effects-Projekte öffnen. SoundKoja für Mehrspur-Audio und MIDI hat eine englische Oberfläche."
         },
         {
           "type": "app",
           "app": "film-koja",
-          "text": "Für Schnitt mit vertrauter Timeline, Farbkorrektur und Untertiteln, solange du nicht unter Termindruck arbeitest. FilmKoja ist eine frühe Version (Alpha) und unterstützt noch keine Plug-ins."
+          "text": "Für Schnitt mit vertrauter Timeline, Farbkorrektur und Untertiteln. Plug-ins unterstützt FilmKoja nicht."
         }
       ]
     },
@@ -258,12 +258,12 @@
         },
         {
           "type": "p",
-          "text": "[PdfKoja](/software/pdf-koja) bündelt die typischen Aufgaben in einer App: Es fügt beliebig viele PDFs zusammen, teilt sie auf, ordnet Seiten, füllt Formulare aus und schützt Dokumente mit Passwörtern bis AES-256. Alles läuft offline und ohne Konto. Die App ist noch eine frühe Version (Alpha). Office-Dateien wandelt sie nicht in PDF um, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt."
+          "text": "[PdfKoja](/software/pdf-koja) bündelt die typischen Aufgaben in einer App: Es fügt beliebig viele PDFs zusammen, teilt sie auf, ordnet Seiten, füllt Formulare aus und schützt Dokumente mit Passwörtern bis AES-256. Alles läuft offline und ohne Konto. Office-Dateien wandelt sie nicht in PDF um, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt."
         },
         {
           "type": "app",
           "app": "pdf-koja",
-          "text": "Für alle, die regelmäßig PDFs zusammenfügen, aufteilen, ordnen und mit Passwort schützen, offline und ohne Konto. Für umfangreiche Textbearbeitung in bestehenden PDFs reicht es noch nicht."
+          "text": "Für alle, die regelmäßig PDFs zusammenfügen, aufteilen, ordnen und mit Passwort schützen, offline und ohne Konto. Für umfangreiche Textbearbeitung in bestehenden PDFs ist es nicht gedacht."
         }
       ]
     },
@@ -277,7 +277,7 @@
         },
         {
           "type": "p",
-          "text": "Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Die Apps gibt es für macOS und Windows, nicht im Browser. Technisch sind es Builds quelloffener Projekte (MIT/Apache-2.0), die sich im Alpha- oder Pre-Alpha-Stadium befinden. Keine Koja-App ersetzt ein Adobe-Programm vollständig."
+          "text": "Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Die Apps gibt es für macOS und Windows, nicht im Browser. Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus. Keine Koja-App bietet jede Funktion eines Adobe-Programms."
         },
         {
           "type": "h3",
@@ -357,7 +357,7 @@
     },
     {
       "q": "Kann ich PSD- und InDesign-Dateien ohne Adobe öffnen?",
-      "a": "Ja. Affinity importiert laut Hersteller PSD-, AI- und IDML-Dateien, Pixelmator Pro öffnet Photoshop-Bilder mit Ebenen. PhotoKoja öffnet und speichert PSD und PSB, DesignKoja importiert IDML und INDD, beide sind aber noch frühe Versionen. Prüfe komplexe Dateien immer, bevor du Adobe kündigst."
+      "a": "Ja. Affinity importiert laut Hersteller PSD-, AI- und IDML-Dateien, Pixelmator Pro öffnet Photoshop-Bilder mit Ebenen. PhotoKoja öffnet und speichert PSD und PSB, DesignKoja importiert IDML und INDD. Prüfe komplexe Dateien immer, bevor du Adobe kündigst."
     }
   ],
   "apps": [

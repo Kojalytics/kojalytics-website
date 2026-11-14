@@ -97,8 +97,7 @@ export default function Footer() {
         <div className="flex flex-col gap-3 px-5 py-6 text-xs leading-relaxed text-muted md:flex-row md:justify-between md:px-10">
           <p className="hud">&copy; {new Date().getFullYear()} Kojalytics</p>
           <p className="max-w-2xl md:text-right">
-            Die Koja-Apps basieren auf quelloffener Software unter den Lizenzen Apache 2.0 und MIT und sind ein eigenständiges
-            Angebot von Kojalytics. Genannte Produktnamen anderer Unternehmen sind Marken ihrer Inhaber.
+            Die Koja-Apps sind ein eigenständiges Angebot von Kojalytics. Genannte Produktnamen anderer Unternehmen sind Marken ihrer Inhaber.
           </p>
         </div>
       </div>

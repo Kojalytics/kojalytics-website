@@ -257,7 +257,7 @@
             [
               "Koja-Apps (13 Apps für Mac und Windows, darunter WordKoja, GridKoja, DeckKoja)",
               "2,99 € pro Monat oder 79 € einmalig für alle 13 Apps",
-              "Frühe Versionen (Alpha); macOS und Windows; bis zu 3 Geräte; kein Konto nötig"
+              "Laufend weiterentwickelt, Updates kostenlos; macOS und Windows; bis zu 3 Geräte; kein Konto nötig"
             ]
           ],
           "caption": "Preise inkl. MwSt., Stand 7. November 2026. Quellen: Microsoft Store, Apple, LibreOffice, Kojalytics."
@@ -318,21 +318,21 @@
         },
         {
           "type": "p",
-          "text": "Wir bei Kojalytics bieten 13 Apps für Mac und Windows an, darunter drei Office-Programme mit einem Menüband, wie du es aus Word, Excel und PowerPoint kennst. Alle drei sind noch in früher Entwicklung (Alpha). Die Entwickler des zugrunde liegenden Open-Source-Projekts schätzen selbst, dass sie zu etwa 50 bis 60 Prozent für echte Arbeit bereit sind. Sie ersetzen Microsoft Office also nicht vollständig. Dafür sind sie günstig: Alle 13 Apps kosten zusammen 2,99 € pro Monat oder einmalig 79 €."
+          "text": "Wir bei Kojalytics bieten 13 Apps für Mac und Windows an, darunter drei Office-Programme mit einem Menüband, wie du es aus Word, Excel und PowerPoint kennst. Sie bieten nicht jede Funktion von Microsoft Office, werden aber laufend weiterentwickelt, und Updates und neue Funktionen bekommst du automatisch und kostenlos. Dafür sind sie günstig: Alle 13 Apps kosten zusammen 2,99 € pro Monat oder einmalig 79 €."
         },
         {
           "type": "app",
           "app": "word-koja",
-          "text": "WordKoja öffnet und speichert .docx, öffnet alte .doc-Dateien und exportiert PDF mit markierbarem Text. Die Oberfläche gibt es auf Deutsch, eine deutsche Rechtschreib- und Grammatikprüfung fehlt aber noch."
+          "text": "WordKoja öffnet und speichert .docx, öffnet alte .doc-Dateien und exportiert PDF mit markierbarem Text. Die Oberfläche gibt es auf Deutsch, eine deutsche Rechtschreib- und Grammatikprüfung gibt es aber nicht."
         },
         {
           "type": "app",
           "app": "grid-koja",
-          "text": "GridKoja liest und schreibt .xlsx und bietet mehr als 500 Funktionen, PivotTables und 17 Diagrammtypen. Sehr große Arbeitsmappen öffnen noch nicht, Diagramme verlieren beim Speichern teils Typ und Optionen, und auf Deutsch ist bisher nur das Menüband."
+          "text": "GridKoja liest und schreibt .xlsx und bietet mehr als 500 Funktionen, PivotTables und 17 Diagrammtypen. Sehr große Arbeitsmappen öffnen nicht, Diagramme verlieren beim Speichern teils Typ und Optionen, und auf Deutsch ist vor allem das Menüband."
         },
         {
           "type": "p",
-          "text": "Für Präsentationen gibt es [DeckKoja](/software/deck-koja). Es öffnet und speichert .pptx und hat eine Referentenansicht. Die Oberfläche ist bisher nur auf Englisch, und Drucken fehlt noch. Mehr Details findest du auf den Seiten zu [WordKoja](/software/word-koja) und [GridKoja](/software/grid-koja)."
+          "text": "Für Präsentationen gibt es [DeckKoja](/software/deck-koja). Es öffnet und speichert .pptx und hat eine Referentenansicht. Die Oberfläche ist auf Englisch, und Drucken ist nicht enthalten. Mehr Details findest du auf den Seiten zu [WordKoja](/software/word-koja) und [GridKoja](/software/grid-koja)."
         },
         {
           "type": "p",

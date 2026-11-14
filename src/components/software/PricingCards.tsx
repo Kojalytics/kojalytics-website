@@ -202,7 +202,7 @@ export default function PricingCards({ source }: { source: string }) {
       </div>
 
       <p className="-mt-2 text-xs leading-relaxed text-muted">
-        Die Koja-Apps sind frühe Versionen (Alpha, teils Pre-Alpha) und werden mit Updates laufend weiterentwickelt. Sichere Zahlung über Stripe per Kredit- oder Debitkarte oder einer anderen dort angezeigten Zahlungsart. Es gelten unsere{" "}
+        Die Koja-Apps werden laufend weiterentwickelt, Updates und neue Funktionen bekommst du automatisch und kostenlos. Sichere Zahlung über Stripe per Kredit- oder Debitkarte oder einer anderen dort angezeigten Zahlungsart. Es gelten unsere{" "}
         <Link href="/agb" className="text-foreground underline underline-offset-2">
           AGB mit Widerrufsbelehrung
         </Link>

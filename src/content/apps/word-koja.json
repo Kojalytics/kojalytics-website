@@ -5,7 +5,7 @@
   "metaTitle": "Word-Alternative für Mac und Windows: WordKoja",
   "metaDescription": "WordKoja ist eine Word-Alternative für Mac und Windows: .docx öffnen und speichern, offline und ohne Konto. 3 Tage kostenlos testen, dann 79 € einmalig.",
   "h1": "Word-Alternative für Mac und Windows, mit Menüband und .docx",
-  "lead": "WordKoja ist eine Word-Alternative für Mac und Windows, die .docx-Dateien direkt öffnet und speichert. Du schreibst mit Formatvorlagen, Tabellen, „Änderungen nachverfolgen“ und Inhaltsverzeichnis, offline und ohne Konto. Die frühe Version (Alpha) testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "lead": "WordKoja ist eine Word-Alternative für Mac und Windows, die .docx-Dateien direkt öffnet und speichert. Du schreibst mit Formatvorlagen, Tabellen, „Änderungen nachverfolgen“ und Inhaltsverzeichnis, offline und ohne Konto. WordKoja testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "Öffnet und speichert .docx",
     "Menüband mit Registerkarten",
@@ -45,7 +45,7 @@
     },
     {
       "title": "Schnell, nativ und offline",
-      "text": "WordKoja ist eine native Mac-App ohne Electron und läuft auf Macs mit Apple-Chip und mit Intel. Laut Projektangaben (Stand: November 2026) wird das Layout eines 188-seitigen Dokuments beim Tippen in etwa **1,4 ms** neu berechnet. Alles funktioniert offline, und der Text deiner Dokumente landet nie in Protokolldateien."
+      "text": "WordKoja ist eine native Mac-App ohne Electron und läuft auf Macs mit Apple-Chip und mit Intel. Das Layout eines 188-seitigen Dokuments wird beim Tippen in etwa **1,4 ms** neu berechnet (Stand: November 2026). Alles funktioniert offline, und der Text deiner Dokumente landet nie in Protokolldateien."
     }
   ],
   "screenshots": [
@@ -73,9 +73,9 @@
   "switching": {
     "title": "Von Word zu WordKoja: so testest du die Word-Alternative am Mac oder PC",
     "paragraphs": [
-      "Vieles kennst du schon: das Menüband mit Registerkarten für Einfügen, Layout, Referenzen und Überprüfen, die Formatvorlagen-Galerie, den Navigationsbereich und Kürzel wie ⌘B, F4 oder F7. Noch sind aber nicht alle Kürzel aus Word dabei: Ab Werk bringt WordKoja 140 Tastenkürzel mit. Die Oberfläche gibt es auf Deutsch, und sie folgt der Sprache deines Macs. Die Screenshots auf dieser Seite zeigen die englische Oberfläche.",
-      "Deine .docx-Dateien öffnest du direkt und speicherst sie auch wieder als .docx. Laut Projektangaben ist der .docx-Import aber noch nicht systematisch mit echten Dateien aus Word, Google Docs oder Pages getestet. Alte .doc-Dateien kannst du öffnen, aber nicht wieder als .doc speichern. Rechne damit, dass Zeilen- und Seitenumbrüche von Word abweichen können, etwa weil es für die Schrift Aptos noch keinen maßgleichen Ersatz gibt. Diagramme aus Word kannst du ansehen, aber nicht bearbeiten, und Makros in .docm-Dateien werden mitgespeichert, aber nicht ausgeführt.",
-      "Was noch fehlt: eine deutsche Rechtschreib- und Grammatikprüfung (für Deutsch gibt es bisher nur die Silbentrennung), Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit, VBA-Makros, Office-Add-ins und ein KI-Schreibassistent. Serienbriefe kannst du nicht aus Outlook-Kontakten, Access oder anderen Datenbanken erstellen, und Serien-E-Mails gibt es noch nicht. WordKoja ist noch eine frühe Version (Alpha): Laut Projektangaben (Stand: November 2026) reicht es nach eigener Schätzung für etwa 60 % der echten Arbeit, und es gibt noch offene Fehlerberichte zu Abstürzen.",
+      "Vieles kennst du schon: das Menüband mit Registerkarten für Einfügen, Layout, Referenzen und Überprüfen, die Formatvorlagen-Galerie, den Navigationsbereich und Kürzel wie ⌘B, F4 oder F7. Ab Werk bringt WordKoja 140 Tastenkürzel mit, nicht jedes Kürzel aus Word ist dabei. Die Oberfläche gibt es auf Deutsch, und sie folgt der Sprache deines Macs. Die Screenshots auf dieser Seite zeigen die englische Oberfläche.",
+      "Deine .docx-Dateien öffnest du direkt und speicherst sie auch wieder als .docx. Teste wichtige Dateien am besten zuerst mit einer Kopie. Alte .doc-Dateien kannst du öffnen, aber nicht wieder als .doc speichern. Rechne damit, dass Zeilen- und Seitenumbrüche von Word abweichen können, etwa weil es für die Schrift Aptos keinen maßgleichen Ersatz gibt. Diagramme aus Word kannst du ansehen, aber nicht bearbeiten, und Makros in .docm-Dateien werden mitgespeichert, aber nicht ausgeführt.",
+      "Nicht enthalten sind eine deutsche Rechtschreib- und Grammatikprüfung (für Deutsch gibt es die Silbentrennung), Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit, VBA-Makros, Office-Add-ins und ein KI-Schreibassistent. Serienbriefe erstellst du aus CSV-Dateien, nicht aus Outlook-Kontakten, Access oder anderen Datenbanken, und Serien-E-Mails gibt es nicht. WordKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
       "So testest du in 3 Tagen, ob es für dich passt: Lade den Kojalytics Launcher, installiere WordKoja und öffne drei echte Dateien, zum Beispiel einen Brief, ein langes Dokument mit Inhaltsverzeichnis und eines mit Kommentaren. Vergleiche die Seitenumbrüche, speichere als .docx, exportiere ein PDF und arbeite dabei mit Kopien. Kündige Microsoft 365 erst, wenn du sicher bist. Welche Wege es zu Office ohne Abo gibt, steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
     ]
   },
@@ -112,9 +112,9 @@
         "other": "macOS, Windows, iPad, iPhone, Android und Web"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "Frühe Version (Alpha), noch ohne deutsche Rechtschreibprüfung",
-        "other": "Ausgereift, mit Cloud-Speicher und gemeinsamer Bearbeitung"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
@@ -126,8 +126,8 @@
     "du offline und ohne Konto arbeiten möchtest und neben Text auch Tabellen und Präsentationen brauchst, denn alle 13 Koja-Apps sind im Preis enthalten"
   ],
   "notFor": [
-    "du eine deutsche Rechtschreib- und Grammatikprüfung brauchst: Die fehlt in WordKoja bisher, für Deutsch gibt es nur die Silbentrennung",
-    "du täglich beruflich mit Word arbeitest und dich auf jede Funktion verlassen musst: WordKoja ist noch eine frühe Version (Alpha), und Seitenumbrüche können von Word abweichen",
+    "du eine deutsche Rechtschreib- und Grammatikprüfung brauchst: Für Deutsch bietet WordKoja die Silbentrennung",
+    "deine Dokumente exakt dieselben Seitenumbrüche wie in Word haben müssen: Zeilen- und Seitenumbrüche können abweichen",
     "du in Echtzeit mit anderen in der Cloud schreibst, VBA-Makros brauchst oder auf dem iPad oder im Browser arbeitest"
   ],
   "formats": [
@@ -147,7 +147,7 @@
   "faq": [
     {
       "q": "Ist WordKoja eine vollwertige Microsoft-Word-Alternative?",
-      "a": "Noch nicht: WordKoja ist eine frühe Version (Alpha), und laut Projektangaben (Stand: November 2026) reicht es nach eigener Schätzung für etwa 60 % der echten Arbeit. Es fehlen unter anderem eine deutsche Rechtschreibprüfung, Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit und VBA-Makros, außerdem können Seitenumbrüche von Word abweichen. Menüband, Formatvorlagen, Tabellen, „Änderungen nachverfolgen“, Verzeichnisse und Serienbriefe sind aber schon da. Ob das für dich reicht, prüfst du im kostenlosen Test mit deinen eigenen Dateien."
+      "a": "Für viele Aufgaben ja: Menüband, Formatvorlagen, Tabellen, „Änderungen nachverfolgen“, Verzeichnisse und Serienbriefe sind dabei. Nicht enthalten sind unter anderem eine deutsche Rechtschreibprüfung, Cloud-Speicher, gemeinsames Bearbeiten in Echtzeit und VBA-Makros, außerdem können Seitenumbrüche von Word abweichen. WordKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Ob das für dich reicht, prüfst du im kostenlosen Test mit deinen eigenen Dateien."
     },
     {
       "q": "Kann ich mit WordKoja .docx-Dateien auf dem Mac oder PC öffnen und bearbeiten?",
@@ -155,7 +155,7 @@
     },
     {
       "q": "Hat WordKoja eine deutsche Rechtschreibprüfung?",
-      "a": "Noch nicht, und das solltest du vorher wissen. Die Rechtschreib- und Grammatikprüfung gibt es bisher unter anderem für Englisch und Spanisch, einige weitere Sprachen brauchen zusätzlich installierte Wörterbücher. Für Deutsch beherrscht WordKoja bisher nur die automatische Silbentrennung. Die Oberfläche selbst gibt es auf Deutsch."
+      "a": "Nein, das solltest du vorher wissen. Die Rechtschreib- und Grammatikprüfung gibt es unter anderem für Englisch und Spanisch, einige weitere Sprachen brauchen zusätzlich installierte Wörterbücher. Für Deutsch beherrscht WordKoja die automatische Silbentrennung. Die Oberfläche selbst gibt es auf Deutsch."
     },
     {
       "q": "Kann ich WordKoja ohne Abo kaufen?",
@@ -166,8 +166,8 @@
       "a": "Word für das Web kannst du mit einem kostenlosen Microsoft-Konto nutzen, dazu gibt es 5 GB OneDrive-Speicher. Es läuft aber nur im Browser mit Internetverbindung, und zum gemeinsamen Bearbeiten liegen deine Dateien auf OneDrive. WordKoja ist eine Desktop-App für Mac und Windows, die ohne Konto und offline läuft, und deine Dokumente bleiben auf deinem Mac oder PC. Wenn dir die Web-Version reicht und dich Konto und Cloud nicht stören, ist sie eine gute kostenlose Lösung."
     },
     {
-      "q": "WordKoja basiert auf Open Source. Warum kostet es Geld?",
-      "a": "Der Quellcode ist offen und steht wahlweise unter der MIT- oder der Apache-2.0-Lizenz. Du bezahlst für die fertigen Versionen für Mac und Windows, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dafür bekommst du gleich 13 Apps, von Textverarbeitung über Tabellen und Präsentationen bis Bildbearbeitung."
+      "q": "Was bekomme ich für mein Geld?",
+      "a": "Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus. Updates und neue Funktionen bekommst du kostenlos, dazu Support per E-Mail. Dafür bekommst du gleich 13 Apps, von Textverarbeitung über Tabellen und Präsentationen bis Bildbearbeitung."
     }
   ]
 }
