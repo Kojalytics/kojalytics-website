@@ -19,13 +19,11 @@
     },
     {
       "title": "Effekte, die editierbar bleiben",
-      "text": "Angleichungen, Verzerrungshüllen, Verlaufsgitter, radiale, Raster- und Spiegel-Wiederholungen, Schein und Schlagschatten bleiben live. Änderst du die Ausgangsobjekte, rechnet sich der Effekt neu, statt fest in die Grafik eingebrannt zu sein.",
-      "screenshot": "ribbons.webp"
+      "text": "Angleichungen, Verzerrungshüllen, Verlaufsgitter, radiale, Raster- und Spiegel-Wiederholungen, Schein und Schlagschatten bleiben live. Änderst du die Ausgangsobjekte, rechnet sich der Effekt neu, statt fest in die Grafik eingebrannt zu sein."
     },
     {
       "title": "Zeichnen im Perspektivenraster",
-      "text": "Grafik, die du an die Ebenen eines Perspektivenrasters hängst, bleibt auch in der Perspektive bearbeitbar. So baust du Fassaden, Räume oder Verpackungs-Mockups, ohne jede Fläche von Hand zu verzerren.",
-      "screenshot": "perspective.webp"
+      "text": "Grafik, die du an die Ebenen eines Perspektivenrasters hängst, bleibt auch in der Perspektive bearbeitbar. So baust du Fassaden, Räume oder Verpackungs-Mockups, ohne jede Fläche von Hand zu verzerren."
     },
     {
       "title": "Bilder vektorisieren",
@@ -51,38 +49,18 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "VectorKoja auf dem Mac: Synthwave-Poster mit ausgewähltem Titel, Aussehen-Panel mit Schein nach außen",
-      "caption": "Der Leuchteffekt bleibt live: Änderst du den Text, passt sich der Schein sofort an."
+      "alt": "VectorKoja: Plakat Gartenfest mit Sonne, Bergen und Sternen, die Titelzeile ist ausgewählt, rechts die Zeicheneinstellungen",
+      "caption": "Plakate und Grafiken mit Text, Verläufen und Formen, rechts alle Eigenschaften der Auswahl."
     },
     {
       "file": "bezier.webp",
-      "alt": "VectorKoja: Direktauswahl mit Ankerpunkten und Bézier-Griffen an einem Halbmond mit Sternen",
-      "caption": "Ankerpunkte und Bézier-Griffe bearbeitest du direkt, mit Zeichenstift, Direktauswahl und Pathfinder."
+      "alt": "VectorKoja: Direktauswahl mit Ankerpunkten und Bézier-Griffen am vorderen Bergpfad des Plakats",
+      "caption": "Mit der Direktauswahl bearbeitest du Ankerpunkte und Bézier-Griffe einzeln."
     },
     {
-      "file": "ribbons.webp",
-      "alt": "VectorKoja: drei farbige Angleichungen als Bänder auf dunklem Grund, rechts das Ebenen-Panel",
-      "caption": "Die Angleichungen im Bild haben 70 Stufen und bleiben über ihre Pfade editierbar."
-    },
-    {
-      "file": "perspective.webp",
-      "alt": "VectorKoja Perspektivenraster: zwei beleuchtete Gebäudefassaden in Zwei-Punkt-Perspektive",
-      "caption": "Fassaden zeichnest du direkt auf das Perspektivenraster und kannst sie danach weiter bearbeiten."
-    },
-    {
-      "file": "sheet.webp",
-      "alt": "VectorKoja im hellen Design: vier Zeichenflächen mit Pathfinder, Verlaufsgitter, Wiederholung und Verzerrungshülle",
-      "caption": "Mehrere Zeichenflächen in einem Dokument halten zusammengehörige Entwürfe beieinander."
-    },
-    {
-      "file": "revolve.webp",
-      "alt": "VectorKoja 3D-Kreiseln: Stillleben aus Vase, Schale, Kugel und Flasche mit Dialog und Drehgriffen",
-      "caption": "Mit 3D-Kreiseln wird aus einem Profil ein schattiertes Objekt, das du im Dialog mit Vorschau oder direkt an den Drehgriffen einstellst."
-    },
-    {
-      "file": "dimensions.webp",
-      "alt": "VectorKoja Bemaßungswerkzeug: technische Zeichnung einer Halterung mit Längen-, Winkel- und Radiusmaßen",
-      "caption": "Bemaßungen für Längen, Winkel und Radien folgen der Zeichnung, wenn du sie änderst."
+      "file": "layers.webp",
+      "alt": "VectorKoja: Ebenen-Bedienfeld mit benannten Ebenen wie Titel, Sterne, Berge und Sonne neben dem Plakat",
+      "caption": "Jede Form hat ihre eigene Ebene, die du ein- und ausblenden, sperren und umbenennen kannst."
     }
   ],
   "switching": {

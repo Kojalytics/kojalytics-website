@@ -18,17 +18,16 @@
     },
     {
       "title": "Über 500 Funktionen",
-      "text": "Die Rechen-Engine kennt **über 500 Tabellenfunktionen** und berechnet nur neu, was sich geändert hat. Dazu kommen dynamische Arrays, deren Ergebnisse in die Nachbarzellen überlaufen, strukturierte Tabellenbezüge sowie LET, LAMBDA, MAP, REDUCE, SCAN, BYROW, BYCOL und MAKEARRAY."
+      "text": "Die Rechen-Engine kennt **über 500 Tabellenfunktionen** und berechnet nur neu, was sich geändert hat. Dazu kommen dynamische Arrays, deren Ergebnisse in die Nachbarzellen überlaufen, strukturierte Tabellenbezüge sowie LET, LAMBDA, MAP, REDUCE, SCAN, BYROW, BYCOL und MAKEARRAY.",
+      "screenshot": "formulas.webp"
     },
     {
       "title": "Pivot-Tabellen mit Feldliste",
-      "text": "In der Feldliste wählst du aus, was in Zeilen, Spalten, Werte und Filter gehört, und fasst so lange Listen nach Region, Produkt oder Monat zusammen. Datumsgruppierung, verschiedene Layouts und „Werte anzeigen als“ sind dabei. Pivot-Tabellen werden in der XLSX-Datei gespeichert und beim Öffnen wieder eingelesen.",
-      "screenshot": "pivot.webp"
+      "text": "In der Feldliste wählst du aus, was in Zeilen, Spalten, Werte und Filter gehört, und fasst so lange Listen nach Region, Produkt oder Monat zusammen. Datumsgruppierung, verschiedene Layouts und „Werte anzeigen als“ sind dabei. Pivot-Tabellen werden in der XLSX-Datei gespeichert und beim Öffnen wieder eingelesen."
     },
     {
       "title": "17 Diagrammtypen",
-      "text": "Ob Säulen-, Balken- oder Kreisdiagramm: GridKoja bietet **17 Diagrammtypen**, dazu Sparklines direkt in Zellen. Titel, Legende, Farben und Größe passt du im Tab „Chart Design“ und im Formatbereich an. Wählst du ein Diagramm aus, sind seine Quelldaten in der Tabelle umrandet.",
-      "screenshot": "format-chart.webp"
+      "text": "Ob Säulen-, Balken- oder Kreisdiagramm: GridKoja bietet **17 Diagrammtypen**, dazu Sparklines direkt in Zellen. Titel, Legende, Farben und Größe passt du im Tab „Chart Design“ und im Formatbereich an. Wählst du ein Diagramm aus, sind seine Quelldaten in der Tabelle umrandet."
     },
     {
       "title": "Bedingte Formatierung",
@@ -51,28 +50,18 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "GridKoja auf dem Mac: Umsatz-Dashboard mit Tabelle, Datenbalken, Sparklines, Säulen- und Kreisdiagramm",
-      "caption": "Umsatz-Dashboard mit Datenbalken, Sparklines, Säulen- und Kreisdiagramm, darüber das Menüband mit Registerkarten."
+      "alt": "GridKoja: Umsatztabelle eines Hofladens mit Summenformel, Datenbalken, gestapeltem Säulendiagramm und Kreisdiagramm",
+      "caption": "Tabelle, Formeln, bedingte Formatierung und Diagramme auf einem Blatt, hier der Umsatz eines Hofladens im ersten Halbjahr."
     },
     {
       "file": "budget.webp",
-      "alt": "GridKoja: Haushaltsbudget mit Farbskala, rot markierten Überschreitungen und Balkendiagramm Budget gegen Ist",
-      "caption": "Bedingte Formatierung zeigt dir auf einen Blick, wo dein Budget überschritten ist."
+      "alt": "GridKoja: Haushaltsbuch mit Farbskala für den Verbrauch, rot markierten Überschreitungen und Balkendiagramm Budget gegen Ist",
+      "caption": "Bedingte Formatierung zeigt auf einen Blick, wo das Budget überschritten ist."
     },
     {
-      "file": "pivot.webp",
-      "alt": "GridKoja: Pivot-Tabelle mit Umsatz nach Region und Produkt, rechts die Feldliste mit Filtern, Zeilen und Werten",
-      "caption": "Eine Pivot-Tabelle fasst lange Umsatzlisten nach Region und Produkt zusammen, mit Filtern und Gesamtergebnissen."
-    },
-    {
-      "file": "format-chart.webp",
-      "alt": "GridKoja: ausgewähltes Säulendiagramm mit Tab „Chart Design“ und geöffnetem Formatbereich",
-      "caption": "Titel, Legende, Farben und Größe eines Diagramms änderst du direkt im Formatbereich."
-    },
-    {
-      "file": "grades-formulas.webp",
-      "alt": "GridKoja: Notentabelle mit berechneten Durchschnitten und Noten, darüber der Formeln-Tab mit Funktionsbibliothek",
-      "caption": "Im Formeln-Tab findest du über 500 Funktionen nach Kategorien geordnet, von Logik über Text bis Nachschlagen."
+      "file": "formulas.webp",
+      "alt": "GridKoja: Formeln-Register mit Funktionsbibliothek, eine INDEX/VERGLEICH-Formel und Pfeile zu den Vorgängerzellen",
+      "caption": "Spur zum Vorgänger zeigt mit Pfeilen, aus welchen Zellen eine Formel rechnet."
     }
   ],
   "switching": {

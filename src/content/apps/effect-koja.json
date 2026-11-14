@@ -45,13 +45,13 @@
   "screenshots": [
     {
       "file": "3d.webp",
-      "alt": "EffectKoja-3D-Komposition mit farbigen Ebenen, Kamera, Licht und Schatten, darunter die Zeitleiste",
-      "caption": "Echte 3D-Ebenen mit Kameras, Lichtern und weichen Schatten, direkt in der Komposition und ohne zusätzliches 3D-Programm."
+      "alt": "EffectKoja-Komposition mit Farbverlauf, Titel Gartenfest und beleuchtetem 3D-Torus, darunter die Zeitleiste mit vier Ebenen",
+      "caption": "Ebenen, Text, 3D-Objekte und Lichter in einer Komposition, darunter die Zeitleiste."
     },
     {
       "file": "effects.webp",
-      "alt": "EffectKoja-Effekteinstellungen mit Partikeleffekt: Parameter wie Birth Rate und Gravity neben der Vorschau",
-      "caption": "Mehr als 250 Effekte, von Partikeln bis Keying, stellst du in den Effekteinstellungen ein und siehst das Ergebnis in der Vorschau."
+      "alt": "EffectKoja-Effekteinstellungen mit Vierfarbverlauf: Punkte und Farben neben der Vorschau",
+      "caption": "Jeder Effekt hat seine Einstellungen, die du per Keyframe animieren kannst."
     }
   ],
   "switching": {

@@ -110,7 +110,7 @@ export type KojaApp = AppBase &
     card: { src: string; width: number; height: number; alt: string };
   };
 
-/** Sizes of the screenshots in public/apps (cropped so that no upstream branding is visible). */
+/** Sizes of the screenshots in public/apps (our own captures of the Koja apps with our own demo content). */
 const SIZES = screenshots as Record<string, { width: number; height: number }>;
 
 function withShots(base: AppBase): KojaApp {

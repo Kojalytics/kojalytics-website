@@ -18,8 +18,7 @@
     },
     {
       "title": "Komponenten mit Varianten",
-      "text": "Lege Hauptkomponenten an und fasse sie zu Sets mit Varianten und Eigenschaften zusammen. Überschreibungen in Instanzen bleiben erhalten, wenn du die Hauptkomponente änderst. Im Assets-Panel findest du alles per Suche und ziehst es direkt auf die Arbeitsfläche.",
-      "screenshot": "components.webp"
+      "text": "Lege Hauptkomponenten an und fasse sie zu Sets mit Varianten und Eigenschaften zusammen. Überschreibungen in Instanzen bleiben erhalten, wenn du die Hauptkomponente änderst. Im Assets-Panel findest du alles per Suche und ziehst es direkt auf die Arbeitsfläche."
     },
     {
       "title": "Variablen mit Modi für Hell und Dunkel",
@@ -27,8 +26,7 @@
     },
     {
       "title": "Klickbare Prototypen",
-      "text": "Verbinde Screens mit Auslösern, Aktionen und animierten Übergängen. Mit Variablen und Wenn-dann-Bedingungen baust du auch Abläufe mit Logik. Die Präsentationsansicht zeigt deinen App-Prototyp im Geräterahmen, eine Live-Vorschau läuft beim Arbeiten mit.",
-      "screenshot": "prototype.webp"
+      "text": "Verbinde Screens mit Auslösern, Aktionen und animierten Übergängen. Mit Variablen und Wenn-dann-Bedingungen baust du auch Abläufe mit Logik. Die Präsentationsansicht zeigt deinen App-Prototyp im Geräterahmen, eine Live-Vorschau läuft beim Arbeiten mit."
     },
     {
       "title": "Dev Mode mit Code-Export",
@@ -51,38 +49,13 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "FigKoja im Dark Mode: drei App-Screens in Hell und Dunkel, links das Ebenen-Panel, rechts die Auto-Layout-Einstellungen",
-      "caption": "Gestalte komplette App-Screens mit Auto Layout und schalte per Variablen-Modus zwischen Hell und Dunkel um, ohne jeden Screen doppelt zu bauen."
-    },
-    {
-      "file": "components.webp",
-      "alt": "FigKoja mit Designsystem: Button-Set mit neun Varianten, Assets-Panel mit Toggles, Badges und Icons",
-      "caption": "Baue ein Designsystem aus Komponenten mit Varianten und ziehe sie aus dem Assets-Panel direkt in deine Layouts."
-    },
-    {
-      "file": "prototype.webp",
-      "alt": "FigKoja im Prototyp-Modus: vier Onboarding-Screens mit Verbindungslinien, rechts die Klick-Interaktion",
-      "caption": "Verknüpfe Screens zu einem klickbaren Prototyp und prüfe den Ablauf, bevor jemand eine Zeile Code schreibt."
+      "alt": "FigKoja: drei App-Screens eines Gartenplaners, links die Ebenen, rechts Position, Größe und Farben des ausgewählten Buttons",
+      "caption": "App-Screens gestalten mit Ebenen, Gruppen und Eigenschaften für jedes Element."
     },
     {
       "file": "dev-mode.webp",
-      "alt": "FigKoja Dev Mode: App-Screen mit Annotation und ausgewählter Listenzeile, rechts erzeugter React- und CSS-Code",
-      "caption": "Übergib Designs mit Annotationen, Maßen und generiertem Code für CSS, HTML, React, SwiftUI und Compose an die Entwicklung."
-    },
-    {
-      "file": "dashboard.webp",
-      "alt": "FigKoja im hellen Theme: Web-Dashboard mit KPI-Karten, Balken- und Donut-Diagramm auf einem 12-Spalten-Raster",
-      "caption": "Entwirf Web-Dashboards auf Layout-Grids und halte Farben und Texte mit wiederverwendbaren Stilen einheitlich."
-    },
-    {
-      "file": "vector.webp",
-      "alt": "FigKoja Vektor-Bearbeitung: Wellenpfad mit Ankerpunkten und Farbverlauf, Berg aus Boolean-Formen, Ring-Grafik",
-      "caption": "Zeichne Icons und Illustrationen mit Vektornetzwerken, variabler Strichstärke und Boolean-Formen, die editierbar bleiben."
-    },
-    {
-      "file": "collab.webp",
-      "alt": "FigKoja Live-Session: Cursor und Auswahl zweier Teammitglieder auf App-Screens, dazu Cursor-Chat und Folgen-Banner",
-      "caption": "Sieh Cursor, Auswahl und Cursor-Chat deiner Kollegen live in derselben Datei (diese Funktion ist noch eine Vorschau)."
+      "alt": "FigKoja im Prüfen-Modus: ausgewählter Button mit Maßen und dem passenden CSS-Code rechts",
+      "caption": "Im Prüfen-Modus sehen Entwickler Maße und Code für jedes Element."
     }
   ],
   "switching": {

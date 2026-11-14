@@ -35,13 +35,11 @@
     },
     {
       "title": "MIDI, Instrumente und Notation",
-      "text": "MIDI bearbeitest du im Piano-Roll mit Velocity-Spur, in der Event-Liste oder per Step-Eingabe, inklusive Quantisieren und Transponieren, und der Score Editor exportiert Noten als MusicXML. Dazu kommen ein Synth, ein Drum-Synth, ein Sampler für WAV-, AIFF-, FLAC-, MP3- und OGG-Dateien sowie Audio-to-MIDI, das aus einer gesungenen oder gespielten Melodie Noten macht. Einspielen per MIDI-Keyboard geht noch nicht.",
-      "screenshot": "midi.webp"
+      "text": "MIDI bearbeitest du im Piano-Roll mit Velocity-Spur, in der Event-Liste oder per Step-Eingabe, inklusive Quantisieren und Transponieren, und der Score Editor exportiert Noten als MusicXML. Dazu kommen ein Synth, ein Drum-Synth, ein Sampler für WAV-, AIFF-, FLAC-, MP3- und OGG-Dateien sowie Audio-to-MIDI, das aus einer gesungenen oder gespielten Melodie Noten macht. Einspielen per MIDI-Keyboard geht noch nicht."
     },
     {
       "title": "Surround- und immersive Mixe bis 9.1.6",
-      "text": "Haupt- und Bus-Formate reichen von Stereo bis 9.1.6, dazu kommt Ambisonics. Der Surround-Panner arbeitet mit Divergenz und Höhe, Spuren routest du als Objekt oder ins Bed, und das Renderer-Fenster zeigt die Pegel jedes Lautsprechers live.",
-      "screenshot": "surround.webp"
+      "text": "Haupt- und Bus-Formate reichen von Stereo bis 9.1.6, dazu kommt Ambisonics. Der Surround-Panner arbeitet mit Divergenz und Höhe, Spuren routest du als Objekt oder ins Bed, und das Renderer-Fenster zeigt die Pegel jedes Lautsprechers live."
     },
     {
       "title": "Videospur und Bounce mit LUFS-Messung",
@@ -51,28 +49,13 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "Edit-Fenster von SoundKoja mit neun Spuren: Drums, Bass, Pad, Keys und Lead als Wellenformen und MIDI-Clips",
-      "caption": "Im Edit-Fenster arrangierst und schneidest du Audio- und MIDI-Spuren mit den Modi Shuffle, Slip, Spot und Grid."
+      "alt": "SoundKoja Edit-Fenster mit fünf Spuren: Drums, Bass, Pad, Keys und Lead als Wellenformen",
+      "caption": "Im Edit-Fenster schneidest und arrangierst du alle Spuren auf einer Zeitleiste."
     },
     {
       "file": "mix.webp",
-      "alt": "Mix-Fenster von SoundKoja mit Inserts, Sends, Pan-Reglern, Fadern und geöffnetem 7-Band-EQ auf der Kick-Spur",
-      "caption": "Du mischst mit zehn Inserts und zehn Sends pro Spur, Bussen, VCAs und eingebauten Plugins wie dem 7-Band-EQ."
-    },
-    {
-      "file": "midi.webp",
-      "alt": "MIDI-Editor von SoundKoja mit Piano-Roll und Velocity-Spur unter dem Edit-Fenster einer Song-Session",
-      "caption": "Im Piano-Roll bearbeitest und quantisierst du Melodien und passt die Anschlagstärke an, ohne die Session zu verlassen."
-    },
-    {
-      "file": "automation.webp",
-      "alt": "Lautstärke-Automation auf der Pad-Spur in SoundKoja, daneben die Fenster Memory Locations und Big Counter",
-      "caption": "Du automatisierst Lautstärke, Panorama und jeden Plugin-Parameter und springst per Memory Locations zu jedem Songteil."
-    },
-    {
-      "file": "surround.webp",
-      "alt": "Renderer-Fenster von SoundKoja mit 7.1.4-Lautsprecherlayout und Surround-Pannern im Mix-Fenster",
-      "caption": "Surround- und immersive Mixe bis 9.1.6 pannst du direkt auf dem Mac und verfolgst die Pegel im Renderer live."
+      "alt": "SoundKoja Mix-Fenster mit fünf Kanälen, Pegelanzeigen und geöffnetem 7-Band-EQ auf der Drums-Spur",
+      "caption": "Im Mix-Fenster regelst du Pegel, Panorama und Inserts wie den 7-Band-EQ."
     }
   ],
   "switching": {

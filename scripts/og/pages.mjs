@@ -40,8 +40,6 @@ async function render(out, { eyebrow, title, sub, icon, shot, bar }) {
   await sharp({ create: { width: W, height: H, channels: 3, background: "#ffffff" } }).composite(layers).jpeg({ quality: 84 }).toFile(P(out));
 }
 
-// FilmKoja's screenshots show stills from third-party films: no screenshot in its share images.
-const NO_SHOT = new Set(["film-koja"]);
 const appsDir = path.join(repo, "src/content/apps");
 const names = Object.fromEntries(
   [...fs.readFileSync(path.join(repo, "src/lib/apps.ts"), "utf8").matchAll(/slug: "([a-z-]+)", name: "([A-Za-z]+)"/g)].map((m) => [m[1], m[2]])
@@ -57,13 +55,13 @@ for (const f of fs.readdirSync(appsDir)) {
     title: [...wrap(app.kind, 17), "für Mac und Windows"],
     sub: "3 Tage kostenlos testen · 2,99 € im Monat",
     icon: `apps/${slug}/icon.webp`,
-    shot: NO_SHOT.has(slug) ? null : `apps/${slug}/${app.screenshots[0].file}`,
+    shot: `apps/${slug}/${app.screenshots[0].file}`,
   });
 }
 const artDir = path.join(repo, "src/content/ratgeber");
 for (const f of fs.readdirSync(artDir).filter((f) => f.endsWith(".json"))) {
   const a = JSON.parse(fs.readFileSync(path.join(artDir, f), "utf8"));
-  const appSlug = a.apps?.find((s) => !NO_SHOT.has(s));
+  const appSlug = a.apps?.[0];
   const appJson = appSlug && JSON.parse(fs.readFileSync(path.join(appsDir, `${appSlug}.json`), "utf8"));
   await render(`og/ratgeber/${a.slug}.jpg`, {
     eyebrow: "Ratgeber",
