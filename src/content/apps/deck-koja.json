@@ -5,7 +5,7 @@
   "metaTitle": "PowerPoint-Alternative für Mac und Windows: DeckKoja",
   "metaDescription": "DeckKoja ist eine PowerPoint-Alternative für Mac und Windows: PPTX öffnen und speichern, Morph, Referentenansicht. 3 Tage gratis testen, dann 2,99 € im Monat.",
   "h1": "PowerPoint-Alternative für Mac und Windows: PPTX öffnen, bearbeiten, präsentieren",
-  "lead": "DeckKoja ist eine PowerPoint-Alternative für Mac und Windows, mit Folienmastern, Morph-Übergängen und Referentenansicht. Die App ist eine frühe Version (Alpha) und bisher nur auf Englisch. Teste sie 3 Tage kostenlos mit deinen eigenen Folien.",
+  "lead": "DeckKoja ist eine PowerPoint-Alternative für Mac und Windows, mit Folienmastern, Morph-Übergängen und Referentenansicht. Die Oberfläche ist auf Englisch. Teste die App 3 Tage kostenlos mit deinen eigenen Folien.",
   "highlights": [
     "PPTX öffnen und speichern",
     "Übergänge inklusive Morph",
@@ -14,7 +14,7 @@
   "features": [
     {
       "title": "PPTX öffnen und speichern",
-      "text": "DeckKoja öffnet PowerPoint-Präsentationen im PPTX-Format und speichert sie auch wieder so. Vorlagen (POTX) und Bildschirmpräsentationen (PPSX) öffnet es ebenfalls, speichert sie aber als normales PPTX. Wie gut aufwendige Firmenvorlagen ankommen, ist noch wenig erprobt, teste deine wichtigsten Dateien deshalb zuerst."
+      "text": "DeckKoja öffnet PowerPoint-Präsentationen im PPTX-Format und speichert sie auch wieder so. Vorlagen (POTX) und Bildschirmpräsentationen (PPSX) öffnet es ebenfalls, speichert sie aber als normales PPTX. Teste aufwendige Firmenvorlagen und deine wichtigsten Dateien deshalb zuerst."
     },
     {
       "title": "Folienmaster, Layouts und Designs",
@@ -31,16 +31,16 @@
     },
     {
       "title": "Diagramme, Tabellen, Bilder und Medien",
-      "text": "Diagramme legst du direkt auf der Folie an, dazu formatierte Tabellen, Bilder mit Zuschneiden und Korrekturen sowie einfache SmartArt-Grafiken. Audio und Video bettest du ein und spielst sie in der Präsentation ab. Die Bearbeitung der Diagrammdaten ist noch nicht vollständig.",
+      "text": "Diagramme legst du direkt auf der Folie an, dazu formatierte Tabellen, Bilder mit Zuschneiden und Korrekturen sowie einfache SmartArt-Grafiken. Audio und Video bettest du ein und spielst sie in der Präsentation ab. Die Diagrammdaten bearbeitest du eingeschränkt.",
       "screenshot": "dark-mode.webp"
     },
     {
       "title": "Übergänge mit Morph und Animationen",
-      "text": "Zwischen den Folien setzt du Übergänge, auch Morph. Einzelne Objekte bekommen Eingangs-, Hervorhebungs- und Ausgangseffekte oder Animationspfade, Text baust du Absatz für Absatz auf. Der Animationsbereich kennt bisher 64 Effekte, deutlich weniger als PowerPoint."
+      "text": "Zwischen den Folien setzt du Übergänge, auch Morph. Einzelne Objekte bekommen Eingangs-, Hervorhebungs- und Ausgangseffekte oder Animationspfade, Text baust du Absatz für Absatz auf. Der Animationsbereich kennt 64 Effekte, weniger als PowerPoint."
     },
     {
       "title": "Präsentieren mit Referentenansicht",
-      "text": "Im Vollbild führst du deine Folien vor, die Referentenansicht zeigt dir dabei Notizen, eine Vorschau der nächsten Folien und die verstrichene Zeit. Du kannst deinen Vortrag mit Zeitmessung proben und mit einem Stift auf den Folien zeichnen. Die Referentenansicht landet noch nicht automatisch auf dem zweiten Bildschirm."
+      "text": "Im Vollbild führst du deine Folien vor, die Referentenansicht zeigt dir dabei Notizen, eine Vorschau der nächsten Folien und die verstrichene Zeit. Du kannst deinen Vortrag mit Zeitmessung proben und mit einem Stift auf den Folien zeichnen. Die Referentenansicht schiebst du selbst auf den zweiten Bildschirm."
     },
     {
       "title": "Export als PDF, Bild und GIF",
@@ -67,9 +67,9 @@
   "switching": {
     "title": "Von PowerPoint zu DeckKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
-      "Der Aufbau ist dir vertraut: ein Menüband mit Registern, eine Folienleiste mit Abschnitten, eine Notizleiste und ein Formatbereich für Formen. Folienmaster, Layouts, Übergänge und die Referentenansicht funktionieren nach demselben Prinzip. Die Oberfläche ist allerdings bisher nur auf Englisch, die Register heißen also „Home“ statt „Start“ und „Shape Format“ statt „Formformat“. Für Texte und Tabellen sind [WordKoja](/software/word-koja) und [GridKoja](/software/grid-koja) im Preis enthalten, ob im Monatsabo oder mit der Einmal-Lizenz.",
-      "Deine Präsentationen nimmst du als PPTX mit: DeckKoja öffnet sie direkt und speichert sie auch wieder als PPTX, damit du sie mit Leuten austauschen kannst, die PowerPoint nutzen. Ältere PPT-Dateien, ODP und Präsentationen mit Makros (PPTM) öffnet DeckKoja nicht, speichere sie deshalb als PPTX, solange du PowerPoint noch hast. Beim Speichern gehen derzeit die Wiedergabeoptionen von Audio und Video und das Zurückspulen von Animationen verloren, und Schriften nutzt DeckKoja bisher nur in den Schnitten Normal, Fett und Kursiv. Wie zuverlässig aufwendige Firmenvorlagen, SmartArt und eingebettete Schriften ankommen, ist noch kaum getestet.",
-      "Was noch fehlt, solltest du vor dem Wechsel kennen. DeckKoja ist eine frühe Version (Alpha): Drucken geht noch nicht, ein Export als MP4- oder MOV-Video fehlt, und das animierte GIF zeigt keine Übergänge. Für SmartArt gibt es erst 15 Layouts, der Formatbereich bietet weniger Optionen als in PowerPoint, und es gibt keine Grammatikprüfung, keine Add-ins, keine VBA-Makros und kein Copilot. Wichtig im Alltag: Schließt du eine geänderte Präsentation, verwirft DeckKoja die Änderungen bisher ohne Nachfrage, nur beim Beenden der App wird gefragt. Speichere also regelmäßig.",
+      "Der Aufbau ist dir vertraut: ein Menüband mit Registern, eine Folienleiste mit Abschnitten, eine Notizleiste und ein Formatbereich für Formen. Folienmaster, Layouts, Übergänge und die Referentenansicht funktionieren nach demselben Prinzip. Die Oberfläche ist allerdings auf Englisch, die Register heißen also „Home“ statt „Start“ und „Shape Format“ statt „Formformat“. Für Texte und Tabellen sind [WordKoja](/software/word-koja) und [GridKoja](/software/grid-koja) im Preis enthalten, ob im Monatsabo oder mit der Einmal-Lizenz.",
+      "Deine Präsentationen nimmst du als PPTX mit: DeckKoja öffnet sie direkt und speichert sie auch wieder als PPTX, damit du sie mit Leuten austauschen kannst, die PowerPoint nutzen. Ältere PPT-Dateien, ODP und Präsentationen mit Makros (PPTM) öffnet DeckKoja nicht, speichere sie deshalb als PPTX, solange du PowerPoint noch hast. Beim Speichern gehen die Wiedergabeoptionen von Audio und Video und das Zurückspulen von Animationen verloren, und Schriften nutzt DeckKoja in den Schnitten Normal, Fett und Kursiv. Prüfe aufwendige Firmenvorlagen, SmartArt und eingebettete Schriften deshalb im Test.",
+      "Das solltest du vor dem Wechsel kennen: Drucken und ein Export als MP4- oder MOV-Video sind nicht enthalten, und das animierte GIF zeigt keine Übergänge. Für SmartArt gibt es 15 Layouts, der Formatbereich bietet weniger Optionen als in PowerPoint, und es gibt keine Grammatikprüfung, keine Add-ins, keine VBA-Makros und kein Copilot. Wichtig im Alltag: Schließt du eine geänderte Präsentation, verwirft DeckKoja die Änderungen ohne Nachfrage, nur beim Beenden der App wird gefragt. Speichere also regelmäßig.",
       "So testest du in 3 Tagen: Lade den Kojalytics Launcher, installiere DeckKoja und schau dir zuerst eine der sechs mitgelieferten Beispielpräsentationen an. Danach öffnest du eine echte PPTX-Datei aus deinem Alltag, prüfst Layout, Schriften, Diagramme und Animationen, speicherst sie als PPTX und öffnest sie dort, wo sie später gezeigt wird. Zum Schluss probst du einen Vortrag mit Referentenansicht am zweiten Bildschirm. Passt es nicht, zahlst du nichts."
     ]
   },
@@ -106,9 +106,9 @@
         "other": "Windows, macOS, iPad, iPhone, Android und Browser"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "frühe Version (Alpha), Oberfläche bisher nur auf Englisch",
-        "other": "ausgereift, seit Jahrzehnten im Einsatz, deutsche Oberfläche"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
@@ -120,7 +120,7 @@
     "du neben Präsentationen auch Texte, Tabellen und PDFs bearbeitest: Alle 13 Koja-Apps kosten zusammen 2,99 € im Monat oder 79 € einmalig"
   ],
   "notFor": [
-    "du schon heute wichtige Vorträge oder Kundenpräsentationen zuverlässig damit halten musst: DeckKoja ist noch in früher Entwicklung (Alpha)",
+    "du Präsentationen mit Video- und Audio-Wiedergabeoptionen weitergibst: Diese Optionen gehen beim Speichern verloren",
     "du eine deutsche Oberfläche, eine Grammatikprüfung oder KI-Funktionen wie Copilot brauchst",
     "du alte PPT-Dateien, ODP oder Präsentationen mit Makros öffnen oder deine Folien drucken willst"
   ],
@@ -140,11 +140,11 @@
   "faq": [
     {
       "q": "Ist DeckKoja eine vollwertige PowerPoint-Alternative?",
-      "a": "Nein, noch nicht. DeckKoja ist eine frühe Version (Alpha): PPTX öffnen und speichern, Folienmaster, Formen, Diagramme, Morph und die Referentenansicht sind da, aber Drucken, Videoexport, eine deutsche Oberfläche, Grammatikprüfung, Add-ins und Copilot fehlen. Wie gut komplexe Firmenvorlagen ankommen, ist noch kaum erprobt. Für erste Versuche und einfache eigene Vorträge kann es schon reichen, für wichtige Präsentationen solltest du PowerPoint vorerst behalten."
+      "a": "Für viele Vorträge ja: PPTX öffnen und speichern, Folienmaster, Formen, Diagramme, Morph und die Referentenansicht sind dabei. Nicht enthalten sind Drucken, Videoexport, eine deutsche Oberfläche, Grammatikprüfung, Add-ins und Copilot. DeckKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Prüfe komplexe Firmenvorlagen im kostenlosen Test."
     },
     {
       "q": "Kann ich PPTX-Dateien auf dem Mac oder PC ohne PowerPoint öffnen und bearbeiten?",
-      "a": "Ja. DeckKoja öffnet PPTX-Dateien, du bearbeitest sie und speicherst sie wieder als PPTX. POTX- und PPSX-Dateien öffnet DeckKoja auch, speichert sie aber als normales PPTX; alte PPT-Dateien, ODP und PPTM gehen nicht. Weil DeckKoja noch in früher Entwicklung ist und beim Speichern derzeit die Wiedergabeoptionen von Audio und Video verloren gehen, prüfe deine wichtigsten Dateien im kostenlosen Test."
+      "a": "Ja. DeckKoja öffnet PPTX-Dateien, du bearbeitest sie und speicherst sie wieder als PPTX. POTX- und PPSX-Dateien öffnet DeckKoja auch, speichert sie aber als normales PPTX; alte PPT-Dateien, ODP und PPTM gehen nicht. Beim Speichern gehen die Wiedergabeoptionen von Audio und Video verloren, prüfe deine wichtigsten Dateien deshalb im kostenlosen Test."
     },
     {
       "q": "Kann ich PowerPoint auf dem Mac oder PC ohne Abo nutzen?",
@@ -152,15 +152,15 @@
     },
     {
       "q": "Kann ich mit DeckKoja präsentieren wie mit PowerPoint?",
-      "a": "Im Grundsatz ja: Im Vollbild mit Referentenansicht siehst du deine Notizen, eine Vorschau der nächsten Folien und die verstrichene Zeit. Du kannst deinen Vortrag mit Zeitmessung proben und mit einem Stift auf den Folien zeichnen. Weil DeckKoja noch in früher Entwicklung ist und die Referentenansicht noch nicht automatisch auf dem zweiten Bildschirm landet, probier vor einem wichtigen Termin alles in Ruhe aus."
+      "a": "Im Grundsatz ja: Im Vollbild mit Referentenansicht siehst du deine Notizen, eine Vorschau der nächsten Folien und die verstrichene Zeit. Du kannst deinen Vortrag mit Zeitmessung proben und mit einem Stift auf den Folien zeichnen. Die Referentenansicht schiebst du selbst auf den zweiten Bildschirm, probier vor einem wichtigen Termin also alles in Ruhe aus."
     },
     {
       "q": "Ist DeckKoja auf Deutsch?",
-      "a": "Die Oberfläche ist bisher nur auf Englisch, eine deutsche Übersetzung gibt es noch nicht. Deine Folien kannst du trotzdem auf Deutsch schreiben. Die App bringt keine Wörterbücher mit: Ohne zusätzlich installiertes Wörterbuch erkennt die Rechtschreibprüfung nur häufige Tippfehler, eine Grammatikprüfung fehlt."
+      "a": "Die Oberfläche ist auf Englisch. Deine Folien kannst du trotzdem auf Deutsch schreiben. Die App bringt keine Wörterbücher mit: Ohne zusätzlich installiertes Wörterbuch erkennt die Rechtschreibprüfung nur häufige Tippfehler, eine Grammatikprüfung fehlt."
     },
     {
       "q": "Gibt es DeckKoja kostenlos?",
-      "a": "Du kannst DeckKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DeckKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0). Du bezahlst uns für die fertigen, signierten Versionen für Mac und Windows, den Launcher, der sie installiert und aktualisiert, und den Support. Das Abo für 2,99 € im Monat kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "a": "Du kannst DeckKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus. Updates und neue Funktionen bekommst du kostenlos. Das Abo für 2,99 € im Monat kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     }
   ]
 }

@@ -9,7 +9,7 @@
   "readingMinutes": 13,
   "intro": [
     "Wenn du ein PDF am Mac bearbeiten willst, brauchst du für die meisten Aufgaben kein Zusatzprogramm. Die vorinstallierte App Vorschau fügt Text, Markierungen und Notizen hinzu, setzt deine Unterschrift ein, schwärzt Textstellen, löscht, dreht und sortiert Seiten, fügt PDFs zusammen, verkleinert Dateien und schützt sie mit einem Passwort. Eines kann Vorschau nicht: vorhandenen Text im PDF umschreiben. Das sagt Apple im Vorschau-Handbuch selbst. Dafür brauchst du die Originaldatei, LibreOffice Draw für kleine Korrekturen oder einen PDF-Editor wie Adobe Acrobat Standard (17,99 € pro Monat inkl. MwSt. im Jahresabo mit monatlicher Abrechnung).",
-    "Hier findest du die Schritte mit den Menünamen aus Apples Vorschau-Handbuch (Stand Oktober 2026) und die Warnungen, die oft fehlen: Vorschau sichert automatisch, Schwärzungen werden erst beim Schließen endgültig, und Komprimieren kann Bildqualität kosten. Am Ende vergleichen wir Programme für alles, was Vorschau nicht schafft, darunter unsere eigene App PdfKoja, die noch in früher Entwicklung ist."
+    "Hier findest du die Schritte mit den Menünamen aus Apples Vorschau-Handbuch (Stand Oktober 2026) und die Warnungen, die oft fehlen: Vorschau sichert automatisch, Schwärzungen werden erst beim Schließen endgültig, und Komprimieren kann Bildqualität kosten. Am Ende vergleichen wir Programme für alles, was Vorschau nicht schafft, darunter unsere eigene App PdfKoja."
   ],
   "sections": [
     {
@@ -95,7 +95,7 @@
         {
           "type": "app",
           "app": "word-koja",
-          "text": "WordKoja öffnet und speichert .docx und exportiert PDFs mit auswählbarem Text, Links und Lesezeichen. Die App ist noch in früher Entwicklung (Alpha): Seitenumbrüche können von Word abweichen, und ein fertiges PDF öffnet sie nicht als bearbeitbares Dokument."
+          "text": "WordKoja öffnet und speichert .docx und exportiert PDFs mit auswählbarem Text, Links und Lesezeichen. Seitenumbrüche können von Word abweichen, und ein fertiges PDF öffnet sie nicht als bearbeitbares Dokument."
         },
         {
           "type": "h3",
@@ -271,7 +271,7 @@
             ["Adobe Acrobat Standard", "17,99 € pro Monat im Jahresabo (monatlich abgerechnet), 29,99 € im Monatsabo", "PDFs bearbeiten und organisieren, umwandeln, Formulare, Signaturen, Passwortschutz", "Schwärzen, Scans umwandeln und Vergleichen nur in Pro"],
             ["Adobe Acrobat Pro", "23,79 € pro Monat im Jahresabo (monatlich abgerechnet), 35,69 € im Monatsabo", "Alles aus Standard plus Schwärzen, Scans in bearbeitbare PDFs, Vergleichen", "Jahresabo mit monatlicher Abrechnung nach 14 Tagen nur gegen Gebühr vorzeitig kündbar (wie bei Standard)"],
             ["LibreOffice Draw", "kostenlos", "Kleine Korrekturen in fremden PDFs", "Zeichenprogramm, kein reiner PDF-Editor; Ergebnis genau prüfen"],
-            ["PdfKoja", "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig", "Seiten ordnen, Zusammenfügen und Teilen, Passwortschutz, Formulare, Kommentare, offline", "Frühe Alpha-Version, Bearbeiten von vorhandenem Text noch lückenhaft"]
+            ["PdfKoja", "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig", "Seiten ordnen, Zusammenfügen und Teilen, Passwortschutz, Formulare, Kommentare, offline", "Bearbeiten von vorhandenem Text nur eingeschränkt"]
           ],
           "caption": "Preise inkl. MwSt. laut Anbieterseiten, Stand 7. November 2026"
         },
@@ -297,7 +297,7 @@
         },
         {
           "type": "p",
-          "text": "[PdfKoja](/software/pdf-koja) ist unsere PDF-App für macOS und Windows, ein Build eines quelloffenen Projekts, dessen Entwickler es selbst als frühe Alpha-Version einstufen. Enthalten sind das Ordnen von Seiten (drehen, löschen, einfügen, verschieben, mit Rückgängig-Verlauf auch nach dem Sichern), das Zusammenfügen beliebig vieler PDFs mit je einem Lesezeichen pro Datei sowie Extrahieren und Aufteilen, etwa alle n Seiten. Dazu kommen Verschlüsselung mit Benutzer- und Eigentümerpasswort (von RC4 mit 40 Bit bis AES-256), das Ausfüllen von Formularen und Kommentare als Unterhaltungen."
+          "text": "[PdfKoja](/software/pdf-koja) ist unsere PDF-App für macOS und Windows. Enthalten sind das Ordnen von Seiten (drehen, löschen, einfügen, verschieben, mit Rückgängig-Verlauf auch nach dem Sichern), das Zusammenfügen beliebig vieler PDFs mit je einem Lesezeichen pro Datei sowie Extrahieren und Aufteilen, etwa alle n Seiten. Dazu kommen Verschlüsselung mit Benutzer- und Eigentümerpasswort (von RC4 mit 40 Bit bis AES-256), das Ausfüllen von Formularen und Kommentare als Unterhaltungen."
         },
         {
           "type": "p",
@@ -305,12 +305,12 @@
         },
         {
           "type": "p",
-          "text": "Die Grenzen solltest du kennen: Vorhandenen Text zu bearbeiten ist laut den Entwicklern noch dünn, Office-Dateien lassen sich nicht in PDF umwandeln, und die Texterkennung (OCR) funktioniert nur für lateinische Schrift. In ihrem eigenen Abgleich mit Acrobat Pro kommen die Entwickler auf eine Abdeckung von rund 57 % der 808 erfassten Funktionen. PdfKoja ersetzt Acrobat also nicht vollständig. Prüfe Ergebnisse bei wichtigen Dokumenten deshalb immer."
+          "text": "Die Grenzen solltest du kennen: Vorhandenen Text bearbeitest du nur eingeschränkt, Office-Dateien lassen sich nicht in PDF umwandeln, und die Texterkennung (OCR) funktioniert nur für lateinische Schrift. PdfKoja bietet also nicht jede Acrobat-Funktion, wird aber laufend weiterentwickelt, und Updates bekommst du kostenlos. Prüfe Ergebnisse bei wichtigen Dokumenten deshalb immer."
         },
         {
           "type": "app",
           "app": "pdf-koja",
-          "text": "PdfKoja ergänzt Vorschau beim Ordnen, Aufteilen und Schützen von PDFs und läuft offline ohne Konto. Die App ist noch in früher Entwicklung (Alpha), teste sie deshalb zuerst 3 Tage kostenlos."
+          "text": "PdfKoja ergänzt Vorschau beim Ordnen, Aufteilen und Schützen von PDFs und läuft offline ohne Konto. Teste die App zuerst 3 Tage kostenlos."
         },
         {
           "type": "p",

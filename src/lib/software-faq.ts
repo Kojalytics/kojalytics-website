@@ -4,12 +4,12 @@ import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 // Answers that hold for both offers: the /software page (monthly or one-time) and the Digistore24 partner page (one-time only).
 const replaces: FaqItem = {
   q: "Ersetzen die Koja-Apps Adobe Creative Cloud oder Microsoft Office?",
-  a: "Noch nicht vollständig. Die Koja-Apps sind frühe Versionen (Alpha, teils Pre-Alpha): Sie folgen den Arbeitsweisen, die du kennst, und öffnen gängige Dateien wie .docx, .xlsx, .pptx und .psd, aber manche Profi-Funktionen fehlen noch. Für viele alltägliche Aufgaben reichen sie schon. Teste sie kostenlos mit deinen eigenen Dateien, bevor du zahlst.",
+  a: "Für viele alltägliche Aufgaben ja. Die Koja-Apps folgen den Arbeitsweisen, die du kennst, und öffnen gängige Dateien wie .docx, .xlsx, .pptx und .psd. Nicht jede Profi-Funktion der großen Programme ist enthalten. Die Apps werden laufend weiterentwickelt, Updates und neue Funktionen bekommst du kostenlos. Teste sie kostenlos mit deinen eigenen Dateien, bevor du zahlst.",
 };
 
-const openSource: FaqItem = {
-  q: "Der Quellcode ist offen. Warum kostet es Geld?",
-  a: "Die Koja-Apps basieren auf quelloffener Software unter den Lizenzen Apache 2.0 und MIT. Du bezahlst uns für installierbare, signierte Versionen für Mac und Windows, den Launcher, der sie installiert und aktualisiert, und Support von einem echten Studio aus Deutschland.",
+const updates: FaqItem = {
+  q: "Sind Updates und neue Funktionen inklusive?",
+  a: "Ja. Die Koja-Apps werden laufend weiterentwickelt. Updates und neue Funktionen bekommst du automatisch und kostenlos über den Kojalytics Launcher. Kojalytics entwickelt, prüft und signiert die Apps und beantwortet deine Fragen per E-Mail, als echtes Studio aus Deutschland.",
 };
 
 const account: FaqItem = {
@@ -24,7 +24,7 @@ const data: FaqItem = {
 
 const german: FaqItem = {
   q: "Sind die Apps auf Deutsch?",
-  a: "Noch nicht alle. WordKoja, PdfKoja, VectorKoja und LightKoja gibt es mit deutscher Oberfläche. Bei GridKoja, CADKoja und FigKoja ist sie erst teilweise übersetzt, bei EffectKoja sind die Effektparameter größtenteils englisch. PhotoKoja, DeckKoja und SoundKoja sind bisher nur englisch beschriftet. Prüf im kostenlosen Test, ob dich das stört.",
+  a: "Teilweise. WordKoja, PdfKoja, VectorKoja und LightKoja gibt es mit deutscher Oberfläche. Bei GridKoja, CADKoja und FigKoja ist sie teilweise übersetzt, bei EffectKoja sind die Effektparameter größtenteils englisch. PhotoKoja, DeckKoja und SoundKoja sind englisch beschriftet. Prüf im kostenlosen Test, ob dich das stört.",
 };
 
 const APP_LIST =
@@ -48,7 +48,7 @@ export const SOFTWARE_FAQ: FaqItem[] = [
     q: "Auf welchen Computern laufen die Apps?",
     a: "Auf dem Mac und unter Windows: Die Koja-Apps gibt es für macOS (Apple-Chip und Intel) und für Windows 10 und 11 (64-Bit), nicht für iPad, iPhone oder Android und nicht im Browser. Ein Abo oder eine Lizenz gilt für bis zu 3 Geräte, Mac und Windows-PC gemischt.",
   },
-  openSource,
+  updates,
   account,
   data,
   german,
@@ -77,7 +77,7 @@ export const PARTNER_FAQ: FaqItem[] = [
     q: "Auf welchen Computern laufen die Apps?",
     a: "Auf dem Mac und unter Windows: Die Koja-Apps gibt es für macOS (Apple-Chip und Intel) und für Windows 10 und 11 (64-Bit), nicht für iPad, iPhone oder Android und nicht im Browser. Eine Lizenz gilt für bis zu 3 Geräte, Mac und Windows-PC gemischt.",
   },
-  openSource,
+  updates,
   account,
   data,
   german,

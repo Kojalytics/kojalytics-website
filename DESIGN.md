@@ -45,7 +45,7 @@ Geist Mono (`font-mono`, `.hud`).
   48px tall. `<DownloadButton />` already uses `.btn-primary`. Never add `rounded-*`, `text-base`/`text-lg`
   or padding utilities to buttons.
 - `.link-hud`: mono uppercase text link with `<ArrowUpRight size={14} />` ("Mehr zu PhotoKoja ↗").
-- `.tag`: small bordered mono tag ("Alpha", "macOS"); colour it with `style={{ color, borderColor }}`.
+- `.tag`: small bordered mono tag ("macOS", "Windows"); colour it with `style={{ color, borderColor }}`.
 - `.cells`: a grid whose children share 1px hairlines (gap-px over a border-coloured background). Use it
   for card grids, feature grids, footers: `className="cells border-y border-border md:grid-cols-3"`.
   Children need no own border. Pad cells with `p-6 md:p-8`.
@@ -99,7 +99,11 @@ Geist Mono (`font-mono`, `.hud`).
 - No grey or coloured section backgrounds (`bg-surface` sections are gone): white everywhere.
 - No gradients, glass, blur effects (the header's backdrop blur is the only one).
 - Do not change copy, prices, claims, legal text, metadata, JSON-LD or links when restyling. Legal
-  wording ("jederzeit online kündbar", Alpha status) is deliberate.
-- Never name the upstream project, its team, website or repositories anywhere on the site (owner decision,
-  Nov 2026). The origin sentence names only the licences: "basieren auf quelloffener Software unter den
-  Lizenzen Apache 2.0 und MIT".
+  wording ("jederzeit online kündbar") is deliberate.
+- No Alpha, Pre-Alpha or "frühe Version" wording and no maturity estimates anywhere (owner decision, Nov 2026).
+  Say instead that the apps are continuously developed and that updates and new features are free
+  ("werden laufend weiterentwickelt", "Updates und neue Funktionen bekommst du automatisch und kostenlos").
+- Never mention open source, licences of the underlying code, or the upstream project, its team, website or
+  repositories anywhere on the site (owner decision, Nov 2026). Where the origin needs a sentence, use:
+  "Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und
+  automatischen Updates aus."

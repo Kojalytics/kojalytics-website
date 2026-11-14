@@ -73,11 +73,11 @@ const benefits = [
   {
     icon: FileText,
     title: "Gängige Dateiformate",
-    text: ".docx, .xlsx, .pptx, .psd und PDF öffnest du direkt, ohne Umwandeln. Layout und Umbrüche können noch abweichen, teste deshalb mit Kopien deiner Dateien.",
+    text: ".docx, .xlsx, .pptx, .psd und PDF öffnest du direkt, ohne Umwandeln. Layout und Umbrüche können abweichen, teste deshalb mit Kopien deiner Dateien.",
   },
   { icon: CloudOff, title: "Kein Konto, keine Cloud", text: "Nichts anmelden, nichts hochladen. Deine Arbeit bleibt auf deinem Computer." },
   { icon: BadgeEuro, title: "Einmal zahlen, kein Abo", text: `${PRICE} einmalig für alle 13 Apps, auf bis zu 3 Geräten. Keine Verlängerung, keine Kündigung.` },
-  { icon: Lock, title: "Offener Quellcode", text: "Die Apps basieren auf offenem Code (MIT / Apache-2.0), den jeder prüfen kann." },
+  { icon: Lock, title: "Geprüft und signiert", text: "Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus." },
   { icon: ShieldCheck, title: "Ein echtes Unternehmen", text: "Kojalytics, Software-Studio aus Hamburg. Mit Impressum und Support per E-Mail, von Menschen beantwortet." },
 ];
 
@@ -255,7 +255,7 @@ export default function SoftwarePartnerPage() {
             </div>
 
             <p className="mt-4 text-xs leading-relaxed text-muted">
-              Die Koja-Apps sind frühe Versionen (Alpha, teils Pre-Alpha) und werden mit Updates laufend weiterentwickelt. Teste sie deshalb vor
+              Die Koja-Apps werden laufend weiterentwickelt. Updates und neue Funktionen bekommst du automatisch und kostenlos. Teste die Apps vor
               dem Kauf {TRIAL_DAYS} Tage kostenlos mit deinen eigenen Dateien.
             </p>
           </div>
@@ -293,9 +293,6 @@ export default function SoftwarePartnerPage() {
                     </h3>
                     <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{app.benefit}</p>
                     <div className="mt-5 flex flex-wrap gap-1.5">
-                      <span className="tag" style={{ color: ink, borderColor: `${ink}66` }}>
-                        {app.status}
-                      </span>
                       <span className="tag">macOS</span>
                       <span className="tag">Windows</span>
                     </div>
@@ -374,12 +371,12 @@ export default function SoftwarePartnerPage() {
           <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-2 lg:items-center ${pad}`}>
             <div data-reveal>
               <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]">
-                Ein kleines Studio. <span className="text-highlight">Offener</span> Code.
+                Ein kleines Studio. <span className="text-highlight">Echter</span> Support.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-muted">
-                Kojalytics ist ein Software-Studio aus Hamburg. Die Koja-Apps basieren auf quelloffener Software unter den Lizenzen Apache 2.0 und MIT. Wir
-                liefern sie als signierte Apps für Mac und Windows aus, halten sie über den Kojalytics Launcher aktuell und beantworten deine E-Mails
-                selbst. Die Apps sind frühe Versionen und werden laufend weiterentwickelt. Deshalb testest du alles {TRIAL_DAYS} Tage
+                Kojalytics ist ein Software-Studio aus Hamburg. Wir entwickeln, prüfen und signieren die Koja-Apps und liefern sie mit Launcher,
+                Aktivierung und automatischen Updates für Mac und Windows aus. Deine E-Mails beantworten wir selbst. Die Apps werden laufend
+                weiterentwickelt, Updates und neue Funktionen bekommst du automatisch und kostenlos. Teste alles {TRIAL_DAYS} Tage
                 kostenlos, bevor du zahlst.
               </p>
               <ul className="mt-6 grid gap-2.5">

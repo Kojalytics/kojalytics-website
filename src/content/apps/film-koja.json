@@ -5,7 +5,7 @@
   "metaTitle": "Premiere-Pro-Alternative für Mac und Windows: FilmKoja",
   "metaDescription": "Premiere-Pro-Alternative für Mac und Windows: FilmKoja mit Timeline, Trimmen, Farbe und Ton. 3 Tage kostenlos testen, dann 2,99 € im Monat. Jetzt laden.",
   "h1": "Premiere-Pro-Alternative für Mac und Windows: schneiden, graden, mischen",
-  "lead": "FilmKoja ist eine Premiere-Pro-Alternative für Mac und Windows, mit Quell- und Programmmonitor, Mehrspur-Timeline, Farbkorrektur und Audiomischer. Sequenzen aus Premiere Pro holst du per XML oder AAF herüber. Die App ist eine frühe Version (Alpha), teste sie also 3 Tage kostenlos mit eigenem Material.",
+  "lead": "FilmKoja ist eine Premiere-Pro-Alternative für Mac und Windows, mit Quell- und Programmmonitor, Mehrspur-Timeline, Farbkorrektur und Audiomischer. Sequenzen aus Premiere Pro holst du per XML oder AAF herüber. Teste die App 3 Tage kostenlos mit eigenem Material.",
   "highlights": [
     "Alle Trimm-Modi inkl. J/K/L",
     "Import per FCP XML, AAF, OTIO",
@@ -62,8 +62,8 @@
     "title": "Von Premiere Pro zu FilmKoja auf dem Mac oder PC wechseln",
     "paragraphs": [
       "Das Grundprinzip bleibt gleich: Quell- und Programmmonitor, Bins und eine Mehrspur-Timeline mit Patch- und Ziel-Schaltern. Du setzt In- und Out-Punkte, fügst ein oder überschreibst und trimmst mit Ripple und Roll oder dynamisch mit J, K und L. Im Tastaturkürzel-Editor wählst du die Standardbelegung professioneller Schnittprogramme, Konflikte zeigt er dir direkt an.",
-      "Premiere-Projektdateien (.prproj) kann FilmKoja noch nicht öffnen. Exportiere deine Sequenz in Premiere Pro deshalb als Final-Cut-Pro-XML oder AAF und importiere sie in FilmKoja, das außerdem FCPXML, OpenTimelineIO, EDL und OMF liest. Deine Mediendateien, etwa MP4 oder MOV mit H.264, HEVC oder ProRes sowie MXF mit DNxHR, öffnest du direkt. Prüfe nach dem Import Effekte und Farbkorrekturen genau, denn Austauschformate nehmen nicht jede Einstellung mit.",
-      "Was noch fehlt: FilmKoja ist noch in früher Entwicklung (Alpha). Es gibt keine Plugins (VST3, Audio Units, OpenFX), kein Kamera-RAW und keinen AV1-Export. H.265 exportierst du nur über den Hardware-Encoder deines Macs in 8 Bit SDR. Farbkorrektur und Export-Rendering laufen noch auf dem Prozessor, was bei großem Material bremst. KI-Funktionen gibt es bisher kaum.",
+      "Premiere-Projekte übernimmst du per XML oder AAF; .prproj-Dateien öffnet FilmKoja nicht direkt. Exportiere deine Sequenz in Premiere Pro also als Final-Cut-Pro-XML oder AAF und importiere sie in FilmKoja, das außerdem FCPXML, OpenTimelineIO, EDL und OMF liest. Deine Mediendateien, etwa MP4 oder MOV mit H.264, HEVC oder ProRes sowie MXF mit DNxHR, öffnest du direkt. Prüfe nach dem Import Effekte und Farbkorrekturen genau, denn Austauschformate nehmen nicht jede Einstellung mit.",
+      "Gut zu wissen: Es gibt keine Plugins (VST3, Audio Units, OpenFX), kein Kamera-RAW und keinen AV1-Export. H.265 exportierst du über den Hardware-Encoder deines Macs in 8 Bit SDR. Farbkorrektur und Export-Rendering laufen auf dem Prozessor, was bei großem Material bremst. KI-Funktionen gibt es kaum. FilmKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
       "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere FilmKoja und importiere eine Sequenz aus einem echten Projekt, am besten mit Originaldateien aus deiner Kamera oder deinem Smartphone. Schneide, grade und mische ein kurzes Stück und exportiere es in deinem Zielformat. Danach entscheidest du: 2,99 € im Monat für alle 13 Apps, jederzeit online [kündbar](/kuendigen), oder 79 € einmalig. Wie du ein laufendes Adobe-Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
@@ -100,9 +100,9 @@
         "other": "macOS und Windows"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "Frühe Version (Alpha), noch in Entwicklung",
-        "other": "Ausgereift, seit vielen Jahren im Profi-Einsatz"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
@@ -111,11 +111,10 @@
     "du am Mac oder PC schneidest und mit Quell- und Programmmonitor, Bins und Mehrspur-Timeline arbeiten willst",
     "du für deine Schnittprojekte kein Jahresabo mit Kündigungsgebühr mehr abschließen willst",
     "du Videos für YouTube oder Social Media schneidest und als H.264-MP4 oder ProRes ausgibst",
-    "du ohne Konto und offline arbeiten willst und mit Lücken einer frühen Version umgehen kannst"
+    "du ohne Konto und offline arbeiten willst"
   ],
   "notFor": [
-    "du gerade ein Projekt mit festem Abgabetermin schneidest: FilmKoja ist noch in früher Entwicklung (Alpha)",
-    "du auf Plugins wie VST3, Audio Units oder OpenFX oder auf Kamera-RAW angewiesen bist",
+        "du auf Plugins wie VST3, Audio Units oder OpenFX oder auf Kamera-RAW angewiesen bist",
     "du bestehende .prproj-Projekte direkt öffnen musst"
   ],
   "formats": [
@@ -135,15 +134,15 @@
   "faq": [
     {
       "q": "Ist FilmKoja eine vollwertige Premiere-Pro-Alternative?",
-      "a": "Noch nicht. FilmKoja ist eine frühe Version (Alpha): Laut Projektangaben (Stand: November 2026) liegt die Funktionsbreite nach eigener Schätzung des zugrunde liegenden Open-Source-Projekts bei rund 86 %, die Reife für echte Produktionsarbeit aber erst bei etwa 56 %. Schnitt, Trimmen, Multicam, Farbkorrektur, Keyframes, Titel, Untertitel, Audiomischung und Export funktionieren schon, es fehlen aber unter anderem Plugins, Kamera-RAW und das direkte Öffnen von .prproj-Dateien. Teste FilmKoja deshalb mit deinem eigenen Material, bevor du dich festlegst."
+      "a": "Für viele Projekte ja: Schnitt, Trimmen, Multicam, Farbkorrektur, Keyframes, Titel, Untertitel, Audiomischung und Export sind dabei. Nicht enthalten sind unter anderem Plugins, Kamera-RAW und das direkte Öffnen von .prproj-Dateien. FilmKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Teste FilmKoja deshalb mit deinem eigenen Material, bevor du dich festlegst."
     },
     {
       "q": "Kann ich meine Premiere-Pro-Projekte in FilmKoja öffnen?",
-      "a": "Nicht direkt: .prproj-Dateien öffnet FilmKoja noch nicht. Exportiere die Sequenz in Premiere Pro als Final-Cut-Pro-XML oder AAF und importiere sie in FilmKoja, das außerdem FCPXML, OpenTimelineIO, EDL und OMF liest. Mediendateien wie MP4, MOV und MXF mit H.264, HEVC, ProRes oder DNxHR öffnest du direkt, Kamera-RAW wird noch nicht unterstützt."
+      "a": "Nicht direkt: Premiere-Projekte übernimmst du per XML oder AAF, .prproj-Dateien öffnet FilmKoja nicht. Exportiere die Sequenz in Premiere Pro als Final-Cut-Pro-XML oder AAF und importiere sie in FilmKoja, das außerdem FCPXML, OpenTimelineIO, EDL und OMF liest. Mediendateien wie MP4, MOV und MXF mit H.264, HEVC, ProRes oder DNxHR öffnest du direkt, Kamera-RAW wird nicht unterstützt."
     },
     {
       "q": "In welche Formate exportiert FilmKoja?",
-      "a": "FilmKoja exportiert H.264 als MP4 mit AAC-Ton, Apple ProRes 422 HQ und Motion JPEG als QuickTime sowie DNxHR, ProRes oder H.264 in MXF, außerdem PNG-Sequenzen, animierte GIFs und WAV. H.265 exportierst du über den Hardware-Encoder deines Macs (8 Bit, SDR), AV1 noch gar nicht. Der Export läuft im Hintergrund, du kannst währenddessen weiterschneiden."
+      "a": "FilmKoja exportiert H.264 als MP4 mit AAC-Ton, Apple ProRes 422 HQ und Motion JPEG als QuickTime sowie DNxHR, ProRes oder H.264 in MXF, außerdem PNG-Sequenzen, animierte GIFs und WAV. H.265 exportierst du über den Hardware-Encoder deines Macs (8 Bit, SDR), AV1 nicht. Der Export läuft im Hintergrund, du kannst währenddessen weiterschneiden."
     },
     {
       "q": "Was kostet FilmKoja im Vergleich zu Premiere Pro?",
@@ -155,7 +154,7 @@
     },
     {
       "q": "Läuft FilmKoja ohne Internet und ohne Konto?",
-      "a": "Ja. Du brauchst kein Konto, und nach Download und Aktivierung läuft FilmKoja offline auf deinem Mac oder PC. Videos dekodiert die App mit der Hardware deines Macs (VideoToolbox), Farbkorrektur und Export-Rendering laufen aber noch auf dem Prozessor und können bei großem Material bremsen. FilmKoja läuft unter macOS und Windows, eine Web-Version gibt es nicht."
+      "a": "Ja. Du brauchst kein Konto, und nach Download und Aktivierung läuft FilmKoja offline auf deinem Mac oder PC. Videos dekodiert die App mit der Hardware deines Macs (VideoToolbox), Farbkorrektur und Export-Rendering laufen auf dem Prozessor und können bei großem Material bremsen. FilmKoja läuft unter macOS und Windows, eine Web-Version gibt es nicht."
     }
   ]
 }

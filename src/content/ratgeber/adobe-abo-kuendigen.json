@@ -357,7 +357,7 @@
               "Koja-Apps (13 Apps)",
               "2,99 € pro Monat oder 79 € einmalig",
               "macOS und Windows, bis zu 3 Geräte",
-              "viele Adobe-Bereiche in einem Paket, aber frühe Versionen in Entwicklung"
+              "viele Adobe-Bereiche in einem Paket, aber nicht jede Adobe-Funktion"
             ],
             [
               "Zum Vergleich: Adobe Creative Cloud Pro",
@@ -370,21 +370,21 @@
         },
         {
           "type": "p",
-          "text": "Die Koja-Apps bieten wir selbst an, deshalb ganz offen: Die 13 Apps für macOS und Windows sind Builds quelloffener Projekte und alle noch in früher Entwicklung. Für manche Aufgaben reichen sie vielleicht schon, die Adobe-Programme ersetzen sie aber nicht vollständig."
+          "text": "Die Koja-Apps bieten wir selbst an, deshalb ganz offen: Die 13 Apps für macOS und Windows werden laufend weiterentwickelt, Updates und neue Funktionen bekommst du kostenlos. Für viele Aufgaben reichen sie, jede Funktion der Adobe-Programme bieten sie aber nicht."
         },
         {
           "type": "app",
           "app": "photo-koja",
-          "text": "Für alle, die Photoshop gewohnt sind: PhotoKoja öffnet und speichert Photoshop-Dateien (PSD/PSB) mit Ebenen und bringt 16 Einstellungsebenen, Ebenenstile und Masken mit. Noch eine frühe Alpha-Version, ohne generative KI, und laut den Entwicklern fehlen noch 15 Photoshop-Werkzeuge."
+          "text": "Für alle, die Photoshop gewohnt sind: PhotoKoja öffnet und speichert Photoshop-Dateien (PSD/PSB) mit Ebenen und bringt 16 Einstellungsebenen, Ebenenstile und Masken mit. Generative KI und 15 Photoshop-Werkzeuge sind nicht enthalten."
         },
         {
           "type": "app",
           "app": "light-koja",
-          "text": "LightKoja ist Fotoverwaltung und Raw-Entwickler in einem, arbeitet nicht-destruktiv und liest XMP-Filialdateien mit Camera-Raw-Entwicklungseinstellungen. Noch Alpha: Unter anderem fehlt eine gemessene Kamerafarbkalibrierung, prüf deine Bearbeitungen also an ein paar Fotos."
+          "text": "LightKoja ist Fotoverwaltung und Raw-Entwickler in einem, arbeitet nicht-destruktiv und liest XMP-Filialdateien mit Camera-Raw-Entwicklungseinstellungen. Eine gemessene Kamerafarbkalibrierung ist nicht enthalten, prüf deine Bearbeitungen also an ein paar Fotos."
         },
         {
           "type": "p",
-          "text": "Für Vektorgrafik gibt es [VectorKoja](/software/vector-koja). Es öffnet SVG, PDF und PDF-kompatible .ai-Dateien, der Austausch echter Illustrator-Dateien ist laut den Entwicklern aber noch nicht zuverlässig. [FilmKoja](/software/film-koja) importiert Schnittfolgen als Final Cut Pro XML, AAF oder OpenTimelineIO, öffnet aber keine Premiere-Projektdateien (.prproj). Für PDFs gibt es [PdfKoja](/software/pdf-koja). [DesignKoja](/software/design-koja) kann IDML öffnen, ist aber noch im Vor-Alpha-Stadium und für echte Projekte noch nicht zu empfehlen."
+          "text": "Für Vektorgrafik gibt es [VectorKoja](/software/vector-koja). Es öffnet SVG, PDF und PDF-kompatible .ai-Dateien, bei echten Illustrator-Dateien kommt die Ebenenstruktur aber nicht vollständig an. [FilmKoja](/software/film-koja) importiert Schnittfolgen als Final Cut Pro XML, AAF oder OpenTimelineIO, öffnet aber keine Premiere-Projektdateien (.prproj). Für PDFs gibt es [PdfKoja](/software/pdf-koja). [DesignKoja](/software/design-koja) öffnet IDML, prüfe deine Layouts aber vorab im Test."
         },
         {
           "type": "p",

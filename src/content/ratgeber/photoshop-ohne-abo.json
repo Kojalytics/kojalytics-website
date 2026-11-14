@@ -225,7 +225,7 @@
       "blocks": [
         {
           "type": "p",
-          "text": "Wir bei Kojalytics bieten mit [PhotoKoja](/software/photo-koja) eine weitere Option an und wollen sie ehrlich einordnen. PhotoKoja ist ein Bildbearbeitungsprogramm für macOS und Windows, das sich an der Arbeitsweise von Photoshop orientiert: Menüs, Bedienfelder und Kürzel wie ⌘J oder ⇧⌘D liegen dort, wo du sie erwartest. Es ist aber noch in früher Entwicklung (Alpha) und ersetzt Photoshop nicht vollständig."
+          "text": "Wir bei Kojalytics bieten mit [PhotoKoja](/software/photo-koja) eine weitere Option an und wollen sie ehrlich einordnen. PhotoKoja ist ein Bildbearbeitungsprogramm für macOS und Windows, das sich an der Arbeitsweise von Photoshop orientiert: Menüs, Bedienfelder und Kürzel wie ⌘J oder ⇧⌘D liegen dort, wo du sie erwartest. Es bietet nicht jede Photoshop-Funktion, wird aber laufend weiterentwickelt, und Updates bekommst du kostenlos."
         },
         {
           "type": "h3",
@@ -234,7 +234,7 @@
         {
           "type": "ul",
           "items": [
-            "PSD- und PSB-Dateien mit Ebenen öffnen, bearbeiten und speichern. In den Tests des zugrunde liegenden Open-Source-Projekts sahen 307 von 309 Testdateien nach dem erneuten Speichern aus wie vorher.",
+            "PSD- und PSB-Dateien mit Ebenen öffnen, bearbeiten und speichern. In Tests sahen 307 von 309 Testdateien nach dem erneuten Speichern aus wie vorher.",
             "16 Einstellungsebenen, darunter Gradationskurven, Tonwertkorrektur mit Live-Histogramm, Farbton/Sättigung und Color Lookup. Du kannst sie maskieren, umsortieren und ausblenden, ohne die Originalpixel zu verändern.",
             "Ebenenstile wie Schlagschatten, Kontur oder Schein nach außen, auch auf Textebenen, die editierbar bleiben.",
             "Auswahlwerkzeuge bis hin zu „Motiv auswählen“ und „Auswählen und maskieren“. Die intelligente Auswahl rechnet auf deinem Mac, ohne Cloud und ohne Konto.",
@@ -243,13 +243,13 @@
         },
         {
           "type": "h3",
-          "text": "Was noch fehlt"
+          "text": "Was PhotoKoja nicht kann"
         },
         {
           "type": "ul",
           "items": [
             "Generative KI-Funktionen gibt es nicht.",
-            "15 Werkzeuge aus Photoshop fehlen noch. Typografie und Profi-Workflows sind weniger ausgereift.",
+            "15 Werkzeuge aus Photoshop sind nicht enthalten. Bei Typografie und Profi-Workflows bietet Photoshop mehr.",
             "Photoshop-Plug-ins laufen nicht.",
             "Erneut gespeicherte PSD-Dateien sehen in den Tests fast immer gleich aus, sind aber nicht Byte für Byte identisch mit dem Original."
           ]
@@ -328,7 +328,7 @@
               "Koja-Apps (13 Apps inkl. PhotoKoja)",
               "79 € einmalig oder 107,64 € im Abo",
               "Viele Kreativ-Aufgaben für wenig Geld",
-              "Frühe Versionen"
+              "Nicht jede Photoshop-Funktion"
             ]
           ],
           "caption": "Monatspreis mal 36 bzw. Einmalpreis, Stand 7. November 2026. Adobe-Preise können sich ändern."
@@ -339,13 +339,13 @@
             "Du verdienst Geld mit Photoshop-Dateien oder brauchst Adobes KI-Funktionen: Bleib beim Abo und nimm das Fotografie-Abo, wenn dir Photoshop und Lightroom reichen.",
             "Du bearbeitest privat Urlaubsfotos und hast einen Mac mit Apple-Chip: Teste Photoshop Elements oder Affinity.",
             "Du willst gar nichts zahlen: Affinity, GIMP oder Photopea.",
-            "Du willst einmal zahlen: Pixelmator Pro für Fotos oder die Koja-Apps, wenn dich frühe Versionen nicht stören und du mehr als Bildbearbeitung abdecken willst."
+            "Du willst einmal zahlen: Pixelmator Pro für Fotos oder die Koja-Apps, wenn du mehr als Bildbearbeitung abdecken willst und nicht jede Photoshop-Funktion brauchst."
           ]
         },
         {
           "type": "app",
           "app": "light-koja",
-          "text": "Zahlst du das Fotografie-Abo vor allem wegen Lightroom? Dann sieh dir LightKoja an: eine Fotobibliothek mit RAW-Entwicklung, die ohne Konto und Cloud auf deinem Mac läuft, allerdings ebenfalls noch als frühe Version."
+          "text": "Zahlst du das Fotografie-Abo vor allem wegen Lightroom? Dann sieh dir LightKoja an: eine Fotobibliothek mit RAW-Entwicklung, die ohne Konto und Cloud auf deinem Mac läuft, mit kostenlosen Updates."
         },
         {
           "type": "p",

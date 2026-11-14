@@ -223,7 +223,7 @@ ${d.paidCents !== null ? row(d.subscription && discounted ? 'Bezahlt (erster Mon
 ${row('Kaufdatum', day(d.date))}
 ${row('E-Mail', `<span style="word-break:break-all;">${esc(d.email)}</span>`)}
 </table>
-<p style="margin:12px 0 0 0;font-size:13px;line-height:1.6;color:${MUTED};">Alle Preise inkl. MwSt.${d.subscription ? ` Danach ${plan.label} pro Monat.` : ''} Die Koja-Apps sind frühe Versionen (Alpha, teils Pre-Alpha), die mit Updates laufend weiterentwickelt werden.</p>
+<p style="margin:12px 0 0 0;font-size:13px;line-height:1.6;color:${MUTED};">Alle Preise inkl. MwSt.${d.subscription ? ` Danach ${plan.label} pro Monat.` : ''} Die Koja-Apps werden laufend weiterentwickelt. Updates und neue Funktionen bekommst du automatisch und kostenlos.</p>
 </td></tr>
 
 <tr><td class="px" style="padding:36px 32px 34px 32px;">
@@ -268,7 +268,7 @@ ${row('E-Mail', `<span style="word-break:break-all;">${esc(d.email)}</span>`)}
         ? ` Mit Rabattcode${d.code ? ` ${d.code}` : ''} bezahlt: ${euro(d.paidCents)}${d.subscription ? ' für den ersten Abrechnungszeitraum' : ''}.`
         : ''),
     `Kaufdatum: ${day(d.date)}`,
-    'Die Koja-Apps sind frühe Versionen (Alpha, teils Pre-Alpha), die mit Updates laufend weiterentwickelt werden.',
+    'Die Koja-Apps werden laufend weiterentwickelt. Updates und neue Funktionen bekommst du automatisch und kostenlos.',
     '',
     `Es gelten unsere AGB mit Widerrufsbelehrung: ${SITE}/agb`,
     `Widerruf erklären: ${SITE}/widerrufen`,

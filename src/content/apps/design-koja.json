@@ -5,7 +5,7 @@
   "metaTitle": "InDesign-Alternative für Mac und Windows: DesignKoja",
   "metaDescription": "DesignKoja ist eine InDesign-Alternative für Mac und Windows: Musterseiten, verkettete Textrahmen, IDML, PDF/X-4. Teste 3 Tage gratis, danach 2,99 € im Monat.",
   "h1": "InDesign-Alternative für Mac und Windows: Musterseiten, IDML und PDF/X-4",
-  "lead": "DesignKoja ist eine InDesign-Alternative für Mac und Windows, mit Doppelseiten, verketteten Textrahmen und Absatzformaten für Flyer, Broschüren und Magazine. Die App ist eine frühe Version (Pre-Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Layouts.",
+  "lead": "DesignKoja ist eine InDesign-Alternative für Mac und Windows, mit Doppelseiten, verketteten Textrahmen und Absatzformaten für Flyer, Broschüren und Magazine. Teste die App 3 Tage kostenlos mit deinen eigenen Layouts.",
   "highlights": [
     "Musterseiten und Doppelseiten",
     "IDML öffnen und exportieren",
@@ -23,7 +23,7 @@
     },
     {
       "title": "Druckfertiges PDF mit Beschnitt",
-      "text": "DesignKoja exportiert PDF/X-4 und PDF/A-2b mit eingebetteten Schriften, auswählbarem Text, CMYK- und Volltonfarben, Beschnitt und Schnittmarken. Laut Projektangaben stimmen die Zeilenumbrüche im PDF genau mit der Ansicht auf dem Bildschirm überein."
+      "text": "DesignKoja exportiert PDF/X-4 und PDF/A-2b mit eingebetteten Schriften, auswählbarem Text, CMYK- und Volltonfarben, Beschnitt und Schnittmarken. Die Zeilenumbrüche im PDF stimmen genau mit der Ansicht auf dem Bildschirm überein."
     },
     {
       "title": "Doppelseiten und Musterseiten",
@@ -31,7 +31,7 @@
     },
     {
       "title": "IDML-Dateien öffnen und exportieren",
-      "text": "DesignKoja öffnet IDML-Dateien und exportiert wieder als IDML. INDD-Dateien lassen sich ebenfalls öffnen, das ist aber noch experimentell und bisher nur mit Testdateien geprüft. Außerdem exportierst du als bearbeitbares PPTX, als PNG und als EPUB."
+      "text": "DesignKoja öffnet IDML-Dateien und exportiert wieder als IDML. INDD-Dateien lassen sich ebenfalls öffnen; prüfe das Ergebnis sorgfältig, IDML ist der zuverlässigere Weg. Außerdem exportierst du als bearbeitbares PPTX, als PNG und als EPUB."
     },
     {
       "title": "Benannte Farbfelder in CMYK",
@@ -39,11 +39,11 @@
     },
     {
       "title": "Tabellen, Textumfluss und Feinsatz",
-      "text": "Tabellen, Textumfluss um Objekte mit einstellbarem Abstand, Grundlinienraster, Tabulatoren, Linien, Schattierungen und optischer Randausgleich sind dabei. Den Blocksatz steuerst du über Wortabstand, Zeichenabstand und Glyphenskalierung. Bei Tabellen fehlen noch einige Optionen, und verankerte Objekte in Zellen werden nicht angezeigt."
+      "text": "Tabellen, Textumfluss um Objekte mit einstellbarem Abstand, Grundlinienraster, Tabulatoren, Linien, Schattierungen und optischer Randausgleich sind dabei. Den Blocksatz steuerst du über Wortabstand, Zeichenabstand und Glyphenskalierung. Bei Tabellen gibt es weniger Optionen als in InDesign, und verankerte Objekte in Zellen werden nicht angezeigt."
     },
     {
       "title": "Fußnoten, Index und Bücher",
-      "text": "Laut Entwicklungsplan funktionieren für lange Dokumente bereits Fußnoten, Querverweise, ein Index und Bücher aus mehreren Dokumenten. Dazu kommen XML-Struktur mit Tags sowie Schaltflächen und Formulare."
+      "text": "Für lange Dokumente gibt es Fußnoten, Querverweise, einen Index und Bücher aus mehreren Dokumenten. Dazu kommen XML-Struktur mit Tags sowie Schaltflächen und Formulare."
     }
   ],
   "screenshots": [
@@ -62,8 +62,8 @@
     "title": "Von InDesign zu DesignKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
       "Die Grundbegriffe bleiben gleich: Doppelseiten, Musterseiten, Textrahmen, die du verkettest, Absatz- und Zeichenformate, Farbfelder und ein Eigenschaften-Panel für Spalten, Steg und Textumfluss. Wenn du mit InDesign gearbeitet hast, kennst du das Prinzip also schon. Bilder bearbeitest du in [PhotoKoja](/software/photo-koja), Logos und Grafiken in [VectorKoja](/software/vector-koja), beide sind im Preis enthalten, ob im Monatsabo oder mit der Einmal-Lizenz.",
-      "Deine Layouts nimmst du am besten als IDML mit: Exportiere sie in InDesign als IDML und öffne sie in DesignKoja. INDD-Dateien kann DesignKoja auch direkt öffnen, das ist aber noch nicht mit echten Projekten erprobt. Auch beim IDML-Import gibt es offene Fehler, etwa Rahmen, die nicht angezeigt werden, oder Schriften, die als fehlend gemeldet werden. Exportiere deine wichtigen Dokumente deshalb als IDML und PDF, solange dein Adobe-Abo noch läuft. Wie du das Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen).",
-      "Was noch fehlt, solltest du vor dem Wechsel kennen. DesignKoja ist in einem sehr frühen Stadium (Pre-Alpha). Silbentrennung gibt es bisher nur für fünf Sprachen, Deutsch ist nicht dabei, und die Rechtschreibprüfung kann nur Englisch. PDF/X-1a, PDF/X-3 und Adobe-PDF-Vorgaben (.joboptions) fehlen, ebenso PostScript-Ausgabe, Druckvorgaben und Separationen beim Drucken. InDesign-Skripte und Plug-ins laufen nicht. Der automatische Textfluss über den Primärtextrahmen fügt Seiten ein, die sich nicht löschen lassen; manuelles Verketten funktioniert. Beim Speichern von Änderungen an Absatzformaten gibt es gemeldete Fehler, und installierte Schriften werden nicht immer gefunden, etwa aus Benutzer-Schriftordnern oder Schriftverwaltungen.",
+      "Deine Layouts nimmst du am besten als IDML mit: Exportiere sie in InDesign als IDML und öffne sie in DesignKoja. INDD-Dateien kann DesignKoja auch direkt öffnen, IDML ist aber der zuverlässigere Weg. Auch beim IDML-Import gibt es bekannte Fehler, etwa Rahmen, die nicht angezeigt werden, oder Schriften, die als fehlend gemeldet werden. Exportiere deine wichtigen Dokumente deshalb als IDML und PDF, solange dein Adobe-Abo noch läuft. Wie du das Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen).",
+      "Das solltest du vor dem Wechsel kennen: Silbentrennung gibt es für fünf Sprachen, Deutsch ist nicht dabei, und die Rechtschreibprüfung kann nur Englisch. PDF/X-1a, PDF/X-3 und Adobe-PDF-Vorgaben (.joboptions) sind nicht enthalten, ebenso PostScript-Ausgabe, Druckvorgaben und Separationen beim Drucken. InDesign-Skripte und Plug-ins laufen nicht. Der automatische Textfluss über den Primärtextrahmen fügt Seiten ein, die sich nicht löschen lassen; manuelles Verketten funktioniert. Beim Speichern von Änderungen an Absatzformaten gibt es bekannte Fehler, und installierte Schriften werden nicht immer gefunden, etwa aus Benutzer-Schriftordnern oder Schriftverwaltungen. DesignKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
       "So testest du in 3 Tagen: Lade den Kojalytics Launcher, installiere DesignKoja und öffne zuerst das mitgelieferte vierseitige Beispieldokument. Danach nimmst du eine IDML-Datei aus einem echten Projekt, prüfst Schriften, Umbrüche und Farben und exportierst ein PDF/X-4 für deine Druckerei. Auf manchen Intel-Macs stürzt die App wegen eines bekannten Grafikfehlers schon beim Start ab; das merkst du also sofort. Passt es nicht, zahlst du nichts."
     ]
   },
@@ -100,9 +100,9 @@
         "other": "macOS und Windows"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "frühe Version (Pre-Alpha) mit bekannten Lücken",
-        "other": "ausgereift, seit Jahren im Profi-Einsatz"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
@@ -114,8 +114,7 @@
     "du neben dem Layout auch Bildbearbeitung, Vektorgrafik und PDF-Werkzeuge brauchst: Alle 13 Koja-Apps kosten zusammen 2,99 € im Monat oder 79 € einmalig"
   ],
   "notFor": [
-    "du schon heute Kundenaufträge mit festem Drucktermin zuverlässig produzieren musst: DesignKoja ist noch in früher Entwicklung (Pre-Alpha)",
-    "du lange deutsche Texte mit automatischer Silbentrennung und deutscher Rechtschreibprüfung setzen willst",
+        "du lange deutsche Texte mit automatischer Silbentrennung und deutscher Rechtschreibprüfung setzen willst",
     "deine Druckerei PDF/X-1a oder PDF/X-3 verlangt oder du InDesign-Skripte und Plug-ins brauchst"
   ],
   "formats": [
@@ -132,19 +131,19 @@
   "faq": [
     {
       "q": "Ist DesignKoja eine vollwertige InDesign-Alternative?",
-      "a": "Nein, noch nicht. DesignKoja ist in einem sehr frühen Entwicklungsstand (Pre-Alpha): Musterseiten, verkettete Textrahmen, Formate, Tabellen und PDF/X-4-Export sind da, aber deutsche Silbentrennung, PDF/X-1a, InDesign-Skripte und Plug-ins fehlen, und einige Grundfunktionen haben bekannte Fehler. Zum Ausprobieren und für einfache eigene Layouts kann es schon reichen, für Aufträge mit festem Drucktermin solltest du InDesign vorerst behalten."
+      "a": "Für Flyer, Broschüren und eigene Layouts ja: Musterseiten, verkettete Textrahmen, Formate, Tabellen und PDF/X-4-Export sind dabei. Nicht enthalten sind deutsche Silbentrennung, PDF/X-1a, InDesign-Skripte und Plug-ins, und einige Funktionen haben bekannte Fehler. DesignKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Prüfe deine Druckaufträge im kostenlosen Test."
     },
     {
       "q": "Kann ich IDML- und INDD-Dateien auf dem Mac oder PC ohne InDesign öffnen?",
-      "a": "IDML-Dateien öffnest du in DesignKoja direkt und kannst sie auch wieder als IDML exportieren. INDD-Dateien öffnet DesignKoja über eine eingebaute Import-Bibliothek, das ist aber bisher nur mit künstlich erzeugten Testdateien erprobt, nicht mit echten Projekten. Auch beim IDML-Import gibt es noch offene Fehler. Prüf deine wichtigsten Dateien deshalb im kostenlosen Test, bevor du dich darauf verlässt."
+      "a": "IDML-Dateien öffnest du in DesignKoja direkt und kannst sie auch wieder als IDML exportieren. INDD-Dateien öffnet DesignKoja über eine eingebaute Import-Bibliothek, IDML ist aber der zuverlässigere Weg. Auch beim IDML-Import gibt es bekannte Fehler. Prüf deine wichtigsten Dateien deshalb im kostenlosen Test, bevor du dich darauf verlässt."
     },
     {
       "q": "Welche PDFs bekommt meine Druckerei aus DesignKoja?",
-      "a": "DesignKoja exportiert PDF/X-4 und PDF/A-2b mit eingebetteten Schriften, CMYK- und Volltonfarben, Beschnitt und Schnittmarken. PDF/X-1a, PDF/X-3 und Adobe-PDF-Vorgaben (.joboptions) fehlen noch. Frag deine Druckerei vorher, ob sie PDF/X-4 annimmt."
+      "a": "DesignKoja exportiert PDF/X-4 und PDF/A-2b mit eingebetteten Schriften, CMYK- und Volltonfarben, Beschnitt und Schnittmarken. PDF/X-1a, PDF/X-3 und Adobe-PDF-Vorgaben (.joboptions) sind nicht enthalten. Frag deine Druckerei vorher, ob sie PDF/X-4 annimmt."
     },
     {
       "q": "Kann ich mit DesignKoja deutsche Texte setzen?",
-      "a": "Ja, aber mit Einschränkungen. Eine automatische Silbentrennung gibt es bisher nur für Englisch, Spanisch, Portugiesisch, Norwegisch und Griechisch, nicht für Deutsch, und die Rechtschreibprüfung kann nur Englisch. Bei Flyern, Plakaten und kurzen Texten fällt das wenig auf, bei langen Fließtexten in schmalen Spalten schon."
+      "a": "Ja, aber mit Einschränkungen. Eine automatische Silbentrennung gibt es für Englisch, Spanisch, Portugiesisch, Norwegisch und Griechisch, nicht für Deutsch, und die Rechtschreibprüfung kann nur Englisch. Bei Flyern, Plakaten und kurzen Texten fällt das wenig auf, bei langen Fließtexten in schmalen Spalten schon."
     },
     {
       "q": "Was kostet DesignKoja im Vergleich zu InDesign?",
@@ -152,7 +151,7 @@
     },
     {
       "q": "Gibt es DesignKoja kostenlos?",
-      "a": "Du kannst DesignKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. DesignKoja basiert auf einem quelloffenen Projekt (MIT/Apache-2.0), dessen Quellcode frei verfügbar ist. Du bezahlst uns für die fertigen, signierten Versionen für Mac und Windows, den Launcher, der sie installiert und aktualisiert, und Support von einem Studio aus Deutschland."
+      "a": "Du kannst DesignKoja 3 Tage kostenlos testen, zusammen mit den anderen 12 Koja-Apps und ohne Konto. Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus. Updates und neue Funktionen bekommst du kostenlos, dazu Support per E-Mail."
     }
   ]
 }

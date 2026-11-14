@@ -72,10 +72,10 @@ export default function TermsPage() {
                 und verursacht keine Kosten.
               </P>
               <P>
-                <strong className="text-foreground">Frühe Versionen:</strong> Die Koja-Apps befinden sich in einem frühen
-                Entwicklungsstadium (Alpha, einzelne Apps Pre-Alpha). Einige Funktionen fehlen noch, Fehler und Abstürze sind
-                möglich, und die Apps erfüllen nicht in jeder Hinsicht die Erwartungen an fertige Software. Wir entwickeln sie mit
-                Updates laufend weiter. Sichere deine Dateien regelmäßig.
+                <strong className="text-foreground">Weiterentwicklung:</strong> Wir entwickeln die Koja-Apps laufend weiter.
+                Updates und neue Funktionen erhältst du ohne Aufpreis über den Kojalytics Launcher, beim Monatsabo und bei der
+                dauerhaften Lizenz. Den Funktionsumfang der einzelnen Apps beschreiben die Produktseiten auf kojalytics.com.
+                Sichere deine Dateien regelmäßig.
               </P>
             </Section>
 
@@ -148,8 +148,8 @@ export default function TermsPage() {
 
             <Section title="7. Gewährleistung und Aktualisierungen">
               <P>
-                Es gelten die gesetzlichen Mängelrechte für digitale Produkte (§§ 327 ff. BGB), unter Berücksichtigung des in
-                Abschnitt 2 vereinbarten Entwicklungsstands.
+                Es gelten die gesetzlichen Mängelrechte für digitale Produkte (§§ 327 ff. BGB), unter Berücksichtigung der in
+                Abschnitt 2 beschriebenen Leistungen.
               </P>
               <P>
                 Wir stellen dir Aktualisierungen bereit, einschließlich Sicherheitsaktualisierungen, die für den Erhalt der
@@ -241,14 +241,14 @@ export default function TermsPage() {
           </Section>
         </section>
 
-        {/* 05 Open source and final provisions */}
+        {/* 05 Third-party components and final provisions */}
         <section className="rail crosshairs">
           <SectionBar index="05" label="Schlussbestimmungen" meta="Abschnitte 11–12" />
           <div className="divide-y divide-border">
-            <Section title="11. Open-Source-Software">
+            <Section title="11. Komponenten Dritter">
               <P>
-                Die Koja-Apps basieren auf Open-Source-Software, die unter den Lizenzen Apache 2.0 und MIT veröffentlicht
-                ist. Diese Lizenzen gelten für den Quellcode und bleiben von diesen AGB unberührt.
+                Die Software kann Komponenten Dritter enthalten; deren Lizenzbedingungen liegen der jeweiligen App bei und
+                bleiben unberührt.
               </P>
             </Section>
 

@@ -9,7 +9,7 @@
   "readingMinutes": 13,
   "intro": [
     "Lightroom gibt es nur noch im Abo: Adobe verkauft keine Kaufversion mehr, Lightroom 6 wurde eingestellt. Eine Lightroom-Alternative ohne Abo findest du am Mac trotzdem: **darktable** ist kostenlos und Open Source, **Apple Fotos** ist schon installiert, und **Affinity** ist für Einzelpersonen kostenlos. Zum Festpreis bekommst du unter anderem **Pixelmator Pro** für 59,99 €, **DxO PhotoLab 10 Elite** für 249,99 € und **Capture One Pro** als Lizenz für 391 €.",
-    "In diesem Ratgeber erfährst du, was mit deinem Lightroom-Katalog nach der Kündigung passiert, worauf es bei der Wahl ankommt und wie du ohne Datenverlust umziehst. Dazu gibt es eine Vergleichstabelle und Empfehlungen je nach Fotografen-Typ. Auch unsere eigene App LightKoja kommt vor, mit einem klaren Hinweis: Sie ist noch in früher Entwicklung."
+    "In diesem Ratgeber erfährst du, was mit deinem Lightroom-Katalog nach der Kündigung passiert, worauf es bei der Wahl ankommt und wie du ohne Datenverlust umziehst. Dazu gibt es eine Vergleichstabelle und Empfehlungen je nach Fotografen-Typ. Auch unsere eigene App LightKoja kommt vor, mit einer ehrlichen Einordnung ihrer Grenzen."
   ],
   "sections": [
     {
@@ -163,11 +163,11 @@
     },
     {
       "id": "lightkoja",
-      "h2": "LightKoja: Bibliothek und RAW-Entwicklung, aber noch früh",
+      "h2": "LightKoja: Bibliothek und RAW-Entwicklung in einer App",
       "blocks": [
         {
           "type": "p",
-          "text": "[LightKoja](/software/light-koja) ist unsere App für Fotobibliothek und RAW-Entwicklung auf dem Mac, ein Build eines quelloffenen Projekts. Zu den Grundreglern gehören Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz. Alles läuft lokal, ohne Konto und ohne Cloud, und deine Originale bleiben unverändert."
+          "text": "[LightKoja](/software/light-koja) ist unsere App für Fotobibliothek und RAW-Entwicklung auf dem Mac. Zu den Grundreglern gehören Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz. Alles läuft lokal, ohne Konto und ohne Cloud, und deine Originale bleiben unverändert."
         },
         {
           "type": "ul",
@@ -183,12 +183,12 @@
         },
         {
           "type": "p",
-          "text": "Dazu gehört eine ehrliche Einordnung: LightKoja ist noch in früher Entwicklung (Alpha). Das zugrunde liegende Open-Source-Projekt schätzt selbst, dass nach Anzahl rund 82 % der Funktionen umgesetzt sind. Die Alltagstauglichkeit für typische Berufsfotografen beziffert es auf etwa 51 %. Für Sony, Nikon, Panasonic, Fujifilm und Canon CR3 sind die Kamerafarben noch geschätzt statt gemessen, eigene Objektivprofile gibt es noch nicht, und KI-Entrauschen braucht separat installierte Modelle. Generatives Füllen, Super-Auflösung, Videobearbeitung und die Module Karte und Buch fehlen."
+          "text": "Dazu gehört eine ehrliche Einordnung: Für Sony, Nikon, Panasonic, Fujifilm und Canon CR3 sind die Kamerafarben geschätzt statt gemessen, eigene Objektivprofile gibt es nicht, und KI-Entrauschen braucht separat installierte Modelle. Generatives Füllen, Super-Auflösung, Videobearbeitung und die Module Karte und Buch sind nicht enthalten. LightKoja wird laufend weiterentwickelt, Updates und neue Funktionen bekommst du automatisch und kostenlos."
         },
         {
           "type": "app",
           "app": "light-koja",
-          "text": "Wenn du Bibliothek und RAW-Entwicklung in einer App suchst und mit einer frühen Version leben kannst, ist LightKoja einen Test wert. Probier es mit der Kopie eines echten Shootings deiner Kamera aus."
+          "text": "Wenn du Bibliothek und RAW-Entwicklung in einer App suchst, ist LightKoja einen Test wert. Probier es mit der Kopie eines echten Shootings deiner Kamera aus."
         },
         {
           "type": "p",
@@ -201,7 +201,7 @@
         {
           "type": "app",
           "app": "photo-koja",
-          "text": "PhotoKoja öffnet und speichert Photoshop-Dateien mit Ebenen und bietet Einstellungsebenen, Ebenenstile und Masken. Auch PhotoKoja ist noch eine frühe Version und kein vollständiger Photoshop-Ersatz für die tägliche Profiarbeit."
+          "text": "PhotoKoja öffnet und speichert Photoshop-Dateien mit Ebenen und bietet Einstellungsebenen, Ebenenstile und Masken. Nicht jede Photoshop-Funktion ist enthalten, prüfe deshalb deine typischen Arbeitsschritte im Test."
         }
       ]
     },
@@ -258,7 +258,7 @@
               "LightKoja",
               "2,99 € im Monat für 13 Apps oder 79 € einmalig",
               "Bibliothek und RAW-Entwicklung mit Masken, Presets und XMP-Unterstützung",
-              "Frühe Version, Kamerafarben teils geschätzt, keine eigenen Objektivprofile"
+              "Kamerafarben teils geschätzt, keine eigenen Objektivprofile"
             ]
           ],
           "caption": "Preise laut Hersteller-Websites (Herbst 2026), ohne Gewähr."
@@ -274,7 +274,7 @@
             "**Du willst viel Kontrolle, aber kein Geld ausgeben:** darktable, sofern dein Mac einen Apple-Chip hat. Plane etwas Einarbeitung ein.",
             "**Du retuschierst viel und brauchst Ebenen:** Affinity kostenlos oder Pixelmator Pro für 59,99 €, ergänzt um Apple Fotos zum Ordnen.",
             "**Du fotografierst beruflich:** DxO PhotoLab oder Capture One. Beide sind auf RAW-Entwicklung spezialisiert. Teste vor dem Kauf mit Dateien deiner eigenen Kamera, bei DxO zum Beispiel mit der kostenlosen Testversion.",
-            "**Du willst Bibliothek und RAW-Entwicklung in einer App und weitere Kreativ-Apps im selben günstigen Paket:** LightKoja testen, im Wissen, dass es eine frühe Version ist."
+            "**Du willst Bibliothek und RAW-Entwicklung in einer App und weitere Kreativ-Apps im selben günstigen Paket:** LightKoja 3 Tage kostenlos testen."
           ]
         }
       ]
@@ -332,7 +332,7 @@
     },
     {
       "q": "Ist LightKoja ein vollwertiger Ersatz für Lightroom?",
-      "a": "Noch nicht. LightKoja ist eine frühe Version: Bibliothek, RAW-Entwicklung, Masken, Presets und Export funktionieren, aber gemessene Kamerafarben, eigene Objektivprofile, Super-Auflösung und generatives Füllen fehlen. Teste es 3 Tage kostenlos mit deinen eigenen RAW-Dateien, bevor du dich entscheidest."
+      "a": "Für viele Fotografen ja: Bibliothek, RAW-Entwicklung, Masken, Presets und Export sind dabei. Nicht enthalten sind gemessene Kamerafarben, eigene Objektivprofile, Super-Auflösung und generatives Füllen. Teste es 3 Tage kostenlos mit deinen eigenen RAW-Dateien, bevor du dich entscheidest."
     }
   ],
   "apps": [

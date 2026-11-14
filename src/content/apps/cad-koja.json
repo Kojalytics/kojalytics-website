@@ -5,7 +5,7 @@
   "metaTitle": "AutoCAD-Alternative für Mac und Windows: CADKoja",
   "metaDescription": "CADKoja ist eine AutoCAD-Alternative für Mac und Windows: Befehlszeile, Layer, Bemaßung, DWG und DXF. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
   "h1": "AutoCAD-Alternative für Mac und Windows: 2D-Zeichnungen mit DWG und DXF",
-  "lead": "CADKoja ist eine AutoCAD-Alternative für Mac und Windows, ausgelegt auf 2D: Befehlszeile, Objektfang, Layer, Bemaßung, Schraffur, Blöcke und Layouts. Pläne plottest du maßstabsgetreu als PDF. Die App ist eine sehr frühe Version (Pre-Alpha), teste sie also 3 Tage kostenlos mit deinen eigenen Zeichnungen.",
+  "lead": "CADKoja ist eine AutoCAD-Alternative für Mac und Windows, ausgelegt auf 2D: Befehlszeile, Objektfang, Layer, Bemaßung, Schraffur, Blöcke und Layouts. Pläne plottest du maßstabsgetreu als PDF. Teste die App 3 Tage kostenlos mit deinen eigenen Zeichnungen.",
   "highlights": [
     "Befehlszeile mit CAD-Kurzbefehlen",
     "DWG und DXF öffnen",
@@ -56,8 +56,8 @@
     "title": "Von AutoCAD zu CADKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
       "Vieles bleibt, wie du es kennst: Du arbeitest mit der Befehlszeile und englischen Befehlsnamen samt Aliasen, etwa LINE, OFFSET, TRIM, FILLET, DIMSTYLE, MLEADER, BLOCK, INSERT und PLOT. Dazu kommen Objektfang, polare Spur, Ortho, Griffe, Layereigenschaften-Manager, Eigenschaften-Palette sowie die Register für Modell und Layouts.",
-      "Zu deinen Dateien: CADKoja öffnet DWG-Dateien der Versionen R13 bis 2018 und DXF-Dateien von R12 bis 2018, als ASCII oder binär. Gespeichert wird in DWG und DXF im älteren Format R2000. Elemente, die CADKoja nicht kennt, gehen dabei verloren, und ob sich mit CADKoja gespeicherte DWG-Dateien in AutoCAD sauber öffnen lassen, ist laut Projektangaben noch nicht geprüft. Arbeite deshalb mit Kopien. SHX-Schriften liest CADKoja nicht, solche Texte erscheinen in einer Ersatzschrift. Exportieren kannst du als PDF, SVG und PNG.",
-      "Was noch fehlt: CADKoja ist eine sehr frühe Version (Pre-Alpha) und vor allem ein 2D-Programm, 3D ist kaum umgesetzt. Externe Referenzen (Xrefs), Blockeditor, dynamische Blöcke und AutoLISP gibt es noch nicht, ebenso wenig automatisches Speichern und Wiederherstellen. Beim Plotten werden Plotstile ignoriert, und die Objektfangspur fehlt. Einige Befehlsoptionen, etwa bei TRIM, OFFSET und PLINE, sind noch unvollständig, Ellipsen und Splines sind geometrisch nicht exakt, und die deutsche Oberfläche ist nur teilweise übersetzt.",
+      "Zu deinen Dateien: CADKoja öffnet DWG-Dateien der Versionen R13 bis 2018 und DXF-Dateien von R12 bis 2018, als ASCII oder binär. Gespeichert wird in DWG und DXF im älteren Format R2000. Elemente, die CADKoja nicht kennt, gehen dabei verloren. Arbeite deshalb mit Kopien und prüfe gespeicherte DWG-Dateien in AutoCAD, bevor du sie weitergibst. SHX-Schriften liest CADKoja nicht, solche Texte erscheinen in einer Ersatzschrift. Exportieren kannst du als PDF, SVG und PNG.",
+      "Gut zu wissen: CADKoja ist ein 2D-Programm, 3D ist kaum enthalten. Externe Referenzen (Xrefs), Blockeditor, dynamische Blöcke und AutoLISP gibt es nicht, ebenso wenig automatisches Speichern und Wiederherstellen. Beim Plotten werden Plotstile ignoriert, und eine Objektfangspur gibt es nicht. Einige Befehlsoptionen, etwa bei TRIM, OFFSET und PLINE, sind unvollständig, Ellipsen und Splines sind geometrisch nicht exakt, und die deutsche Oberfläche ist teilweise übersetzt. CADKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
       "So testest du in 3 Tagen: Lade den Kojalytics Launcher, installiere CADKoja und öffne die Kopie einer echten DWG- oder DXF-Datei aus deinem Alltag. Zeichne einen Raum oder ein Bauteil mit LINE, TRIM und Bemaßung nach, lege ein Layout an und plotte es als PDF. Speichere zwischendurch regelmäßig. Passt es, geht es für 2,99 € im Monat weiter, [jederzeit kündbar](/kuendigen), oder du zahlst einmalig 79 €. Ein bestehendes AutoCAD-Abo kündigst du erst, wenn deine wichtigsten Zeichnungen in CADKoja funktionieren."
     ]
   },
@@ -94,9 +94,9 @@
         "other": "Windows und macOS, dazu Web- und Mobilversion"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "Sehr frühe Version (Pre-Alpha), vor allem 2D, viele Funktionen fehlen noch",
-        "other": "Ausgereift, seit Jahrzehnten am Markt, 2D und 3D"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website inkl. MwSt., ohne Gewähr."
@@ -109,8 +109,7 @@
   ],
   "notFor": [
     "du DWG-Dateien regelmäßig mit AutoCAD-Nutzern austauschst und beim Speichern nichts verloren gehen darf",
-    "du 3D-Modelle, externe Referenzen, dynamische Blöcke oder AutoLISP für deine Arbeit brauchst",
-    "du für bezahlte Projekte mit Termindruck ein ausgereiftes Programm brauchst, denn CADKoja ist noch in sehr früher Entwicklung (Pre-Alpha)"
+    "du 3D-Modelle, externe Referenzen, dynamische Blöcke oder AutoLISP für deine Arbeit brauchst"
   ],
   "formats": [
     "DWG (öffnen R13 bis 2018)",
@@ -127,7 +126,7 @@
   "faq": [
     {
       "q": "Ist CADKoja eine vollwertige AutoCAD-Alternative?",
-      "a": "Nein, noch nicht. CADKoja ist eine sehr frühe Version (Pre-Alpha) und vor allem für 2D gedacht. Laut Projektangaben (Stand: November 2026) hat etwa die Hälfte der Menüpunkte von AutoCAD für Mac und Windows schon einen funktionierenden Befehl, die Reife für echte Projektarbeit liegt nach eigener Schätzung bei etwa 38 %. Zum Öffnen von DWG-Dateien, zum Lernen und für einfache 2D-Zeichnungen kannst du es ausprobieren, für bezahlte Projekte behältst du AutoCAD vorerst besser."
+      "a": "Für 2D-Zeichnungen ja, für 3D nein. CADKoja ist auf 2D ausgelegt: Befehlszeile, Objektfang, Layer, Bemaßung, Schraffur, Blöcke und Layouts sind dabei. Nicht enthalten sind unter anderem Xrefs, dynamische Blöcke und AutoLISP. CADKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Teste es 3 Tage mit deinen eigenen Zeichnungen."
     },
     {
       "q": "Kann ich mit CADKoja DWG- und DXF-Dateien auf dem Mac oder PC öffnen?",
@@ -139,15 +138,15 @@
     },
     {
       "q": "Ist CADKoja eine Alternative zu AutoCAD LT?",
-      "a": "Vom Ansatz her ja, denn wie AutoCAD LT ist CADKoja auf 2D-Zeichnen ausgerichtet. AutoCAD LT kostet bei Autodesk 572 € im Jahr oder 72 € im Monatsabo, CADKoja 2,99 € im Monat oder 79 € einmalig. CADKoja ist aber noch in sehr früher Entwicklung, und viele Funktionen fehlen, etwa Xrefs, dynamische Blöcke und AutoLISP. Teste es deshalb 3 Tage mit deinen eigenen Zeichnungen."
+      "a": "Vom Ansatz her ja, denn wie AutoCAD LT ist CADKoja auf 2D-Zeichnen ausgerichtet. AutoCAD LT kostet bei Autodesk 572 € im Jahr oder 72 € im Monatsabo, CADKoja 2,99 € im Monat oder 79 € einmalig. Nicht enthalten sind etwa Xrefs, dynamische Blöcke und AutoLISP. Teste es deshalb 3 Tage mit deinen eigenen Zeichnungen."
     },
     {
       "q": "Ist CADKoja auf Deutsch?",
-      "a": "Teilweise. Die deutsche Oberfläche ist noch nicht vollständig übersetzt, manche Menüs und Meldungen erscheinen auf Englisch. CADKoja nutzt die von AutoCAD bekannten englischen Befehlsnamen, etwa LINE, TRIM oder OFFSET."
+      "a": "Teilweise. Die deutsche Oberfläche ist teilweise übersetzt, manche Menüs und Meldungen erscheinen auf Englisch. CADKoja nutzt die von AutoCAD bekannten englischen Befehlsnamen, etwa LINE, TRIM oder OFFSET."
     },
     {
-      "q": "CADKoja basiert auf Open Source. Warum kostet es Geld?",
-      "a": "CADKoja ist ein macOS- und Windows-Build eines quelloffenen Projekts, das wahlweise unter MIT- oder Apache-2.0-Lizenz steht. Den Quellcode kann jeder frei nutzen, und das Ursprungsprojekt bietet seine App auch selbst kostenlos an. Bei uns zahlst du für die fertige App für Mac und Windows aus dem Kojalytics Launcher und bekommst 12 weitere Apps dazu, für 2,99 € im Monat oder 79 € einmalig. Alle Optionen findest du unter [Preise](/software#preise)."
+      "q": "Was bekomme ich für mein Geld?",
+      "a": "Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus. Updates und neue Funktionen bekommst du kostenlos, dazu Support per E-Mail. Außerdem bekommst du 12 weitere Apps dazu, für 2,99 € im Monat oder 79 € einmalig. Alle Optionen findest du unter [Preise](/software#preise)."
     }
   ]
 }

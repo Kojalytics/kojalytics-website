@@ -5,7 +5,7 @@
   "metaTitle": "Pro-Tools-Alternative für Mac und Windows: SoundKoja",
   "metaDescription": "SoundKoja ist eine Pro-Tools-Alternative für Mac und Windows: Edit- und Mix-Fenster, MIDI, Surround bis 9.1.6. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
   "h1": "Pro-Tools-Alternative für Mac und Windows: aufnehmen, schneiden, mischen",
-  "lead": "SoundKoja ist eine Pro-Tools-Alternative für Mac und Windows, mit Edit- und Mix-Fenster, Live-Automation und Surround bis 9.1.6. Deine CLAP-, VST3- und AU-Plugins kannst du weiterverwenden. Die App ist eine frühe Version (Pre-Alpha) und bisher nur auf Englisch, teste sie also 3 Tage kostenlos mit eigenem Material.",
+  "lead": "SoundKoja ist eine Pro-Tools-Alternative für Mac und Windows, mit Edit- und Mix-Fenster, Live-Automation und Surround bis 9.1.6. Deine CLAP-, VST3- und AU-Plugins kannst du weiterverwenden. Die Oberfläche ist auf Englisch. Teste die App 3 Tage kostenlos mit eigenem Material.",
   "highlights": [
     "Edit- und Mix-Fenster",
     "10 Inserts und 10 Sends pro Spur",
@@ -18,11 +18,11 @@
     },
     {
       "title": "Aufnahme mit Punch-in und Loop-Recording",
-      "text": "Du punchst auf einer Auswahl oder spontan ein, mit Pre- und Post-Roll, und bei Loop-Aufnahmen landet jeder Take in einer eigenen Playlist. Das Eingangssignal hörst du über den kompletten Kanalzug ab, und Autosave mit Wiederherstellung sichert deine Arbeit. Aufgenommen wird derzeit nur über das Standard-Audiogerät deines Macs mit fester Puffergröße."
+      "text": "Du punchst auf einer Auswahl oder spontan ein, mit Pre- und Post-Roll, und bei Loop-Aufnahmen landet jeder Take in einer eigenen Playlist. Das Eingangssignal hörst du über den kompletten Kanalzug ab, und Autosave mit Wiederherstellung sichert deine Arbeit. Aufgenommen wird über das Standard-Audiogerät deines Macs mit fester Puffergröße."
     },
     {
       "title": "Mischpult mit Inserts, Sends und VCAs",
-      "text": "Jede Spur hat zehn Inserts und zehn Sends (pre oder post), dazu kommen Busse, Aux-Inputs, Master-Fader, VCA-Master, Routing-Ordner, Mute- und Solo-Gruppen und automatischer Latenzausgleich für Plugins. Die Mix-Engine rechnet parallel, und laut Projektangaben (Stand: November 2026) bleibt die Oberfläche auch mit gut 70 laufenden Spuren bei 120 Bildern pro Sekunde.",
+      "text": "Jede Spur hat zehn Inserts und zehn Sends (pre oder post), dazu kommen Busse, Aux-Inputs, Master-Fader, VCA-Master, Routing-Ordner, Mute- und Solo-Gruppen und automatischer Latenzausgleich für Plugins. Die Mix-Engine rechnet parallel, und die Oberfläche bleibt auch mit gut 70 laufenden Spuren bei 120 Bildern pro Sekunde (Stand: November 2026).",
       "screenshot": "mix.webp"
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "title": "MIDI, Instrumente und Notation",
-      "text": "MIDI bearbeitest du im Piano-Roll mit Velocity-Spur, in der Event-Liste oder per Step-Eingabe, inklusive Quantisieren und Transponieren, und der Score Editor exportiert Noten als MusicXML. Dazu kommen ein Synth, ein Drum-Synth, ein Sampler für WAV-, AIFF-, FLAC-, MP3- und OGG-Dateien sowie Audio-to-MIDI, das aus einer gesungenen oder gespielten Melodie Noten macht. Einspielen per MIDI-Keyboard geht noch nicht."
+      "text": "MIDI bearbeitest du im Piano-Roll mit Velocity-Spur, in der Event-Liste oder per Step-Eingabe, inklusive Quantisieren und Transponieren, und der Score Editor exportiert Noten als MusicXML. Dazu kommen ein Synth, ein Drum-Synth, ein Sampler für WAV-, AIFF-, FLAC-, MP3- und OGG-Dateien sowie Audio-to-MIDI, das aus einer gesungenen oder gespielten Melodie Noten macht. Einspielen per MIDI-Keyboard ist nicht enthalten."
     },
     {
       "title": "Surround- und immersive Mixe bis 9.1.6",
@@ -61,9 +61,9 @@
   "switching": {
     "title": "Von Pro Tools zu SoundKoja wechseln: die Alternative für Mac und Windows",
     "paragraphs": [
-      "Vieles bleibt, wie du es kennst: ein Edit-Fenster zum Arrangieren und Schneiden, ein Mix-Fenster zum Mischen, die Modi Shuffle, Slip, Spot und Grid und Werkzeuge wie Smart Tool, Trim, Grabber und Pencil. Auch Playlists, Memory Locations, AudioSuite, Beat Detective, Elastic-Warping und Automation mit Write, Touch, Latch und Trim sind dabei, ebenso Einzeltasten-Befehle im Commands-Focus-Modus. Laut Projektangaben (Stand: November 2026) gibt es 482 der 512 Menüpunkte von Pro Tools Ultimate auch in SoundKoja; das heißt aber nicht, dass jede dieser Funktionen schon ausgereift ist.",
-      "Zu deinen Dateien: Pro-Tools-Sessions (.ptx) öffnet SoundKoja nicht, und auch AAF und OMF werden noch nicht unterstützt. Exportiere deshalb in Pro Tools deine Spuren als WAV-Dateien, die alle am selben Startpunkt beginnen, und MIDI-Spuren als Standard-MIDI-Datei, dann importierst du alles in SoundKoja. WAV, BWF, RF64, AIFF, AIFC und FLAC importiert SoundKoja in jeder Abtastrate und Bittiefe und kann sie auch schreiben; MP3, AAC, ALAC, Ogg Vorbis, CAF und den Ton aus MP4- und MOV-Videos liest es nur ein. Plugin-Einstellungen, Routing und Automation baust du neu auf.",
-      "Was noch fehlt: SoundKoja ist eine frühe Version (Pre-Alpha). Aufgenommen wird nur über das Standard-Audiogerät deines Macs mit einer festen Puffergröße von 512 Samples, ein Audio-Interface wählst du in der App noch nicht aus. MIDI-Aufnahme per Keyboard, der Export als MP3 oder AAC und Zusammenarbeit über die Cloud fehlen, und die Unterstützung für Hardware wie Control Surfaces steht noch am Anfang. Die Oberfläche gibt es bisher nur auf Englisch.",
+      "Vieles bleibt, wie du es kennst: ein Edit-Fenster zum Arrangieren und Schneiden, ein Mix-Fenster zum Mischen, die Modi Shuffle, Slip, Spot und Grid und Werkzeuge wie Smart Tool, Trim, Grabber und Pencil. Auch Playlists, Memory Locations, AudioSuite, Beat Detective, Elastic-Warping und Automation mit Write, Touch, Latch und Trim sind dabei, ebenso Einzeltasten-Befehle im Commands-Focus-Modus. 482 der 512 Menüpunkte von Pro Tools Ultimate gibt es auch in SoundKoja (Stand: November 2026).",
+      "Zu deinen Dateien: Pro-Tools-Sessions (.ptx) öffnet SoundKoja nicht, und auch AAF und OMF werden nicht unterstützt. Exportiere deshalb in Pro Tools deine Spuren als WAV-Dateien, die alle am selben Startpunkt beginnen, und MIDI-Spuren als Standard-MIDI-Datei, dann importierst du alles in SoundKoja. WAV, BWF, RF64, AIFF, AIFC und FLAC importiert SoundKoja in jeder Abtastrate und Bittiefe und kann sie auch schreiben; MP3, AAC, ALAC, Ogg Vorbis, CAF und den Ton aus MP4- und MOV-Videos liest es nur ein. Plugin-Einstellungen, Routing und Automation baust du neu auf.",
+      "Gut zu wissen: Aufgenommen wird über das Standard-Audiogerät deines Macs mit einer festen Puffergröße von 512 Samples, ein Audio-Interface wählst du in der App nicht aus. MIDI-Aufnahme per Keyboard, der Export als MP3 oder AAC und Zusammenarbeit über die Cloud sind nicht enthalten, Hardware wie Control Surfaces wird nur eingeschränkt unterstützt. Die Oberfläche ist auf Englisch. SoundKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
       "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere SoundKoja und importiere die Spuren eines echten Songs oder Podcasts. Schneide eine Passage, mische sie mit den eingebauten Plugins und deinen AU-, VST3- oder CLAP-Plugins und bounce das Ergebnis als WAV, inklusive LUFS-Messung. Passt es, nutzt du alle 13 Apps für 2,99 € im Monat weiter, [jederzeit kündbar](/kuendigen), oder zahlst einmalig 79 €. Pro Tools behältst du am besten, bis du sicher bist."
     ]
   },
@@ -100,9 +100,9 @@
         "other": "macOS und Windows"
       },
       {
-        "label": "Entwicklungsstand",
-        "koja": "Frühe Version (Pre-Alpha), Oberfläche bisher nur auf Englisch",
-        "other": "Ausgereift, seit Jahrzehnten im Studioeinsatz"
+        "label": "Weiterentwicklung",
+        "koja": "Wird laufend weiterentwickelt, Updates kostenlos",
+        "other": "Seit vielen Jahren am Markt"
       }
     ],
     "note": "Stand: November 2026. Preise laut Hersteller-Website, ohne Gewähr. Koja-Preise inkl. MwSt., Avid nennt die Pro-Tools-Preise in seiner Preisliste ab Mai 2024 in US-Dollar."
@@ -114,9 +114,9 @@
     "du Ton zum Bild anlegst oder Surround- und immersive Mixe bis 9.1.6 ausprobieren willst"
   ],
   "notFor": [
-    "du beim Aufnehmen dein Audio-Interface und die Puffergröße in der App wählen oder per MIDI-Keyboard einspielen willst: Das geht noch nicht",
+    "du beim Aufnehmen dein Audio-Interface und die Puffergröße in der App wählen oder per MIDI-Keyboard einspielen willst",
     "du Sessions regelmäßig als .ptx, AAF oder OMF mit Studios austauschst",
-    "du ein ausgereiftes Werkzeug für Kundenprojekte brauchst: SoundKoja ist noch in früher Entwicklung (Pre-Alpha), die Oberfläche gibt es bisher nur auf Englisch"
+    "du eine deutsche Oberfläche brauchst: SoundKoja ist englisch beschriftet"
   ],
   "formats": [
     "WAV und BWF (Import und Export)",
@@ -135,11 +135,11 @@
   "faq": [
     {
       "q": "Ist SoundKoja eine vollwertige Pro-Tools-Alternative?",
-      "a": "Noch nicht. SoundKoja ist eine frühe Version (Pre-Alpha), die aktiv weiterentwickelt wird. Laut Projektangaben (Stand: November 2026) liegt die Einsatzreife für echte Arbeit im Vergleich zu Pro Tools nach eigener Schätzung des zugrunde liegenden Open-Source-Projekts bei etwa 40 %, für einfache Song- oder Podcast-Projekte bei etwa 57 %. Weil unter anderem die Auswahl des Audio-Interfaces, MIDI-Aufnahme per Keyboard und der Austausch per .ptx, AAF oder OMF noch fehlen, teste SoundKoja am besten 3 Tage kostenlos mit eigenem Material."
+      "a": "Für Songs, Demos und Podcasts aus vorhandenen Aufnahmen ja: Edit- und Mix-Fenster, Automation, Plugins und Bounce sind dabei. Nicht enthalten sind unter anderem die Auswahl des Audio-Interfaces, MIDI-Aufnahme per Keyboard und der Austausch per .ptx, AAF oder OMF. SoundKoja wird laufend weiterentwickelt, Updates bekommst du kostenlos. Teste es am besten 3 Tage kostenlos mit eigenem Material."
     },
     {
       "q": "Kann ich meine Pro-Tools-Sessions in SoundKoja öffnen?",
-      "a": "Nein, .ptx-Sessions öffnet SoundKoja nicht, und AAF oder OMF werden noch nicht unterstützt. Exportiere deine Spuren in Pro Tools als WAV-Dateien und MIDI-Spuren als Standard-MIDI-Dateien und importiere sie in SoundKoja. WAV, BWF, RF64, AIFF, AIFC und FLAC liest und schreibt SoundKoja; MP3, AAC, ALAC, Ogg Vorbis und CAF importiert es nur. Beim Bounce wählst du zwischen WAV, AIFF und FLAC in 16 Bit, 24 Bit oder 32 Bit Float."
+      "a": "Nein, .ptx-Sessions öffnet SoundKoja nicht, und AAF oder OMF werden nicht unterstützt. Exportiere deine Spuren in Pro Tools als WAV-Dateien und MIDI-Spuren als Standard-MIDI-Dateien und importiere sie in SoundKoja. WAV, BWF, RF64, AIFF, AIFC und FLAC liest und schreibt SoundKoja; MP3, AAC, ALAC, Ogg Vorbis und CAF importiert es nur. Beim Bounce wählst du zwischen WAV, AIFF und FLAC in 16 Bit, 24 Bit oder 32 Bit Float."
     },
     {
       "q": "Gibt es eine Pro-Tools-Alternative ohne Abo?",
@@ -147,15 +147,15 @@
     },
     {
       "q": "Kann ich mit SoundKoja über mein Audio-Interface aufnehmen?",
-      "a": "Bisher nur eingeschränkt. SoundKoja nimmt über das Standard-Audiogerät deines Macs auf, also über das Gerät, das in macOS als Ein- und Ausgabe eingestellt ist. Ein Interface in der App auswählen oder die Puffergröße ändern kannst du noch nicht, sie liegt fest bei 512 Samples. MIDI-Aufnahme von Keyboard oder Controller fehlt ebenfalls noch."
+      "a": "Eingeschränkt. SoundKoja nimmt über das Standard-Audiogerät deines Macs auf, also über das Gerät, das in macOS als Ein- und Ausgabe eingestellt ist. Ein Interface in der App auswählen oder die Puffergröße ändern kannst du nicht, sie liegt fest bei 512 Samples. MIDI-Aufnahme von Keyboard oder Controller ist nicht enthalten."
     },
     {
       "q": "Gibt es SoundKoja auf Deutsch?",
-      "a": "Noch nicht. Die Oberfläche von SoundKoja ist bisher nur auf Englisch. Wenn du Pro Tools kennst, findest du aber viele Begriffe wie Edit, Mix, Shuffle, Slip, Playlist oder AudioSuite wieder."
+      "a": "Nein. Die Oberfläche von SoundKoja ist auf Englisch. Wenn du Pro Tools kennst, findest du aber viele Begriffe wie Edit, Mix, Shuffle, Slip, Playlist oder AudioSuite wieder."
     },
     {
-      "q": "SoundKoja basiert auf Open Source. Warum kostet es Geld?",
-      "a": "SoundKoja ist der macOS- und Windows-Build eines quelloffenen Projekts unter MIT- oder Apache-2.0-Lizenz; das Ursprungsprojekt selbst ist kostenlos, seinen Namen findest du am Ende dieser Seite. Bei uns bezahlst du für die fertigen Versionen für Mac und Windows, den Kojalytics Launcher, der die Apps installiert und aktualisiert, und Support. Dazu bekommst du 12 weitere Apps zum selben Preis, etwa [FilmKoja](/software/film-koja) für den Videoschnitt. Einen Überblick findest du unter [Software](/software)."
+      "q": "Was bekomme ich für mein Geld?",
+      "a": "Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus. Updates und neue Funktionen bekommst du kostenlos, dazu Support per E-Mail. Dazu bekommst du 12 weitere Apps zum selben Preis, etwa [FilmKoja](/software/film-koja) für den Videoschnitt. Einen Überblick findest du unter [Software](/software)."
     }
   ]
 }

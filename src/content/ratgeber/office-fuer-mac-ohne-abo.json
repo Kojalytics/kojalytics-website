@@ -9,7 +9,7 @@
   "readingMinutes": 13,
   "intro": [
     "Ja, du kannst Office für Mac ohne Abo kaufen. Microsoft verkauft Office Home 2024 für 149 € als Einmalkauf für einen Mac, mit Word, Excel, PowerPoint und OneNote. Wer zusätzlich Outlook braucht, nimmt Office Home & Business 2024 für 299 €. Beide Versionen bekommen bis Oktober 2029 Updates, aber keine neuen Funktionen. Kostenlos geht es mit Pages, Numbers und Keynote von Apple, mit LibreOffice oder mit Word, Excel und PowerPoint im Browser.",
-    "In diesem Ratgeber findest du alle Wege mit Preisen (Stand 7. November 2026), den macOS-Voraussetzungen und den Haken, die du vor dem Kauf kennen solltest. Wir stellen auch unsere eigenen Apps WordKoja, GridKoja und DeckKoja vor. Sie sind günstig, aber noch in früher Entwicklung, und wir sagen dir offen, wofür sie heute taugen und wofür noch nicht."
+    "In diesem Ratgeber findest du alle Wege mit Preisen (Stand 7. November 2026), den macOS-Voraussetzungen und den Haken, die du vor dem Kauf kennen solltest. Wir stellen auch unsere eigenen Apps WordKoja, GridKoja und DeckKoja vor. Sie sind günstig, werden laufend weiterentwickelt, und wir sagen dir offen, wofür sie taugen und wo ihre Grenzen liegen."
   ],
   "sections": [
     {
@@ -29,7 +29,7 @@
             ["Microsoft 365 für das Web", "kostenlos", "Word, Excel und PowerPoint im Browser, 5 GB OneDrive", "Microsoft-Konto nötig, keine installierten Apps"],
             ["Pages, Numbers, Keynote", "kostenlos", "Apples Office-Apps mit Export als .docx, .xlsx und .pptx", "Andere Bedienung, Layout kann abweichen"],
             ["LibreOffice", "kostenlos", "Sechs quelloffene Programme, lädt und speichert .docx, .xlsx und .pptx", "Komplexe Office-Dateien brauchen oft Nacharbeit"],
-            ["WordKoja, GridKoja, DeckKoja", "2,99 € pro Monat oder 79 € einmalig", "Office-ähnliches Menüband, .docx, .xlsx und .pptx, 13 Apps auf bis zu 3 Geräten", "Frühe Versionen (Alpha), teils englische Oberfläche"]
+            ["WordKoja, GridKoja, DeckKoja", "2,99 € pro Monat oder 79 € einmalig", "Office-ähnliches Menüband, .docx, .xlsx und .pptx, 13 Apps auf bis zu 3 Geräten", "Nicht jede Office-Funktion, teils englische Oberfläche"]
           ],
           "caption": "Preise inkl. MwSt., Stand 7. November 2026."
         }
@@ -171,11 +171,11 @@
       "blocks": [
         {
           "type": "p",
-          "text": "Kojalytics bietet 13 Apps für macOS und Windows an, darunter drei für die Büroarbeit: [WordKoja](/software/word-koja) für Texte, [GridKoja](/software/grid-koja) für Tabellen und [DeckKoja](/software/deck-koja) für Präsentationen. Alle drei haben ein Menüband, wie du es aus Office kennst, und arbeiten mit den Microsoft-Formaten. Sie basieren auf quelloffenen Projekten (MIT/Apache-2.0) und laufen als Universal-App auf Macs mit Apple-Chip und Intel."
+          "text": "Kojalytics bietet 13 Apps für macOS und Windows an, darunter drei für die Büroarbeit: [WordKoja](/software/word-koja) für Texte, [GridKoja](/software/grid-koja) für Tabellen und [DeckKoja](/software/deck-koja) für Präsentationen. Alle drei haben ein Menüband, wie du es aus Office kennst, und arbeiten mit den Microsoft-Formaten. Sie laufen als Universal-App auf Macs mit Apple-Chip und Intel."
         },
         {
           "type": "p",
-          "text": "Wichtig vorab: Alle drei Apps sind frühe Versionen und noch in Entwicklung (Alpha). Sie ersetzen Microsoft Office heute nicht vollständig. Die Entwickler der zugrunde liegenden Projekte schätzen selbst, dass WordKoja zu etwa 60 %, GridKoja zu etwa 50 % und DeckKoja zu etwa 55 % bereit für echte Arbeit ist."
+          "text": "Wichtig vorab: Die drei Apps bieten nicht jede Funktion von Microsoft Office. Sie werden laufend weiterentwickelt, und Updates und neue Funktionen bekommst du automatisch und kostenlos."
         },
         {
           "type": "app",
@@ -199,9 +199,9 @@
         {
           "type": "ul",
           "items": [
-            "WordKoja hat noch keine deutsche Rechtschreib- und Grammatikprüfung, nur die deutsche Silbentrennung. Die Oberfläche gibt es auf Deutsch. Seitenumbrüche können von Word abweichen, und alte .doc-Dateien lassen sich öffnen, aber nicht wieder als .doc speichern. Cloud-Speicher und gemeinsames Bearbeiten in Echtzeit gibt es nicht.",
-            "In GridKoja sind bisher nur die Menüs ins Deutsche übersetzt, Formeln schreibst du in englischer Schreibweise. Diagramme verlieren beim Speichern als .xlsx teils Typ und Optionen. VBA-Makros laufen nicht.",
-            "DeckKoja hat bisher nur eine englische Oberfläche und kann noch nicht drucken. Alte .ppt-Dateien und das OpenDocument-Format .odp öffnet es nicht."
+            "WordKoja hat keine deutsche Rechtschreib- und Grammatikprüfung, nur die deutsche Silbentrennung. Die Oberfläche gibt es auf Deutsch. Seitenumbrüche können von Word abweichen, und alte .doc-Dateien lassen sich öffnen, aber nicht wieder als .doc speichern. Cloud-Speicher und gemeinsames Bearbeiten in Echtzeit gibt es nicht.",
+            "In GridKoja sind vor allem die Menüs ins Deutsche übersetzt, Formeln schreibst du in englischer Schreibweise. Diagramme verlieren beim Speichern als .xlsx teils Typ und Optionen. VBA-Makros laufen nicht.",
+            "DeckKoja hat eine englische Oberfläche und druckt nicht. Alte .ppt-Dateien und das OpenDocument-Format .odp öffnet es nicht."
           ]
         },
         {
@@ -289,7 +289,7 @@
             "Du öffnest nur gelegentlich eine Office-Datei: Pages, Numbers und Keynote oder die kostenlose Webversion von Microsoft reichen meist aus.",
             "Du arbeitest viel mit Office-Dateien, willst aber nichts bezahlen: LibreOffice ist eine umfangreiche kostenlose Lösung zum Installieren.",
             "Du willst in Echtzeit mit anderen an Dateien arbeiten oder mehrere Personen und Geräte versorgen: Dann ist Microsoft 365 trotz Abo die passende Wahl.",
-            "Du suchst eine günstige Mac-App mit vertrautem Menüband und willst ein Paket aus 13 Apps für wenig Geld: Teste WordKoja, GridKoja und DeckKoja, mit dem Wissen, dass sie noch in früher Entwicklung sind."
+            "Du suchst eine günstige Mac-App mit vertrautem Menüband und willst ein Paket aus 13 Apps für wenig Geld: Teste WordKoja, GridKoja und DeckKoja 3 Tage kostenlos mit deinen eigenen Dateien."
           ]
         },
         {
@@ -322,7 +322,7 @@
     },
     {
       "q": "Ersetzen WordKoja, GridKoja und DeckKoja Microsoft Office?",
-      "a": "Nein, noch nicht. Die drei Apps sind frühe Versionen (Alpha) und arbeiten mit .docx, .xlsx und .pptx, Layout und Formatierung können aber abweichen. WordKoja hat zum Beispiel noch keine deutsche Rechtschreibprüfung. Du kannst alle 13 Apps 3 Tage kostenlos testen und danach für 2,99 € im Monat nutzen, jederzeit ohne Gebühr kündbar."
+      "a": "Nicht vollständig. Die drei Apps arbeiten mit .docx, .xlsx und .pptx, Layout und Formatierung können aber abweichen. WordKoja hat zum Beispiel keine deutsche Rechtschreibprüfung. Die Apps werden laufend weiterentwickelt, Updates bekommst du kostenlos. Du kannst alle 13 Apps 3 Tage kostenlos testen und danach für 2,99 € im Monat nutzen, jederzeit ohne Gebühr kündbar."
     }
   ],
   "apps": ["word-koja", "grid-koja", "deck-koja", "pdf-koja"],
