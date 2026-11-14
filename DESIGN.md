@@ -82,7 +82,15 @@ Geist Mono (`font-mono`, `.hud`).
 - First-visit intro (`IntroLogo` in Navigation.tsx, `.kj-intro-*` in globals.css): the K mark turns once,
   the wordmark slides out and back, the mark flies onto the header logo. 2 s, CSS only, once per visit
   (inline script in layout.tsx). Never delay page content behind it (LCP); keep it under 2 s.
-- No other animation libraries. No parallax, no autoplaying video, no carousels except the mobile swipe row.
+- No other animation libraries. No parallax, no carousels except the mobile swipe row.
+- Video only as the app demo loops (`<AppDemo />`, section "In Aktion" after the hero of each app page; owner
+  request, Nov 2026): silent, never in the hero (LCP stays the screenshot), `preload="none"` with a poster,
+  plays only while on screen, and not at all with reduced motion (poster plus player controls instead).
+  The loops are rendered from our own screenshots: stops in `src/content/demos.json`,
+  `node scripts/app-demos/render.mjs [slug]`. One continuous camera move over the app's windows on graph
+  paper, a sliding blue focus frame and a pointer that clicks; no cuts, no fades to white, and no words in
+  the picture (only numbers and the app name), so the video works in every language and the feature names
+  stay translatable page text. No other autoplaying video.
 
 ## Don'ts
 

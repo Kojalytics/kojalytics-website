@@ -1,0 +1,109 @@
+{
+  "timing": { "intro": 1.1, "dwell": 1.5, "travel": 1.15, "outro": 1.4 },
+  "apps": {
+    "word-koja": [
+      { "file": "hero.webp", "box": [794, 60, 1030, 124], "label": "Formatvorlagen", "text": "Überschriften und Absätze per Klick formatieren." },
+      { "file": "hero.webp", "box": [8, 240, 245, 392], "label": "Navigationsbereich", "text": "Mit einem Klick zu jeder Überschrift springen." },
+      { "file": "review.webp", "box": [146, 566, 900, 616], "label": "Änderungen nachverfolgen", "text": "Jede Korrektur bleibt sichtbar." },
+      { "file": "review.webp", "box": [1004, 468, 1326, 644], "label": "Kommentare", "text": "Rückmeldungen stehen direkt am Rand." },
+      { "file": "references.webp", "box": [142, 384, 902, 636], "label": "Inhaltsverzeichnis", "text": "Entsteht per Klick aus deinen Überschriften." },
+      { "file": "dark.webp", "box": [140, 160, 900, 660], "label": "Dunkles Design", "text": "Angenehm zu lesen, auch am Abend." }
+    ],
+    "grid-koja": [
+      { "file": "hero.webp", "box": [0, 152, 700, 214], "label": "Formeln", "text": "Summen und Anteile rechnen sich von selbst." },
+      { "file": "hero.webp", "box": [26, 290, 654, 433], "label": "Datenbalken", "text": "Zahlen auf einen Blick vergleichen." },
+      { "file": "hero.webp", "box": [552, 262, 930, 480], "label": "Diagramme", "text": "Säulen- und Kreisdiagramme aus deinen Daten." },
+      { "file": "budget.webp", "box": [430, 318, 524, 541], "label": "Farbskalen", "text": "Überschreitungen im Budget fallen sofort auf." },
+      { "file": "budget.webp", "box": [590, 298, 1122, 708], "label": "Budget gegen Ist", "text": "Plan und Wirklichkeit im Balkendiagramm." },
+      { "file": "formulas.webp", "box": [28, 330, 600, 622], "label": "Formeln nachverfolgen", "text": "Pfeile zeigen, woraus eine Zelle rechnet." }
+    ],
+    "deck-koja": [
+      { "file": "hero.webp", "box": [0, 145, 224, 765], "label": "Folienübersicht", "text": "Alle Folien links im Blick." },
+      { "file": "hero.webp", "box": [362, 380, 1266, 505], "label": "Formen und Pfeile", "text": "Abläufe auf der Folie frei zusammenbauen." },
+      { "file": "format-pane.webp", "box": [0, 62, 1110, 132], "label": "Formformat", "text": "Füllung, Kontur und Effekte im Menüband." },
+      { "file": "format-pane.webp", "box": [1103, 430, 1385, 700], "label": "Farbverlauf", "text": "Verläufe mit Richtung, Winkel und Stopps." },
+      { "file": "dark-mode.webp", "box": [0, 62, 1140, 132], "label": "Einfügen", "text": "Tabellen, Bilder, Diagramme und Video." },
+      { "file": "dark-mode.webp", "box": [380, 320, 1240, 690], "label": "Diagramme", "text": "Direkt auf der Folie bearbeiten, auch im Dunkelmodus." }
+    ],
+    "pdf-koja": [
+      { "file": "hero.webp", "box": [0, 100, 258, 715], "label": "Alle Werkzeuge", "text": "Exportieren, bearbeiten, schützen und mehr." },
+      { "file": "hero.webp", "box": [412, 486, 640, 522], "label": "Markieren", "text": "Wichtige Stellen farbig hervorheben." },
+      { "file": "hero.webp", "box": [1030, 228, 1322, 378], "label": "Kommentare", "text": "Notizen bleiben direkt am Text." },
+      { "file": "organize.webp", "box": [356, 145, 1232, 404], "label": "Seiten organisieren", "text": "Seiten ordnen, drehen und löschen." },
+      { "file": "organize.webp", "box": [0, 145, 258, 440], "label": "Seitenoptionen", "text": "Einfügen, ersetzen, teilen und nummerieren." },
+      { "file": "palette.webp", "box": [410, 92, 965, 630], "label": "Befehlssuche mit ⌘K", "text": "Jedes Werkzeug in Sekunden finden." }
+    ],
+    "photo-koja": [
+      { "file": "hero.webp", "box": [0, 85, 62, 520], "label": "Werkzeuge", "text": "Auswahl, Pinsel, Text, Formen und mehr." },
+      { "file": "hero.webp", "box": [140, 168, 672, 244], "label": "Textebenen", "text": "Text bleibt jederzeit bearbeitbar." },
+      { "file": "hero.webp", "box": [1150, 500, 1393, 586], "label": "Ebenen", "text": "Text, Korrekturen und Bild getrennt bearbeiten." },
+      { "file": "hero.webp", "box": [1148, 62, 1396, 230], "label": "Farben", "text": "Farbwähler mit Werten für RGB und Hex." },
+      { "file": "layer-styles.webp", "box": [430, 160, 922, 560], "label": "Ebenenstile", "text": "Schein und Schatten, jederzeit änderbar." },
+      { "file": "adjustments.webp", "box": [578, 296, 832, 552], "label": "Gradationskurven", "text": "Kontrast mit Live-Vorschau anpassen." }
+    ],
+    "light-koja": [
+      { "file": "library.webp", "box": [424, 40, 1118, 690], "label": "Fotoraster", "text": "Fotos bewerten und markieren." },
+      { "file": "library.webp", "box": [2, 214, 416, 416], "label": "Alben", "text": "Sammlungen in Ordnern und Alben sortieren." },
+      { "file": "hero.webp", "box": [1125, 62, 1356, 162], "label": "Histogramm", "text": "Belichtung immer im Blick." },
+      { "file": "hero.webp", "box": [1134, 330, 1352, 572], "label": "Licht", "text": "Lichter und Tiefen nichtdestruktiv regeln." },
+      { "file": "hero.webp", "box": [0, 690, 1118, 800], "label": "Filmstreifen", "text": "Schnell zum nächsten Foto wechseln." },
+      { "file": "grading.webp", "box": [1138, 286, 1348, 502], "label": "Color Grading", "text": "Farbräder für Tiefen, Mitten und Lichter." }
+    ],
+    "film-koja": [
+      { "file": "hero.webp", "box": [505, 62, 1000, 492], "label": "Programmmonitor", "text": "Den Schnitt in voller Größe ansehen." },
+      { "file": "hero.webp", "box": [0, 62, 500, 480], "label": "Effekteinstellungen", "text": "Position, Größe und Deckkraft für jeden Clip." },
+      { "file": "hero.webp", "box": [644, 640, 1246, 796], "label": "Mehrspur-Timeline", "text": "Clips, Musik und Schnitte im Blick." },
+      { "file": "hero.webp", "box": [0, 520, 405, 840], "label": "Effekte und Übergänge", "text": "Blenden, Effekte und Vorgaben aus der Bibliothek." },
+      { "file": "color.webp", "box": [2, 62, 460, 470], "label": "Scopes", "text": "Die RGB-Parade misst das gegradete Bild." },
+      { "file": "color.webp", "box": [1104, 158, 1396, 432], "label": "Farbkorrektur", "text": "Temperatur, Kontrast und Lichter anpassen." }
+    ],
+    "sound-koja": [
+      { "file": "hero.webp", "box": [535, 28, 1135, 86], "label": "Transport", "text": "Abspielen, aufnehmen und Position auf einen Blick." },
+      { "file": "hero.webp", "box": [150, 170, 1186, 562], "label": "Spuren", "text": "Alle Spuren auf einer Zeitleiste schneiden." },
+      { "file": "hero.webp", "box": [1198, 92, 1400, 345], "label": "Clip-Liste", "text": "Alle Aufnahmen der Session griffbereit." },
+      { "file": "mix.webp", "box": [150, 25, 586, 210], "label": "Inserts und Sends", "text": "Effekte und Busse pro Kanal." },
+      { "file": "mix.webp", "box": [150, 404, 586, 792], "label": "Mischpult", "text": "Pegel und Panorama für jeden Kanal." },
+      { "file": "mix.webp", "box": [1068, 130, 1366, 496], "label": "7-Band-EQ", "text": "Den Klang mit eingebauten Plugins formen." }
+    ],
+    "design-koja": [
+      { "file": "hero.webp", "box": [0, 62, 40, 700], "label": "Werkzeuge", "text": "Rahmen, Text, Pfade und Formen." },
+      { "file": "hero.webp", "box": [360, 146, 792, 448], "label": "Bilder platzieren", "text": "Fotos in Rahmen setzen und ausrichten." },
+      { "file": "hero.webp", "box": [360, 470, 792, 532], "label": "Typografie", "text": "Überschriften mit Schrift, Größe und Laufweite." },
+      { "file": "hero.webp", "box": [360, 548, 792, 666], "label": "Spaltentext", "text": "Text läuft in ausgeglichenen Spalten." },
+      { "file": "hero.webp", "box": [1145, 85, 1389, 600], "label": "Eigenschaften", "text": "Format, Ränder, Raster und Hilfslinien." },
+      { "file": "page.webp", "box": [36, 36, 664, 784], "label": "Fertige Seite", "text": "Als PDF oder Bild exportieren." }
+    ],
+    "fig-koja": [
+      { "file": "hero.webp", "box": [56, 238, 284, 672], "label": "Ebenen", "text": "Jede Gruppe und jedes Element im Blick." },
+      { "file": "hero.webp", "box": [358, 208, 586, 698], "label": "App-Screens", "text": "Mehrere Screens auf einer Arbeitsfläche." },
+      { "file": "hero.webp", "box": [620, 532, 824, 592], "label": "Auswahl", "text": "Elemente mit Maßen exakt platzieren." },
+      { "file": "hero.webp", "box": [1160, 180, 1388, 460], "label": "Eigenschaften", "text": "Position, Größe und Ausrichtung setzen." },
+      { "file": "hero.webp", "box": [480, 810, 966, 858], "label": "Werkzeuge", "text": "Rahmen, Formen, Text und Kommentare." },
+      { "file": "dev-mode.webp", "box": [1160, 584, 1386, 720], "label": "Code-Export", "text": "CSS für jedes Element kopieren." }
+    ],
+    "vector-koja": [
+      { "file": "hero.webp", "box": [309, 98, 797, 782], "label": "Plakate und Grafiken", "text": "Verläufe, Formen und Text auf der Zeichenfläche." },
+      { "file": "hero.webp", "box": [244, 278, 846, 426], "label": "Text", "text": "Text auswählen, umwandeln oder duplizieren." },
+      { "file": "hero.webp", "box": [1100, 250, 1376, 440], "label": "Typografie", "text": "Schrift, Größe und Laufweite einstellen." },
+      { "file": "hero.webp", "box": [0, 55, 56, 790], "label": "Werkzeuge", "text": "Zeichenstift, Formen, Pinsel und mehr." },
+      { "file": "bezier.webp", "box": [302, 526, 802, 632], "label": "Bézier-Pfade", "text": "Ankerpunkte und Griffe einzeln ziehen." },
+      { "file": "layers.webp", "box": [1110, 136, 1376, 416], "label": "Ebenen", "text": "Jede Form auf einer eigenen Ebene." }
+    ],
+    "effect-koja": [
+      { "file": "3d.webp", "box": [446, 98, 1012, 416], "label": "3D-Komposition", "text": "Text, 3D-Objekte und Licht kombinieren." },
+      { "file": "3d.webp", "box": [1198, 100, 1452, 300], "label": "Transformieren", "text": "Position, Drehung und Deckkraft pro Ebene." },
+      { "file": "3d.webp", "box": [2, 544, 506, 620], "label": "Ebenen", "text": "Licht, 3D-Objekt, Text und Hintergrund." },
+      { "file": "3d.webp", "box": [506, 515, 1195, 620], "label": "Zeitleiste", "text": "Jede Ebene per Keyframe animieren." },
+      { "file": "effects.webp", "box": [4, 84, 262, 346], "label": "Effekte", "text": "Über 250 Effekte mit eigenen Reglern." },
+      { "file": "effects.webp", "box": [0, 0, 600, 40], "label": "Werkzeuge", "text": "Auswahl, Zoom, Formen, Text und Pinsel." }
+    ],
+    "cad-koja": [
+      { "file": "hero.webp", "box": [0, 80, 192, 830], "label": "Werkzeuge", "text": "Zeichnen, Ändern, Schraffur und Blöcke." },
+      { "file": "hero.webp", "box": [380, 184, 952, 650], "label": "Grundriss", "text": "Wände, Türen und Fenster zeichnen." },
+      { "file": "hero.webp", "box": [436, 594, 944, 646], "label": "Bemaßung", "text": "Maße in Metern, automatisch beschriftet." },
+      { "file": "hero.webp", "box": [990, 85, 1116, 232], "label": "Ansicht", "text": "Drehen, zoomen und zwischen Ansichten wechseln." },
+      { "file": "hero.webp", "box": [1140, 228, 1396, 426], "label": "Layer", "text": "Ordnung mit farbigen Layern." },
+      { "file": "hero.webp", "box": [440, 782, 890, 826], "label": "Befehlszeile", "text": "Befehle wie in gewohnten CAD-Programmen tippen." }
+    ]
+  }
+}
