@@ -45,6 +45,8 @@ export default function ImpressumPage() {
 
             <Row index="02" title="Kontakt">
               <p>
+                Telefon: <a href="tel:+4915201482416">+49 1520 1482416</a>
+                <br />
                 E-Mail: <a href="mailto:support@kojalytics.com">support@kojalytics.com</a>
               </p>
             </Row>
