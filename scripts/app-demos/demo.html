@@ -1,0 +1,161 @@
+<!doctype html>
+<!--
+  Short demo loops for the app pages (render with: node scripts/app-demos/render.mjs [slug]).
+  Each app gets three scenes from src/content/demos.json: the camera moves from the whole window onto one
+  area of our own screenshot, a blue box draws around it, the rest dims, and a caption names the feature.
+  "Instrument" look: white paper, hairlines, mono labels, square corners, one blue accent.
+  render(t) draws the frame at t seconds, so every frame is deterministic.
+-->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=block">
+<style>
+  :root { --fg:#0e0e10; --muted:#5a5a60; --line:#e3e3e1; --line2:#c9c9c6; --accent:#2a66d8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1280px; height:800px; overflow:hidden; background:#fff; -webkit-font-smoothing:antialiased; }
+  .stage { position:relative; width:1280px; height:800px; overflow:hidden; background:#fff; }
+  .shot { position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform, opacity; }
+  svg { position:absolute; inset:0; }
+  .cap { position:absolute; display:flex; flex-direction:column; align-items:flex-start; max-width:620px; }
+  .tag { background:var(--fg); color:#fff; font:600 14px/1 'Geist Mono',monospace; letter-spacing:.16em;
+    text-transform:uppercase; padding:10px 14px 9px; }
+  .tag b { font-weight:600; color:#9fbdf3; margin-right:12px; }
+  .txt { background:#fff; border:1px solid var(--line2); color:var(--fg); padding:14px 18px 15px;
+    font-family:'Archivo',sans-serif; font-weight:700; font-stretch:112%; font-size:27px; line-height:1.15; letter-spacing:-.01em; }
+  .bar { position:absolute; left:0; right:0; bottom:0; height:4px; display:flex; gap:2px; background:#fff; }
+  .bar span { flex:1; background:var(--line); position:relative; overflow:hidden; }
+  .bar span i { position:absolute; inset:0; background:var(--accent); transform-origin:0 50%; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <svg id="ov" width="1280" height="800" viewBox="0 0 1280 800">
+    <path id="dim" fill="rgba(14,14,16,0)" fill-rule="evenodd"/>
+    <rect id="box" fill="none" stroke="#2a66d8" stroke-width="2.5"/>
+    <g id="ticks" stroke="#2a66d8" stroke-width="2"></g>
+  </svg>
+  <div class="cap" id="cap"><div class="tag" id="tag"></div><div class="txt" id="txt"></div></div>
+  <div class="bar" id="bar"></div>
+</div>
+<script>
+const W = 1280, H = 800, MAX_ZOOM = 1.75;
+const q = new URLSearchParams(location.search);
+const slug = q.get("app");
+const ease = (x) => { x = Math.min(1, Math.max(0, x)); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const ramp = (u, a, b) => ease((u - a) / (b - a));
+let T, scenes, imgs = {};
+
+window.ready = (async () => {
+  const data = await (await fetch("../../src/content/demos.json")).json();
+  T = data.sceneSeconds;
+  scenes = data.apps[slug];
+  const stage = document.getElementById("stage"), ov = document.getElementById("ov");
+  for (const s of scenes) {
+    if (imgs[s.file]) continue;
+    const im = new Image();
+    im.className = "shot";
+    im.src = `../../public/apps/${slug}/${s.file}`;
+    await im.decode();
+    if (im.naturalWidth < im.naturalHeight) im.style.outline = "1px solid #c9c9c6";
+    stage.insertBefore(im, ov);
+    imgs[s.file] = im;
+  }
+  const bar = document.getElementById("bar");
+  scenes.forEach(() => bar.insertAdjacentHTML("beforeend", "<span><i></i></span>"));
+  await document.fonts.ready;
+  return scenes.length * T;
+})();
+
+function fullCam(im) {
+  const iw = im.naturalWidth, ih = im.naturalHeight;
+  // windows fill the frame; an upright page lies whole on the white paper
+  const s = iw < ih ? Math.min(W / iw, H / ih) * 0.9 : Math.max(W / iw, H / ih);
+  return { s, cx: iw / 2, cy: ih / 2 };
+}
+function viewCam(im, v) {
+  const rw = v[2] - v[0], rh = v[3] - v[1];
+  const s = Math.max(fullCam(im).s, Math.min(W / rw, H / rh, MAX_ZOOM));
+  return clampCam(im, { s, cx: (v[0] + v[2]) / 2, cy: (v[1] + v[3]) / 2 });
+}
+function clampCam(im, c) {
+  const hx = W / 2 / c.s, hy = H / 2 / c.s, iw = im.naturalWidth, ih = im.naturalHeight;
+  c.cx = iw <= 2 * hx ? iw / 2 : Math.min(iw - hx, Math.max(hx, c.cx));
+  c.cy = ih <= 2 * hy ? ih / 2 : Math.min(ih - hy, Math.max(hy, c.cy));
+  return c;
+}
+function mix(a, b, z) {
+  return { s: Math.exp(Math.log(a.s) + (Math.log(b.s) - Math.log(a.s)) * z), cx: a.cx + (b.cx - a.cx) * z, cy: a.cy + (b.cy - a.cy) * z };
+}
+function place(im, c, opacity) {
+  im.style.transform = `translate(${W / 2 - c.cx * c.s}px, ${H / 2 - c.cy * c.s}px) scale(${c.s})`;
+  im.style.opacity = opacity;
+}
+const toScreen = (c, x, y) => [W / 2 + (x - c.cx) * c.s, H / 2 + (y - c.cy) * c.s];
+
+function placeCaption(rect) {
+  const cap = document.getElementById("cap");
+  cap.style.left = cap.style.right = cap.style.top = cap.style.bottom = "";
+  const cw = cap.offsetWidth, ch = cap.offsetHeight, m = 36;
+  const spots = [[m, H - m - ch], [W - m - cw, H - m - ch], [m, m], [W - m - cw, m]];
+  const overlap = ([x, y]) => Math.max(0, Math.min(x + cw, rect[2]) - Math.max(x, rect[0])) * Math.max(0, Math.min(y + ch, rect[3]) - Math.max(y, rect[1]));
+  const best = spots.reduce((a, b) => (overlap(b) < overlap(a) ? b : a));
+  cap.style.left = best[0] + "px";
+  cap.style.top = best[1] + "px";
+}
+
+window.render = (t) => {
+  const n = scenes.length, total = n * T;
+  t = ((t % total) + total) % total;
+  const i = Math.floor(t / T), u = t - i * T;
+  const sc = scenes[i], next = scenes[(i + 1) % n];
+  const A = imgs[sc.file], B = imgs[next.file];
+
+  // camera: whole window -> feature area -> whole window
+  const zoom = u < 2.85 ? ramp(u, 0.35, 1.15) : 1 - ramp(u, 2.85, 3.4);
+  const cam = mix(fullCam(A), viewCam(A, sc.view), zoom);
+  for (const im of Object.values(imgs)) im.style.opacity = 0;
+  // a new screenshot comes in through white paper, never as a double exposure of two similar windows
+  place(A, cam, B !== A ? 1 - ramp(u, 3.04, 3.2) : 1);
+  if (B !== A) place(B, fullCam(B), ramp(u, 3.22, 3.4));
+
+  // highlight box with a drawn outline, corner ticks and the rest dimmed
+  const on = u < 2.75 ? ramp(u, 0.95, 1.35) : 1 - ramp(u, 2.75, 3.05);
+  const draw = ramp(u, 0.95, 1.5);
+  const [x0, y0] = toScreen(cam, sc.box[0], sc.box[1]);
+  const [x1, y1] = toScreen(cam, sc.box[2], sc.box[3]);
+  const box = document.getElementById("box");
+  box.setAttribute("x", x0); box.setAttribute("y", y0);
+  box.setAttribute("width", x1 - x0); box.setAttribute("height", y1 - y0);
+  const per = 2 * (x1 - x0 + y1 - y0);
+  box.setAttribute("stroke-dasharray", per);
+  box.setAttribute("stroke-dashoffset", per * (1 - draw));
+  box.setAttribute("opacity", on);
+  document.getElementById("dim").setAttribute("d", `M0 0H${W}V${H}H0Z M${x0} ${y0}V${y1}H${x1}V${y0}Z`);
+  document.getElementById("dim").setAttribute("fill", `rgba(14,14,16,${0.26 * on})`);
+  const k = 9 * on, ticks = [[x0, y0], [x1, y0], [x0, y1], [x1, y1]].map(([x, y]) => {
+    const dx = x === x0 ? -7 : 7, dy = y === y0 ? -7 : 7;
+    return `<path d="M${x + dx - k} ${y + dy}H${x + dx + k}M${x + dx} ${y + dy - k}V${y + dy + k}"/>`;
+  });
+  document.getElementById("ticks").innerHTML = ticks.join("");
+
+  // caption: index, feature name and one sentence, placed where it does not cover the box
+  const cap = document.getElementById("cap");
+  document.getElementById("tag").innerHTML = `<b>${String(i + 1).padStart(2, "0")} / ${String(n).padStart(2, "0")}</b>${sc.label}`;
+  document.getElementById("txt").textContent = sc.text;
+  // the spot is chosen for the fully zoomed view, so the caption never jumps while the camera moves
+  const zc = viewCam(A, sc.view);
+  placeCaption([...toScreen(zc, sc.box[0], sc.box[1]), ...toScreen(zc, sc.box[2], sc.box[3])]);
+  const c = u < 2.75 ? ramp(u, 1.05, 1.45) : 1 - ramp(u, 2.75, 3.0);
+  cap.style.opacity = c;
+  cap.style.transform = `translateY(${(1 - c) * 14}px)`;
+
+  // progress line: one segment per scene
+  document.querySelectorAll("#bar i").forEach((el, j) => {
+    el.style.transform = `scaleX(${j < i ? 1 : j > i ? 0 : u / T})`;
+  });
+  return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+};
+</script>
+</body>
+</html>

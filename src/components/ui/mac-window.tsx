@@ -1,4 +1,22 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
+
+/** The square hairline window frame with traffic lights and an optional mono label, around any content. */
+export function WindowFrame({ label, className = "", children }: { label?: string; className?: string; children: ReactNode }) {
+  return (
+    <div
+      className={`overflow-hidden border border-border-strong bg-[#efefed] shadow-[0_24px_48px_-32px_rgba(14,14,16,0.45)] ${className}`}
+    >
+      <div className="flex h-6 items-center gap-1.5 border-b border-border-strong px-2.5" aria-hidden>
+        <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+        {label && <span className="ml-auto truncate font-mono text-[9.5px] uppercase tracking-[0.14em] text-faint">{label}</span>}
+      </div>
+      {children}
+    </div>
+  );
+}
 
 /**
  * A real app screenshot framed as a macOS window: square hairline frame, traffic lights, optional mono label.
@@ -27,15 +45,7 @@ export default function MacWindow({
   className?: string;
 }) {
   return (
-    <div
-      className={`overflow-hidden border border-border-strong bg-[#efefed] shadow-[0_24px_48px_-32px_rgba(14,14,16,0.45)] ${className}`}
-    >
-      <div className="flex h-6 items-center gap-1.5 border-b border-border-strong px-2.5" aria-hidden>
-        <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-        {label && <span className="ml-auto truncate font-mono text-[9.5px] uppercase tracking-[0.14em] text-faint">{label}</span>}
-      </div>
+    <WindowFrame label={label} className={className}>
       {fixedRatio ? (
         <div className="relative aspect-[16/10] bg-white">
           <Image src={src} alt={alt} fill sizes={sizes} priority={priority} fetchPriority={priority ? "high" : undefined} className="object-cover object-left-top" />
@@ -43,6 +53,6 @@ export default function MacWindow({
       ) : (
         <Image src={src} alt={alt} width={width} height={height} sizes={sizes} priority={priority} fetchPriority={priority ? "high" : undefined} className="block h-auto w-full" />
       )}
-    </div>
+    </WindowFrame>
   );
 }

@@ -2,6 +2,7 @@
 // Each Koja app is a build of an open-source app (Apache 2.0 / MIT).
 
 import screenshots from "@/content/screenshots.json";
+import demos from "@/content/demos.json";
 import photo from "@/content/apps/photo-koja.json";
 import light from "@/content/apps/light-koja.json";
 import vector from "@/content/apps/vector-koja.json";
@@ -108,7 +109,11 @@ export type KojaApp = AppBase &
   AppContent & {
     shots: Screenshot[];
     card: { src: string; width: number; height: number; alt: string };
+    /** Short demo loop rendered by scripts/app-demos from the scenes in src/content/demos.json. */
+    demo?: { src: string; poster: string; seconds: number; steps: { label: string; text: string }[] };
   };
+
+const DEMOS = demos.apps as Record<string, { label: string; text: string }[]>;
 
 /** Sizes of the screenshots in public/apps (our own captures of the Koja apps with our own demo content). */
 const SIZES = screenshots as Record<string, { width: number; height: number }>;
@@ -123,7 +128,14 @@ function withShots(base: AppBase): KojaApp {
     })
     .filter((s): s is Screenshot => s !== null);
   const card = { src: `/apps/${base.slug}/karte.webp`, width: 1440, height: 900, alt: CARD_ALT[base.slug] };
-  return { ...base, ...content, shots, card };
+  const scenes = DEMOS[base.slug];
+  const demo = scenes && {
+    src: `/apps/${base.slug}/demo.mp4`,
+    poster: `/apps/${base.slug}/demo.jpg`,
+    seconds: demos.sceneSeconds,
+    steps: scenes.map(({ label, text }) => ({ label, text })),
+  };
+  return { ...base, ...content, shots, card, demo };
 }
 
 export const APPS: KojaApp[] = BASE.map(withShots);

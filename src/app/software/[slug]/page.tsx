@@ -8,6 +8,7 @@ import RichText from "@/components/RichText";
 import MacWindow from "@/components/ui/mac-window";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadButton from "@/components/software/DownloadButton";
+import AppDemo from "@/components/software/AppDemo";
 import PricingCards from "@/components/software/PricingCards";
 import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
@@ -90,7 +91,8 @@ export default async function AppPage({ params }: Props) {
 
   // Section numbers run 01, 02, … down the page; the gallery only exists with two or more extra screenshots.
   const showGallery = gallery.length >= 2;
-  const sections = ["hero", "features", ...(showGallery ? ["gallery"] : []), "switching", "fit", "apps", "pricing", "faq"];
+  const sections = ["hero", ...(app.demo ? ["demo"] : []), "features", ...(showGallery ? ["gallery"] : []), "switching", "fit", "apps", "pricing", "faq"];
+  const demoSeconds = app.demo ? Math.round(app.demo.seconds * app.demo.steps.length) : 0;
   const num = (id: string) => two(sections.indexOf(id) + 1);
   // The last feature card fills the rest of its row, so the hairline grid never shows an empty cell.
   const n = featureCards.length;
@@ -190,7 +192,24 @@ export default async function AppPage({ params }: Props) {
           </div>
         </section>
 
-        {/* 02 Features: rows with screenshots, then the rest as a hairline grid */}
+        {/* 02 In Aktion: a short silent demo loop next to the three features it shows */}
+        {app.demo && (
+          <section className="rail crosshairs" aria-labelledby="in-aktion">
+            <SectionBar index={num("demo")} label="In Aktion" meta={`${app.name} · ${demoSeconds} Sekunden`} />
+            <div className={`py-14 md:py-20 ${pad}`}>
+              <AppDemo name={app.name} src={app.demo.src} poster={app.demo.poster} seconds={app.demo.seconds} steps={app.demo.steps} ink={ink}>
+                <h2 id="in-aktion" className="display text-[clamp(1.8rem,3.4vw,2.8rem)]">
+                  So arbeitest du mit <span className="text-highlight">{app.name}</span>
+                </h2>
+                <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+                  {app.demo.steps.length} Funktionen in {demoSeconds} Sekunden. Wähle eine Funktion, um direkt dorthin zu springen.
+                </p>
+              </AppDemo>
+            </div>
+          </section>
+        )}
+
+        {/* Features: rows with screenshots, then the rest as a hairline grid */}
         <section className="rail crosshairs">
           <SectionBar index={num("features")} label="Funktionen" meta={`${app.features.length} Funktionen im Überblick`} />
           <div className={`py-14 md:py-20 ${pad}`}>
