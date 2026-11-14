@@ -24,8 +24,7 @@
     },
     {
       "title": "Masken für Himmel, Motiv und Verläufe",
-      "text": "Male mit dem Pinsel, zieh lineare oder radiale Verläufe oder wähle Bereiche nach Helligkeit, Farbe, Himmel, Motiv oder Hintergrund aus. Mehrere Auswahlen kombinierst du per Hinzufügen, Abziehen oder Schnittmenge, und jede Maske hat 17 eigene Regler. Himmel und Motiv erkennt LightKoja mit klassischen Bildverfahren, nicht mit KI.",
-      "screenshot": "masking.webp"
+      "text": "Male mit dem Pinsel, zieh lineare oder radiale Verläufe oder wähle Bereiche nach Helligkeit, Farbe, Himmel, Motiv oder Hintergrund aus. Mehrere Auswahlen kombinierst du per Hinzufügen, Abziehen oder Schnittmenge, und jede Maske hat 17 eigene Regler. Himmel und Motiv erkennt LightKoja mit klassischen Bildverfahren, nicht mit KI."
     },
     {
       "title": "Licht, Kurven und Effekte",
@@ -51,23 +50,18 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "LightKoja auf dem Mac: Schwarzweiß-Landschaft mit Reglern für Belichtung, Lichter, Tiefen, Klarheit und Dunst",
-      "caption": "Lichter retten, Tiefen öffnen, Klarheit dosieren: Alle Grundregler liegen direkt neben dem Bild, und dein Original bleibt unangetastet."
+      "alt": "LightKoja: Entwickeln-Ansicht mit Bergsee-Foto, Histogramm und Reglern für Kontrast, Lichter, Tiefen, Weiß und Schwarz",
+      "caption": "Belichtung, Kontrast, Lichter und Tiefen regelst du nichtdestruktiv, das Original bleibt unverändert."
     },
     {
       "file": "library.webp",
-      "alt": "Bibliothek in LightKoja: Fotoraster mit Sternebewertungen, Markierungen und verschachtelten Alben in der Seitenleiste",
-      "caption": "Alben, Ordner, Sterne und Markierungen an einem Ort: So findest du auch in großen Fotosammlungen schnell das richtige Bild."
-    },
-    {
-      "file": "masking.webp",
-      "alt": "Masken in LightKoja: radialer Verlauf über der Sonne, Himmelsmaske und lokale Regler für Temperatur und Belichtung",
-      "caption": "Nur den Himmel oder nur das Sonnenlicht bearbeiten: Mit Pinsel, Verläufen und Bereichsmasken wirken Korrekturen genau dort, wo du sie willst."
+      "alt": "LightKoja: Bibliothek mit Fotoraster, Sternebewertungen, Markierung und Alben in der Seitenleiste",
+      "caption": "Bewerte, markiere und sortiere deine Fotos in Alben."
     },
     {
       "file": "grading.webp",
-      "alt": "Farbbereich in LightKoja mit Weißabgleich, Dynamik, Sättigung und drei Color-Grading-Rädern neben einem Porträt",
-      "caption": "Tiefen, Mitteltöne und Lichter getrennt einfärben: Mit drei Farbrädern gibst du deinen Fotos in wenigen Zügen einen eigenen Look."
+      "alt": "LightKoja: Farbtönung mit Farbrädern für Tiefen, Mitteltöne und Lichter neben einem Abendrot-Foto",
+      "caption": "Farbräder für Tiefen, Mitteltöne und Lichter geben deinen Fotos einen eigenen Look."
     }
   ],
   "switching": {

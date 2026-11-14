@@ -27,8 +27,7 @@
     },
     {
       "title": "Keyframes mit Geschwindigkeitskurve",
-      "text": "Position, Skalierung, Drehung, Ankerpunkt und Deckkraft animierst du auf jedem Clip, dazu kommen 26 Mischmodi. Keyframes gibt es linear, als Bezier, gehalten oder mit Ease, und jede Eigenschaft hat ihre eigene Spur mit Wert- und Geschwindigkeitskurve. Für aufwendige Motion Graphics gibt es [EffectKoja](/software/effect-koja).",
-      "screenshot": "keyframes.webp"
+      "text": "Position, Skalierung, Drehung, Ankerpunkt und Deckkraft animierst du auf jedem Clip, dazu kommen 26 Mischmodi. Keyframes gibt es linear, als Bezier, gehalten oder mit Ease, und jede Eigenschaft hat ihre eigene Spur mit Wert- und Geschwindigkeitskurve. Für aufwendige Motion Graphics gibt es [EffectKoja](/software/effect-koja)."
     },
     {
       "title": "Ton nach EBU R128",
@@ -36,8 +35,7 @@
     },
     {
       "title": "Export im Hintergrund",
-      "text": "Exportiere als H.264-MP4 mit AAC, als ProRes 422 HQ, als DNxHR in MOV oder MXF, als PNG-Sequenz, animiertes GIF oder WAV. Der Export läuft als Hintergrundauftrag mit Fortschrittsanzeige, sodass du währenddessen weiterschneiden kannst. H.264 und H.265 kann der Hardware-Encoder deines Macs übernehmen.",
-      "screenshot": "export.webp"
+      "text": "Exportiere als H.264-MP4 mit AAC, als ProRes 422 HQ, als DNxHR in MOV oder MXF, als PNG-Sequenz, animiertes GIF oder WAV. Der Export läuft als Hintergrundauftrag mit Fortschrittsanzeige, sodass du währenddessen weiterschneiden kannst. H.264 und H.265 kann der Hardware-Encoder deines Macs übernehmen."
     },
     {
       "title": "Titel und Untertitel",
@@ -51,23 +49,13 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "FilmKoja: Effekteinstellungen, Programmmonitor, Projekt-Bins, Mehrspur-Timeline und Lautheitsmeter",
-      "caption": "Effekteinstellungen, Programmmonitor, Bins und Mehrspur-Timeline in einem Fenster, dazu ein Lautheitsmeter."
+      "alt": "FilmKoja: Effekteinstellungen, Programmmonitor, Eigenschaften, Effekte-Liste und Timeline mit sechs Clips und Musikspur",
+      "caption": "Effekteinstellungen, Programmmonitor und Mehrspur-Timeline in einem Fenster."
     },
     {
       "file": "color.webp",
-      "alt": "FilmKoja Farbkorrektur: Waveform und Vektorskop neben dem Programmmonitor, darunter die Timeline mit Musikspur",
-      "caption": "Waveform und Vektorskop messen das fertig gegradete Bild, so beurteilst du Belichtung und Farbe nach Messwerten statt nach Gefühl."
-    },
-    {
-      "file": "keyframes.webp",
-      "alt": "FilmKoja Keyframes: Wert- und Geschwindigkeitskurve einer Skalierung auf einer Titelkarte, daneben die Timeline",
-      "caption": "Mit Wert- und Geschwindigkeitskurve steuerst du Zooms und Bewegungen genau und lässt sie weich ein- und auslaufen."
-    },
-    {
-      "file": "export.webp",
-      "alt": "FilmKoja Export: Ziele wie YouTube, Vimeo, TikTok und Instagram, H.264 in 1440 × 1080 bei 23,976 fps",
-      "caption": "Wähle eine Export-Vorgabe wie YouTube oder Instagram und rendere als H.264-MP4 im Hintergrund, während du weiterschneidest."
+      "alt": "FilmKoja Farbkorrektur: RGB-Parade, Programmmonitor und Lumetri-Farbe mit geänderter Temperatur, Kontrast und Lichtern",
+      "caption": "Die RGB-Parade misst das gegradete Bild, so beurteilst du Belichtung und Farbe nach Messwerten."
     }
   ],
   "switching": {

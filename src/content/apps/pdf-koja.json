@@ -49,19 +49,19 @@
   ],
   "screenshots": [
     {
-      "file": "twoup.webp",
-      "alt": "PdfKoja mit dunkler Seitenleiste: zweispaltige PDF-Seite mit Initiale, Zitat, gelber Markierung und Notiz",
-      "caption": "Lange Dokumente entspannt lesen: scharfe Schrift in jeder Zoomstufe, Markierungen und Notizen direkt im Text."
+      "file": "hero.webp",
+      "alt": "PdfKoja: zweispaltige PDF-Seite mit gelber Markierung, Werkzeugliste links und Kommentar im Inspektor rechts",
+      "caption": "PDFs lesen, markieren und kommentieren, links findest du alle Werkzeuge."
     },
     {
       "file": "organize.webp",
-      "alt": "PdfKoja-Seitenübersicht: PDF-Seiten als Miniaturen, zwei davon markiert, daneben Seitenzähler und Zoom",
-      "caption": "Seiten wie Karten ordnen: mehrere markieren, gemeinsam drehen, löschen oder verschieben und jeden Schritt auch nach dem Speichern zurücknehmen."
+      "alt": "PdfKoja: Seiten organisieren mit Miniaturen aller sieben Seiten, Optionen zum Drehen, Löschen und Einfügen",
+      "caption": "In der Seitenübersicht ordnest, drehst und löschst du Seiten per Klick."
     },
     {
       "file": "palette.webp",
-      "alt": "PdfKoja-Befehlspalette mit der Suche „page“ und Treffern wie Seiten drehen, löschen, einfügen und extrahieren",
-      "caption": "Mit ⌘K findest du jedes Werkzeug per Suchwort, statt dich durch verschachtelte Menüs zu klicken."
+      "alt": "PdfKoja: Befehlssuche mit dem Begriff Seite und Treffern wie Seiten kopieren, drehen, löschen und zuschneiden",
+      "caption": "Mit ⌘K findest du jeden Befehl, ohne Menüs zu durchsuchen."
     }
   ],
   "switching": {

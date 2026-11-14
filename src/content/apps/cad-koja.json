@@ -26,13 +26,11 @@
     },
     {
       "title": "Technische Zeichnungen mit Bemaßung",
-      "text": "Lineare, ausgerichtete, Winkel- und Radiusbemaßungen passen sich an, wenn du die Geometrie änderst; Bemaßungsstile legst du mit DIMSTYLE fest. Schraffuren setzt du per Klick in eine Fläche, auch mit Inseln, als Muster, Volltonfüllung oder Verlauf. Wiederkehrende Teile speicherst du als Blöcke mit Attributen, auch verschachtelt.",
-      "screenshot": "bracket.webp"
+      "text": "Lineare, ausgerichtete, Winkel- und Radiusbemaßungen passen sich an, wenn du die Geometrie änderst; Bemaßungsstile legst du mit DIMSTYLE fest. Schraffuren setzt du per Klick in eine Fläche, auch mit Inseln, als Muster, Volltonfüllung oder Verlauf. Wiederkehrende Teile speicherst du als Blöcke mit Attributen, auch verschachtelt."
     },
     {
       "title": "Layouts und Plotten als PDF",
-      "text": "Im Papierbereich legst du Layoutblätter mit Ansichtsfenstern an, auch mit eigenen Layer-Einstellungen pro Ansichtsfenster. Mit Seiteneinrichtung, PLOT und EXPORTPDF gibst du Pläne maßstabsgetreu als PDF aus.",
-      "screenshot": "layout.webp"
+      "text": "Im Papierbereich legst du Layoutblätter mit Ansichtsfenstern an, auch mit eigenen Layer-Einstellungen pro Ansichtsfenster. Mit Seiteneinrichtung, PLOT und EXPORTPDF gibst du Pläne maßstabsgetreu als PDF aus."
     },
     {
       "title": "Layer und Eigenschaften",
@@ -50,18 +48,8 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "CADKoja auf dem Mac: Wohnungsgrundriss mit Bemaßung, Raumtabelle, Werkzeugpalette und Eigenschaften-Panel",
-      "caption": "Grundrisse zeichnest du mit Bemaßung, Raumtabelle und Layern, gesteuert über Befehlszeile und Werkzeugpalette."
-    },
-    {
-      "file": "bracket.webp",
-      "alt": "CADKoja: technische Zeichnung eines Montagewinkels mit Vorderansicht, Schnitt A-A, Schraffur und Bemaßung",
-      "caption": "Technische Bauteile zeichnest du mit Schnittansicht, Schraffur und Bemaßung, die der Geometrie folgt."
-    },
-    {
-      "file": "layout.webp",
-      "alt": "CADKoja Papierbereich: Layout „A1 Plan“ mit Grundriss im Ansichtsfenster, bereit zum Plotten als PDF",
-      "caption": "Im Papierbereich legst du Layouts mit Ansichtsfenstern an und gibst Pläne maßstabsgetreu als PDF aus."
+      "alt": "CADKoja: Grundriss eines Gartenhauses mit Wänden, Türen, Fenstern, Raumbeschriftung und Bemaßung in Metern, rechts die Layerliste",
+      "caption": "Grundriss mit Bemaßung, Schraffur und Layern, bedient über Werkzeugleiste und Befehlszeile."
     }
   ],
   "switching": {

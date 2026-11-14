@@ -22,8 +22,7 @@
     },
     {
       "title": "Über 150 Formen und Verbinder",
-      "text": "Mehr als 150 vordefinierte Formen veränderst du über Anpassungspunkte, Verbinder bleiben an den Formen hängen, wenn du sie verschiebst. Mit Freihand- und Kurvenwerkzeugen zeichnest du eigene Formen. Über „Formen zusammenführen“ vereinigst, kombinierst, fragmentierst, schneidest oder subtrahierst du mehrere Formen.",
-      "screenshot": "shape-format.webp"
+      "text": "Mehr als 150 vordefinierte Formen veränderst du über Anpassungspunkte, Verbinder bleiben an den Formen hängen, wenn du sie verschiebst. Mit Freihand- und Kurvenwerkzeugen zeichnest du eigene Formen. Über „Formen zusammenführen“ vereinigst, kombinierst, fragmentierst, schneidest oder subtrahierst du mehrere Formen."
     },
     {
       "title": "Füllungen, Konturen und Effekte",
@@ -51,23 +50,18 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "DeckKoja auf dem Mac: Folie mit farbigem Ablaufdiagramm, Menüband und Folienleiste mit Abschnitten",
-      "caption": "Folie mit Ablaufdiagramm, darüber das Menüband mit Registerkarten, links die Folienleiste mit Abschnitten."
-    },
-    {
-      "file": "dark-mode.webp",
-      "alt": "DeckKoja im dunklen Design: Folie mit Säulendiagramm zu klaren Nächten pro Monat, Menüband und Folienleiste",
-      "caption": "Diagramme legst du direkt auf der Folie an, auf Wunsch in einer dunklen Oberfläche."
+      "alt": "DeckKoja: Folie mit einem Ablaufdiagramm aus vier Formen und Pfeilen, Start-Menüband und Folienleiste",
+      "caption": "Folien mit Formen, Verbindern und Text gestalten, links behältst du alle Folien im Blick."
     },
     {
       "file": "format-pane.webp",
       "alt": "DeckKoja: Formatbereich mit Farbverlauf, Richtung, Winkel und Verlaufsstopps für eine ausgewählte Form",
-      "caption": "Farbverläufe stellst du mit Typ, Richtung, Winkel und Verlaufsstopps im Formatbereich genau ein."
+      "caption": "Im Formatbereich gibst du Formen Verläufe, Konturen und Effekte."
     },
     {
-      "file": "shape-format.webp",
-      "alt": "DeckKoja: Register „Shape Format“ mit Füllung, Kontur, Effekten, Ausrichten und Maßen einer Form",
-      "caption": "Füllung, Kontur, Effekte, Anordnung und genaue Maße einer Form bearbeitest du an einem Ort."
+      "file": "dark-mode.webp",
+      "alt": "DeckKoja im dunklen Design: Folie mit Säulendiagramm zu Erzeugung und Verbrauch pro Monat",
+      "caption": "Diagramme bearbeitest du direkt auf der Folie, hier im dunklen Design."
     }
   ],
   "switching": {

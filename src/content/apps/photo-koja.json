@@ -28,8 +28,7 @@
     },
     {
       "title": "Auswahlen und Masken",
-      "text": "Auswahlrechteck und -ellipse, Lasso, Zauberstab, Schnellauswahl, Objektauswahl, „Motiv auswählen“ und „Auswählen und maskieren“ sind dabei. Die intelligente Auswahl rechnet auf deinem Mac oder PC, ohne Cloud und ohne Konto. Jede Auswahl wird auf Wunsch zur Ebenenmaske, zum Vektorpfad oder zur Form.",
-      "screenshot": "masks.webp"
+      "text": "Auswahlrechteck und -ellipse, Lasso, Zauberstab, Schnellauswahl, Objektauswahl, „Motiv auswählen“ und „Auswählen und maskieren“ sind dabei. Die intelligente Auswahl rechnet auf deinem Mac oder PC, ohne Cloud und ohne Konto. Jede Auswahl wird auf Wunsch zur Ebenenmaske, zum Vektorpfad oder zur Form."
     },
     {
       "title": "PSD und PSB mit Ebenen",
@@ -51,23 +50,18 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "PhotoKoja: Hokusais „Große Welle“ mit Gradationskurven, Ebenen-Bedienfeld und editierbaren Textebenen",
-      "caption": "Gradationskurven und Dynamik als Einstellungsebenen, darüber editierbare Textebenen und eine Form mit Schlagschatten."
-    },
-    {
-      "file": "adjustments.webp",
-      "alt": "PhotoKoja: Monets „Impression, Sonnenaufgang“ mit Tonwertkorrektur, Dynamik-Einstellungsebene und Live-Histogramm",
-      "caption": "Einstellungsebenen halten jede Korrektur live und umkehrbar, deine Originalpixel bleiben unverändert."
+      "alt": "PhotoKoja: Landschaftsbild mit Textebene, Tonwertkorrektur als Einstellungsebene und Ebenen-Bedienfeld",
+      "caption": "Ebenen, Einstellungsebenen und editierbarer Text, wie du es von professioneller Bildbearbeitung kennst."
     },
     {
       "file": "layer-styles.webp",
-      "alt": "PhotoKoja: Ebenenstil-Dialog mit Schein nach außen und Kontur auf der Textebene „EARTHRISE“",
-      "caption": "Ebenenstile wie Schein nach außen, Kontur oder Schlagschatten wirken live auf Text und bleiben jederzeit änderbar."
+      "alt": "PhotoKoja: Ebenenstil-Dialog mit Schein nach außen und Schlagschatten für die Textebene",
+      "caption": "Ebenenstile wie Schlagschatten und Schein nach außen bleiben editierbar, auch auf Text."
     },
     {
-      "file": "masks.webp",
-      "alt": "PhotoKoja: Ellipsen-Maske auf einer Farbton/Sättigung-Ebene, nur das Gesicht in Vermeers Gemälde bleibt farbig",
-      "caption": "Aus jeder Auswahl machst du eine Ebenenmaske, so wirkt eine Korrektur nur dort, wo du sie haben willst."
+      "file": "adjustments.webp",
+      "alt": "PhotoKoja: Dialog Gradationskurven mit Histogramm und S-Kurve, die Vorschau zeigt mehr Kontrast",
+      "caption": "Gradationskurven mit Histogramm und Live-Vorschau."
     }
   ],
   "switching": {

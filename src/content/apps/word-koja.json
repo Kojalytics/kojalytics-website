@@ -32,8 +32,7 @@
     },
     {
       "title": "Seitenlayout und Bilder",
-      "text": "Für das Seitenbild gibt es Seitenränder, Ausrichtung, Spalten, Abschnittsumbrüche, Kopf- und Fußzeilen (auch abweichend für die erste Seite oder für gerade und ungerade Seiten), Wasserzeichen, Seitenrahmen, Zeilennummern, Initialen und eine automatische Silbentrennung, die auch deutsche Texte trennt. Bilder schneidest du zu, drehst sie, passt Helligkeit und Kontrast an oder entfernst den Hintergrund. Text fließt um Bilder, Formen und Textfelder herum.",
-      "screenshot": "layout.webp"
+      "text": "Für das Seitenbild gibt es Seitenränder, Ausrichtung, Spalten, Abschnittsumbrüche, Kopf- und Fußzeilen (auch abweichend für die erste Seite oder für gerade und ungerade Seiten), Wasserzeichen, Seitenrahmen, Zeilennummern, Initialen und eine automatische Silbentrennung, die auch deutsche Texte trennt. Bilder schneidest du zu, drehst sie, passt Helligkeit und Kontrast an oder entfernst den Hintergrund. Text fließt um Bilder, Formen und Textfelder herum."
     },
     {
       "title": "Tabellen und Serienbriefe",
@@ -41,7 +40,8 @@
     },
     {
       "title": "Vorlagen, Schreibhilfen und Ansichten",
-      "text": "Auf der Startseite findest du Vorlagen für Brief, Lebenslauf und Bericht sowie deine zuletzt geöffneten Dokumente. AutoKorrektur, automatische Listen, Format übertragen und Suchen und Ersetzen mit regulären Ausdrücken helfen beim Schreiben. Zum Lesen und Überarbeiten gibt es Lesemodus, Fokusmodus, Navigationsbereich und Dunkelmodus."
+      "text": "Auf der Startseite findest du Vorlagen für Brief, Lebenslauf und Bericht sowie deine zuletzt geöffneten Dokumente. AutoKorrektur, automatische Listen, Format übertragen und Suchen und Ersetzen mit regulären Ausdrücken helfen beim Schreiben. Zum Lesen und Überarbeiten gibt es Lesemodus, Fokusmodus, Navigationsbereich und Dunkelmodus.",
+      "screenshot": "dark.webp"
     },
     {
       "title": "Schnell, nativ und offline",
@@ -51,28 +51,23 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "WordKoja: Menüband mit Formatvorlagen-Galerie, Navigationsbereich mit Überschriften und geöffnetem Dokument",
-      "caption": "Englische Oberfläche abgebildet, die App gibt es auch auf Deutsch. Cloud-Speicher und Zusammenarbeit in Echtzeit fehlen noch."
-    },
-    {
-      "file": "references.webp",
-      "alt": "WordKoja: Referenzen-Menüband, darunter zwei Seiten mit Inhaltsverzeichnis und einer Tabelle mit gebänderten Zeilen",
-      "caption": "Inhaltsverzeichnis, Fußnoten und Quellenangaben nach APA, MLA, Chicago oder IEEE sparen dir bei Hausarbeiten und Berichten viel Handarbeit."
+      "alt": "WordKoja: Start-Menüband mit Formatvorlagen, Navigationsbereich mit Überschriften und ein Dokument mit Tabelle",
+      "caption": "Menüband, Formatvorlagen und Navigationsbereich: Du springst über die Überschriften direkt zum gewünschten Abschnitt."
     },
     {
       "file": "review.webp",
-      "alt": "WordKoja: Überprüfen-Menüband, im Text ein eingefügtes und ein gestrichenes Wort sowie markierte Kommentarstellen",
-      "caption": "Mit „Änderungen nachverfolgen“ siehst du jede Überarbeitung und entscheidest einzeln, was bleibt."
+      "alt": "WordKoja: Überprüfen-Menüband, im Text eine nachverfolgte Änderung und zwei Kommentare am Rand",
+      "caption": "Änderungen nachverfolgen und kommentieren: Gelöschtes wird durchgestrichen, Eingefügtes unterstrichen, Kommentare stehen am Rand."
     },
     {
-      "file": "layout.webp",
-      "alt": "WordKoja: Layout-Menüband, Dokument mit Initiale, Textumbruch um eine Form, Zeilennummern und Seitenrahmen",
-      "caption": "Initialen, Textumbruch, Silbentrennung und Zeilennummern geben Berichten und Broschüren ein sauberes Seitenbild."
+      "file": "references.webp",
+      "alt": "WordKoja: Verweise-Menüband und ein automatisch erzeugtes Inhaltsverzeichnis mit Seitenzahlen",
+      "caption": "Ein Klick unter Verweise erzeugt das Inhaltsverzeichnis aus deinen Überschriften, samt Seitenzahlen."
     },
     {
       "file": "dark.webp",
-      "alt": "WordKoja im Dunkelmodus mit Einfügen-Menüband und eingeblendeten Formatierungszeichen im Dokument",
-      "caption": "Im Dunkelmodus arbeitest du abends mit gedämpfter Oberfläche, und Formatierungszeichen zeigen dir jeden Absatz und jedes Leerzeichen."
+      "alt": "WordKoja im dunklen Design mit Einfügen-Menüband, Dokument mit Kommentaren und Tabelle",
+      "caption": "Das dunkle Design schont die Augen am Abend, Seite und Menüband passen sich an."
     }
   ],
   "switching": {

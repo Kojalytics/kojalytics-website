@@ -1,234 +1,134 @@
 {
-  "cad-koja/hero.webp": {
-    "width": 1600,
-    "height": 970
-  },
-  "cad-koja/bracket.webp": {
-    "width": 1040,
-    "height": 970
-  },
-  "cad-koja/layout.webp": {
-    "width": 1600,
-    "height": 970
-  },
-  "deck-koja/hero.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "deck-koja/dark-mode.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "deck-koja/format-pane.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "deck-koja/shape-format.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "design-koja/hero.webp": {
-    "width": 1600,
-    "height": 956
-  },
-  "design-koja/columns.webp": {
-    "width": 700,
-    "height": 900
-  },
-  "design-koja/cover.webp": {
-    "width": 700,
-    "height": 900
-  },
-  "design-koja/feature.webp": {
-    "width": 700,
-    "height": 900
-  },
-  "design-koja/swatches.webp": {
-    "width": 700,
-    "height": 900
-  },
-  "effect-koja/3d.webp": {
-    "width": 1014,
-    "height": 834
-  },
-  "effect-koja/effects.webp": {
-    "width": 1307,
-    "height": 457
-  },
-  "fig-koja/hero.webp": {
-    "width": 1382,
-    "height": 859
-  },
-  "fig-koja/dashboard.webp": {
-    "width": 1382,
-    "height": 859
-  },
-  "fig-koja/dev-mode.webp": {
-    "width": 1382,
-    "height": 859
-  },
-  "fig-koja/components.webp": {
-    "width": 1382,
-    "height": 859
-  },
-  "fig-koja/prototype.webp": {
-    "width": 1382,
-    "height": 859
-  },
-  "fig-koja/vector.webp": {
-    "width": 1382,
-    "height": 859
-  },
-  "fig-koja/collab.webp": {
-    "width": 1382,
-    "height": 859
-  },
-  "film-koja/hero.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "film-koja/color.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "film-koja/export.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "film-koja/keyframes.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "grid-koja/hero.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "grid-koja/budget.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "grid-koja/format-chart.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "grid-koja/grades-formulas.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "grid-koja/pivot.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "light-koja/hero.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "light-koja/grading.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "light-koja/library.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "light-koja/masking.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "pdf-koja/organize.webp": {
-    "width": 1208,
-    "height": 495
-  },
-  "pdf-koja/palette.webp": {
-    "width": 658,
-    "height": 635
-  },
-  "pdf-koja/twoup.webp": {
-    "width": 819,
-    "height": 837
-  },
-  "photo-koja/hero.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "photo-koja/adjustments.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "photo-koja/layer-styles.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "photo-koja/masks.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "sound-koja/hero.webp": {
-    "width": 1600,
-    "height": 972
-  },
-  "sound-koja/mix.webp": {
-    "width": 1600,
-    "height": 972
-  },
-  "sound-koja/midi.webp": {
-    "width": 1600,
-    "height": 972
-  },
-  "sound-koja/automation.webp": {
-    "width": 1600,
-    "height": 978
-  },
-  "sound-koja/surround.webp": {
-    "width": 1600,
-    "height": 978
-  },
-  "vector-koja/hero.webp": {
-    "width": 1600,
-    "height": 775
-  },
-  "vector-koja/bezier.webp": {
-    "width": 1600,
-    "height": 920
-  },
-  "vector-koja/dimensions.webp": {
-    "width": 1600,
-    "height": 920
-  },
-  "vector-koja/perspective.webp": {
-    "width": 1600,
-    "height": 920
-  },
-  "vector-koja/revolve.webp": {
-    "width": 1600,
-    "height": 920
-  },
-  "vector-koja/ribbons.webp": {
-    "width": 1600,
-    "height": 920
-  },
-  "vector-koja/sheet.webp": {
-    "width": 1600,
-    "height": 920
-  },
   "word-koja/hero.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "word-koja/dark.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "word-koja/layout.webp": {
-    "width": 1600,
-    "height": 1000
-  },
-  "word-koja/references.webp": {
-    "width": 1600,
-    "height": 1000
+    "width": 1372,
+    "height": 877
   },
   "word-koja/review.webp": {
-    "width": 1096,
-    "height": 1000
+    "width": 1372,
+    "height": 877
+  },
+  "word-koja/references.webp": {
+    "width": 1372,
+    "height": 877
+  },
+  "word-koja/dark.webp": {
+    "width": 1372,
+    "height": 877
+  },
+  "grid-koja/hero.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "grid-koja/budget.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "grid-koja/formulas.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "deck-koja/hero.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "deck-koja/format-pane.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "deck-koja/dark-mode.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "pdf-koja/hero.webp": {
+    "width": 1372,
+    "height": 877
+  },
+  "pdf-koja/organize.webp": {
+    "width": 1372,
+    "height": 877
+  },
+  "pdf-koja/palette.webp": {
+    "width": 1372,
+    "height": 877
+  },
+  "photo-koja/hero.webp": {
+    "width": 1400,
+    "height": 863
+  },
+  "photo-koja/layer-styles.webp": {
+    "width": 1400,
+    "height": 863
+  },
+  "photo-koja/adjustments.webp": {
+    "width": 1400,
+    "height": 863
+  },
+  "light-koja/hero.webp": {
+    "width": 1400,
+    "height": 856
+  },
+  "light-koja/library.webp": {
+    "width": 1400,
+    "height": 856
+  },
+  "light-koja/grading.webp": {
+    "width": 1400,
+    "height": 856
+  },
+  "film-koja/hero.webp": {
+    "width": 1400,
+    "height": 856
+  },
+  "film-koja/color.webp": {
+    "width": 1400,
+    "height": 856
+  },
+  "sound-koja/hero.webp": {
+    "width": 1400,
+    "height": 856
+  },
+  "sound-koja/mix.webp": {
+    "width": 1400,
+    "height": 856
+  },
+  "design-koja/hero.webp": {
+    "width": 1389,
+    "height": 851
+  },
+  "design-koja/page.webp": {
+    "width": 700,
+    "height": 990
+  },
+  "fig-koja/hero.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "fig-koja/dev-mode.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "vector-koja/hero.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "vector-koja/bezier.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "vector-koja/layers.webp": {
+    "width": 1389,
+    "height": 868
+  },
+  "effect-koja/3d.webp": {
+    "width": 1456,
+    "height": 808
+  },
+  "effect-koja/effects.webp": {
+    "width": 1456,
+    "height": 808
+  },
+  "cad-koja/hero.webp": {
+    "width": 1400,
+    "height": 856
   }
 }

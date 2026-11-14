@@ -15,17 +15,15 @@
     {
       "title": "Text über Spalten und Seiten verketten",
       "text": "Verkette Textrahmen, damit ein Artikel von Rahmen zu Rahmen und von Seite zu Seite fließt. Spalten und Steg stellst du direkt im Eigenschaften-Panel ein. Der Absatz-Setzer nach Knuth–Plass wägt alle Zeilenumbrüche eines Absatzes gemeinsam ab und sorgt so für gleichmäßigere Wortabstände im Blocksatz.",
-      "screenshot": "columns.webp"
+      "screenshot": "page.webp"
     },
     {
       "title": "Absatz- und Zeichenformate",
-      "text": "Rubrik, Headline, Vorspann, Fließtext und Bildunterschrift legst du einmal als Format an. So bleibt die Gestaltung im ganzen Dokument einheitlich, auch wenn es wächst.",
-      "screenshot": "feature.webp"
+      "text": "Rubrik, Headline, Vorspann, Fließtext und Bildunterschrift legst du einmal als Format an. So bleibt die Gestaltung im ganzen Dokument einheitlich, auch wenn es wächst."
     },
     {
       "title": "Druckfertiges PDF mit Beschnitt",
-      "text": "DesignKoja exportiert PDF/X-4 und PDF/A-2b mit eingebetteten Schriften, auswählbarem Text, CMYK- und Volltonfarben, Beschnitt und Schnittmarken. Laut Projektangaben stimmen die Zeilenumbrüche im PDF genau mit der Ansicht auf dem Bildschirm überein.",
-      "screenshot": "cover.webp"
+      "text": "DesignKoja exportiert PDF/X-4 und PDF/A-2b mit eingebetteten Schriften, auswählbarem Text, CMYK- und Volltonfarben, Beschnitt und Schnittmarken. Laut Projektangaben stimmen die Zeilenumbrüche im PDF genau mit der Ansicht auf dem Bildschirm überein."
     },
     {
       "title": "Doppelseiten und Musterseiten",
@@ -51,28 +49,13 @@
   "screenshots": [
     {
       "file": "hero.webp",
-      "alt": "DesignKoja auf dem Mac: Doppelseite mit Spaltenrastern, verketteten Textrahmen und Eigenschaften-Panel",
-      "caption": "Spalten, Steg und Textumfluss stellst du im Eigenschaften-Panel ein, die Verkettung der Textrahmen siehst du als Linie."
+      "alt": "DesignKoja: A4-Seite mit platziertem Foto, Überschrift und zweispaltigem Text, rechts das Eigenschaften-Panel",
+      "caption": "Bildrahmen, Überschrift und Spaltentext auf einer Seite, die Eigenschaften stehen rechts."
     },
     {
-      "file": "cover.webp",
-      "alt": "Mit DesignKoja gestaltetes Magazin-Cover mit randabfallender Sonnenuntergang-Grafik und großer Titelzeile",
-      "caption": "Seite 1 des mitgelieferten Beispieldokuments: eine randabfallende Grafik, die du mit Beschnitt und Schnittmarken als PDF ausgibst."
-    },
-    {
-      "file": "feature.webp",
-      "alt": "Artikel-Einstieg aus DesignKoja: Rubrik, Headline, Vorspann, Bild mit Bildunterschrift und zweispaltiger Text",
-      "caption": "Rubrik, Headline, Vorspann und Fließtext legst du als Absatzformate an, damit jeder Artikel gleich aussieht."
-    },
-    {
-      "file": "columns.webp",
-      "alt": "Mit DesignKoja gesetzte Magazinseite: dreispaltiger Fließtext mit verkettetem Text und hervorgehobenem Zitat",
-      "caption": "Der Text läuft verkettet über drei Spalten, der Absatz-Setzer sorgt für gleichmäßige Zeilen."
-    },
-    {
-      "file": "swatches.webp",
-      "alt": "DesignKoja-Seite mit benannten Farbfeldern, darunter ein CMYK-Feld C=100 M=0 Y=0 K=0",
-      "caption": "Benannte Farbfelder in CMYK halten deine Hausfarben auf jeder Seite und im Druck gleich."
+      "file": "page.webp",
+      "alt": "Mit DesignKoja gesetzte Seite: Landschaftsfoto, Überschrift Herbst am Lindenhof und zweispaltiger Fließtext",
+      "caption": "Der Text läuft in ausgeglichenen Spalten, exportiert als Bild der fertigen Seite."
     }
   ],
   "switching": {
