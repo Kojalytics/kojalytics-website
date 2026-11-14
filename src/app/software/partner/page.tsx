@@ -26,21 +26,21 @@ import { OG_BASE, SITE_URL } from "@/lib/site";
 const PRICE = PLANS.lifetime.label;
 
 export const metadata: Metadata = {
-  title: { absolute: "Koja Office 2026 – Office-Paket ohne Abo, Dauerlizenz für Windows und Mac | Kojalytics" },
+  title: { absolute: "Koja Office 2026 – Office-Paket ohne Abo für Windows und Mac, einmal zahlen | Kojalytics" },
   description: `13 Apps für Mac und Windows: Textverarbeitung, Tabellen, Präsentationen, PDF, Bildbearbeitung, Video, Audio und CAD. Einmal ${PRICE} statt Abo, offline und ohne Konto. ${TRIAL_DAYS} Tage kostenlos testen.`,
   alternates: { canonical: `${SITE_URL}/software` },
   robots: { index: false, follow: true },
   openGraph: {
     ...OG_BASE,
     title: `Koja Office 2026: 13 Apps für Mac und Windows, einmal ${PRICE}, kein Abo.`,
-    description: `Office, PDF, Foto, Video, Audio und CAD. Offline, ohne Konto, Dauerlizenz für ${PRICE}. ${TRIAL_DAYS} Tage kostenlos testen.`,
+    description: `Office, PDF, Foto, Video, Audio und CAD. Offline, ohne Konto, einmal ${PRICE}. ${TRIAL_DAYS} Tage kostenlos testen.`,
     url: "/software/partner",
     images: [{ url: "/og/software.jpg", width: 1200, height: 630, alt: "Die Koja-Apps auf dem Mac" }],
   },
 };
 
 const included = [
-  "Alle 13 Koja-Apps, ohne Ablaufdatum",
+  "Alle 13 Koja-Apps inklusive",
   "Updates über den Kojalytics Launcher",
   "Auf bis zu 3 Geräten (Mac oder Windows-PC)",
   "Einmal zahlen, keine Verlängerung",
@@ -56,7 +56,7 @@ const afterOrder = [
 const problems = [
   {
     pain: "Monatliche Abo-Kosten, die nie enden, und eine Gebühr, wenn du vorzeitig gehst.",
-    fix: `Einmal ${PRICE} zahlen und behalten. Keine Verlängerung, nichts zu kündigen.`,
+    fix: `Einmal ${PRICE} zahlen, kein Abo. Keine Verlängerung, nichts zu kündigen.`,
   },
   {
     pain: "Erst Konto, Cloud und Anmeldung, bevor du eine Datei öffnen darfst.",
@@ -135,7 +135,7 @@ export default function SoftwarePartnerPage() {
             <TrustLine className="rise-in mt-4 max-w-md justify-center text-left [--i:2]" />
             <p className="rise-in mt-6 max-w-xl text-[17px] leading-relaxed text-muted [--i:3] md:text-lg">
               Office, PDF, Bildbearbeitung, Video, Audio und CAD: echte Desktop-Apps, die offline laufen und kein Konto brauchen. Einmal
-              zahlen, dauerhaft nutzen.
+              zahlen, kein Abo.
             </p>
             <p className="hud rise-in mt-5 [--i:4]">Koja Office 2026 · für macOS und Windows · Kojalytics Launcher</p>
           </div>
@@ -188,10 +188,10 @@ export default function SoftwarePartnerPage() {
           <SectionBar index="02" label="Preis" meta="Einmal zahlen · kein Abo" />
           <div className={`py-14 md:py-20 ${pad}`}>
             <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
-              Einmal zahlen. Dauerhaft <span className="text-highlight">nutzen</span>.
+              Einmal zahlen. Kein <span className="text-highlight">Abo</span>.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted" data-reveal>
-              Zahle einmal <span className="whitespace-nowrap">{PRICE}</span> und nutze alle 13 Apps ohne Ablaufdatum. Erst testen?{" "}
+              Zahle einmal <span className="whitespace-nowrap">{PRICE}</span> und nutze alle 13 Apps auf bis zu 3 Geräten. Erst testen?{" "}
               {TRIAL_DAYS} Tage kostenlos.
             </p>
 
@@ -201,15 +201,15 @@ export default function SoftwarePartnerPage() {
                   <p className="hud">
                     <span className="text-faint">01</span>
                     <span className="mx-2 text-faint">/</span>
-                    <span className="text-foreground">{PLANS.lifetime.name}</span>
+                    <span className="text-foreground">Einmalkauf</span>
                   </p>
-                  <span className="tag !border-buy bg-buy !text-white">Dauerlizenz</span>
+                  <span className="tag !border-buy bg-buy !text-white">Kein Abo</span>
                 </div>
                 <p className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <span className="display whitespace-nowrap text-6xl">{PRICE}</span>
                   <span className="hud">{PLANS.lifetime.per}</span>
                 </p>
-                <p className="mt-2 text-sm text-muted">Einmal zahlen, dauerhaft nutzen. Inkl. MwSt.</p>
+                <p className="mt-2 text-sm text-muted">Einmal zahlen, keine Verlängerung. Inkl. MwSt.</p>
                 <p className="mt-3 border-l-2 border-buy pl-3 text-sm leading-relaxed text-foreground">
                   Zum Vergleich: Adobe Creative Cloud Pro kostet 77,99 € im Monat, Microsoft 365 Single 99 € im Jahr.{" "}
                   <span className="text-muted">(Stand November 2026)</span>
@@ -223,7 +223,7 @@ export default function SoftwarePartnerPage() {
                   ))}
                 </ul>
                 <div className="mt-auto grid gap-4">
-                  <DigistoreBuyButton source="pricing" label={`Für ${PRICE} dauerhaft kaufen`} className="w-full" />
+                  <DigistoreBuyButton source="pricing" label={`Jetzt für ${PRICE} kaufen`} className="w-full" />
                   <TrustLine />
                 </div>
               </div>
@@ -433,7 +433,7 @@ export default function SoftwarePartnerPage() {
             <h2 className="display mt-8 max-w-4xl text-[clamp(2.2rem,5vw,4.4rem)]" data-reveal>
               Dein Kreativ- und Büro-Paket für einmal <span className="whitespace-nowrap text-highlight">{PRICE}</span>.
             </h2>
-            <p className="mt-5 max-w-xl text-lg text-muted">13 Apps ohne Ablaufdatum. Einmal zahlen, keine Verlängerung, nichts zu kündigen.</p>
+            <p className="mt-5 max-w-xl text-lg text-muted">13 Apps in einem Paket. Einmal zahlen, keine Verlängerung, nichts zu kündigen.</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <DigistoreBuyButton source="final-cta" />
               <DownloadButton source="partner-final-cta" variant="secondary" label={`${TRIAL_DAYS} Tage kostenlos testen`} />
