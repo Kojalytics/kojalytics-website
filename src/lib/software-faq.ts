@@ -32,12 +32,12 @@ const APP_LIST =
 
 export const SOFTWARE_FAQ: FaqItem[] = [
   {
-    q: "Was bekomme ich für 2,99 € im Monat?",
+    q: "Was bekomme ich für 19,99 € im Monat?",
     a: `Alle 13 Koja-Apps für Mac und Windows: ${APP_LIST}. Alle Updates sind inklusive, und du nutzt die Apps auf bis zu 3 Geräten, Mac und Windows-PC gemischt.`,
   },
   {
     q: "Wie funktioniert der kostenlose Test?",
-    a: `Du lädst den Kojalytics Launcher, klickst dort unter Einstellungen › Lizenz auf „${TRIAL_DAYS} Tage kostenlos testen“ und installierst die Apps, die du brauchst. ${TRIAL_DAYS} Tage lang nutzt du alle Apps kostenlos, ohne Zahlungsdaten und ohne Konto. Danach entscheidest du dich für 2,99 € im Monat oder 79 € einmalig. Wenn du nichts tust, endet der Test einfach und du zahlst nichts.`,
+    a: `Du lädst den Kojalytics Launcher, klickst dort unter Einstellungen › Lizenz auf „${TRIAL_DAYS} Tage kostenlos testen“ und installierst die Apps, die du brauchst. ${TRIAL_DAYS} Tage lang nutzt du alle Apps kostenlos, ohne Zahlungsdaten und ohne Konto. Danach entscheidest du dich für 19,99 € im Monat oder 79 € einmalig. Wenn du nichts tust, endet der Test einfach und du zahlst nichts.`,
   },
   {
     q: "Wie kündige ich?",

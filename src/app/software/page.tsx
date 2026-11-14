@@ -24,7 +24,7 @@ import compare from "@/content/software-compare.json";
 export const metadata: Metadata = {
   title: "Koja-Apps: 13 Apps für Mac und Windows statt Adobe-Abo",
   description:
-    "Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD für Mac und Windows. Offline, ohne Konto. Einmal 79 € statt Abo, oder 2,99 € im Monat. 3 Tage kostenlos testen.",
+    "Bildbearbeitung, Video, Layout, Audio, Office, PDF und CAD für Mac und Windows. Offline, ohne Konto. Einmal 79 € statt Abo, oder 19,99 € im Monat. 3 Tage kostenlos testen.",
   alternates: { canonical: "/software" },
   openGraph: {
     ...OG_BASE,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 const problems = [
   {
     pain: "Monatliche Abo-Kosten, die nie enden, und eine Gebühr, wenn du vorzeitig gehst.",
-    fix: "2,99 € im Monat und jederzeit online kündbar. Oder einmal 79 € zahlen und behalten.",
+    fix: "19,99 € im Monat und jederzeit online kündbar. Oder einmal 79 € zahlen und behalten.",
   },
   {
     pain: "Erst Konto, Cloud und Anmeldung, bevor du eine Datei öffnen darfst.",

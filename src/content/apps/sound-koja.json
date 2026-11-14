@@ -3,7 +3,7 @@
   "benefit": "Musik und Podcasts am Mac oder PC schneiden und mischen, mit Edit- und Mix-Fenster.",
   "keyword": "pro tools alternative mac",
   "metaTitle": "Pro-Tools-Alternative für Mac und Windows: SoundKoja",
-  "metaDescription": "SoundKoja ist eine Pro-Tools-Alternative für Mac und Windows: Edit- und Mix-Fenster, MIDI, Surround bis 9.1.6. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "metaDescription": "SoundKoja ist eine Pro-Tools-Alternative für Mac und Windows: Edit- und Mix-Fenster, MIDI, Surround bis 9.1.6. 3 Tage kostenlos testen, dann 19,99 € im Monat.",
   "h1": "Pro-Tools-Alternative für Mac und Windows: aufnehmen, schneiden, mischen",
   "lead": "SoundKoja ist eine Pro-Tools-Alternative für Mac und Windows, mit Edit- und Mix-Fenster, Live-Automation und Surround bis 9.1.6. Deine CLAP-, VST3- und AU-Plugins kannst du weiterverwenden. Die Oberfläche ist auf Englisch. Teste die App 3 Tage kostenlos mit eigenem Material.",
   "highlights": [
@@ -64,14 +64,14 @@
       "Vieles bleibt, wie du es kennst: ein Edit-Fenster zum Arrangieren und Schneiden, ein Mix-Fenster zum Mischen, die Modi Shuffle, Slip, Spot und Grid und Werkzeuge wie Smart Tool, Trim, Grabber und Pencil. Auch Playlists, Memory Locations, AudioSuite, Beat Detective, Elastic-Warping und Automation mit Write, Touch, Latch und Trim sind dabei, ebenso Einzeltasten-Befehle im Commands-Focus-Modus. 482 der 512 Menüpunkte von Pro Tools Ultimate gibt es auch in SoundKoja (Stand: November 2026).",
       "Zu deinen Dateien: Pro-Tools-Sessions (.ptx) öffnet SoundKoja nicht, und auch AAF und OMF werden nicht unterstützt. Exportiere deshalb in Pro Tools deine Spuren als WAV-Dateien, die alle am selben Startpunkt beginnen, und MIDI-Spuren als Standard-MIDI-Datei, dann importierst du alles in SoundKoja. WAV, BWF, RF64, AIFF, AIFC und FLAC importiert SoundKoja in jeder Abtastrate und Bittiefe und kann sie auch schreiben; MP3, AAC, ALAC, Ogg Vorbis, CAF und den Ton aus MP4- und MOV-Videos liest es nur ein. Plugin-Einstellungen, Routing und Automation baust du neu auf.",
       "Gut zu wissen: Aufgenommen wird über das Standard-Audiogerät deines Macs mit einer festen Puffergröße von 512 Samples, ein Audio-Interface wählst du in der App nicht aus. MIDI-Aufnahme per Keyboard, der Export als MP3 oder AAC und Zusammenarbeit über die Cloud sind nicht enthalten, Hardware wie Control Surfaces wird nur eingeschränkt unterstützt. Die Oberfläche ist auf Englisch. SoundKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
-      "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere SoundKoja und importiere die Spuren eines echten Songs oder Podcasts. Schneide eine Passage, mische sie mit den eingebauten Plugins und deinen AU-, VST3- oder CLAP-Plugins und bounce das Ergebnis als WAV, inklusive LUFS-Messung. Passt es, nutzt du alle 13 Apps für 2,99 € im Monat weiter, [jederzeit kündbar](/kuendigen), oder zahlst einmalig 79 €. Pro Tools behältst du am besten, bis du sicher bist."
+      "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere SoundKoja und importiere die Spuren eines echten Songs oder Podcasts. Schneide eine Passage, mische sie mit den eingebauten Plugins und deinen AU-, VST3- oder CLAP-Plugins und bounce das Ergebnis als WAV, inklusive LUFS-Messung. Passt es, nutzt du alle 13 Apps für 19,99 € im Monat weiter, [jederzeit kündbar](/kuendigen), oder zahlst einmalig 79 €. Pro Tools behältst du am besten, bis du sicher bist."
     ]
   },
   "comparison": {
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "koja": "19,99 € im Monat für alle 13 Apps oder 79 € einmalig",
         "other": "Intro kostenlos (je bis zu 8 Audio-, Instrumenten- und MIDI-Spuren). Artist 9,99 US-$, Studio 34,99 US-$, Ultimate 99 US-$ im Monat"
       },
       {
@@ -143,7 +143,7 @@
     },
     {
       "q": "Gibt es eine Pro-Tools-Alternative ohne Abo?",
-      "a": "Ja: SoundKoja kaufst du für 79 € einmalig mit dauerhafter Lizenz, oder du nutzt es für 2,99 € im Monat, jederzeit kündbar. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Geräten. Bei Pro Tools ist die Version Intro kostenlos, aber auf je 8 Audio-, Instrumenten- und MIDI-Spuren begrenzt; Artist, Studio und Ultimate kosten laut Avid-Preisliste im Jahres-Abo 99, 299 bzw. 599 US-$. Alle Details findest du bei den [Preisen](/software#preise)."
+      "a": "Ja: SoundKoja kaufst du für 79 € einmalig mit dauerhafter Lizenz, oder du nutzt es für 19,99 € im Monat, jederzeit kündbar. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Geräten. Bei Pro Tools ist die Version Intro kostenlos, aber auf je 8 Audio-, Instrumenten- und MIDI-Spuren begrenzt; Artist, Studio und Ultimate kosten laut Avid-Preisliste im Jahres-Abo 99, 299 bzw. 599 US-$. Alle Details findest du bei den [Preisen](/software#preise)."
     },
     {
       "q": "Kann ich mit SoundKoja über mein Audio-Interface aufnehmen?",

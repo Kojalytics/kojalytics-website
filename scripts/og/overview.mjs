@@ -35,6 +35,6 @@ async function og(out, title, sub, shots, bar) {
     .toFile(P(out));
 }
 
-await og("og/software.jpg", ["13 Apps für Mac", "und Windows,", "2,99 € im Monat"], "Foto, Video, Office, PDF und CAD.", ["apps/photo-koja/hero.webp", "apps/grid-koja/hero.webp"], { index: "01", label: "Koja-Apps für Mac und Windows", meta: "13 Apps · macOS · Windows" });
+await og("og/software.jpg", ["13 Apps für Mac", "und Windows,", "19,99 € im Monat"], "Foto, Video, Office, PDF und CAD.", ["apps/photo-koja/hero.webp", "apps/grid-koja/hero.webp"], { index: "01", label: "Koja-Apps für Mac und Windows", meta: "13 Apps · macOS · Windows" });
 await og("og/kojalytics.jpg", ["Software-Studio", "aus Hamburg"], "Apps für Kunden, Mac und Windows.", ["apps/design-koja/hero.webp", "apps/word-koja/hero.webp"], { index: "01", label: "Kojalytics", meta: "iOS · Web · KI · macOS · Windows" });
 console.log("ok");

@@ -53,7 +53,7 @@ for (const f of fs.readdirSync(appsDir)) {
     eyebrow: names[slug],
     bar: { index: "01", label: names[slug], meta: "macOS · Windows · 3 Tage kostenlos" },
     title: [...wrap(app.kind, 17), "für Mac und Windows"],
-    sub: "3 Tage kostenlos testen · 2,99 € im Monat",
+    sub: "3 Tage kostenlos testen · 19,99 € im Monat",
     icon: `apps/${slug}/icon.webp`,
     shot: `apps/${slug}/${app.screenshots[0].file}`,
   });

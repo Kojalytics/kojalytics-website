@@ -29,7 +29,7 @@
             ["Microsoft 365 für das Web", "kostenlos", "Word, Excel und PowerPoint im Browser, 5 GB OneDrive", "Microsoft-Konto nötig, keine installierten Apps"],
             ["Pages, Numbers, Keynote", "kostenlos", "Apples Office-Apps mit Export als .docx, .xlsx und .pptx", "Andere Bedienung, Layout kann abweichen"],
             ["LibreOffice", "kostenlos", "Sechs quelloffene Programme, lädt und speichert .docx, .xlsx und .pptx", "Komplexe Office-Dateien brauchen oft Nacharbeit"],
-            ["WordKoja, GridKoja, DeckKoja", "2,99 € pro Monat oder 79 € einmalig", "Office-ähnliches Menüband, .docx, .xlsx und .pptx, 13 Apps auf bis zu 3 Geräten", "Nicht jede Office-Funktion, teils englische Oberfläche"]
+            ["WordKoja, GridKoja, DeckKoja", "19,99 € pro Monat oder 79 € einmalig", "Office-ähnliches Menüband, .docx, .xlsx und .pptx, 13 Apps auf bis zu 3 Geräten", "Nicht jede Office-Funktion, teils englische Oberfläche"]
           ],
           "caption": "Preise inkl. MwSt., Stand 7. November 2026."
         }
@@ -167,7 +167,7 @@
     },
     {
       "id": "koja-apps",
-      "h2": "WordKoja, GridKoja und DeckKoja: Office-Dateien für 2,99 € im Monat",
+      "h2": "WordKoja, GridKoja und DeckKoja: Office-Dateien für 19,99 € im Monat",
       "blocks": [
         {
           "type": "p",
@@ -210,7 +210,7 @@
         },
         {
           "type": "p",
-          "text": "Du lädst die Apps kostenlos über den Kojalytics Launcher und kannst alle Apps 3 Tage lang kostenlos testen. Danach kosten alle 13 Apps zusammen 2,99 € pro Monat inkl. MwSt. Kündigen kannst du jederzeit online auf [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Geräten (Mac oder Windows-PC). Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Es gibt sie für macOS und Windows, nicht im Browser. Alle Details stehen auf der [Preisseite](/software#preise)."
+          "text": "Du lädst die Apps kostenlos über den Kojalytics Launcher und kannst alle Apps 3 Tage lang kostenlos testen. Danach kosten alle 13 Apps zusammen 19,99 € pro Monat inkl. MwSt. Kündigen kannst du jederzeit online auf [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz. Beides gilt auf bis zu 3 Geräten (Mac oder Windows-PC). Du brauchst kein Konto, und die Apps laufen offline. Internet ist nur für Download und Aktivierung nötig. Es gibt sie für macOS und Windows, nicht im Browser. Alle Details stehen auf der [Preisseite](/software#preise)."
         },
         {
           "type": "p",
@@ -266,7 +266,7 @@
             ["Microsoft 365 Family (Jahresabo)", "129 € pro Jahr", "387 €", "645 €", "bis zu 6 Personen"],
             ["Office Home 2024", "149 € einmalig", "149 €", "149 € plus Nachfolger*", "1 Mac"],
             ["Office Home & Business 2024", "299 € einmalig", "299 €", "299 € plus Nachfolger*", "1 Mac"],
-            ["Koja-Apps (monatlich)", "2,99 € pro Monat", "107,64 €", "179,40 €", "bis zu 3 Geräte"],
+            ["Koja-Apps (monatlich)", "19,99 € pro Monat", "719,64 €", "1.199,40 €", "bis zu 3 Geräte"],
             ["Koja-Apps (Dauerlizenz)", "79 € einmalig", "79 €", "79 €", "bis zu 3 Geräte"],
             ["Pages, Numbers, Keynote, LibreOffice, Microsoft 365 für das Web", "kostenlos", "0 €", "0 €", "je nach Angebot"]
           ],
@@ -274,7 +274,7 @@
         },
         {
           "type": "p",
-          "text": "Über drei Jahre ist Office Home 2024 deutlich günstiger als jedes Microsoft-365-Abo. Wer über 2029 hinaus ein Office mit Sicherheitsupdates will, zahlt aber erneut. Microsoft 365 lohnt sich vor allem, wenn du den Cloud-Speicher nutzt, auf mehreren Geräten arbeitest oder das Abo mit der Familie teilst. Die Koja-Apps sind die günstigste kostenpflichtige Variante, aber auch die unfertigste."
+          "text": "Über drei Jahre ist Office Home 2024 deutlich günstiger als jedes Microsoft-365-Abo. Wer über 2029 hinaus ein Office mit Sicherheitsupdates will, zahlt aber erneut. Microsoft 365 lohnt sich vor allem, wenn du den Cloud-Speicher nutzt, auf mehreren Geräten arbeitest oder das Abo mit der Familie teilst. Mit der Dauerlizenz für 79 € sind die Koja-Apps die günstigste kostenpflichtige Variante."
         }
       ]
     },
@@ -289,7 +289,7 @@
             "Du öffnest nur gelegentlich eine Office-Datei: Pages, Numbers und Keynote oder die kostenlose Webversion von Microsoft reichen meist aus.",
             "Du arbeitest viel mit Office-Dateien, willst aber nichts bezahlen: LibreOffice ist eine umfangreiche kostenlose Lösung zum Installieren.",
             "Du willst in Echtzeit mit anderen an Dateien arbeiten oder mehrere Personen und Geräte versorgen: Dann ist Microsoft 365 trotz Abo die passende Wahl.",
-            "Du suchst eine günstige Mac-App mit vertrautem Menüband und willst ein Paket aus 13 Apps für wenig Geld: Teste WordKoja, GridKoja und DeckKoja 3 Tage kostenlos mit deinen eigenen Dateien."
+            "Du suchst eine günstige Mac-App mit vertrautem Menüband und willst ein Paket aus 13 Apps, einmal bezahlt für 79 €: Teste WordKoja, GridKoja und DeckKoja 3 Tage kostenlos mit deinen eigenen Dateien."
           ]
         },
         {
@@ -322,7 +322,7 @@
     },
     {
       "q": "Ersetzen WordKoja, GridKoja und DeckKoja Microsoft Office?",
-      "a": "Nicht vollständig. Die drei Apps arbeiten mit .docx, .xlsx und .pptx, Layout und Formatierung können aber abweichen. WordKoja hat zum Beispiel keine deutsche Rechtschreibprüfung. Die Apps werden laufend weiterentwickelt, Updates bekommst du kostenlos. Du kannst alle 13 Apps 3 Tage kostenlos testen und danach für 2,99 € im Monat nutzen, jederzeit ohne Gebühr kündbar."
+      "a": "Nicht vollständig. Die drei Apps arbeiten mit .docx, .xlsx und .pptx, Layout und Formatierung können aber abweichen. WordKoja hat zum Beispiel keine deutsche Rechtschreibprüfung. Die Apps werden laufend weiterentwickelt, Updates bekommst du kostenlos. Du kannst alle 13 Apps 3 Tage kostenlos testen und danach für 19,99 € im Monat nutzen, jederzeit ohne Gebühr kündbar."
     }
   ],
   "apps": ["word-koja", "grid-koja", "deck-koja", "pdf-koja"],

@@ -1,7 +1,7 @@
 export const TRIAL_DAYS = 3;
 
 export const PLANS = {
-  monthly: { cents: 299, label: "2,99 €", per: "pro Monat", name: "Monatlich" },
+  monthly: { cents: 1999, label: "19,99 €", per: "pro Monat", name: "Monatlich" },
   lifetime: { cents: 7900, label: "79 €", per: "einmalig", name: "Für immer" },
 } as const;
 
