@@ -24,7 +24,8 @@ const help = [
 
 const linkCls = "text-sm text-muted transition-colors hover:text-foreground";
 
-export default function Footer() {
+/** `legalOnly` (the Digistore24 partner page): only contact and legal links, no links to the shop pages. */
+export default function Footer({ legalOnly = false }: { legalOnly?: boolean }) {
   return (
     <footer>
       <div className="rail crosshairs">
@@ -40,45 +41,53 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="col-span-2 p-6 md:col-span-4 md:p-8">
-            <p className="hud mb-5">Koja-Apps für Mac und Windows</p>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-2.5">
-              {APPS.map((app) => (
-                <li key={app.slug}>
-                  <Link href={`/software/${app.slug}`} prefetch={false} className={linkCls}>
-                    {app.name}
-                    <span className="sr-only"> – {app.kind}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {!legalOnly && (
+            <>
+              <div className="col-span-2 p-6 md:col-span-4 md:p-8">
+                <p className="hud mb-5">Koja-Apps für Mac und Windows</p>
+                <ul className="grid grid-cols-2 gap-x-8 gap-y-2.5">
+                  {APPS.map((app) => (
+                    <li key={app.slug}>
+                      <Link href={`/software/${app.slug}`} prefetch={false} className={linkCls}>
+                        {app.name}
+                        <span className="sr-only"> – {app.kind}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          <div className="p-6 md:col-span-3 md:p-8">
-            <p className="hud mb-5">Ratgeber</p>
-            <ul className="space-y-2.5">
-              {ARTICLES.map((a) => (
-                <li key={a.slug}>
-                  <Link href={`/ratgeber/${a.slug}`} prefetch={false} className={linkCls}>
-                    {a.navTitle}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+              <div className="p-6 md:col-span-3 md:p-8">
+                <p className="hud mb-5">Ratgeber</p>
+                <ul className="space-y-2.5">
+                  {ARTICLES.map((a) => (
+                    <li key={a.slug}>
+                      <Link href={`/ratgeber/${a.slug}`} prefetch={false} className={linkCls}>
+                        {a.navTitle}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
 
-          <div className="p-6 md:col-span-2 md:p-8">
-            <p className="hud mb-5">Unternehmen</p>
-            <ul className="space-y-2.5">
-              {company.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className={linkCls}>
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="hud mb-5 mt-9">Hilfe & Recht</p>
+          <div className={`p-6 md:p-8 ${legalOnly ? "md:col-span-9" : "md:col-span-2"}`}>
+            {!legalOnly && (
+              <>
+                <p className="hud mb-5">Unternehmen</p>
+                <ul className="mb-9 space-y-2.5">
+                  {company.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className={linkCls}>
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            <p className="hud mb-5">Hilfe & Recht</p>
             <ul className="space-y-2.5">
               {help.map((l) => (
                 <li key={l.href}>

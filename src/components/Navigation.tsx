@@ -50,11 +50,12 @@ function IntroLogo() {
  * `cta`: the button on the right. "download" (default) loads the Koja-Apps; "buy" (the Koja-Apps pages) buys the 79 €
  * licence from lg up and keeps the trial button on phones; "contact" (studio pages such as the home page) opens the
  * contact form. "buy-ds24" (the Digistore24 partner page) works like "buy", but the button goes to the Digistore24 order
- * form and "Preise" to the price section of that page.
+ * form, "Preise" to the price section of that page, and the site links are left out so partner buyers stay on that page.
  */
 export default function Navigation({ cta = "download" }: { cta?: "download" | "contact" | "buy" | "buy-ds24" }) {
   const pathname = usePathname();
   const pricesHref = cta === "buy-ds24" ? "#preise" : "/software#preise";
+  const links = cta === "buy-ds24" ? [] : navLinks;
   const [openFor, setOpenFor] = useState<string | null>(null);
   // The menu closes on its own when the route changes.
   const mobileOpen = openFor === pathname;
@@ -73,7 +74,7 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
           </div>
 
           <ul className="hidden items-stretch lg:flex">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <li key={link.href} className="flex items-center px-1 first:pl-3 xl:px-1.5">
                 <Link
                   href={link.href}
@@ -136,7 +137,7 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
       {mobileOpen && (
         <div className="fixed inset-0 top-12 z-40 overflow-y-auto bg-white lg:hidden">
           <ul className="border-b border-border">
-            {[...navLinks, { href: pricesHref, label: "Preise" }].map((link, i) => (
+            {[...links, { href: pricesHref, label: "Preise" }].map((link, i) => (
               <li key={link.href} className="border-t border-border first:border-t-0">
                 <Link href={link.href} onClick={() => setOpenFor(null)} className="flex items-center justify-between px-5 py-5">
                   <span className="display text-2xl">{link.label}</span>
