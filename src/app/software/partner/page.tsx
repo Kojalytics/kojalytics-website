@@ -442,7 +442,7 @@ export default function SoftwarePartnerPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer legalOnly />
       <DigistoreStickyBuyBar source="buybar" />
     </>
   );
