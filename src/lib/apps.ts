@@ -1,5 +1,5 @@
 // The 13 Koja apps. Fixed facts live here; the German page copy lives in src/content/apps/<slug>.json.
-// Each Koja app is a macOS build of an open-source Craft app by the ArtCraft team (MIT / Apache-2.0).
+// Each Koja app is a build of an open-source app (Apache 2.0 / MIT).
 
 import screenshots from "@/content/screenshots.json";
 import photo from "@/content/apps/photo-koja.json";
@@ -110,7 +110,7 @@ export type KojaApp = AppBase &
     card: { src: string; width: number; height: number; alt: string };
   };
 
-/** Sizes of the screenshots in public/apps (from the ArtCraft press kit, cropped where ArtCraft branding was visible). */
+/** Sizes of the screenshots in public/apps (cropped so that no upstream branding is visible). */
 const SIZES = screenshots as Record<string, { width: number; height: number }>;
 
 function withShots(base: AppBase): KojaApp {

@@ -247,8 +247,8 @@ export default function TermsPage() {
           <div className="divide-y divide-border">
             <Section title="11. Open-Source-Software">
               <P>
-                Die Koja-Apps basieren auf Open-Source-Software des ArtCraft-Teams, die unter den Lizenzen MIT und Apache-2.0
-                veröffentlicht ist. Diese Lizenzen gelten für den Quellcode und bleiben von diesen AGB unberührt.
+                Die Koja-Apps basieren auf Open-Source-Software, die unter den Lizenzen Apache 2.0 und MIT veröffentlicht
+                ist. Diese Lizenzen gelten für den Quellcode und bleiben von diesen AGB unberührt.
               </P>
             </Section>
 
