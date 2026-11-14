@@ -16,7 +16,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "../..");
 const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const FFMPEG = process.env.FFMPEG || "ffmpeg";
-const FPS = 30;
+const FPS = Number(process.env.FPS || 60);
 const PORT = 9347;
 const only = process.argv[2];
 const demos = JSON.parse(readFileSync(path.join(root, "src/content/demos.json"), "utf8"));
@@ -91,7 +91,7 @@ try {
     const out = path.join(root, "public/apps", slug);
     execFileSync(FFMPEG, [
       "-y", "-loglevel", "error", "-framerate", String(FPS), "-i", path.join(dir, "%04d.png"),
-      "-c:v", "libx264", "-preset", "slow", "-crf", "24", "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-an",
+      "-c:v", "libx264", "-preset", "slow", "-crf", process.env.CRF || "25", "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-an",
       path.join(out, "demo.mp4"),
     ]);
     await sharp(path.join(dir, "0000.png")).jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(out, "demo.jpg"));

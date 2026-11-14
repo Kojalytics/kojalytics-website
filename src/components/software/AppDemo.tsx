@@ -3,18 +3,20 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { WindowFrame } from "@/components/ui/mac-window";
 
-type Step = { label: string; text: string };
+type Step = { label: string; text: string; start: number };
 
 /**
- * A short, silent demo loop of an app (rendered by scripts/app-demos) next to the list of the features it shows.
- * It plays only while it is on screen and never for people who prefer reduced motion (they get the poster and
- * the player controls). The step that is on screen is marked; a click on a step jumps there.
+ * A silent demo loop of an app (rendered by scripts/app-demos) next to the list of the features it visits.
+ * The video carries no words, so it works in every language; the list is the text. It plays only while it
+ * is on screen and never by itself for people who prefer reduced motion (they get the poster and player
+ * controls). The feature on screen is marked, a thin line shows how long it stays; a click jumps there.
  */
 export default function AppDemo({
   name,
   src,
   poster,
-  seconds,
+  duration,
+  travel,
   steps,
   ink,
   children,
@@ -22,11 +24,13 @@ export default function AppDemo({
   name: string;
   src: string;
   poster: string;
-  /** Length of one step in the video. */
-  seconds: number;
+  /** Length of the loop in seconds. */
+  duration: number;
+  /** Seconds the camera needs from one feature to the next. */
+  travel: number;
   steps: Step[];
   ink: string;
-  /** Heading and intro above the step list. */
+  /** Heading and intro above the list. */
   children: ReactNode;
 }) {
   const video = useRef<HTMLVideoElement>(null);
@@ -39,11 +43,16 @@ export default function AppDemo({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     // With reduced motion nothing starts by itself; the player controls let people start it.
     v.controls = reduced;
+    // A feature counts as shown from halfway through the move towards it until halfway through the next move.
+    const from = steps.map((s, i) => (i === 0 ? 0 : s.start - travel / 2));
     let raf = 0;
     const tick = () => {
-      const i = Math.floor(v.currentTime / seconds) % steps.length;
+      const t = v.currentTime;
+      let i = 0;
+      while (i < steps.length - 1 && t >= from[i + 1]) i++;
       setActive(i);
-      bars.current.forEach((b, j) => b && (b.style.transform = `scaleX(${j === i ? (v.currentTime % seconds) / seconds : 0})`));
+      const end = i < steps.length - 1 ? from[i + 1] : duration;
+      bars.current.forEach((b, j) => b && (b.style.transform = `scaleX(${j === i ? Math.min(1, (t - from[i]) / (end - from[i])) : 0})`));
       if (!v.paused) raf = requestAnimationFrame(tick);
     };
     const onPlay = () => {
@@ -67,17 +76,17 @@ export default function AppDemo({
       v.removeEventListener("play", onPlay);
       v.removeEventListener("seeked", tick);
     };
-  }, [seconds, steps.length]);
+  }, [duration, travel, steps]);
 
   const jump = (i: number) => {
     const v = video.current;
     if (!v) return;
-    v.currentTime = i * seconds + 1.2;
+    v.currentTime = Math.max(0, steps[i].start - travel * 0.6);
     v.play().catch(() => {});
   };
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+    <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
       <div className="min-w-0" data-reveal>
         {children}
         <ol className="mt-8 border-t border-border">
@@ -87,14 +96,14 @@ export default function AppDemo({
                 type="button"
                 onClick={() => jump(i)}
                 aria-current={i === active ? "step" : undefined}
-                className={`relative flex w-full items-baseline gap-4 py-4 text-left transition-colors ${i === active ? "text-foreground" : "text-muted hover:text-foreground"}`}
+                className={`relative flex w-full items-baseline gap-4 py-3 text-left transition-colors ${i === active ? "text-foreground" : "text-muted hover:text-foreground"}`}
               >
-                <span className="font-mono text-xs font-semibold" style={{ color: i === active ? ink : undefined }}>
+                <span className="w-5 shrink-0 font-mono text-xs font-semibold" style={{ color: i === active ? ink : undefined }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="min-w-0">
-                  <span className="display block text-[1.2rem]">{s.label}</span>
-                  <span className="mt-1 block text-sm leading-relaxed text-muted">{s.text}</span>
+                  <span className="display block text-[1.1rem]">{s.label}</span>
+                  <span className="mt-0.5 block text-sm leading-relaxed text-muted">{s.text}</span>
                 </span>
                 <span
                   ref={(el) => {
@@ -121,7 +130,7 @@ export default function AppDemo({
             loop
             playsInline
             preload="none"
-            aria-label={`${name} in Aktion: ${steps.map((s) => s.label).join(", ")}`}
+            aria-label={`${name}: ${steps.map((s) => s.label).join(", ")}`}
           >
             <source src={src} type="video/mp4" />
           </video>

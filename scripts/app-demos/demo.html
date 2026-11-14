@@ -1,160 +1,233 @@
 <!doctype html>
 <!--
-  Short demo loops for the app pages (render with: node scripts/app-demos/render.mjs [slug]).
-  Each app gets three scenes from src/content/demos.json: the camera moves from the whole window onto one
-  area of our own screenshot, a blue box draws around it, the rest dims, and a caption names the feature.
-  "Instrument" look: white paper, hairlines, mono labels, square corners, one blue accent.
-  render(t) draws the frame at t seconds, so every frame is deterministic.
+  Demo loops for the app pages (render with: node scripts/app-demos/render.mjs [slug]).
+  All screenshots of an app lie as windows on white graph paper. One continuous camera move glides from
+  feature to feature (stops in src/content/demos.json): a blue focus frame slides from one area to the next,
+  a pointer moves there and clicks, the rest of the paper fades back a little. No cuts, no fades to white,
+  and no words in the picture, so the same video works in every language; the page lists the features as text.
+  render(t) draws the frame at t seconds, so every frame is deterministic and the loop is seamless.
 -->
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&display=block">
 <style>
-  :root { --fg:#0e0e10; --muted:#5a5a60; --line:#e3e3e1; --line2:#c9c9c6; --accent:#2a66d8; }
+  :root { --accent:#2a66d8; --line2:#c9c9c6; }
   * { box-sizing:border-box; margin:0; padding:0; }
   html, body { width:1280px; height:800px; overflow:hidden; background:#fff; -webkit-font-smoothing:antialiased; }
   .stage { position:relative; width:1280px; height:800px; overflow:hidden; background:#fff; }
-  .shot { position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform, opacity; }
-  svg { position:absolute; inset:0; }
-  .cap { position:absolute; display:flex; flex-direction:column; align-items:flex-start; max-width:620px; }
-  .tag { background:var(--fg); color:#fff; font:600 14px/1 'Geist Mono',monospace; letter-spacing:.16em;
-    text-transform:uppercase; padding:10px 14px 9px; }
-  .tag b { font-weight:600; color:#9fbdf3; margin-right:12px; }
-  .txt { background:#fff; border:1px solid var(--line2); color:var(--fg); padding:14px 18px 15px;
-    font-family:'Archivo',sans-serif; font-weight:700; font-stretch:112%; font-size:27px; line-height:1.15; letter-spacing:-.01em; }
-  .bar { position:absolute; left:0; right:0; bottom:0; height:4px; display:flex; gap:2px; background:#fff; }
-  .bar span { flex:1; background:var(--line); position:relative; overflow:hidden; }
-  .bar span i { position:absolute; inset:0; background:var(--accent); transform-origin:0 50%; }
+  .world { position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform; }
+  .paper { position:absolute; left:-6000px; top:-6000px; width:16000px; height:16000px;
+    background-image:linear-gradient(#efefed 1px, transparent 1px), linear-gradient(90deg, #efefed 1px, transparent 1px);
+    background-size:48px 48px; }
+  .win { position:absolute; background:#efefed; border:1px solid var(--line2);
+    box-shadow:0 40px 80px -48px rgba(14,14,16,.55), 0 2px 6px rgba(14,14,16,.06); }
+  .win .bar { height:26px; display:flex; align-items:center; gap:7px; padding:0 11px; border-bottom:1px solid var(--line2); }
+  .win .bar i { width:11px; height:11px; border-radius:50%; background:#ff5f57; }
+  .win .bar i:nth-child(2) { background:#febc2e; } .win .bar i:nth-child(3) { background:#28c840; }
+  .win .bar span { margin-left:auto; font:500 10px/1 'Geist Mono',monospace; letter-spacing:.16em; text-transform:uppercase; color:#8b8b91; }
+  .win img { display:block; }
+  .tick { position:absolute; width:22px; height:22px; }
+  .tick::before, .tick::after { content:""; position:absolute; background:var(--line2); }
+  .tick::before { left:10px; top:0; width:2px; height:22px; } .tick::after { left:0; top:10px; width:22px; height:2px; }
+  svg { position:absolute; inset:0; overflow:visible; }
+  .bar2 { position:absolute; left:0; right:0; bottom:0; height:3px; display:flex; gap:3px; }
+  .bar2 span { flex:1; background:#ececea; position:relative; overflow:hidden; }
+  .bar2 span i { position:absolute; inset:0; background:var(--accent); transform-origin:0 50%; }
 </style>
 </head>
 <body>
-<div class="stage" id="stage">
+<div class="stage">
+  <div class="world" id="world"><div class="paper"></div></div>
   <svg id="ov" width="1280" height="800" viewBox="0 0 1280 800">
-    <path id="dim" fill="rgba(14,14,16,0)" fill-rule="evenodd"/>
-    <rect id="box" fill="none" stroke="#2a66d8" stroke-width="2.5"/>
+    <defs>
+      <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.6" flood-color="#0e0e10" flood-opacity=".35"/></filter>
+    </defs>
+    <path id="wash" fill-rule="evenodd" fill="#ffffff"/>
+    <rect id="ring" fill="none" stroke="#2a66d8" stroke-width="2.5"/>
     <g id="ticks" stroke="#2a66d8" stroke-width="2"></g>
+    <text id="num" font-family="Geist Mono" font-weight="600" font-size="13" letter-spacing="1.5" fill="#2a66d8"></text>
+    <circle id="ripple" fill="none" stroke="#2a66d8" stroke-width="2.5"/>
+    <circle id="ripple2" fill="#2a66d8"/>
+    <g id="cursor" filter="url(#shadow)">
+      <path d="M0 0 L0 18.5 L4.6 14.3 L7.8 21.6 L10.7 20.4 L7.6 13.3 L13.5 13.3 Z" fill="#0e0e10" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
   </svg>
-  <div class="cap" id="cap"><div class="tag" id="tag"></div><div class="txt" id="txt"></div></div>
-  <div class="bar" id="bar"></div>
+  <div class="bar2" id="bar2"></div>
 </div>
 <script>
-const W = 1280, H = 800, MAX_ZOOM = 1.75;
+const W = 1280, H = 800, BAR = 26, GAP = 190, SMAX = 1.4, WASH = 0.3;
 const q = new URLSearchParams(location.search);
 const slug = q.get("app");
-const ease = (x) => { x = Math.min(1, Math.max(0, x)); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
-const ramp = (u, a, b) => ease((u - a) / (b - a));
-let T, scenes, imgs = {};
+const clamp01 = (x) => Math.min(1, Math.max(0, x));
+const ease = (x) => { x = clamp01(x); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const ramp = (t, a, b) => ease((t - a) / (b - a));
+const lerp = (a, b, k) => a + (b - a) * k;
+let T, DW, stops, wins = {}, keys, times;
+
+// Monotone cubic interpolation (Fritsch-Carlson): smooth, never overshoots a key.
+function monotone(xs, ys) {
+  const n = xs.length, d = [], m = new Array(n).fill(0);
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (3 * (xs[i + 1] - xs[i - 1])) / ((2 * xs[i + 1] - xs[i] - xs[i - 1]) / d[i - 1] + (xs[i + 1] + xs[i] - 2 * xs[i - 1]) / d[i]);
+  return (x) => {
+    let i = 0;
+    while (i < n - 2 && x > xs[i + 1]) i++;
+    const h = xs[i + 1] - xs[i], u = clamp01((x - xs[i]) / h), u2 = u * u, u3 = u2 * u;
+    return (2 * u3 - 3 * u2 + 1) * ys[i] + (u3 - 2 * u2 + u) * h * m[i] + (-2 * u3 + 3 * u2) * ys[i + 1] + (u3 - u2) * h * m[i + 1];
+  };
+}
+
+// world rect of a stop (box inside its window)
+const worldBox = (s, grow = 0) => {
+  const w = wins[s.file];
+  return [w.x + s.box[0] - grow, w.y + BAR + s.box[1] - grow, w.x + s.box[2] + grow, w.y + BAR + s.box[3] + grow];
+};
+const center = (r) => [(r[0] + r[2]) / 2, (r[1] + r[3]) / 2];
+function fit(r, share, cap = SMAX) {
+  const s = Math.min((share * W) / (r[2] - r[0]), (share * H) / (r[3] - r[1]), cap);
+  const [cx, cy] = center(r);
+  return { cx, cy, ls: Math.log(s) };
+}
+// camera for a stop: the area fills about half the frame, nudged towards the middle of its window
+// so the frame shows app rather than empty paper, but never so far that the area leaves the picture
+function fitStop(st) {
+  const r = worldBox(st), w = wins[st.file];
+  const cam = fit(r, 0.56), s = Math.exp(cam.ls);
+  const [rx, ry] = center(r), wx = w.x + w.w / 2, wy = w.y + w.h / 2;
+  const roomX = Math.max(0, W / (2 * s) - (r[2] - r[0]) / 2 - 48 / s), roomY = Math.max(0, H / (2 * s) - (r[3] - r[1]) / 2 - 48 / s);
+  cam.cx = rx + Math.max(-roomX, Math.min(roomX, (wx - rx) * 0.4));
+  cam.cy = ry + Math.max(-roomY, Math.min(roomY, (wy - ry) * 0.4));
+  return cam;
+}
+function union(a, b) { return [Math.min(a[0], b[0]), Math.min(a[1], b[1]), Math.max(a[2], b[2]), Math.max(a[3], b[3])]; }
 
 window.ready = (async () => {
   const data = await (await fetch("../../src/content/demos.json")).json();
-  T = data.sceneSeconds;
-  scenes = data.apps[slug];
-  const stage = document.getElementById("stage"), ov = document.getElementById("ov");
-  for (const s of scenes) {
-    if (imgs[s.file]) continue;
-    const im = new Image();
-    im.className = "shot";
-    im.src = `../../public/apps/${slug}/${s.file}`;
-    await im.decode();
-    if (im.naturalWidth < im.naturalHeight) im.style.outline = "1px solid #c9c9c6";
-    stage.insertBefore(im, ov);
-    imgs[s.file] = im;
-  }
-  const bar = document.getElementById("bar");
-  scenes.forEach(() => bar.insertAdjacentHTML("beforeend", "<span><i></i></span>"));
+  const tm = data.timing;
+  DW = tm.dwell;
+  stops = data.apps[slug];
+  const world = document.getElementById("world");
+  const name = slug.replace("-koja", "").toUpperCase() + "KOJA";
+
+  // windows on the paper, staggered
+  const files = [...new Set(stops.map((s) => s.file))];
+  const imgs = await Promise.all(files.map(async (f) => { const im = new Image(); im.src = `../../public/apps/${slug}/${f}`; await im.decode(); return im; }));
+  const size = imgs.map((im) => [im.naturalWidth, im.naturalHeight + BAR]);
+  const pos = [[0, 0]];
+  if (files.length > 1) pos.push([size[0][0] + GAP, 150]);
+  if (files.length > 2) pos.push([260, Math.max(size[0][1], size[1][1] + 150) + GAP]);
+  if (files.length > 3) pos.push([size[0][0] + GAP + 260, size[1][1] + 150 + GAP]);
+  files.forEach((f, i) => {
+    const [x, y] = pos[i], [w, h] = size[i];
+    wins[f] = { x, y, w, h };
+    const el = document.createElement("div");
+    el.className = "win";
+    Object.assign(el.style, { left: x + "px", top: y + "px", width: w + 2 + "px", height: h + 2 + "px" });
+    el.innerHTML = `<div class="bar"><i></i><i></i><i></i><span>${name}</span></div>`;
+    el.appendChild(imgs[i]);
+    world.appendChild(el);
+    for (const [tx, ty] of [[x - 40, y - 40], [x + w + 18, y - 40], [x - 40, y + h + 18], [x + w + 18, y + h + 18]]) {
+      const t = document.createElement("div");
+      t.className = "tick";
+      Object.assign(t.style, { left: tx + "px", top: ty + "px" });
+      world.appendChild(t);
+    }
+  });
+
+  // timeline: wide shot -> stop 1 -> ... -> stop n -> wide shot
+  const n = stops.length;
+  times = stops.map((_, i) => tm.intro + i * (tm.dwell + tm.travel));
+  T = times[n - 1] + tm.dwell + tm.outro;
+  const all = Object.values(wins).reduce((r, w) => union(r, [w.x, w.y, w.x + w.w, w.y + w.h]), [Infinity, Infinity, -Infinity, -Infinity]);
+  const wide = fit(all, 0.9, 1);
+  const cams = stops.map(fitStop);
+  const k = [[0, wide]];
+  stops.forEach((s, i) => {
+    if (i > 0) {
+      const mid = fit(union(worldBox(stops[i - 1]), worldBox(s)), 0.8);
+      mid.ls = Math.min(mid.ls, cams[i - 1].ls, cams[i].ls) - 0.08;
+      k.push([times[i] - tm.travel / 2, mid]);
+    }
+    k.push([times[i], cams[i]]);
+    k.push([times[i] + tm.dwell, { ...cams[i], ls: cams[i].ls + 0.06 }]);
+  });
+  k.push([T, wide]);
+  const xs = k.map((e) => e[0]);
+  keys = { cx: monotone(xs, k.map((e) => e[1].cx)), cy: monotone(xs, k.map((e) => e[1].cy)), ls: monotone(xs, k.map((e) => e[1].ls)) };
+  const bar = document.getElementById("bar2");
+  stops.forEach(() => bar.insertAdjacentHTML("beforeend", "<span><i></i></span>"));
   await document.fonts.ready;
-  return scenes.length * T;
+  return T;
 })();
 
-function fullCam(im) {
-  const iw = im.naturalWidth, ih = im.naturalHeight;
-  // windows fill the frame; an upright page lies whole on the white paper
-  const s = iw < ih ? Math.min(W / iw, H / ih) * 0.9 : Math.max(W / iw, H / ih);
-  return { s, cx: iw / 2, cy: ih / 2 };
-}
-function viewCam(im, v) {
-  const rw = v[2] - v[0], rh = v[3] - v[1];
-  const s = Math.max(fullCam(im).s, Math.min(W / rw, H / rh, MAX_ZOOM));
-  return clampCam(im, { s, cx: (v[0] + v[2]) / 2, cy: (v[1] + v[3]) / 2 });
-}
-function clampCam(im, c) {
-  const hx = W / 2 / c.s, hy = H / 2 / c.s, iw = im.naturalWidth, ih = im.naturalHeight;
-  c.cx = iw <= 2 * hx ? iw / 2 : Math.min(iw - hx, Math.max(hx, c.cx));
-  c.cy = ih <= 2 * hy ? ih / 2 : Math.min(ih - hy, Math.max(hy, c.cy));
-  return c;
-}
-function mix(a, b, z) {
-  return { s: Math.exp(Math.log(a.s) + (Math.log(b.s) - Math.log(a.s)) * z), cx: a.cx + (b.cx - a.cx) * z, cy: a.cy + (b.cy - a.cy) * z };
-}
-function place(im, c, opacity) {
-  im.style.transform = `translate(${W / 2 - c.cx * c.s}px, ${H / 2 - c.cy * c.s}px) scale(${c.s})`;
-  im.style.opacity = opacity;
-}
-const toScreen = (c, x, y) => [W / 2 + (x - c.cx) * c.s, H / 2 + (y - c.cy) * c.s];
-
-function placeCaption(rect) {
-  const cap = document.getElementById("cap");
-  cap.style.left = cap.style.right = cap.style.top = cap.style.bottom = "";
-  const cw = cap.offsetWidth, ch = cap.offsetHeight, m = 36;
-  const spots = [[m, H - m - ch], [W - m - cw, H - m - ch], [m, m], [W - m - cw, m]];
-  const overlap = ([x, y]) => Math.max(0, Math.min(x + cw, rect[2]) - Math.max(x, rect[0])) * Math.max(0, Math.min(y + ch, rect[3]) - Math.max(y, rect[1]));
-  const best = spots.reduce((a, b) => (overlap(b) < overlap(a) ? b : a));
-  cap.style.left = best[0] + "px";
-  cap.style.top = best[1] + "px";
-}
-
 window.render = (t) => {
-  const n = scenes.length, total = n * T;
-  t = ((t % total) + total) % total;
-  const i = Math.floor(t / T), u = t - i * T;
-  const sc = scenes[i], next = scenes[(i + 1) % n];
-  const A = imgs[sc.file], B = imgs[next.file];
+  const n = stops.length;
+  t = ((t % T) + T) % T;
+  const cam = { cx: keys.cx(t), cy: keys.cy(t), s: Math.exp(keys.ls(t)) };
+  document.getElementById("world").style.transform = `translate(${W / 2 - cam.cx * cam.s}px, ${H / 2 - cam.cy * cam.s}px) scale(${cam.s})`;
+  const scr = (x, y) => [W / 2 + (x - cam.cx) * cam.s, H / 2 + (y - cam.cy) * cam.s];
 
-  // camera: whole window -> feature area -> whole window
-  const zoom = u < 2.85 ? ramp(u, 0.35, 1.15) : 1 - ramp(u, 2.85, 3.4);
-  const cam = mix(fullCam(A), viewCam(A, sc.view), zoom);
-  for (const im of Object.values(imgs)) im.style.opacity = 0;
-  // a new screenshot comes in through white paper, never as a double exposure of two similar windows
-  place(A, cam, B !== A ? 1 - ramp(u, 3.04, 3.2) : 1);
-  if (B !== A) place(B, fullCam(B), ramp(u, 3.22, 3.4));
+  // which stop: i = last stop that has started, k = how far the move to the next one is
+  let i = 0;
+  while (i < n - 1 && t >= times[i + 1]) i++;
+  const kmove = i < n - 1 ? ramp(t, times[i] + DW, times[i + 1]) : 0;
 
-  // highlight box with a drawn outline, corner ticks and the rest dimmed
-  const on = u < 2.75 ? ramp(u, 0.95, 1.35) : 1 - ramp(u, 2.75, 3.05);
-  const draw = ramp(u, 0.95, 1.5);
-  const [x0, y0] = toScreen(cam, sc.box[0], sc.box[1]);
-  const [x1, y1] = toScreen(cam, sc.box[2], sc.box[3]);
-  const box = document.getElementById("box");
-  box.setAttribute("x", x0); box.setAttribute("y", y0);
-  box.setAttribute("width", x1 - x0); box.setAttribute("height", y1 - y0);
-  const per = 2 * (x1 - x0 + y1 - y0);
-  box.setAttribute("stroke-dasharray", per);
-  box.setAttribute("stroke-dashoffset", per * (1 - draw));
-  box.setAttribute("opacity", on);
-  document.getElementById("dim").setAttribute("d", `M0 0H${W}V${H}H0Z M${x0} ${y0}V${y1}H${x1}V${y0}Z`);
-  document.getElementById("dim").setAttribute("fill", `rgba(14,14,16,${0.26 * on})`);
-  const k = 9 * on, ticks = [[x0, y0], [x1, y0], [x0, y1], [x1, y1]].map(([x, y]) => {
-    const dx = x === x0 ? -7 : 7, dy = y === y0 ? -7 : 7;
-    return `<path d="M${x + dx - k} ${y + dy}H${x + dx + k}M${x + dx} ${y + dy - k}V${y + dy + k}"/>`;
+  // focus frame: grows in at the start, slides between stops, fades out at the end
+  const a = worldBox(stops[i], 6), b = i < n - 1 ? worldBox(stops[i + 1], 6) : a;
+  let r = a.map((v, j) => lerp(v, b[j], kmove));
+  const intro = clamp01((t - (times[0] - 0.7)) / 0.7), outro = 1 - clamp01((t - (times[n - 1] + DW + 0.05)) / 0.6);
+  const on = t < times[0] ? ease(intro) : ease(outro);
+  if (t < times[0]) {
+    const g = (1 - ease(intro)) * 60;
+    r = [r[0] - g, r[1] - g, r[2] + g, r[3] + g];
+  }
+  const [x0, y0] = scr(r[0], r[1]), [x1, y1] = scr(r[2], r[3]);
+  const ring = document.getElementById("ring");
+  ring.setAttribute("x", x0); ring.setAttribute("y", y0); ring.setAttribute("width", x1 - x0); ring.setAttribute("height", y1 - y0);
+  ring.setAttribute("opacity", on);
+  const wash = document.getElementById("wash");
+  wash.setAttribute("d", `M-10 -10H${W + 10}V${H + 10}H-10Z M${x0} ${y0}V${y1}H${x1}V${y0}Z`);
+  wash.setAttribute("fill-opacity", WASH * on);
+  const tk = 8, ticks = [[x0, y0, -1, -1], [x1, y0, 1, -1], [x0, y1, -1, 1], [x1, y1, 1, 1]].map(([x, y, sx, sy]) => {
+    const cx = x + sx * 8, cy = y + sy * 8;
+    return `<path opacity="${on}" d="M${cx - tk} ${cy}H${cx + tk}M${cx} ${cy - tk}V${cy + tk}"/>`;
   });
   document.getElementById("ticks").innerHTML = ticks.join("");
+  const num = document.getElementById("num");
+  const shown = kmove > 0.5 ? i + 1 : i;
+  num.textContent = String(shown + 1).padStart(2, "0") + " / " + String(n).padStart(2, "0");
+  num.setAttribute("x", x0); num.setAttribute("y", y0 - 14); num.setAttribute("opacity", on * (1 - Math.sin(Math.PI * kmove) * 0.85));
 
-  // caption: index, feature name and one sentence, placed where it does not cover the box
-  const cap = document.getElementById("cap");
-  document.getElementById("tag").innerHTML = `<b>${String(i + 1).padStart(2, "0")} / ${String(n).padStart(2, "0")}</b>${sc.label}`;
-  document.getElementById("txt").textContent = sc.text;
-  // the spot is chosen for the fully zoomed view, so the caption never jumps while the camera moves
-  const zc = viewCam(A, sc.view);
-  placeCaption([...toScreen(zc, sc.box[0], sc.box[1]), ...toScreen(zc, sc.box[2], sc.box[3])]);
-  const c = u < 2.75 ? ramp(u, 1.05, 1.45) : 1 - ramp(u, 2.75, 3.0);
-  cap.style.opacity = c;
-  cap.style.transform = `translateY(${(1 - c) * 14}px)`;
+  // pointer: glides to each stop shortly after the camera, clicks, then waits
+  const click = (s) => { const [cx, cy] = center(worldBox(s)); return [cx + Math.min(60, (s.box[2] - s.box[0]) * 0.18), cy + Math.min(40, (s.box[3] - s.box[1]) * 0.2)]; };
+  const pa = click(stops[i]), pb = i < n - 1 ? click(stops[i + 1]) : pa;
+  const km = i < n - 1 ? ramp(t, times[i] + DW + 0.12, times[i + 1] + 0.12) : 0;
+  const mx = (pa[0] + pb[0]) / 2 - (pb[1] - pa[1]) * 0.22, my = (pa[1] + pb[1]) / 2 + (pb[0] - pa[0]) * 0.22;
+  let px = (1 - km) ** 2 * pa[0] + 2 * (1 - km) * km * mx + km * km * pb[0];
+  let py = (1 - km) ** 2 * pa[1] + 2 * (1 - km) * km * my + km * km * pb[1];
+  const c0 = click(stops[0]);
+  if (t < times[0] + 0.12) { const k0 = ramp(t, times[0] - 0.9, times[0] + 0.12); px = lerp(c0[0] + 260, c0[0], k0); py = lerp(c0[1] + 200, c0[1], k0); }
+  const [sx, sy] = scr(px, py);
+  // seconds since the click at the current stop (the pointer lands 0.12 s after the camera)
+  const dc = t >= times[i] + 0.12 ? t - (times[i] + 0.12) : -1;
+  const press = dc >= 0 && dc < 0.16 ? 0.86 : 1;
+  const cur = document.getElementById("cursor");
+  cur.setAttribute("transform", `translate(${sx} ${sy}) scale(${1.15 * press})`);
+  cur.setAttribute("opacity", on);
+  const rp = document.getElementById("ripple"), rp2 = document.getElementById("ripple2");
+  const rk = dc >= 0 && dc < 0.6 ? dc / 0.6 : 1;
+  rp.setAttribute("cx", sx); rp.setAttribute("cy", sy); rp.setAttribute("r", 4 + 30 * Math.sqrt(rk));
+  rp.setAttribute("opacity", (1 - rk) * 0.7 * on);
+  rp2.setAttribute("cx", sx); rp2.setAttribute("cy", sy); rp2.setAttribute("r", 9 * (1 - rk));
+  rp2.setAttribute("opacity", (1 - rk) * 0.25 * on);
 
-  // progress line: one segment per scene
-  document.querySelectorAll("#bar i").forEach((el, j) => {
-    el.style.transform = `scaleX(${j < i ? 1 : j > i ? 0 : u / T})`;
+  // progress line: one segment per stop
+  document.querySelectorAll("#bar2 i").forEach((el, j) => {
+    const p = j < i ? 1 : j > i ? 0 : clamp01((t - times[i]) / (j < n - 1 ? times[1] - times[0] : T - times[i]));
+    el.style.transform = `scaleX(${t < times[0] ? 0 : p})`;
   });
-  return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+  return new Promise((r) => requestAnimationFrame(() => r()));
 };
 </script>
 </body>

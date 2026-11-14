@@ -92,7 +92,7 @@ export default async function AppPage({ params }: Props) {
   // Section numbers run 01, 02, … down the page; the gallery only exists with two or more extra screenshots.
   const showGallery = gallery.length >= 2;
   const sections = ["hero", ...(app.demo ? ["demo"] : []), "features", ...(showGallery ? ["gallery"] : []), "switching", "fit", "apps", "pricing", "faq"];
-  const demoSeconds = app.demo ? Math.round(app.demo.seconds * app.demo.steps.length) : 0;
+  const demoSeconds = app.demo ? Math.round(app.demo.duration) : 0;
   const num = (id: string) => two(sections.indexOf(id) + 1);
   // The last feature card fills the rest of its row, so the hairline grid never shows an empty cell.
   const n = featureCards.length;
@@ -197,7 +197,7 @@ export default async function AppPage({ params }: Props) {
           <section className="rail crosshairs" aria-labelledby="in-aktion">
             <SectionBar index={num("demo")} label="In Aktion" meta={`${app.name} · ${demoSeconds} Sekunden`} />
             <div className={`py-14 md:py-20 ${pad}`}>
-              <AppDemo name={app.name} src={app.demo.src} poster={app.demo.poster} seconds={app.demo.seconds} steps={app.demo.steps} ink={ink}>
+              <AppDemo name={app.name} src={app.demo.src} poster={app.demo.poster} duration={app.demo.duration} travel={app.demo.travel} steps={app.demo.steps} ink={ink}>
                 <h2 id="in-aktion" className="display text-[clamp(1.8rem,3.4vw,2.8rem)]">
                   So arbeitest du mit <span className="text-highlight">{app.name}</span>
                 </h2>

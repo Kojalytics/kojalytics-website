@@ -109,11 +109,15 @@ export type KojaApp = AppBase &
   AppContent & {
     shots: Screenshot[];
     card: { src: string; width: number; height: number; alt: string };
-    /** Short demo loop rendered by scripts/app-demos from the scenes in src/content/demos.json. */
-    demo?: { src: string; poster: string; seconds: number; steps: { label: string; text: string }[] };
+    /**
+     * Demo loop rendered by scripts/app-demos from the stops in src/content/demos.json. `start` is when the
+     * camera arrives at a stop, `duration` the length of the loop, both in seconds (same timing as the renderer).
+     */
+    demo?: { src: string; poster: string; duration: number; travel: number; steps: { label: string; text: string; start: number }[] };
   };
 
 const DEMOS = demos.apps as Record<string, { label: string; text: string }[]>;
+const { intro, dwell, travel, outro } = demos.timing;
 
 /** Sizes of the screenshots in public/apps (our own captures of the Koja apps with our own demo content). */
 const SIZES = screenshots as Record<string, { width: number; height: number }>;
@@ -128,12 +132,13 @@ function withShots(base: AppBase): KojaApp {
     })
     .filter((s): s is Screenshot => s !== null);
   const card = { src: `/apps/${base.slug}/karte.webp`, width: 1440, height: 900, alt: CARD_ALT[base.slug] };
-  const scenes = DEMOS[base.slug];
-  const demo = scenes && {
+  const stops = DEMOS[base.slug];
+  const demo = stops && {
     src: `/apps/${base.slug}/demo.mp4`,
     poster: `/apps/${base.slug}/demo.jpg`,
-    seconds: demos.sceneSeconds,
-    steps: scenes.map(({ label, text }) => ({ label, text })),
+    duration: intro + stops.length * dwell + (stops.length - 1) * travel + outro,
+    travel,
+    steps: stops.map(({ label, text }, i) => ({ label, text, start: intro + i * (dwell + travel) })),
   };
   return { ...base, ...content, shots, card, demo };
 }

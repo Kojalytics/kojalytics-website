@@ -86,9 +86,11 @@ Geist Mono (`font-mono`, `.hud`).
 - Video only as the app demo loops (`<AppDemo />`, section "In Aktion" after the hero of each app page; owner
   request, Nov 2026): silent, never in the hero (LCP stays the screenshot), `preload="none"` with a poster,
   plays only while on screen, and not at all with reduced motion (poster plus player controls instead).
-  The loops are rendered from our own screenshots: scenes in `src/content/demos.json`,
-  `node scripts/app-demos/render.mjs [slug]` (Instrument look inside the video too: white paper, hairlines,
-  mono labels, one blue box). No other autoplaying video.
+  The loops are rendered from our own screenshots: stops in `src/content/demos.json`,
+  `node scripts/app-demos/render.mjs [slug]`. One continuous camera move over the app's windows on graph
+  paper, a sliding blue focus frame and a pointer that clicks; no cuts, no fades to white, and no words in
+  the picture (only numbers and the app name), so the video works in every language and the feature names
+  stay translatable page text. No other autoplaying video.
 
 ## Don'ts
 
