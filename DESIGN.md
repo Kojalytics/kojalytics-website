@@ -92,4 +92,6 @@ Geist Mono (`font-mono`, `.hud`).
 - No gradients, glass, blur effects (the header's backdrop blur is the only one).
 - Do not change copy, prices, claims, legal text, metadata, JSON-LD or links when restyling. Legal
   wording ("jederzeit online kündbar", Alpha status) is deliberate.
-- Do not use ArtCraft's name in design or marketing copy (only the existing neutral origin sentence).
+- Never name the upstream project, its team, website or repositories anywhere on the site (owner decision,
+  Nov 2026). The origin sentence names only the licences: "basieren auf quelloffener Software unter den
+  Lizenzen Apache 2.0 und MIT".

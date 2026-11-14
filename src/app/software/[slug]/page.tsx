@@ -494,7 +494,7 @@ export default async function AppPage({ params }: Props) {
             <p className="max-w-4xl text-xs leading-relaxed text-muted">
               {app.familiar.product} ist eine Marke von {app.familiar.owner}
               {app.familiar.owner.endsWith(".") ? "" : "."} {app.name} steht in keiner Verbindung zu {app.familiar.owner} und wird von{" "}
-              {app.familiar.owner} weder unterstützt noch empfohlen. {app.name} basiert auf quelloffener Software des ArtCraft-Teams.
+              {app.familiar.owner} weder unterstützt noch empfohlen. {app.name} basiert auf quelloffener Software unter den Lizenzen Apache 2.0 und MIT.
             </p>
           </div>
         </section>

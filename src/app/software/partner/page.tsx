@@ -377,7 +377,7 @@ export default function SoftwarePartnerPage() {
                 Ein kleines Studio. <span className="text-highlight">Offener</span> Code.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-muted">
-                Kojalytics ist ein Software-Studio aus Hamburg. Die Koja-Apps basieren auf quelloffener Software des ArtCraft-Teams. Wir
+                Kojalytics ist ein Software-Studio aus Hamburg. Die Koja-Apps basieren auf quelloffener Software unter den Lizenzen Apache 2.0 und MIT. Wir
                 liefern sie als signierte Apps für Mac und Windows aus, halten sie über den Kojalytics Launcher aktuell und beantworten deine E-Mails
                 selbst. Die Apps sind frühe Versionen und werden laufend weiterentwickelt. Deshalb testest du alles {TRIAL_DAYS} Tage
                 kostenlos, bevor du zahlst.

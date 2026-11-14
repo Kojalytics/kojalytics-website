@@ -9,7 +9,7 @@ const replaces: FaqItem = {
 
 const openSource: FaqItem = {
   q: "Der Quellcode ist offen. Warum kostet es Geld?",
-  a: "Die Koja-Apps basieren auf quelloffener Software des ArtCraft-Teams. Du bezahlst uns für installierbare, signierte Versionen für Mac und Windows, den Launcher, der sie installiert und aktualisiert, und Support von einem echten Studio aus Deutschland.",
+  a: "Die Koja-Apps basieren auf quelloffener Software unter den Lizenzen Apache 2.0 und MIT. Du bezahlst uns für installierbare, signierte Versionen für Mac und Windows, den Launcher, der sie installiert und aktualisiert, und Support von einem echten Studio aus Deutschland.",
 };
 
 const account: FaqItem = {
