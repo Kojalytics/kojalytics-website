@@ -271,7 +271,7 @@
             ["Adobe Acrobat Standard", "17,99 € pro Monat im Jahresabo (monatlich abgerechnet), 29,99 € im Monatsabo", "PDFs bearbeiten und organisieren, umwandeln, Formulare, Signaturen, Passwortschutz", "Schwärzen, Scans umwandeln und Vergleichen nur in Pro"],
             ["Adobe Acrobat Pro", "23,79 € pro Monat im Jahresabo (monatlich abgerechnet), 35,69 € im Monatsabo", "Alles aus Standard plus Schwärzen, Scans in bearbeitbare PDFs, Vergleichen", "Jahresabo mit monatlicher Abrechnung nach 14 Tagen nur gegen Gebühr vorzeitig kündbar (wie bei Standard)"],
             ["LibreOffice Draw", "kostenlos", "Kleine Korrekturen in fremden PDFs", "Zeichenprogramm, kein reiner PDF-Editor; Ergebnis genau prüfen"],
-            ["PdfKoja", "2,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig", "Seiten ordnen, Zusammenfügen und Teilen, Passwortschutz, Formulare, Kommentare, offline", "Bearbeiten von vorhandenem Text nur eingeschränkt"]
+            ["PdfKoja", "19,99 € pro Monat für alle 13 Koja-Apps oder 79 € einmalig", "Seiten ordnen, Zusammenfügen und Teilen, Passwortschutz, Formulare, Kommentare, offline", "Bearbeiten von vorhandenem Text nur eingeschränkt"]
           ],
           "caption": "Preise inkl. MwSt. laut Anbieterseiten, Stand 7. November 2026"
         },
@@ -314,7 +314,7 @@
         },
         {
           "type": "p",
-          "text": "Alle 13 Koja-Apps lädst du kostenlos über den Kojalytics Launcher und testest sie 3 Tage. Danach kosten sie zusammen 2,99 € pro Monat inkl. MwSt., jederzeit ohne Gebühr kündbar, oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Geräte. Die Apps gibt es für macOS und Windows. Details stehen unter [Preise](/software#preise)."
+          "text": "Alle 13 Koja-Apps lädst du kostenlos über den Kojalytics Launcher und testest sie 3 Tage. Danach kosten sie zusammen 19,99 € pro Monat inkl. MwSt., jederzeit ohne Gebühr kündbar, oder 79 € einmalig für eine dauerhafte Lizenz, jeweils für bis zu 3 Geräte. Die Apps gibt es für macOS und Windows. Details stehen unter [Preise](/software#preise)."
         }
       ]
     }

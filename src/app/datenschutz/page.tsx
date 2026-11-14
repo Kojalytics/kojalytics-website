@@ -243,7 +243,7 @@ export default function DatenschutzPage() {
 
             <Section title="7. Kauf der Koja-Apps">
               <P>
-                Wenn du ein Monatsabo (2,99 €) oder eine dauerhafte Lizenz (79 €)
+                Wenn du ein Monatsabo (19,99 €) oder eine dauerhafte Lizenz (79 €)
                 kaufst, verarbeiten wir die Daten, die für Vertragsschluss,
                 Zahlung und Lieferung deines Lizenzschlüssels nötig sind.
               </P>

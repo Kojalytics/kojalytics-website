@@ -3,7 +3,7 @@
   "benefit": "Schneide, grade und mische Videos am Mac oder PC mit Quell- und Programmmonitor, Effekteinstellungen und Mehrspur-Timeline.",
   "keyword": "premiere pro alternative mac",
   "metaTitle": "Premiere-Pro-Alternative für Mac und Windows: FilmKoja",
-  "metaDescription": "Premiere-Pro-Alternative für Mac und Windows: FilmKoja mit Timeline, Trimmen, Farbe und Ton. 3 Tage kostenlos testen, dann 2,99 € im Monat. Jetzt laden.",
+  "metaDescription": "Premiere-Pro-Alternative für Mac und Windows: FilmKoja mit Timeline, Trimmen, Farbe und Ton. 3 Tage kostenlos testen, dann 19,99 € im Monat. Jetzt laden.",
   "h1": "Premiere-Pro-Alternative für Mac und Windows: schneiden, graden, mischen",
   "lead": "FilmKoja ist eine Premiere-Pro-Alternative für Mac und Windows, mit Quell- und Programmmonitor, Mehrspur-Timeline, Farbkorrektur und Audiomischer. Sequenzen aus Premiere Pro holst du per XML oder AAF herüber. Teste die App 3 Tage kostenlos mit eigenem Material.",
   "highlights": [
@@ -64,14 +64,14 @@
       "Das Grundprinzip bleibt gleich: Quell- und Programmmonitor, Bins und eine Mehrspur-Timeline mit Patch- und Ziel-Schaltern. Du setzt In- und Out-Punkte, fügst ein oder überschreibst und trimmst mit Ripple und Roll oder dynamisch mit J, K und L. Im Tastaturkürzel-Editor wählst du die Standardbelegung professioneller Schnittprogramme, Konflikte zeigt er dir direkt an.",
       "Premiere-Projekte übernimmst du per XML oder AAF; .prproj-Dateien öffnet FilmKoja nicht direkt. Exportiere deine Sequenz in Premiere Pro also als Final-Cut-Pro-XML oder AAF und importiere sie in FilmKoja, das außerdem FCPXML, OpenTimelineIO, EDL und OMF liest. Deine Mediendateien, etwa MP4 oder MOV mit H.264, HEVC oder ProRes sowie MXF mit DNxHR, öffnest du direkt. Prüfe nach dem Import Effekte und Farbkorrekturen genau, denn Austauschformate nehmen nicht jede Einstellung mit.",
       "Gut zu wissen: Es gibt keine Plugins (VST3, Audio Units, OpenFX), kein Kamera-RAW und keinen AV1-Export. H.265 exportierst du über den Hardware-Encoder deines Macs in 8 Bit SDR. Farbkorrektur und Export-Rendering laufen auf dem Prozessor, was bei großem Material bremst. KI-Funktionen gibt es kaum. FilmKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
-      "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere FilmKoja und importiere eine Sequenz aus einem echten Projekt, am besten mit Originaldateien aus deiner Kamera oder deinem Smartphone. Schneide, grade und mische ein kurzes Stück und exportiere es in deinem Zielformat. Danach entscheidest du: 2,99 € im Monat für alle 13 Apps, jederzeit online [kündbar](/kuendigen), oder 79 € einmalig. Wie du ein laufendes Adobe-Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
+      "So testest du in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere FilmKoja und importiere eine Sequenz aus einem echten Projekt, am besten mit Originaldateien aus deiner Kamera oder deinem Smartphone. Schneide, grade und mische ein kurzes Stück und exportiere es in deinem Zielformat. Danach entscheidest du: 19,99 € im Monat für alle 13 Apps, jederzeit online [kündbar](/kuendigen), oder 79 € einmalig. Wie du ein laufendes Adobe-Abo beendest, steht im Ratgeber [Adobe-Abo kündigen](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
   "comparison": {
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "koja": "19,99 € im Monat für alle 13 Apps oder 79 € einmalig",
         "other": "25,99 € im Monat als Einzel-App, 77,99 € im Monat mit Creative Cloud Pro (jeweils Jahres-Abo, monatliche Zahlung)"
       },
       {
@@ -146,7 +146,7 @@
     },
     {
       "q": "Was kostet FilmKoja im Vergleich zu Premiere Pro?",
-      "a": "Adobe Premiere (früher Premiere Pro) kostet als Einzel-App 25,99 € im Monat inkl. MwSt. im Jahres-Abo mit monatlicher Zahlung, und wer nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. FilmKoja kostet nach 3 kostenlosen Testtagen 2,99 € im Monat, darin sind alle 13 Koja-Apps enthalten. Du kündigst jederzeit online ohne Gebühr oder zahlst einmalig 79 € für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Geräten. Alle Details findest du bei den [Preisen](/software#preise)."
+      "a": "Adobe Premiere (früher Premiere Pro) kostet als Einzel-App 25,99 € im Monat inkl. MwSt. im Jahres-Abo mit monatlicher Zahlung, und wer nach 14 Tagen kündigt, zahlt 50 % des restlichen Vertragswerts. FilmKoja kostet nach 3 kostenlosen Testtagen 19,99 € im Monat, darin sind alle 13 Koja-Apps enthalten. Du kündigst jederzeit online ohne Gebühr oder zahlst einmalig 79 € für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Geräten. Alle Details findest du bei den [Preisen](/software#preise)."
     },
     {
       "q": "Gibt es Premiere Pro ohne Abo?",

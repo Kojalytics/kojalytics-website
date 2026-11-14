@@ -3,9 +3,9 @@
   "benefit": "PDFs am Mac oder PC lesen, ordnen, zusammenfügen und mit Passwort schützen, offline und ohne Konto.",
   "keyword": "adobe acrobat alternative mac",
   "metaTitle": "Adobe-Acrobat-Alternative für Mac und Windows: PdfKoja",
-  "metaDescription": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: PDFs offline ordnen, zusammenfügen und schützen. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "metaDescription": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: PDFs offline ordnen, zusammenfügen und schützen. 3 Tage kostenlos testen, dann 19,99 € im Monat.",
   "h1": "Adobe-Acrobat-Alternative für Mac und Windows – offline und ohne Konto",
-  "lead": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: Du liest, ordnest, teilst und schützt PDFs und fügst sie zusammen, ohne dass deine Dokumente den Rechner verlassen. PdfKoja testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "lead": "PdfKoja ist eine Adobe-Acrobat-Alternative für Mac und Windows: Du liest, ordnest, teilst und schützt PDFs und fügst sie zusammen, ohne dass deine Dokumente den Rechner verlassen. PdfKoja testest du 3 Tage kostenlos, danach zahlst du 19,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "PDFs ordnen und zusammenfügen",
     "Offline, ohne Konto, ohne Cloud",
@@ -70,14 +70,14 @@
       "Der Aufbau erinnert an Acrobat: Die Werkzeuge liegen nach Aufgaben geordnet in einem Katalog, etwa Kombinieren, Seiten organisieren, Kommentare, Ausfüllen und Schützen, und mit ⌘K findest du jeden Befehl per Stichwort. Die Oberfläche stellst du in den Einstellungen auf Deutsch oder auf „Auto“, dann folgt sie der Sprache deines Macs. Die Bildschirmfotos auf dieser Seite zeigen die englische Oberfläche.",
       "Deine Dateien bleiben normale PDFs. PdfKoja speichert Änderungen nach dem PDF-Standard und lässt die ursprünglichen Daten einer Datei unangetastet, verschlüsselte PDFs bleiben verschlüsselt. Du kannst deine Dokumente also weiter in Acrobat oder in der Vorschau öffnen, der Weg zurück bleibt offen.",
       "Das solltest du vorher wissen: Word-, Excel- und PowerPoint-Dateien wandelt die App nicht in PDF um, der Export nach Word verliert das Layout, und vorhandenen Text zu bearbeiten klappt nur eingeschränkt. Texterkennung (OCR) gibt es nur für lateinische Schrift, und Signaturen per Token, Preflight, PDF/X, PDF/UA sowie vollständige XFA-Formulare sind nicht enthalten. Cloud-Funktionen von Adobe wie den Speicher in der Document Cloud, Signaturanfragen über Acrobat Sign, die gemeinsame Überprüfung und den KI-Assistenten bietet PdfKoja nicht. PdfKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
-      "So testest du den Umstieg in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere darüber PdfKoja und öffne Kopien deiner typischen PDFs. Füg zwei Dateien zusammen, sortier Seiten um, füll ein Formular aus und setz ein Passwort, dann prüf das Ergebnis in einem zweiten PDF-Programm. Passt alles, wählst du zwischen 2,99 € im Monat für alle 13 Apps und einer [dauerhaften Lizenz für 79 €](/software#preise). Was du beim Beenden deines Acrobat-Abos beachten solltest, steht im [Ratgeber zur Adobe-Kündigung](/ratgeber/adobe-abo-kuendigen)."
+      "So testest du den Umstieg in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere darüber PdfKoja und öffne Kopien deiner typischen PDFs. Füg zwei Dateien zusammen, sortier Seiten um, füll ein Formular aus und setz ein Passwort, dann prüf das Ergebnis in einem zweiten PDF-Programm. Passt alles, wählst du zwischen 19,99 € im Monat für alle 13 Apps und einer [dauerhaften Lizenz für 79 €](/software#preise). Was du beim Beenden deines Acrobat-Abos beachten solltest, steht im [Ratgeber zur Adobe-Kündigung](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
   "comparison": {
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "koja": "19,99 € im Monat für alle 13 Apps oder 79 € einmalig",
         "other": "Acrobat Pro: 23,79 € im Monat im Jahres-Abo mit monatlicher Abrechnung oder 35,69 € im Monats-Abo. Acrobat Standard ab 17,99 € im Monat. Der Reader zum Anzeigen ist kostenlos"
       },
       {
@@ -151,7 +151,7 @@
     },
     {
       "q": "Gibt es PdfKoja ohne Abo?",
-      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für PdfKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Geräten. Zum Vergleich: Acrobat Pro kostet im Jahres-Abo mit monatlicher Abrechnung 23,79 € im Monat, aufs Jahr gerechnet also 285,48 €. Wenn du lieber monatlich zahlst, nimmst du das Abo für 2,99 € im Monat, das du jederzeit online und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
+      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für PdfKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Geräten. Zum Vergleich: Acrobat Pro kostet im Jahres-Abo mit monatlicher Abrechnung 23,79 € im Monat, aufs Jahr gerechnet also 285,48 €. Wenn du lieber monatlich zahlst, nimmst du das Abo für 19,99 € im Monat, das du jederzeit online und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
     },
     {
       "q": "Läuft PdfKoja offline, und gibt es die App auf Deutsch?",

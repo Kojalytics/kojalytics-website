@@ -3,9 +3,9 @@
   "benefit": "Verwalte deine Fotos und entwickle RAW-Dateien lokal auf dem Mac oder PC, ohne dass deine Originale verändert werden.",
   "keyword": "lightroom alternative mac",
   "metaTitle": "Lightroom-Alternative für Mac und Windows: LightKoja",
-  "metaDescription": "LightKoja ist eine Lightroom-Alternative für Mac und Windows: RAW-Fotos verwalten und entwickeln, 79 € einmalig oder 2,99 € im Monat. 3 Tage kostenlos testen.",
+  "metaDescription": "LightKoja ist eine Lightroom-Alternative für Mac und Windows: RAW-Fotos verwalten und entwickeln, 79 € einmalig oder 19,99 € im Monat. 3 Tage kostenlos testen.",
   "h1": "Lightroom-Alternative für Mac und Windows: RAW-Fotos entwickeln und verwalten",
-  "lead": "LightKoja ist eine Lightroom-Alternative für Mac und Windows. Die App verwaltet deine Fotos lokal und entwickelt RAW-Dateien mit Reglern für Lichter und Tiefen, Color Grading und Masken. LightKoja testest du 3 Tage kostenlos, danach zahlst du 2,99 € im Monat oder 79 € einmalig.",
+  "lead": "LightKoja ist eine Lightroom-Alternative für Mac und Windows. Die App verwaltet deine Fotos lokal und entwickelt RAW-Dateien mit Reglern für Lichter und Tiefen, Color Grading und Masken. LightKoja testest du 3 Tage kostenlos, danach zahlst du 19,99 € im Monat oder 79 € einmalig.",
   "highlights": [
     "RAW von Canon, Nikon, Sony, Fuji",
     "Originale bleiben unverändert",
@@ -70,14 +70,14 @@
       "Vieles wirkt vertraut. Links die Bibliothek mit Alben, Sternen und Markierungen, rechts die Regler: Belichtung, Kontrast, Lichter, Tiefen, Weiß und Schwarz, darunter Kurve, Farbe, Color Grading und Effekte. Auch einige Tastenkürzel kennst du vielleicht schon: V für Schwarzweiß, \\ für die Vorher-Ansicht, Y für den Vergleich nebeneinander. Die Oberfläche stellst du im Menü unter „Edit > Language“ auf Deutsch um.",
       "Deine Bearbeitungen aus Lightroom Classic kannst du teilweise mitnehmen. LightKoja liest und schreibt XMP-Sidecars und liest die darin gespeicherten Entwicklungseinstellungen (crs:). Wenn du in Lightroom Classic vorher „Metadaten in Datei speichern“ ausführst, liegen diese XMP-Dateien neben deinen RAWs. Umfangreiche Bearbeitungen legt Lightroom Classic inzwischen teils in separaten ACR-Dateien ab, prüf deshalb an ein paar Fotos, was ankommt. Weil LightKoja deine Originale nie verändert, bleibt der Weg zurück jederzeit offen.",
       "Gut zu wissen: Gemessene Kamerafarbprofile sind nicht enthalten. Für Sony, Nikon, Panasonic, Fujifilm und Canon CR3 werden die Farben aus Kamera-JPEGs geschätzt, andere RAWs nutzen eine neutrale Farbmatrix. Profile für die automatische Objektivkorrektur bringt LightKoja nicht mit, KI-Entrauschen ist in Arbeit. Generatives Füllen, Super-Auflösung, Videobearbeitung und die Module Karte und Buch sind nicht enthalten, und Drucklayouts speicherst du als PDF statt über den macOS-Druckdialog. LightKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
-      "So testest du den Umstieg in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere LightKoja und importiere die Kopie eines aktuellen Shootings. Prüf, ob deine Kamera-RAWs sauber geöffnet werden, bearbeite ein paar typische Fotos und exportiere sie so, wie du sie brauchst. Passt es, wählst du zwischen 2,99 € im Monat für alle 13 Apps und einer [dauerhaften Lizenz für 79 €](/software#preise). Worauf du beim Beenden deines Adobe-Abos achten musst, steht in unserem [Ratgeber zur Adobe-Kündigung](/ratgeber/adobe-abo-kuendigen)."
+      "So testest du den Umstieg in 3 Tagen: Lade den Kojalytics Launcher herunter, installiere LightKoja und importiere die Kopie eines aktuellen Shootings. Prüf, ob deine Kamera-RAWs sauber geöffnet werden, bearbeite ein paar typische Fotos und exportiere sie so, wie du sie brauchst. Passt es, wählst du zwischen 19,99 € im Monat für alle 13 Apps und einer [dauerhaften Lizenz für 79 €](/software#preise). Worauf du beim Beenden deines Adobe-Abos achten musst, steht in unserem [Ratgeber zur Adobe-Kündigung](/ratgeber/adobe-abo-kuendigen)."
     ]
   },
   "comparison": {
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "koja": "19,99 € im Monat für alle 13 Apps oder 79 € einmalig",
         "other": "14,49 € im Monat im Jahresabo (mit 1 TB Cloud-Speicher), 141,94 € pro Jahr bei Vorauszahlung oder 19,99 € im Monatsabo"
       },
       {
@@ -153,7 +153,7 @@
     },
     {
       "q": "Gibt es LightKoja ohne Abo?",
-      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für LightKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Geräten. Zum Vergleich: Lightroom kostet im Jahresabo mit Vorauszahlung 141,94 € pro Jahr. Wenn du lieber monatlich zahlst, nimmst du das Abo für 2,99 € im Monat, das du jederzeit online und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
+      "a": "Ja. Für 79 € einmalig bekommst du eine dauerhafte Lizenz für LightKoja und die 12 anderen Koja-Apps, gültig auf bis zu 3 Geräten. Zum Vergleich: Lightroom kostet im Jahresabo mit Vorauszahlung 141,94 € pro Jahr. Wenn du lieber monatlich zahlst, nimmst du das Abo für 19,99 € im Monat, das du jederzeit online und ohne Gebühr kündigst: [beide Optionen ansehen](/software#preise)."
     },
     {
       "q": "Läuft LightKoja auf meinem Mac und auf Deutsch?",

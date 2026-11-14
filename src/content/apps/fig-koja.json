@@ -3,7 +3,7 @@
   "benefit": "Gestalte App- und Web-Oberflächen mit Auto Layout, Komponenten und Prototypen, offline auf deinem Mac oder PC.",
   "keyword": "figma alternative mac",
   "metaTitle": "Figma-Alternative für Mac und Windows: FigKoja",
-  "metaDescription": "FigKoja ist eine Figma-Alternative für Mac und Windows: Auto Layout, Komponenten, Prototypen, offline, ohne Konto. 3 Tage kostenlos testen, dann 2,99 € im Monat.",
+  "metaDescription": "FigKoja ist eine Figma-Alternative für Mac und Windows: Auto Layout, Komponenten, Prototypen, offline, ohne Konto. 3 Tage kostenlos testen, dann 19,99 € im Monat.",
   "h1": "Figma-Alternative für Mac und Windows: offline und ohne Konto",
   "lead": "FigKoja ist eine Figma-Alternative für Mac und Windows, mit der du App- und Web-Oberflächen direkt auf deinem Rechner gestaltest. Auto Layout, Komponenten, Variablen, Prototypen und Dev Mode sind dabei. Teste die App 3 Tage kostenlos mit deinen eigenen Entwürfen.",
   "highlights": [
@@ -64,14 +64,14 @@
       "**Was gleich bleibt:** Werkzeugleiste, Ebenen-Panel, Design-Panel und Menüs liegen dort, wo du sie aus Figma erwartest, und auch die Tastenkürzel sind so angelegt. Die Begriffe kennst du ebenfalls: Frames, Auto Layout mit Hug, Fill und Fixed, Komponenten mit Varianten, Variablen mit Modi, Prototyp-Verbindungen und Dev Mode. Du lernst also keine neue Denkweise, sondern nur ein paar neue Handgriffe.",
       "**Deine Dateien:** Figma-Dateien im .fig-Format öffnet FigKoja eingeschränkt, rechne also mit Abweichungen. Alternativ importierst du Designs als JSON aus der öffentlichen REST-API von Figma, inklusive Prototypen und Variablen. SVG, PDF, PNG, JPG und WebP holst du direkt herein. FigKoja speichert lokal auf deinem Mac oder PC und exportiert jede Ebene als PNG, JPG, WebP, SVG oder PDF.",
       "**Gut zu wissen:** Live-Zusammenarbeit gibt es als Vorschau, ohne Konten, Teams und Cloud. Figma-Plugins laufen nicht, denn FigKoja hat ein eigenes Plugin-System auf WebAssembly-Basis. Die deutsche Oberfläche ist teilweise übersetzt. FigKoja wird laufend weiterentwickelt: Updates und neue Funktionen bekommst du automatisch und kostenlos.",
-      "**So testest du in 3 Tagen:** Am ersten Tag lädst du den Kojalytics Launcher, installierst FigKoja und öffnest eine der acht Startvorlagen, etwa für eine Mobile App, ein Dashboard oder ein Wireframe-Kit. Am zweiten Tag holst du ein echtes Projekt herein und baust deine wichtigsten Komponenten nach. Am dritten Tag klickst du dich durch einen Prototyp und prüfst den Code im Dev Mode. Danach entscheidest du dich für [2,99 € im Monat oder 79 € einmalig](/software#preise), beides für alle 13 Apps; das Monatsabo kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "**So testest du in 3 Tagen:** Am ersten Tag lädst du den Kojalytics Launcher, installierst FigKoja und öffnest eine der acht Startvorlagen, etwa für eine Mobile App, ein Dashboard oder ein Wireframe-Kit. Am zweiten Tag holst du ein echtes Projekt herein und baust deine wichtigsten Komponenten nach. Am dritten Tag klickst du dich durch einen Prototyp und prüfst den Code im Dev Mode. Danach entscheidest du dich für [19,99 € im Monat oder 79 € einmalig](/software#preise), beides für alle 13 Apps; das Monatsabo kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     ]
   },
   "comparison": {
     "rows": [
       {
         "label": "Preis",
-        "koja": "2,99 € im Monat für alle 13 Apps oder 79 € einmalig",
+        "koja": "19,99 € im Monat für alle 13 Apps oder 79 € einmalig",
         "other": "Starter kostenlos (im Team nur 3 Dateien). Professional: Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung"
       },
       {
@@ -150,7 +150,7 @@
     },
     {
       "q": "Was kostet FigKoja im Vergleich zu Figma?",
-      "a": "Nach 3 kostenlosen Testtagen kostet FigKoja 2,99 € im Monat inkl. MwSt., und darin sind alle 13 Koja-Apps enthalten. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Geräten. Bei Figma ist der Tarif Starter kostenlos, erlaubt im Team aber nur 3 Dateien; im Tarif Professional kostet eine Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung. Das Monatsabo von FigKoja kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
+      "a": "Nach 3 kostenlosen Testtagen kostet FigKoja 19,99 € im Monat inkl. MwSt., und darin sind alle 13 Koja-Apps enthalten. Alternativ zahlst du 79 € einmalig für eine dauerhafte Lizenz, beides gilt auf bis zu 3 Geräten. Bei Figma ist der Tarif Starter kostenlos, erlaubt im Team aber nur 3 Dateien; im Tarif Professional kostet eine Full-Lizenz 16 US-$ pro Monat bei jährlicher Abrechnung. Das Monatsabo von FigKoja kündigst du jederzeit online unter [kojalytics.com/kuendigen](/kuendigen), ohne Gebühr."
     },
     {
       "q": "Was bekomme ich für mein Geld?",
