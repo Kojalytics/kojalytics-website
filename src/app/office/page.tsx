@@ -199,7 +199,7 @@ function Secure() {
   return (
     <p className="ko-secure">
       <Lock size={17} strokeWidth={2.2} aria-hidden />
-      Sichere Zahlung mit Karte oder Klarna · Kojalytics, Hamburg
+      Sichere Zahlung mit PayPal, Karte oder Klarna · Kojalytics, Hamburg
     </p>
   );
 }
@@ -271,7 +271,7 @@ function LauncherCard() {
 }
 
 const STEPS = [
-  { title: "Jetzt kaufen", text: "Am Handy oder am Computer. Mit Karte oder Klarna, sicher über Stripe.", ui: <OrderCard /> },
+  { title: "Jetzt kaufen", text: "Am Handy oder am Computer. Mit PayPal, Karte oder Klarna, sicher über Stripe.", ui: <OrderCard /> },
   { title: <>Lizenz per {EMAIL}</>, text: "Dein Lizenzschlüssel kommt sofort nach dem Kauf.", ui: <MailCard /> },
   {
     title: "Am Computer installieren",
@@ -645,7 +645,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
                   </li>
                   <li>
                     <Lock size={20} strokeWidth={2.2} aria-hidden />
-                    Sichere Zahlung über Stripe mit Karte oder Klarna
+                    Sichere Zahlung über Stripe mit PayPal, Karte oder Klarna
                   </li>
                 </ul>
 
