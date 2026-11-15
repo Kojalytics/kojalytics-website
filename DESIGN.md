@@ -98,6 +98,9 @@ Geist Mono (`font-mono`, `.hud`).
   (`Consent.tsx`: centred, rounded card with pill buttons, built after Facebook's cookie dialog on owner request).
 - No drop shadows except the one built into `MacWindow` and the cookie banner.
 - No grey or coloured section backgrounds (`bg-surface` sections are gone): white everywhere.
+  The one exception is `/office`, the landing page for the Meta ads: it continues the dark ads with dark stages (near-black,
+  44px grid, blue glow, yellow prices, the 3D box) between white sections and uses large plain-type buttons (`.ko-btn`,
+  60px, 18px bold) for an older audience on phones. Its styles live in `src/app/office/office.css` (prefix `ko-`).
 - No gradients, glass, blur effects (the header's backdrop blur is the only one).
 - Do not change copy, prices, claims, legal text, metadata, JSON-LD or links when restyling. Legal
   wording ("jederzeit online kündbar") is deliberate.

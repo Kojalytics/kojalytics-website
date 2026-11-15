@@ -9,20 +9,32 @@ import BuyButton from "./BuyButton";
  * Phones and tablets: a buy bar fixed to the bottom edge once the hero is scrolled past. It steps aside while the
  * price section (#preise, which has its own buttons and the discount field) is on screen and at the end of the page.
  * While the cookie banner is open it stays hidden (globals.css). `from="office"`: the ad landing page, which has no
- * price section and no code field.
+ * price section and no code field; there the bar is dark like the ad, with a yellow price and a large plain-type button
+ * (.ko-bar in src/app/office/office.css), comes only after the hero's buy button has left the screen and steps aside
+ * while another buy button of the page is on screen.
  */
 export default function StickyBuyBar({ source, from }: { source: string; from?: "office" }) {
   const [show, setShow] = useState(false);
   const reduced = useDiscount()?.prices.lifetime;
+  const office = from === "office";
 
   useEffect(() => {
     const prices = document.getElementById("preise");
+    const inView = (el: Element | null | undefined) => {
+      const box = el?.getBoundingClientRect();
+      return !!box && box.top < window.innerHeight && box.bottom > 0;
+    };
     const update = () => {
-      const pastHero = window.scrollY > window.innerHeight * 0.9;
       const nearEnd = window.scrollY + window.innerHeight > document.documentElement.scrollHeight - 320;
-      const box = prices?.getBoundingClientRect();
-      const pricesInView = !!box && box.top < window.innerHeight && box.bottom > 0;
-      setShow(pastHero && !pricesInView && !nearEnd);
+      if (office) {
+        // The page's own buy buttons, the hero's first.
+        const buttons = [...document.querySelectorAll(".ko-page main .btn-buy")];
+        const first = buttons[0]?.getBoundingClientRect();
+        setShow(!!first && first.bottom < 0 && !buttons.some(inView) && !nearEnd);
+        return;
+      }
+      const pastHero = window.scrollY > window.innerHeight * 0.9;
+      setShow(pastHero && !inView(prices) && !nearEnd);
     };
     update();
     window.addEventListener("scroll", update, { passive: true });
@@ -31,25 +43,26 @@ export default function StickyBuyBar({ source, from }: { source: string; from?: 
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [office]);
 
   return (
     <div
       aria-hidden={!show}
-      className={`kj-buybar fixed inset-x-0 bottom-0 z-40 border-t border-foreground bg-white px-4 pt-3 transition-transform duration-300 lg:hidden ${
-        show ? "translate-y-0" : "pointer-events-none translate-y-full"
-      }`}
+      // Hidden means out of sight for everyone: moved below the edge and, once it has slid out, not rendered at all.
+      className={`kj-buybar fixed inset-x-0 bottom-0 z-40 border-t px-4 pt-3 transition-[transform,visibility] duration-300 lg:hidden ${
+        office ? "ko-bar" : "border-foreground bg-white"
+      } ${show ? "visible translate-y-0" : "pointer-events-none invisible translate-y-full"}`}
       style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
     >
       <div className="mx-auto flex max-w-xl items-center justify-between gap-3">
         <div className="min-w-0">
-          <p className="display whitespace-nowrap text-[1.35rem] leading-none text-buy">
-            {reduced !== undefined && <s className="text-[0.75em] text-faint decoration-2">{PLANS.lifetime.label}</s>}
+          <p className={office ? "ko-bar-price" : "display whitespace-nowrap text-[1.35rem] leading-none text-buy"}>
+            {reduced !== undefined && <s className={office ? undefined : "text-[0.75em] text-faint decoration-2"}>{PLANS.lifetime.label}</s>}
             {reduced !== undefined ? ` ${euro(reduced)}` : PLANS.lifetime.label}
           </p>
-          <p className="mt-1 text-[12.5px] leading-tight text-muted">
-            {from === "office" ? (
-              "einmalig, kein Abo · Lizenz per E-Mail"
+          <p className={office ? "ko-bar-note" : "mt-1 text-[12.5px] leading-tight text-muted"}>
+            {office ? (
+              "einmalig, kein Abo"
             ) : (
               <>
                 einmalig, kein Abo ·{" "}
@@ -60,7 +73,7 @@ export default function StickyBuyBar({ source, from }: { source: string; from?: 
             )}
           </p>
         </div>
-        <BuyButton source={source} from={from} label={from === "office" ? "Jetzt sichern" : "Jetzt kaufen"} className="shrink-0 !px-5" />
+        <BuyButton source={source} from={from} label="Jetzt kaufen" className={office ? "ko-btn ko-btn--bar" : "shrink-0 !px-5"} />
       </div>
     </div>
   );
