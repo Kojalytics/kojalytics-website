@@ -55,13 +55,14 @@ export default function RootLayout({
       <body className="antialiased">
         {/* Marks JS as available (for scroll reveals), hides the server-rendered cookie banner before the
             first paint for visitors who already chose, and plays the 2-second logo intro once per visit
-            (not when coming from another page of this site, not for bots or with reduced motion). */}
+            (not when coming from another page of this site, not on the ad landing page /office, not for bots or with
+            reduced motion). */}
         <script
           dangerouslySetInnerHTML={{
             __html:
               "(function(){var d=document.documentElement;d.classList.add('js');try{if(localStorage.getItem('kj-consent-v1'))d.setAttribute('data-kj-consent','')}catch(e){}" +
               "try{var r=document.referrer,s=false;try{s=!!r&&new URL(r).host===location.host}catch(e){}" +
-              "if(!sessionStorage.getItem('kj-intro')&&!s&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&!/bot|crawl|spider|slurp|preview/i.test(navigator.userAgent)){d.classList.add('kj-intro');setTimeout(function(){d.classList.remove('kj-intro')},2250)}" +
+              "if(!sessionStorage.getItem('kj-intro')&&!s&&location.pathname!=='/office'&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&!/bot|crawl|spider|slurp|preview/i.test(navigator.userAgent)){d.classList.add('kj-intro');setTimeout(function(){d.classList.remove('kj-intro')},2250)}" +
               "sessionStorage.setItem('kj-intro','1')}catch(e){}})()",
           }}
         />

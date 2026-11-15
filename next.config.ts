@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
   async redirects() {
     // Exact paths come before the :path* rules: the first match wins, so nothing redirects twice.
     return [
+      // ---- Temporary, while the Meta ads still link to /software: their visitors (utm_source=meta) land on the ad
+      //      landing page /office. The query string (code, utm_*) is kept. Remove once the ads link to /office. ----
+      { source: '/software', has: [{ type: 'query', key: 'utm_source', value: 'meta' }], destination: '/office', permanent: false },
+
       // ---- Relaunch 2026-10: Koja apps live under /software ----
       { source: '/koja-apps', destination: '/software', permanent: true },
       { source: '/koja-apps/danke', destination: '/software/danke', permanent: true },
