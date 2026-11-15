@@ -8,9 +8,10 @@ import BuyButton from "./BuyButton";
 /**
  * Phones and tablets: a buy bar fixed to the bottom edge once the hero is scrolled past. It steps aside while the
  * price section (#preise, which has its own buttons and the discount field) is on screen and at the end of the page.
- * While the cookie banner is open it stays hidden (globals.css).
+ * While the cookie banner is open it stays hidden (globals.css). `from="office"`: the ad landing page, which has no
+ * price section and no code field.
  */
-export default function StickyBuyBar({ source }: { source: string }) {
+export default function StickyBuyBar({ source, from }: { source: string; from?: "office" }) {
   const [show, setShow] = useState(false);
   const reduced = useDiscount()?.prices.lifetime;
 
@@ -47,13 +48,19 @@ export default function StickyBuyBar({ source }: { source: string }) {
             {reduced !== undefined ? ` ${euro(reduced)}` : PLANS.lifetime.label}
           </p>
           <p className="mt-1 text-[12.5px] leading-tight text-muted">
-            einmalig, kein Abo ·{" "}
-            <a href="#preise" tabIndex={show ? 0 : -1} className="text-foreground underline underline-offset-2">
-              Rabattcode?
-            </a>
+            {from === "office" ? (
+              "einmalig, kein Abo · Lizenz per E-Mail"
+            ) : (
+              <>
+                einmalig, kein Abo ·{" "}
+                <a href="#preise" tabIndex={show ? 0 : -1} className="text-foreground underline underline-offset-2">
+                  Rabattcode?
+                </a>
+              </>
+            )}
           </p>
         </div>
-        <BuyButton source={source} label="Jetzt kaufen" className="shrink-0 !px-5" />
+        <BuyButton source={source} from={from} label={from === "office" ? "Jetzt sichern" : "Jetzt kaufen"} className="shrink-0 !px-5" />
       </div>
     </div>
   );

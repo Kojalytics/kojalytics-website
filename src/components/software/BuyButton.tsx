@@ -14,11 +14,17 @@ import { track } from "@/lib/track";
 export default function BuyButton({
   plan = "lifetime",
   label,
+  action = "kaufen",
+  from,
   source,
   className = "",
 }: {
   plan?: Plan;
   label?: string;
+  /** The verb after the price in the default label: "Für 39,50 € kaufen". */
+  action?: string;
+  /** "office": the ad landing page; Checkout then names Koja Office and its Back link returns there. */
+  from?: "office";
   /** Where on the site the click happened, for the ad reports. */
   source: string;
   className?: string;
@@ -43,21 +49,21 @@ export default function BuyButton({
       const res = await fetch("/api/license/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan, ...(discount && reduced !== undefined ? { code: discount.code } : {}) }),
+        body: JSON.stringify({ plan, ...(from ? { from } : {}), ...(discount && reduced !== undefined ? { code: discount.code } : {}) }),
       });
       const data = await res.json();
       if (!res.ok || !data.url) throw new Error();
       window.location.href = data.url;
     } catch {
       setBusy(false);
-      window.location.href = "/software#preise";
+      window.location.href = from === "office" ? "/office#fragen" : "/software#preise";
     }
   }
 
   return (
     <button type="button" onClick={buy} disabled={busy} className={`btn-buy ${className}`}>
       <ShoppingBag size={15} strokeWidth={2.2} aria-hidden />
-      {busy ? "Checkout öffnet sich …" : (label ?? `Für ${reduced !== undefined ? euro(reduced) : PLANS[plan].label} kaufen`)}
+      {busy ? "Checkout öffnet sich …" : (label ?? `Für ${reduced !== undefined ? euro(reduced) : PLANS[plan].label} ${action}`)}
     </button>
   );
 }

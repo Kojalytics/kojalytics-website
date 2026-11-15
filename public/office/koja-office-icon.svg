@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A2D36"/>
+      <stop offset="1" stop-color="#0D0F14"/>
+    </linearGradient>
+    <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".14"/>
+      <stop offset=".5" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="t1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A82F5"/><stop offset="1" stop-color="#3559D8"/></linearGradient>
+    <linearGradient id="t2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#36BE63"/><stop offset="1" stop-color="#1C9443"/></linearGradient>
+    <linearGradient id="t3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8A3D"/><stop offset="1" stop-color="#EC5A17"/></linearGradient>
+    <linearGradient id="t4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2CC4A4"/><stop offset="1" stop-color="#109A80"/></linearGradient>
+    <linearGradient id="t5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34C3F0"/><stop offset="1" stop-color="#0F95C9"/></linearGradient>
+    <linearGradient id="t6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C93FF"/><stop offset="1" stop-color="#2569E8"/></linearGradient>
+    <linearGradient id="t7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC63A"/><stop offset="1" stop-color="#F0A10E"/></linearGradient>
+    <linearGradient id="t8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6847"/><stop offset="1" stop-color="#E23E22"/></linearGradient>
+    <linearGradient id="t9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93D43C"/><stop offset="1" stop-color="#6AAE1F"/></linearGradient>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" rx="46" fill="url(#bg)"/>
+  <rect x="0" y="0" width="200" height="200" rx="46" fill="url(#hl)"/>
+  <rect x="1" y="1" width="198" height="198" rx="45" fill="none" stroke="#FFFFFF" stroke-opacity=".08" stroke-width="2"/>
+  <g>
+    <rect x="37"  y="37"  width="38" height="38" rx="9" fill="url(#t1)"/>
+    <rect x="81"  y="37"  width="38" height="38" rx="9" fill="url(#t2)"/>
+    <rect x="125" y="37"  width="38" height="38" rx="9" fill="url(#t3)"/>
+    <rect x="37"  y="81"  width="38" height="38" rx="9" fill="url(#t4)"/>
+    <rect x="81"  y="81"  width="38" height="38" rx="9" fill="url(#t5)"/>
+    <rect x="125" y="81"  width="38" height="38" rx="9" fill="url(#t6)"/>
+    <rect x="37"  y="125" width="38" height="38" rx="9" fill="url(#t7)"/>
+    <rect x="81"  y="125" width="38" height="38" rx="9" fill="url(#t8)"/>
+    <rect x="125" y="125" width="38" height="38" rx="9" fill="url(#t9)"/>
+  </g>
+</svg>

@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from "react";
+import { createContext, useContext, useSyncExternalStore } from "react";
 import type { Plan } from "@/lib/pricing";
 
 /** A discount code checked with Stripe, as /api/license/discount returns it. */
@@ -16,7 +16,9 @@ export const euro = (cents: number) =>
 /**
  * One discount for the whole page: an ad link (/software?code=X, also ?rabatt=X) or a code redeemed in the price
  * section applies to every price and buy button. The code is kept for this browser tab (sessionStorage), so it
- * survives moving between /software and the app pages. The server always renders the normal prices.
+ * survives moving between /software and the app pages. The server renders the normal prices, except on pages that
+ * checked the link's code on the server and pass it through <DiscountProvider> (the ad landing page /office): there
+ * the reduced price is in the first paint, without a jump from 79 €.
  */
 const KEY = "kj-discount-code";
 
@@ -38,6 +40,18 @@ function set(next: Discount | null) {
 
 export const applyDiscount = (next: Discount) => set(next);
 export const clearDiscount = () => set(null);
+
+/** The discount the server checked for this page (see DiscountProvider); null on all other pages. */
+export const InitialDiscount = createContext<Discount | null>(null);
+
+/** Takes over the server-checked discount before the first client render, so hydration shows the same price. */
+export function primeDiscount(next: Discount) {
+  if (discount || version) return;
+  discount = next;
+  try {
+    sessionStorage.setItem(KEY, next.code);
+  } catch {}
+}
 
 // The code from the link (or kept from an earlier page), checked once per page load.
 async function applyStoredCode() {
@@ -75,9 +89,10 @@ function subscribe(listener: () => void) {
 }
 
 export function useDiscount() {
+  const initial = useContext(InitialDiscount);
   return useSyncExternalStore(
     subscribe,
     () => discount,
-    () => null,
+    () => initial,
   );
 }

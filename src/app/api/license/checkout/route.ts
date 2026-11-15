@@ -29,9 +29,11 @@ export async function POST(request: NextRequest) {
     const rawOrigin = request.headers.get('origin') || '';
     const origin = ALLOWED_ORIGINS.has(rawOrigin) ? rawOrigin : 'https://www.kojalytics.com';
     const metadata = { product: LICENSE_PRODUCT, koja_plan: plan, ...(discount ? { koja_code: discount.code } : {}) };
+    // From the ad landing page (/office): Checkout uses its product name, and "Back" returns there with the code.
+    const fromOffice = body?.from === 'office' && plan === 'lifetime';
     // Shown in Checkout right above the pay button (§ 312j (2) BGB): what, how long, how to end it.
     const product_data = {
-      name: plan === 'monthly' ? 'Koja-Apps · Monatlich' : 'Koja-Apps · Dauerhaft',
+      name: plan === 'monthly' ? 'Koja-Apps · Monatlich' : fromOffice ? 'Koja Office 2026 · Dauerlizenz' : 'Koja-Apps · Dauerhaft',
       description:
         plan === 'monthly'
           ? `Alle 13 Koja-Apps für Mac und Windows mit kostenlosen Updates, auf bis zu ${LICENSE_DEVICES} Geräten. Läuft monatlich und verlängert sich jeweils um einen Monat, bis du kündigst. Jederzeit zum Ende des Abrechnungsmonats online kündbar.`
@@ -55,7 +57,9 @@ export async function POST(request: NextRequest) {
       // A code from our page is attached here; otherwise Stripe's page shows its own discount code field.
       ...(discount ? { discounts: [{ promotion_code: discount.promotionCodeId }] } : { allow_promotion_codes: true }),
       success_url: `${origin}/software/danke/start?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/software#preise`,
+      cancel_url: fromOffice
+        ? `${origin}/office${discount ? `?code=${encodeURIComponent(discount.code)}` : ''}`
+        : `${origin}/software#preise`,
       metadata,
       locale: 'de',
     });
