@@ -1,6 +1,7 @@
 import Stripe from 'stripe';
 import { headers } from 'next/headers';
 import { findDiscount } from '@/lib/discounts';
+import { isOfferCode, isOfferRunning } from '@/lib/offer';
 import { clientIp, limiter } from '@/lib/form-guard';
 import type { Discount } from '@/lib/discount-store';
 
@@ -16,6 +17,9 @@ export async function discountForPage(raw: string | string[] | undefined): Promi
   const code = (Array.isArray(raw) ? raw[0] : raw)?.trim() ?? '';
   const key = process.env.STRIPE_SECRET_KEY;
   if (!code || code.length > 64 || !key || key.includes('REPLACE')) return null;
+
+  // The introductory code ends at its date, even while an earlier answer is still in the cache.
+  if (isOfferCode(code) && !isOfferRunning()) return null;
 
   const hit = cache.get(code);
   if (hit && Date.now() - hit.at < TTL_MS) return hit.value;

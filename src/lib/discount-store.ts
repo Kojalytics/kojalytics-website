@@ -1,5 +1,6 @@
 import { createContext, useContext, useSyncExternalStore } from "react";
 import type { Plan } from "@/lib/pricing";
+import { isOfferCode, isOfferRunning } from "@/lib/offer";
 
 /** A discount code checked with Stripe, as /api/license/discount returns it. */
 export type Discount = {
@@ -53,15 +54,34 @@ export function primeDiscount(next: Discount) {
   } catch {}
 }
 
+// The public offer (src/lib/offer.ts) applied by default on the Koja pages; a code from a link or the price section
+// replaces it, and an unknown code falls back to it.
+let seed: Discount | null = null;
+
+/** Applies the running offer before the first client render (see OfferDiscount); a code checked later replaces it. */
+export function seedDiscount(next: Discount) {
+  if (isOfferCode(next.code) && !isOfferRunning()) return;
+  seed = next;
+  if (!discount && !version) discount = next;
+}
+
 // The code from the link (or kept from an earlier page), checked once per page load.
 async function applyStoredCode() {
   let code = "";
   try {
     const params = new URLSearchParams(window.location.search);
     code = (params.get("code") || params.get("rabatt") || sessionStorage.getItem(KEY) || "").trim();
+    // The offer's code ends with the offer, also in a tab kept open across the end.
+    if (isOfferCode(code) && !isOfferRunning()) {
+      sessionStorage.removeItem(KEY);
+      if (discount && isOfferCode(discount.code)) set(null);
+      return;
+    }
     if (code) sessionStorage.setItem(KEY, code);
   } catch {}
   if (!code) return;
+  // The offer is already applied from offer.ts; the checkout checks the code with Stripe.
+  if (seed && discount === seed && code.toUpperCase() === seed.code.toUpperCase()) return;
   const v = version;
   try {
     const res = await fetch("/api/license/discount", {
@@ -72,8 +92,9 @@ async function applyStoredCode() {
     const data = res.ok ? await res.json() : null;
     if (version !== v) return;
     if (data) set(data);
-    // Unknown, used up or expired: forget it without a message. Rate limit or server trouble: keep it for the next page.
-    else if (res.status < 500 && res.status !== 429) set(null);
+    // Unknown, used up or expired: forget it without a message (back to the offer, if any). Rate limit or server
+    // trouble: keep it for the next page.
+    else if (res.status < 500 && res.status !== 429) set(seed && code.toUpperCase() !== seed.code.toUpperCase() ? seed : null);
   } catch {}
 }
 

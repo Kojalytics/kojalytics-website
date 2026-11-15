@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Bot, Calculator, Compass, KeyRound, LayoutGrid, Route, Smartphone, Workflow } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import OfferTeaser from "@/components/offer/OfferTeaser";
 import AppIcon from "@/components/ui/app-icon";
 import ContactCta from "@/components/studio/ContactCta";
 import SectionBar from "@/components/instrument/SectionBar";
@@ -30,7 +31,7 @@ const AREAS = [
   { id: "lizenzen", icon: KeyRound, title: "Software-Lizenzen", text: "Office, Betriebssysteme, Server- und Fachsoftware, passend lizenziert." },
   { id: "beratung", icon: Compass, title: "Unternehmensberatung", text: "Digitalisierung, KI und die richtige Software für euren Alltag." },
   { id: "entwicklung", icon: Smartphone, title: "App- und Web-Entwicklung", text: "iOS-Apps, Web-Plattformen und KI-Funktionen, bis zum Release." },
-  { id: "koja-apps", icon: LayoutGrid, title: "Koja-Apps", text: "Unsere eigene Software: 13 Apps für Mac und Windows." },
+  { id: "koja-apps", icon: LayoutGrid, title: "Koja Office", text: "Unsere eigene Software: 13 Apps für Mac und Windows, ohne Abo." },
 ];
 
 const CONSULTING = [
@@ -109,6 +110,9 @@ export default function Home() {
             </nav>
           </div>
         </section>
+
+        {/* Koja Office in one line, before the studio sections */}
+        <OfferTeaser />
 
         {/* 02 Software licences: the main business */}
         <section id="lizenzen" className="rail crosshairs scroll-mt-12">

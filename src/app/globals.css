@@ -384,6 +384,49 @@ body {
     offset-distance: calc(var(--d, 0%) + 100%);
   }
 }
+/* /software, from lg: the flat ring is seen slightly from above, so an icon is largest at the front (a quarter lap from
+   the left end of its path) and smallest at the back. Same lap and start as its ride (--dur, --dd). */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .sw-hero [data-layout="wide"] .orbit-app {
+    animation: orbit-depth var(--dur) linear var(--dd) infinite;
+    animation-direction: inherit;
+  }
+}
+@keyframes orbit-depth {
+  0%,
+  100% {
+    transform: scale(0.86);
+  }
+  12.5% {
+    transform: scale(0.96);
+  }
+  25% {
+    transform: scale(1);
+  }
+  37.5% {
+    transform: scale(0.96);
+  }
+  50% {
+    transform: scale(0.86);
+  }
+  62.5% {
+    transform: scale(0.76);
+  }
+  75% {
+    transform: scale(0.72);
+  }
+  87.5% {
+    transform: scale(0.76);
+  }
+}
+/* /software: an icon about to cross the type or the box fades out (OrbitField clearOf). */
+.orbit-rider {
+  transition: opacity 0.35s ease;
+}
+.orbit-rider.is-off {
+  opacity: 0;
+  pointer-events: none;
+}
 /* Hovering or focusing an icon holds it still, so it can be clicked. */
 .orbit-rider:hover,
 .orbit-rider:focus-within {
@@ -395,6 +438,146 @@ body {
 @keyframes orbit-sweep {
   to {
     stroke-dashoffset: -1000;
+  }
+}
+
+/*
+ * The /software hero: the wordmark "Koja Office", the 3D box (OfficeBoxStatic) at the centre of the orbits
+ * (OrbitField aroundBox), then the headline. Wordmark and headline are the two lines of the h1; the gap between them is
+ * reserved here, so box, orbits and copy are at their final place from the first paint.
+ * Below lg: box and its ring of 13 icons on top, wordmark and headline below. --rs scales the ring (field units → px);
+ * the box is 389 field units wide at every scale, so no icon ever passes over it.
+ * From lg up: wordmark, box, headline, the group from wordmark to buy button centred on the first screen; the wide
+ * orbits fade out where they would cross the type (masks on .sw-hero-orbits), so no icon or line runs through text.
+ */
+.sw-hero {
+  --rs: 0.36;
+  --bw: calc(var(--rs) * 389px); /* box width; height 1.3x */
+  --bh: calc(var(--bw) * 1.3);
+  --ring: calc(var(--rs) * 492px); /* centre to the outer edge of the ring's icons */
+  --cy: calc(var(--ring) + 12px); /* centre of box and orbits */
+}
+@media (max-width: 359px) {
+  .sw-hero {
+    --rs: 0.3;
+  }
+}
+@media (min-width: 640px) {
+  .sw-hero {
+    --rs: 0.46;
+    --cy: calc(var(--ring) + 28px);
+  }
+}
+.sw-hero .orbit-field {
+  --s: var(--rs);
+  top: var(--cy);
+}
+.sw-hero-box {
+  position: absolute;
+  left: 50%;
+  top: round(var(--cy), 1px);
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+/* The product stands still here: a resting box stays crisp (a swaying 3D layer is re-rasterised and turns soft). */
+.sw-hero .kbox {
+  animation: none;
+  transform: rotateX(-6deg) rotateY(24deg);
+}
+.sw-hero .kbox-shadow {
+  animation: none;
+}
+.sw-hero-copy {
+  padding-top: calc(var(--cy) + var(--ring) + 14px);
+}
+.sw-hero-mark {
+  font-size: clamp(1.85rem, 10.2vw, 2.75rem);
+}
+.sw-hero-line {
+  margin-top: 10px;
+}
+/* Below lg: the white fade starts right below the ring's icons, so the outer hairlines end before the type. */
+.sw-hero-veil {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) calc(var(--cy) + var(--ring) - 4px), #fff calc(var(--cy) + var(--ring) + 22px));
+}
+@media (min-width: 640px) {
+  .sw-hero-mark {
+    font-size: 3.4rem;
+  }
+  .sw-hero-line {
+    margin-top: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .sw-hero {
+    --bw: 170px;
+    --wm: clamp(2rem, 6.2vw, 4.25rem); /* wordmark size */
+    --hl: clamp(1.75rem, 3.6vw, 2.9rem); /* headline size */
+    --above: calc(var(--bh) / 2 + 26px); /* box centre to wordmark: half the box and a gap */
+    --below: calc(var(--bh) / 2 + var(--bw) * 0.11 + 24px); /* box centre to headline: half the box, its shadow, a gap */
+    --stack: calc(var(--wm) * 1.02 + var(--above) + var(--below) + var(--hl) * 2.04 + 80px);
+    --pt: clamp(24px, calc((100svh - 3rem - var(--stack)) / 2), 200px);
+    --cy: calc(var(--pt) + var(--wm) * 1.02 + var(--above));
+  }
+  .sw-hero .orbit-field {
+    --s: 0.72;
+  }
+  .sw-hero-copy {
+    padding-top: var(--pt);
+  }
+  .sw-hero-mark {
+    font-size: var(--wm);
+  }
+  .sw-hero-line {
+    margin-top: calc(var(--above) + var(--below));
+  }
+  .sw-hero-veil {
+    display: none;
+  }
+  /* The orbit lines get two holes with soft edges: around the wordmark, and from the headline down (headline, buttons,
+     paragraph). Each hole is a rectangle, the full layer minus (vertical band ∩ horizontal column), given in hero
+     pixels and turned into the field's own units (it is scaled by --s around --cy). The icons fade out on their own
+     (OrbitField clearOf). */
+  .sw-hero .orbit-lines,
+  .sw-hero .orbit-lines > div {
+    position: absolute;
+    inset: 0;
+    --f: calc(28px / var(--s)); /* soft edge */
+    --ly1: calc(1200px + (var(--y1) - var(--cy)) / var(--s));
+    --ly2: calc(1200px + (var(--y2) - var(--cy)) / var(--s));
+    --lx: calc(var(--x) / var(--s));
+    mask-image:
+      linear-gradient(#000, #000),
+      linear-gradient(to bottom, transparent calc(var(--ly1) - var(--f)), #000 var(--ly1), #000 var(--ly2), transparent calc(var(--ly2) + var(--f))),
+      linear-gradient(to right, transparent calc(1200px - var(--lx) - var(--f)), #000 calc(1200px - var(--lx)), #000 calc(1200px + var(--lx)), transparent calc(1200px + var(--lx) + var(--f)));
+    mask-composite: exclude, intersect;
+  }
+  .sw-hero .orbit-lines {
+    --y1: calc(var(--pt) - 8px);
+    --y2: calc(var(--pt) + var(--wm) * 1.02 + 8px);
+    --x: calc(var(--wm) * 4.15 + 16px);
+  }
+  .sw-hero .orbit-lines > div {
+    --y1: calc(var(--cy) + var(--below) - 10px);
+    --y2: calc(var(--cy) + 2000px);
+    --x: calc(var(--hl) * 9.1 + 16px);
+  }
+}
+@media (min-width: 1280px) {
+  .sw-hero {
+    --bw: 200px;
+  }
+  .sw-hero .orbit-field {
+    --s: 0.9;
+  }
+}
+@media (min-width: 1440px) {
+  .sw-hero {
+    --bw: 220px;
+  }
+  .sw-hero .orbit-field {
+    --s: 1;
   }
 }
 
@@ -755,5 +938,173 @@ html.kj-intro .kj-logo-word {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/*
+ * The Koja Office offer (src/lib/offer.ts): the header button, the phone-menu row, the band above the footer and the
+ * teasers. Markup that differs before and after the end of the offer carries .offer-live or .offer-over; the inline
+ * script in layout.tsx sets data-offer-over on <html> once the end has passed, so a page built earlier switches over
+ * from the first paint. These rules only hide, so the classes sit right on buttons and links.
+ */
+html[data-offer-over] .offer-live,
+html:not([data-offer-over]) .offer-over {
+  display: none !important;
+}
+
+@layer components {
+  /* The yellow "−50 %" of the ads, on ink or white: the one place yellow appears outside /office. */
+  .offer-tag {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    padding: 4px 6px;
+    background: #ffd84d;
+    color: #0e0e10;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    white-space: nowrap;
+  }
+  /* The code in mono inside a hairline frame (on ink a light one, see below). */
+  .offer-code {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 7px;
+    border: 1px solid var(--color-border-strong);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  /* Header: the offer button on the right, ink like the primary buttons, full header height. */
+  .offer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 100%;
+    padding: 0 14px;
+    background: var(--color-foreground);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+  }
+  .offer-btn:hover {
+    background: #2a2a2f;
+  }
+  .offer-btn .offer-code {
+    padding: 3px 6px;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #fff;
+    font-size: 11px;
+  }
+  .nav-offer-row .offer-code {
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+  .offer-btn-sub {
+    color: #b4b4bc;
+  }
+  @media (max-width: 399px) {
+    .offer-btn {
+      gap: 7px;
+      padding: 0 12px;
+      letter-spacing: 0.08em;
+    }
+  }
+  @media (min-width: 1024px) {
+    .offer-btn {
+      gap: 11px;
+      padding: 0 20px;
+      font-size: 11.5px;
+    }
+  }
+
+  /* Phone menu: the offer as its first row. */
+  .nav-offer-row {
+    display: block;
+    padding: 22px 20px 20px;
+    background: var(--color-foreground);
+    color: #fff;
+  }
+  .nav-offer-row:active {
+    background: #2a2a2f;
+  }
+
+  /* Band above the footer (src/components/offer/OfferBand.tsx). */
+  .offer-band-stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 300px;
+    padding: 44px 20px 40px;
+    overflow: hidden;
+  }
+  .offer-band-stage::before {
+    /* Graph paper behind the box, fading out towards the edges */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(var(--color-border) 1px, transparent 1px) 0 0 / 28px 28px,
+      linear-gradient(90deg, var(--color-border) 1px, transparent 1px) 0 0 / 28px 28px;
+    mask-image: radial-gradient(closest-side, #000 45%, transparent 100%);
+    pointer-events: none;
+  }
+  .offer-band-stage > * {
+    position: relative;
+    z-index: 1;
+  }
+  /* The box rests here too (crisp, nothing moving without a reason). */
+  .offer-band-stage .kbox {
+    animation: none;
+    transform: rotateX(-6deg) rotateY(24deg);
+  }
+  .offer-band-stage .kbox-shadow {
+    animation: none;
+  }
+  .btn-lg {
+    min-height: 56px;
+    padding: 0 26px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+  }
+  @media (max-width: 639px) {
+    .btn-lg {
+      width: 100%;
+      min-height: 58px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  /* Teaser right after the first section of the home page and /lizenzen. */
+  .offer-teaser {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--color-border);
+    transition: background 0.2s ease;
+  }
+  .offer-teaser:hover {
+    background: var(--color-surface-light);
+  }
+  @media (min-width: 768px) {
+    .offer-teaser {
+      gap: 24px;
+      padding: 18px 40px;
+    }
   }
 }

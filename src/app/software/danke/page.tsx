@@ -129,7 +129,7 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
           </section>
         )}
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

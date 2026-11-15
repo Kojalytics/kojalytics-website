@@ -81,7 +81,7 @@ export default function ImpressumPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

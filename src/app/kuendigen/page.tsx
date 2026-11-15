@@ -34,7 +34,7 @@ export default function CancelPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

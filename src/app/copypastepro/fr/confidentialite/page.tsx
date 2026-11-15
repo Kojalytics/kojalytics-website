@@ -90,7 +90,7 @@ export default function CopyPasteProConfidentialitePage() {
                 </li>
                 <li>
                   <strong className="text-foreground">Paramètres&nbsp;:</strong>{" "}
-                  choix de langue, statut d'onboarding, plan choisi.
+                  choix de langue, statut d&apos;onboarding, plan choisi.
                 </li>
               </ul>
               <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mt-4">
@@ -109,7 +109,7 @@ export default function CopyPasteProConfidentialitePage() {
                 <li>Aucune donnée de localisation</li>
                 <li>Aucune frappe (pas de keylogging)</li>
                 <li>
-                  Aucun outil d'analyse (pas de Google Analytics, Firebase,
+                  Aucun outil d&apos;analyse (pas de Google Analytics, Firebase,
                   Clarity)
                 </li>
                 <li>Aucune publicité, aucun réseau publicitaire</li>
@@ -120,35 +120,35 @@ export default function CopyPasteProConfidentialitePage() {
             <Section title="5. Extension clavier & Accès complet">
               <p className="text-muted leading-relaxed mb-3">
                 Le clavier est une extension iOS Custom Keyboard. Pour accéder à
-                l'historique du presse-papiers, vous devez activer{" "}
+                l&apos;historique du presse-papiers, vous devez activer{" "}
                 <strong className="text-foreground">
-                  «&nbsp;Autoriser l'accès complet&nbsp;»
+                  «&nbsp;Autoriser l&apos;accès complet&nbsp;»
                 </strong>{" "}
                 dans les réglages iOS.
               </p>
               <p className="text-muted leading-relaxed mb-3 font-medium text-foreground text-sm">
-                Pourquoi l'accès complet est-il nécessaire&nbsp;?
+                Pourquoi l&apos;accès complet est-il nécessaire&nbsp;?
               </p>
               <ul className="text-muted space-y-2 list-disc list-inside leading-relaxed">
                 <li>
-                  Partage local de l'historique entre l'app et le clavier via
+                  Partage local de l&apos;historique entre l&apos;app et le clavier via
                   iOS App Groups.
                 </li>
                 <li>
-                  Lecture du presse-papiers lors du tap sur l'icône presse-
+                  Lecture du presse-papiers lors du tap sur l&apos;icône presse-
                   papiers du clavier.
                 </li>
                 <li>
-                  Roundtrip de traduction vers l'app hôte (le framework Apple
-                  Translation ne tourne que dans l'app hôte).
+                  Roundtrip de traduction vers l&apos;app hôte (le framework Apple
+                  Translation ne tourne que dans l&apos;app hôte).
                 </li>
               </ul>
               <p className="text-muted leading-relaxed mt-3">
-                L'accès complet est utilisé{" "}
+                L&apos;accès complet est utilisé{" "}
                 <strong className="text-foreground">
                   exclusivement en local
                 </strong>
-                . Le clavier n'envoie aucune donnée à des serveurs externes.
+                . Le clavier n&apos;envoie aucune donnée à des serveurs externes.
                 Vous pouvez le révoquer à tout moment dans les réglages iOS.
               </p>
             </Section>
@@ -156,12 +156,12 @@ export default function CopyPasteProConfidentialitePage() {
             <Section title="6. iCloud (CloudKit) — codes promo uniquement">
               <p className="text-muted leading-relaxed mb-3">
                 Si vous utilisez un code promo, nous utilisons CloudKit Public
-                Database d'Apple pour l'activation unique. Nous stockons&nbsp;:
+                Database d&apos;Apple pour l&apos;activation unique. Nous stockons&nbsp;:
               </p>
               <ul className="text-muted space-y-2 list-disc list-inside leading-relaxed">
                 <li>
-                  Un identifiant d'appareil anonyme (UUID aléatoire — pas
-                  d'identifiant Apple, pas de nom)
+                  Un identifiant d&apos;appareil anonyme (UUID aléatoire — pas
+                  d&apos;identifiant Apple, pas de nom)
                 </li>
                 <li>
                   Un hachage du code (SHA-256) pour empêcher la double
@@ -170,7 +170,7 @@ export default function CopyPasteProConfidentialitePage() {
               </ul>
               <p className="text-muted leading-relaxed mt-3">
                 Les données résident dans votre propre espace iCloud sous la
-                responsabilité d'Apple. Nous pouvons demander leur suppression —
+                responsabilité d&apos;Apple. Nous pouvons demander leur suppression —
                 voir contact ci-dessous.
               </p>
             </Section>
@@ -179,22 +179,22 @@ export default function CopyPasteProConfidentialitePage() {
               <p className="text-muted leading-relaxed">
                 Les traductions passent par le framework Apple Translation.
                 Apple traite le texte localement ou via ses serveurs — voir la
-                politique d'Apple. Nous n'envoyons aucun texte à nos serveurs ou
+                politique d&apos;Apple. Nous n&apos;envoyons aucun texte à nos serveurs ou
                 à des tiers.
               </p>
             </Section>
 
             <Section title="8. Calendrier">
               <p className="text-muted leading-relaxed">
-                Si vous accordez l'accès au calendrier, les événements sont
-                affichés uniquement dans l'app. Aucune transmission.
+                Si vous accordez l&apos;accès au calendrier, les événements sont
+                affichés uniquement dans l&apos;app. Aucune transmission.
               </p>
             </Section>
 
             <Section title="9. Achats intégrés">
               <p className="text-muted leading-relaxed">
                 Les achats passent par Apple StoreKit 2. Nous ne recevons aucune
-                information de paiement. La politique d'Apple s'applique.
+                information de paiement. La politique d&apos;Apple s&apos;applique.
               </p>
             </Section>
 
@@ -202,21 +202,21 @@ export default function CopyPasteProConfidentialitePage() {
               <ul className="text-muted space-y-2 list-disc list-inside leading-relaxed">
                 <li>
                   <strong className="text-foreground">Accès&nbsp;:</strong>{" "}
-                  comme nous ne collectons aucune donnée personnelle, nous n'y
+                  comme nous ne collectons aucune donnée personnelle, nous n&apos;y
                   avons pas accès.
                 </li>
                 <li>
                   <strong className="text-foreground">
                     Suppression locale&nbsp;:
                   </strong>{" "}
-                  désinstallez l'app — toutes les données locales sont
+                  désinstallez l&apos;app — toutes les données locales sont
                   supprimées par iOS.
                 </li>
                 <li>
                   <strong className="text-foreground">
                     Suppression CloudKit promo&nbsp;:
                   </strong>{" "}
-                  envoyez un e-mail à support@kojalytics.com avec l'objet
+                  envoyez un e-mail à support@kojalytics.com avec l&apos;objet
                   «&nbsp;Suppression CloudKit Copy Paste Pro&nbsp;».
                 </li>
               </ul>
@@ -224,8 +224,8 @@ export default function CopyPasteProConfidentialitePage() {
 
             <Section title="11. Enfants">
               <p className="text-muted leading-relaxed">
-                Copy Paste Pro ne s'adresse pas aux enfants de moins de 16 ans.
-                Aucune donnée personnelle n'étant collectée, l'utilisation reste
+                Copy Paste Pro ne s&apos;adresse pas aux enfants de moins de 16 ans.
+                Aucune donnée personnelle n&apos;étant collectée, l&apos;utilisation reste
                 par ailleurs sans risque.
               </p>
             </Section>
@@ -251,7 +251,7 @@ export default function CopyPasteProConfidentialitePage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

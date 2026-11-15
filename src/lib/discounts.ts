@@ -1,5 +1,6 @@
 import type Stripe from 'stripe';
 import { PLANS, type Plan } from '@/lib/pricing';
+import { isOfferCode, isOfferRunning } from '@/lib/offer';
 
 /**
  * Discount codes for the Koja-Apps are Stripe promotion codes (Stripe Dashboard → Produktkatalog → Gutscheine).
@@ -27,6 +28,8 @@ const euro = (cents: number) => (cents / 100).toLocaleString('de-DE', { minimumF
 export async function findDiscount(stripe: Stripe, raw: unknown): Promise<DiscountLookup> {
   const code = typeof raw === 'string' ? raw.trim() : '';
   if (!code || code.length > 64) return { ok: false, status: 400, error: 'Bitte gib einen Rabattcode ein.' };
+  // The public introductory code ends with the offer (src/lib/offer.ts), whatever Stripe still says.
+  if (isOfferCode(code) && !isOfferRunning()) return { ok: false, status: 410, error: 'Dieser Rabattcode ist nicht mehr gültig.' };
 
   const { data } = await stripe.promotionCodes.list({ code, limit: 1, expand: ['data.promotion.coupon'] });
   const promo = data[0];

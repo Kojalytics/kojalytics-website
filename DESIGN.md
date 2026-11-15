@@ -19,6 +19,7 @@ It is our own implementation; never copy code, text or images from other website
 | `border` / `border-strong` | `#e3e3e1` / `#c9c9c6` | Hairlines / outlines of buttons, tags, icon boxes |
 | `surface` | `#f6f6f5` | Small wells only (image backgrounds, the checkout confirmation box, table highlight) |
 | `accent` | `#2a66d8` | One highlighted word per headline (`.text-highlight`), links. Nothing else is blue. |
+| offer yellow | `#ffd84d` | Only the "−50 %" offer tag (`.offer-tag`), the one carry-over from the ads. No other yellow outside /office. |
 
 App colours come from `APPS[].color`; for text use `appInk(app.color)` (darkened to AA contrast).
 
@@ -35,7 +36,7 @@ Geist Mono (`font-mono`, `.hud`).
 - `.hud`: mono uppercase micro-label (11px, tracking 0.16em, muted). Use for index numbers, meta lines,
   captions of data ("3 Min. Lesezeit"), column headers, small annotations.
 - `.display` + `text-[clamp(…)]`: headlines. Sizes used on /software:
-  - h1 hero `text-[clamp(2.1rem,5.4vw,4.6rem)]`
+  - h1 hero `text-[clamp(1.75rem,3.6vw,2.9rem)]`; on /software its first line is the wordmark "Koja Office" (`.sw-hero-mark`)
   - section h2 `text-[clamp(2rem,4.2vw,3.6rem)]`
   - sub h2 `text-[clamp(1.8rem,3.4vw,2.8rem)]`
   - card h3 `text-[1.35rem]`–`text-[1.55rem]`
@@ -62,6 +63,25 @@ Geist Mono (`font-mono`, `.hud`).
 
 ## Layout patterns
 
+- Header menu (Navigation.tsx): the first item is "Koja Office" (links to /software, the product page), then Lizenzen,
+  Leistungen, Projekte, Ratgeber, Kontakt.
+- Header offer (Navigation.tsx, `.offer-btn`): the right side is one ink button with the yellow `.offer-tag` "−50 %", "Koja Office",
+  from xl the code in a solid hairline `.offer-code` (the word "Code" from 1400px) and "bis 30. November 2026", linking to the offer link
+  of `src/lib/offer.ts` (no "Preise", no trial button); on the Koja pages it swaps in place for the green `<BuyButton>` once a discount is
+  active. The phone menu opens with the offer row (end date and code as 16px text) instead of a "Koja Office" item.
+- Koja pages (/software, app pages) apply the offer by default while it runs (`<OfferDiscount>`): every price and buy button shows the
+  offer price from the first paint; a code from a link or the price section replaces it.
+- Koja Office band (`<OfferBand />`, built into `<Footer />`, off with `offer={false}` on /software and below, /office and legal pages):
+  the resting box on graph paper, tag with the end date, one headline, price with code, green "Koja Office ansehen" plus `<DownloadButton>`,
+  56px buttons. Offer facts on phones are 16px text, never 11px `.hud`.
+  Everything offer-related comes from `src/lib/offer.ts` and switches to the regular price by itself at the end date (`.offer-live`/`.offer-over`).
+- /software hero (`.sw-hero` in globals.css): one h1 with two lines, the wordmark "Koja Office" and "13 Apps für Mac und
+  Windows. Einmal 79 €, kein Abo." (price from `<LifetimePrice />`). Between them the 3D box (`<OfficeBoxStatic />`, no
+  client JS, front loaded with high priority at about 2x its size, resting: no sway) stands at the centre of the orbiting app icons
+  (`<OrbitField aroundBox />`); the gap is reserved in CSS, so nothing moves after the first paint. Below lg (phones and tablets):
+  box with one ring of all 13 icons on top (no icon ever over the box), then wordmark and headline; the buy button stays on the first
+  screen. From lg: a flat ring through the band between wordmark and headline, icons shrink towards the back and fade out before they
+  would cross type or the box (`clearOf`), the lines are masked off the type. /software/partner keeps the K mark (OrbitField default).
 - Page: `<main className="pt-12">` (the fixed header is 48px), then sections. No outer max-w wrappers:
   the `.rail` sections are the column.
 - Section inner padding: horizontal `px-5 md:px-10`, vertical `py-14 md:py-20`. Hero top section the same.
@@ -100,7 +120,8 @@ Geist Mono (`font-mono`, `.hud`).
 - No grey or coloured section backgrounds (`bg-surface` sections are gone): white everywhere.
   The one exception is `/office`, the landing page for the Meta ads: it continues the dark ads with dark stages (near-black,
   44px grid, blue glow, yellow prices, the 3D box) between white sections and uses large plain-type buttons (`.ko-btn`,
-  60px, 18px bold) for an older audience on phones. Its styles live in `src/app/office/office.css` (prefix `ko-`).
+  60px, 18px bold) for an older audience on phones. Its styles live in `src/app/office/office.css` (prefix `ko-`); the box's own
+  styles in `src/components/office/kbox.css` (imported by `OfficeBox` and `OfficeBoxStatic`).
 - No gradients, glass, blur effects (the header's backdrop blur is the only one).
 - Do not change copy, prices, claims, legal text, metadata, JSON-LD or links when restyling. Legal
   wording ("jederzeit online kündbar") is deliberate.

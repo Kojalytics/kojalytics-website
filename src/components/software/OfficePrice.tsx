@@ -2,6 +2,7 @@
 
 import { PLANS } from "@/lib/pricing";
 import { euro, useDiscount } from "@/lib/discount-store";
+import { OFFER_END_LONG, isOfferCode } from "@/lib/offer";
 import BuyButton from "./BuyButton";
 
 /*
@@ -36,6 +37,11 @@ export function HeroPrice() {
       <p className="ko-price-note">
         einmalig · <span className="whitespace-nowrap">inkl. MwSt.</span>
       </p>
+      {isOfferCode(discount?.code) && (
+        <p className="ko-price-end">
+          Einführungspreis bis <span className="whitespace-nowrap">{OFFER_END_LONG}</span>
+        </p>
+      )}
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import { Tag } from "lucide-react";
 import { PLANS } from "@/lib/pricing";
 import { euro, useDiscount } from "@/lib/discount-store";
+import { OFFER_END_LONG, isOfferCode } from "@/lib/offer";
 
 /** The one-time price in a headline: with an active discount code the reduced price, the normal one struck through. */
 export default function LifetimePrice() {
@@ -26,6 +27,9 @@ export function ActiveDiscountNote() {
       <span>
         Rabattcode <span className="font-mono font-semibold tracking-[0.06em]">{discount.code}</span> ist aktiv:{" "}
         <span className="whitespace-nowrap font-semibold">{discount.label}</span>
+        {isOfferCode(discount.code) && (
+          <span className="block text-muted">Einführungspreis bis {OFFER_END_LONG}</span>
+        )}
       </span>
     </p>
   );

@@ -251,7 +251,7 @@ export default function CopyPasteProPrivacidadPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

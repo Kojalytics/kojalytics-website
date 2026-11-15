@@ -776,7 +776,7 @@ export default function DatenschutzPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }
