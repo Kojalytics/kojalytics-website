@@ -43,7 +43,7 @@ export default function WithdrawPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

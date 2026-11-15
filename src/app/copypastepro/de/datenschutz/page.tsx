@@ -127,7 +127,7 @@ export default function CopyPasteProDatenschutzPage() {
                 auf den Clipboard-Verlauf zugreifen kann, musst du in den
                 iOS-Einstellungen{" "}
                 <strong className="text-foreground">
-                  „Vollen Zugriff erlauben"
+                  „Vollen Zugriff erlauben&quot;
                 </strong>{" "}
                 aktivieren.
               </p>
@@ -220,7 +220,7 @@ export default function CopyPasteProDatenschutzPage() {
                     Löschung CloudKit-Promo-Daten:
                   </strong>{" "}
                   Schreibe an support@kojalytics.com mit Betreff „CloudKit-
-                  Löschung Copy Paste Pro".
+                  Löschung Copy Paste Pro&quot;.
                 </li>
               </ul>
             </Section>
@@ -254,7 +254,7 @@ export default function CopyPasteProDatenschutzPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

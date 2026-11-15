@@ -295,7 +295,7 @@ export default function ClipboardDatenschutzPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

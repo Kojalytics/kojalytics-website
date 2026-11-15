@@ -96,6 +96,7 @@ export default function PPFooter({ t, locale }: { t: Translations; locale: Local
               {t.footer.company}
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- leaves the AI Headshot app for the main site with a full page load */}
               <a href="/" style={{ color: 'var(--pp-text-muted)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--pp-accent)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--pp-text-muted)')}

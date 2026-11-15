@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness, MessagesSquare, Receipt, Wrench } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import OfferTeaser from "@/components/offer/OfferTeaser";
 import SectionBar from "@/components/instrument/SectionBar";
 import { LICENSE_CATEGORIES as categories } from "@/lib/studio";
 
@@ -48,6 +49,9 @@ export default function LicensingPage() {
             </div>
           </div>
         </section>
+
+        {/* Koja Office in one line, before the studio sections */}
+        <OfferTeaser />
 
         {/* 02 Categories */}
         <section className="rail crosshairs">

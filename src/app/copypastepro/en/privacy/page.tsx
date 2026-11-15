@@ -122,7 +122,7 @@ export default function CopyPasteProPrivacyPage() {
               <p className="text-muted leading-relaxed mb-3">
                 The keyboard is an iOS Custom Keyboard Extension. To access the
                 clipboard history, you must enable{" "}
-                <strong className="text-foreground">"Allow Full Access"</strong>{" "}
+                <strong className="text-foreground">&quot;Allow Full Access&quot;</strong>{" "}
                 in iOS Settings.
               </p>
               <p className="text-muted leading-relaxed mb-3 font-medium text-foreground text-sm">
@@ -152,7 +152,7 @@ export default function CopyPasteProPrivacyPage() {
 
             <Section title="6. iCloud (CloudKit) — promo codes only">
               <p className="text-muted leading-relaxed mb-3">
-                If you redeem a promo code, we use Apple's CloudKit Public
+                If you redeem a promo code, we use Apple&apos;s CloudKit Public
                 Database for one-time activation. We store:
               </p>
               <ul className="text-muted space-y-2 list-disc list-inside leading-relaxed">
@@ -165,7 +165,7 @@ export default function CopyPasteProPrivacyPage() {
                 </li>
               </ul>
               <p className="text-muted leading-relaxed mt-3">
-                Data resides in your own iCloud area under Apple's
+                Data resides in your own iCloud area under Apple&apos;s
                 responsibility. We can request deletion — see contact below.
               </p>
             </Section>
@@ -174,7 +174,7 @@ export default function CopyPasteProPrivacyPage() {
               <p className="text-muted leading-relaxed">
                 Translations are performed via the Apple Translation Framework.
                 Apple processes text on-device or via Apple servers — see
-                Apple's privacy policy. We do not send text to our own or
+                Apple&apos;s privacy policy. We do not send text to our own or
                 third-party servers.
               </p>
             </Section>
@@ -189,7 +189,7 @@ export default function CopyPasteProPrivacyPage() {
             <Section title="9. In-App Purchases">
               <p className="text-muted leading-relaxed">
                 Purchases are handled via Apple StoreKit 2. We receive no
-                payment information. Apple's privacy policy applies.
+                payment information. Apple&apos;s privacy policy applies.
               </p>
             </Section>
 
@@ -209,8 +209,8 @@ export default function CopyPasteProPrivacyPage() {
                   <strong className="text-foreground">
                     CloudKit promo data deletion:
                   </strong>{" "}
-                  email support@kojalytics.com with subject "CloudKit Deletion
-                  Copy Paste Pro".
+                  email support@kojalytics.com with subject &quot;CloudKit Deletion
+                  Copy Paste Pro&quot;.
                 </li>
               </ul>
             </Section>
@@ -243,7 +243,7 @@ export default function CopyPasteProPrivacyPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

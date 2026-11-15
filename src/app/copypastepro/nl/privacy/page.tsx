@@ -80,7 +80,7 @@ export default function CopyPasteProPrivacyNLPage() {
                   <strong className="text-foreground">
                     Klembordgeschiedenis:
                   </strong>{" "}
-                  teksten, URL's en adressen die je kopieert worden lokaal
+                  teksten, URL&apos;s en adressen die je kopieert worden lokaal
                   bewaard.
                 </li>
                 <li>
@@ -122,7 +122,7 @@ export default function CopyPasteProPrivacyNLPage() {
                 Het toetsenbord is een iOS Custom Keyboard Extension. Om
                 toegang te krijgen tot de klembordgeschiedenis moet je{" "}
                 <strong className="text-foreground">
-                  „Volledige toegang toestaan"
+                  „Volledige toegang toestaan&quot;
                 </strong>{" "}
                 inschakelen in iOS-instellingen.
               </p>
@@ -153,7 +153,7 @@ export default function CopyPasteProPrivacyNLPage() {
 
             <Section title="6. iCloud (CloudKit) — alleen voor promotiecodes">
               <p className="text-muted leading-relaxed mb-3">
-                Als je een promotiecode inwisselt, gebruiken we Apple's CloudKit
+                Als je een promotiecode inwisselt, gebruiken we Apple&apos;s CloudKit
                 Public Database voor eenmalige activering. We slaan op:
               </p>
               <ul className="text-muted space-y-2 list-disc list-inside leading-relaxed">
@@ -167,7 +167,7 @@ export default function CopyPasteProPrivacyNLPage() {
                 </li>
               </ul>
               <p className="text-muted leading-relaxed mt-3">
-                De gegevens bevinden zich in je eigen iCloud-ruimte onder Apple's
+                De gegevens bevinden zich in je eigen iCloud-ruimte onder Apple&apos;s
                 verantwoordelijkheid. We kunnen verwijdering aanvragen — zie
                 contact hieronder.
               </p>
@@ -216,7 +216,7 @@ export default function CopyPasteProPrivacyNLPage() {
                     CloudKit-promo verwijderen:
                   </strong>{" "}
                   stuur een e-mail naar support@kojalytics.com met onderwerp
-                  „CloudKit-verwijdering Copy Paste Pro".
+                  „CloudKit-verwijdering Copy Paste Pro&quot;.
                 </li>
               </ul>
             </Section>
@@ -250,7 +250,7 @@ export default function CopyPasteProPrivacyNLPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer offer={false} />
     </>
   );
 }

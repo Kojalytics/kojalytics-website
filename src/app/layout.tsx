@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Geist, Geist_Mono } from "next/font/google";
 import Consent from "@/components/Consent";
 import { ORGANIZATION_JSON_LD, SITE_NAME, SITE_URL, jsonLd } from "@/lib/site";
+import { OFFER_ENDS_MS } from "@/lib/offer";
 import "./globals.css";
 
 // Headlines: Archivo with its width axis, set wide in globals.css (.display).
@@ -50,17 +51,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning: the inline script below adds "js" and data-kj-consent to <html> before hydration.
+    // suppressHydrationWarning: the inline script below adds "js", data-kj-consent and data-offer-over to <html> before hydration.
     <html lang="de" className={`${heading.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="antialiased">
         {/* Marks JS as available (for scroll reveals), hides the server-rendered cookie banner before the
             first paint for visitors who already chose, and plays the 2-second logo intro once per visit
             (not when coming from another page of this site, not on the ad landing page /office, not for bots or with
-            reduced motion). */}
+            reduced motion). Once the Koja Office offer has ended (src/lib/offer.ts), it sets data-offer-over, so pages built
+            before the end show the regular price from the first paint (.offer-live / .offer-over in globals.css). */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){var d=document.documentElement;d.classList.add('js');try{if(localStorage.getItem('kj-consent-v1'))d.setAttribute('data-kj-consent','')}catch(e){}" +
+              "(function(){var d=document.documentElement;d.classList.add('js');" +
+              `if(Date.now()>=${OFFER_ENDS_MS})d.setAttribute('data-offer-over','');` +
+              "try{if(localStorage.getItem('kj-consent-v1'))d.setAttribute('data-kj-consent','')}catch(e){}" +
               "try{var r=document.referrer,s=false;try{s=!!r&&new URL(r).host===location.host}catch(e){}" +
               "if(!sessionStorage.getItem('kj-intro')&&!s&&location.pathname!=='/office'&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&!/bot|crawl|spider|slurp|preview/i.test(navigator.userAgent)){d.classList.add('kj-intro');setTimeout(function(){d.classList.remove('kj-intro')},2250)}" +
               "sessionStorage.setItem('kj-intro','1')}catch(e){}})()",

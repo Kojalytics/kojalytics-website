@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef } from "react";
+import "./kbox.css";
 
 /**
  * The Koja Office 2026 box as a real 3D object: six CSS planes, three of them the artwork of the box from the ads
  * (public/office/box-*.webp). It sways gently by itself; a horizontal drag (mouse or finger) turns it, and it swings
  * back when released. Vertical swipes still scroll the page. Size it with `width` (any CSS length); height and depth
  * follow. `tone="light"` swaps the blue glow of the dark stage for a soft contact shadow on white.
- * Styles: src/app/office/office.css (.kbox-*).
+ * Styles: ./kbox.css (.kbox-*). Without dragging (no client JavaScript): OfficeBoxStatic.
  */
 export default function OfficeBox({
   width,

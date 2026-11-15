@@ -6,6 +6,7 @@ import { Check, Tag, X } from "lucide-react";
 import { PLANS, TRIAL_DAYS, type Plan } from "@/lib/pricing";
 import { applyDiscount, clearDiscount, euro, useDiscount } from "@/lib/discount-store";
 import { track } from "@/lib/track";
+import { OFFER_END_LONG, isOfferCode } from "@/lib/offer";
 import DownloadButton from "./DownloadButton";
 
 const included: Record<Plan, string[]> = {
@@ -103,6 +104,7 @@ export default function PricingCards({ source }: { source: string }) {
               <span>
                 Rabattcode <span className="font-mono font-semibold tracking-[0.06em]">{discount.code}</span> angewendet:{" "}
                 <span className="whitespace-nowrap font-semibold">{discount.label}</span>
+                {isOfferCode(discount.code) && <span className="block text-muted">Einführungspreis bis {OFFER_END_LONG}</span>}
               </span>
             </p>
             <button
