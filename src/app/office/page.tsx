@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import AppIcon from "@/components/ui/app-icon";
 import RevealManager from "@/components/instrument/RevealManager";
 import OfficeBox from "@/components/office/OfficeBox";
+import OfficeFilm from "@/components/office/OfficeFilm";
 import SendLinkForm from "@/components/office/SendLinkForm";
 import BuyButton from "@/components/software/BuyButton";
 import DownloadButton from "@/components/software/DownloadButton";
@@ -44,24 +45,25 @@ export const metadata: Metadata = {
 };
 
 /*
- * The proof: one real screenshot per office app, cropped so that it can be read on a phone ("Lupe"). `crop` is the
- * part of the screenshot in its own pixels (iw = width of the whole picture); the pins sit in per cent of the crop and
- * never on text. Each pin has a caption that names what is to be seen.
+ * The four office apps, each with a silent story film (rendered with Remotion, public/office/demo-*.mp4): the everyday
+ * steps of a school paper, a household book, a talk and a form. `steps` are the film's captions with the second each
+ * appears (frame / 30); every film fades back to step 1 at frame 430 before it loops. `color` is the film's accent (the
+ * colour of the app icon), used for the file badge and the step numbers so they match the film.
  */
+const FILM_RESTART = 430 / 30;
 const OFFICE = [
   {
     slug: "word-koja",
     file: ".docx",
     use: "Briefe, Lebenslauf, Vereinsordnung",
     text: "Öffnet und bearbeitet deine Word-Dateien, mit Formatvorlagen, Kommentaren und Inhaltsverzeichnis.",
-    doc: "Gartenordnung 2027.docx",
-    shot: { src: "/apps/word-koja/hero.webp", w: 1372, h: 877 },
-    crop: { x: 470, y: 600, w: 420, h: 240 },
-    alt: "Ausschnitt aus WordKoja: die Überschrift „2. Beete und Patenschaften“ und eine Tabelle mit Beet, Patenschaft und Bepflanzung",
-    pins: [
-      { x: 76, y: 8, title: "Nummerierte Überschrift", text: "Mit Farbe und Schriftgröße aus der Datei." },
-      { x: 85, y: 28.5, title: "Tabelle mit Rahmen", text: "Kopfzeile, Spalten und farbige Zeilen." },
-      { x: 72, y: 92, title: "Fette Schrift in Zellen", text: "Zum Beispiel „Kräuterspirale“." },
+    film: "word",
+    color: "#2a66d8",
+    steps: [
+      { at: 0, text: "Text schreiben" },
+      { at: 100 / 30, text: "Wort markieren" },
+      { at: 190 / 30, text: "Kommentar schreiben" },
+      { at: 290 / 30, text: "Bild einfügen" },
     ],
   },
   {
@@ -69,14 +71,13 @@ const OFFICE = [
     file: ".xlsx",
     use: "Haushaltsbuch, Abrechnung, Listen",
     text: "Öffnet deine Excel-Tabellen, mit Formeln, Diagrammen und Farbskalen.",
-    doc: "Haushaltsbuch.xlsx",
-    shot: { src: "/apps/grid-koja/budget.webp", w: 1389, h: 868 },
-    crop: { x: 36, y: 244, w: 490, h: 318 },
-    alt: "Ausschnitt aus GridKoja: das Haushaltsbuch Oktober 2027 mit Budget, Ist, Differenz und farbigem Verbrauch in Prozent",
-    pins: [
-      { x: 91, y: 9, title: "Farben nach Verbrauch", text: "Grün unter Budget, rot darüber." },
-      { x: 75, y: 9, title: "Minus-Beträge in Rot", text: "Sofort zu sehen, wo es teurer wurde." },
-      { x: 21, y: 93.5, title: "Summen per Formel", text: "Ändere eine Zahl, die Summe stimmt wieder." },
+    film: "grid",
+    color: "#12924f",
+    steps: [
+      { at: 0, text: "Zahlen eintragen" },
+      { at: 98 / 30, text: "Summe rechnen" },
+      { at: 186 / 30, text: "Zellen färben" },
+      { at: 306 / 30, text: "Diagramm einfügen" },
     ],
   },
   {
@@ -84,14 +85,13 @@ const OFFICE = [
     file: ".pptx",
     use: "Vorträge für Verein, Familie und Beruf",
     text: "Öffnet deine PowerPoint-Folien zum Bearbeiten und Präsentieren.",
-    doc: "Solarstrom Vereinsheim.pptx",
-    shot: { src: "/apps/deck-koja/hero.webp", w: 1389, h: 868 },
-    crop: { x: 350, y: 170, w: 530, h: 380 },
-    alt: "Ausschnitt aus DeckKoja: die Folie „Vom Dach in die Steckdose“ mit den Formen Sonne und Solarmodule",
-    pins: [
-      { x: 5, y: 8, title: "Folientitel", text: "„Vom Dach in die Steckdose“." },
-      { x: 87, y: 52, title: "Form ausgewählt", text: "Mit Anfassern zum Verschieben und Größe ändern." },
-      { x: 20.5, y: 90, title: "Formen mit Text und Pfeilen", text: "Sonne, Solarmodule, Wechselrichter, Speicher." },
+    film: "deck",
+    color: "#e2601f",
+    steps: [
+      { at: 0, text: "Titel schreiben" },
+      { at: 95 / 30, text: "Bild einfügen" },
+      { at: 186 / 30, text: "Stichpunkte schreiben" },
+      { at: 300 / 30, text: "Präsentieren" },
     ],
   },
   {
@@ -99,14 +99,13 @@ const OFFICE = [
     file: "PDF",
     use: "Formulare, Verträge, Scans",
     text: "PDFs kommentieren, ordnen, zusammenfügen, ausfüllen und unterschreiben.",
-    doc: "Herbstküche.pdf",
-    shot: { src: "/apps/pdf-koja/hero.webp", w: 1372, h: 877 },
-    crop: { x: 400, y: 122, w: 470, h: 430 },
-    alt: "Ausschnitt aus PdfKoja: die Rezeptseite „Kürbis, der Star im Oktober“ mit Illustration und gelb markiertem Text",
-    pins: [
-      { x: 77, y: 9, title: "Überschrift und Schrift", text: "Die Seite sieht aus wie gedruckt." },
-      { x: 93, y: 45, title: "Bilder bleiben scharf", text: "Die Illustration auf Seite 2." },
-      { x: 47.8, y: 88, title: "Textmarker", text: "„Kochen weich“ gelb markiert." },
+    film: "pdf",
+    color: "#d93445",
+    steps: [
+      { at: 0, text: "PDF öffnen" },
+      { at: 95 / 30, text: "Text markieren" },
+      { at: 190 / 30, text: "Kommentar schreiben" },
+      { at: 290 / 30, text: "Unterschreiben" },
     ],
   },
 ];
@@ -302,10 +301,10 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
             <section className="ko-stage ko-hero">
               <div className="ko-col">
                 <div className="ko-brand">
-                  <span className="ko-brand-mark">
+                  <Link href="/software" title="Mehr über Kojalytics und die Koja-Apps" className="ko-brand-mark">
                     <Image src="/office/koja-office-icon.svg" alt="" width={28} height={28} unoptimized priority />
                     <span>Kojalytics</span>
-                  </span>
+                  </Link>
                   <span className="ko-hud">Direkt vom Hersteller</span>
                 </div>
 
@@ -316,8 +315,12 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
                   </span>
                 </h1>
 
-                <div className="ko-product ko-rise" style={{ ["--i" as string]: 2 }}>
-                  <HeroPrice />
+                {/* Only the price rises in. The row itself never gets a transform: a transformed row would hold the
+                    absolutely placed box of wide screens while it animates, and the box would jump when it ends. */}
+                <div className="ko-product">
+                  <div className="ko-product-price ko-rise" style={{ ["--i" as string]: 2 }}>
+                    <HeroPrice />
+                  </div>
                   <OfficeBox width="clamp(140px, 40vw, 250px)" priority />
                 </div>
 
@@ -344,7 +347,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
                     ))}
                   </span>
                   <span>
-                    <b>Erst ansehen?</b> Vier echte Dateien, geöffnet in Koja Office.
+                    <b>Erst ansehen?</b> Koja Office in Aktion.
                   </span>
                   <span className="ko-peek-arrow" aria-hidden>
                     <ArrowDown size={20} strokeWidth={2.2} />
@@ -441,70 +444,39 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
               </div>
             </section>
 
-            {/* 3 The main worry: do my files work? One readable crop of a real screenshot per office app, then the rest of the box */}
+            {/* 3 The main worry: do my files work? A short film per office app with its steps as text, then the rest of the box */}
             <section id="beweis" className="ko-sec scroll-mt-4">
               <div className="ko-col">
                 <p className="ko-hud">Die vier Office-Apps</p>
                 <h2 className="ko-h2">
-                  Deine Dateien. <em>Einfach geöffnet.</em>
+                  So arbeitest du <em>mit Koja Office.</em>
                 </h2>
-                <p className="ko-lead">Vier Apps für alles, was du sonst mit Word, Excel, PowerPoint und PDFs machst. Hier siehst du echte Bildschirmfotos, vergrößert.</p>
+                <p className="ko-lead">Schreiben, rechnen, präsentieren, unterschreiben: die vier Apps in Aktion.</p>
 
                 <div className="ko-apps">
                   {OFFICE.map((o) => {
                     const app = getApp(o.slug);
                     if (!app) return null;
                     return (
-                      <article key={o.slug} data-reveal>
+                      <article key={o.slug} className="ko-app" data-reveal>
                         <header className="ko-app-head">
                           <AppIcon slug={app.slug} name={app.name} size={56} />
                           <h3 className="ko-h3">{app.name}</h3>
                           <p>{app.kind}</p>
-                          <span className="ko-file" style={{ color: appInk(app.color) }}>
+                          <span className="ko-file" style={{ color: appInk(o.color) }}>
                             {o.file}
                           </span>
                         </header>
                         <p className="ko-app-use">{o.use}</p>
                         <p className="ko-app-text">{o.text}</p>
-                        <figure className="ko-loupe" style={{ ["--c" as string]: app.color, ["--pin" as string]: appInk(app.color) }}>
-                          <figcaption className="ko-loupe-top">
-                            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden>
-                              <circle cx="6.5" cy="6.5" r="5" strokeWidth="2" />
-                              <path d="M10.5 10.5L15 15" strokeWidth="2.2" strokeLinecap="square" />
-                            </svg>
-                            <b>{o.doc}</b>
-                            <span aria-hidden>Lupe</span>
-                          </figcaption>
-                          <div
-                            className="ko-crop"
-                            style={{
-                              aspectRatio: `${o.crop.w} / ${o.crop.h}`,
-                              ["--iw" as string]: o.shot.w,
-                              ["--cw" as string]: o.crop.w,
-                              ["--ch" as string]: o.crop.h,
-                              ["--x" as string]: o.crop.x,
-                              ["--y" as string]: o.crop.y,
-                            }}
-                          >
-                            <Image src={o.shot.src} alt={o.alt} width={o.shot.w} height={o.shot.h} unoptimized />
-                            {o.pins.map((pin, i) => (
-                              <span key={pin.title} className="ko-pin" style={{ left: `${pin.x}%`, top: `${pin.y}%` }} aria-hidden>
-                                {i + 1}
-                              </span>
-                            ))}
-                          </div>
-                          <ol className="ko-notes">
-                            {o.pins.map((pin, i) => (
-                              <li key={pin.title}>
-                                <span aria-hidden>{i + 1}</span>
-                                <p>
-                                  <b>{pin.title}</b>
-                                  {pin.text}
-                                </p>
-                              </li>
-                            ))}
-                          </ol>
-                        </figure>
+                        <OfficeFilm
+                          name={app.name}
+                          src={`/office/demo-${o.film}.mp4`}
+                          poster={`/office/demo-${o.film}.jpg`}
+                          steps={o.steps}
+                          restart={FILM_RESTART}
+                          ink={appInk(o.color)}
+                        />
                       </article>
                     );
                   })}
@@ -635,59 +607,6 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
               </div>
             </section>
 
-            {/* 7 A real company and a real person behind it */}
-            <section className="ko-sec">
-              <div className="ko-col">
-                <p className="ko-hud">Der Anbieter</p>
-                <h2 className="ko-h2">Wer dahintersteckt</h2>
-                <p className="ko-claim">
-                  <strong>
-                    Kein anonymer <span className="whitespace-nowrap">Schlüssel-Shop.</span>
-                  </strong>{" "} Koja Office kommt direkt von uns, einem Software-Studio aus Hamburg.
-                </p>
-                <div className="ko-who" data-reveal>
-                  <div className="ko-who-head">
-                    <span className="ko-k" aria-hidden>
-                      K
-                    </span>
-                    <p>
-                      <b>Kojalytics</b>
-                      <span>Software-Studio aus Hamburg</span>
-                    </p>
-                  </div>
-                  <dl className="ko-who-facts">
-                    <div>
-                      <dt>Inhaber</dt>
-                      <dd>Farzad Khojazada</dd>
-                    </div>
-                    <div>
-                      <dt>Adresse</dt>
-                      <dd>
-                        Am Diggen 40i, <span className="whitespace-nowrap">21077 Hamburg</span>
-                      </dd>
-                    </div>
-                  </dl>
-                  <a href="tel:+4915201482416" className="ko-tap">
-                    <Phone size={20} aria-hidden />
-                    <span>+49 1520 1482416</span>
-                    <ChevronRight size={20} aria-hidden />
-                  </a>
-                  <a href="mailto:support@kojalytics.com" className="ko-tap">
-                    <Mail size={20} aria-hidden />
-                    <span>support@kojalytics.com</span>
-                    <ChevronRight size={20} aria-hidden />
-                  </a>
-                  <div className="ko-who-foot">
-                    <p>Fragen beantworten wir selbst, auf Deutsch.</p>
-                    <Link href="/impressum" prefetch={false} className="ko-link">
-                      Impressum
-                      <ArrowRight size={18} aria-hidden />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </section>
-
             {/* 8 Questions */}
             <section id="fragen" className="ko-sec scroll-mt-4">
               <div className="ko-col">
@@ -731,8 +650,14 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
                 </ul>
 
                 <address className="ko-firm">
-                  <p>
-                    <b>Kojalytics</b> Software-Studio aus Hamburg
+                  <p className="ko-firm-claim">
+                    <strong>
+                      Kein anonymer <span className="whitespace-nowrap">Schlüssel-Shop.</span>
+                    </strong>{" "}
+                    Koja Office kommt direkt von uns, einem Software-Studio aus Hamburg.
+                  </p>
+                  <p className="ko-firm-name">
+                    <b>Kojalytics</b>
                   </p>
                   <p>Inhaber: Farzad Khojazada</p>
                   <p>
