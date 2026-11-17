@@ -15,8 +15,7 @@ import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
 import SectionBar from "@/components/instrument/SectionBar";
-import OrbitField from "@/components/instrument/OrbitField";
-import OfficeBoxStatic from "@/components/office/OfficeBoxStatic";
+import SolarSystem from "@/components/instrument/SolarSystem";
 import { APPS, appInk, getApp } from "@/lib/apps";
 import { ARTICLES } from "@/lib/ratgeber";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
@@ -119,44 +118,33 @@ export default function SoftwarePage() {
         <Navigation cta="buy" />
 
         <main className="pt-12">
-          {/* Hero: "Koja Office", the 3D box in the centre and the 13 app icons orbiting around it (layout: .sw-hero in globals.css) */}
+          {/* Hero: "Koja Office" and the headline, the solar system (the 3D box as the sun, the 13 app icons on its orbits) on its own stage, the buttons (layout: .sw-hero in globals.css) */}
           <section className="sw-hero relative overflow-hidden border-b border-border">
-            {/* From lg up, icons and lines keep off the type: icons fade out before they would cross it or the box, lines are masked */}
-            <OrbitField
-              apps={APPS.map((a) => ({ slug: a.slug, name: a.name, kind: a.kind }))}
-              aroundBox
-              clearOf=".sw-hero-mark, .sw-hero-line, .sw-hero-copy > :not(h1), .sw-hero-box .kbox-stage"
-            />
-            {/* Below lg: a white fade under the ring, so its outer hairlines end before the type */}
-            <div aria-hidden className="sw-hero-veil pointer-events-none absolute inset-0" />
-            {/* The box at --bw (117–220px); its front is fetched at about twice that, so it stays sharp in perspective on 1x screens too */}
-            <div className="sw-hero-box">
-              <OfficeBoxStatic
-                width="var(--bw)"
-                sizes="(min-width: 1440px) 440px, (min-width: 1280px) 400px, (min-width: 1024px) 340px, (min-width: 640px) 180px, 140px"
-                tone="light"
-              />
-            </div>
-            <div className="sw-hero-copy pointer-events-none relative z-10 mx-auto flex min-h-[calc(100svh-3rem)] max-w-[60rem] flex-col items-center px-5 pb-12 text-center">
-              <h1 className="display w-full text-[clamp(1.75rem,3.6vw,2.9rem)]">
-                <span className="sw-hero-mark rise-in block whitespace-nowrap uppercase tracking-[-0.02em]">Koja Office</span>{" "}
-                <span className="sw-hero-line rise-in block [--i:1]">
-                  {/* Fixed line breaks, so the lines stay put when the headline font replaces its fallback (no layout shift) */}
-                  <span className="block">13 Apps für Mac und Windows.</span>{" "}
-                  <span className="whitespace-nowrap max-sm:block max-sm:whitespace-normal">Einmal <LifetimePrice />,</span>{" "}
-                  <span className="whitespace-nowrap max-sm:block">kein Abo.</span>
-                </span>
-              </h1>
-              <div className="pointer-events-auto rise-in mt-6 flex w-full flex-col justify-center gap-3 [--i:2] sm:w-auto sm:flex-row md:mt-8">
-                <BuyButton source="software-hero" />
-                <DownloadButton source="software-hero" variant="secondary" label={`${TRIAL_DAYS} Tage kostenlos testen`} />
+            <div className="sw-hero-inner mx-auto max-w-[1440px] px-5 pb-12 pt-6 md:px-10 lg:py-8">
+              <div className="sw-hero-copy">
+                <h1 className="sw-hero-title display w-full text-[clamp(1.75rem,3.6vw,2.9rem)]">
+                  <span className="sw-hero-mark rise-in block whitespace-nowrap uppercase tracking-[-0.02em]">Koja Office</span>{" "}
+                  <span className="sw-hero-line rise-in block [--i:1]">
+                    {/* Fixed line breaks, so the lines stay put when the headline font replaces its fallback (no layout shift) */}
+                    <span className="block">13 Apps für Mac und Windows.</span>{" "}
+                    <span className="whitespace-nowrap max-sm:block max-sm:whitespace-normal">Einmal <LifetimePrice />,</span>{" "}
+                    <span className="whitespace-nowrap max-sm:block">kein Abo.</span>
+                  </span>
+                </h1>
+                <div className="sw-hero-cta flex w-full flex-col items-center lg:items-start">
+                  <div className="rise-in flex w-full flex-col justify-center gap-3 [--i:2] sm:w-auto sm:flex-row lg:mt-8 lg:flex-col xl:flex-row">
+                    <BuyButton source="software-hero" />
+                    <DownloadButton source="software-hero" variant="secondary" label={`${TRIAL_DAYS} Tage kostenlos testen`} />
+                  </div>
+                  <ActiveDiscountNote />
+                  <p className="rise-in mt-6 max-w-xl text-[17px] leading-relaxed text-muted [--i:3] md:text-lg">
+                    Office, PDF, Bildbearbeitung, Video, Audio und CAD: echte Desktop-Apps, die offline laufen und kein Konto brauchen. Oder für{" "}
+                    <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat, jederzeit online kündbar.
+                  </p>
+                  <p className="hud rise-in mt-5 [--i:4]">Für macOS und Windows · Kojalytics Launcher</p>
+                </div>
               </div>
-              <ActiveDiscountNote />
-              <p className="rise-in mt-6 max-w-xl text-[17px] leading-relaxed text-muted [--i:3] md:text-lg">
-                Office, PDF, Bildbearbeitung, Video, Audio und CAD: echte Desktop-Apps, die offline laufen und kein Konto brauchen. Oder für{" "}
-                <span className="whitespace-nowrap">{PLANS.monthly.label}</span> im Monat, jederzeit online kündbar.
-              </p>
-              <p className="hud rise-in mt-5 [--i:4]">Für macOS und Windows · Kojalytics Launcher</p>
+              <SolarSystem apps={APPS.map((a) => ({ slug: a.slug, name: a.name, kind: a.kind }))} />
             </div>
           </section>
 

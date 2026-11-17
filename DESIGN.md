@@ -76,12 +76,12 @@ Geist Mono (`font-mono`, `.hud`).
   56px buttons. Offer facts on phones are 16px text, never 11px `.hud`.
   Everything offer-related comes from `src/lib/offer.ts` and switches to the regular price by itself at the end date (`.offer-live`/`.offer-over`).
 - /software hero (`.sw-hero` in globals.css): one h1 with two lines, the wordmark "Koja Office" and "13 Apps für Mac und
-  Windows. Einmal 79 €, kein Abo." (price from `<LifetimePrice />`). Between them the 3D box (`<OfficeBoxStatic />`, no
-  client JS, front loaded with high priority at about 2x its size, resting: no sway) stands at the centre of the orbiting app icons
-  (`<OrbitField aroundBox />`); the gap is reserved in CSS, so nothing moves after the first paint. Below lg (phones and tablets):
-  box with one ring of all 13 icons on top (no icon ever over the box), then wordmark and headline; the buy button stays on the first
-  screen. From lg: a flat ring through the band between wordmark and headline, icons shrink towards the back and fade out before they
-  would cross type or the box (`clearOf`), the lines are masked off the type. /software/partner keeps the K mark (OrbitField default).
+  Windows. Einmal 79 €, kein Abo." (price from `<LifetimePrice />`), then the buttons; beside it (lg+) or between h1 and buttons
+  (phones, tablets) the solar system on its own stage (`<SolarSystem />`, `.solar`): the resting 3D box (`<OfficeBoxStatic />`) as
+  the sun above a tilted orbital plane, the 13 app icons on three orbits (3/4/6, laps 40/80/120 s), larger at the front and smaller
+  at the back, passing below the box in front and behind it at the back. CSS only (transform/opacity), sizes in multiples of `--u`
+  (front icon size); the start angles keep every two icons ≥ 1.15 icon sizes apart (`.office-landing/solar-check.mjs`). No icon or
+  orbit line ever reaches the type. /software/partner keeps the K mark (`<OrbitField />`).
 - Page: `<main className="pt-12">` (the fixed header is 48px), then sections. No outer max-w wrappers:
   the `.rail` sections are the column.
 - Section inner padding: horizontal `px-5 md:px-10`, vertical `py-14 md:py-20`. Hero top section the same.
