@@ -12,6 +12,7 @@ import WebTestButton from "@/components/software/WebTestButton";
 import BuyButton from "@/components/software/BuyButton";
 import LifetimePrice, { ActiveDiscountNote } from "@/components/software/LifetimePrice";
 import PricingCards from "@/components/software/PricingCards";
+import AfterPurchase from "@/components/software/AfterPurchase";
 import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
@@ -96,6 +97,14 @@ const de = {
       Was du im <span className="text-highlight">Jahr</span> zahlst.
     </>
   ),
+  afterLabel: "Nach dem Kauf",
+  afterMeta: "5 Schritte · Lizenzschlüssel sofort",
+  afterTitle: (
+    <>
+      Was nach dem Kauf <span className="text-highlight">passiert</span>.
+    </>
+  ),
+  afterText: "Kein Rätselraten: Du bekommst deinen Lizenzschlüssel sofort und richtest die Apps in wenigen Minuten ein. So läuft es ab.",
   s3Label: "Preise",
   s3Meta: "Einmal oder monatlich · Rabattcode einlösen",
   s3Title: (
@@ -230,6 +239,14 @@ const en: typeof de = {
       What you pay per <span className="text-highlight">year</span>.
     </>
   ),
+  afterLabel: "After you buy",
+  afterMeta: "5 steps · license key right away",
+  afterTitle: (
+    <>
+      What happens after you <span className="text-highlight">buy</span>.
+    </>
+  ),
+  afterText: "No guesswork: you get your license key right away and set up the apps in a few minutes. Here's how it works.",
   s3Label: "Pricing",
   s3Meta: "Once or monthly · redeem a discount code",
   s3Title: (
@@ -347,7 +364,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
   const faq = softwareFaq(lang, cur);
   // The price comparison quotes German euro list prices of Adobe and Microsoft: only for visitors who pay in euros.
   // Section numbers run on without gaps.
-  const sections = ["overview", ...(cur === "EUR" ? ["compare"] : []), "pricing", "apps", "why", "what", "who", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
+  const sections = ["overview", ...(cur === "EUR" ? ["compare"] : []), "pricing", "after", "apps", "why", "what", "who", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
   const num = (id: string) => two(sections.indexOf(id) + 1);
   // Placeholder slots for real customer quotes: visible on preview deployments only, never in production.
   const showPlaceholders = process.env.VERCEL_ENV !== "production";
@@ -505,6 +522,22 @@ export default async function HomeView({ lang }: { lang: Lang }) {
               </p>
               <div className="mt-12">
                 <PricingCards source="software-pricing" />
+              </div>
+            </div>
+          </section>
+
+          {/* After you buy: the real steps from paying to working apps, and the facts that make buying safe */}
+          <section id="nach-dem-kauf" className="rail crosshairs scroll-mt-12">
+            <SectionBar index={num("after")} label={t.afterLabel} meta={t.afterMeta} />
+            <div className={`py-14 md:py-20 ${pad}`}>
+              <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+                {t.afterTitle}
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted" data-reveal>
+                {t.afterText}
+              </p>
+              <div className="mt-12">
+                <AfterPurchase lang={lang} film={lang === "en"} />
               </div>
             </div>
           </section>
