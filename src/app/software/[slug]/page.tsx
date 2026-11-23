@@ -10,6 +10,7 @@ import RichText from "@/components/RichText";
 import MacWindow from "@/components/ui/mac-window";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadButton from "@/components/software/DownloadButton";
+import WebTestButton from "@/components/software/WebTestButton";
 import AppDemo from "@/components/software/AppDemo";
 import PricingCards from "@/components/software/PricingCards";
 import StickyBuyBar from "@/components/software/StickyBuyBar";
@@ -172,9 +173,7 @@ export default async function AppPage({ params }: Props) {
                 <div className="rise-in mt-9 flex flex-col gap-3 [--i:4] sm:flex-row">
                   <DownloadButton source={`app-${app.slug}`} />
                   {hasWebApp(app.slug) ? (
-                    <a href={`/web/${app.slug}`} className="btn-secondary whitespace-nowrap">
-                      Im Browser testen
-                    </a>
+                    <WebTestButton app={app.slug} className="whitespace-nowrap" label={`${app.name} sofort testen`} />
                   ) : (
                     <Link href="#preise" className="btn-secondary whitespace-nowrap">
                       Preise ansehen
