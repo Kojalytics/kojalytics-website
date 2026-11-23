@@ -137,7 +137,7 @@ export default async function AppPage({ params }: Props) {
         <TrackView name={app.slug} />
         <Navigation cta="buy" />
 
-        <main className="pt-12" style={{ ["--app" as string]: app.color }}>
+        <main className="koja-office pt-12" style={{ ["--app" as string]: app.color }}>
           {/* 01 Hero: name, headline and download left, the app's main screenshot right */}
           <section className="rail">
             <SectionBar index={num("hero")} label={app.kind} meta={`${app.name} · macOS · Windows`} />
