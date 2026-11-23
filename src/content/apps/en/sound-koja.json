@@ -1,0 +1,161 @@
+{
+  "kind": "Audio production",
+  "benefit": "Edit and mix music and podcasts on your Mac or PC, with Edit and Mix windows.",
+  "keyword": "Pro Tools alternative Mac",
+  "metaTitle": "Pro Tools Alternative for Mac and Windows: SoundKoja",
+  "metaDescription": "SoundKoja is a Pro Tools alternative for Mac and Windows: Edit and Mix windows, MIDI, surround up to 9.1.6. Try it free for 3 days, then €19.99 a month.",
+  "h1": "Pro Tools alternative for Mac and Windows: record, edit, mix",
+  "lead": "SoundKoja is a Pro Tools alternative for Mac and Windows, with Edit and Mix windows, live automation and surround up to 9.1.6. You can keep using your CLAP, VST3 and AU plugins. The interface is in English. Try the app free for 3 days with your own material.",
+  "highlights": [
+    "Edit and Mix windows",
+    "10 inserts and 10 sends per track",
+    "Plugins: CLAP, VST3, Audio Units"
+  ],
+  "features": [
+    {
+      "title": "Editing in the Edit window",
+      "text": "You work with the Shuffle, Slip, Spot and Grid modes and the Smart Tool, Selector, Grabber, Trim, Pencil, Zoom and Scrubber tools. You separate at the selection, the grid or transients, use Heal, Consolidate and Strip Silence, and drag fades in five shapes right at the clip corners. Playlists with comping lanes, clip gain lines, Memory Locations and Beat Detective are included."
+    },
+    {
+      "title": "Recording with punch-in and loop recording",
+      "text": "You punch in on a selection or on the fly, with pre- and post-roll, and with loop recording each take lands in its own playlist. You monitor the input signal through the full channel strip, and autosave with recovery protects your work. Recording uses your Mac’s default audio device with a fixed buffer size."
+    },
+    {
+      "title": "Mixer with inserts, sends and VCAs",
+      "text": "Every track has ten inserts and ten sends (pre or post), plus buses, aux inputs, master faders, VCA masters, routing folders, mute and solo groups and automatic delay compensation for plugins. The mix engine works in parallel, and the interface stays at 120 frames per second even with a good 70 tracks running (as of November 2026).",
+      "screenshot": "mix.webp"
+    },
+    {
+      "title": "Live automation for every parameter",
+      "text": "You write automation live with the faders in Write, Touch, Latch and Trim modes, for volume, pan, mute, sends and every plugin parameter. Afterwards you thin out curves, add glides or convert the automation to clip gain."
+    },
+    {
+      "title": "Built-in and third-party plugins",
+      "text": "On board are, among others, 7-band and 1-band EQ, compressor/limiter, expander/gate, de-esser, maximizer, channel strip, room and plate reverb, modulation delay, chorus, flanger, phaser, saturation and pitch shifter. Each of them also runs offline as AudioSuite. Third-party plugins in CLAP, VST3 or Audio Units format open with their own interface, and their state is saved in the session."
+    },
+    {
+      "title": "MIDI, instruments and notation",
+      "text": "You edit MIDI in the piano roll with a velocity lane, in the event list or by step input, including quantize and transpose, and the Score Editor exports notation as MusicXML. There’s also a synth, a drum synth, a sampler for WAV, AIFF, FLAC, MP3 and OGG files, and Audio to MIDI, which turns a sung or played melody into notes. Playing in via MIDI keyboard isn’t included."
+    },
+    {
+      "title": "Surround and immersive mixes up to 9.1.6",
+      "text": "Main and bus formats range from stereo to 9.1.6, plus Ambisonics. The surround panner works with divergence and height, you route tracks as objects or to the bed, and the renderer window shows the levels of every speaker live."
+    },
+    {
+      "title": "Video track and bounce with LUFS metering",
+      "text": "For audio to picture there’s a video track with thumbnails and a video window for H.264, ProRes and Motion JPEG, with timecode overlay and sync offset. You bounce the mix or stems as WAV, AIFF or FLAC in 16-bit, 24-bit or 32-bit float, and SoundKoja shows you peak, true peak and integrated loudness in LUFS. You edit the video itself in [FilmKoja](/software/film-koja)."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "SoundKoja Edit window with five tracks: Drums, Bass, Pad, Keys and Lead as waveforms",
+      "caption": "In the Edit window you edit and arrange all tracks on one timeline."
+    },
+    {
+      "file": "mix.webp",
+      "alt": "SoundKoja Mix window with five channels, level meters and an open 7-band EQ on the Drums track",
+      "caption": "In the Mix window you set levels, pan and inserts like the 7-band EQ."
+    }
+  ],
+  "switching": {
+    "title": "Switching from Pro Tools to SoundKoja: the alternative for Mac and Windows",
+    "paragraphs": [
+      "A lot stays the way you know it: an Edit window for arranging and editing, a Mix window for mixing, the Shuffle, Slip, Spot and Grid modes and tools like the Smart Tool, Trim, Grabber and Pencil. Playlists, Memory Locations, AudioSuite, Beat Detective, Elastic warping and automation with Write, Touch, Latch and Trim are included too, as are single-key commands in Commands Focus mode. 482 of the 512 menu items in Pro Tools Ultimate are also in SoundKoja (as of November 2026).",
+      "About your files: SoundKoja doesn’t open Pro Tools sessions (.ptx), and AAF and OMF aren’t supported either. So in Pro Tools, export your tracks as WAV files that all start at the same point, and MIDI tracks as a Standard MIDI File, then import everything into SoundKoja. SoundKoja imports WAV, BWF, RF64, AIFF, AIFC and FLAC at any sample rate and bit depth and can also write them; MP3, AAC, ALAC, Ogg Vorbis, CAF and the audio from MP4 and MOV videos are import only. You rebuild plugin settings, routing and automation.",
+      "Good to know: recording uses your Mac’s default audio device with a fixed buffer size of 512 samples; you don’t select an audio interface in the app. MIDI recording via keyboard, export as MP3 or AAC and cloud collaboration aren’t included, and hardware like control surfaces is only partly supported. The interface is in English. SoundKoja is in active development: you get updates and new features automatically and free of charge.",
+      "How to test in 3 days: download the Kojalytics Launcher, install SoundKoja and import the tracks of a real song or podcast. Edit a passage, mix it with the built-in plugins and your AU, VST3 or CLAP plugins and bounce the result as WAV, including LUFS metering. If it suits you, keep using all 13 apps for €19.99 a month, [cancel any time](/kuendigen), or pay €79 once. It’s best to keep Pro Tools until you’re sure."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "Intro free (up to 8 audio, instrument and MIDI tracks each). Artist US$9.99, Studio US$34.99, Ultimate US$99 a month"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee; or pay once and keep using it",
+        "other": "Monthly plan or annual plan paid upfront: Artist US$99, Studio US$299, Ultimate US$599 a year"
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, an Avid account and an iLok account for activation"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Yes, with a license on an iLok USB key; iLok Cloud needs a constant internet connection"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "WAV, BWF, AIFF, FLAC (import and export), MP3, AAC (import only), MIDI; no interchange via .ptx, AAF or OMF",
+        "other": ".ptx sessions, AAF and OMF (Studio and up), common audio and MIDI formats"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows, on up to 3 devices",
+        "other": "macOS and Windows"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, without guarantee. Koja prices include VAT; Avid lists Pro Tools prices in US dollars in its price list from May 2024."
+  },
+  "forWho": [
+    "you want to record and mix on a Mac or PC with Edit and Mix windows, without an expensive subscription",
+    "you edit and mix songs, demos or podcasts from existing recordings",
+    "you want to keep using your CLAP, VST3 or Audio Units plugins in an affordable DAW",
+    "you do audio to picture or want to try surround and immersive mixes up to 9.1.6"
+  ],
+  "notFor": [
+    "you want to choose your audio interface and buffer size in the app when recording, or play in via MIDI keyboard",
+    "you regularly exchange sessions with studios as .ptx, AAF or OMF",
+    "you need an interface in a language other than English: SoundKoja’s interface is in English"
+  ],
+  "formats": [
+    "WAV and BWF (import and export)",
+    "RF64 (import and export)",
+    "AIFF and AIFC (import and export)",
+    "FLAC (import and export)",
+    "MP3 (import only)",
+    "AAC and ALAC (import only)",
+    "Ogg Vorbis and CAF (import only)",
+    "Audio from MP4 and MOV (import only)",
+    "Standard MIDI Files (import and export)",
+    "MusicXML (export)",
+    "Video: H.264, ProRes, Motion JPEG (playback)",
+    "Plugins: CLAP, VST3, Audio Units"
+  ],
+  "faq": [
+    {
+      "q": "Is SoundKoja a full Pro Tools alternative?",
+      "a": "For songs, demos and podcasts from existing recordings, yes: Edit and Mix windows, automation, plugins and bounce are included. Not included are, among other things, choosing the audio interface, MIDI recording via keyboard and interchange via .ptx, AAF or OMF. SoundKoja is in active development, and you get updates free of charge. It’s best to try it free for 3 days with your own material."
+    },
+    {
+      "q": "Can I open my Pro Tools sessions in SoundKoja?",
+      "a": "No, SoundKoja doesn’t open .ptx sessions, and AAF or OMF aren’t supported. Export your tracks from Pro Tools as WAV files and MIDI tracks as Standard MIDI Files, and import them into SoundKoja. SoundKoja reads and writes WAV, BWF, RF64, AIFF, AIFC and FLAC; it only imports MP3, AAC, ALAC, Ogg Vorbis and CAF. When bouncing, you choose between WAV, AIFF and FLAC in 16-bit, 24-bit or 32-bit float."
+    },
+    {
+      "q": "Is there a Pro Tools alternative without a subscription?",
+      "a": "Yes: you can buy SoundKoja for €79 as a one-time purchase, or use it for €19.99 a month and cancel any time. Both cover all 13 Koja apps on up to 3 devices. With Pro Tools, the Intro version is free but limited to 8 audio, instrument and MIDI tracks each; according to Avid’s price list, Artist, Studio and Ultimate cost US$99, US$299 and US$599 a year on an annual plan. You’ll find all the details under [Pricing](/software#preise)."
+    },
+    {
+      "q": "Can I record through my audio interface with SoundKoja?",
+      "a": "With limits. SoundKoja records through your Mac’s default audio device, meaning the device set as input and output in macOS. You can’t select an interface in the app or change the buffer size; it’s fixed at 512 samples. MIDI recording from a keyboard or controller isn’t included."
+    },
+    {
+      "q": "What language is SoundKoja’s interface in?",
+      "a": "English. If you know Pro Tools, you’ll recognize many terms, such as Edit, Mix, Shuffle, Slip, Playlist or AudioSuite."
+    },
+    {
+      "q": "What do I get for my money?",
+      "a": "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email. On top of that, you get 12 more apps for the same price, such as [FilmKoja](/software/film-koja) for video editing. You’ll find an overview under [Software](/software)."
+    }
+  ]
+}

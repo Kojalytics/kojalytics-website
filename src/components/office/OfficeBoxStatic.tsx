@@ -1,5 +1,11 @@
 import { getImageProps } from "next/image";
+import type { Lang } from "@/lib/i18n";
 import "./kbox.css";
+
+const BOX_LABEL = {
+  de: "Die Verpackung von Koja Office 2026 mit den 13 App-Symbolen",
+  en: "The Koja Office 2026 box with the 13 app icons",
+};
 
 /**
  * The Koja Office box of OfficeBox.tsx without client JavaScript (no dragging): the same planes and styles (./kbox.css),
@@ -12,6 +18,7 @@ export default function OfficeBoxStatic({
   tone = "dark",
   priority = true,
   className = "",
+  lang = "de",
 }: {
   /** Width of the front, any CSS length; height and depth follow. */
   width: string;
@@ -21,9 +28,11 @@ export default function OfficeBoxStatic({
   /** false: further down the page (the Koja Office band above the footer), all three pictures load lazily. */
   priority?: boolean;
   className?: string;
+  /** Language of the accessible label (a server component cannot read it from the path). */
+  lang?: Lang;
 }) {
   const { props: front } = getImageProps({
-    src: "/office/box-front.webp",
+    src: lang === "en" ? "/office/box-front-en.webp" : "/office/box-front.webp",
     alt: "",
     width: 900,
     height: 1170,
@@ -38,7 +47,7 @@ export default function OfficeBoxStatic({
       className={`kbox-stage is-static ${tone === "light" ? "on-light" : ""} ${className}`}
       style={{ ["--w" as string]: width }}
       role="img"
-      aria-label="Die Verpackung von Koja Office 2026 mit den 13 App-Symbolen"
+      aria-label={BOX_LABEL[lang]}
     >
       <div className="kbox-tilt">
         <div className="kbox">

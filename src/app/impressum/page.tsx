@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionBar from "@/components/instrument/SectionBar";
+import { alternates } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Impressum",
   description:
     "Impressum von Kojalytics: Anbieterkennzeichnung nach § 5 DDG mit Anschrift, Kontakt und Verantwortlichem für die Inhalte dieser Website.",
-  alternates: { canonical: "/impressum" },
+  alternates: alternates("de", "/impressum"),
 };
 
 const pad = "px-5 md:px-10";

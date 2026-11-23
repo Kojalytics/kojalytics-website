@@ -1,0 +1,162 @@
+{
+  "kind": "Spreadsheets",
+  "benefit": "Edit Excel spreadsheets on your Mac or PC with formulas, PivotTables and charts, with no Microsoft subscription.",
+  "keyword": "Excel alternative Mac",
+  "metaTitle": "Excel Alternative for Mac and Windows: GridKoja",
+  "metaDescription": "Excel alternative for Mac and Windows: GridKoja edits XLSX with formulas and PivotTables. Try it free for 3 days, then €19.99 a month or €79 once.",
+  "h1": "Excel alternative for Mac and Windows: formulas, PivotTables, XLSX",
+  "lead": "GridKoja is an Excel alternative for Mac and Windows that opens and saves XLSX files directly. You calculate with more than 500 functions and analyze data with PivotTables, charts and conditional formatting. Try GridKoja free for 3 days, then pay €19.99 a month or €79 once.",
+  "highlights": [
+    "Open and save XLSX",
+    "500+ functions, PivotTables",
+    "Offline, no account"
+  ],
+  "features": [
+    {
+      "title": "Ribbon with tabs",
+      "text": "You work with the Ribbon, formula bar, Name Box, sheet tabs and fill handle. When you enter a formula, you click cells and see the references highlighted in color. “Format Cells”, “Paste Special” and many familiar keyboard shortcuts are there too."
+    },
+    {
+      "title": "More than 500 functions",
+      "text": "The calculation engine knows **more than 500 spreadsheet functions** and only recalculates what has changed. It also handles dynamic arrays whose results spill into neighboring cells, structured table references, and LET, LAMBDA, MAP, REDUCE, SCAN, BYROW, BYCOL and MAKEARRAY.",
+      "screenshot": "formulas.webp"
+    },
+    {
+      "title": "PivotTables with a field list",
+      "text": "In the field list you choose what goes into rows, columns, values and filters, and so summarize long lists by region, product or month. Date grouping, different layouts and “Show Values As” are included. PivotTables are saved in the XLSX file and read back in when you open it."
+    },
+    {
+      "title": "17 chart types",
+      "text": "Column, bar or pie: GridKoja offers **17 chart types**, plus sparklines right in cells. You adjust title, legend, colors and size in the “Chart Design” tab and the format pane. When you select a chart, its source data is outlined in the sheet."
+    },
+    {
+      "title": "Conditional formatting",
+      "text": "Color scales, data bars and your own rules show you right away where a budget has been exceeded. Accounting formats, cell styles and frozen headers keep large sheets readable. For custom number formats there’s an extensive format language.",
+      "screenshot": "budget.webp"
+    },
+    {
+      "title": "Sort, filter, Flash Fill",
+      "text": "Sorting and AutoFilter, data validation for input, and outline and subtotals are on board. Flash Fill recognizes the pattern in your first entries and fills the rest of the column to match."
+    },
+    {
+      "title": "Printing and PDF export",
+      "text": "Page Break Preview shows where a page ends. Print settings are saved in the XLSX file, and you can export your sheets as PDF whenever you need."
+    },
+    {
+      "title": "Native on the Mac",
+      "text": "GridKoja runs as a universal app on Apple silicon and Intel Macs. The grid only draws the visible cells, and even many undo steps hardly slow the app down. Images can sit in cells and move with them when you sort, and there’s a dark mode."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "GridKoja: a farm shop’s sales table with a sum formula, data bars, stacked column chart and pie chart",
+      "caption": "Table, formulas, conditional formatting and charts on one sheet, here a farm shop’s sales in the first half of the year."
+    },
+    {
+      "file": "budget.webp",
+      "alt": "GridKoja: household budget with a color scale for spending, overspending marked in red and a budget vs. actual bar chart",
+      "caption": "Conditional formatting shows at a glance where the budget has been exceeded."
+    },
+    {
+      "file": "formulas.webp",
+      "alt": "GridKoja: Formulas tab with the function library, an INDEX/MATCH formula and arrows to the precedent cells",
+      "caption": "Trace Precedents uses arrows to show which cells a formula calculates from."
+    }
+  ],
+  "switching": {
+    "title": "Switching from Excel to GridKoja: try the Excel alternative on your Mac or PC",
+    "paragraphs": [
+      "A lot will feel familiar: the Ribbon, formula bar, Name Box, sheet tabs and fill handle are where you expect them, and so are “Format Cells” and “Paste Special”. Modern formulas with dynamic arrays, LET, LAMBDA and structured table references work. The interface is in English, and you write formulas with the English function names, such as SUM and IF.",
+      "You open and save your XLSX files directly. Styles, formulas, tables, conditional formats, data validation, comments, images, sparklines, PivotTables and print settings are kept. With charts, the chart type and options can be lost when you save. So work with copies at first and check important files in Excel. GridKoja opens older XLS files with values, formulas and number formats, but without other formatting and objects. From XLSB and ODS it only takes the values.",
+      "Good to know: macros (VBA) are not planned, and Power Query and the Data Model are only partly available. Very large workbooks of around 100 MB don’t open, and there’s no built-in AI assistant. GridKoja is in active development: you get updates and new features automatically and free of charge.",
+      "Here’s how to find out in 3 days whether it’s enough for you: download the Kojalytics Launcher, install GridKoja and open two or three real workbooks, such as your household budget or a report with a PivotTable. Check that the formulas give the same results, and save a copy. Only cancel Microsoft 365 once you’re sure. The guide [Office for Mac without a subscription](/ratgeber/office-fuer-mac-ohne-abo) covers your options for Word and PowerPoint."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "Microsoft 365 Single: €99 a year or €10 a month. Office Home 2024: €149 one-time purchase for 1 PC or Mac"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee. Or pay once and keep using it.",
+        "other": "The subscription renews automatically at the regular price unless you cancel. Office Home 2024 is a one-time purchase."
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, a Microsoft account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Desktop app yes, the free web version online only"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "XLSX (default format), CSV, TSV, PDF export. XLS, XLSB and ODS with limitations",
+        "other": "XLSX (default format), XLS, XLSB, CSV, ODS, PDF and more"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows, on up to 3 devices",
+        "other": "Windows, macOS, iPhone, iPad, Android and web. Microsoft 365 Single on up to 5 devices"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you want to open and edit Excel files on a Mac or PC without signing up for a Microsoft 365 subscription",
+    "you work with formulas, conditional formatting, PivotTables and charts and don’t need macros",
+    "you’d rather pay €79 once than renew a subscription every year",
+    "you want to work offline without an account and could also use apps for documents, presentations and PDFs, because all 13 Koja apps are included in the price"
+  ],
+  "notFor": [
+    "you exchange complex Excel workbooks with many charts that must look exactly the same: chart type and options can be lost when saving",
+    "your workbooks need macros (VBA) or Power Query, or are around 100 MB in size",
+    "you work on an iPad or in the browser"
+  ],
+  "formats": [
+    "XLSX (read and write)",
+    "CSV",
+    "TSV",
+    "XLS (open, limited)",
+    "XLSB (import, values only)",
+    "ODS (import, values only)",
+    "PDF (export and print)"
+  ],
+  "faq": [
+    {
+      "q": "Is GridKoja a full Excel alternative?",
+      "a": "For many tasks, yes: formulas, PivotTables, conditional formatting, 17 chart types and XLSX as the default format are included. Not included are, among other things, macros (VBA), large parts of Power Query and support for very large workbooks. GridKoja is in active development, and you get updates free of charge. The free trial with your own files shows you whether it’s enough for your spreadsheets."
+    },
+    {
+      "q": "Can I open and edit XLSX files on a Mac or PC without Excel?",
+      "a": "Yes. XLSX is GridKoja’s default format: formulas, styles, tables, conditional formats, comments and PivotTables are kept when you open and save. With complex Excel files, details can differ, charts can lose their type and options, and workbooks of around 100 MB don’t open. GridKoja opens older XLS files with values, formulas and number formats; from XLSB and ODS it only takes the values."
+    },
+    {
+      "q": "Is GridKoja free, and can I get it without a subscription?",
+      "a": "You can try GridKoja free for 3 days. If you want to keep using it after that, you either pay €79 once for all 13 Koja apps on up to 3 devices, with no subscription at all, or €19.99 a month, which you can cancel online any time. The price also includes [WordKoja](/software/word-koja) for documents and [DeckKoja](/software/deck-koja) for presentations. For comparison: Microsoft 365 Single costs €99 a year, and Office Home 2024 costs €149 one-time for one Mac."
+    },
+    {
+      "q": "Can I create PivotTables with GridKoja on a Mac or PC?",
+      "a": "Yes. You create a PivotTable and choose in the field list what goes into rows, columns, values and filters. Date grouping, different layouts and “Show Values As” are included. The PivotTable is saved in the XLSX file and read back in the next time you open it."
+    },
+    {
+      "q": "Which function names do I use in formulas?",
+      "a": "The English ones, such as SUM or IF, and number formats follow US conventions. Localized function names, such as the German SUMME or WENN, are in the works. This doesn’t affect your files, because XLSX stores formulas with English names internally anyway."
+    },
+    {
+      "q": "Does GridKoja run on Windows, on the iPad or in the browser?",
+      "a": "On Windows yes, on the iPad no. You can try GridKoja for free in your browser. GridKoja is available for macOS, as a universal app for Apple silicon and Intel Macs, and for Windows 10 and 11 (64-bit). One license covers up to 3 devices, any mix of Mac and Windows PC. The app runs offline and without an account; you only need the internet for download and activation."
+    }
+  ]
+}

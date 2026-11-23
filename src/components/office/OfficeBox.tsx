@@ -1,7 +1,13 @@
 "use client";
 
 import { useRef } from "react";
+import { useLang } from "@/lib/use-lang";
 import "./kbox.css";
+
+const BOX_LABEL = {
+  de: "Die Verpackung von Koja Office 2026 mit den 13 App-Symbolen",
+  en: "The Koja Office 2026 box with the 13 app icons",
+};
 
 /**
  * The Koja Office 2026 box as a real 3D object: six CSS planes, three of them the artwork of the box from the ads
@@ -22,6 +28,7 @@ export default function OfficeBox({
   priority?: boolean;
   className?: string;
 }) {
+  const lang = useLang();
   const tilt = useRef<HTMLDivElement>(null);
   const drag = useRef<{ x: number; id: number } | null>(null);
 
@@ -37,7 +44,7 @@ export default function OfficeBox({
       className={`kbox-stage ${tone === "light" ? "on-light" : ""} ${className}`}
       style={{ ["--w" as string]: width }}
       role="img"
-      aria-label="Die Verpackung von Koja Office 2026 mit den 13 App-Symbolen"
+      aria-label={BOX_LABEL[lang]}
       onPointerDown={(e) => {
         drag.current = { x: e.clientX, id: e.pointerId };
       }}
@@ -61,7 +68,7 @@ export default function OfficeBox({
       <div ref={tilt} className="kbox-tilt">
         <div className="kbox">
           {/* eslint-disable @next/next/no-img-element -- faces of a 3D object: plain images at their natural size */}
-          <img className="kbox-face kbox-front" src="/office/box-front.webp" alt="" width={900} height={1170} decoding="async" fetchPriority={priority ? "high" : undefined} draggable={false} />
+          <img className="kbox-face kbox-front" src={lang === "en" ? "/office/box-front-en.webp" : "/office/box-front.webp"} alt="" width={900} height={1170} decoding="async" fetchPriority={priority ? "high" : undefined} draggable={false} />
           <img className="kbox-face kbox-spine" src="/office/box-spine.webp" alt="" width={248} height={1170} decoding="async" draggable={false} />
           <img className="kbox-face kbox-top" src="/office/box-top.webp" alt="" width={900} height={248} decoding="async" draggable={false} />
           {/* eslint-enable @next/next/no-img-element */}

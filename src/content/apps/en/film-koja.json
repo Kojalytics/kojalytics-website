@@ -1,0 +1,160 @@
+{
+  "kind": "Video editing",
+  "benefit": "Edit, grade and mix videos on your Mac or PC with Source and Program Monitors, Effect Controls and a multitrack timeline.",
+  "keyword": "Premiere Pro alternative Mac",
+  "metaTitle": "Premiere Pro Alternative for Mac and Windows: FilmKoja",
+  "metaDescription": "Premiere Pro alternative for Mac and Windows: FilmKoja with timeline, trimming, color and audio. Try it free for 3 days, then €19.99 a month. Download now.",
+  "h1": "Premiere Pro alternative for Mac and Windows: edit, grade, mix",
+  "lead": "FilmKoja is a Premiere Pro alternative for Mac and Windows, with Source and Program Monitors, a multitrack timeline, color correction and an audio mixer. You bring sequences over from Premiere Pro via XML or AAF. Try the app free for 3 days with your own footage.",
+  "highlights": [
+    "All trim modes incl. J/K/L",
+    "Import via FCP XML, AAF, OTIO",
+    "Export: H.264, ProRes, DNxHR"
+  ],
+  "features": [
+    {
+      "title": "Monitors, bins and multitrack timeline",
+      "text": "You work with Source and Program Monitors, bins with thumbnails and a multitrack timeline with source patching and track targeting, sync lock and linked selection. There’s also multicam, nesting, colored markers (exportable as CSV) and undo with no step limit. In the keyboard shortcut editor you choose the standard layout of professional editing apps or set up your own shortcuts."
+    },
+    {
+      "title": "3-point editing and trimming",
+      "text": "You set In and Out points in the Source Monitor and insert or overwrite onto the patched tracks with a keyboard shortcut. There’s also Ripple, Roll, Slip, Slide, Rate Stretch and Razor, plus a Trim Monitor that shows both sides of the edit. With dynamic trimming you trim with J, K and L right during playback."
+    },
+    {
+      "title": "Color correction with scopes",
+      "text": "You get basic correction, eight creative looks, RGB and hue curves, color wheels for shadows, midtones and highlights, HSL secondaries and vignette. Processing happens in linear light with 32-bit floating point. Waveform and vectorscope measure the final graded image, and you can use LUTs too.",
+      "screenshot": "color.webp"
+    },
+    {
+      "title": "Keyframes with speed graph",
+      "text": "You animate position, scale, rotation, anchor point and opacity on every clip, plus 26 blend modes. Keyframes can be linear, Bezier, hold or eased, and each property has its own lane with value and speed graphs. For elaborate motion graphics there’s [EffectKoja](/software/effect-koja)."
+    },
+    {
+      "title": "Audio to EBU R128",
+      "text": "FilmKoja measures loudness (momentary, short-term, integrated) and true peak according to ITU-R BS.1770 and EBU R128. There are also clip effects like parametric EQ, dynamics, limiter, reverb, DeNoise and DeHummer, plus a track mixer with five insert slots per track, sends, submixes and automation. For bigger audio projects there’s [SoundKoja](/software/sound-koja)."
+    },
+    {
+      "title": "Export in the background",
+      "text": "Export as H.264 MP4 with AAC, as ProRes 422 HQ, as DNxHR in MOV or MXF, as a PNG sequence, animated GIF or WAV. Export runs as a background job with a progress bar, so you can keep editing in the meantime. Your Mac’s hardware encoder can handle H.264 and H.265."
+    },
+    {
+      "title": "Titles and subtitles",
+      "text": "You design titles with an OpenType text engine including kerning, ligatures and bidirectional text, and there are Type, Shape and Pen tools right in the Program Monitor. You import and export subtitles as SRT, WebVTT or SCC with frame-accurate timing. If you like, you burn them into the picture on export."
+    },
+    {
+      "title": "Protection against data loss",
+      "text": "FilmKoja saves atomically, keeps several automatic backup versions and writes a recovery log about one second after every change. So after a crash or power cut, you get unsaved changes back."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "FilmKoja: Effect Controls, Program Monitor, properties, effects list and a timeline with six clips and a music track",
+      "caption": "Effect Controls, Program Monitor and multitrack timeline in one window."
+    },
+    {
+      "file": "color.webp",
+      "alt": "FilmKoja color correction: RGB parade, Program Monitor and Lumetri Color with adjusted temperature, contrast and highlights",
+      "caption": "The RGB parade measures the graded image, so you judge exposure and color by the numbers."
+    }
+  ],
+  "switching": {
+    "title": "Switching from Premiere Pro to FilmKoja on your Mac or PC",
+    "paragraphs": [
+      "The basic principle stays the same: Source and Program Monitors, bins and a multitrack timeline with source patching and track targeting. You set In and Out points, insert or overwrite, and trim with Ripple and Roll or dynamically with J, K and L. In the keyboard shortcut editor you choose the standard layout of professional editing apps, and it shows you conflicts right away.",
+      "You bring Premiere projects over via XML or AAF; FilmKoja doesn’t open .prproj files directly. So export your sequence from Premiere Pro as Final Cut Pro XML or AAF and import it into FilmKoja, which also reads FCPXML, OpenTimelineIO, EDL and OMF. You open your media files directly, such as MP4 or MOV with H.264, HEVC or ProRes, and MXF with DNxHR. Check effects and color corrections carefully after importing, because interchange formats don’t carry every setting.",
+      "Good to know: there are no plugins (VST3, Audio Units, OpenFX), no camera RAW and no AV1 export. You export H.265 via your Mac’s hardware encoder in 8-bit SDR. Color correction and export rendering run on the CPU, which slows things down with heavy footage. There are hardly any AI features. FilmKoja is in active development: you get updates and new features automatically and free of charge.",
+      "How to test in 3 days: download the Kojalytics Launcher, install FilmKoja and import a sequence from a real project, ideally with original files from your camera or smartphone. Edit, grade and mix a short piece and export it in your target format. Then decide: €19.99 a month for all 13 apps, which you can [cancel](/kuendigen) online any time, or €79 once. The guide [Canceling your Adobe subscription](/ratgeber/adobe-abo-kuendigen) explains how to end a running Adobe subscription."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "€25.99 a month as a single app, €77.99 a month with Creative Cloud Pro (each on an annual plan, paid monthly)"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee; or pay once and keep it",
+        "other": "Annual plan renews automatically; if you pay monthly, canceling after 14 days costs 50% of the remaining contract value"
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, an Adobe account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Yes, for a limited time; the license is checked online regularly"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "MP4, MOV, MXF with H.264, HEVC, ProRes, DNxHR; interchange via XML, AAF, OTIO; no .prproj",
+        "other": ".prproj, common video formats, interchange via XML, AAF and EDL"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows, on up to 3 devices",
+        "other": "macOS and Windows"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you edit on a Mac or PC and want to work with Source and Program Monitors, bins and a multitrack timeline",
+    "you no longer want to sign up for an annual plan with a cancellation fee for your editing projects",
+    "you edit videos for YouTube or social media and export them as H.264 MP4 or ProRes",
+    "you want to work offline and without an account"
+  ],
+  "notFor": [
+    "you rely on plugins like VST3, Audio Units or OpenFX, or on camera RAW",
+    "you need to open existing .prproj projects directly"
+  ],
+  "formats": [
+    "MP4 / MOV (read and write)",
+    "H.264 (read and export)",
+    "HEVC / H.265 (read, export via hardware)",
+    "ProRes (read, export 422 HQ)",
+    "DNxHD / DNxHR (read, export DNxHR)",
+    "MXF OP1a / OP-Atom (read and write)",
+    "VP9, AV1 (read only)",
+    "MKV / WebM, AVI, MPEG-TS (read only)",
+    "AAC, MP3, FLAC (read), WAV (export)",
+    "SRT, WebVTT, SCC (subtitles)",
+    "FCP 7 XML, FCPXML, OTIO (interchange)",
+    "AAF, OMF, EDL (interchange)"
+  ],
+  "faq": [
+    {
+      "q": "Is FilmKoja a full Premiere Pro alternative?",
+      "a": "For many projects, yes: editing, trimming, multicam, color correction, keyframes, titles, subtitles, audio mixing and export are included. Not included are, among other things, plugins, camera RAW and opening .prproj files directly. FilmKoja is in active development, and you get updates free of charge. So test FilmKoja with your own footage before you commit."
+    },
+    {
+      "q": "Can I open my Premiere Pro projects in FilmKoja?",
+      "a": "Not directly: you bring Premiere projects over via XML or AAF; FilmKoja doesn’t open .prproj files. Export the sequence from Premiere Pro as Final Cut Pro XML or AAF and import it into FilmKoja, which also reads FCPXML, OpenTimelineIO, EDL and OMF. You open media files like MP4, MOV and MXF with H.264, HEVC, ProRes or DNxHR directly; camera RAW isn’t supported."
+    },
+    {
+      "q": "Which formats does FilmKoja export to?",
+      "a": "FilmKoja exports H.264 as MP4 with AAC audio, Apple ProRes 422 HQ and Motion JPEG as QuickTime, and DNxHR, ProRes or H.264 in MXF, plus PNG sequences, animated GIFs and WAV. You export H.265 via your Mac’s hardware encoder (8-bit, SDR), but not AV1. Export runs in the background, so you can keep editing in the meantime."
+    },
+    {
+      "q": "How much does FilmKoja cost compared to Premiere Pro?",
+      "a": "Adobe Premiere (formerly Premiere Pro) costs €25.99 a month incl. VAT as a single app on an annual plan paid monthly, and if you cancel after 14 days, you pay 50% of the remaining contract value. After 3 free trial days, FilmKoja costs €19.99 a month, and that includes all 13 Koja apps. You can cancel online any time with no fee, or pay €79 once as a one-time purchase; both cover up to 3 devices. You’ll find all the details under [Pricing](/software#preise)."
+    },
+    {
+      "q": "Can I get Premiere Pro without a subscription?",
+      "a": "No. Adobe only offers Premiere as a subscription, either monthly or as an annual plan paid monthly or upfront, and annual plans renew automatically unless you cancel. For FilmKoja, you can pay €79 once instead and keep your license, with no subscription. You’ll find more alternatives to Adobe apps in the guide [Adobe alternatives for the Mac](/ratgeber/adobe-alternative-mac)."
+    },
+    {
+      "q": "Does FilmKoja work without internet and without an account?",
+      "a": "Yes. You don’t need an account, and after download and activation FilmKoja runs offline on your Mac or PC. The app decodes video with your Mac’s hardware (VideoToolbox); color correction and export rendering run on the CPU and can slow down with heavy footage. FilmKoja runs on macOS and Windows; there’s no web version."
+    }
+  ]
+}

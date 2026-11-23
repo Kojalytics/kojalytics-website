@@ -3,34 +3,106 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Check, Tag, X } from "lucide-react";
-import { PLANS, TRIAL_DAYS, type Plan } from "@/lib/pricing";
+import { PLANS, TRIAL_DAYS, planText, type Plan } from "@/lib/pricing";
 import { applyDiscount, clearDiscount, euro, useDiscount } from "@/lib/discount-store";
+import { discountLabel } from "@/lib/discount-text";
+import { href } from "@/lib/i18n";
+import { useLang } from "@/lib/use-lang";
 import { track } from "@/lib/track";
-import { OFFER_END_LONG, isOfferCode } from "@/lib/offer";
+import { isOfferCode, offerText } from "@/lib/offer";
 import DownloadButton from "./DownloadButton";
-
-const included: Record<Plan, string[]> = {
-  monthly: ["Alle 13 Koja-Apps", "Alle Updates inklusive", "Auf bis zu 3 Geräten (Mac oder Windows-PC)", "Jederzeit online kündbar"],
-  lifetime: ["Alle 13 Koja-Apps, ohne Ablaufdatum", "Updates über den Kojalytics Launcher", "Auf bis zu 3 Geräten (Mac oder Windows-PC)", "Einmal zahlen, keine Verlängerung"],
-};
 
 // The one-time price pays off after this many months of the subscription.
 const breakEven = (lifetimeCents: number) => Math.ceil(lifetimeCents / PLANS.monthly.cents);
 
-const note = (plan: Plan, price: number) =>
-  plan === "monthly"
-    ? "Abrechnung ab Kauf, monatlich kündbar. Inkl. MwSt."
-    : `Einmal zahlen, dauerhaft nutzen. Inkl. MwSt. Lohnt sich ab dem ${breakEven(price)}. Monat.`;
+const de = {
+  included: {
+    monthly: ["Alle 13 Koja-Apps", "Alle Updates inklusive", "Auf bis zu 3 Geräten (Mac oder Windows-PC)", "Jederzeit online kündbar"],
+    lifetime: ["Alle 13 Koja-Apps, ohne Ablaufdatum", "Updates über den Kojalytics Launcher", "Auf bis zu 3 Geräten (Mac oder Windows-PC)", "Einmal zahlen, keine Verlängerung"],
+  } as Record<Plan, string[]>,
+  note: (plan: Plan, price: number) =>
+    plan === "monthly"
+      ? "Abrechnung ab Kauf, monatlich kündbar. Inkl. MwSt."
+      : `Einmal zahlen, dauerhaft nutzen. Inkl. MwSt. Lohnt sich ab dem ${breakEven(price)}. Monat.`,
+  cta: {
+    monthly: `Für ${PLANS.monthly.label} im Monat abonnieren`,
+    lifetime: `Für ${PLANS.lifetime.label} dauerhaft kaufen`,
+  } as Record<Plan, string>,
+  ctaReduced: (plan: Plan, price: string) => `Für ${price} ${plan === "lifetime" ? "dauerhaft kaufen" : "abonnieren"}`,
+  busy: "Sicherer Checkout öffnet sich …",
+  firstMonths: (months: number) => `die ersten ${months} Monate`,
+  firstMonth: "im ersten Monat",
+  thenMonthly: (price: string) => `Danach ${price} pro Monat, monatlich kündbar. Inkl. MwSt.`,
+  recommended: "Empfohlen",
+  compare: "Zum Vergleich: Adobe Creative Cloud Pro kostet 77,99 € im Monat, Microsoft 365 Single 99 € im Jahr.",
+  compareAsOf: "(Stand November 2026)",
+  applied: ["Rabattcode ", " angewendet:"],
+  introUntil: "Einführungspreis bis ",
+  remove: " Entfernen",
+  redeemLabel: " Rabattcode einlösen",
+  placeholder: "Code eingeben",
+  checking: "Wird geprüft …",
+  redeem: "Einlösen",
+  codeFailed: "Der Code konnte nicht geprüft werden.",
+  codeRetry: "Der Code konnte nicht geprüft werden. Bitte versuche es gleich noch einmal.",
+  checkoutFailed: "Der Bezahlvorgang konnte nicht gestartet werden. Bitte versuche es gleich noch einmal.",
+  legal: [
+    "Die Koja-Apps werden laufend weiterentwickelt, Updates und neue Funktionen bekommst du automatisch und kostenlos. Sichere Zahlung über Stripe per Kredit- oder Debitkarte oder einer anderen dort angezeigten Zahlungsart. Es gelten unsere",
+    "AGB mit Widerrufsbelehrung",
+    ".",
+  ],
+  trialTitle: "Erst testen?",
+  trial: ["Lade die Apps und nutze sie ", " Tage lang kostenlos, ohne Zahlungsdaten."],
+  download: "Kostenlos laden",
+};
 
-const cta: Record<Plan, string> = {
-  monthly: `Für ${PLANS.monthly.label} im Monat abonnieren`,
-  lifetime: `Für ${PLANS.lifetime.label} dauerhaft kaufen`,
+const en: typeof de = {
+  included: {
+    monthly: ["All 13 Koja apps", "All updates included", "On up to 3 devices (Mac or Windows PC)", "Cancel online at any time"],
+    lifetime: ["All 13 Koja apps, no expiry date", "Updates through the Kojalytics Launcher", "On up to 3 devices (Mac or Windows PC)", "Pay once, no renewal"],
+  },
+  note: (plan: Plan, price: number) =>
+    plan === "monthly"
+      ? "Billed from the day you buy, cancel any month. Incl. VAT."
+      : `Pay once, no expiry date. Incl. VAT. Pays for itself from month ${breakEven(price)}.`,
+  cta: {
+    monthly: `Subscribe for ${planText("monthly", "en").label} a month`,
+    lifetime: `Buy for ${planText("lifetime", "en").label}`,
+  },
+  ctaReduced: (plan: Plan, price: string) => (plan === "lifetime" ? `Buy for ${price}` : `Subscribe for ${price}`),
+  busy: "Opening secure checkout…",
+  firstMonths: (months: number) => `for the first ${months} months`,
+  firstMonth: "for the first month",
+  thenMonthly: (price: string) => `Then ${price} a month, cancel any month. Incl. VAT.`,
+  recommended: "Recommended",
+  compare: "For comparison: Adobe Creative Cloud Pro costs €77.99 a month, Microsoft 365 Single €99 a year.",
+  compareAsOf: "(German prices, November 2026)",
+  applied: ["Discount code ", " applied:"],
+  introUntil: "Introductory price until ",
+  remove: " Remove",
+  redeemLabel: " Redeem a discount code",
+  placeholder: "Enter code",
+  checking: "Checking…",
+  redeem: "Redeem",
+  codeFailed: "We couldn't check the code.",
+  codeRetry: "We couldn't check the code. Please try again in a moment.",
+  checkoutFailed: "We couldn't start the checkout. Please try again in a moment.",
+  legal: [
+    "The Koja apps are under continuous development: you get updates and new features automatically and free of charge. Secure payment through Stripe by credit or debit card or any other payment method shown there. Our",
+    "terms and conditions, including the withdrawal policy,",
+    " apply.",
+  ],
+  trialTitle: "Try first?",
+  trial: ["Download the apps and use them free for ", " days, no payment details needed."],
+  download: "Download free",
 };
 
 // The one-time purchase is the plan we recommend; it comes first and gets the dark button.
 const ORDER: Plan[] = ["lifetime", "monthly"];
 
 export default function PricingCards({ source }: { source: string }) {
+  const lang = useLang();
+  const t = lang === "de" ? de : en;
   const [busy, setBusy] = useState<Plan | null>(null);
   const [error, setError] = useState<{ plan: Plan; message: string } | null>(null);
   const [code, setCode] = useState("");
@@ -57,16 +129,16 @@ export default function PricingCards({ source }: { source: string }) {
       const res = await fetch("/api/license/discount", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code }),
+        body: JSON.stringify({ code, lang }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setCodeError(data.error || "Der Code konnte nicht geprüft werden.");
+        setCodeError(data.error || t.codeFailed);
         return;
       }
       applyDiscount(data);
     } catch {
-      setCodeError("Der Code konnte nicht geprüft werden. Bitte versuche es gleich noch einmal.");
+      setCodeError(t.codeRetry);
     } finally {
       setChecking(false);
     }
@@ -81,14 +153,14 @@ export default function PricingCards({ source }: { source: string }) {
       const res = await fetch("/api/license/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan, ...(discount && discount.prices[plan] !== undefined ? { code: discount.code } : {}) }),
+        body: JSON.stringify({ plan, lang, ...(discount && discount.prices[plan] !== undefined ? { code: discount.code } : {}) }),
       });
       const data = await res.json();
       if (!res.ok || !data.url) throw new Error(data.error || "checkout failed");
       window.location.href = data.url;
     } catch (err) {
       const message = err instanceof Error && err.message !== "checkout failed" ? err.message : null;
-      setError({ plan, message: message || "Der Bezahlvorgang konnte nicht gestartet werden. Bitte versuche es gleich noch einmal." });
+      setError({ plan, message: message || t.checkoutFailed });
       setBusy(null);
     }
   }
@@ -102,9 +174,9 @@ export default function PricingCards({ source }: { source: string }) {
             <p className="flex items-center gap-2.5 text-[15px]">
               <Tag size={16} className="shrink-0 text-success" aria-hidden />
               <span>
-                Rabattcode <span className="font-mono font-semibold tracking-[0.06em]">{discount.code}</span> angewendet:{" "}
-                <span className="whitespace-nowrap font-semibold">{discount.label}</span>
-                {isOfferCode(discount.code) && <span className="block text-muted">Einführungspreis bis {OFFER_END_LONG}</span>}
+                {t.applied[0]}<span className="font-mono font-semibold tracking-[0.06em]">{discount.code}</span>{t.applied[1]}{" "}
+                <span className="whitespace-nowrap font-semibold">{discountLabel(discount.label, lang)}</span>
+                {isOfferCode(discount.code) && <span className="block text-muted">{t.introUntil}{offerText(lang).endLong}</span>}
               </span>
             </p>
             <button
@@ -115,13 +187,13 @@ export default function PricingCards({ source }: { source: string }) {
               }}
               className="hud -my-2 inline-flex min-h-11 items-center gap-1.5 hover:text-foreground"
             >
-              <X size={13} aria-hidden /> Entfernen
+              <X size={13} aria-hidden />{t.remove}
             </button>
           </div>
         ) : (
           <form onSubmit={redeem} className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <label htmlFor="discount-code" className="flex shrink-0 items-center gap-2 text-[15px] font-semibold text-foreground">
-              <Tag size={17} className="text-buy" aria-hidden /> Rabattcode einlösen
+              <Tag size={17} className="text-buy" aria-hidden />{t.redeemLabel}
             </label>
             <input
               id="discount-code"
@@ -131,13 +203,13 @@ export default function PricingCards({ source }: { source: string }) {
               autoCapitalize="characters"
               spellCheck={false}
               maxLength={64}
-              placeholder="Code eingeben"
+              placeholder={t.placeholder}
               aria-invalid={codeError ? true : undefined}
               aria-describedby={codeError ? "discount-error" : undefined}
               className="min-h-12 w-full flex-1 border border-border-strong bg-white px-4 font-mono uppercase tracking-[0.06em] text-foreground placeholder:normal-case placeholder:tracking-normal placeholder:text-muted focus:border-foreground focus:outline-none"
             />
             <button type="submit" disabled={checking || !code.trim()} className="btn-primary sm:w-auto">
-              {checking ? "Wird geprüft …" : "Einlösen"}
+              {checking ? t.checking : t.redeem}
             </button>
           </form>
         )}
@@ -150,7 +222,7 @@ export default function PricingCards({ source }: { source: string }) {
 
       <div className="cells border border-border md:grid-cols-2">
         {ORDER.map((plan, i) => {
-          const p = PLANS[plan];
+          const p = planText(plan, lang);
           const recommended = plan === "lifetime";
           const reduced = discount?.prices[plan];
           const firstMonthOnly = plan === "monthly" && reduced !== undefined && discount?.duration !== "forever";
@@ -162,26 +234,26 @@ export default function PricingCards({ source }: { source: string }) {
                   <span className="mx-2 text-faint">/</span>
                   <span className="text-foreground">{p.name}</span>
                 </p>
-                {recommended && <span className="tag !border-buy bg-buy !text-white">Empfohlen</span>}
+                {recommended && <span className="tag !border-buy bg-buy !text-white">{t.recommended}</span>}
               </div>
               <p className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 {reduced !== undefined && (
                   <span className="display whitespace-nowrap text-3xl text-faint line-through decoration-2">{p.label}</span>
                 )}
-                <span className="display whitespace-nowrap text-6xl">{reduced !== undefined ? euro(reduced) : p.label}</span>
-                <span className="hud">{firstMonthOnly ? (discount?.duration === "repeating" && discount.months ? `die ersten ${discount.months} Monate` : "im ersten Monat") : p.per}</span>
+                <span className="display whitespace-nowrap text-6xl">{reduced !== undefined ? euro(reduced, lang) : p.label}</span>
+                <span className="hud">{firstMonthOnly ? (discount?.duration === "repeating" && discount.months ? t.firstMonths(discount.months) : t.firstMonth) : p.per}</span>
               </p>
               <p className="mt-2 text-sm text-muted">
-                {firstMonthOnly ? `Danach ${p.label} pro Monat, monatlich kündbar. Inkl. MwSt.` : note(plan, reduced ?? p.cents)}
+                {firstMonthOnly ? t.thenMonthly(p.label) : t.note(plan, reduced ?? p.cents)}
               </p>
               {recommended && (
                 <p className="mt-3 border-l-2 border-buy pl-3 text-sm leading-relaxed text-foreground">
-                  Zum Vergleich: Adobe Creative Cloud Pro kostet 77,99 € im Monat, Microsoft 365 Single 99 € im Jahr.{" "}
-                  <span className="text-muted">(Stand November 2026)</span>
+                  {t.compare}{" "}
+                  <span className="text-muted">{t.compareAsOf}</span>
                 </p>
               )}
               <ul className="mb-8 mt-6 grid gap-3">
-                {included[plan].map((item) => (
+                {t.included[plan].map((item) => (
                   <li key={item} className="flex gap-3 text-[15px]">
                     <Check size={18} strokeWidth={2.6} className="mt-0.5 shrink-0 text-success" aria-hidden />
                     {item}
@@ -190,7 +262,7 @@ export default function PricingCards({ source }: { source: string }) {
               </ul>
               <div className="mt-auto grid gap-3">
                 <button onClick={() => checkout(plan)} disabled={busy !== null} className={`w-full ${recommended ? "btn-buy" : "btn-secondary"}`}>
-                  {busy === plan ? "Sicherer Checkout öffnet sich …" : reduced !== undefined ? `Für ${euro(reduced)} ${plan === "lifetime" ? "dauerhaft kaufen" : "abonnieren"}` : cta[plan]}
+                  {busy === plan ? t.busy : reduced !== undefined ? t.ctaReduced(plan, euro(reduced, lang)) : t.cta[plan]}
                 </button>
                 {error?.plan === plan && busy === null && (
                   <p className="text-sm font-medium text-red-700" role="alert">
@@ -204,19 +276,19 @@ export default function PricingCards({ source }: { source: string }) {
       </div>
 
       <p className="-mt-2 text-xs leading-relaxed text-muted">
-        Die Koja-Apps werden laufend weiterentwickelt, Updates und neue Funktionen bekommst du automatisch und kostenlos. Sichere Zahlung über Stripe per Kredit- oder Debitkarte oder einer anderen dort angezeigten Zahlungsart. Es gelten unsere{" "}
-        <Link href="/agb" className="text-foreground underline underline-offset-2">
-          AGB mit Widerrufsbelehrung
+        {t.legal[0]}{" "}
+        <Link href={href(lang, "/agb")} className="text-foreground underline underline-offset-2">
+          {t.legal[1]}
         </Link>
-        .
+        {t.legal[2]}
       </p>
 
       <div className="flex flex-col items-start gap-4 border border-border p-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[15px]">
-          <span className="hud mr-2 text-foreground">Erst testen?</span>
-          <span className="text-muted">Lade die Apps und nutze sie {TRIAL_DAYS} Tage lang kostenlos, ohne Zahlungsdaten.</span>
+          <span className="hud mr-2 text-foreground">{t.trialTitle}</span>
+          <span className="text-muted">{t.trial[0]}{TRIAL_DAYS}{t.trial[1]}</span>
         </p>
-        <DownloadButton source={source} label="Kostenlos laden" />
+        <DownloadButton source={source} label={t.download} />
       </div>
     </div>
   );

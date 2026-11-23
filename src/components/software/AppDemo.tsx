@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useLang } from "@/lib/use-lang";
 import { WindowFrame } from "@/components/ui/mac-window";
 
 type Step = { label: string; text: string; start: number };
@@ -33,6 +34,7 @@ export default function AppDemo({
   /** Heading and intro above the list. */
   children: ReactNode;
 }) {
+  const lang = useLang();
   const video = useRef<HTMLVideoElement>(null);
   const bars = useRef<(HTMLSpanElement | null)[]>([]);
   const [active, setActive] = useState(0);
@@ -136,7 +138,7 @@ export default function AppDemo({
           </video>
         </WindowFrame>
         <figcaption className="mt-3 text-sm leading-relaxed text-muted">
-          Animation aus Bildschirmfotos der aktuellen Version, ohne Ton.
+          {lang === "en" ? "Animation of screenshots of the current version, without sound." : "Animation aus Bildschirmfotos der aktuellen Version, ohne Ton."}
         </figcaption>
       </figure>
     </div>

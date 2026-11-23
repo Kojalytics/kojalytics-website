@@ -1,28 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { findDiscount } from '@/lib/discounts';
+import { discountError } from '@/lib/discount-text';
 import { clientIp, limiter } from '@/lib/form-guard';
 
 // Against guessing codes: at most 20 tries per IP address and hour (per server instance).
 const tooMany = limiter(20);
 
-/** POST { code } → the prices with this discount code, before checkout. */
+/** POST { code, lang? } → the prices with this discount code, before checkout. lang "en": error messages in English. */
 export async function POST(request: NextRequest) {
+  const body = await request.json().catch(() => ({}));
+  const t = (message: string) => discountError(message, body?.lang === 'en' ? 'en' : 'de');
   if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY.includes('REPLACE')) {
-    return NextResponse.json({ error: 'Rabattcodes sind gerade nicht verfügbar.' }, { status: 503 });
+    return NextResponse.json({ error: t('Rabattcodes sind gerade nicht verfügbar.') }, { status: 503 });
   }
   const ip = clientIp(request.headers);
   if (ip && tooMany(ip)) {
-    return NextResponse.json({ error: 'Zu viele Versuche. Bitte versuche es in einer Stunde erneut.' }, { status: 429 });
+    return NextResponse.json({ error: t('Zu viele Versuche. Bitte versuche es in einer Stunde erneut.') }, { status: 429 });
   }
-  const body = await request.json().catch(() => ({}));
   try {
     const result = await findDiscount(new Stripe(process.env.STRIPE_SECRET_KEY), body?.code);
-    if (!result.ok) return NextResponse.json({ error: result.error }, { status: result.status });
+    if (!result.ok) return NextResponse.json({ error: t(result.error) }, { status: result.status });
     const { code, label, duration, months, prices } = result.discount;
     return NextResponse.json({ code, label, duration, months, prices });
   } catch (err) {
     console.error('Discount lookup failed:', err);
-    return NextResponse.json({ error: 'Der Code konnte gerade nicht geprüft werden. Bitte versuche es gleich noch einmal.' }, { status: 500 });
+    return NextResponse.json({ error: t('Der Code konnte gerade nicht geprüft werden. Bitte versuche es gleich noch einmal.') }, { status: 500 });
   }
 }

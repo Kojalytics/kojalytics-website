@@ -5,8 +5,23 @@ import dynamic from "next/dynamic";
 import { Download, MousePointerClick, Send } from "lucide-react";
 import { DOWNLOAD_PATH, DOWNLOAD_PATH_WINDOWS, TRIAL_DAYS } from "@/lib/pricing";
 import { hasWebApp } from "@/lib/web-apps";
+import { href } from "@/lib/i18n";
+import { useLang } from "@/lib/use-lang";
 import { track } from "@/lib/track";
 import DownloadToast from "./DownloadToast";
+
+const de = {
+  label: `Kostenlos laden · ${TRIAL_DAYS} Tage testen`,
+  webApps: "Apps im Browser testen",
+  webNow: "Sofort im Browser testen",
+  send: "Link für den Computer senden",
+};
+const en: typeof de = {
+  label: `Download free · ${TRIAL_DAYS}-day trial`,
+  webApps: "Try the apps in your browser",
+  webNow: "Try it in your browser",
+  send: "Send the link to your computer",
+};
 
 // Loaded on the first tap only: most visitors never open it.
 const SendLinkDialog = dynamic(() => import("./SendLinkDialog"), { ssr: false });
@@ -39,13 +54,13 @@ const subscribeToast = (listener: () => void) => {
 /**
  * On a Mac or a Windows PC: downloads the Kojalytics Launcher for that system and shows a short hint on what to do
  * with the file. On phones and tablets nothing can be installed, so by default the button opens the apps in the
- * browser instead (/web, or the app's own browser version). `mobile="send"` keeps the dialog that e-mails the download
+ * browser instead (/web, or the app's own browser version). `mobile="send"` keeps the dialog that emails the download
  * links to the computer (after a purchase); `mobile="none"` shows nothing there, for places that already have a
  * browser test button next to it.
  * The server always renders the Mac download link, so crawlers and the first paint see a link.
  */
 export default function DownloadButton({
-  label = `Kostenlos laden · ${TRIAL_DAYS} Tage testen`,
+  label,
   webLabel,
   app,
   mobile = "web",
@@ -65,6 +80,8 @@ export default function DownloadButton({
   /** "secondary": the outlined look, next to a buy button. */
   variant?: "primary" | "secondary";
 }) {
+  const lang = useLang();
+  const t = lang === "de" ? de : en;
   const platform = useSyncExternalStore(subscribe, platformNow, (): Platform => "mac");
   const id = useId();
   const shownToast = useSyncExternalStore(subscribeToast, () => toast, () => null);
@@ -84,7 +101,7 @@ export default function DownloadButton({
           className={cls}
         >
           <Download size={15} strokeWidth={2.2} aria-hidden />
-          {label}
+          {label ?? t.label}
         </a>
         {shownToast?.owner === id && <DownloadToast key={shownToast.n} windows={platform === "windows"} onClose={hideToast} />}
       </>
@@ -96,9 +113,9 @@ export default function DownloadButton({
   if (mobile === "web") {
     const web = !!app && hasWebApp(app);
     return (
-      <a href={web ? `/web/${app}` : "/web"} onClick={() => track("Lead", { content_name: `${source}-web` })} className={cls}>
+      <a href={href(lang, web ? `/web/${app}` : "/web")} onClick={() => track("Lead", { content_name: `${source}-web` })} className={cls}>
         <MousePointerClick size={16} strokeWidth={2.2} aria-hidden />
-        {webLabel ?? (app && !web ? "Apps im Browser testen" : "Sofort im Browser testen")}
+        {webLabel ?? (app && !web ? t.webApps : t.webNow)}
       </a>
     );
   }
@@ -107,7 +124,7 @@ export default function DownloadButton({
     <>
       <button ref={triggerRef} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" className={cls}>
         <Send size={15} strokeWidth={2.2} aria-hidden />
-        Link für den Computer senden
+        {t.send}
       </button>
       {open && (
         <SendLinkDialog

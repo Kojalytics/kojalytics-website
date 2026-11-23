@@ -156,7 +156,7 @@
     },
     {
       "q": "Läuft GridKoja auch unter Windows, auf dem iPad oder im Browser?",
-      "a": "Unter Windows ja, auf dem iPad und im Browser nein. GridKoja gibt es für macOS, als Universal-App für Apple-Silicon- und Intel-Macs, und für Windows 10 und 11 (64-Bit). Eine Lizenz gilt auf bis zu 3 Geräten, Mac und Windows-PC gemischt. Die App läuft offline und ohne Konto, Internet brauchst du nur für Download und Aktivierung."
+      "a": "Unter Windows ja, auf dem iPad nein. Im Browser kannst du GridKoja kostenlos testen. GridKoja gibt es für macOS, als Universal-App für Apple-Silicon- und Intel-Macs, und für Windows 10 und 11 (64-Bit). Eine Lizenz gilt auf bis zu 3 Geräten, Mac und Windows-PC gemischt. Die App läuft offline und ohne Konto, Internet brauchst du nur für Download und Aktivierung."
     }
   ]
 }

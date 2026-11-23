@@ -1,0 +1,167 @@
+{
+  "kind": "RAW processing",
+  "benefit": "Manage your photos and develop RAW files locally on your Mac or PC, without your originals being changed.",
+  "keyword": "Lightroom alternative Mac",
+  "metaTitle": "Lightroom Alternative for Mac and Windows: LightKoja",
+  "metaDescription": "LightKoja is a Lightroom alternative for Mac and Windows: manage and develop RAW photos, €79 once or €19.99 a month. Try it free for 3 days.",
+  "h1": "Lightroom alternative for Mac and Windows: develop and manage RAW photos",
+  "lead": "LightKoja is a Lightroom alternative for Mac and Windows. The app manages your photos locally and develops RAW files with sliders for highlights and shadows, color grading and masks. Try LightKoja free for 3 days, then pay €19.99 a month or €79 once.",
+  "highlights": [
+    "RAW from Canon, Nikon, Sony, Fuji",
+    "Originals stay unchanged",
+    "Local on Mac and PC, no cloud"
+  ],
+  "features": [
+    {
+      "title": "A library for large photo collections",
+      "text": "Sort photos into albums and folders, by date, in smart albums or stacks. Give 0 to 5 stars, flags and color labels, and search precisely, for example for “rating:>3 iso:>800”. When culling, LightKoja shows a RAW file’s embedded preview in around 0.1 seconds, and jumping to the next photo takes about 50 milliseconds (as of November 2026).",
+      "screenshot": "library.webp"
+    },
+    {
+      "title": "Color and color grading",
+      "text": "You set white balance automatically, with the eyedropper or via temperature and tint; there’s also Vibrance, which protects skin tones, Saturation and an HSL color mixer with 8 color ranges. Three color grading wheels tint shadows, midtones and highlights separately. Press V to turn a photo black and white, and use the 8-channel black-and-white mix to control how bright the sky or foliage become.",
+      "screenshot": "grading.webp"
+    },
+    {
+      "title": "Masks for sky, subject and gradients",
+      "text": "Paint with the brush, drag linear or radial gradients, or select areas by brightness, color, sky, subject or background. You combine several selections by adding, subtracting or intersecting, and each mask has 17 sliders of its own. LightKoja detects sky and subject with classic image processing, not with AI."
+    },
+    {
+      "title": "Light, curves and effects",
+      "text": "Exposure, Contrast, Highlights, Shadows, Whites and Blacks work with local tone mapping that recovers blown-out skies without gray halos. There are also tone curves for RGB and individual color channels, plus Texture, Clarity, Dehaze, Vignette and Grain."
+    },
+    {
+      "title": "Presets and copying settings",
+      "text": "LightKoja comes with ready-made looks like “Golden Hour” or “Teal & Orange”, each with an amount slider from 0 to 200%. You create your own presets, and copy or sync selected settings to many photos at once. XMP presets can be opened too."
+    },
+    {
+      "title": "Crop, retouch, HDR, panorama",
+      "text": "You crop freely or with fixed aspect ratios, straighten photos with Upright and retouch distracting spots by removing, healing or cloning with automatic source selection. You merge bracketed exposures into HDR images, and several shots into panoramas or HDR panoramas. For more elaborate image editing, [PhotoKoja](/software/photo-koja) is included in the same price."
+    },
+    {
+      "title": "Export for web, print and archive",
+      "text": "Export as JPEG, PNG, TIFF, flat PSD, WebP, AVIF, JPEG XL or DNG, with size settings, maximum file size, output sharpening, naming templates and watermarks. You save print layouts as color-managed PDFs, and contact sheets as PDFs too."
+    },
+    {
+      "title": "Local, fast, non-destructive",
+      "text": "All edits run through a 32-bit floating-point pipeline with a wide color space, and your original files are never changed. Processing happens on your Mac’s GPU: on an Apple M4 Pro, a slider change on a 24 MP RAW takes around 4 milliseconds (as of November 2026). Photos and catalog stay on your Mac or PC, without an account and without a cloud."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "LightKoja: Develop view with a mountain lake photo, histogram and sliders for Contrast, Highlights, Shadows, Whites and Blacks",
+      "caption": "You adjust exposure, contrast, highlights and shadows non-destructively, and the original stays unchanged."
+    },
+    {
+      "file": "library.webp",
+      "alt": "LightKoja: library with photo grid, star ratings, a flag and albums in the sidebar",
+      "caption": "Rate, flag and sort your photos into albums."
+    },
+    {
+      "file": "grading.webp",
+      "alt": "LightKoja: color grading with wheels for shadows, midtones and highlights next to a sunset photo",
+      "caption": "Color wheels for shadows, midtones and highlights give your photos a look of their own."
+    }
+  ],
+  "switching": {
+    "title": "Switching from Lightroom to LightKoja: how to try the alternative",
+    "paragraphs": [
+      "A lot feels familiar. The library with albums, stars and flags on the left, the sliders on the right: Exposure, Contrast, Highlights, Shadows, Whites and Blacks, with Curve, Color, Color Grading and Effects below. You may already know some keyboard shortcuts too: V for black and white, \\ for the before view, Y for side-by-side comparison. The interface is in English; under “Edit > Language” you can switch it to another language.",
+      "You can partly bring your edits over from Lightroom Classic. LightKoja reads and writes XMP sidecars and reads the develop settings stored in them (crs:). If you run “Save Metadata to File” in Lightroom Classic first, these XMP files sit next to your RAWs. Lightroom Classic now partly stores extensive edits in separate ACR files, so check on a few photos what comes across. Because LightKoja never changes your originals, the way back always stays open.",
+      "Good to know: measured camera color profiles aren’t included. For Sony, Nikon, Panasonic, Fujifilm and Canon CR3, colors are estimated from camera JPEGs; other RAWs use a neutral color matrix. LightKoja doesn’t come with profiles for automatic lens correction, and AI denoise is in the works. Generative fill, Super Resolution, video editing and the Map and Book modules aren’t included, and you save print layouts as PDF instead of using the macOS print dialog. LightKoja is in active development: you get updates and new features automatically and free of charge.",
+      "How to test the switch in 3 days: download the Kojalytics Launcher, install LightKoja and import a copy of a recent shoot. Check that your camera RAWs open cleanly, edit a few typical photos and export them the way you need them. If it suits you, choose between €19.99 a month for all 13 apps and a [one-time purchase for €79](/software#preise). Our [guide to canceling Adobe](/ratgeber/adobe-abo-kuendigen) covers what to watch out for when ending your Adobe subscription."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "€14.49 a month on an annual plan (with 1 TB cloud storage), €141.94 a year paid upfront, or €19.99 on a monthly plan"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee. Or a one-time purchase with no contract term",
+        "other": "Annual plan renews automatically. If you pay monthly, canceling after 14 days costs 50% of the remaining contract value"
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, an Adobe account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Yes, but for a limited time: the license is checked online every 30 days"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "RAW (Canon, Nikon, Sony, Fujifilm and others), DNG, JPEG, TIFF, XMP",
+        "other": "RAW from a very wide range of cameras, DNG, JPEG, TIFF, PSD, HEIC, XMP"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS (Apple silicon and Intel) and Windows",
+        "other": "macOS, Windows, iPhone, iPad, Android and web"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you want to develop RAW photos on a Mac or PC without tying yourself to an annual plan",
+    "you’d rather manage your photos locally on your Mac or PC than in a cloud",
+    "you want to keep working with familiar tools like masks, presets and color grading",
+    "you take photos in your free time and want to sort, edit and export them"
+  ],
+  "notFor": [
+    "you need measured color profiles for every camera and automatic lens correction",
+    "you want to sync photos via the cloud between Mac, iPhone, iPad and Windows PC",
+    "you need AI tools like generative fill or Super Resolution, or want to edit videos"
+  ],
+  "formats": [
+    "Canon CR2, CR3 (not all variants)",
+    "Nikon NEF (no HE)",
+    "Sony ARW",
+    "Fujifilm RAF incl. X-Trans",
+    "Panasonic RW2, Leica RWL",
+    "Pentax PEF",
+    "Olympus ORF (uncompressed)",
+    "DNG (read and write)",
+    "JPEG, PNG, TIFF, WebP, JPEG XL",
+    "PSD (read, save flattened)",
+    "AVIF (export only)",
+    "XMP sidecars (read and write)"
+  ],
+  "faq": [
+    {
+      "q": "Is LightKoja a full Lightroom alternative?",
+      "a": "For many photographers, yes: library, RAW development, masks, presets, HDR, panorama and export are included. Not included are measured camera color profiles, profiles for lens correction, Super Resolution and generative fill. LightKoja is in active development, and you get updates free of charge. So test LightKoja with your own photos before you decide."
+    },
+    {
+      "q": "Which cameras and file formats does LightKoja support?",
+      "a": "LightKoja opens RAW files from Canon (CR2, CR3), Nikon (NEF), Sony (ARW), Fujifilm (RAF incl. X-Trans), Panasonic and Leica (RW2, RWL), Pentax (PEF), Olympus (ORF) and Samsung (SRW), plus DNG, JPEG, PNG, TIFF, WebP, JPEG XL and PSD. LightKoja doesn’t develop some CR3 variants, compressed ORF and SRW files, or Nikon HE NEF; in that case it shows the embedded preview, if there is one. You can export as JPEG, TIFF, PSD, AVIF, JPEG XL and DNG, among others. Whether your iPhone photos in HEIC format open is best checked in the free trial."
+    },
+    {
+      "q": "Can I bring my edits over from Lightroom?",
+      "a": "Partly. LightKoja reads and writes XMP sidecars and reads the develop settings stored in them (crs:), and it also opens XMP presets. In the trial, check on a few typical images how accurately your settings come across. The guide [Lightroom alternatives without a subscription compared](/ratgeber/lightroom-alternative-ohne-abo) has more on switching."
+    },
+    {
+      "q": "Can I get LightKoja without a subscription?",
+      "a": "Yes. For €79 once, you get LightKoja and the 12 other Koja apps as a one-time purchase, valid on up to 3 devices. For comparison: Lightroom costs €141.94 a year on an annual plan paid upfront. If you’d rather pay monthly, take the subscription for €19.99 a month, which you can cancel online any time with no fee: [see both options](/software#preise)."
+    },
+    {
+      "q": "Does LightKoja run on my Mac, and in which languages?",
+      "a": "LightKoja is a universal app for Macs with Apple silicon and with Intel processors. Processing happens on the GPU: on an Apple M4 Pro, exporting a 24 MP RAW at full size takes around 0.3 seconds (as of November 2026). The interface is in English and is available in 18 languages in total. LightKoja also runs on Windows; it’s not available for the iPad or the browser."
+    },
+    {
+      "q": "What do I get for my money?",
+      "a": "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email. You also get 12 more apps for the same price. Your photos and your catalog stay on your Mac or PC, and you can back up the catalog at any time."
+    }
+  ]
+}

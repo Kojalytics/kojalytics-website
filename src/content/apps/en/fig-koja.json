@@ -1,0 +1,160 @@
+{
+  "kind": "Interface design",
+  "benefit": "Design app and web interfaces with Auto Layout, components and prototypes, offline on your Mac or PC.",
+  "keyword": "Figma alternative Mac",
+  "metaTitle": "Figma Alternative for Mac and Windows: FigKoja",
+  "metaDescription": "FigKoja is a Figma alternative for Mac and Windows: Auto Layout, components, prototypes, offline, no account. Try it free for 3 days, then €19.99 a month.",
+  "h1": "Figma alternative for Mac and Windows: offline and without an account",
+  "lead": "FigKoja is a Figma alternative for Mac and Windows that lets you design app and web interfaces right on your computer. Auto Layout, components, variables, prototypes and Dev Mode are included. Try the app free for 3 days with your own designs.",
+  "highlights": [
+    "Offline and no account",
+    "Auto Layout and components",
+    "Code for React, SwiftUI, CSS"
+  ],
+  "features": [
+    {
+      "title": "Auto Layout and layout grids",
+      "text": "Auto Layout works horizontally and vertically, with wrap, gaps, padding and the Hug, Fill and Fixed sizes. There are also minimum and maximum sizes, constraints and layout grids, so your screens grow cleanly when you resize them."
+    },
+    {
+      "title": "Components with variants",
+      "text": "Create main components and combine them into sets with variants and properties. Overrides in instances are kept when you change the main component. In the Assets panel you find everything by search and drag it straight onto the canvas."
+    },
+    {
+      "title": "Variables with light and dark modes",
+      "text": "Create local styles and variables for colors, numbers, strings and true/false values, with modes like light and dark, aliases and scopes. You edit them in a table and bind them to fills, strokes, effects, layout grids and instance properties."
+    },
+    {
+      "title": "Clickable prototypes",
+      "text": "Connect screens with triggers, actions and animated transitions. With variables and if/then conditions you can also build flows with logic. Presentation view shows your app prototype in a device frame, and a live preview runs while you work."
+    },
+    {
+      "title": "Dev Mode with code export",
+      "text": "In inspect mode you see measurements, colored annotations and a list of the frames that are ready for development, including a comparison of changes. FigKoja generates code for CSS, HTML, React, SwiftUI and Compose, turning component properties into parameters.",
+      "screenshot": "dev-mode.webp"
+    },
+    {
+      "title": "Vector networks and boolean operations",
+      "text": "Draw with the Pen and Pencil, edit paths in vector mode and combine shapes with the Shape Builder. Boolean groups (union, subtract, intersect, exclude) stay editable, and strokes can have a variable width. For pure illustration, the same bundle also includes [VectorKoja](/software/vector-koja)."
+    },
+    {
+      "title": "Offline, no account, no telemetry",
+      "text": "FigKoja is a native app, with no browser running in the background. It needs no account and sends no usage data. Your documents are stored as files on your Mac or PC and only leave it if you share them yourself."
+    },
+    {
+      "title": "Export at any size",
+      "text": "Export any layer at any scale as PNG, JPG, WebP, SVG or PDF. The files carry your document’s color profile, sRGB or Display P3."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "FigKoja: three app screens of a garden planner, layers on the left, and position, size and colors of the selected button on the right",
+      "caption": "Design app screens with layers, groups and properties for every element."
+    },
+    {
+      "file": "dev-mode.webp",
+      "alt": "FigKoja in inspect mode: a selected button with measurements and the matching CSS code on the right",
+      "caption": "In inspect mode, developers see measurements and code for every element."
+    }
+  ],
+  "switching": {
+    "title": "Switching from Figma to FigKoja: how to try the alternative for Mac and Windows",
+    "paragraphs": [
+      "**What stays the same:** the toolbar, Layers panel, Design panel and menus are where you’d expect them from Figma, and the keyboard shortcuts follow the same pattern. You know the terms too: frames, Auto Layout with Hug, Fill and Fixed, components with variants, variables with modes, prototype connections and Dev Mode. So you’re not learning a new way of thinking, just a few new moves.",
+      "**Your files:** FigKoja opens Figma files in .fig format with limitations, so expect differences. Alternatively, you import designs as JSON from Figma’s public REST API, including prototypes and variables. You bring in SVG, PDF, PNG, JPG and WebP directly. FigKoja saves locally on your Mac or PC and exports any layer as PNG, JPG, WebP, SVG or PDF.",
+      "**Good to know:** live collaboration is available as a preview, without accounts, teams or cloud. Figma plugins don’t run, because FigKoja has its own plugin system based on WebAssembly. The interface is in English. FigKoja is in active development: you get updates and new features automatically and free of charge.",
+      "**How to test in 3 days:** on day one, download the Kojalytics Launcher, install FigKoja and open one of the eight starter templates, for example for a mobile app, a dashboard or a wireframe kit. On day two, bring in a real project and rebuild your most important components. On day three, click through a prototype and check the code in Dev Mode. Then decide on [€19.99 a month or €79 once](/software#preise), both for all 13 apps; you can cancel the monthly subscription online any time at [kojalytics.com/kuendigen](/kuendigen), with no fee."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "Starter free (only 3 files in a team). Professional: Full seat US$16 a month, billed annually"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee. Or pay once and keep using it",
+        "other": "Per seat, billed annually or (at a higher price) monthly"
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Limited, files are stored in the Figma cloud"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "Import: SVG, PDF, PNG, JPG, WebP, .fig (limited). Export: PNG, JPG, WebP, SVG, PDF",
+        "other": ".fig, export: PNG, JPG, SVG, PDF"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows, on up to 3 devices",
+        "other": "Browser plus desktop apps for macOS and Windows"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, without guarantee. Koja prices include VAT; Figma lists its prices in US dollars without stating VAT."
+  },
+  "forWho": [
+    "you want to design apps, websites or wireframes on a Mac or PC without creating an account.",
+    "your designs need to stay on your own computer, for example because of your clients’ data protection requirements.",
+    "you often work without internet, for example on the train or on site with a client.",
+    "you build clickable prototypes and need code for React, SwiftUI or CSS as a starting point for development."
+  ],
+  "notFor": [
+    "your team works live in the same files every day, or you depend on Figma plugins.",
+    "you need to work in the browser: FigKoja is only available as a desktop app for Mac and Windows."
+  ],
+  "formats": [
+    "SVG (import and export)",
+    "PDF (import and export)",
+    "PNG (import and export)",
+    "JPG (import and export)",
+    "WebP (import and export)",
+    ".fig (import, limited)",
+    "Figma REST API JSON (import)",
+    "CSS (code export)",
+    "HTML (code export)",
+    "React (code export)",
+    "SwiftUI (code export)",
+    "Compose (code export)"
+  ],
+  "faq": [
+    {
+      "q": "Is FigKoja a full Figma alternative?",
+      "a": "For many designs, yes: the editor works end to end, with Auto Layout, components, variables, prototypes and Dev Mode. Not included are Figma plugins and live collaboration with accounts and cloud. FigKoja is in active development, and you get updates free of charge. So try FigKoja free for 3 days with your own designs before you decide."
+    },
+    {
+      "q": "Can I open my Figma files in FigKoja?",
+      "a": "Only with limitations: FigKoja opens Figma files in .fig format with no guarantee of completeness, so expect differences. You can also import designs as JSON from Figma’s public REST API, including prototypes and variables, as well as SVG, PDF, PNG, JPG and WebP. You can export any layer at any size as PNG, JPG, WebP, SVG or PDF."
+    },
+    {
+      "q": "Can I use FigKoja offline?",
+      "a": "Yes. FigKoja runs right on your Mac or PC, needs no account and sends no usage data. Your documents are stored as files on your drive and only leave your computer if you share them yourself. You only need the internet for download and activation."
+    },
+    {
+      "q": "Can I work in a team with FigKoja?",
+      "a": "Partly. Comments with replies, @mentions and reactions, and a version history with named versions are built in. Live sessions with cursors, selection and cursor chat are available as a preview, via a join code or invite link over the internet or on the local network, without accounts, teams or cloud. Important: files shared via the public server are stored there unencrypted and deleted after 30 days without access."
+    },
+    {
+      "q": "How much does FigKoja cost compared to Figma?",
+      "a": "After 3 free trial days, FigKoja costs €19.99 a month incl. VAT, and that includes all 13 Koja apps. Alternatively, you pay €79 once as a one-time purchase; both cover up to 3 devices. With Figma, the Starter plan is free but only allows 3 files in a team; on the Professional plan, a Full seat costs US$16 a month, billed annually. You can cancel the FigKoja monthly subscription online any time at [kojalytics.com/kuendigen](/kuendigen), with no fee."
+    },
+    {
+      "q": "What do I get for my money?",
+      "a": "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email. Extensions run as WebAssembly plugins in a sandbox, with no access to your files or the network by default."
+    }
+  ]
+}

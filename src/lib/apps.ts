@@ -1,5 +1,7 @@
-// The 13 Koja apps. Fixed facts live here; the German page copy lives in src/content/apps/<slug>.json.
+// The 13 Koja apps. Fixed facts live here; the page copy lives in src/content/apps/<slug>.json (German) and
+// src/content/apps/en/<slug>.json (English, same structure).
 
+import type { Lang } from "@/lib/i18n";
 import screenshots from "@/content/screenshots.json";
 import demos from "@/content/demos.json";
 import photo from "@/content/apps/photo-koja.json";
@@ -15,6 +17,21 @@ import grid from "@/content/apps/grid-koja.json";
 import deck from "@/content/apps/deck-koja.json";
 import pdf from "@/content/apps/pdf-koja.json";
 import cad from "@/content/apps/cad-koja.json";
+import photoEn from "@/content/apps/en/photo-koja.json";
+import lightEn from "@/content/apps/en/light-koja.json";
+import vectorEn from "@/content/apps/en/vector-koja.json";
+import designEn from "@/content/apps/en/design-koja.json";
+import figEn from "@/content/apps/en/fig-koja.json";
+import filmEn from "@/content/apps/en/film-koja.json";
+import effectEn from "@/content/apps/en/effect-koja.json";
+import soundEn from "@/content/apps/en/sound-koja.json";
+import wordEn from "@/content/apps/en/word-koja.json";
+import gridEn from "@/content/apps/en/grid-koja.json";
+import deckEn from "@/content/apps/en/deck-koja.json";
+import pdfEn from "@/content/apps/en/pdf-koja.json";
+import cadEn from "@/content/apps/en/cad-koja.json";
+import extraEn from "@/content/apps/en/extra.json";
+import { href } from "@/lib/i18n";
 
 export type AppGroup = "Foto & Design" | "Video & Audio" | "Büro & Technik";
 
@@ -113,14 +130,48 @@ export type KojaApp = AppBase &
     demo?: { src: string; poster: string; duration: number; travel: number; steps: { label: string; text: string; start: number }[] };
   };
 
+const CONTENT_EN: Record<string, AppContent> = {
+  "photo-koja": photoEn,
+  "light-koja": lightEn,
+  "vector-koja": vectorEn,
+  "design-koja": designEn,
+  "fig-koja": figEn,
+  "film-koja": filmEn,
+  "effect-koja": effectEn,
+  "sound-koja": soundEn,
+  "word-koja": wordEn,
+  "grid-koja": gridEn,
+  "deck-koja": deckEn,
+  "pdf-koja": pdfEn,
+  "cad-koja": cadEn,
+};
+
 const DEMOS = demos.apps as Record<string, { label: string; text: string }[]>;
+const DEMOS_EN = extraEn.demos as Record<string, { label: string; text: string }[]>;
+const CARD_ALT_EN = extraEn.cardAlt as Record<string, string>;
 const { intro, dwell, travel, outro } = demos.timing;
 
 /** Sizes of the screenshots in public/apps (our own captures of the Koja apps with our own demo content). */
 const SIZES = screenshots as Record<string, { width: number; height: number }>;
 
-function withShots(base: AppBase): KojaApp {
-  const content = CONTENT[base.slug];
+/**
+ * Links in the English copy point at German addresses (as written in the German files): send them to the English pages,
+ * and drop links to the German-only guides (their text stays).
+ */
+function englishLinks<T>(value: T): T {
+  if (typeof value === "string") {
+    return value.replace(/\[([^\]\[]+)\]\((\/[^)\s]*)\)/g, (all, label: string, path: string) => {
+      const to = href("en", path);
+      return to === path && /^\/ratgeber/.test(path) ? label : `[${label}](${to})`;
+    }) as T;
+  }
+  if (Array.isArray(value)) return value.map(englishLinks) as T;
+  if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, englishLinks(v)])) as T;
+  return value;
+}
+
+function withShots(base: AppBase, lang: Lang = "de"): KojaApp {
+  const content = lang === "de" ? CONTENT[base.slug] : englishLinks(CONTENT_EN[base.slug]);
   const shots = content.screenshots
     .map((s) => {
       const key = `${base.slug}/${s.file}`;
@@ -128,8 +179,8 @@ function withShots(base: AppBase): KojaApp {
       return size ? { src: `/apps/${key}`, width: size.width, height: size.height, alt: s.alt, caption: s.caption } : null;
     })
     .filter((s): s is Screenshot => s !== null);
-  const card = { src: `/apps/${base.slug}/karte.webp`, width: 1440, height: 900, alt: CARD_ALT[base.slug] };
-  const stops = DEMOS[base.slug];
+  const card = { src: `/apps/${base.slug}/karte.webp`, width: 1440, height: 900, alt: (lang === "de" ? CARD_ALT : CARD_ALT_EN)[base.slug] };
+  const stops = (lang === "de" ? DEMOS : DEMOS_EN)[base.slug];
   const demo = stops && {
     src: `/apps/${base.slug}/demo.mp4`,
     poster: `/apps/${base.slug}/demo.jpg`,
@@ -140,7 +191,14 @@ function withShots(base: AppBase): KojaApp {
   return { ...base, ...content, shots, card, demo };
 }
 
-export const APPS: KojaApp[] = BASE.map(withShots);
+export const APPS: KojaApp[] = BASE.map((b) => withShots(b));
+
+/** The apps with their page copy in a language (English from src/content/apps/en). */
+export function appsFor(lang: Lang): KojaApp[] {
+  return lang === "en" ? APPS_EN : APPS;
+}
+
+const APPS_EN: KojaApp[] = BASE.map((b) => withShots(b, "en"));
 
 /**
  * The app colour darkened until it reads as text on white (WCAG AA, 4.5:1), e.g. for the "Koja" part

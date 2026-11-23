@@ -4,11 +4,12 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionBar from "@/components/instrument/SectionBar";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
+import { alternates } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "AGB für die Koja-Apps",
   description: "Allgemeine Geschäftsbedingungen für die Koja-Apps: Monatsabo, dauerhafte Lizenz, Kündigung und Widerrufsrecht.",
-  alternates: { canonical: "/agb" },
+  alternates: alternates("de", "/agb"),
   robots: { index: false },
 };
 

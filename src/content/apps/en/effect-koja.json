@@ -1,0 +1,156 @@
+{
+  "kind": "Motion graphics",
+  "benefit": "Create titles, animations and effects on your Mac or PC, with layers, keyframes and a timeline.",
+  "keyword": "After Effects alternative Mac",
+  "metaTitle": "After Effects Alternative for Mac and Windows: EffectKoja",
+  "metaDescription": "After Effects alternative for Mac and Windows: EffectKoja with keyframes, 3D and more than 250 effects. Try it free for 3 days, then €19.99 a month.",
+  "h1": "After Effects alternative for Mac and Windows: motion graphics and 3D",
+  "lead": "EffectKoja is an After Effects alternative for Mac and Windows, with compositions, keyframes, Graph Editor and more than 250 effects. Try the app free for 3 days with your own material.",
+  "highlights": [
+    "More than 250 effects",
+    "3D with cameras and lights",
+    "Export as ProRes, MP4, Lottie"
+  ],
+  "features": [
+    {
+      "title": "More than 250 effects",
+      "text": "The library ranges from blur, color correction and distort to keying, noise and particles, all the way to stylize and transitions. You set the parameters in Effect Controls and animate them with keyframes. There are also 9 layer styles, such as Drop Shadow, Glow, Bevel and Emboss, and Stroke.",
+      "screenshot": "effects.webp"
+    },
+    {
+      "title": "Keyframes, Graph Editor and time",
+      "text": "You interpolate keyframes as linear, Bezier, Auto Bezier or Hold, and there are roving keys and Easy Ease with F9. In the Graph Editor you shape motion with value and speed graphs. For timing you have Time Remapping, Time Stretch, Freeze Frame and markers, frame-accurate even at 29.97 fps drop-frame."
+    },
+    {
+      "title": "Real 3D with cameras and lights",
+      "text": "EffectKoja supports 3D layers, one-node and two-node cameras with depth of field, and parallel, spot, point and ambient lights with soft, ray-traced shadows. You control the scene with orbit, pan and dolly tools and switch between front, top, side and custom views."
+    },
+    {
+      "title": "Layers, text and shapes",
+      "text": "You work with solids, shapes, text, footage, nested compositions, null objects, adjustment layers, cameras and lights, plus parenting, track mattes, 38 blend modes and motion blur. You animate text with text animators and range selectors, shape layers with “Trim Paths” and “Repeater”, and you draw masks with the Pen tool."
+    },
+    {
+      "title": "Expressions in JavaScript",
+      "text": "You write expressions in JavaScript following the familiar pattern, for example with wiggle, loopOut or thisComp.layer(). With the pick whip you link any property directly to another one, so you drive motion through values instead of animating everything by hand with keyframes."
+    },
+    {
+      "title": "Render Queue with pro formats",
+      "text": "You export as H.264, ProRes up to 4444 XQ with alpha, HEVC, AV1 and WebM, as an image sequence in PNG, JPEG, TIFF or 32-bit EXR, as an animated GIF, or as WAV or AIFF. The Render Queue has templates and render logs and also runs from the command line, without opening the interface."
+    },
+    {
+      "title": "Lottie for websites and apps",
+      "text": "EffectKoja exports animations as Lottie files in .json or .lottie format and imports existing Lottie JSON. The app lists anything that Lottie can’t represent."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "3d.webp",
+      "alt": "EffectKoja composition with a color gradient, the title “Gartenfest” and a lit 3D torus, with the timeline and four layers below",
+      "caption": "Layers, text, 3D objects and lights in one composition, with the timeline below."
+    },
+    {
+      "file": "effects.webp",
+      "alt": "EffectKoja Effect Controls with 4-Color Gradient: points and colors next to the preview",
+      "caption": "Every effect has its own settings, which you can animate with keyframes."
+    }
+  ],
+  "switching": {
+    "title": "Switching from After Effects to EffectKoja: the alternative for Mac and Windows",
+    "paragraphs": [
+      "The layout will be familiar: Project, Composition, Timeline, Effect Controls, Graph Editor and Render Queue. Layers, keyframes, Easy Ease with F9, parenting, track mattes, adjustment layers and expressions with wiggle or loopOut work on the same principle.",
+      "About your files: EffectKoja can’t open After Effects projects (.aep and .aepx), so you rebuild ongoing projects. But you can bring your material over: you import PSD, Illustrator, SVG and PDF files as footage or as a composition. You can also import videos in H.264, ProRes, HEVC and AV1, image sequences such as PNG or OpenEXR files, Lottie JSON, and 3D models as glTF, OBJ, STL or FBX (without animation). EffectKoja saves your own projects as readable JSON files.",
+      "Good to know: plug-ins, .mogrt templates and .ffx presets from After Effects can’t be used; the app comes with 54 animation presets of its own. Videos are encoded without hardware acceleration, playback can stutter, and moved footage files can’t be relinked. The interface, including the effect parameters, is in English. EffectKoja is in active development: you get updates and new features automatically and free of charge.",
+      "How to test in 3 days: download the Kojalytics Launcher, install EffectKoja and rebuild a small project from your everyday work, such as a lower third with a text animator or a logo from an Illustrator or PSD file. Export it as ProRes or H.264 and check it in your editing app, for example in [FilmKoja](/software/film-koja). If everything fits, keep using EffectKoja for €19.99 a month, [cancel any time](/kuendigen), or pay €79 once. Only cancel your Adobe subscription once you’re sure, and check the terms first: on the annual plan billed monthly, canceling after 14 days costs a one-off fee of 50% of the remaining contract value. More in the guide [Canceling your Adobe subscription](/ratgeber/adobe-abo-kuendigen)."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "€25.99 a month on an annual plan paid monthly"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee",
+        "other": "Annual plan renews automatically; canceling after 14 days costs 50% of the remaining contract value"
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, an Adobe account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Yes, with regular online license checks"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "PSD, AI, SVG, PDF, H.264, ProRes, EXR, Lottie (no .aep projects)",
+        "other": "AEP projects, PSD, AI and common video and image formats"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows",
+        "other": "macOS and Windows"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you animate titles, lower thirds, logo animations or explainer videos on a Mac or PC and want to work with compositions, layers and keyframes",
+    "you only need After Effects occasionally and no longer want to pay for an Adobe subscription for it",
+    "you want to create Lottie animations for websites or apps",
+    "you want to automate rendering, for example from the command line, without opening the interface"
+  ],
+  "notFor": [
+    "you need to open and keep working on existing After Effects projects (.aep)",
+    "you depend on plug-ins, .mogrt templates or animation presets from After Effects"
+  ],
+  "formats": [
+    "PSD (import)",
+    "AI, SVG, PDF (import)",
+    "H.264, ProRes, HEVC, AV1 (import and export)",
+    "WebM with VP9 or AV1 (export)",
+    "MXF (import)",
+    "PNG, JPEG, TIFF (import and export)",
+    "OpenEXR (import, export in 32-bit)",
+    "DPX, Cineon, Targa, Radiance HDR (import)",
+    "Lottie (.json import and export, .lottie export)",
+    "Animated GIF (export)",
+    "WAV, AIFF (export)",
+    "glTF, OBJ, STL, FBX (3D import)"
+  ],
+  "faq": [
+    {
+      "q": "Is EffectKoja a full After Effects alternative?",
+      "a": "For titles, lower thirds, logo animations and explainer videos, yes: compositions, keyframes, Graph Editor, expressions and more than 250 effects are included. EffectKoja doesn’t open After Effects projects, and plug-ins for After Effects don’t run. EffectKoja is in active development, and you get updates free of charge. Try the app free for 3 days with a small project of your own before you decide."
+    },
+    {
+      "q": "Can EffectKoja open After Effects projects and my files?",
+      "a": "EffectKoja can’t read After Effects projects (.aep and .aepx). But you can bring your material over: you import PSD, Illustrator, SVG and PDF files as footage or as a composition, plus videos in H.264, ProRes, HEVC and AV1, image sequences, Lottie JSON and 3D models. You can export as ProRes 4444 with alpha, H.264, WebM, EXR sequence and Lottie, among others."
+    },
+    {
+      "q": "Do my After Effects plug-ins and templates run in EffectKoja?",
+      "a": "No. Plug-ins for After Effects can’t be loaded, and EffectKoja can’t read .mogrt templates or .ffx presets. Instead, the app comes with more than 250 effects of its own, 9 layer styles and 54 animation presets. It has its own plug-in interface, but there are no third-party plug-ins for it."
+    },
+    {
+      "q": "Can I create Lottie animations with EffectKoja?",
+      "a": "Yes. You animate as usual with layers and keyframes and export the result as a Lottie file in .json or .lottie format, for example for websites and apps. EffectKoja lists anything that can’t be represented in Lottie. You can also import existing Lottie JSON files."
+    },
+    {
+      "q": "Can I buy EffectKoja as a one-time purchase, without a subscription?",
+      "a": "Yes, besides €19.99 a month there’s a one-time purchase for €79. Both cover all 13 Koja apps on up to 3 devices; you’ll find all options under [Pricing](/software#preise). For comparison: After Effects alone costs €25.99 a month at Adobe on an annual plan paid monthly."
+    },
+    {
+      "q": "What do I get for my money?",
+      "a": "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email. On top of that, you get 12 more apps for the same price, such as [FilmKoja](/software/film-koja) for video editing. The guide [Adobe alternative for Mac](/ratgeber/adobe-alternative-mac) gives an overview of alternatives to Adobe apps."
+    }
+  ]
+}

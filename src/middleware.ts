@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { locales, defaultLocale, type Locale } from './i18n/config';
+import { href, isEnglishPath } from './lib/i18n';
 
 const localeMap: Record<string, Locale> = {
   'de': 'de', 'de-de': 'de', 'de-at': 'de', 'de-ch': 'de',
@@ -50,6 +51,46 @@ function getPreferredLocale(request: NextRequest): Locale {
   return defaultLocale;
 }
 
+/** Set once a visitor switched from an English page to a German one: from then on they get German. */
+const LANG_COOKIE = 'kj-lang';
+/** German Koja Office pages that have an English version and where visitors arrive from outside. */
+const KOJA_ENTRY = /^\/(office|web|kontakt|support|support\/windows-installation|software\/[a-z]+-koja)?$/;
+const BOTS = /bot|crawl|spider|slurp|facebookexternalhit|preview|lighthouse|headless/i;
+
+const sameSite = (request: NextRequest, referer: string | null) => {
+  try {
+    return !!referer && new URL(referer).host === request.nextUrl.host;
+  } catch {
+    return false;
+  }
+};
+
+/**
+ * The English address for a visitor who arrives on a German Koja Office page with a browser set to another language
+ * than German, or null to stay. Not for: navigation within the site (the language switch works), visitors who switched
+ * to German before (cookie), campaign links (utm_source: the ad already chose the language), bots, and requests without
+ * Accept-Language (crawlers send none; the German page stays what search engines see under the German address).
+ */
+function englishFirst(request: NextRequest): string | null {
+  const { pathname, search, searchParams } = request.nextUrl;
+  if (!KOJA_ENTRY.test(pathname)) return null;
+  if (request.cookies.get(LANG_COOKIE)?.value === 'de') return null;
+  if (searchParams.has('utm_source') || searchParams.has('lang')) return null;
+  if (BOTS.test(request.headers.get('user-agent') ?? '')) return null;
+  if (sameSite(request, request.headers.get('referer'))) return null;
+  const first = (request.headers.get('accept-language') ?? '').split(',')[0].trim().toLowerCase();
+  if (!first || first === '*' || first.startsWith('de')) return null;
+  return href('en', pathname) + search;
+}
+
+/** A visitor coming from an English page of this site to a German Koja Office page: they chose German. */
+function switchedToGerman(request: NextRequest): boolean {
+  if (!KOJA_ENTRY.test(request.nextUrl.pathname)) return false;
+  const referer = request.headers.get('referer');
+  if (!sameSite(request, referer)) return false;
+  return isEnglishPath(new URL(referer!).pathname) && request.cookies.get(LANG_COOKIE)?.value !== 'de';
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -58,6 +99,15 @@ export function middleware(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = pathname.toLowerCase().replace(/\/$/, "") || "/";
     return NextResponse.redirect(url, 308);
+  }
+
+  // Koja Office pages: visitors whose browser is not set to German see the English page.
+  const english = englishFirst(request);
+  if (english) return NextResponse.redirect(new URL(english, request.url), 307);
+  if (switchedToGerman(request)) {
+    const res = NextResponse.next();
+    res.cookies.set(LANG_COOKIE, 'de', { path: '/', maxAge: 60 * 60 * 24 * 365, sameSite: 'lax' });
+    return res;
   }
 
   // Only handle /aiheadshot routes
@@ -87,5 +137,13 @@ export const config = {
     '/Software/:path*',
     '/SOFTWARE',
     '/SOFTWARE/:path*',
+    // German Koja Office entry pages (see englishFirst)
+    '/',
+    '/office',
+    '/web',
+    '/kontakt',
+    '/support',
+    '/support/windows-installation',
+    '/software/:slug',
   ],
 };

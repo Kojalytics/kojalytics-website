@@ -1,0 +1,152 @@
+{
+  "kind": "2D CAD",
+  "benefit": "Create floor plans and technical 2D drawings on your Mac or PC, with a command line, common CAD aliases and DWG import.",
+  "keyword": "AutoCAD alternative Mac",
+  "metaTitle": "AutoCAD Alternative for Mac and Windows: CADKoja",
+  "metaDescription": "CADKoja is an AutoCAD alternative for Mac and Windows: command line, layers, dimensions, DWG and DXF. Try it free for 3 days, then €19.99 a month.",
+  "h1": "AutoCAD alternative for Mac and Windows: 2D drawings with DWG and DXF",
+  "lead": "CADKoja is an AutoCAD alternative for Mac and Windows, designed for 2D: command line, object snaps, layers, dimensions, hatching, blocks and layouts. You plot drawings to scale as PDF. Try the app free for 3 days with your own drawings.",
+  "highlights": [
+    "Command line with CAD aliases",
+    "Open DWG and DXF",
+    "Dimensions, layers, PDF plot"
+  ],
+  "features": [
+    {
+      "title": "Command line with CAD aliases",
+      "text": "You type commands and aliases, with autocomplete and clickable options in the command prompt. Relative and polar coordinates (@dx,dy and @distance<angle), direct distance entry, transparent commands and repeating with Enter, Space or right-click all work. You play back recurring workflows from .scr-style script files."
+    },
+    {
+      "title": "Drawing and modifying with LINE and TRIM",
+      "text": "For drawing there are 14 commands, from LINE, PLINE, CIRCLE and ARC to SPLINE and XLINE, all the way to TEXT and MTEXT. You modify with MOVE, COPY, ROTATE, MIRROR, STRETCH, OFFSET, TRIM, EXTEND, FILLET, CHAMFER and ARRAY, both rectangular and polar, among others. You clean up duplicate objects with OVERKILL."
+    },
+    {
+      "title": "Precise with object snaps and grips",
+      "text": "11 object snap types, polar tracking, Ortho mode and grid snap give you exact points. Using an object’s grips, you switch with the Space bar between stretch, move, rotate, scale and mirror."
+    },
+    {
+      "title": "Technical drawings with dimensions",
+      "text": "Linear, aligned, angular and radius dimensions adapt when you change the geometry; you define dimension styles with DIMSTYLE. You place hatches with a click inside an area, including islands, as a pattern, solid fill or gradient. You save recurring parts as blocks with attributes, nested too."
+    },
+    {
+      "title": "Layouts and plotting to PDF",
+      "text": "In paper space you set up layout sheets with viewports, including layer settings per viewport. With Page Setup, PLOT and EXPORTPDF you output drawings to scale as PDF."
+    },
+    {
+      "title": "Layers and properties",
+      "text": "With the Layer Properties Manager and the Properties palette you control linetypes, lineweights, and index and true colors. You can regroup, float or close the panels for tools, layers and properties."
+    },
+    {
+      "title": "Annotating floor plans",
+      "text": "You set text with TEXT and MTEXT in TrueType fonts, notes with multileaders (MLEADER), and room or parts lists with TABLE. That way a floor plan on your Mac or PC gets dimensions, notes and a room table in the same drawing."
+    },
+    {
+      "title": "Parametric constraints",
+      "text": "Geometric and dimensional constraints, AUTOCONSTRAIN and parameters with formulas hold a drawing together. If you change a dimension, CADKoja recalculates the geometry and reports conflicting constraints."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "CADKoja: floor plan of a garden shed with walls, doors, windows, room labels and dimensions in meters, with the layer list on the right",
+      "caption": "Floor plan with dimensions, hatching and layers, operated via the toolbar and command line."
+    }
+  ],
+  "switching": {
+    "title": "Switching from AutoCAD to CADKoja: the alternative for Mac and Windows",
+    "paragraphs": [
+      "A lot stays the way you know it: you work with the command line and English command names plus aliases, such as LINE, OFFSET, TRIM, FILLET, DIMSTYLE, MLEADER, BLOCK, INSERT and PLOT. There’s also object snap, polar tracking, Ortho, grips, the Layer Properties Manager, the Properties palette, and the tabs for Model and layouts.",
+      "About your files: CADKoja opens DWG files from versions R13 to 2018 and DXF files from R12 to 2018, as ASCII or binary. It saves DWG and DXF in the older R2000 format. Elements that CADKoja doesn’t recognize are lost in the process. So work with copies and check saved DWG files in AutoCAD before you pass them on. CADKoja doesn’t read SHX fonts; such text appears in a substitute font. You can export as PDF, SVG and PNG.",
+      "Good to know: CADKoja is a 2D program, with hardly any 3D. External references (Xrefs), the Block Editor, dynamic blocks and AutoLISP aren’t available, and neither is automatic saving and recovery. Plot styles are ignored when plotting, and there’s no object snap tracking. Some command options, for example in TRIM, OFFSET and PLINE, are incomplete, and ellipses and splines aren’t geometrically exact. The interface is in English. CADKoja is in active development: you get updates and new features automatically and free of charge.",
+      "How to test in 3 days: download the Kojalytics Launcher, install CADKoja and open a copy of a real DWG or DXF file from your everyday work. Redraw a room or a part with LINE, TRIM and dimensions, set up a layout and plot it to PDF. Save regularly as you go. If it suits you, continue for €19.99 a month, [cancel any time](/kuendigen), or pay €79 once. Only cancel an existing AutoCAD subscription once your most important drawings work in CADKoja."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "€2,190 a year or €274 on a monthly plan; AutoCAD LT: €572 a year or €72 a month"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee; or €79 once",
+        "other": "Monthly, annual or 3-year plan; returns within 30 days, or within 15 days on the monthly plan"
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, an Autodesk account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Up to 30 days at a time, then the license must be checked online"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "Open DWG and DXF (up to version 2018), save in R2000 format; PDF, SVG, PNG",
+        "other": "DWG and DXF in current versions, PDF and more"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows",
+        "other": "Windows and macOS, plus web and mobile versions"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you create 2D drawings like floor plans, furniture plans or simple technical parts on a Mac or PC",
+    "you draw with a command line, object snaps and layers and want to keep doing that on a Mac or PC",
+    "you want to open DWG or DXF files on a Mac or PC, check them and output them as PDF",
+    "you want to learn CAD or plan private projects and don’t want to pay for an AutoCAD subscription"
+  ],
+  "notFor": [
+    "you regularly exchange DWG files with AutoCAD users and nothing may be lost when saving",
+    "your work needs 3D models, external references, dynamic blocks or AutoLISP"
+  ],
+  "formats": [
+    "DWG (open R13 to 2018)",
+    "DWG (save as R2000)",
+    "DXF (open R12 to 2018, ASCII and binary)",
+    "DXF (save as R2000)",
+    "PDF (export via PLOT and EXPORTPDF)",
+    "SVG (export)",
+    "PNG (export, 2400 × 1600 pixels)",
+    "TrueType and OpenType fonts (.ttf, .otf, .ttc)",
+    "SHX fonts (not supported)",
+    "Script files (.scr style)"
+  ],
+  "faq": [
+    {
+      "q": "Is CADKoja a full AutoCAD alternative?",
+      "a": "For 2D drawings yes, for 3D no. CADKoja is designed for 2D: command line, object snaps, layers, dimensions, hatching, blocks and layouts are included. Not included are, among other things, Xrefs, dynamic blocks and AutoLISP. CADKoja is in active development, and you get updates free of charge. Try it for 3 days with your own drawings."
+    },
+    {
+      "q": "Can I open DWG and DXF files on a Mac or PC with CADKoja?",
+      "a": "Yes, CADKoja opens DWG files from versions R13 to 2018 and DXF files from R12 to 2018; text in SHX fonts appears in a substitute font. It saves DWG and DXF in R2000 format, and elements that CADKoja doesn’t recognize are lost. So it’s best to open copies and share drawings with others as PDF."
+    },
+    {
+      "q": "Can I draw a floor plan on a Mac or PC with CADKoja?",
+      "a": "Yes. You draw walls and rooms with LINE, PLINE and RECTANG, add dimensions with the dimension commands, notes with MLEADER and a room table with TABLE. Layers keep walls, furniture and labels apart. In paper space you set up a layout and plot the drawing to scale as PDF."
+    },
+    {
+      "q": "Is CADKoja an alternative to AutoCAD LT?",
+      "a": "In its approach, yes, because like AutoCAD LT, CADKoja focuses on 2D drawing. AutoCAD LT costs €572 a year or €72 on a monthly plan at Autodesk; CADKoja costs €19.99 a month or €79 once. Not included are, for example, Xrefs, dynamic blocks and AutoLISP. So try it for 3 days with your own drawings."
+    },
+    {
+      "q": "What language is CADKoja in?",
+      "a": "The interface is in English. CADKoja uses the English command names known from AutoCAD, such as LINE, TRIM or OFFSET."
+    },
+    {
+      "q": "What do I get for my money?",
+      "a": "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email. On top of that, you get 12 more apps, for €19.99 a month or €79 once. You’ll find all options under [Pricing](/software#preise)."
+    }
+  ]
+}

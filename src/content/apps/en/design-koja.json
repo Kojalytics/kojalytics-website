@@ -1,0 +1,157 @@
+{
+  "kind": "Page layout",
+  "benefit": "Lay out flyers, brochures and magazines on your Mac or PC, with master pages, paragraph styles and PDF/X-4 export.",
+  "keyword": "InDesign alternative Mac",
+  "metaTitle": "InDesign Alternative for Mac and Windows: DesignKoja",
+  "metaDescription": "DesignKoja is an InDesign alternative for Mac and Windows: master pages, threaded text frames, IDML, PDF/X-4. Try it free for 3 days, then €19.99 a month.",
+  "h1": "InDesign alternative for Mac and Windows: master pages, IDML and PDF/X-4",
+  "lead": "DesignKoja is an InDesign alternative for Mac and Windows, with spreads, threaded text frames and paragraph styles for flyers, brochures and magazines. Try the app free for 3 days with your own layouts.",
+  "highlights": [
+    "Master pages and spreads",
+    "Open and export IDML",
+    "PDF/X-4 with CMYK and spot colors"
+  ],
+  "features": [
+    {
+      "title": "Thread text across columns and pages",
+      "text": "Thread text frames so an article flows from frame to frame and from page to page. You set columns and gutter right in the Properties panel. The Knuth–Plass paragraph composer weighs all the line breaks of a paragraph together, giving more even word spacing in justified text.",
+      "screenshot": "page.webp"
+    },
+    {
+      "title": "Paragraph and character styles",
+      "text": "You set up section label, headline, intro, body text and caption once as styles. That keeps the design consistent throughout the document, even as it grows."
+    },
+    {
+      "title": "Print-ready PDF with bleed",
+      "text": "DesignKoja exports PDF/X-4 and PDF/A-2b with embedded fonts, selectable text, CMYK and spot colors, bleed and crop marks. The line breaks in the PDF match the view on screen exactly."
+    },
+    {
+      "title": "Spreads and master pages",
+      "text": "You work in spreads, as in classic DTP programs. You set up recurring elements once on a master page instead of repeating them on every page."
+    },
+    {
+      "title": "Open and export IDML files",
+      "text": "DesignKoja opens IDML files and exports back to IDML. INDD files can be opened too; check the result carefully, as IDML is the more reliable route. You can also export as editable PPTX, as PNG and as EPUB."
+    },
+    {
+      "title": "Named CMYK swatches",
+      "text": "Create named swatches, including CMYK, and use them throughout the document. That keeps your brand colors the same on every page. On PDF export, DesignKoja outputs CMYK and spot colors."
+    },
+    {
+      "title": "Tables, text wrap and fine typography",
+      "text": "Tables, text wrap around objects with adjustable offset, baseline grid, tabs, rules, shading and optical margin alignment are included. You control justification with word spacing, letter spacing and glyph scaling. Tables have fewer options than in InDesign, and anchored objects in cells aren’t displayed."
+    },
+    {
+      "title": "Footnotes, index and books",
+      "text": "For long documents there are footnotes, cross-references, an index and books made of several documents. There’s also XML structure with tags, plus buttons and forms."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "DesignKoja: A4 page with a placed photo, a headline and two-column text, with the Properties panel on the right",
+      "caption": "Image frame, headline and column text on one page, with the properties on the right."
+    },
+    {
+      "file": "page.webp",
+      "alt": "Page set in DesignKoja: landscape photo, the headline “Herbst am Lindenhof” and two-column body text",
+      "caption": "The text runs in balanced columns, exported as an image of the finished page."
+    }
+  ],
+  "switching": {
+    "title": "Switching from InDesign to DesignKoja: the alternative for Mac and Windows",
+    "paragraphs": [
+      "The basic concepts stay the same: spreads, master pages, text frames that you thread, paragraph and character styles, swatches and a Properties panel for columns, gutter and text wrap. If you’ve worked with InDesign, you already know the principle. You edit images in [PhotoKoja](/software/photo-koja) and logos and graphics in [VectorKoja](/software/vector-koja); both are included in the price, whether you pay monthly or make the one-time purchase.",
+      "The best way to bring your layouts over is as IDML: export them from InDesign as IDML and open them in DesignKoja. DesignKoja can also open INDD files directly, but IDML is the more reliable route. IDML import also has known bugs, such as frames that aren’t displayed or fonts reported as missing. So export your important documents as IDML and PDF while your Adobe subscription is still running. The guide [Canceling your Adobe subscription](/ratgeber/adobe-abo-kuendigen) explains how to end it.",
+      "What you should know before switching: hyphenation is available for five languages, not including German, and the spell check only covers English. PDF/X-1a, PDF/X-3 and Adobe PDF presets (.joboptions) aren’t included, and neither are PostScript output, print presets and separations when printing. InDesign scripts and plug-ins don’t run. Automatic text flow via the primary text frame adds pages that can’t be deleted; manual threading works. There are known bugs when saving changes to paragraph styles, and installed fonts aren’t always found, for example from user font folders or font managers. DesignKoja is in active development: you get updates and new features automatically and free of charge.",
+      "How to test in 3 days: download the Kojalytics Launcher, install DesignKoja and first open the included four-page sample document. Then take an IDML file from a real project, check fonts, breaks and colors, and export a PDF/X-4 for your print shop. On some Intel Macs the app crashes right at launch because of a known graphics bug, so you’ll notice that immediately. If it doesn’t suit you, you pay nothing."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "€25.99 a month as a single app (annual plan, billed monthly), only available as a subscription"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "monthly, cancel online any time, no fee",
+        "other": "annual plan renews automatically; canceling after 14 days costs 50% of the remaining contract value"
+      },
+      {
+        "label": "Account required",
+        "koja": "no",
+        "other": "yes, an Adobe account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "yes, internet only for download and activation",
+        "other": "yes, the license is checked online regularly"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "IDML (open, export), INDD (open, experimental), PDF/X-4, PDF/A-2b, EPUB, PPTX",
+        "other": "INDD, IDML, PDF/X-1a, PDF/X-3, PDF/X-4, EPUB"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS (Apple silicon and Intel) and Windows",
+        "other": "macOS and Windows"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you want to design flyers, brochures, magazines or a club newsletter on a Mac or PC without paying for an Adobe subscription",
+    "you want to work with master pages, threaded text frames and paragraph styles",
+    "you want to open IDML files on a Mac or PC without installing InDesign",
+    "you need image editing, vector graphics and PDF tools as well as layout: all 13 Koja apps together cost €19.99 a month or €79 once"
+  ],
+  "notFor": [
+    "you want to typeset long German texts with automatic hyphenation and German spell checking",
+    "your print shop requires PDF/X-1a or PDF/X-3, or you need InDesign scripts and plug-ins"
+  ],
+  "formats": [
+    "IDML (open and export)",
+    "INDD (open, experimental)",
+    "PDF (export)",
+    "PDF/X-4 (export)",
+    "PDF/A-2b (export)",
+    "PPTX (export, editable)",
+    "PNG (export)",
+    "EPUB 3 (export)",
+    "EPS (place, preview only)"
+  ],
+  "faq": [
+    {
+      "q": "Is DesignKoja a full InDesign alternative?",
+      "a": "For flyers, brochures and your own layouts, yes: master pages, threaded text frames, styles, tables and PDF/X-4 export are included. Not included are German hyphenation, PDF/X-1a, InDesign scripts and plug-ins, and some features have known bugs. DesignKoja is in active development, and you get updates free of charge. Check your print jobs in the free trial."
+    },
+    {
+      "q": "Can I open IDML and INDD files on a Mac or PC without InDesign?",
+      "a": "You open IDML files in DesignKoja directly and can export them back to IDML. DesignKoja opens INDD files via a built-in import library, but IDML is the more reliable route. IDML import also has known bugs. So check your most important files in the free trial before you rely on it."
+    },
+    {
+      "q": "What kind of PDFs does my print shop get from DesignKoja?",
+      "a": "DesignKoja exports PDF/X-4 and PDF/A-2b with embedded fonts, CMYK and spot colors, bleed and crop marks. PDF/X-1a, PDF/X-3 and Adobe PDF presets (.joboptions) aren’t included. Ask your print shop beforehand whether it accepts PDF/X-4."
+    },
+    {
+      "q": "Can I typeset text in other languages, such as German?",
+      "a": "Yes, but with limits. Automatic hyphenation is available for English, Spanish, Portuguese, Norwegian and Greek, not for German, and the spell check only covers English. In flyers, posters and short texts you’ll hardly notice; in long body text in narrow columns you will."
+    },
+    {
+      "q": "How much does DesignKoja cost compared to InDesign?",
+      "a": "DesignKoja costs €19.99 a month for all 13 Koja apps, or €79 as a one-time purchase, each for up to 3 devices. InDesign costs €25.99 a month as a single app on an annual plan billed monthly, which comes to €311.88 a year. If you cancel this Adobe plan after the first 14 days, you pay 50% of the remaining contract value as a fee. You can cancel the DesignKoja monthly subscription online any time at [kojalytics.com/kuendigen](/kuendigen), with no fee."
+    },
+    {
+      "q": "Is DesignKoja free?",
+      "a": "You can try DesignKoja free for 3 days, together with the other 12 Koja apps and without an account. Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email."
+    }
+  ]
+}

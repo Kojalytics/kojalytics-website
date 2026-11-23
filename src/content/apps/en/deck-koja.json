@@ -1,0 +1,166 @@
+{
+  "kind": "Presentations",
+  "benefit": "Open, edit and present PowerPoint files in PPTX format on your Mac or PC, with Morph and Presenter View.",
+  "keyword": "PowerPoint alternative Mac",
+  "metaTitle": "PowerPoint Alternative for Mac and Windows: DeckKoja",
+  "metaDescription": "DeckKoja is a PowerPoint alternative for Mac and Windows: open and save PPTX, Morph, Presenter View. Try it free for 3 days, then €19.99 a month.",
+  "h1": "PowerPoint alternative for Mac and Windows: open, edit and present PPTX",
+  "lead": "DeckKoja is a PowerPoint alternative for Mac and Windows, with slide masters, Morph transitions and Presenter View. The interface is in English. Try the app free for 3 days with your own slides.",
+  "highlights": [
+    "Open and save PPTX",
+    "Transitions including Morph",
+    "Presenter View with notes"
+  ],
+  "features": [
+    {
+      "title": "Open and save PPTX",
+      "text": "DeckKoja opens PowerPoint presentations in PPTX format and saves them back the same way. It also opens templates (POTX) and slide shows (PPSX), but saves them as regular PPTX. So test elaborate company templates and your most important files first."
+    },
+    {
+      "title": "Slide masters, layouts and themes",
+      "text": "A slide master with eleven layouts sets the position and formatting of the placeholders, and eight built-in themes bring color and font schemes. Sections, notes, comments, headers and footers and custom slide sizes are included. You edit text right on the slide, with bullets, numbering, columns and autofit."
+    },
+    {
+      "title": "More than 150 shapes and connectors",
+      "text": "You change more than 150 preset shapes with adjustment handles, and connectors stay attached to the shapes when you move them. With freeform and curve tools you draw your own shapes. “Merge Shapes” lets you union, combine, fragment, intersect or subtract several shapes."
+    },
+    {
+      "title": "Fills, outlines and effects",
+      "text": "You fill shapes with gradients, pictures or patterns. Outlines can be dashed and carry arrowheads, and there are effects like shadow, glow, soft edges and reflection. You set up a gradient in the format pane with type, direction, angle and gradient stops.",
+      "screenshot": "format-pane.webp"
+    },
+    {
+      "title": "Charts, tables, images and media",
+      "text": "You create charts directly on the slide, plus formatted tables, images with cropping and corrections, and simple SmartArt graphics. You embed audio and video and play them during the presentation. Editing chart data is limited.",
+      "screenshot": "dark-mode.webp"
+    },
+    {
+      "title": "Transitions with Morph, and animations",
+      "text": "You set transitions between slides, including Morph. Individual objects get entrance, emphasis and exit effects or motion paths, and you can build text paragraph by paragraph. The animation pane offers 64 effects, fewer than PowerPoint."
+    },
+    {
+      "title": "Presenting with Presenter View",
+      "text": "You show your slides full screen, and Presenter View shows you your notes, a preview of the next slides and the elapsed time. You can rehearse your talk with timings and draw on the slides with a pen. You move Presenter View to the second screen yourself."
+    },
+    {
+      "title": "Export as PDF, image and GIF",
+      "text": "You export slides, notes pages or handouts as PDF with selectable text. The graphics on the slides are saved as images, so the file gets larger and looks blurry when zoomed in a lot. You can also export slides as PNG or JPEG, the presentation as an animated GIF, and an outline."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "DeckKoja: slide with a flowchart of four shapes and arrows, Home ribbon and slide panel",
+      "caption": "Design slides with shapes, connectors and text, and keep all slides in view on the left."
+    },
+    {
+      "file": "format-pane.webp",
+      "alt": "DeckKoja: format pane with gradient, direction, angle and gradient stops for a selected shape",
+      "caption": "In the format pane you give shapes gradients, outlines and effects."
+    },
+    {
+      "file": "dark-mode.webp",
+      "alt": "DeckKoja in dark mode: slide with a column chart of generation and consumption per month",
+      "caption": "You edit charts right on the slide, shown here in dark mode."
+    }
+  ],
+  "switching": {
+    "title": "Switching from PowerPoint to DeckKoja: the alternative for Mac and Windows",
+    "paragraphs": [
+      "The layout will be familiar: a Ribbon with tabs, a slide panel with sections, a notes pane and a format pane for shapes. Slide masters, layouts, transitions and Presenter View work on the same principle. The interface is in English, with tabs like “Home” and “Shape Format”. [WordKoja](/software/word-koja) and [GridKoja](/software/grid-koja) for documents and spreadsheets are included in the price, whether you pay monthly or make the one-time purchase.",
+      "You bring your presentations along as PPTX: DeckKoja opens them directly and saves them back as PPTX, so you can share them with people who use PowerPoint. DeckKoja doesn’t open older PPT files, ODP or presentations with macros (PPTM), so save them as PPTX while you still have PowerPoint. When you save, the playback options for audio and video and the rewind setting for animations are lost, and DeckKoja uses fonts in regular, bold and italic only. So check elaborate company templates, SmartArt and embedded fonts during the trial.",
+      "What you should know before switching: printing and export as MP4 or MOV video aren’t included, and the animated GIF doesn’t show transitions. SmartArt has 15 layouts, the format pane offers fewer options than in PowerPoint, and there’s no grammar check, no add-ins, no VBA macros and no Copilot. Important day to day: if you close a changed presentation, DeckKoja discards the changes without asking; it only asks when you quit the app. So save regularly.",
+      "How to test in 3 days: download the Kojalytics Launcher, install DeckKoja and first look at one of the six included sample presentations. Then open a real PPTX file from your everyday work, check layout, fonts, charts and animations, save it as PPTX and open it where it will be shown later. Finally, rehearse a talk with Presenter View on a second screen. If it doesn’t suit you, you pay nothing."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "Microsoft 365 Single: €99 a year or €10 a month (with Word, Excel, Outlook and OneNote); Office Home 2024: €149 one-time purchase for one Mac"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "monthly, cancel online any time, no fee; or pay once and keep using it",
+        "other": "annual or monthly subscription, renews automatically at the regular price unless you cancel"
+      },
+      {
+        "label": "Account required",
+        "koja": "no",
+        "other": "yes, a Microsoft account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "yes, internet only for download and activation",
+        "other": "desktop app yes, web version online only"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "PPTX (open, save), POTX and PPSX (open), export as PDF, PNG, JPEG and GIF",
+        "other": "PPTX, PPT, POTX, PPSX, PPTM, ODP; export to PDF and video, among others"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS (Apple silicon and Intel) and Windows",
+        "other": "Windows, macOS, iPad, iPhone, Android and browser"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you want to open and edit PPTX files on a Mac or PC and pass them on as PPTX, without signing up for a Microsoft 365 subscription",
+    "you want to work with a Ribbon, slide masters, a format pane and Presenter View",
+    "you want to build presentations with transitions like Morph, animations, charts and embedded videos",
+    "you edit documents, spreadsheets and PDFs as well as presentations: all 13 Koja apps together cost €19.99 a month or €79 once"
+  ],
+  "notFor": [
+    "you share presentations with video and audio playback options: these options are lost when saving",
+    "you need an interface in a language other than English, a grammar check or AI features like Copilot",
+    "you want to open old PPT files, ODP or presentations with macros, or print your slides"
+  ],
+  "formats": [
+    "PPTX (open and save)",
+    "POTX (open, saves as PPTX)",
+    "PPSX (open, saves as PPTX)",
+    "PDF (export: slides, notes pages, handouts)",
+    "PNG and JPEG (export)",
+    "Animated GIF (export, without transitions)",
+    "Outline (export)",
+    "Audio: MP3, AAC, FLAC, ALAC, Ogg, Opus, WAV, AIFF",
+    "Video: H.264, HEVC, VP9, AV1",
+    "EMF and WMF (display images)",
+    "PPT, ODP, PPTM (not supported)"
+  ],
+  "faq": [
+    {
+      "q": "Is DeckKoja a full PowerPoint alternative?",
+      "a": "For many talks, yes: opening and saving PPTX, slide masters, shapes, charts, Morph and Presenter View are included. Not included are printing, video export, an interface in languages other than English, a grammar check, add-ins and Copilot. DeckKoja is in active development, and you get updates free of charge. Check complex company templates in the free trial."
+    },
+    {
+      "q": "Can I open and edit PPTX files on a Mac or PC without PowerPoint?",
+      "a": "Yes. DeckKoja opens PPTX files, you edit them and save them back as PPTX. DeckKoja also opens POTX and PPSX files but saves them as regular PPTX; old PPT files, ODP and PPTM don’t work. When you save, the playback options for audio and video are lost, so check your most important files in the free trial."
+    },
+    {
+      "q": "Can I use PowerPoint on a Mac or PC without a subscription?",
+      "a": "Microsoft offers two ways: a one-time purchase like Office Home 2024 (€149 for one Mac), or free in the browser with a Microsoft account. The Mac app from the App Store, on the other hand, can only be activated with a Microsoft 365 subscription; Microsoft 365 Single costs €99 a year or €10 a month. DeckKoja is available for €79 as a one-time purchase covering all 13 Koja apps on up to 3 devices, without an account, or for €19.99 a month. Learn more in the guide [Office for Mac without a subscription](/ratgeber/office-fuer-mac-ohne-abo)."
+    },
+    {
+      "q": "Can I present with DeckKoja like with PowerPoint?",
+      "a": "Basically, yes: full screen with Presenter View, you see your notes, a preview of the next slides and the elapsed time. You can rehearse your talk with timings and draw on the slides with a pen. You move Presenter View to the second screen yourself, so try everything out calmly before an important event."
+    },
+    {
+      "q": "What language is DeckKoja in?",
+      "a": "The interface is in English. You can still write your slides in other languages, such as German. The app doesn’t come with dictionaries: without an extra dictionary installed, the spell check only catches common typos, and there’s no grammar check."
+    },
+    {
+      "q": "Is DeckKoja free?",
+      "a": "You can try DeckKoja free for 3 days, together with the other 12 Koja apps and without an account. Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge. You can cancel the €19.99 monthly subscription online any time at [kojalytics.com/kuendigen](/kuendigen), with no fee."
+    }
+  ]
+}

@@ -40,6 +40,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 </style></head>
 <body>
   <div id="kj-bar"><a class="kj-back" href="https://www.kojalytics.com/web">&larr; Alle Apps</a><span class="kj-msg">Gefällt dir <b>GridKoja</b>? Hol dir alle 13 Apps für Mac und Windows: schneller, offline, kein Abo.</span><a class="kj-buy" href="https://www.kojalytics.com/office">Jetzt kaufen &middot; 79 €</a></div>
+  <script id="kj-lang">(function(){var q=location.search,en=/[?&]lang=en\b/.test(q)||(!/[?&]lang=de\b/.test(q)&&!/^de/i.test(navigator.language||""));if(!en)return;document.documentElement.lang="en";var b=document.getElementById("kj-bar");b.querySelector(".kj-back").href="https://www.kojalytics.com/en/web";b.querySelector(".kj-back").innerHTML="&larr; All apps";b.querySelector(".kj-msg").innerHTML="Like <b>GridKoja</b>? Get all 13 apps for Mac and Windows: faster, offline, no subscription.";var k=b.querySelector(".kj-buy");k.href="https://www.kojalytics.com/en/office";k.innerHTML="Buy now &middot; &euro;79"})()</script>
   <canvas id="gridcraft_canvas"></canvas>
   <div id="gridcraft_loading">GridKoja wird geladen&hellip; (beim ersten Mal einige Sekunden)</div>
 </body>

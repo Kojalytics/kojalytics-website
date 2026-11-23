@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import OfficeBoxStatic from "@/components/office/OfficeBoxStatic";
+import { href, type Lang } from "@/lib/i18n";
 
 export type SolarApp = { slug: string; name: string; kind: string };
 
@@ -63,7 +64,7 @@ function Lines() {
   );
 }
 
-export default function SolarSystem({ apps }: { apps: SolarApp[] }) {
+export default function SolarSystem({ apps, lang = "de" }: { apps: SolarApp[]; lang?: Lang }) {
   let next = 0;
   return (
     <div className="solar" style={{ ["--k" as string]: K, ["--back" as string]: BACK }}>
@@ -84,7 +85,7 @@ export default function SolarSystem({ apps }: { apps: SolarApp[] }) {
             return (
               <div key={app.slug} className="solar-x" style={style}>
                 <div className="solar-y">
-                  <Link href={`/software/${app.slug}`} prefetch={false} className="solar-app group" aria-label={`${app.name}: ${app.kind}`}>
+                  <Link href={href(lang, `/software/${app.slug}`)} prefetch={false} className="solar-app group" aria-label={`${app.name}: ${app.kind}`}>
                     <Image src={`/apps/${app.slug}/icon.webp`} alt="" width={104} height={104} sizes="(min-width: 1024px) 72px, 52px" className="solar-icon" />
                     <span className="solar-name">{app.name}</span>
                   </Link>
@@ -99,6 +100,7 @@ export default function SolarSystem({ apps }: { apps: SolarApp[] }) {
           width="var(--bw)"
           sizes="(min-width: 1440px) 440px, (min-width: 1280px) 400px, (min-width: 1024px) 320px, (min-width: 640px) 320px, 260px"
           tone="light"
+          lang={lang}
         />
       </div>
     </div>

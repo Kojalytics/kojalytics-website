@@ -5,15 +5,54 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import { HONEYPOT, MIN_FILL_MS } from "@/lib/form-guard";
 import { TRIAL_DAYS } from "@/lib/pricing";
+import { href } from "@/lib/i18n";
+import { useLang } from "@/lib/use-lang";
 import { track } from "@/lib/track";
 
-const FAILED = "Das hat nicht geklappt. Bitte versuche es erneut.";
+const de = {
+  failed: "Das hat nicht geklappt. Bitte versuche es erneut.",
+  shareTitle: "Koja-Apps für Mac und Windows",
+  shareText: `Koja-Apps für Mac und Windows: laden und ${TRIAL_DAYS} Tage kostenlos testen.`,
+  close: "Schließen",
+  title: "Link an deinen Computer schicken",
+  text: "Die Apps laufen auf Mac und Windows. Wir schicken dir den Download-Link, öffne ihn am Computer.",
+  sentTo: "Gesendet an ",
+  openMail: "Öffne die E-Mail an deinem Computer.",
+  done: "Fertig",
+  email: "Deine E-Mail-Adresse",
+  remind: "Erinnere mich morgen noch einmal per E-Mail",
+  sending: "Wird gesendet …",
+  send: "Link senden",
+  privacy: ["Wir nutzen deine Adresse nur dafür. Mehr in der", "Datenschutzerklärung"],
+  copied: "Link kopiert, öffne ihn am Computer",
+  share: "Stattdessen teilen",
+};
+const en: typeof de = {
+  failed: "That didn't work. Please try again.",
+  shareTitle: "Koja apps for Mac and Windows",
+  shareText: `Koja apps for Mac and Windows: download them and try them free for ${TRIAL_DAYS} days.`,
+  close: "Close",
+  title: "Send the link to your computer",
+  text: "The apps run on Mac and Windows. We'll email you the download link; open it on your computer.",
+  sentTo: "Sent to ",
+  openMail: "Open the email on your computer.",
+  done: "Done",
+  email: "Your email address",
+  remind: "Remind me again by email tomorrow",
+  sending: "Sending…",
+  send: "Send link",
+  privacy: ["We only use your address for this. More in our", "privacy policy"],
+  copied: "Link copied, open it on your computer",
+  share: "Share instead",
+};
 
 /**
- * Phones and tablets cannot install the apps: the visitor e-mails the download links to themselves (/api/send-link)
+ * Phones and tablets cannot install the apps: the visitor emails the download links to themselves (/api/send-link)
  * or shares the page. A modal <dialog>: a bottom sheet on phones, centred from sm up. Escape closes it.
  */
 export default function SendLinkDialog({ source, onClose }: { source: string; onClose: () => void }) {
+  const lang = useLang();
+  const t = lang === "de" ? de : en;
   const dialogRef = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const sentRef = useRef<HTMLDivElement>(null);
@@ -52,11 +91,11 @@ export default function SendLinkDialog({ source, onClose }: { source: string; on
       const res = await fetch("/api/send-link", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, remind, source, fillMs: Math.round(performance.now() - shownAt.current), [HONEYPOT]: trap }),
+        body: JSON.stringify({ email, remind, source, lang, fillMs: Math.round(performance.now() - shownAt.current), [HONEYPOT]: trap }),
       }).catch(() => null);
       const data = res ? await res.json().catch(() => ({})) : {};
       if (!res?.ok) {
-        setError(data.error || FAILED);
+        setError(data.error || t.failed);
         return;
       }
       track("SendToMac", { content_name: source });
@@ -66,20 +105,20 @@ export default function SendLinkDialog({ source, onClose }: { source: string; on
     }
   }
 
-  // The earlier behaviour of the button: share sheet, else clipboard, else a prepared e-mail.
+  // The earlier behaviour of the button: share sheet, else clipboard, else a prepared email.
   async function share() {
     track("SendToMac", { content_name: source });
-    const url = `${window.location.origin}/software`;
-    const text = `Koja-Apps für Mac und Windows: laden und ${TRIAL_DAYS} Tage kostenlos testen.`;
+    const url = `${window.location.origin}${lang === "de" ? "/software" : href(lang, "/")}`;
+    const text = t.shareText;
     if (navigator.share) {
-      await navigator.share({ title: "Koja-Apps für Mac und Windows", text, url }).then(close, () => {});
+      await navigator.share({ title: t.shareTitle, text, url }).then(close, () => {});
       return;
     }
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
     } catch {
-      window.location.href = `mailto:?subject=${encodeURIComponent("Koja-Apps für Mac und Windows")}&body=${encodeURIComponent(`${text}\n${url}`)}`;
+      window.location.href = `mailto:?subject=${encodeURIComponent(t.shareTitle)}&body=${encodeURIComponent(`${text}\n${url}`)}`;
     }
   }
 
@@ -100,28 +139,28 @@ export default function SendLinkDialog({ source, onClose }: { source: string; on
         <button
           type="button"
           onClick={close}
-          aria-label="Schließen"
+          aria-label={t.close}
           className="absolute right-1.5 top-1.5 grid h-11 w-11 place-items-center text-muted transition-colors hover:text-foreground"
         >
           <X size={18} aria-hidden />
         </button>
         <h2 id="send-link-title" className="display pr-10 text-[1.4rem] sm:text-[1.55rem]">
-          Link an deinen Computer schicken
+          {t.title}
         </h2>
         <p id="send-link-text" className="mt-3 text-[15px] leading-relaxed text-muted">
-          Die Apps laufen auf Mac und Windows. Wir schicken dir den Download-Link, öffne ihn am Computer.
+          {t.text}
         </p>
 
         {sentTo ? (
           <>
             <div ref={sentRef} tabIndex={-1} role="status" className="mt-5 border border-border border-t-2 border-t-success p-4 outline-none">
               <p className="font-semibold">
-                Gesendet an <span className="break-all">{sentTo}</span>.
+                {t.sentTo}<span className="break-all">{sentTo}</span>.
               </p>
-              <p className="mt-1 text-muted">Öffne die E-Mail an deinem Computer.</p>
+              <p className="mt-1 text-muted">{t.openMail}</p>
             </div>
             <button type="button" onClick={close} className="btn-secondary mt-4 w-full">
-              Fertig
+              {t.done}
             </button>
           </>
         ) : (
@@ -134,7 +173,7 @@ export default function SendLinkDialog({ source, onClose }: { source: string; on
               </div>
               <div className="grid gap-2">
                 <label htmlFor="send-link-email" className="text-sm font-semibold">
-                  Deine E-Mail-Adresse
+                  {t.email}
                 </label>
                 <input
                   ref={inputRef}
@@ -160,7 +199,7 @@ export default function SendLinkDialog({ source, onClose }: { source: string; on
                   onChange={(e) => setRemind(e.target.checked)}
                   className="mt-0.5 h-4 w-4 shrink-0 accent-foreground"
                 />
-                Erinnere mich morgen noch einmal per E-Mail
+                {t.remind}
               </label>
               {error && (
                 <p id="send-link-error" className="border-l-2 border-red-700 pl-3 text-sm font-medium text-red-700" role="alert">
@@ -168,12 +207,12 @@ export default function SendLinkDialog({ source, onClose }: { source: string; on
                 </p>
               )}
               <button type="submit" className="btn-primary w-full" disabled={busy}>
-                {busy ? "Wird gesendet …" : "Link senden"}
+                {busy ? t.sending : t.send}
               </button>
               <p className="text-xs leading-relaxed text-muted">
-                Wir nutzen deine Adresse nur dafür. Mehr in der{" "}
-                <Link href="/datenschutz" className="text-foreground underline underline-offset-2">
-                  Datenschutzerklärung
+                {t.privacy[0]}{" "}
+                <Link href={href(lang, "/datenschutz")} className="text-foreground underline underline-offset-2">
+                  {t.privacy[1]}
                 </Link>
                 .
               </p>
@@ -183,7 +222,7 @@ export default function SendLinkDialog({ source, onClose }: { source: string; on
               onClick={share}
               className="mt-3 min-h-11 text-sm font-medium text-muted underline underline-offset-4 transition-colors hover:text-foreground"
             >
-              <span aria-live="polite">{copied ? "Link kopiert, öffne ihn am Computer" : "Stattdessen teilen"}</span>
+              <span aria-live="polite">{copied ? t.copied : t.share}</span>
             </button>
           </>
         )}
