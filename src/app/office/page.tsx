@@ -126,7 +126,7 @@ const TILES = [
 
 // What comes after the one payment: nothing.
 const AFTER = [
-  { label: "Abo-Gebühr pro Jahr", note: "Dauerlizenz: einmal zahlen, kein Abo." },
+  { label: "Abo-Gebühr pro Jahr", note: "Einmalkauf: einmal zahlen, kein Abo." },
   { label: "Updates", note: "Kostenlos über den Kojalytics Launcher." },
   { label: "Zweiter und dritter Computer", note: "Bis zu 3 Geräte, Mac oder Windows-PC." },
 ];
@@ -214,7 +214,7 @@ function OrderCard() {
         <Image src="/office/koja-office-icon.png" alt="" width={34} height={34} unoptimized />
         <span>
           <b>Koja Office 2026</b>
-          <small>Dauerlizenz</small>
+          <small>Einmalkauf</small>
         </span>
         <span className="ko-ui-amount">
           <Price />

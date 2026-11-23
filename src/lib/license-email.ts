@@ -216,7 +216,7 @@ ${perks.map((p) => `<tr><td valign="top" width="22" style="width:22px;padding:3p
 <tr><td class="px" style="padding:44px 32px 0 32px;">
 <p style="margin:0 0 10px 0;${HUD}">Deine Bestellung</p>
 <table ${TABLE} width="100%" style="border-top:2px solid ${INK};">
-${row('Produkt', `Koja-Apps &middot; ${d.subscription ? 'Monatlich' : 'Dauerhaft'}<br><span style="font-size:13px;color:${MUTED};">Alle 13 Koja-Apps für Mac und Windows${d.subscription ? ', monatlich kündbar' : ', ohne Ablaufdatum'}</span>`)}
+${row('Produkt', `Koja-Apps &middot; ${d.subscription ? 'Monatlich' : 'Einmalkauf'}<br><span style="font-size:13px;color:${MUTED};">Alle 13 Koja-Apps für Mac und Windows${d.subscription ? ', monatlich kündbar' : ', einmal bezahlt, kein Abo'}</span>`)}
 ${row('Preis', d.subscription ? `${euro(plan.cents)} pro Monat` : `${euro(plan.cents)} einmalig`)}
 ${d.code ? row('Rabattcode', `<span style="font-family:${MONO};letter-spacing:0.5px;">${esc(d.code)}</span>`) : ''}
 ${d.paidCents !== null ? row(d.subscription && discounted ? 'Bezahlt (erster Monat)' : 'Bezahlt', euro(d.paidCents), true) : ''}

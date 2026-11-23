@@ -123,7 +123,7 @@ export default function SoftwarePage() {
             <div className="sw-hero-inner mx-auto max-w-[1440px] px-5 pb-12 pt-6 md:px-10 lg:py-8">
               <div className="sw-hero-copy">
                 <h1 className="sw-hero-title display w-full text-[clamp(1.75rem,3.6vw,2.9rem)]">
-                  <span className="sw-hero-mark rise-in flex items-center gap-[0.25em] whitespace-nowrap uppercase tracking-[-0.02em]"><img src="/office/koja-office-icon.png" alt="" width={256} height={256} className="h-[0.95em] w-[0.95em] shadow-[0_6px_18px_-6px_rgba(81,69,229,0.45)] rounded-[22%]" />Koja Office</span>{" "}
+                  <span className="sw-hero-mark rise-in flex items-center gap-[0.25em] whitespace-nowrap uppercase tracking-[-0.02em]"><img src="/office/koja-office-icon.png" alt="" width={256} height={256} className="h-[0.95em] w-[0.95em] max-sm:hidden shadow-[0_6px_18px_-6px_rgba(81,69,229,0.45)] rounded-[22%]" />Koja Office</span>{" "}
                   <span className="sw-hero-line rise-in block [--i:1]">
                     {/* Fixed line breaks, so the lines stay put when the headline font replaces its fallback (no layout shift) */}
                     <span className="block">13 Apps für Mac und Windows.</span>{" "}

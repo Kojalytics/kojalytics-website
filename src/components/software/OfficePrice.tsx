@@ -81,7 +81,7 @@ export function Receipt({ source }: { source: string }) {
         <p className="ko-rcpt-amt">{amount(PLANS.lifetime.cents)}</p>
       </div>
       <p className="ko-rcpt-sub">
-        <b>Dauerlizenz</b> · 13 Apps für Mac und Windows, auf bis zu 3 Geräten
+        <b>Einmalkauf</b> · 13 Apps für Mac und Windows, auf bis zu 3 Geräten
       </p>
       {discount && (
         <div className="ko-rcpt-line ko-rcpt-line--minus">
