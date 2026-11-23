@@ -1,6 +1,7 @@
 import type { FaqItem } from "@/components/software/Faq";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import type { Lang } from "@/lib/i18n";
+import { localizeAll, type Currency } from "@/lib/currency";
 
 // Answers that hold for both offers: the /software page (monthly or one-time) and the Digistore24 partner page (one-time only).
 const replaces: FaqItem = {
@@ -124,5 +125,5 @@ const SOFTWARE_FAQ_EN: FaqItem[] = [
   },
 ];
 
-/** The FAQ of the Koja Office pages in a language. */
-export const softwareFaq = (lang: Lang): FaqItem[] => (lang === "de" ? SOFTWARE_FAQ : SOFTWARE_FAQ_EN);
+/** The FAQ of the Koja Office pages in a language, with the prices in the visitor's currency. */
+export const softwareFaq = (lang: Lang, cur: Currency = "EUR"): FaqItem[] => localizeAll(lang === "de" ? SOFTWARE_FAQ : SOFTWARE_FAQ_EN, lang, cur);

@@ -24,6 +24,7 @@ import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
 import { softwareFaq } from "@/lib/software-faq";
 import { SITE_URL, jsonLd } from "@/lib/site";
 import { href, type Lang } from "@/lib/i18n";
+import { visitorCurrency } from "@/lib/currency-server";
 
 const de = {
   offerMonthly: "Monatlich, alle 13 Koja-Apps",
@@ -223,20 +224,22 @@ function Highlight({ text, word }: { text: string; word: string }) {
 }
 
 /** The page of one Koja app (/software/<slug> and /en/software/<slug>). */
-export default function AppView({ slug, lang }: { slug: string; lang: Lang }) {
+export default async function AppView({ slug, lang }: { slug: string; lang: Lang }) {
   const t = T[lang];
-  const APPS = appsFor(lang);
+  // Prices in the visitor's currency (from their country); the page renders per request.
+  const cur = await visitorCurrency();
+  const APPS = appsFor(lang, cur);
   const app = APPS.find((a) => a.slug === slug);
   if (!app) notFound();
-  const monthly = planText("monthly", lang).label;
-  const once = planText("lifetime", lang).label;
+  const monthly = planText("monthly", lang, cur).label;
+  const once = planText("lifetime", lang, cur).label;
 
   const hero = app.shots[0];
   // Screenshots not already shown next to a feature.
   const used = new Set(app.features.map((f) => f.screenshot).filter(Boolean));
   const gallery = app.shots.slice(1).filter((s) => !used.has(s.src.split("/").pop()));
   const others = APPS.filter((a) => a.slug !== app.slug);
-  const general = softwareFaq(lang);
+  const general = softwareFaq(lang, cur);
   const faq = [...app.faq, general[1], general[2]];
   const featureRows = app.features.filter((f) => f.screenshot);
   const featureCards = app.features.filter((f) => !f.screenshot);
@@ -281,7 +284,7 @@ export default function AppView({ slug, lang }: { slug: string; lang: Lang }) {
 
   return (
     <>
-      <OfferDiscount running={isOfferRunning()}>
+      <OfferDiscount running={isOfferRunning()} currency={cur}>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(appJsonLd)} />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(faq))} />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumb)} />

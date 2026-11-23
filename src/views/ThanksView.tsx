@@ -19,7 +19,7 @@ async function purchaseFor(sessionId: string | undefined) {
     // A non-secret order id for the ad reports (never the session id, which unlocks this page).
     const ref = license.subscription ? session.subscription : session.payment_intent;
     const orderId = typeof ref === "string" ? ref : (ref?.id ?? license.key.slice(0, 8));
-    return { license, orderId, amount: (session.amount_total ?? 0) / 100 };
+    return { license, orderId, amount: (session.amount_total ?? 0) / 100, currency: (session.currency ?? "eur").toUpperCase() };
   } catch (e) {
     console.error("Success page: license lookup failed", e);
     return null;
@@ -97,7 +97,7 @@ export default async function ThanksView({ lang, searchParams }: { lang: Lang; s
       <main className="pt-12">
         {purchase ? (
           <>
-            <TrackPurchase orderId={purchase.orderId} value={purchase.amount} subscription={purchase.license.subscription} />
+            <TrackPurchase orderId={purchase.orderId} value={purchase.amount} currency={purchase.currency} subscription={purchase.license.subscription} />
             {/* 01 License key and download */}
             <section className="rail">
               <SectionBar index="01" label={t.purchase} meta={t.purchaseMeta} />

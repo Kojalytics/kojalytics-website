@@ -118,7 +118,9 @@ export default function TermsPage() {
 
             <Section title="4. Preise und Zahlung">
               <P>
-                Alle Preise sind Endpreise inklusive Mehrwertsteuer. Du zahlst über Stripe per Kredit- oder Debitkarte oder mit
+                Alle Preise sind Endpreise. Preise in Euro enthalten die gesetzliche Mehrwertsteuer. Je nach Land zeigen wir die Preise
+                in deiner Landeswährung an (zum Beispiel US-Dollar, Pfund oder Franken); dann gilt der auf der Website und im Stripe
+                Checkout angezeigte Betrag in dieser Währung, ohne deutsche Mehrwertsteuer. Du zahlst über Stripe per Kredit- oder Debitkarte oder mit
                 einer anderen im Stripe Checkout angezeigten Zahlungsart. Das Monatsabo wird ab dem Kauf monatlich im Voraus abgerechnet, die dauerhafte
                 Lizenz einmalig beim Kauf.
               </P>
@@ -126,7 +128,7 @@ export default function TermsPage() {
 
             <Section title="5. Monatsabo: Laufzeit und Kündigung">
               <P>
-                Das Monatsabo kostet {PLANS.monthly.label} pro Monat. Es läuft jeweils einen Monat und verlängert sich
+                Das Monatsabo kostet {PLANS.monthly.label} pro Monat (in anderen Währungen den angezeigten Betrag). Es läuft jeweils einen Monat und verlängert sich
                 automatisch um einen weiteren Monat, wenn du nicht kündigst.
               </P>
               <P>
@@ -142,7 +144,7 @@ export default function TermsPage() {
 
             <Section title="6. Dauerhafte Lizenz">
               <P>
-                Die dauerhafte Lizenz kostet einmalig {PLANS.lifetime.label}. Sie hat kein Ablaufdatum und verlängert sich
+                Die dauerhafte Lizenz kostet einmalig {PLANS.lifetime.label} (in anderen Währungen den angezeigten Betrag). Sie hat kein Ablaufdatum und verlängert sich
                 nicht; weitere Zahlungen fallen nicht an.
               </P>
             </Section>

@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { ShoppingBag } from "lucide-react";
-import { PLANS, planText, type Plan } from "@/lib/pricing";
-import { euro, useDiscount } from "@/lib/discount-store";
+import { planText, type Plan } from "@/lib/pricing";
+import { useDiscount } from "@/lib/discount-store";
+import { PRICES, money } from "@/lib/currency";
+import { useCurrency } from "@/lib/use-currency";
 import { href } from "@/lib/i18n";
 import { useLang } from "@/lib/use-lang";
 import { track } from "@/lib/track";
@@ -42,6 +44,7 @@ export default function BuyButton({
   className?: string;
 }) {
   const lang = useLang();
+  const cur = useCurrency();
   const t = lang === "de" ? de : en;
   const [busy, setBusy] = useState(false);
   const discount = useDiscount();
@@ -58,7 +61,7 @@ export default function BuyButton({
 
   async function buy() {
     setBusy(true);
-    track("InitiateCheckout", { value: (reduced ?? PLANS[plan].cents) / 100, currency: "EUR", content_name: `${plan}:${source}` });
+    track("InitiateCheckout", { value: (reduced ?? PRICES[cur][plan]) / 100, currency: cur, content_name: `${plan}:${source}` });
     try {
       const res = await fetch("/api/license/checkout", {
         method: "POST",
@@ -77,7 +80,7 @@ export default function BuyButton({
   return (
     <button type="button" onClick={buy} disabled={busy} className={`btn-buy ${className}`}>
       <ShoppingBag size={15} strokeWidth={2.2} aria-hidden />
-      {busy ? t.busy : (label ?? t.label(reduced !== undefined ? euro(reduced, lang) : planText(plan, lang).label, action))}
+      {busy ? t.busy : (label ?? t.label(reduced !== undefined ? money(reduced, cur, lang) : planText(plan, lang, cur).label, action))}
     </button>
   );
 }

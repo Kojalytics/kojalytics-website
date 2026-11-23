@@ -18,6 +18,9 @@ import Faq, { type FaqItem } from "@/components/software/Faq";
 import { appInk, appsFor } from "@/lib/apps";
 import { TRIAL_DAYS } from "@/lib/pricing";
 import { discountForPage } from "@/lib/discount-page";
+import { money, type Currency } from "@/lib/currency";
+import { visitorCurrency } from "@/lib/currency-server";
+import { CurrencyProvider } from "@/lib/use-currency";
 import { href, type Lang } from "@/lib/i18n";
 import "@/app/office/office.css";
 
@@ -511,9 +514,10 @@ const en: typeof de = {
 const T = { de, en };
 
 /** The headline continues the ad the visitor tapped (utm_content of the ad link). */
-function headline(content: string, lang: Lang): { key: string; first: ReactNode; second: ReactNode } {
+function headline(content: string, lang: Lang, cur: Currency): { key: string; first: ReactNode; second: ReactNode } {
   const ad = content.toLowerCase();
-  const key = ad.includes("laptop") ? "laptop" : ad.includes("rechner") ? "rechner" : ad.includes("vs") ? "vs" : "default";
+  // The calculator headline quotes euro prices: other currencies get the default one.
+  const key = ad.includes("laptop") ? "laptop" : ad.includes("rechner") && cur === "EUR" ? "rechner" : ad.includes("vs") ? "vs" : "default";
   return { key, ...T[lang].h1[key] };
 }
 
@@ -603,14 +607,18 @@ export default async function OfficeView({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const t = T[lang];
-  const apps = appsFor(lang);
+  // Prices in the visitor's currency (from their country), here and in Checkout.
+  const cur = await visitorCurrency();
+  const apps = appsFor(lang, cur);
   const params = await searchParams;
-  const found = await discountForPage(params.code ?? params.rabatt);
+  const found = await discountForPage(params.code ?? params.rabatt, cur);
   const discount = found?.prices.lifetime !== undefined ? found : null;
   const ad = params.utm_content;
-  const h1 = headline((Array.isArray(ad) ? ad[0] : ad) ?? "", lang);
+  const h1 = headline((Array.isArray(ad) ? ad[0] : ad) ?? "", lang, cur);
+  const zero = cur === "EUR" ? t.zero : money(0, cur, lang, true);
 
   return (
+    <CurrencyProvider currency={cur}>
     <DiscountProvider initial={discount}>
       <TrackView name={lang === "de" ? "office" : "office-en"} />
       <RevealManager />
@@ -681,7 +689,9 @@ export default async function OfficeView({
               </div>
             </section>
 
-            {/* 2 The sum of the calculator ad: five years of subscription against one payment */}
+            {/* 2 The sum of the calculator ad: five years of subscription against one payment (German euro list price of
+                Microsoft 365, so only for visitors who pay in euros) */}
+            {cur === "EUR" && (
             <section className="ko-stage ko-sum">
               <div className="ko-col">
                 <p className="ko-hud">{t.sumHud}</p>
@@ -724,6 +734,7 @@ export default async function OfficeView({
                 <p className="ko-foot">{t.foot}</p>
               </div>
             </section>
+            )}
 
             {/* 2b And after the one payment: a bill of nothing but zeros */}
             <section className="ko-sec">
@@ -737,12 +748,12 @@ export default async function OfficeView({
                         {row.label}
                         <small>{row.note}</small>
                       </dt>
-                      <dd>{t.zero}</dd>
+                      <dd>{zero}</dd>
                     </div>
                   ))}
                   <div className="ko-zero ko-zero--sum">
                     <dt>{t.afterSum}</dt>
-                    <dd>{t.zero}</dd>
+                    <dd>{zero}</dd>
                   </div>
                 </dl>
               </div>
@@ -945,5 +956,6 @@ export default async function OfficeView({
         </div>
       </Suspense>
     </DiscountProvider>
+    </CurrencyProvider>
   );
 }

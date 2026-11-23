@@ -8,6 +8,8 @@ import { appsFor } from "@/lib/apps";
 import { WEB_APPS } from "@/lib/web-apps";
 import { planText } from "@/lib/pricing";
 import { href, type Lang } from "@/lib/i18n";
+import { visitorCurrency } from "@/lib/currency-server";
+import { CurrencyProvider } from "@/lib/use-currency";
 
 const de = {
   label: "Im Browser",
@@ -54,11 +56,12 @@ const T = { de, en };
 const pad = "px-5 md:px-10";
 
 /** The browser versions of the Koja apps (/web and /en/web). */
-export default function WebView({ lang }: { lang: Lang }) {
+export default async function WebView({ lang }: { lang: Lang }) {
   const t = T[lang];
-  const apps = appsFor(lang).filter((a) => WEB_APPS.includes(a.slug));
+  const cur = await visitorCurrency();
+  const apps = appsFor(lang, cur).filter((a) => WEB_APPS.includes(a.slug));
   return (
-    <>
+    <CurrencyProvider currency={cur}>
       <Navigation />
       <main className="pt-12">
         <section className="rail">
@@ -96,7 +99,7 @@ export default function WebView({ lang }: { lang: Lang }) {
                 <span className="text-foreground">{t.desktop}</span> {t.desktopText}
               </p>
               <p className="text-[15px] leading-relaxed text-muted">
-                <span className="text-foreground">{t.all}</span> {t.allText(planText("lifetime", lang).label)}{" "}
+                <span className="text-foreground">{t.all}</span> {t.allText(planText("lifetime", lang, cur).label)}{" "}
                 <Link href={href(lang, "/#preise")} className="text-foreground underline underline-offset-4">
                   {t.prices}
                 </Link>
@@ -106,6 +109,6 @@ export default function WebView({ lang }: { lang: Lang }) {
         </section>
       </main>
       <Footer lang={lang} />
-    </>
+    </CurrencyProvider>
   );
 }

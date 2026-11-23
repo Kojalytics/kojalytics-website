@@ -23,6 +23,8 @@ import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
 import { softwareFaq } from "@/lib/software-faq";
 import { SITE_URL, jsonLd } from "@/lib/site";
 import { href, type Lang } from "@/lib/i18n";
+import { localizePrices } from "@/lib/currency";
+import { visitorCurrency } from "@/lib/currency-server";
 import compareDe from "@/content/software-compare.json";
 import compareEn from "@/content/software-compare.en.json";
 
@@ -333,20 +335,26 @@ const pad = "px-5 md:px-10";
 const two = (n: number) => String(n).padStart(2, "0");
 
 /** The Koja Office homepage (/ and /en). */
-export default function HomeView({ lang }: { lang: Lang }) {
+export default async function HomeView({ lang }: { lang: Lang }) {
   const t = T[lang];
-  const APPS = appsFor(lang);
+  // Prices in the visitor's currency (from their country); the page renders per request.
+  const cur = await visitorCurrency();
+  const APPS = appsFor(lang, cur);
   const getApp = (slug: string) => APPS.find((a) => a.slug === slug);
-  const monthly = planText("monthly", lang).label;
-  const once = planText("lifetime", lang).label;
+  const monthly = planText("monthly", lang, cur).label;
+  const once = planText("lifetime", lang, cur).label;
   const compare = lang === "de" ? compareDe : compareEn;
-  const faq = softwareFaq(lang);
+  const faq = softwareFaq(lang, cur);
+  // The price comparison quotes German euro list prices of Adobe and Microsoft: only for visitors who pay in euros.
+  // Section numbers run on without gaps.
+  const sections = ["overview", ...(cur === "EUR" ? ["compare"] : []), "pricing", "apps", "why", "what", "who", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
+  const num = (id: string) => two(sections.indexOf(id) + 1);
   // Placeholder slots for real customer quotes: visible on preview deployments only, never in production.
   const showPlaceholders = process.env.VERCEL_ENV !== "production";
 
   return (
     <>
-      <OfferDiscount running={isOfferRunning()}>
+      <OfferDiscount running={isOfferRunning()} currency={cur}>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(productJsonLd(lang))} />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(faq))} />
         <TrackView name={lang === "de" ? "software" : "software-en"} />
@@ -384,7 +392,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
 
           {/* 01 Overview: all apps and the price at a glance */}
           <section className="rail">
-            <SectionBar index="01" label={t.s1Label} meta="13 Apps · macOS · Windows" />
+            <SectionBar index={num("overview")} label={t.s1Label} meta="13 Apps · macOS · Windows" />
             <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center ${pad}`}>
               <div>
                 <h2 className="display text-[clamp(2rem,4.6vw,4rem)]" data-reveal>
@@ -430,8 +438,9 @@ export default function HomeView({ lang }: { lang: Lang }) {
           </section>
 
           {/* 02 Price comparison */}
+          {cur === "EUR" && (
           <section className="rail crosshairs">
-            <SectionBar index="02" label={t.s2Label} meta={t.s2Meta} />
+            <SectionBar index={num("compare")} label={t.s2Label} meta={t.s2Meta} />
             <div className={`py-14 md:py-20 ${pad}`}>
               <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
                 {t.s2Title}
@@ -482,10 +491,11 @@ export default function HomeView({ lang }: { lang: Lang }) {
               <p className="mt-3 text-xs leading-relaxed text-muted">{compare.note}</p>
             </div>
           </section>
+          )}
 
           {/* 03 Pricing */}
           <section id="preise" className="rail crosshairs scroll-mt-12">
-            <SectionBar index="03" label={t.s3Label} meta={t.s3Meta} />
+            <SectionBar index={num("pricing")} label={t.s3Label} meta={t.s3Meta} />
             <div className={`py-14 md:py-20 ${pad}`}>
               <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
                 {t.s3Title}
@@ -501,7 +511,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
 
           {/* 04 Lineup */}
           <section id="apps" className="rail crosshairs scroll-mt-12">
-            <SectionBar index="04" label={t.s4Label} meta={t.s4Meta} />
+            <SectionBar index={num("apps")} label={t.s4Label} meta={t.s4Meta} />
             {/* Phones: a swipe row that only moves sideways (overflow-y hidden: the cards' reveal offset must not make it scroll up and down) */}
             <div className="cells -mx-0 border-b border-border max-sm:flex max-sm:snap-x max-sm:snap-mandatory max-sm:overflow-x-auto max-sm:overflow-y-hidden max-sm:overscroll-x-contain sm:grid-cols-2 lg:grid-cols-4">
               {APPS.map((app, i) => {
@@ -571,7 +581,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
 
           {/* 05 Why people switch */}
           <section className="rail crosshairs">
-            <SectionBar index="05" label={t.s5Label} meta={t.s5Meta} />
+            <SectionBar index={num("why")} label={t.s5Label} meta={t.s5Meta} />
             <div className={`py-14 md:py-20 ${pad}`}>
               <h2 className="display max-w-4xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
                 {t.s5Title}
@@ -582,7 +592,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
                 <div key={p.pain} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
                   <p className="hud text-faint">{two(i + 1)}</p>
                   <p className="mt-5 text-muted line-through decoration-muted/40">{p.pain}</p>
-                  <p className="mt-4 text-lg font-semibold leading-snug">{p.fix}</p>
+                  <p className="mt-4 text-lg font-semibold leading-snug">{localizePrices(p.fix, lang, cur)}</p>
                 </div>
               ))}
             </div>
@@ -590,7 +600,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
 
           {/* 06 Principles */}
           <section className="rail crosshairs">
-            <SectionBar index="06" label={t.s6Label} meta={t.s6Meta} />
+            <SectionBar index={num("what")} label={t.s6Label} meta={t.s6Meta} />
             <div className={`py-14 md:py-20 ${pad}`}>
               <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
                 {t.s6Title}
@@ -617,7 +627,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
 
           {/* 07 Trust */}
           <section className="rail crosshairs">
-            <SectionBar index="07" label={t.s7Label} meta="Kojalytics · Hamburg" />
+            <SectionBar index={num("who")} label={t.s7Label} meta="Kojalytics · Hamburg" />
             <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-2 lg:items-center ${pad}`}>
               <div data-reveal>
                 <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]">
@@ -666,7 +676,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
           {/* 08 Guides */}
           {lang === "de" && ARTICLES.length > 0 && (
             <section className="rail crosshairs">
-              <SectionBar index="08" label="Ratgeber" meta="Umstieg ohne Abo" />
+              <SectionBar index={num("guides")} label="Ratgeber" meta="Umstieg ohne Abo" />
               <div className={`flex flex-col justify-between gap-4 py-14 md:flex-row md:items-end md:py-20 ${pad}`}>
                 <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
                   Ratgeber zum <span className="text-highlight">Umstieg</span>.
@@ -694,7 +704,7 @@ export default function HomeView({ lang }: { lang: Lang }) {
 
           {/* 09 FAQ */}
           <section id="fragen" className="rail crosshairs scroll-mt-12">
-            <SectionBar index={lang === "de" ? "09" : "08"} label={t.s9Label} meta={t.s9Meta} />
+            <SectionBar index={num("faq")} label={t.s9Label} meta={t.s9Meta} />
             <div className={`grid gap-10 py-14 md:py-20 lg:grid-cols-[0.8fr_1.2fr] ${pad}`}>
               <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
                 {t.s9Title}

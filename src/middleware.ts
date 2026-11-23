@@ -1,6 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { locales, defaultLocale, type Locale } from './i18n/config';
 import { href, isEnglishPath } from './lib/i18n';
+import { currencyForRequest } from './lib/currency';
+
+/**
+ * Every page response carries the visitor's currency (kj-cur, from their country): the client parts that render after
+ * the page (phone menu, the Koja Office band of static pages) read it there. A functional cookie, no tracking.
+ */
+const CUR_COOKIE = 'kj-cur';
+function withCurrency(request: NextRequest, res: NextResponse): NextResponse {
+  const cur = currencyForRequest(request.headers);
+  if (request.cookies.get(CUR_COOKIE)?.value !== cur) res.cookies.set(CUR_COOKIE, cur, { path: '/', maxAge: 60 * 60 * 24, sameSite: 'lax' });
+  return res;
+}
 
 const localeMap: Record<string, Locale> = {
   'de': 'de', 'de-de': 'de', 'de-at': 'de', 'de-ch': 'de',
@@ -92,6 +104,10 @@ function switchedToGerman(request: NextRequest): boolean {
 }
 
 export function middleware(request: NextRequest) {
+  return withCurrency(request, route(request));
+}
+
+function route(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl;
 
   // People type "kojalytics.com/Software": routes are lowercase, so send any capitalised /software path there.
@@ -137,13 +153,8 @@ export const config = {
     '/Software/:path*',
     '/SOFTWARE',
     '/SOFTWARE/:path*',
-    // German Koja Office entry pages (see englishFirst)
-    '/',
-    '/office',
-    '/web',
-    '/kontakt',
-    '/support',
-    '/support/windows-installation',
-    '/software/:slug',
+    // All pages (currency cookie; English redirect on the German Koja Office entry pages, see englishFirst), not
+    // API routes, Next's own files or files with an extension.
+    '/((?!api|_next|.*\\..*).*)',
   ],
 };

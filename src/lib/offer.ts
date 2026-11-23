@@ -1,5 +1,6 @@
 import { PLANS } from "@/lib/pricing";
 import { euro as euroIn, longDate, type Lang } from "@/lib/i18n";
+import { PRICES, money, type Currency } from "@/lib/currency";
 
 /**
  * The one public offer for Koja Office, used by the header, the phone menu, the Koja Office band above the footer and
@@ -41,10 +42,21 @@ export const OFFER_PRICE = euro(offerCents);
 export const OFFER_LABEL = `−${OFFER_PERCENT} %`;
 
 /** The offer's words in a language: price "39,50 €" / "€39.50", label "−50 %" / "−50%", end "30. November 2026" / "30 November 2026". */
-export const offerText = (lang: Lang) =>
-  lang === "de"
-    ? { price: OFFER_PRICE, label: OFFER_LABEL, endLong: OFFER_END_LONG, endShort: OFFER_END_SHORT }
-    : { price: euroIn(offerCents, "en"), label: `−${OFFER_PERCENT}%`, endLong: longDate(OFFER_LAST_DAY, "en"), endShort: longDate(OFFER_LAST_DAY, "en").replace(/ \d{4}$/, "") };
+export const offerText = (lang: Lang, cur: Currency = "EUR") => {
+  const words =
+    lang === "de"
+      ? { price: OFFER_PRICE, label: OFFER_LABEL, endLong: OFFER_END_LONG, endShort: OFFER_END_SHORT }
+      : { price: euroIn(offerCents, "en"), label: `−${OFFER_PERCENT}%`, endLong: longDate(OFFER_LAST_DAY, "en"), endShort: longDate(OFFER_LAST_DAY, "en").replace(/ \d{4}$/, "") };
+  return cur === "EUR" ? words : { ...words, price: money(offerCentsIn(cur), cur, lang) };
+};
+
+/** The one-time price with the offer code in a currency, in its smallest unit. */
+export const offerCentsIn = (cur: Currency) => Math.round((PRICES[cur].lifetime * (100 - OFFER_PERCENT)) / 100);
+
+/** OFFER_DISCOUNT with the reduced price in the visitor's currency (one object per currency: the discount store compares them). */
+const OFFER_IN: Partial<Record<Currency, typeof OFFER_DISCOUNT>> = {};
+export const offerDiscount = (cur: Currency): typeof OFFER_DISCOUNT =>
+  cur === "EUR" ? OFFER_DISCOUNT : (OFFER_IN[cur] ??= { ...OFFER_DISCOUNT, prices: { lifetime: offerCentsIn(cur) } });
 
 /**
  * The offer as a discount, already applied on the Koja pages (/software, app pages) while it runs, so their prices and

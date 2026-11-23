@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Check, Tag, X } from "lucide-react";
-import { PLANS, TRIAL_DAYS, planText, type Plan } from "@/lib/pricing";
-import { applyDiscount, clearDiscount, euro, useDiscount } from "@/lib/discount-store";
+import { TRIAL_DAYS, planText, type Plan } from "@/lib/pricing";
+import { applyDiscount, clearDiscount, useDiscount } from "@/lib/discount-store";
+import { PRICES, money, vatIncluded } from "@/lib/currency";
+import { useCurrency } from "@/lib/use-currency";
 import { discountLabel } from "@/lib/discount-text";
 import { href } from "@/lib/i18n";
 import { useLang } from "@/lib/use-lang";
@@ -13,26 +15,23 @@ import { isOfferCode, offerText } from "@/lib/offer";
 import DownloadButton from "./DownloadButton";
 
 // The one-time price pays off after this many months of the subscription.
-const breakEven = (lifetimeCents: number) => Math.ceil(lifetimeCents / PLANS.monthly.cents);
+const breakEven = (lifetimeCents: number, monthlyCents: number) => Math.ceil(lifetimeCents / monthlyCents);
 
 const de = {
   included: {
     monthly: ["Alle 13 Koja-Apps", "Alle Updates inklusive", "Auf bis zu 3 Geräten (Mac oder Windows-PC)", "Jederzeit online kündbar"],
     lifetime: ["Alle 13 Koja-Apps, ohne Ablaufdatum", "Updates über den Kojalytics Launcher", "Auf bis zu 3 Geräten (Mac oder Windows-PC)", "Einmal zahlen, keine Verlängerung"],
   } as Record<Plan, string[]>,
-  note: (plan: Plan, price: number) =>
+  note: (plan: Plan, months: number, vat: boolean) =>
     plan === "monthly"
-      ? "Abrechnung ab Kauf, monatlich kündbar. Inkl. MwSt."
-      : `Einmal zahlen, dauerhaft nutzen. Inkl. MwSt. Lohnt sich ab dem ${breakEven(price)}. Monat.`,
-  cta: {
-    monthly: `Für ${PLANS.monthly.label} im Monat abonnieren`,
-    lifetime: `Für ${PLANS.lifetime.label} dauerhaft kaufen`,
-  } as Record<Plan, string>,
+      ? `Abrechnung ab Kauf, monatlich kündbar.${vat ? " Inkl. MwSt." : ""}`
+      : `Einmal zahlen, dauerhaft nutzen.${vat ? " Inkl. MwSt." : ""} Lohnt sich ab dem ${months}. Monat.`,
+  cta: (plan: Plan, price: string) => (plan === "monthly" ? `Für ${price} im Monat abonnieren` : `Für ${price} dauerhaft kaufen`),
   ctaReduced: (plan: Plan, price: string) => `Für ${price} ${plan === "lifetime" ? "dauerhaft kaufen" : "abonnieren"}`,
   busy: "Sicherer Checkout öffnet sich …",
   firstMonths: (months: number) => `die ersten ${months} Monate`,
   firstMonth: "im ersten Monat",
-  thenMonthly: (price: string) => `Danach ${price} pro Monat, monatlich kündbar. Inkl. MwSt.`,
+  thenMonthly: (price: string, vat: boolean) => `Danach ${price} pro Monat, monatlich kündbar.${vat ? " Inkl. MwSt." : ""}`,
   recommended: "Empfohlen",
   compare: "Zum Vergleich: Adobe Creative Cloud Pro kostet 77,99 € im Monat, Microsoft 365 Single 99 € im Jahr.",
   compareAsOf: "(Stand November 2026)",
@@ -61,19 +60,16 @@ const en: typeof de = {
     monthly: ["All 13 Koja apps", "All updates included", "On up to 3 devices (Mac or Windows PC)", "Cancel online at any time"],
     lifetime: ["All 13 Koja apps, no expiry date", "Updates through the Kojalytics Launcher", "On up to 3 devices (Mac or Windows PC)", "Pay once, no renewal"],
   },
-  note: (plan: Plan, price: number) =>
+  note: (plan: Plan, months: number, vat: boolean) =>
     plan === "monthly"
-      ? "Billed from the day you buy, cancel any month. Incl. VAT."
-      : `Pay once, no expiry date. Incl. VAT. Pays for itself from month ${breakEven(price)}.`,
-  cta: {
-    monthly: `Subscribe for ${planText("monthly", "en").label} a month`,
-    lifetime: `Buy for ${planText("lifetime", "en").label}`,
-  },
+      ? `Billed from the day you buy, cancel any month.${vat ? " Incl. VAT." : ""}`
+      : `Pay once, no expiry date.${vat ? " Incl. VAT." : ""} Pays for itself from month ${months}.`,
+  cta: (plan: Plan, price: string) => (plan === "monthly" ? `Subscribe for ${price} a month` : `Buy for ${price}`),
   ctaReduced: (plan: Plan, price: string) => (plan === "lifetime" ? `Buy for ${price}` : `Subscribe for ${price}`),
   busy: "Opening secure checkout…",
   firstMonths: (months: number) => `for the first ${months} months`,
   firstMonth: "for the first month",
-  thenMonthly: (price: string) => `Then ${price} a month, cancel any month. Incl. VAT.`,
+  thenMonthly: (price: string, vat: boolean) => `Then ${price} a month, cancel any month.${vat ? " Incl. VAT." : ""}`,
   recommended: "Recommended",
   compare: "For comparison: Adobe Creative Cloud Pro costs €77.99 a month, Microsoft 365 Single €99 a year.",
   compareAsOf: "(German prices, November 2026)",
@@ -102,6 +98,8 @@ const ORDER: Plan[] = ["lifetime", "monthly"];
 
 export default function PricingCards({ source }: { source: string }) {
   const lang = useLang();
+  const cur = useCurrency();
+  const vat = vatIncluded(cur);
   const t = lang === "de" ? de : en;
   const [busy, setBusy] = useState<Plan | null>(null);
   const [error, setError] = useState<{ plan: Plan; message: string } | null>(null);
@@ -145,10 +143,10 @@ export default function PricingCards({ source }: { source: string }) {
   }
 
   async function checkout(plan: Plan) {
-    const price = discount?.prices[plan] ?? PLANS[plan].cents;
+    const price = discount?.prices[plan] ?? PRICES[cur][plan];
     setBusy(plan);
     setError(null);
-    track("InitiateCheckout", { value: price / 100, currency: "EUR", content_name: plan });
+    track("InitiateCheckout", { value: price / 100, currency: cur, content_name: plan });
     try {
       const res = await fetch("/api/license/checkout", {
         method: "POST",
@@ -176,7 +174,7 @@ export default function PricingCards({ source }: { source: string }) {
               <span>
                 {t.applied[0]}<span className="font-mono font-semibold tracking-[0.06em]">{discount.code}</span>{t.applied[1]}{" "}
                 <span className="whitespace-nowrap font-semibold">{discountLabel(discount.label, lang)}</span>
-                {isOfferCode(discount.code) && <span className="block text-muted">{t.introUntil}{offerText(lang).endLong}</span>}
+                {isOfferCode(discount.code) && <span className="block text-muted">{t.introUntil}{offerText(lang, cur).endLong}</span>}
               </span>
             </p>
             <button
@@ -222,7 +220,7 @@ export default function PricingCards({ source }: { source: string }) {
 
       <div className="cells border border-border md:grid-cols-2">
         {ORDER.map((plan, i) => {
-          const p = planText(plan, lang);
+          const p = planText(plan, lang, cur);
           const recommended = plan === "lifetime";
           const reduced = discount?.prices[plan];
           const firstMonthOnly = plan === "monthly" && reduced !== undefined && discount?.duration !== "forever";
@@ -240,13 +238,14 @@ export default function PricingCards({ source }: { source: string }) {
                 {reduced !== undefined && (
                   <span className="display whitespace-nowrap text-3xl text-faint line-through decoration-2">{p.label}</span>
                 )}
-                <span className="display whitespace-nowrap text-6xl">{reduced !== undefined ? euro(reduced, lang) : p.label}</span>
+                <span className="display whitespace-nowrap text-6xl">{reduced !== undefined ? money(reduced, cur, lang) : p.label}</span>
                 <span className="hud">{firstMonthOnly ? (discount?.duration === "repeating" && discount.months ? t.firstMonths(discount.months) : t.firstMonth) : p.per}</span>
               </p>
               <p className="mt-2 text-sm text-muted">
-                {firstMonthOnly ? t.thenMonthly(p.label) : t.note(plan, reduced ?? p.cents)}
+                {firstMonthOnly ? t.thenMonthly(p.label, vat) : t.note(plan, breakEven(reduced ?? p.cents, PRICES[cur].monthly), vat)}
               </p>
-              {recommended && (
+              {/* German list prices of Adobe and Microsoft: only next to euro prices */}
+              {recommended && cur === "EUR" && (
                 <p className="mt-3 border-l-2 border-buy pl-3 text-sm leading-relaxed text-foreground">
                   {t.compare}{" "}
                   <span className="text-muted">{t.compareAsOf}</span>
@@ -262,7 +261,7 @@ export default function PricingCards({ source }: { source: string }) {
               </ul>
               <div className="mt-auto grid gap-3">
                 <button onClick={() => checkout(plan)} disabled={busy !== null} className={`w-full ${recommended ? "btn-buy" : "btn-secondary"}`}>
-                  {busy === plan ? t.busy : reduced !== undefined ? t.ctaReduced(plan, euro(reduced, lang)) : t.cta[plan]}
+                  {busy === plan ? t.busy : reduced !== undefined ? t.ctaReduced(plan, money(reduced, cur, lang)) : t.cta(plan, p.label)}
                 </button>
                 {error?.plan === plan && busy === null && (
                   <p className="text-sm font-medium text-red-700" role="alert">

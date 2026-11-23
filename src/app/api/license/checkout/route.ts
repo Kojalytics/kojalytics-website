@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { findDiscount } from '@/lib/discounts';
 import { LICENSE_DEVICES, LICENSE_PRODUCT } from '@/lib/license-sales';
-import { PLANS, type Plan } from '@/lib/pricing';
+import type { Plan } from '@/lib/pricing';
 import { SITE_URL } from '@/lib/site';
 import { CHECKOUT_BACK_PARAM, CHECKOUT_BACK_VALUE, SUPPORT_EMAIL, SUPPORT_PHONE, SUPPORT_PHONE_HREF } from '@/lib/checkout-help';
 import { discountError } from '@/lib/discount-text';
 import { href, type Lang } from '@/lib/i18n';
+import { PRICES } from '@/lib/currency';
+import { currencyForRequest } from '@/lib/currency-server';
 
 const ALLOWED_ORIGINS = new Set(['https://www.kojalytics.com', 'https://kojalytics.com']);
 // Local dev servers on any port (never a production redirect target: only this machine can open them).
@@ -74,13 +76,15 @@ export async function POST(request: NextRequest) {
   const plan: Plan = body?.plan === 'monthly' ? 'monthly' : 'lifetime';
   // From the English pages (/en …): Checkout, its texts, the return pages and the license email in English.
   const lang: Lang = body?.lang === 'en' ? 'en' : 'de';
+  // The visitor's currency from their country, the same one the page showed (src/lib/currency.ts).
+  const cur = currencyForRequest(request.headers);
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     // A discount code entered on the page: checked again here, then attached to the session (Stripe counts the use).
     let discount: { promotionCodeId: string; code: string } | null = null;
     if (body?.code) {
-      const found = await findDiscount(stripe, body.code);
+      const found = await findDiscount(stripe, body.code, cur);
       if (!found.ok) return NextResponse.json({ error: discountError(found.error, lang) }, { status: found.status });
       if (found.discount.prices[plan] === undefined) {
         return NextResponse.json({ error: discountError('Dieser Rabattcode gilt nicht für dieses Paket.', lang) }, { status: 400 });
@@ -91,7 +95,7 @@ export async function POST(request: NextRequest) {
     const rawOrigin = request.headers.get('origin') || '';
     const origin = ALLOWED_ORIGINS.has(rawOrigin) || LOCAL_ORIGIN.test(rawOrigin) ? rawOrigin : SITE_URL;
     // koja_lang: the language of the license email (src/lib/license-sales.ts); missing or "de" means German.
-    const metadata = { product: LICENSE_PRODUCT, koja_plan: plan, koja_lang: lang, ...(discount ? { koja_code: discount.code } : {}) };
+    const metadata = { product: LICENSE_PRODUCT, koja_plan: plan, koja_lang: lang, koja_currency: cur, ...(discount ? { koja_code: discount.code } : {}) };
     // From the ad landing page (/office): Checkout uses its product name, and "Back" returns there with the code.
     const fromOffice = body?.from === 'office' && plan === 'lifetime';
     const back = `${CHECKOUT_BACK_PARAM}=${CHECKOUT_BACK_VALUE}`;
@@ -102,8 +106,8 @@ export async function POST(request: NextRequest) {
       line_items: [
         {
           price_data: {
-            currency: 'eur',
-            unit_amount: PLANS[plan].cents,
+            currency: cur.toLowerCase(),
+            unit_amount: PRICES[cur][plan],
             product_data,
             ...(plan === 'monthly' ? { recurring: { interval: 'month' as const } } : {}),
           },
