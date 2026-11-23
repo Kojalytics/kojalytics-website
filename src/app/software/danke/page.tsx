@@ -73,7 +73,7 @@ export default async function ThanksPage({ searchParams }: { searchParams: Promi
                     {purchase.license.email ? `Wir haben ihn auch an ${purchase.license.email} geschickt.` : "Bitte kopiere ihn jetzt und bewahre ihn gut auf."}
                   </p>
                   <div className="rise-in mt-8 [--i:3]">
-                    <DownloadButton source="danke" label="Launcher laden" />
+                    <DownloadButton source="danke" label="Launcher laden" mobile="send" />
                   </div>
                 </div>
               </div>

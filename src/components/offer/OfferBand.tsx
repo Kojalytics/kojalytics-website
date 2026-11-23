@@ -78,7 +78,6 @@ export default function OfferBand() {
               source="offer-band"
               variant="secondary"
               label={`${TRIAL_DAYS} Tage kostenlos testen`}
-              shareLabel="Link an Computer senden"
               className="btn-lg"
             />
           </div>

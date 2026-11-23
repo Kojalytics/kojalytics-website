@@ -125,8 +125,7 @@ export default function HomePage() {
                 <div className="sw-hero-cta flex w-full flex-col items-center lg:items-start">
                   <div className="rise-in flex w-full flex-col justify-center gap-3 [--i:2] sm:w-auto sm:flex-row lg:mt-8 lg:flex-col xl:flex-row">
                     <BuyButton source="software-hero" />
-                    <WebTestButton className="max-md:hidden" />
-                    <DownloadButton source="software-hero" variant="secondary" label={`${TRIAL_DAYS} Tage kostenlos testen`} className="md:hidden" />
+                    <WebTestButton />
                   </div>
                   <ActiveDiscountNote />
                   <p className="rise-in mt-6 max-w-xl text-[17px] leading-relaxed text-muted [--i:3] md:text-lg">
@@ -155,10 +154,7 @@ export default function HomePage() {
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row" data-reveal>
                   <BuyButton source="software-overview" />
-                  <WebTestButton className="max-md:hidden" label="Apps im Browser testen" />
-                  <Link href="#preise" className="btn-secondary md:hidden">
-                    Preise und Rabattcode
-                  </Link>
+                  <WebTestButton label="Apps im Browser testen" />
                 </div>
                 <p className="hud mt-5" data-reveal>Für macOS und Windows · Kojalytics Launcher · ohne Konto · jederzeit online kündbar</p>
                 <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted" data-reveal>

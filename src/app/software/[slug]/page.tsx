@@ -170,7 +170,7 @@ export default async function AppPage({ params }: Props) {
                 </h1>
                 <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:3] max-sm:order-1">{app.lead}</p>
                 <div className="rise-in mt-9 flex flex-col gap-3 [--i:4] sm:flex-row">
-                  <DownloadButton source={`app-${app.slug}`} />
+                  <DownloadButton source={`app-${app.slug}`} app={app.slug} mobile={hasWebApp(app.slug) ? "none" : "web"} />
                   {hasWebApp(app.slug) ? (
                     <WebTestButton app={app.slug} className="whitespace-nowrap" label={`${app.name} sofort testen`} />
                   ) : (
@@ -511,7 +511,7 @@ export default async function AppPage({ params }: Props) {
                 für alle 13 Apps oder einmalig <span className="whitespace-nowrap">{PLANS.lifetime.label}</span>.
               </p>
               <div className="mt-9">
-                <DownloadButton source={`app-${app.slug}-final`} />
+                <DownloadButton source={`app-${app.slug}-final`} app={app.slug} />
               </div>
             </div>
             <div className={`border-t border-border py-8 ${pad}`}>

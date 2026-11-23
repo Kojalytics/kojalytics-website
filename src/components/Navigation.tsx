@@ -208,7 +208,7 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
                 <DownloadButton
                   source="nav-mobile"
                   label="Testen"
-                  shareLabel="Link senden"
+                  webLabel="Testen"
                   className="!min-h-full !gap-2 !border-0 !px-4 !text-[11px] lg:!hidden"
                 />
               </>
