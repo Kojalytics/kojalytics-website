@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     // Shown in Checkout right above the pay button (§ 312j (2) BGB): what, how long, how to end it.
     const product_data = {
       images: [PRODUCT_IMAGE],
-      name: plan === 'monthly' ? 'Koja-Apps · Monatlich' : fromOffice ? 'Koja Office 2026 · Dauerlizenz' : 'Koja-Apps · Dauerhaft',
+      name: plan === 'monthly' ? 'Koja-Apps · Monatlich' : fromOffice ? 'Koja Office 2026 · Einmalkauf' : 'Koja-Apps · Einmalkauf',
       description:
         plan === 'monthly'
           ? `Alle 13 Koja-Apps für Mac und Windows mit kostenlosen Updates, auf bis zu ${LICENSE_DEVICES} Geräten. Läuft monatlich und verlängert sich jeweils um einen Monat, bis du kündigst. Jederzeit zum Ende des Abrechnungsmonats online kündbar.`
