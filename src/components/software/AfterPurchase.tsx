@@ -11,9 +11,10 @@ import "./after-purchase.css";
  * that make buying safe. On the home page (near the prices) and on the ad landing page /office. The facts come from
  * the thank-you page (src/views/ThanksView.tsx), the license email (src/lib/license-email.ts) and the AGB. The small
  * pictures are drawn in HTML, decoration only: nothing in them looks like a control you could tap.
- * The English version can show the short film (public/office/after-purchase-en-2.mp4) above the steps.
+ * It can show the short film above the steps, in the page's language (public/office/after-purchase-de.mp4, -en-2.mp4).
  */
 
+const FILM: Record<Lang, string> = { de: "after-purchase-de", en: "after-purchase-en-2" };
 const SAMPLE_KEY = "KOJA-7Q2M-XXXX-XXXX";
 const ICONS = ["word-koja", "grid-koja", "deck-koja", "pdf-koja", "photo-koja", "light-koja", "vector-koja", "design-koja", "fig-koja", "film-koja", "effect-koja", "sound-koja", "cad-koja"];
 
@@ -223,12 +224,12 @@ export default function AfterPurchase({ lang, film = false }: { lang: Lang; film
             controls
             playsInline
             preload="none"
-            poster="/office/after-purchase-en-2.jpg"
+            poster={`/office/${FILM[lang]}.jpg`}
             width={1920}
             height={1080}
             aria-label={t.film}
           >
-            <source src="/office/after-purchase-en-2.mp4" type="video/mp4" />
+            <source src={`/office/${FILM[lang]}.mp4`} type="video/mp4" />
           </video>
           <figcaption>{t.film}</figcaption>
         </figure>
