@@ -161,7 +161,7 @@
     },
     {
       "q": "Läuft PhotoKoja auch unter Windows oder im Browser?",
-      "a": "Unter Windows ja, im Browser nein. PhotoKoja gibt es für macOS und Windows, aber nicht für das iPad und nicht als Web-App. Die App läuft nativ und berechnet die Arbeitsfläche auf der Grafikkarte (am Mac oder PC über Metal), ohne Electron und ohne Web-Ansicht. Eine Lizenz gilt auf bis zu 3 Geräten, Mac und Windows-PC gemischt."
+      "a": "Unter Windows ja, und zum Ausprobieren auch im Browser. PhotoKoja gibt es für macOS und Windows, aber nicht für das iPad. Die Desktop-App läuft nativ und berechnet die Arbeitsfläche auf der Grafikkarte, ohne Electron und ohne Web-Ansicht. Im Browser kannst du PhotoKoja kostenlos testen. Eine Lizenz gilt auf bis zu 3 Geräten, Mac und Windows-PC gemischt."
     }
   ]
 }

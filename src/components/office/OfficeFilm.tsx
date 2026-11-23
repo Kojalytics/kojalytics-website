@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLang } from "@/lib/use-lang";
 
 export type FilmStep = { at: number; text: string };
+
+// The films themselves show the German interface and German captions; the English note says so.
+const T = {
+  de: { label: (name: string) => `${name} in Aktion, Film ohne Ton`, note: "Animation, vereinfacht dargestellt." },
+  en: { label: (name: string) => `${name} in action, silent video`, note: "Simplified animation, shown in German." },
+};
 
 /**
  * A silent story film of one office app (rendered with Remotion, 720×900, 15 s) beside the list of its four steps.
@@ -28,6 +35,7 @@ export default function OfficeFilm({
   /** The app's colour, dark enough for white text. */
   ink: string;
 }) {
+  const t = T[useLang()];
   const video = useRef<HTMLVideoElement>(null);
   const [active, setActive] = useState(0);
 
@@ -71,7 +79,7 @@ export default function OfficeFilm({
           loop
           playsInline
           preload="none"
-          aria-label={`${name} in Aktion, Film ohne Ton`}
+          aria-label={t.label(name)}
         >
           <source src={src} type="video/mp4" />
         </video>
@@ -85,7 +93,7 @@ export default function OfficeFilm({
             </li>
           ))}
         </ol>
-        <p className="ko-film-note">Animation, vereinfacht dargestellt.</p>
+        <p className="ko-film-note">{t.note}</p>
       </div>
     </div>
   );

@@ -1,0 +1,66 @@
+{
+  "columns": [
+    "Koja apps",
+    "Adobe Creative Cloud Pro",
+    "Microsoft 365 Personal"
+  ],
+  "rows": [
+    {
+      "label": "Price per month",
+      "values": [
+        "€19.99 for all 13 apps, on up to 3 devices",
+        "€77.99 on the annual plan billed monthly, €116.99 on the flexible monthly plan",
+        "€10 for 1 person, on up to 5 devices at once"
+      ]
+    },
+    {
+      "label": "Cost in the first year",
+      "values": [
+        "€239.88 (12 × €19.99), or €79 once for a one-time license",
+        "€935.88 (12 × €77.99), or €905.92 paid upfront",
+        "€99 paid yearly, or €120 (12 × €10)"
+      ]
+    },
+    {
+      "label": "Programs included",
+      "values": [
+        "13 apps for photo editing, RAW development, vector graphics, layout, interface design, video editing, motion graphics, audio, word processing, spreadsheets, presentations, PDF and 2D CAD",
+        "More than 20 programs, including Photoshop, Illustrator and Premiere, plus the Adobe Firefly AI",
+        "Word, Excel, PowerPoint, Outlook and OneNote as desktop apps, plus 1 TB of cloud storage"
+      ]
+    },
+    {
+      "label": "Cancelling",
+      "values": [
+        "Cancel online any time at kojalytics.com/en/cancel, no fee. The €79 license is not a subscription.",
+        "If you cancel the annual plan billed monthly after the first 14 days, you pay a one-time fee of 50% of the remaining contract value. The monthly plan can be cancelled without a fee. Annual plans renew automatically; for consumers in Germany, after the first year only with at most one month's notice (§ 309 No. 9 BGB).",
+        "The subscription renews automatically at the regular price unless you cancel."
+      ]
+    },
+    {
+      "label": "Account needed",
+      "values": [
+        "No",
+        "Yes, the subscription runs through an Adobe account.",
+        "Yes, to buy and install. The free web version also needs a Microsoft account."
+      ]
+    },
+    {
+      "label": "Works offline",
+      "values": [
+        "Yes. You only need the internet to download and activate.",
+        "For a limited time. The apps check the license online regularly and ask for an internet connection after a grace period.",
+        "Yes. If you don't go online at least every 31 days, you can only view and print documents."
+      ]
+    },
+    {
+      "label": "Development",
+      "values": [
+        "Under active development, free updates",
+        "On the market for many years",
+        "On the market for many years"
+      ]
+    }
+  ],
+  "note": "As of November 2026. Prices for Germany according to the manufacturers' websites, incl. VAT, without promotional discounts and without guarantee. The Koja apps don't offer every feature of the programs named. All product names mentioned are trademarks of their respective owners."
+}

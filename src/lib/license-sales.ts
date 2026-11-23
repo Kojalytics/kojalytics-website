@@ -2,7 +2,8 @@ import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { decryptKey, encryptKey, generateKey, hashKey, normalizeKey } from '@/lib/license';
 import { LAUNCHER_DOWNLOAD_URL } from '@/lib/pricing';
-import { licenseEmail } from '@/lib/license-email';
+import { licenseEmail, licenseEmailSubject } from '@/lib/license-email';
+import type { Lang } from '@/lib/i18n';
 
 export { LAUNCHER_DOWNLOAD_URL };
 export const LICENSE_PRODUCT = 'koja_license';
@@ -13,8 +14,8 @@ const admin = () => createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.
 export type IssuedLicense = { key: string; email: string | null; subscription: boolean };
 
 /**
- * The licence keys of a customer, for the support copy of a cancellation or withdrawal, so they can be found in
- * Koja Keys at once: found via the subscriptions' checkout sessions and via the e-mail address stored with the key.
+ * The license keys of a customer, for the support copy of a cancellation or withdrawal, so they can be found in
+ * Koja Keys at once: found via the subscriptions' checkout sessions and via the email address stored with the key.
  * One line per key: its last group (search it in Koja Keys), active or deactivated, and when it was bought.
  * Never throws: a failed lookup must not stop the cancellation.
  */
@@ -41,7 +42,7 @@ export async function licenseKeysFor(email: string, stripe?: Stripe, subscriptio
         `Schlüssel endet auf ${r.key_hint} (${r.revoked_at ? 'schon deaktiviert' : 'aktiv'}, erstellt am ${new Date(r.created_at).toLocaleDateString('de-DE', { timeZone: 'Europe/Berlin' })})`,
     );
   } catch (e) {
-    console.error('Licence lookup failed', e);
+    console.error('License lookup failed', e);
     return [];
   }
 }
@@ -81,6 +82,8 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
     code: session.metadata?.koja_code,
     name: session.customer_details?.name,
     date: new Date(session.created * 1000),
+    // Set by /api/license/checkout from the page the buyer came from; older sessions have none (German).
+    lang: session.metadata?.koja_lang === 'en' ? 'en' : 'de',
   });
 }
 
@@ -93,11 +96,13 @@ export type LicenseOrder = {
   email: string | null;
   note: string;
   subscription: boolean;
-  /** For the licence e-mail: what the buyer paid (null if unknown), the discount code and the buyer's name. */
+  /** For the license email: what the buyer paid (null if unknown), the discount code and the buyer's name. */
   paidCents: number | null;
   code?: string;
   name?: string | null;
   date: Date;
+  /** The language of the license email; German without it. */
+  lang?: Lang;
 };
 
 /** The license of `order`: created on first call, the same one on every later call. Emails it once when Resend is configured. */
@@ -157,8 +162,9 @@ export async function issueLicense(order: LicenseOrder): Promise<IssuedLicense> 
           email: issued.email,
           date: order.date,
           devices: LICENSE_DEVICES,
+          lang: order.lang,
         });
-        await sendEmail(issued.email, 'Dein Kojalytics-Lizenzschlüssel', text, { html });
+        await sendEmail(issued.email, licenseEmailSubject(order.lang), text, { html });
       } catch (e) {
         console.error('License email failed', e);
         await db.from('koja_licenses').update({ emailed_at: null }).eq('stripe_session_id', order.ref);
@@ -169,7 +175,7 @@ export async function issueLicense(order: LicenseOrder): Promise<IssuedLicense> 
 }
 
 /**
- * `scheduledAt` (ISO timestamp): Resend holds the e-mail and sends it then instead of now.
+ * `scheduledAt` (ISO timestamp): Resend holds the email and sends it then instead of now.
  * `html`: sent alongside `text`; mail apps show the HTML and fall back to the text.
  */
 export async function sendEmail(

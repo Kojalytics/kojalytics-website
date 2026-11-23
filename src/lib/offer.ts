@@ -1,4 +1,5 @@
 import { PLANS } from "@/lib/pricing";
+import { euro as euroIn, longDate, type Lang } from "@/lib/i18n";
 
 /**
  * The one public offer for Koja Office, used by the header, the phone menu, the Koja Office band above the footer and
@@ -38,6 +39,12 @@ const offerCents = Math.round((PLANS.lifetime.cents * (100 - OFFER_PERCENT)) / 1
 export const OFFER_PRICE = euro(offerCents);
 /** "−50 %" */
 export const OFFER_LABEL = `−${OFFER_PERCENT} %`;
+
+/** The offer's words in a language: price "39,50 €" / "€39.50", label "−50 %" / "−50%", end "30. November 2026" / "30 November 2026". */
+export const offerText = (lang: Lang) =>
+  lang === "de"
+    ? { price: OFFER_PRICE, label: OFFER_LABEL, endLong: OFFER_END_LONG, endShort: OFFER_END_SHORT }
+    : { price: euroIn(offerCents, "en"), label: `−${OFFER_PERCENT}%`, endLong: longDate(OFFER_LAST_DAY, "en"), endShort: longDate(OFFER_LAST_DAY, "en").replace(/ \d{4}$/, "") };
 
 /**
  * The offer as a discount, already applied on the Koja pages (/software, app pages) while it runs, so their prices and

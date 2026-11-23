@@ -1,5 +1,6 @@
 import type { FaqItem } from "@/components/software/Faq";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
+import type { Lang } from "@/lib/i18n";
 
 // Answers that hold for both offers: the /software page (monthly or one-time) and the Digistore24 partner page (one-time only).
 const replaces: FaqItem = {
@@ -46,7 +47,7 @@ export const SOFTWARE_FAQ: FaqItem[] = [
   replaces,
   {
     q: "Auf welchen Computern laufen die Apps?",
-    a: "Auf dem Mac und unter Windows: Die Koja-Apps gibt es für macOS (Apple-Chip und Intel) und für Windows 10 und 11 (64-Bit), nicht für iPad, iPhone oder Android und nicht im Browser. Ein Abo oder eine Lizenz gilt für bis zu 3 Geräte, Mac und Windows-PC gemischt.",
+    a: "Auf dem Mac und unter Windows: Die Koja-Apps gibt es für macOS (Apple-Chip und Intel) und für Windows 10 und 11 (64-Bit), nicht für iPad, iPhone oder Android. Zum Ausprobieren laufen 10 der Apps auch im Browser, ohne Installation. Ein Abo oder eine Lizenz gilt für bis zu 3 Geräte, Mac und Windows-PC gemischt.",
   },
   updates,
   account,
@@ -54,7 +55,7 @@ export const SOFTWARE_FAQ: FaqItem[] = [
   german,
 ];
 
-/** The Digistore24 partner page (/software/partner) sells only the one-time licence: no subscription in any answer. */
+/** The Digistore24 partner page (/software/partner) sells only the one-time license: no subscription in any answer. */
 export const PARTNER_FAQ: FaqItem[] = [
   {
     q: `Was bekomme ich für ${PLANS.lifetime.label}?`,
@@ -75,10 +76,53 @@ export const PARTNER_FAQ: FaqItem[] = [
   replaces,
   {
     q: "Auf welchen Computern laufen die Apps?",
-    a: "Auf dem Mac und unter Windows: Die Koja-Apps gibt es für macOS (Apple-Chip und Intel) und für Windows 10 und 11 (64-Bit), nicht für iPad, iPhone oder Android und nicht im Browser. Eine Lizenz gilt für bis zu 3 Geräte, Mac und Windows-PC gemischt.",
+    a: "Auf dem Mac und unter Windows: Die Koja-Apps gibt es für macOS (Apple-Chip und Intel) und für Windows 10 und 11 (64-Bit), nicht für iPad, iPhone oder Android. Zum Ausprobieren laufen 10 der Apps auch im Browser, ohne Installation. Eine Lizenz gilt für bis zu 3 Geräte, Mac und Windows-PC gemischt.",
   },
   updates,
   account,
   data,
   german,
 ];
+
+/** The English answers of the Koja Office pages (SOFTWARE_FAQ in English). */
+const SOFTWARE_FAQ_EN: FaqItem[] = [
+  {
+    q: "What do I get for €19.99 a month?",
+    a: "All 13 Koja apps for Mac and Windows: photo editing, a photo library with RAW development, vector graphics, layout, interface design, video editing, motion graphics, audio, word processing, spreadsheets, presentations, PDF and CAD. All updates are included, and you can use the apps on up to 3 devices, Mac and Windows PCs mixed.",
+  },
+  {
+    q: "How does the free trial work?",
+    a: `Download the Kojalytics Launcher, click “Try free for ${TRIAL_DAYS} days” under Settings › License and install the apps you need. For ${TRIAL_DAYS} days you use all apps for free, without payment details and without an account. Then you choose €19.99 a month or €79 once. If you do nothing, the trial simply ends and you pay nothing. You can also try 10 of the apps right in your browser first, without installing anything.`,
+  },
+  {
+    q: "How do I cancel?",
+    a: "Online, any time, at [Cancel contracts here](/en/cancel); the link is at the bottom of every page. Enter your name and email address and click “Cancel now”. There is no fee. Your subscription runs until the end of the month you have already paid for, and you get a confirmation by email.",
+  },
+  {
+    q: "Do the Koja apps replace Adobe Creative Cloud or Microsoft Office?",
+    a: "For many everyday tasks, yes. The Koja apps follow the ways of working you know and open common files such as .docx, .xlsx, .pptx and .psd. Not every professional feature of the big programs is included. The apps are under active development, and you get updates and new features for free. Try them for free with your own files before you pay.",
+  },
+  {
+    q: "Which computers do the apps run on?",
+    a: "On Mac and Windows: the Koja apps are available for macOS (Apple silicon and Intel) and for Windows 10 and 11 (64-bit), not for iPad, iPhone or Android. To try them, 10 of the apps also run in your browser, without installing. A subscription or license covers up to 3 devices, Mac and Windows PCs mixed.",
+  },
+  {
+    q: "Are updates and new features included?",
+    a: "Yes. The Koja apps are under active development. You get updates and new features automatically and for free through the Kojalytics Launcher. Kojalytics develops, tests and signs the apps and answers your questions by email, as a real studio from Germany.",
+  },
+  {
+    q: "Do I need an account or the internet?",
+    a: "No account. The apps run directly on your computer and work offline. You only need the internet to download them and to activate your license.",
+  },
+  {
+    q: "Is my data safe?",
+    a: "Your files stay on your computer. The apps don't upload your work anywhere, and our website only sets tracking cookies with your consent.",
+  },
+  {
+    q: "Which language are the apps in?",
+    a: "The apps are built in English, so their interface is English. Some also have translations, for example WordKoja, PdfKoja, VectorKoja and LightKoja in German. Check in the free trial whether everything is clear to you.",
+  },
+];
+
+/** The FAQ of the Koja Office pages in a language. */
+export const softwareFaq = (lang: Lang): FaqItem[] => (lang === "de" ? SOFTWARE_FAQ : SOFTWARE_FAQ_EN);

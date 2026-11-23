@@ -6,6 +6,37 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GOOGLE_ADS_ID } from "@/lib/gtag";
 import { META_PIXEL_ID } from "@/lib/meta-pixel";
+import { href } from "@/lib/i18n";
+import { useLang } from "@/lib/use-lang";
+
+const T = {
+  de: {
+    title: "Cookies von Kojalytics in diesem Browser erlauben?",
+    text: (
+      <>
+        Mit deiner Zustimmung nutzen wir optionale Cookies für Statistik und Werbung (Google Ads,{" "}
+        <span className="whitespace-nowrap">Meta-Pixel</span>, Microsoft Clarity). Dabei können Daten in die USA gehen.
+        Deine Auswahl kannst du jederzeit im Footer unter „Cookie-Einstellungen“ ändern.{" "}
+      </>
+    ),
+    privacy: "Datenschutz",
+    deny: "Optionale Cookies ablehnen",
+    allow: "Alle Cookies erlauben",
+  },
+  en: {
+    title: "Allow cookies from Kojalytics in this browser?",
+    text: (
+      <>
+        With your consent we use optional cookies for statistics and advertising (Google Ads,{" "}
+        <span className="whitespace-nowrap">Meta Pixel</span>, Microsoft Clarity). Data may be transferred to the USA. You can
+        change your choice at any time under “Cookie settings” in the footer.{" "}
+      </>
+    ),
+    privacy: "Privacy policy",
+    deny: "Reject optional cookies",
+    allow: "Allow all cookies",
+  },
+};
 
 const STORAGE_KEY = "kj-consent-v1";
 const CHANGE_EVENT = "kj:consent";
@@ -38,6 +69,8 @@ export function openConsent() {
 }
 
 export default function Consent() {
+  const lang = useLang();
+  const t = T[lang];
   // "unknown" on the server and during hydration. The banner is then already in the HTML, so first-time
   // visitors see it with the first paint; for visitors who already chose, the inline script in the root
   // layout marks <html> and CSS hides it until hydration removes it.
@@ -97,14 +130,12 @@ export default function Consent() {
           >
             <div className="overflow-y-auto px-6 pb-5 pt-6 sm:px-7 sm:pt-7">
               <h2 id="kj-consent-title" className="text-[1.3rem] font-bold leading-snug text-foreground sm:text-[1.45rem]">
-                Cookies von Kojalytics in diesem Browser erlauben?
+                {t.title}
               </h2>
               <p id="kj-consent-text" className="mt-3 text-[14.5px] leading-relaxed text-foreground/80">
-                Mit deiner Zustimmung nutzen wir optionale Cookies für Statistik und Werbung (Google Ads,{" "}
-                <span className="whitespace-nowrap">Meta-Pixel</span>, Microsoft Clarity). Dabei können Daten in die USA gehen.
-                Deine Auswahl kannst du jederzeit im Footer unter „Cookie-Einstellungen“ ändern.{" "}
-                <Link href="/datenschutz" className="font-medium text-foreground underline underline-offset-2">
-                  Datenschutz
+                {t.text}
+                <Link href={href(lang, "/datenschutz")} className="font-medium text-foreground underline underline-offset-2">
+                  {t.privacy}
                 </Link>
               </p>
             </div>
@@ -113,13 +144,13 @@ export default function Consent() {
                 onClick={() => decide("denied")}
                 className="min-h-11 rounded-full px-3 text-[14.5px] font-semibold leading-tight text-foreground transition-colors hover:bg-surface"
               >
-                Optionale Cookies ablehnen
+                {t.deny}
               </button>
               <button
                 onClick={() => decide("granted")}
                 className="min-h-11 rounded-full bg-foreground px-3 text-[14.5px] font-semibold leading-tight text-white transition-colors hover:bg-[#2a2a2e]"
               >
-                Alle Cookies erlauben
+                {t.allow}
               </button>
             </div>
           </div>

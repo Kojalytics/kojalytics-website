@@ -9,23 +9,71 @@ import BuyButton from "@/components/software/BuyButton";
 import DigistoreBuyButton from "@/components/software/DigistoreBuyButton";
 import RevealManager from "@/components/instrument/RevealManager";
 import ScrollRuler from "@/components/instrument/ScrollRuler";
-import { euro, useDiscount } from "@/lib/discount-store";
-import { PLANS } from "@/lib/pricing";
-import { OFFER_CODE, OFFER_END_LONG, OFFER_HREF, OFFER_LABEL, OFFER_PRICE, isOfferRunning } from "@/lib/offer";
+import { useDiscount } from "@/lib/discount-store";
+import { planText } from "@/lib/pricing";
+import { OFFER_CODE, OFFER_HREF, isOfferRunning, offerText } from "@/lib/offer";
+import { euro, href, switchPath, type Lang } from "@/lib/i18n";
+import { useLang } from "@/lib/use-lang";
 
-const navLinks = [
-  { href: "/", label: "Koja Office" },
-  { href: "/#apps", label: "Apps" },
-  { href: "/web", label: "Im Browser testen" },
-  { href: "/#preise", label: "Preise" },
-  { href: "/ratgeber", label: "Ratgeber" },
-  { href: "/support", label: "Support" },
-];
+// Links by their German address; href() turns them into the English ones. The guides are German only.
+const T = {
+  de: {
+    links: [
+      { href: "/", label: "Koja Office" },
+      { href: "/#apps", label: "Apps" },
+      { href: "/web", label: "Im Browser testen" },
+      { href: "/#preise", label: "Preise" },
+      { href: "/ratgeber", label: "Ratgeber" },
+      { href: "/support", label: "Support" },
+    ],
+    home: "Koja Office Startseite",
+    offerAria: (label: string, end: string) => `Koja Office ${label} mit Code ${OFFER_CODE}, bis ${end}`,
+    until: "bis",
+    see: " ansehen",
+    buy: "Kaufen",
+    menuPlain: (price: string) => `13 Apps für Mac und Windows, einmal ${price}, kein Abo.`,
+    seeFull: "Koja Office ansehen",
+    intro: "Einführungspreis bis",
+    menuOffer: "13 Apps für Mac und Windows, einmal",
+    instead: "statt",
+    toOffer: "Zum Angebot",
+    prices: "Preise",
+    nav: "Hauptnavigation",
+    close: "Menü schließen",
+    open: "Menü öffnen",
+    other: { short: "EN", long: "English", title: "This page in English" },
+  },
+  en: {
+    links: [
+      { href: "/", label: "Koja Office" },
+      { href: "/#apps", label: "Apps" },
+      { href: "/web", label: "Try in browser" },
+      { href: "/#preise", label: "Pricing" },
+      { href: "/support", label: "Support" },
+    ],
+    home: "Koja Office home",
+    offerAria: (label: string, end: string) => `Koja Office ${label} with code ${OFFER_CODE}, until ${end}`,
+    until: "until",
+    see: "",
+    buy: "Buy",
+    menuPlain: (price: string) => `13 apps for Mac and Windows, ${price} once, no subscription.`,
+    seeFull: "See Koja Office",
+    intro: "Introductory price until",
+    menuOffer: "13 apps for Mac and Windows, once",
+    instead: "instead of",
+    toOffer: "See the offer",
+    prices: "Pricing",
+    nav: "Main navigation",
+    close: "Close menu",
+    open: "Open menu",
+    other: { short: "DE", long: "Deutsch", title: "Diese Seite auf Deutsch" },
+  },
+};
 
 /** `header`: in the header the word gets smaller below 380px and gives way below 360px, so the offer button fits beside it. */
-export function Logo({ header = false }: { header?: boolean }) {
+export function Logo({ header = false, lang = "de" }: { header?: boolean; lang?: Lang }) {
   return (
-    <Link href="/" className="flex items-center gap-2.5" title="Koja Office Startseite">
+    <Link href={href(lang, "/")} className="flex items-center gap-2.5" title={T[lang].home}>
       <span aria-hidden className="kj-logo-k grid h-7 w-7 place-items-center bg-foreground font-[family-name:var(--font-display)] text-[14px] font-extrabold text-white">
         K
       </span>
@@ -58,27 +106,28 @@ function IntroLogo() {
  * (plain "Koja Office ansehen" to the homepage), so cached pages switch over at the end without a new build.
  */
 function OfferButton({ hidden = false }: { hidden?: boolean }) {
+  const lang = useLang();
+  const t = T[lang];
+  const offer = offerText(lang);
   // "invisible" (visibility: hidden) also takes it out of the tab order and the accessibility tree.
   const hide = hidden ? "invisible" : "";
   return (
     <>
-      <a
-        href={OFFER_HREF}
-        aria-label={`Koja Office ${OFFER_LABEL} mit Code ${OFFER_CODE}, bis ${OFFER_END_LONG}`}
-        className={`offer-btn offer-live ${hide}`}
-      >
-        <span className="offer-tag">{OFFER_LABEL}</span>
+      <a href={href(lang, OFFER_HREF)} aria-label={t.offerAria(offer.label, offer.endLong)} className={`offer-btn offer-live ${hide}`}>
+        <span className="offer-tag">{offer.label}</span>
         <span>Koja Office</span>
         <span className="hidden items-center gap-2 xl:inline-flex">
           <span className="offer-btn-sub max-[1399px]:hidden">Code</span>
           <span className="offer-code">{OFFER_CODE}</span>
         </span>
-        <span className="offer-btn-sub hidden font-sans text-[12.5px] normal-case tracking-normal xl:inline">bis {OFFER_END_LONG}</span>
+        <span className="offer-btn-sub hidden font-sans text-[12.5px] normal-case tracking-normal xl:inline">
+          {t.until} {offer.endLong}
+        </span>
         <ArrowRight size={14} strokeWidth={2.2} className="hidden shrink-0 sm:block" aria-hidden />
       </a>
-      <Link href="/" className={`offer-btn offer-over ${hide}`}>
+      <Link href={href(lang, "/")} className={`offer-btn offer-over ${hide}`}>
         <span>
-          Koja Office<span className="max-sm:hidden"> ansehen</span>
+          Koja Office{t.see && <span className="max-sm:hidden">{t.see}</span>}
         </span>
         <ArrowRight size={14} strokeWidth={2.2} className="shrink-0" aria-hidden />
       </Link>
@@ -91,6 +140,7 @@ function OfferButton({ hidden = false }: { hidden?: boolean }) {
  * the offer button. Both sit in the same grid cell and only swap visibility, so the slot keeps its width (no jump).
  */
 function BuyOrOffer() {
+  const lang = useLang();
   const reduced = useDiscount()?.prices.lifetime;
   const buy = reduced !== undefined;
   const hide = buy ? "" : "invisible";
@@ -100,7 +150,7 @@ function BuyOrOffer() {
       <BuyButton
         source="nav"
         // While hidden it already holds a reduced price, so the slot does not widen when a code arrives.
-        label={`${buy ? euro(reduced) : OFFER_PRICE} · Kaufen`}
+        label={`${buy ? euro(reduced, lang) : offerText(lang).price} · ${T[lang].buy}`}
         className={`!min-h-full !gap-2 !whitespace-nowrap !border-0 !px-3.5 !text-[11px] !tracking-[0.08em] lg:!hidden ${hide}`}
       />
       {/* As wide as its label, at the right end of the slot (the slot is as wide as the offer button) */}
@@ -111,30 +161,34 @@ function BuyOrOffer() {
 
 /** First row of the phone menu: the offer, large. Rendered only when the menu opens, so it can read the clock. */
 function MenuOffer({ onClose }: { onClose: () => void }) {
+  const lang = useLang();
+  const t = T[lang];
+  const offer = offerText(lang);
+  const regular = planText("lifetime", lang).label;
   if (!isOfferRunning()) {
     return (
-      <Link href="/" onClick={onClose} className="nav-offer-row">
+      <Link href={href(lang, "/")} onClick={onClose} className="nav-offer-row">
         <span className="display block text-[1.7rem]">Koja Office</span>
-        <span className="mt-2 block text-[16px] leading-snug text-[#d6d6dc]">
-          13 Apps für Mac und Windows, einmal {PLANS.lifetime.label}, kein Abo.
-        </span>
+        <span className="mt-2 block text-[16px] leading-snug text-[#d6d6dc]">{t.menuPlain(regular)}</span>
         <span className="link-hud mt-5 !text-white">
-          Koja Office ansehen <ArrowRight size={14} aria-hidden />
+          {t.seeFull} <ArrowRight size={14} aria-hidden />
         </span>
       </Link>
     );
   }
   return (
-    <a href={OFFER_HREF} onClick={onClose} className="nav-offer-row">
+    <a href={href(lang, OFFER_HREF)} onClick={onClose} className="nav-offer-row">
       <span className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <span className="offer-tag">{OFFER_LABEL}</span>
-        <span className="text-[16px] leading-snug text-[#d6d6dc]">Einführungspreis bis {OFFER_END_LONG}</span>
+        <span className="offer-tag">{offer.label}</span>
+        <span className="text-[16px] leading-snug text-[#d6d6dc]">
+          {t.intro} {offer.endLong}
+        </span>
       </span>
       <span className="display mt-4 block text-[1.7rem]">Koja Office</span>
       <span className="mt-2 block text-[16px] leading-snug text-[#d6d6dc]">
-        13 Apps für Mac und Windows, einmal{" "}
+        {t.menuOffer}{" "}
         <span className="whitespace-nowrap">
-          <b className="font-semibold text-white">{OFFER_PRICE}</b> statt <s>{PLANS.lifetime.label}</s>
+          <b className="font-semibold text-white">{offer.price}</b> {t.instead} <s>{regular}</s>
         </span>
       </span>
       <span className="mt-5 flex flex-wrap items-center justify-between gap-3">
@@ -142,7 +196,7 @@ function MenuOffer({ onClose }: { onClose: () => void }) {
           Code <span className="offer-code text-[15px] text-white">{OFFER_CODE}</span>
         </span>
         <span className="link-hud !text-white">
-          Zum Angebot <ArrowRight size={14} aria-hidden />
+          {t.toOffer} <ArrowRight size={14} aria-hidden />
         </span>
       </span>
     </a>
@@ -157,15 +211,22 @@ function MenuOffer({ onClose }: { onClose: () => void }) {
  */
 export default function Navigation({ cta = "download" }: { cta?: "download" | "contact" | "buy" | "buy-ds24" }) {
   const pathname = usePathname();
+  const lang = useLang();
+  const t = T[lang];
   const ds24 = cta === "buy-ds24";
+  const navLinks = t.links.map((l) => ({ href: href(lang, l.href), label: l.label }));
   const links = ds24 ? [] : navLinks;
   // The phone menu opens with the Koja Office row (MenuOffer), so its plain item would be a second "Koja Office".
-  const menuLinks = ds24 ? [{ href: "#preise", label: "Preise" }] : navLinks.slice(1);
+  const menuLinks = ds24 ? [{ href: "#preise", label: t.prices }] : navLinks.slice(1);
+  // The same page in the other language; none on the partner page and on German-only pages (guides).
+  const otherHref = switchPath(pathname ?? "/", lang === "de" ? "en" : "de");
+  const other = ds24 || otherHref === pathname ? null : { href: otherHref, hrefLang: lang === "de" ? "en" : "de" };
+  const home = href(lang, "/");
   const [openFor, setOpenFor] = useState<string | null>(null);
   // The menu closes on its own when the route changes.
   const mobileOpen = openFor === pathname;
 
-  const isActive = (href: string) => !href.includes("#") && (pathname === href || (href !== "/" && pathname.startsWith(`${href}/`)));
+  const isActive = (link: string) => !link.includes("#") && (pathname === link || (link !== home && pathname.startsWith(`${link}/`)));
 
   return (
     <>
@@ -173,9 +234,9 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
       <RevealManager />
       <ScrollRuler />
       <header className="fixed inset-x-0 top-0 z-50 h-12 border-b border-border bg-white/95 backdrop-blur-md">
-        <nav className="flex h-full items-stretch" aria-label="Hauptnavigation">
+        <nav className="flex h-full items-stretch" aria-label={t.nav}>
           <div className={`flex items-center border-r border-border md:px-5 ${ds24 ? "px-4" : "px-3 min-[400px]:px-4"}`}>
-            <Logo header={!ds24} />
+            <Logo header={!ds24} lang={lang} />
           </div>
 
           <ul className="hidden items-stretch lg:flex">
@@ -192,6 +253,18 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
                 </Link>
               </li>
             ))}
+            {other && (
+              <li className="flex items-center px-1 xl:px-1.5">
+                <Link
+                  href={other.href}
+                  hrefLang={other.hrefLang}
+                  title={t.other.title}
+                  className="px-2 py-1 font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted transition-colors hover:text-foreground"
+                >
+                  {t.other.short}
+                </Link>
+              </li>
+            )}
           </ul>
 
           {/* Below 360px the logo is the K alone and the offer fills the space up to the menu button. */}
@@ -202,7 +275,7 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
                   href="#preise"
                   className="hidden items-center border-l border-border px-5 font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted transition-colors hover:text-foreground xl:flex"
                 >
-                  Preise
+                  {t.prices}
                 </Link>
                 <DigistoreBuyButton source="nav" className="hidden !min-h-full !border-0 !px-5 !text-[11.5px] lg:inline-flex" />
                 <DownloadButton
@@ -222,7 +295,7 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
             <button
               onClick={() => setOpenFor(mobileOpen ? null : pathname)}
               className="grid w-12 place-items-center border-l border-border text-foreground lg:hidden"
-              aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
+              aria-label={mobileOpen ? t.close : t.open}
               aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -243,6 +316,14 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
                 </Link>
               </li>
             ))}
+            {other && (
+              <li className="border-t border-border">
+                <Link href={other.href} hrefLang={other.hrefLang} onClick={() => setOpenFor(null)} className="flex items-center justify-between px-5 py-5">
+                  <span className="display text-2xl">{t.other.long}</span>
+                  <span className="hud text-faint">{t.other.short}</span>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       )}

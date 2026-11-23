@@ -2,11 +2,67 @@
 
 import { useEffect, useRef, useState } from "react";
 import { HONEYPOT, MIN_FILL_MS } from "@/lib/form-guard";
+import type { Lang } from "@/lib/i18n";
 
 type Done = { receivedAt: string; emailSent: boolean };
 
+const de = {
+  failed: "Das hat nicht geklappt. Bitte versuche es erneut.",
+  locale: "de-DE",
+  received: "Kündigung eingegangen",
+  receivedAt: (date: string, time: string) => `Eingegangen am ${date} um ${time} Uhr`,
+  typeShort: "Art: ",
+  nameShort: "Name: ",
+  emailShort: "E-Mail: ",
+  kindOrdinary: "ordentlich, zum nächstmöglichen Zeitpunkt",
+  kindExtraordinary: "außerordentlich (aus wichtigem Grund)",
+  next: "Gehört zu dieser Adresse ein Koja-Apps-Abo, endet es zum Ende des laufenden Abrechnungsmonats. Danach buchen wir nichts mehr ab.",
+  emailSent: "Eine Eingangsbestätigung mit dem genauen Enddatum haben wir dir per E-Mail geschickt.",
+  emailFailed: "Die Bestätigung per E-Mail konnten wir gerade nicht senden. Bitte speichere oder drucke diese Seite.",
+  print: "Seite drucken oder speichern",
+  name: "Vor- und Nachname",
+  email: "E-Mail-Adresse deines Abos (dorthin schicken wir die Bestätigung)",
+  key: "Dein Lizenzschlüssel, falls zur Hand ",
+  optional: "(optional)",
+  keyHint: "Er steht in der E-Mail zu deinem Kauf. Ohne ihn finden wir deinen Vertrag über deine E-Mail-Adresse.",
+  type: "Art der Kündigung",
+  ordinary: "Ordentlich, zum nächstmöglichen Zeitpunkt (Ende des laufenden Abrechnungsmonats)",
+  extraordinary: "Außerordentlich (aus wichtigem Grund)",
+  reason: "Grund",
+  sending: "Wird gekündigt …",
+  submit: "Jetzt kündigen",
+};
+const en: typeof de = {
+  failed: "That didn't work. Please try again.",
+  locale: "en-GB",
+  received: "Cancellation received",
+  receivedAt: (date, time) => `Received on ${date} at ${time} (Berlin time)`,
+  typeShort: "Type: ",
+  nameShort: "Name: ",
+  emailShort: "Email: ",
+  kindOrdinary: "ordinary, at the earliest possible date",
+  kindExtraordinary: "extraordinary (for good cause)",
+  next: "If there is a Koja apps subscription for this address, it ends at the end of the current billing month. After that, we will not charge you again.",
+  emailSent: "We have sent you an acknowledgement of receipt with the exact end date by email.",
+  emailFailed: "We could not send the confirmation by email just now. Please save or print this page.",
+  print: "Print or save this page",
+  name: "First and last name",
+  email: "Email address of your subscription (we will send the confirmation there)",
+  key: "Your license key, if you have it to hand ",
+  optional: "(optional)",
+  keyHint: "You will find it in the email about your purchase. Without it, we will find your contract using your email address.",
+  type: "Type of cancellation",
+  ordinary: "Ordinary, at the earliest possible date (end of the current billing month)",
+  extraordinary: "Extraordinary (for good cause)",
+  reason: "Reason",
+  sending: "Cancelling …",
+  submit: "Cancel now",
+};
+const T = { de, en };
+
 // The confirmation page of the Kündigungsbutton (§ 312k BGB): all fields and the "Jetzt kündigen" button on one page.
-export default function CancelForm() {
+export default function CancelForm({ lang = "de" }: { lang?: Lang }) {
+  const t = T[lang];
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [reference, setReference] = useState("");
@@ -32,16 +88,17 @@ export default function CancelForm() {
         if (wait > 0) await new Promise((r) => setTimeout(r, wait));
       }
       const fillMs = shown === null ? undefined : Math.round(performance.now() - shown);
+      // `lang` makes the API answer and send its confirmation in the page's language.
       const res = await fetch("/api/cancel", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, reference, type, reason, [HONEYPOT]: trap, fillMs }),
+        body: JSON.stringify({ name, email, reference, type, reason, lang, [HONEYPOT]: trap, fillMs }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.error || "Das hat nicht geklappt. Bitte versuche es erneut.");
+      if (!res.ok) throw new Error(data.error || t.failed);
       setDone({ receivedAt: data.receivedAt ?? new Date().toISOString(), emailSent: Boolean(data.emailSent) });
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Das hat nicht geklappt. Bitte versuche es erneut.");
+      setError(e instanceof Error ? e.message : t.failed);
     } finally {
       setBusy(false);
     }
@@ -49,38 +106,33 @@ export default function CancelForm() {
 
   if (done) {
     const at = new Date(done.receivedAt);
-    const date = at.toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Berlin" });
-    const time = at.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Berlin" });
+    const date = at.toLocaleDateString(t.locale, { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Berlin" });
+    const time = at.toLocaleTimeString(t.locale, { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Berlin" });
     return (
       <div className="border border-border border-t-2 border-t-success p-5 sm:p-8" role="status">
-        <p className="display text-[clamp(1.6rem,3vw,2.1rem)]">Kündigung eingegangen</p>
-        <p className="mt-4 font-semibold">
-          Eingegangen am {date} um {time} Uhr
-        </p>
+        <p className="display text-[clamp(1.6rem,3vw,2.1rem)]">{t.received}</p>
+        <p className="mt-4 font-semibold">{t.receivedAt(date, time)}</p>
         <dl className="mt-5 border-t border-border text-[15px]">
           <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-border py-2.5">
-            <dt className="hud pt-[3px]">Art: </dt>
+            <dt className="hud pt-[3px]">{t.typeShort}</dt>
             <dd className="break-words text-foreground">
-              {type === "extraordinary" ? "außerordentlich (aus wichtigem Grund)" : "ordentlich, zum nächstmöglichen Zeitpunkt"}
+              {type === "extraordinary" ? t.kindExtraordinary : t.kindOrdinary}
             </dd>
           </div>
           <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-border py-2.5">
-            <dt className="hud pt-[3px]">Name: </dt>
+            <dt className="hud pt-[3px]">{t.nameShort}</dt>
             <dd className="break-words text-foreground">{name}</dd>
           </div>
           <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-border py-2.5">
-            <dt className="hud pt-[3px]">E-Mail: </dt>
+            <dt className="hud pt-[3px]">{t.emailShort}</dt>
             <dd className="break-words text-foreground">{email}</dd>
           </div>
         </dl>
         <p className="mt-5 leading-relaxed text-muted">
-          Gehört zu dieser Adresse ein Koja-Apps-Abo, endet es zum Ende des laufenden Abrechnungsmonats. Danach buchen wir nichts mehr ab.{" "}
-          {done.emailSent
-            ? "Eine Eingangsbestätigung mit dem genauen Enddatum haben wir dir per E-Mail geschickt."
-            : "Die Bestätigung per E-Mail konnten wir gerade nicht senden. Bitte speichere oder drucke diese Seite."}
+          {t.next} {done.emailSent ? t.emailSent : t.emailFailed}
         </p>
         <button type="button" onClick={() => window.print()} className="btn-secondary mt-6 w-full sm:w-auto">
-          Seite drucken oder speichern
+          {t.print}
         </button>
       </div>
     );
@@ -104,19 +156,19 @@ export default function CancelForm() {
       </div>
       <div className="grid gap-2">
         <label htmlFor="cancel-name" className="text-sm font-semibold">
-          Vor- und Nachname
+          {t.name}
         </label>
         <input id="cancel-name" required value={name} onChange={(e) => setName(e.target.value)} className={field} autoComplete="name" />
       </div>
       <div className="grid gap-2">
         <label htmlFor="cancel-email" className="text-sm font-semibold">
-          E-Mail-Adresse deines Abos (dorthin schicken wir die Bestätigung)
+          {t.email}
         </label>
         <input id="cancel-email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className={field} autoComplete="email" />
       </div>
       <div className="grid gap-2">
         <label htmlFor="cancel-reference" className="text-sm font-semibold">
-          Dein Lizenzschlüssel, falls zur Hand <span className="font-normal text-muted">(optional)</span>
+          {t.key}<span className="font-normal text-muted">{t.optional}</span>
         </label>
         <input
           id="cancel-reference"
@@ -128,26 +180,26 @@ export default function CancelForm() {
           aria-describedby="cancel-reference-hint"
         />
         <p id="cancel-reference-hint" className="text-xs leading-relaxed text-muted">
-          Er steht in der E-Mail zu deinem Kauf. Ohne ihn finden wir deinen Vertrag über deine E-Mail-Adresse.
+          {t.keyHint}
         </p>
       </div>
       <fieldset>
-        <legend className="mb-3 text-sm font-semibold">Art der Kündigung</legend>
+        <legend className="mb-3 text-sm font-semibold">{t.type}</legend>
         <div className="cells border border-border">
           <label className="flex min-h-12 cursor-pointer items-start gap-3 px-4 py-3.5 text-sm leading-snug text-muted has-[:checked]:text-foreground">
             <input type="radio" name="type" checked={type === "ordinary"} onChange={() => setType("ordinary")} className="mt-0.5 h-4 w-4 shrink-0 accent-foreground" />
-            Ordentlich, zum nächstmöglichen Zeitpunkt (Ende des laufenden Abrechnungsmonats)
+            {t.ordinary}
           </label>
           <label className="flex min-h-12 cursor-pointer items-start gap-3 px-4 py-3.5 text-sm leading-snug text-muted has-[:checked]:text-foreground">
             <input type="radio" name="type" checked={type === "extraordinary"} onChange={() => setType("extraordinary")} className="mt-0.5 h-4 w-4 shrink-0 accent-foreground" />
-            Außerordentlich (aus wichtigem Grund)
+            {t.extraordinary}
           </label>
         </div>
       </fieldset>
       {type === "extraordinary" && (
         <div className="grid gap-2">
           <label htmlFor="cancel-reason" className="text-sm font-semibold">
-            Grund
+            {t.reason}
           </label>
           <textarea id="cancel-reason" value={reason} onChange={(e) => setReason(e.target.value)} rows={3} className={field} />
         </div>
@@ -161,7 +213,7 @@ export default function CancelForm() {
 
       <div>
         <button type="submit" className="btn-primary w-full sm:w-auto" disabled={busy}>
-          {busy ? "Wird gekündigt …" : "Jetzt kündigen"}
+          {busy ? t.sending : t.submit}
         </button>
       </div>
     </form>

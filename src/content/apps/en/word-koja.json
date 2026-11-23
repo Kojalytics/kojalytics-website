@@ -1,0 +1,173 @@
+{
+  "kind": "Word processing",
+  "benefit": "Write letters, reports and term papers on your Mac or PC, with a Ribbon and direct editing of .docx files.",
+  "keyword": "Word alternative Mac",
+  "metaTitle": "Word Alternative for Mac and Windows: WordKoja",
+  "metaDescription": "WordKoja is a Word alternative for Mac and Windows: open and save .docx, offline, no account needed. Try it free for 3 days, then pay €79 once.",
+  "h1": "Word alternative for Mac and Windows, with a Ribbon and .docx",
+  "lead": "WordKoja is a Word alternative for Mac and Windows that opens and saves .docx files directly. You write with styles, tables, “Track Changes” and a table of contents, offline and without an account. Try WordKoja free for 3 days, then pay €19.99 a month or €79 once.",
+  "highlights": [
+    "Opens and saves .docx",
+    "Ribbon with tabs",
+    "Offline, no account"
+  ],
+  "features": [
+    {
+      "title": "Ribbon with tabs and shortcuts",
+      "text": "Tabs and groups organize the commands, and you pick styles from a gallery. Many familiar moves work: Enter continues a list, Tab indents it one level, ⌘B makes the word under the cursor bold, F4 repeats the last action and F7 starts the spell check."
+    },
+    {
+      "title": "Open and save .docx",
+      "text": "WordKoja reads and writes .docx directly, without converting through another format. It also handles .odt, .rtf, HTML, Markdown, LaTeX and plain text. You can open old Word files (.doc, Word 97–2003) and save them as .docx, and PDF export keeps selectable text, links and bookmarks."
+    },
+    {
+      "title": "Track and review changes",
+      "text": "With “Track Changes” you see every insertion and deletion and accept or reject each one. Comments appear in balloons in the margin or in a pane of their own. You also get document compare, editing restrictions, an accessibility checker, a thesaurus and word count.",
+      "screenshot": "review.webp"
+    },
+    {
+      "title": "Tables of contents, footnotes, sources",
+      "text": "You insert a table of contents, footnotes and endnotes, captions, a table of figures, cross-references and an index from the References tab. WordKoja formats citations and bibliographies in **APA, MLA, Chicago or IEEE** style. That helps with term papers, theses and long reports.",
+      "screenshot": "references.webp"
+    },
+    {
+      "title": "Page layout and images",
+      "text": "For the page you get margins, orientation, columns, section breaks, headers and footers (including a different first page or different odd and even pages), watermarks, page borders, line numbers, drop caps and automatic hyphenation that also handles German text. You can crop and rotate images, adjust brightness and contrast, or remove the background. Text wraps around images, shapes and text boxes."
+    },
+    {
+      "title": "Tables and mail merge",
+      "text": "You insert tables from a grid, merge or split cells, use table styles with banded rows, sort, and calculate with formulas. Header rows repeat on every page. You create mail merge letters from a CSV file with merge fields, address block, greeting line and preview, plus envelopes and labels."
+    },
+    {
+      "title": "Templates, writing aids and views",
+      "text": "The start screen offers templates for a letter, résumé and report, plus your recently opened documents. AutoCorrect, automatic lists, Format Painter, and find and replace with regular expressions help while you write. For reading and revising there’s Read Mode, Focus Mode, the Navigation pane and dark mode.",
+      "screenshot": "dark.webp"
+    },
+    {
+      "title": "Fast, native and offline",
+      "text": "WordKoja is a native Mac app without Electron and runs on Macs with Apple silicon and with Intel. While you type, the layout of a 188-page document is recalculated in about **1.4 ms** (as of November 2026). Everything works offline, and the text of your documents never ends up in log files."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "WordKoja: Home ribbon with styles, Navigation pane with headings and a document with a table",
+      "caption": "Ribbon, styles and Navigation pane: jump straight to the section you want via its heading."
+    },
+    {
+      "file": "review.webp",
+      "alt": "WordKoja: Review ribbon, a tracked change in the text and two comments in the margin",
+      "caption": "Track changes and comment: deleted text is struck through, inserted text underlined, and comments sit in the margin."
+    },
+    {
+      "file": "references.webp",
+      "alt": "WordKoja: References ribbon and an automatically generated table of contents with page numbers",
+      "caption": "One click under References builds the table of contents from your headings, page numbers included."
+    },
+    {
+      "file": "dark.webp",
+      "alt": "WordKoja in dark mode with the Insert ribbon, a document with comments and a table",
+      "caption": "Dark mode is easier on the eyes in the evening, and the page and Ribbon adapt."
+    }
+  ],
+  "switching": {
+    "title": "From Word to WordKoja: how to try the Word alternative on your Mac or PC",
+    "paragraphs": [
+      "A lot will feel familiar: the Ribbon with tabs for Insert, Layout, References and Review, the styles gallery, the Navigation pane and shortcuts like ⌘B, F4 or F7. WordKoja comes with 140 keyboard shortcuts out of the box, though not every Word shortcut is included. The interface is in English, as in the screenshots on this page.",
+      "You open your .docx files directly and save them back as .docx. It’s best to test important files with a copy first. You can open old .doc files, but not save them as .doc again. Expect line and page breaks to differ from Word, for example because there’s no metric-compatible substitute for the Aptos font. You can view charts from Word but not edit them, and macros in .docm files are kept when you save but not run.",
+      "Not included: German spelling and grammar checking (for German there’s hyphenation), cloud storage, real-time co-editing, VBA macros, Office add-ins and an AI writing assistant. You create mail merges from CSV files, not from Outlook contacts, Access or other databases, and there’s no email merge. WordKoja is in active development: you get updates and new features automatically and free of charge.",
+      "Here’s how to find out in 3 days whether it suits you: download the Kojalytics Launcher, install WordKoja and open three real files, for example a letter, a long document with a table of contents and one with comments. Compare the page breaks, save as .docx, export a PDF, and work with copies throughout. Only cancel Microsoft 365 once you’re sure. The guide [Office for Mac without a subscription](/ratgeber/office-fuer-mac-ohne-abo) covers the ways to get Office with no subscription."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "Microsoft 365 Single: €99 a year or €10 a month. Office Home 2024: €149 one-time purchase for 1 Mac. Word for the web: free"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee. Or pay once and keep using it.",
+        "other": "Microsoft 365 subscriptions renew automatically at the regular price unless you cancel. Office Home 2024 is a one-time purchase."
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, a Microsoft account (also for the free web version)"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Desktop app yes, Word for the web online only"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "Read and save .docx, plus .odt, .rtf and Markdown. .doc open only, PDF export",
+        "other": ".docx (native format), .doc, .odt, .rtf, PDF and more"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows, on up to 3 devices",
+        "other": "macOS, Windows, iPad, iPhone, Android and web"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you write letters, job applications, term papers or reports on a Mac or PC and don’t want to pay for a Microsoft 365 subscription",
+    "you need to open and edit .docx files from colleagues, school or public offices and send them back as .docx or PDF",
+    "you’re used to the Word Ribbon and don’t want to relearn styles, tables of contents and footnotes",
+    "you want to work offline without an account and need spreadsheets and presentations as well as text, because all 13 Koja apps are included in the price"
+  ],
+  "notFor": [
+    "you need German spelling and grammar checking: for German, WordKoja offers hyphenation",
+    "your documents must have exactly the same page breaks as in Word: line and page breaks can differ",
+    "you write together with others in real time in the cloud, need VBA macros, or work on an iPad or in the browser"
+  ],
+  "formats": [
+    ".docx (read and write)",
+    ".odt (read and write)",
+    ".rtf (read and write)",
+    "HTML (read and write)",
+    "Markdown (read and write)",
+    "LaTeX .tex (read and write)",
+    ".txt (read and write)",
+    ".doc Word 97–2003 (open only)",
+    ".docm (open, macros don’t run)",
+    "PDF (export with selectable text)",
+    "PNG (export pages as images)",
+    "CSV (data for mail merge)"
+  ],
+  "faq": [
+    {
+      "q": "Is WordKoja a full Microsoft Word alternative?",
+      "a": "For many tasks, yes: the Ribbon, styles, tables, “Track Changes”, tables of contents and mail merge are all there. Not included are, among other things, a German spell check, cloud storage, real-time co-editing and VBA macros, and page breaks can differ from Word. WordKoja is in active development, and you get updates free of charge. Use the free trial with your own files to check whether it’s enough for you."
+    },
+    {
+      "q": "Can I open and edit .docx files on a Mac or PC with WordKoja?",
+      "a": "Yes. WordKoja opens and saves .docx directly, as well as .odt, .rtf, HTML, Markdown, LaTeX and .txt. You can open old .doc files and save them as .docx, and export PDFs with selectable text, links and bookmarks. Line and page breaks may fall differently than in Word, though, and charts from Word can only be viewed. For PDFs, the bundle includes a separate app, [PdfKoja](/software/pdf-koja)."
+    },
+    {
+      "q": "Which languages does WordKoja’s spell check cover?",
+      "a": "Spelling and grammar checking is available for English and Spanish, among others, and some other languages need extra dictionaries installed. There’s no spell check for German, which is worth knowing beforehand; for German, WordKoja handles automatic hyphenation. The interface itself is in English."
+    },
+    {
+      "q": "Can I buy WordKoja without a subscription?",
+      "a": "Yes. You pay €79 once and keep using all 13 Koja apps on up to 3 devices, including [GridKoja](/software/grid-koja) for spreadsheets and [DeckKoja](/software/deck-koja) for presentations. If you’d rather pay monthly, it’s €19.99 a month, and you can cancel online any time. For comparison: Microsoft charges €149 one-time for Office Home 2024 for one Mac, and €99 a year for Microsoft 365 Single."
+    },
+    {
+      "q": "Word is free in the browser. Why WordKoja?",
+      "a": "You can use Word for the web with a free Microsoft account, which includes 5 GB of OneDrive storage. But it only runs in the browser with an internet connection, and for co-editing your files are stored on OneDrive. WordKoja is a desktop app for Mac and Windows that runs offline without an account, and your documents stay on your Mac or PC. If the web version is enough for you and the account and cloud don’t bother you, it’s a good free option."
+    },
+    {
+      "q": "What do I get for my money?",
+      "a": "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email. And you get 13 apps at once, from word processing to spreadsheets, presentations and image editing."
+    }
+  ]
+}

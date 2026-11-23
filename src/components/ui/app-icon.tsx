@@ -1,10 +1,22 @@
 import Image from "next/image";
 
-export default function AppIcon({ slug, name, size = 48, priority = false }: { slug: string; name: string; size?: number; priority?: boolean }) {
+export default function AppIcon({
+  slug,
+  name,
+  size = 48,
+  priority = false,
+  lang = "de",
+}: {
+  slug: string;
+  name: string;
+  size?: number;
+  priority?: boolean;
+  lang?: "de" | "en";
+}) {
   return (
     <Image
       src={`/apps/${slug}/icon.webp`}
-      alt={`${name} App-Icon`}
+      alt={`${name} ${lang === "en" ? "app icon" : "App-Icon"}`}
       width={size}
       height={size}
       priority={priority}

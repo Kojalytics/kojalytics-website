@@ -1,0 +1,165 @@
+{
+  "kind": "Vector graphics",
+  "benefit": "Draw logos, icons and illustrations on your Mac or PC, with the Pen tool, Pathfinder and Shape Builder.",
+  "keyword": "Illustrator alternative Mac",
+  "metaTitle": "Illustrator Alternative for Mac and Windows: VectorKoja",
+  "metaDescription": "VectorKoja is an Illustrator alternative for Mac and Windows: Pen tool, Pathfinder, SVG, PDF and .ai. Try it free for 3 days, then €19.99 a month.",
+  "h1": "Illustrator alternative for Mac and Windows: vector graphics with SVG, PDF and .ai",
+  "lead": "VectorKoja is an Illustrator alternative for Mac and Windows, with the Pen tool, Direct Selection, Pathfinder, layers and an English interface. Try the app free for 3 days with your own files.",
+  "highlights": [
+    "Pen tool, Pathfinder, layers",
+    "SVG, PDF, .ai: import and export",
+    "Interface in English"
+  ],
+  "features": [
+    {
+      "title": "Pen tool, Pathfinder, Shape Builder",
+      "text": "You work with the Pen tool, Direct Selection, Pathfinder, Shape Builder, Smart Guides, Appearance, Swatches and Layers. Pathfinder calculates precisely with curves, and undo has no step limit.",
+      "screenshot": "bezier.webp"
+    },
+    {
+      "title": "Effects that stay editable",
+      "text": "Blends, envelope distortions, gradient meshes, radial, grid and mirror repeats, glow and drop shadow stay live. If you change the source objects, the effect is recalculated instead of being baked into the artwork."
+    },
+    {
+      "title": "Drawing on a perspective grid",
+      "text": "Artwork you attach to the planes of a perspective grid stays editable in perspective. That lets you build facades, rooms or packaging mockups without distorting every surface by hand."
+    },
+    {
+      "title": "Vectorize images",
+      "text": "Image Trace turns pixel images like scans, sketches or old logos into vector paths. 12 presets help you get started, and then you edit the paths as usual."
+    },
+    {
+      "title": "Dimensions for technical drawings",
+      "text": "The dimension tool adds linear, angular, diameter and radius dimensions. When the drawing changes, the dimensions move with it. That helps with sketches, plans and workshop drawings."
+    },
+    {
+      "title": "3D Revolve, first version",
+      "text": "A simple profile becomes a revolved 3D object with smooth vector shading, caps and rotation handles. Other 3D effects like Extrude aren’t included."
+    },
+    {
+      "title": "Smooth even with many shapes",
+      "text": "Rendering runs on multiple cores and separately from the interface. The app draws 20,000 shapes in about 27 ms at full Retina resolution, while the interface keeps running at 120 frames per second (as of November 2026)."
+    },
+    {
+      "title": "Artboards, export and printing",
+      "text": "A document can contain multiple artboards. There are also templates, “Export for Screens” in multiple sizes, printing and packaging. With print tiling you spread large posters across several pages."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "VectorKoja: “Gartenfest” garden party poster with sun, mountains and stars; the title line is selected, with the character settings on the right",
+      "caption": "Posters and graphics with text, gradients and shapes, with all properties of the selection on the right."
+    },
+    {
+      "file": "bezier.webp",
+      "alt": "VectorKoja: Direct Selection with anchor points and Bézier handles on the poster’s front mountain path",
+      "caption": "With Direct Selection you edit anchor points and Bézier handles individually."
+    },
+    {
+      "file": "layers.webp",
+      "alt": "VectorKoja: Layers panel with named layers such as title, stars, mountains and sun next to the poster",
+      "caption": "Each shape has its own layer, which you can show, hide, lock and rename."
+    }
+  ],
+  "switching": {
+    "title": "Illustrator alternative on your Mac or PC: how to switch to VectorKoja",
+    "paragraphs": [
+      "A lot stays the way you know it: the Pen tool, Direct Selection, Pathfinder, Shape Builder, Smart Guides, Appearance, Swatches and Layers, plus familiar menus, panels and keyboard shortcuts. Artboards, text styles and threaded text frames are included too, and the interface is in English.",
+      "About your files: you import and export SVG and PDF, PDF also as PDF/X. VectorKoja opens Illustrator files if they were saved PDF-compatible, and the old .ai format from Illustrator 7 is supported with layers, groups and text. EPS, DXF and EMF/WMF are supported too. You can open and place Affinity files, but not save in Affinity format.",
+      "Good to know: when exchanging .ai files, the layer structure of real-world files doesn’t fully come across, and Illustrator’s own editing data isn’t written. For 3D there’s Revolve; Extrude and materials aren’t included. Scripts and most variables aren’t available either, nor is generative AI, and some tools behave differently in detail from what you’re used to. VectorKoja is in active development: you get updates and new features automatically and free of charge.",
+      "How to test in 3 days: download the Kojalytics Launcher for free, install VectorKoja and open two or three real files from your everyday work, such as a logo as SVG and an .ai file. Rebuild a shape with the Pen tool and Pathfinder and export it. If it suits you, keep using VectorKoja for €19.99 a month, [cancel any time](/kuendigen), or make the one-time purchase for €79. Only cancel your Adobe subscription once you’re sure, and check the costs first: on the annual plan billed monthly, canceling after the first 14 days costs 50% of the remaining contract value. More in the guide [Canceling your Adobe subscription](/ratgeber/adobe-abo-kuendigen)."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "€25.99 a month on an annual plan paid monthly, €38.98 on a monthly plan"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee (or €79 once)",
+        "other": "Annual plan renews automatically. If billed monthly, canceling after 14 days costs 50% of the remaining contract value"
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, an Adobe account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "Yes, with regular online license checks"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "SVG, PDF, .ai (PDF-compatible, with limitations), EPS, DXF, PNG",
+        "other": "AI, PDF, EPS, SVG and more"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows",
+        "other": "macOS, Windows and iPad"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you draw logos, icons and illustrations on a Mac or PC and need the Pen tool, Pathfinder and Shape Builder for that",
+    "you only keep paying for your Adobe subscription for occasional vector work",
+    "you want to turn scans, sketches or pixel logos into vector paths",
+    "you create technical sketches with dimensions or drawings on a perspective grid"
+  ],
+  "notFor": [
+    "you exchange .ai files with clients or agencies every day and the layers must be preserved exactly",
+    "your work needs scripts, variables or 3D effects like Extrude"
+  ],
+  "formats": [
+    "SVG (read and write)",
+    "SVGZ (open)",
+    "PDF and PDF/X (read and write)",
+    "AI, PDF-compatible (read and write)",
+    "EPS",
+    "DXF",
+    "EMF/WMF",
+    "PNG, JPEG, WebP (export)",
+    "GIF, TIFF, BMP (open)",
+    "PSD (export)",
+    "PSD/PSB (open as a flattened image)",
+    "Affinity files (open only)"
+  ],
+  "faq": [
+    {
+      "q": "Is VectorKoja a full Illustrator alternative?",
+      "a": "For everyday vector illustration, yes: the Pen tool, Direct Selection, Pathfinder, layers and live effects are included. When exchanging .ai files, the layer structure doesn’t fully come across, 3D is limited to Revolve, and scripts aren’t included. VectorKoja is in active development, and you get updates free of charge. Try it free for 3 days with your own files before you decide."
+    },
+    {
+      "q": "Can I open .ai files on a Mac or PC with VectorKoja?",
+      "a": "Yes, if the file was saved PDF-compatible. The old .ai format from Illustrator 7 is supported too, keeping layers, groups and text. With real project files, though, the layer structure doesn’t fully come across, and VectorKoja doesn’t write Illustrator’s own editing data. So check your most important files during the 3 trial days before you rely on the exchange."
+    },
+    {
+      "q": "Can I vectorize an image with VectorKoja?",
+      "a": "Yes. Image Trace turns pixel images like scans, sketches or old logos into vector paths and comes with 12 presets. You then edit the result like any other path, for example with Direct Selection and Pathfinder."
+    },
+    {
+      "q": "Can I buy VectorKoja without a subscription?",
+      "a": "Yes, besides the subscription for €19.99 a month, there’s a one-time purchase for €79. Both cover all 13 Koja apps on up to 3 devices. For comparison: Illustrator alone costs €25.99 a month at Adobe on an annual plan paid monthly. You’ll find all options under [Pricing](/software#preise)."
+    },
+    {
+      "q": "Does VectorKoja open Affinity files too?",
+      "a": "Yes. You can open and place files from Affinity 3 (.af) and from Affinity 1 and 2 (.afdesign, .afpub, .afphoto), with layers, artboards, curves, text and masks. VectorKoja shows you a warning about anything that isn’t carried over. VectorKoja can’t save in Affinity format."
+    },
+    {
+      "q": "What do I get for my money?",
+      "a": "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email. On top of that, you get 12 more apps for the same price. You’ll find an overview of all apps under [Software](/software)."
+    }
+  ]
+}

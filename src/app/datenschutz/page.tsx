@@ -4,12 +4,13 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionBar from "@/components/instrument/SectionBar";
 import type { Metadata } from "next";
+import { alternates } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
   description:
     "Datenschutzerklärung von Kojalytics: welche Daten die Website, die Koja-Apps und AI Headshot verarbeiten, welche Dienste wir nutzen und welche Rechte du hast.",
-  alternates: { canonical: "/datenschutz" },
+  alternates: alternates("de", "/datenschutz"),
 };
 
 const USA_TRANSFER =

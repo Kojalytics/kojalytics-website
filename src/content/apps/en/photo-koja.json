@@ -1,0 +1,167 @@
+{
+  "kind": "Photo editing",
+  "benefit": "Edit photos and PSD files with layers, masks and adjustment layers.",
+  "keyword": "Photoshop alternative Mac",
+  "metaTitle": "Photoshop Alternative for Mac and Windows: PhotoKoja",
+  "metaDescription": "PhotoKoja is a Photoshop alternative for Mac and Windows: edit PSD files with layers and masks. Try it free for 3 days, then pay €79 once.",
+  "h1": "Photoshop alternative for Mac and Windows: PSD, layers and masks",
+  "lead": "PhotoKoja is a Photoshop alternative for Mac and Windows that runs offline and without an account. You edit photos and PSD files with layers, masks, adjustment layers and layer styles. Try PhotoKoja free for 3 days, then pay €19.99 a month or €79 once.",
+  "highlights": [
+    "Opens and saves PSD/PSB",
+    "16 adjustment layers",
+    "Offline, no account"
+  ],
+  "features": [
+    {
+      "title": "Shortcuts, transform, history",
+      "text": "Many Photoshop keyboard shortcuts work here too, such as ⌘J or ⇧⌘D. You also get “Free Transform” with scale, rotate, skew, distort and perspective, the full History and the History Brush."
+    },
+    {
+      "title": "Corrections that don’t destroy anything",
+      "text": "PhotoKoja offers **16 adjustment layers**, including Curves per channel, Levels with a live histogram, Vibrance, Hue/Saturation, Black & White, Channel Mixer, Gradient Map, Photo Filter, Selective Color and Color Lookup with .cube, .3dl and .look files. You can mask, reorder or hide them without touching the original pixels.",
+      "screenshot": "adjustments.webp"
+    },
+    {
+      "title": "Layer styles, even on text",
+      "text": "Drop Shadow, Inner Shadow, Outer and Inner Glow, Bevel & Emboss, Satin, Stroke, and Color, Gradient and Pattern Overlay work live on any layer. You can copy styles between layers, and they’re carried over from PSD files. Text layers stay editable.",
+      "screenshot": "layer-styles.webp"
+    },
+    {
+      "title": "Selections and masks",
+      "text": "Rectangular and Elliptical Marquee, Lasso, Magic Wand, Quick Selection, Object Selection, “Select Subject” and “Select and Mask” are included. Smart selection runs on your Mac or PC, without a cloud and without an account. Any selection can become a layer mask, a vector path or a shape if you like."
+    },
+    {
+      "title": "PSD and PSB with layers",
+      "text": "PhotoKoja opens, edits and saves Photoshop files with layers. In tests, 307 of 309 test files looked the same after saving again (as of November 2026). Data that PhotoKoja doesn’t recognize is saved along with the file instead of being discarded."
+    },
+    {
+      "title": "Filters with live preview",
+      "text": "Blur including the Blur Gallery, Sharpen, Noise Reduction, and Distort, Pixelate, Stylize and Render filters show their result live on the canvas, even within a selection. On Smart Objects, filters stay editable as Smart Filters."
+    },
+    {
+      "title": "Text, shapes and brushes",
+      "text": "You write point and paragraph text right on the canvas, with all character and paragraph settings. There are also shape tools, the Pen, the Curvature Pen and vector masks. Brushes respond to the pressure, tilt and rotation of your graphics tablet pen."
+    },
+    {
+      "title": "Color management up to 32-bit",
+      "text": "You work in RGB, Grayscale, CMYK and Lab with 8, 16 or 32 bits per channel, with ICC profiles and all four rendering intents. For print, you check colors with Proof Colors (⌘Y) and Gamut Warning (⇧⌘Y)."
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "hero.webp",
+      "alt": "PhotoKoja: landscape image with a text layer, a Levels adjustment layer and the Layers panel",
+      "caption": "Layers, adjustment layers and editable text, just as you know them from professional image editing."
+    },
+    {
+      "file": "layer-styles.webp",
+      "alt": "PhotoKoja: Layer Style dialog with Outer Glow and Drop Shadow for the text layer",
+      "caption": "Layer styles like Drop Shadow and Outer Glow stay editable, even on text."
+    },
+    {
+      "file": "adjustments.webp",
+      "alt": "PhotoKoja: Curves dialog with histogram and an S-curve; the preview shows more contrast",
+      "caption": "Curves with histogram and live preview."
+    }
+  ],
+  "switching": {
+    "title": "Switching from Photoshop to PhotoKoja: how to try the alternative",
+    "paragraphs": [
+      "Most of it you already know: the toolbar on the left, layers and properties in panels, and adjustment layers, masks, Smart Objects and layer styles that work on the same principle. Shortcuts like ⌘J, ⇧⌘D or ⌘Y are where you expect them. The interface is in English (File, Edit, Image, Layer …), so the terms match the English version of Photoshop.",
+      "You open your PSD and PSB files directly, with layers, text layers, layer styles and shape layers. PhotoKoja can read files from GIMP, Krita and Affinity, but not save in those formats. For sharing there’s “Export As” with format, quality, transparency, scaling, preview and an estimate of the file size.",
+      "Not included: generative AI, Photoshop plug-ins and 15 Photoshop tools. Photoshop offers more for typography and professional workflows. PhotoKoja is in active development: you get updates and new features automatically and free of charge.",
+      "Here’s how to find out in 3 days whether it’s enough for you: download the Kojalytics Launcher, install PhotoKoja and open two or three real PSD files from your projects. Check that layers, text and styles look the same as in Photoshop, and do a typical edit from start to finish. Only cancel your Adobe subscription once you’re sure. The guide [Canceling your Adobe subscription](/ratgeber/adobe-abo-kuendigen) explains how to do that without nasty surprises."
+    ]
+  },
+  "comparison": {
+    "rows": [
+      {
+        "label": "Price",
+        "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
+        "other": "€25.99 a month (annual plan, paid monthly) or €311.73 a year paid upfront"
+      },
+      {
+        "label": "Billing and cancellation",
+        "koja": "Monthly, cancel online any time, no fee. Or pay once and keep using it.",
+        "other": "Annual plan, renews automatically. If you pay monthly and cancel after 14 days, you pay 50% of the remaining contract value. Flexible monthly plan: €38.98 a month."
+      },
+      {
+        "label": "Account required",
+        "koja": "No",
+        "other": "Yes, sign-in with an Adobe account"
+      },
+      {
+        "label": "Works offline",
+        "koja": "Yes, internet only for download and activation",
+        "other": "For a limited time; the apps check the license online every 30 days"
+      },
+      {
+        "label": "Key file formats",
+        "koja": "PSD and PSB with layers, TIFF, PNG, JPEG, WebP",
+        "other": "PSD and PSB (native format), TIFF, PNG, JPEG and many more"
+      },
+      {
+        "label": "Platforms",
+        "koja": "macOS and Windows, on up to 3 devices",
+        "other": "macOS, Windows, web, tablet and smartphone"
+      },
+      {
+        "label": "Development",
+        "koja": "In active development, free updates",
+        "other": "On the market for many years"
+      }
+    ],
+    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+  },
+  "forWho": [
+    "you know Photoshop and no longer want to pay for an Adobe subscription for photos and graphics",
+    "you need to open and keep editing layered PSD files on a Mac or PC",
+    "you want to work offline without an account and keep your images on your Mac or PC",
+    "you need layout, vector graphics or office apps as well as image editing, because all 13 Koja apps are included in the price"
+  ],
+  "notFor": [
+    "your work needs specific Photoshop tools that PhotoKoja doesn’t have: 15 Photoshop tools aren’t included",
+    "you need generative AI or Photoshop plug-ins",
+    "you work on an iPad or in the browser"
+  ],
+  "formats": [
+    "PSD (read and write)",
+    "PSB (read and write)",
+    "Layered TIFF (read and write)",
+    "PNG",
+    "JPEG",
+    "WebP",
+    "GIF",
+    "SVG (opens as shape layers)",
+    "OpenEXR",
+    "GIMP XCF (read only)",
+    "Krita KRA (read only)",
+    "Affinity files (read only)"
+  ],
+  "faq": [
+    {
+      "q": "Is PhotoKoja a full Photoshop alternative?",
+      "a": "For many tasks, yes: layers, masks, 16 adjustment layers, layer styles, text and PSD files are included. Not included are 15 Photoshop tools, generative AI and plug-ins. PhotoKoja is in active development, and you get updates free of charge. Use the 3 free trial days with your own files to find out whether it’s enough for your work."
+    },
+    {
+      "q": "Can I open and edit PSD files on a Mac or PC with PhotoKoja?",
+      "a": "Yes. PhotoKoja opens, edits and saves PSD and PSB files with layers; it carries over text layers, layer styles and shape layers when opening. In tests, 307 of 309 files looked the same after saving again (as of November 2026). PhotoKoja also reads files from GIMP, Krita and Affinity and exports PNG, JPEG, WebP and TIFF, among others."
+    },
+    {
+      "q": "Can I get PhotoKoja without a subscription?",
+      "a": "Yes. After 3 free trial days, you pay €79 once and keep using all 13 Koja apps on up to 3 devices, including [LightKoja](/software/light-koja) for your photo library and RAW files. If you’d rather pay monthly, it’s €19.99 a month, and you can cancel online any time. The guide [Photoshop without a subscription: all options](/ratgeber/photoshop-ohne-abo) has more background."
+    },
+    {
+      "q": "Do my Photoshop keyboard shortcuts work?",
+      "a": "Many do, for example ⌘J, ⇧⌘D or ⌘Y for Proof Colors. If you can’t find a command, press ⌘F to open a command palette and search for it there. You can record actions and play them back."
+    },
+    {
+      "q": "What do I get for my money?",
+      "a": "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates. You get updates and new features free of charge, plus support by email. And you get 13 apps at once, from image editing to video editing to spreadsheets."
+    },
+    {
+      "q": "Does PhotoKoja run on Windows or in the browser?",
+      "a": "On Windows yes, and in the browser for trying it out. PhotoKoja is available for macOS and Windows, but not for the iPad. The desktop app runs natively and renders the canvas on the graphics card, without Electron and without a web view. You can try PhotoKoja for free in your browser. One license covers up to 3 devices, any mix of Mac and Windows PC."
+    }
+  ]
+}

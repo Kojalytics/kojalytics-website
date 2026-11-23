@@ -1,9 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PLANS } from "@/lib/pricing";
+import { planText } from "@/lib/pricing";
 import { euro, useDiscount } from "@/lib/discount-store";
+import { useLang } from "@/lib/use-lang";
 import BuyButton from "./BuyButton";
+
+const de = { note: "einmalig, kein Abo", code: "Rabattcode?", buy: "Jetzt kaufen" };
+const en: typeof de = { note: "pay once, no subscription", code: "Discount code?", buy: "Buy now" };
 
 /**
  * Phones and tablets: a buy bar fixed to the bottom edge once the hero is scrolled past. It steps aside while the
@@ -14,6 +18,9 @@ import BuyButton from "./BuyButton";
  * while another buy button of the page is on screen.
  */
 export default function StickyBuyBar({ source, from }: { source: string; from?: "office" }) {
+  const lang = useLang();
+  const t = lang === "de" ? de : en;
+  const full = planText("lifetime", lang).label;
   const [show, setShow] = useState(false);
   const reduced = useDiscount()?.prices.lifetime;
   const office = from === "office";
@@ -57,23 +64,23 @@ export default function StickyBuyBar({ source, from }: { source: string; from?: 
       <div className="mx-auto flex max-w-xl items-center justify-between gap-3">
         <div className="min-w-0">
           <p className={office ? "ko-bar-price" : "display whitespace-nowrap text-[1.35rem] leading-none text-buy"}>
-            {reduced !== undefined && <s className={office ? undefined : "text-[0.75em] text-faint decoration-2"}>{PLANS.lifetime.label}</s>}
-            {reduced !== undefined ? ` ${euro(reduced)}` : PLANS.lifetime.label}
+            {reduced !== undefined && <s className={office ? undefined : "text-[0.75em] text-faint decoration-2"}>{full}</s>}
+            {reduced !== undefined ? ` ${euro(reduced, lang)}` : full}
           </p>
           <p className={office ? "ko-bar-note" : "mt-1 text-[12.5px] leading-tight text-muted"}>
             {office ? (
-              "einmalig, kein Abo"
+              t.note
             ) : (
               <>
-                einmalig, kein Abo ·{" "}
+                {`${t.note} ·`}{" "}
                 <a href="#preise" tabIndex={show ? 0 : -1} className="text-foreground underline underline-offset-2">
-                  Rabattcode?
+                  {t.code}
                 </a>
               </>
             )}
           </p>
         </div>
-        <BuyButton source={source} from={from} label="Jetzt kaufen" className={office ? "ko-btn ko-btn--bar" : "shrink-0 !px-5"} />
+        <BuyButton source={source} from={from} label={t.buy} className={office ? "ko-btn ko-btn--bar" : "shrink-0 !px-5"} />
       </div>
     </div>
   );

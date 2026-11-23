@@ -1,6 +1,7 @@
 import { createContext, useContext, useSyncExternalStore } from "react";
 import type { Plan } from "@/lib/pricing";
 import { isOfferCode, isOfferRunning } from "@/lib/offer";
+import { euro as euroIn, type Lang } from "@/lib/i18n";
 
 /** A discount code checked with Stripe, as /api/license/discount returns it. */
 export type Discount = {
@@ -11,8 +12,11 @@ export type Discount = {
   prices: Partial<Record<Plan, number>>;
 };
 
-export const euro = (cents: number) =>
-  (cents / 100).toLocaleString("de-DE", { minimumFractionDigits: cents % 100 ? 2 : 0, maximumFractionDigits: 2 }) + " €";
+/** "39,50 €" (German, the default) or "€39.50" on English pages. */
+export const euro = (cents: number, lang: Lang = "de") =>
+  lang === "de"
+    ? (cents / 100).toLocaleString("de-DE", { minimumFractionDigits: cents % 100 ? 2 : 0, maximumFractionDigits: 2 }) + " €"
+    : euroIn(cents, lang);
 
 /**
  * One discount for the whole page: an ad link (/software?code=X, also ?rabatt=X) or a code redeemed in the price
