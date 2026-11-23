@@ -117,13 +117,13 @@ export default function SoftwarePage() {
         <TrackView name="software" />
         <Navigation cta="buy" />
 
-        <main className="pt-12">
+        <main className="koja-office pt-12">
           {/* Hero: "Koja Office" and the headline, the solar system (the 3D box as the sun, the 13 app icons on its orbits) on its own stage, the buttons (layout: .sw-hero in globals.css) */}
           <section className="sw-hero relative overflow-hidden border-b border-border">
             <div className="sw-hero-inner mx-auto max-w-[1440px] px-5 pb-12 pt-6 md:px-10 lg:py-8">
               <div className="sw-hero-copy">
                 <h1 className="sw-hero-title display w-full text-[clamp(1.75rem,3.6vw,2.9rem)]">
-                  <span className="sw-hero-mark rise-in block whitespace-nowrap uppercase tracking-[-0.02em]">Koja Office</span>{" "}
+                  <span className="sw-hero-mark rise-in flex items-center gap-[0.25em] whitespace-nowrap uppercase tracking-[-0.02em]"><img src="/office/koja-office-icon.png" alt="" width={256} height={256} className="h-[0.95em] w-[0.95em] shadow-[0_6px_18px_-6px_rgba(81,69,229,0.45)] rounded-[22%]" />Koja Office</span>{" "}
                   <span className="sw-hero-line rise-in block [--i:1]">
                     {/* Fixed line breaks, so the lines stay put when the headline font replaces its fallback (no layout shift) */}
                     <span className="block">13 Apps für Mac und Windows.</span>{" "}

@@ -686,6 +686,13 @@ input[type="radio"]:focus-visible {
   background: var(--color-border);
 }
 
+/* Koja Office pages (/software, /software/<app>): the 2026 look uses indigo instead of the studio blue. */
+.koja-office {
+  --color-accent: #5145e5;
+  --color-accent-light: #9b93ff;
+  --color-accent-dim: #4338ca;
+}
+
 /* Highlighted word inside a headline */
 .gradient-text,
 .text-highlight {
