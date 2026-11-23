@@ -17,6 +17,7 @@ import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
 import SectionBar from "@/components/instrument/SectionBar";
 import { APPS, appInk, getApp, shotFor } from "@/lib/apps";
+import { hasWebApp } from "@/lib/web-apps";
 import { ARTICLES } from "@/lib/ratgeber";
 import { PLANS, TRIAL_DAYS } from "@/lib/pricing";
 import { SOFTWARE_FAQ } from "@/lib/software-faq";
@@ -170,9 +171,15 @@ export default async function AppPage({ params }: Props) {
                 <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:3] max-sm:order-1">{app.lead}</p>
                 <div className="rise-in mt-9 flex flex-col gap-3 [--i:4] sm:flex-row">
                   <DownloadButton source={`app-${app.slug}`} />
-                  <Link href="#preise" className="btn-secondary whitespace-nowrap">
-                    Preise ansehen
-                  </Link>
+                  {hasWebApp(app.slug) ? (
+                    <a href={`/web/${app.slug}`} className="btn-secondary whitespace-nowrap">
+                      Im Browser testen
+                    </a>
+                  ) : (
+                    <Link href="#preise" className="btn-secondary whitespace-nowrap">
+                      Preise ansehen
+                    </Link>
+                  )}
                 </div>
                 <p className="hud rise-in mt-5 [--i:5]">macOS und Windows · {TRIAL_DAYS} Tage kostenlos · ohne Konto · jederzeit online kündbar</p>
                 <ul className="rise-in mt-6 flex flex-wrap gap-2 [--i:6] max-sm:order-2" aria-label="Das Wichtigste">

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>GridKoja</title>
+  <link rel="icon" href="https://koja-web.46-224-238-203.sslip.io/gridkoja/gridcraft-d244bf23e1a06d5b.ico" integrity="sha384-2DGbkl+nrbHwEvffsdl8j82Yhke+YVsn03Z+3slQtQV6EwXlfSXkYlDPqJk6jUOh"/>
+  
+<script type="module">
+import init, * as bindings from 'https://koja-web.46-224-238-203.sslip.io/gridkoja/gridcraft-web-c5aeb1f30cbd0542.js';
+
+const wasm = await init({ module_or_path: 'https://koja-web.46-224-238-203.sslip.io/gridkoja/gridcraft-web-e3594df94a81398d_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #f3f3f3; }
+    #gridcraft_canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    #gridcraft_loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #555; font: 14px system-ui, sans-serif; pointer-events: none; }
+  </style>
+<link rel="modulepreload" href="https://koja-web.46-224-238-203.sslip.io/gridkoja/gridcraft-web-c5aeb1f30cbd0542.js" crossorigin="anonymous" integrity="sha384-qDF4W67iFG0tFTvA+fntC7nR/NA6DiXm2Rv5xlhxhfvn6ehzVfE63WAXU8OZDFFV"><link rel="preload" href="https://koja-web.46-224-238-203.sslip.io/gridkoja/gridcraft-web-e3594df94a81398d_bg.wasm" crossorigin="anonymous" integrity="sha384-xkSqGL1+qjO8NpeATlljL1Pg5k1EQX5F/c0upMROKzWx0ipP+VZY6lPZR+bU9Ml3" as="fetch" type="application/wasm"><style>
+  :root { --kjbar: 34px; }
+  body > canvas { top: var(--kjbar) !important; height: calc(100% - var(--kjbar)) !important; }
+  #kj-bar { position: fixed; top: 0; left: 0; right: 0; height: var(--kjbar); z-index: 10; display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #0e0e10; color: #fff; font: 13px/1 system-ui, -apple-system, sans-serif; padding: 0 12px; white-space: nowrap; overflow: hidden; }
+  #kj-bar a { color: #fff; font-weight: 600; text-decoration: none; background: #15803d; padding: 6px 10px; }
+  #kj-bar .kj-home { background: none; font-weight: 700; padding: 0; margin-right: auto; }
+  #kj-bar span { opacity: .8; overflow: hidden; text-overflow: ellipsis; }
+</style></head>
+<body>
+  <div id="kj-bar"><a class="kj-home" href="https://www.kojalytics.com/software">Kojalytics</a><span>GridKoja im Browser · Dateien bleiben auf deinem Gerät · Desktop-Version: schneller, offline, alle 13 Apps</span><a href="https://www.kojalytics.com/software#preise">Einmal 79 €</a></div>
+  <canvas id="gridcraft_canvas"></canvas>
+  <div id="gridcraft_loading">GridKoja wird geladen&hellip; (beim ersten Mal einige Sekunden)</div>
+</body>
+</html>

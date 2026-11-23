@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>SoundKoja</title>
+  <link rel="icon" href="https://koja-web.46-224-238-203.sslip.io/soundkoja/com.kojalytics.soundcraft-7120b16413b8dae6.png" integrity="sha384-JA2zScxdKVjTHfNEnS5AMSbi7Sl54goKEYaCWfM+qhTj664T5IY0VYaav2sDX9F5"/>
+  
+<script type="module">
+import init, * as bindings from 'https://koja-web.46-224-238-203.sslip.io/soundkoja/soundcraft-web-b0a0d9cdd01d91a9.js';
+
+const wasm = await init({ module_or_path: 'https://koja-web.46-224-238-203.sslip.io/soundkoja/soundcraft-web-8021566301ebb93f_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #1e1f22; }
+    #soundcraft_canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    #soundcraft_loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #b8b8b8; font: 14px system-ui, sans-serif; pointer-events: none; }
+  </style>
+<link rel="modulepreload" href="https://koja-web.46-224-238-203.sslip.io/soundkoja/soundcraft-web-b0a0d9cdd01d91a9.js" crossorigin="anonymous" integrity="sha384-dlEXuER8M35jq7aSm0duAZOyuXj8lRDwP8bm4aYzU6zCbCOSm9qQSZ+TuQKeHUke"><link rel="preload" href="https://koja-web.46-224-238-203.sslip.io/soundkoja/soundcraft-web-8021566301ebb93f_bg.wasm" crossorigin="anonymous" integrity="sha384-QgUFijGqqBGznOnyImWIAg35894cpmWJpH9hCDpCQ+MXZJcbtssT1tNpSuOV4EPG" as="fetch" type="application/wasm"><style>
+  :root { --kjbar: 34px; }
+  body > canvas { top: var(--kjbar) !important; height: calc(100% - var(--kjbar)) !important; }
+  #kj-bar { position: fixed; top: 0; left: 0; right: 0; height: var(--kjbar); z-index: 10; display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #0e0e10; color: #fff; font: 13px/1 system-ui, -apple-system, sans-serif; padding: 0 12px; white-space: nowrap; overflow: hidden; }
+  #kj-bar a { color: #fff; font-weight: 600; text-decoration: none; background: #15803d; padding: 6px 10px; }
+  #kj-bar .kj-home { background: none; font-weight: 700; padding: 0; margin-right: auto; }
+  #kj-bar span { opacity: .8; overflow: hidden; text-overflow: ellipsis; }
+</style></head>
+<body>
+  <div id="kj-bar"><a class="kj-home" href="https://www.kojalytics.com/software">Kojalytics</a><span>SoundKoja im Browser · Dateien bleiben auf deinem Gerät · Desktop-Version: schneller, offline, alle 13 Apps</span><a href="https://www.kojalytics.com/software#preise">Einmal 79 €</a></div>
+  <canvas id="soundcraft_canvas"></canvas>
+  <script>
+    // cpal (wasm) builds the output stream at startup, before any user gesture, so the
+    // WebAudio AudioContext stays 'suspended': no audio is heard and the transport clock
+    // (driven by the audio callback) never advances. Capture the AudioContext cpal creates
+    // and resume it on the first user gesture. Runs before the wasm module is instantiated.
+    (function () {
+      var Orig = window.AudioContext || window.webkitAudioContext;
+      if (!Orig) return;
+      var ctxs = [];
+      function Wrapped(opts) { var c = new Orig(opts); ctxs.push(c); return c; }
+      Wrapped.prototype = Orig.prototype;
+      window.AudioContext = Wrapped;
+      if (window.webkitAudioContext) window.webkitAudioContext = Wrapped;
+      function resumeAll() {
+        ctxs.forEach(function (c) { if (c.state === 'suspended') { c.resume().catch(function () {}); } });
+      }
+      ['pointerdown', 'mousedown', 'touchstart', 'keydown'].forEach(function (ev) {
+        window.addEventListener(ev, resumeAll, { capture: true });
+      });
+    })();
+  </script>
+  <div id="soundcraft_loading">SoundKoja wird geladen&hellip; (beim ersten Mal einige Sekunden)</div>
+</body>
+</html>

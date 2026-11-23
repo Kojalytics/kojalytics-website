@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PdfKoja</title>
+    
+<script type="module">
+import init, * as bindings from 'https://koja-web.46-224-238-203.sslip.io/pdfkoja/pdfcraft-web-c32326c999199eda.js';
+
+const wasm = await init({ module_or_path: 'https://koja-web.46-224-238-203.sslip.io/pdfkoja/pdfcraft-web-d97ccc5faf99869e_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #f1f1f3; }
+      canvas { width: 100%; height: 100%; display: block; outline: none; }
+      @media (prefers-color-scheme: dark) { html, body { background: #19191c; } }
+    </style>
+  <link rel="modulepreload" href="https://koja-web.46-224-238-203.sslip.io/pdfkoja/pdfcraft-web-c32326c999199eda.js" crossorigin="anonymous" integrity="sha384-i7+NsH5PrmgFwQr73xHTUA6Jo9TGku8lK+tFrO8WNJ4lzh/b+WbR2VCukEX7RAgn"><link rel="preload" href="https://koja-web.46-224-238-203.sslip.io/pdfkoja/pdfcraft-web-d97ccc5faf99869e_bg.wasm" crossorigin="anonymous" integrity="sha384-5/Laiw69SIWmPtRh+yvBSjGVK9nf7n2IJ84jJMXI5+2UQGZoH47tJsBcQryZDDG3" as="fetch" type="application/wasm"><style>
+  :root { --kjbar: 34px; }
+  body > canvas { top: var(--kjbar) !important; height: calc(100% - var(--kjbar)) !important; }
+  #kj-bar { position: fixed; top: 0; left: 0; right: 0; height: var(--kjbar); z-index: 10; display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #0e0e10; color: #fff; font: 13px/1 system-ui, -apple-system, sans-serif; padding: 0 12px; white-space: nowrap; overflow: hidden; }
+  #kj-bar a { color: #fff; font-weight: 600; text-decoration: none; background: #15803d; padding: 6px 10px; }
+  #kj-bar .kj-home { background: none; font-weight: 700; padding: 0; margin-right: auto; }
+  #kj-bar span { opacity: .8; overflow: hidden; text-overflow: ellipsis; }
+</style></head>
+  <body>
+  <div id="kj-bar"><a class="kj-home" href="https://www.kojalytics.com/software">Kojalytics</a><span>PdfKoja im Browser · Dateien bleiben auf deinem Gerät · Desktop-Version: schneller, offline, alle 13 Apps</span><a href="https://www.kojalytics.com/software#preise">Einmal 79 €</a></div>
+    <canvas id="pdfcraft"></canvas>
+  </body>
+</html>

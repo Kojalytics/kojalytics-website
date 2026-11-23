@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>WordKoja</title>
+  <link rel="icon" href="https://koja-web.46-224-238-203.sslip.io/wordkoja/wordcraft-34f1f0cc3a754933.ico" integrity="sha384-7ZHidcWpqzE9AFpDH3gD/MFRPkHy2HDl3OvwBZYML0dEKnFbrQNMDcqkPOj7jq6W"/>
+  
+<script type="module">
+import init, * as bindings from 'https://koja-web.46-224-238-203.sslip.io/wordkoja/wordcraft-web-eed678d9146b9c8f.js';
+
+const wasm = await init({ module_or_path: 'https://koja-web.46-224-238-203.sslip.io/wordkoja/wordcraft-web-83623d86007aa8b1_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #e6e6e6; }
+    #wordcraft_canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    #wordcraft_loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #555; font: 14px system-ui, sans-serif; pointer-events: none; }
+  </style>
+<link rel="modulepreload" href="https://koja-web.46-224-238-203.sslip.io/wordkoja/wordcraft-web-eed678d9146b9c8f.js" crossorigin="anonymous" integrity="sha384-SQXo0Y0kFa/yHk15r4U4t1mh65M8emtUHn9PDAE8jp02Mv7YJPpzWyaN6JuP9tQ3"><link rel="preload" href="https://koja-web.46-224-238-203.sslip.io/wordkoja/wordcraft-web-83623d86007aa8b1_bg.wasm" crossorigin="anonymous" integrity="sha384-DEHwDq/Sv3tXsO2ERgzM/2YFMunq0YFyM+b5jHP5JzHLyysnWZjC26qqljw4dnuE" as="fetch" type="application/wasm"><style>
+  :root { --kjbar: 34px; }
+  body > canvas { top: var(--kjbar) !important; height: calc(100% - var(--kjbar)) !important; }
+  #kj-bar { position: fixed; top: 0; left: 0; right: 0; height: var(--kjbar); z-index: 10; display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #0e0e10; color: #fff; font: 13px/1 system-ui, -apple-system, sans-serif; padding: 0 12px; white-space: nowrap; overflow: hidden; }
+  #kj-bar a { color: #fff; font-weight: 600; text-decoration: none; background: #15803d; padding: 6px 10px; }
+  #kj-bar .kj-home { background: none; font-weight: 700; padding: 0; margin-right: auto; }
+  #kj-bar span { opacity: .8; overflow: hidden; text-overflow: ellipsis; }
+</style></head>
+<body>
+  <div id="kj-bar"><a class="kj-home" href="https://www.kojalytics.com/software">Kojalytics</a><span>WordKoja im Browser · Dateien bleiben auf deinem Gerät · Desktop-Version: schneller, offline, alle 13 Apps</span><a href="https://www.kojalytics.com/software#preise">Einmal 79 €</a></div>
+  <canvas id="wordcraft_canvas"></canvas>
+  <div id="wordcraft_loading">WordKoja wird geladen&hellip; (beim ersten Mal einige Sekunden)</div>
+</body>
+</html>

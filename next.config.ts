@@ -77,10 +77,14 @@ const nextConfig: NextConfig = {
     //   /de/aiheadshot/datenschutz      → /de/aiheadshot/privacy
     //   /en/aiheadshot/privacypolicy    → /en/aiheadshot/privacy
     //   /fr/aiheadshot/confidentialite  → /fr/aiheadshot/privacy
-    return Object.entries(privacySlugs).map(([locale, slug]) => ({
-      source: `/${locale}/aiheadshot/${slug}`,
-      destination: `/${locale}/aiheadshot/privacy`,
-    }));
+    return [
+      ...Object.entries(privacySlugs).map(([locale, slug]) => ({
+        source: `/${locale}/aiheadshot/${slug}`,
+        destination: `/${locale}/aiheadshot/privacy`,
+      })),
+      // Koja apps in the browser: /web/word-koja → public/web/word-koja/index.html (see src/lib/web-apps.ts).
+      { source: '/web/:slug', destination: '/web/:slug/index.html' },
+    ];
   },
 };
 
