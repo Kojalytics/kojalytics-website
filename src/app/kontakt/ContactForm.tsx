@@ -3,20 +3,20 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const SUBJECTS = ["Beratung", "Software-Lizenzen", "Neues Projekt", "Koja-Apps", "AI Headshot", "Sonstiges"];
+const SUBJECTS = ["Frage vor dem Kauf", "Installation", "Lizenz und Aktivierung", "Rechnung", "Sonstiges"];
 
-// Links like /kontakt?thema=lizenzen open the form with the matching topic chosen.
-const TOPICS: Record<string, string> = { beratung: "Beratung", lizenzen: "Software-Lizenzen", projekt: "Neues Projekt", "koja-apps": "Koja-Apps" };
+// Links like /kontakt?thema=lizenz open the form with the matching topic chosen.
+const TOPICS: Record<string, string> = { kauf: "Frage vor dem Kauf", installation: "Installation", lizenz: "Lizenz und Aktivierung", rechnung: "Rechnung" };
 const PLACEHOLDERS: Record<string, string> = {
-  Beratung: "Wie arbeitet ihr heute, und wobei sollen wir helfen?",
-  "Software-Lizenzen": "Welche Software brauchst du, für wie viele Personen oder Geräte?",
+  "Lizenz und Aktivierung": "Mit welcher E-Mail-Adresse hast du gekauft, und was passiert beim Aktivieren?",
+  Installation: "Mac oder Windows, welche App, und welche Meldung siehst du?",
 };
 
 /** Writes the message into the visitor's own mail app: no data passes through our server. */
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("Neues Projekt");
+  const [subject, setSubject] = useState("Frage vor dem Kauf");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`${field} resize-y`}
-          placeholder={PLACEHOLDERS[subject] ?? "Erzähl uns kurz von deinem Projekt oder deiner Frage."}
+          placeholder={PLACEHOLDERS[subject] ?? "Wie können wir dir helfen?"}
         />
       </div>
       <button type="submit" className="btn-primary w-full text-center sm:w-auto sm:justify-self-start">

@@ -50,7 +50,7 @@ export default function OfferTeaser() {
           </span>
         </a>
       )}
-      <Link href="/software" className={`offer-teaser ${running ? "offer-over" : ""}`}>
+      <Link href="/" className={`offer-teaser ${running ? "offer-over" : ""}`}>
         {icon}
         <span className="text-[16px] leading-snug md:text-[17px]">
           <b className="font-semibold">Koja Office:</b> 13 Apps für Mac und Windows. Einmal{" "}

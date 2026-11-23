@@ -302,7 +302,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
             <section className="ko-stage ko-hero">
               <div className="ko-col">
                 <div className="ko-brand">
-                  <Link href="/software" title="Mehr über Kojalytics und die Koja-Apps" className="ko-brand-mark">
+                  <Link href="/" title="Koja Office" className="ko-brand-mark">
                     <Image src="/office/koja-office-icon.png" alt="" width={28} height={28} unoptimized priority />
                     <span>Kojalytics</span>
                   </Link>
@@ -656,7 +656,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
                     <strong>
                       Kein anonymer <span className="whitespace-nowrap">Schlüssel-Shop.</span>
                     </strong>{" "}
-                    Koja Office kommt direkt von uns, einem Software-Studio aus Hamburg.
+                    Koja Office kommt direkt von uns, Kojalytics aus Hamburg.
                   </p>
                   <p className="ko-firm-name">
                     <b>Kojalytics</b>

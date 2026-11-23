@@ -6,12 +6,11 @@ import SectionBar from "@/components/instrument/SectionBar";
 import { Logo } from "@/components/Navigation";
 import OfferBand from "@/components/offer/OfferBand";
 
-const company = [
-  { href: "/leistungen", label: "Leistungen" },
-  { href: "/projekte", label: "Projekte" },
-  { href: "/ueber-uns", label: "Über uns" },
+const office = [
+  { href: "/web", label: "Im Browser testen" },
+  { href: "/#preise", label: "Preise" },
+  { href: "/#fragen", label: "Häufige Fragen" },
   { href: "/kontakt", label: "Kontakt" },
-  { href: "/lizenzen", label: "Software-Lizenzen" },
 ];
 
 const help = [
@@ -36,12 +35,12 @@ export default function Footer({ legalOnly = false, offer = true }: { legalOnly?
       {offer && !legalOnly && <OfferBand />}
       <footer>
         <div className="rail crosshairs">
-          <SectionBar index="—" label="Kojalytics" meta="Software-Studio aus Hamburg" />
+          <SectionBar index="—" label="Koja Office" meta="von Kojalytics aus Hamburg" />
           <div className="cells grid-cols-2 border-b border-border md:grid-cols-12">
             <div className="col-span-2 p-6 md:col-span-3 md:p-8">
               <Logo />
               <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
-                Wir entwickeln Apps für Kunden und bieten die Koja-Apps für Mac und Windows an.
+                Koja Office: 13 Apps für Mac und Windows. Einmal zahlen, kein Abo, läuft offline.
               </p>
               <a href="mailto:support@kojalytics.com" className="hud mt-6 block hover:text-foreground">
                 support@kojalytics.com
@@ -82,9 +81,9 @@ export default function Footer({ legalOnly = false, offer = true }: { legalOnly?
             <div className={`p-6 md:p-8 ${legalOnly ? "md:col-span-9" : "md:col-span-2"}`}>
               {!legalOnly && (
                 <>
-                  <p className="hud mb-5">Unternehmen</p>
+                  <p className="hud mb-5">Koja Office</p>
                   <ul className="mb-9 space-y-2.5">
-                    {company.map((l) => (
+                    {office.map((l) => (
                       <li key={l.href}>
                         <Link href={l.href} className={linkCls}>
                           {l.label}
@@ -113,7 +112,7 @@ export default function Footer({ legalOnly = false, offer = true }: { legalOnly?
           <div className="flex flex-col gap-3 px-5 py-6 text-xs leading-relaxed text-muted md:flex-row md:justify-between md:px-10">
             <p className="hud">&copy; {new Date().getFullYear()} Kojalytics</p>
             <p className="max-w-2xl md:text-right">
-              Die Koja-Apps sind ein eigenständiges Angebot von Kojalytics. Genannte Produktnamen anderer Unternehmen sind Marken ihrer Inhaber.
+              Koja Office ist ein Angebot von Kojalytics. Genannte Produktnamen anderer Unternehmen sind Marken ihrer Inhaber.
             </p>
           </div>
         </div>

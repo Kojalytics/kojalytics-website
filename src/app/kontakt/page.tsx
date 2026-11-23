@@ -7,7 +7,7 @@ import ContactForm from "./ContactForm";
 const pad = "px-5 md:px-10";
 const two = (n: number) => String(n).padStart(2, "0");
 
-const next = ["Kostenloses Erstgespräch zu deinem Projekt", "Ein schriftliches Angebot mit klarem Umfang", "Transparente Preise ohne versteckte Kosten"];
+const next = ["Persönliche Antwort per E-Mail", "Hilfe bei Installation, Lizenz und Aktivierung", "Fragen vor dem Kauf beantworten wir gern"];
 
 export default function ContactPage() {
   return (
@@ -15,14 +15,13 @@ export default function ContactPage() {
       <Navigation />
       <main className="pt-12">
         <section className="rail">
-          <SectionBar index="01" label="Kontakt" meta="Es antworten die Menschen, die es bauen" />
+          <SectionBar index="01" label="Kontakt" meta="Fragen zu Koja Office" />
           <div className={`py-14 md:py-20 ${pad}`}>
             <h1 className="display rise-in max-w-3xl text-[clamp(2.1rem,5.4vw,4.6rem)]">
-              Erzähl uns von deinem <span className="text-highlight">Projekt</span>.
+              Fragen zu <span className="text-highlight">Koja Office</span>?
             </h1>
             <p className="rise-in mt-6 max-w-xl text-lg leading-relaxed text-muted [--i:1]">
-              Du suchst Beratung, brauchst Software-Lizenzen, planst eine App oder hast eine Frage zu den Koja-Apps? Schreib uns. Es
-              antworten die Menschen, die sich auch darum kümmern.
+              Vor dem Kauf, bei der Installation oder zur Lizenz: Schreib uns. Es antworten die Menschen, die Koja Office entwickeln.
             </p>
           </div>
 
@@ -52,7 +51,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="p-6 md:p-8">
-                <h2 className="hud">So geht es weiter</h2>
+                <h2 className="hud">Was du bekommst</h2>
                 <ul className="mt-4 grid gap-3 text-muted">
                   {next.map((t, i) => (
                     <li key={t} className="flex gap-3">

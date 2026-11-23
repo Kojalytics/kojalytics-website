@@ -14,23 +14,23 @@ import { PLANS } from "@/lib/pricing";
 import { OFFER_CODE, OFFER_END_LONG, OFFER_HREF, OFFER_LABEL, OFFER_PRICE, isOfferRunning } from "@/lib/offer";
 
 const navLinks = [
-  { href: "/software", label: "Koja Office" },
-  { href: "/lizenzen", label: "Lizenzen" },
-  { href: "/leistungen", label: "Leistungen" },
-  { href: "/projekte", label: "Projekte" },
+  { href: "/", label: "Koja Office" },
+  { href: "/#apps", label: "Apps" },
+  { href: "/web", label: "Im Browser testen" },
+  { href: "/#preise", label: "Preise" },
   { href: "/ratgeber", label: "Ratgeber" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/support", label: "Support" },
 ];
 
 /** `header`: in the header the word gets smaller below 380px and gives way below 360px, so the offer button fits beside it. */
 export function Logo({ header = false }: { header?: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-2.5" title="Kojalytics Startseite">
+    <Link href="/" className="flex items-center gap-2.5" title="Koja Office Startseite">
       <span aria-hidden className="kj-logo-k grid h-7 w-7 place-items-center bg-foreground font-[family-name:var(--font-display)] text-[14px] font-extrabold text-white">
         K
       </span>
       <span className={`kj-logo-word display text-[17px] tracking-[-0.01em] ${header ? "max-[379px]:text-[14px] max-[359px]:hidden" : ""}`}>
-        Kojalytics
+        Koja Office
       </span>
     </Link>
   );
@@ -44,7 +44,7 @@ function IntroLogo() {
         <div className="kj-intro-row">
           <span className="kj-intro-k">K</span>
           <span className="kj-intro-word">
-            <span className="display tracking-[-0.01em]">Kojalytics</span>
+            <span className="display tracking-[-0.01em]">Koja Office</span>
           </span>
         </div>
       </div>
@@ -55,7 +55,7 @@ function IntroLogo() {
 /**
  * The offer button on the right of the header: Koja Office with the introductory code (src/lib/offer.ts). Both states
  * are in the markup; the inline script in layout.tsx marks <html> once the offer has ended and CSS shows the second one
- * (plain "Koja Office ansehen" to /software), so cached pages switch over at the end without a new build.
+ * (plain "Koja Office ansehen" to the homepage), so cached pages switch over at the end without a new build.
  */
 function OfferButton({ hidden = false }: { hidden?: boolean }) {
   // "invisible" (visibility: hidden) also takes it out of the tab order and the accessibility tree.
@@ -76,7 +76,7 @@ function OfferButton({ hidden = false }: { hidden?: boolean }) {
         <span className="offer-btn-sub hidden font-sans text-[12.5px] normal-case tracking-normal xl:inline">bis {OFFER_END_LONG}</span>
         <ArrowRight size={14} strokeWidth={2.2} className="hidden shrink-0 sm:block" aria-hidden />
       </a>
-      <Link href="/software" className={`offer-btn offer-over ${hide}`}>
+      <Link href="/" className={`offer-btn offer-over ${hide}`}>
         <span>
           Koja Office<span className="max-sm:hidden"> ansehen</span>
         </span>
@@ -113,7 +113,7 @@ function BuyOrOffer() {
 function MenuOffer({ onClose }: { onClose: () => void }) {
   if (!isOfferRunning()) {
     return (
-      <Link href="/software" onClick={onClose} className="nav-offer-row">
+      <Link href="/" onClick={onClose} className="nav-offer-row">
         <span className="display block text-[1.7rem]">Koja Office</span>
         <span className="mt-2 block text-[16px] leading-snug text-[#d6d6dc]">
           13 Apps für Mac und Windows, einmal {PLANS.lifetime.label}, kein Abo.
@@ -165,7 +165,7 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
   // The menu closes on its own when the route changes.
   const mobileOpen = openFor === pathname;
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const isActive = (href: string) => !href.includes("#") && (pathname === href || (href !== "/" && pathname.startsWith(`${href}/`)));
 
   return (
     <>
