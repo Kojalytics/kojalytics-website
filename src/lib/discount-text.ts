@@ -21,6 +21,7 @@ const ERRORS_EN: Record<string, string> = {
   "Dieser Rabattcode wurde schon eingelöst.": "This discount code has already been used.",
   "Dieser Rabattcode ist nicht mehr gültig.": "This discount code is no longer valid.",
   "Dieser Rabattcode gilt nicht für dieses Paket.": "This discount code doesn't apply to this plan.",
+  "Dieser Rabattcode gilt nicht in deiner Währung.": "This discount code isn't valid in your currency.",
   "Rabattcodes sind gerade nicht verfügbar.": "Discount codes aren't available right now.",
   "Zu viele Versuche. Bitte versuche es in einer Stunde erneut.": "Too many attempts. Please try again in an hour.",
   "Der Code konnte gerade nicht geprüft werden. Bitte versuche es gleich noch einmal.":

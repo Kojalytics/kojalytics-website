@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useCurrency } from "@/lib/use-currency";
+import { money } from "@/lib/currency";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,7 +14,7 @@ import ScrollRuler from "@/components/instrument/ScrollRuler";
 import { useDiscount } from "@/lib/discount-store";
 import { planText } from "@/lib/pricing";
 import { OFFER_CODE, OFFER_HREF, isOfferRunning, offerText } from "@/lib/offer";
-import { euro, href, switchPath, type Lang } from "@/lib/i18n";
+import { href, switchPath, type Lang } from "@/lib/i18n";
 import { useLang } from "@/lib/use-lang";
 
 // Links by their German address; href() turns them into the English ones. The guides are German only.
@@ -107,8 +109,9 @@ function IntroLogo() {
  */
 function OfferButton({ hidden = false }: { hidden?: boolean }) {
   const lang = useLang();
+  const cur = useCurrency();
   const t = T[lang];
-  const offer = offerText(lang);
+  const offer = offerText(lang, cur);
   // "invisible" (visibility: hidden) also takes it out of the tab order and the accessibility tree.
   const hide = hidden ? "invisible" : "";
   return (
@@ -141,6 +144,7 @@ function OfferButton({ hidden = false }: { hidden?: boolean }) {
  */
 function BuyOrOffer() {
   const lang = useLang();
+  const cur = useCurrency();
   const reduced = useDiscount()?.prices.lifetime;
   const buy = reduced !== undefined;
   const hide = buy ? "" : "invisible";
@@ -150,7 +154,7 @@ function BuyOrOffer() {
       <BuyButton
         source="nav"
         // While hidden it already holds a reduced price, so the slot does not widen when a code arrives.
-        label={`${buy ? euro(reduced, lang) : offerText(lang).price} · ${T[lang].buy}`}
+        label={`${buy ? money(reduced, cur, lang) : offerText(lang, cur).price} · ${T[lang].buy}`}
         className={`!min-h-full !gap-2 !whitespace-nowrap !border-0 !px-3.5 !text-[11px] !tracking-[0.08em] lg:!hidden ${hide}`}
       />
       {/* As wide as its label, at the right end of the slot (the slot is as wide as the offer button) */}
@@ -162,9 +166,10 @@ function BuyOrOffer() {
 /** First row of the phone menu: the offer, large. Rendered only when the menu opens, so it can read the clock. */
 function MenuOffer({ onClose }: { onClose: () => void }) {
   const lang = useLang();
+  const cur = useCurrency();
   const t = T[lang];
-  const offer = offerText(lang);
-  const regular = planText("lifetime", lang).label;
+  const offer = offerText(lang, cur);
+  const regular = planText("lifetime", lang, cur).label;
   if (!isOfferRunning()) {
     return (
       <Link href={href(lang, "/")} onClick={onClose} className="nav-offer-row">

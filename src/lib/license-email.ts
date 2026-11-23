@@ -1,6 +1,7 @@
 import { APPS, type AppGroup } from '@/lib/apps';
-import { DOWNLOAD_PATH, DOWNLOAD_PATH_WINDOWS, PLANS, planText } from '@/lib/pricing';
+import { DOWNLOAD_PATH, DOWNLOAD_PATH_WINDOWS, planText } from '@/lib/pricing';
 import { href, type Lang } from '@/lib/i18n';
+import { PRICES, money, vatIncluded, type Currency } from '@/lib/currency';
 
 /**
  * The license email a buyer gets after checkout: an HTML version in the look of the site and the same content as
@@ -39,9 +40,13 @@ export type LicenseEmailData = {
   devices: number;
   /** The language of the email; German without it. */
   lang?: Lang;
+  /** The currency the buyer paid in (Checkout's currency); euros without it. */
+  currency?: Currency;
 };
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+// Amounts always with their cents: "79,00 €", "€79.00", "$79.00".
+const euroOrLocal = (cents: number, lang: Lang, cur: Currency) => (cur === 'EUR' ? euro(cents, lang) : money(cents, cur, lang, true));
 const euro = (cents: number, lang: Lang = 'de') =>
   lang === 'de'
     ? (cents / 100).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'
@@ -136,8 +141,8 @@ const de = {
   paidRow: (firstMonth: boolean): string => (firstMonth ? 'Bezahlt (erster Monat)' : 'Bezahlt'),
   date: 'Kaufdatum',
   email: 'E-Mail',
-  priceNote: (sub: boolean, monthly: string) =>
-    `Alle Preise inkl. MwSt.${sub ? ` Danach ${monthly} pro Monat.` : ''} Die Koja-Apps werden laufend weiterentwickelt. Updates und neue Funktionen bekommst du automatisch und kostenlos.`,
+  priceNote: (sub: boolean, monthly: string, vat = true) =>
+    `${vat ? 'Alle Preise inkl. MwSt.' : 'Ohne deutsche Mehrwertsteuer.'}${sub ? ` Danach ${monthly} pro Monat.` : ''} Die Koja-Apps werden laufend weiterentwickelt. Updates und neue Funktionen bekommst du automatisch und kostenlos.`,
   questions: `${B('Fragen?')} Antworte einfach auf diese E-Mail oder schreib an ${link('mailto:support@kojalytics.com', 'support@kojalytics.com')}. Wir helfen dir persönlich weiter.`,
   legal: (sub: boolean) =>
     `Es gelten unsere ${link(`${SITE}/agb`, 'AGB mit Widerrufsbelehrung')}. ${link(`${SITE}/widerrufen`, 'Widerruf erklären')}${sub ? ` &middot; ${link(`${SITE}/kuendigen`, 'Abo kündigen')}` : ''}. Bitte bewahre diese E-Mail gut auf.`,
@@ -151,10 +156,10 @@ const de = {
     step3: '3. Starte den Launcher, öffne Einstellungen › Lizenz, füge den Schlüssel ein und klicke auf „Aktivieren“.',
     step4: '4. Installiere deine Koja-Apps direkt im Launcher.',
     order: 'Deine Bestellung',
-    plan: (sub: boolean, label: string) =>
+    plan: (sub: boolean, label: string, vat = true) =>
       sub
-        ? `Koja-Apps · Monatlich: alle 13 Koja-Apps für Mac und Windows, ${label} pro Monat inkl. MwSt., monatlich kündbar.`
-        : `Koja-Apps · Dauerhaft: alle 13 Koja-Apps für Mac und Windows, einmalig ${label} inkl. MwSt., ohne Ablaufdatum.`,
+        ? `Koja-Apps · Monatlich: alle 13 Koja-Apps für Mac und Windows, ${label} pro Monat${vat ? ' inkl. MwSt.' : ''}, monatlich kündbar.`
+        : `Koja-Apps · Dauerhaft: alle 13 Koja-Apps für Mac und Windows, einmalig ${label}${vat ? ' inkl. MwSt.' : ''}, ohne Ablaufdatum.`,
     discounted: (code: string | undefined, paid: string, sub: boolean) =>
       ` Mit Rabattcode${code ? ` ${code}` : ''} bezahlt: ${paid}${sub ? ' für den ersten Abrechnungszeitraum' : ''}.`,
     date: (date: string) => `Kaufdatum: ${date}`,
@@ -213,8 +218,8 @@ const en: typeof de = {
   paidRow: (firstMonth: boolean) => (firstMonth ? 'Paid (first month)' : 'Paid'),
   date: 'Purchase date',
   email: 'Email',
-  priceNote: (sub: boolean, monthly: string) =>
-    `All prices incl. VAT.${sub ? ` Then ${monthly} a month.` : ''} The Koja apps are under continuous development. You get updates and new features automatically and free of charge.`,
+  priceNote: (sub: boolean, monthly: string, vat = true) =>
+    `${vat ? 'All prices incl. VAT.' : 'No German VAT charged.'}${sub ? ` Then ${monthly} a month.` : ''} The Koja apps are under continuous development. You get updates and new features automatically and free of charge.`,
   questions: `${B('Questions?')} Just reply to this email or write to ${link('mailto:support@kojalytics.com', 'support@kojalytics.com')}. We'll help you personally.`,
   legal: (sub: boolean) =>
     `Our ${link(`${SITE}${href('en', '/agb')}`, 'terms and conditions with the withdrawal policy')} apply. ${link(`${SITE}${href('en', '/widerrufen')}`, 'Withdraw from your purchase')}${sub ? ` &middot; ${link(`${SITE}${href('en', '/kuendigen')}`, 'Cancel your subscription')}` : ''}. Please keep this email.`,
@@ -228,10 +233,10 @@ const en: typeof de = {
     step3: '3. Open the launcher, go to Settings › License, paste the key and click “Activate”.',
     step4: '4. Install your Koja apps right in the launcher.',
     order: 'Your order',
-    plan: (sub: boolean, label: string) =>
+    plan: (sub: boolean, label: string, vat = true) =>
       sub
-        ? `Koja apps · Monthly: all 13 Koja apps for Mac and Windows, ${label} a month incl. VAT, cancel any month.`
-        : `Koja apps · One-time purchase: all 13 Koja apps for Mac and Windows, ${label} one-time incl. VAT, no expiry date.`,
+        ? `Koja apps · Monthly: all 13 Koja apps for Mac and Windows, ${label} a month${vat ? ' incl. VAT' : ''}, cancel any month.`
+        : `Koja apps · One-time purchase: all 13 Koja apps for Mac and Windows, ${label} one-time${vat ? ' incl. VAT' : ''}, no expiry date.`,
     discounted: (code: string | undefined, paid: string, sub: boolean) =>
       ` Paid with discount code${code ? ` ${code}` : ''}: ${paid}${sub ? ' for the first billing period' : ''}.`,
     date: (date: string) => `Purchase date: ${date}`,
@@ -249,9 +254,11 @@ export function licenseEmail(d: LicenseEmailData): { html: string; text: string 
   const lang = d.lang ?? 'de';
   const t = lang === 'de' ? de : en;
   const guide = `${SITE}${href(lang, '/support/windows-installation')}`;
-  const plan = d.subscription ? PLANS.monthly : PLANS.lifetime;
-  const planLabel = planText(d.subscription ? 'monthly' : 'lifetime', lang).label;
-  const discounted = d.paidCents !== null && d.paidCents !== plan.cents;
+  const cur = d.currency ?? 'EUR';
+  const vat = vatIncluded(cur);
+  const planCents = PRICES[cur][d.subscription ? 'monthly' : 'lifetime'];
+  const planLabel = planText(d.subscription ? 'monthly' : 'lifetime', lang, cur).label;
+  const discounted = d.paidCents !== null && d.paidCents !== planCents;
   const name = firstName(d.name);
   const key = esc(d.key);
   // The key in the launcher sketch: the start is enough to recognise it.
@@ -386,13 +393,13 @@ ${perks.map((p) => `<tr><td valign="top" width="22" style="width:22px;padding:3p
 <p style="margin:0 0 10px 0;${HUD}">${t.orderHud}</p>
 <table ${TABLE} width="100%" style="border-top:2px solid ${INK};">
 ${row(t.product, `${t.productName(d.subscription)}<br><span style="font-size:13px;color:${MUTED};">${t.productNote(d.subscription)}</span>`)}
-${row(t.price, t.priceValue(d.subscription, euro(plan.cents, lang)))}
+${row(t.price, t.priceValue(d.subscription, euroOrLocal(planCents, lang, cur)))}
 ${d.code ? row(t.code, `<span style="font-family:${MONO};letter-spacing:0.5px;">${esc(d.code)}</span>`) : ''}
-${d.paidCents !== null ? row(t.paidRow(d.subscription && discounted), euro(d.paidCents, lang), true) : ''}
+${d.paidCents !== null ? row(t.paidRow(d.subscription && discounted), euroOrLocal(d.paidCents, lang, cur), true) : ''}
 ${row(t.date, day(d.date, lang))}
 ${row(t.email, `<span style="word-break:break-all;">${esc(d.email)}</span>`)}
 </table>
-<p style="margin:12px 0 0 0;font-size:13px;line-height:1.6;color:${MUTED};">${t.priceNote(d.subscription, planLabel)}</p>
+<p style="margin:12px 0 0 0;font-size:13px;line-height:1.6;color:${MUTED};">${t.priceNote(d.subscription, planLabel, vat)}</p>
 </td></tr>
 
 <tr><td class="px" style="padding:36px 32px 34px 32px;">
@@ -430,8 +437,8 @@ ${row(t.email, `<span style="word-break:break-all;">${esc(d.email)}</span>`)}
     '',
     // Contract confirmation (§ 312f BGB).
     t.text.order,
-    t.text.plan(d.subscription, planLabel) +
-      (discounted && d.paidCents !== null ? t.text.discounted(d.code, euro(d.paidCents, lang), d.subscription) : ''),
+    t.text.plan(d.subscription, planLabel, vat) +
+      (discounted && d.paidCents !== null ? t.text.discounted(d.code, euroOrLocal(d.paidCents, lang, cur), d.subscription) : ''),
     t.text.date(day(d.date, lang)),
     t.text.updates,
     '',

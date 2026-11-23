@@ -136,6 +136,14 @@ export default function PrivacyPage() {
                 (§ 25(2) no. 2 TDDDG, Art. 6(1)(f) GDPR).
               </P>
               <P>
+                Without consent we also set two technically necessary cookies:{" "}
+                <code className="font-mono text-[0.92em]">kj-cur</code> stores for one day the currency in which we show you prices. It
+                follows from the country our host Vercel determines for your IP address; we do not store the IP address for this.{" "}
+                <code className="font-mono text-[0.92em]">kj-lang</code> remembers for one year that you switched from the English to
+                the German version. Neither contains an identifier; both only serve to display the website (§ 25(2) no. 2 TDDDG,
+                Art. 6(1)(f) GDPR).
+              </P>
+              <P>
                 The legal basis for the services in sections 4 to 6 is your consent (Art. 6(1)(a) GDPR, § 25(1) TDDDG).
                 It is voluntary. You can withdraw it at any time with effect for the future: click “Cookie settings” in
                 the footer and then “Reject optional cookies”. The page then reloads without these services. Cookies that

@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useCurrency } from "@/lib/use-currency";
+import { money } from "@/lib/currency";
 import { planText } from "@/lib/pricing";
-import { euro, useDiscount } from "@/lib/discount-store";
+import { useDiscount } from "@/lib/discount-store";
 import { useLang } from "@/lib/use-lang";
 import BuyButton from "./BuyButton";
 
@@ -19,8 +21,9 @@ const en: typeof de = { note: "pay once, no subscription", code: "Discount code?
  */
 export default function StickyBuyBar({ source, from }: { source: string; from?: "office" }) {
   const lang = useLang();
+  const cur = useCurrency();
   const t = lang === "de" ? de : en;
-  const full = planText("lifetime", lang).label;
+  const full = planText("lifetime", lang, cur).label;
   const [show, setShow] = useState(false);
   const reduced = useDiscount()?.prices.lifetime;
   const office = from === "office";
@@ -65,7 +68,7 @@ export default function StickyBuyBar({ source, from }: { source: string; from?: 
         <div className="min-w-0">
           <p className={office ? "ko-bar-price" : "display whitespace-nowrap text-[1.35rem] leading-none text-buy"}>
             {reduced !== undefined && <s className={office ? undefined : "text-[0.75em] text-faint decoration-2"}>{full}</s>}
-            {reduced !== undefined ? ` ${euro(reduced, lang)}` : full}
+            {reduced !== undefined ? ` ${money(reduced, cur, lang)}` : full}
           </p>
           <p className={office ? "ko-bar-note" : "mt-1 text-[12.5px] leading-tight text-muted"}>
             {office ? (

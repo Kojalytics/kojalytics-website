@@ -3,6 +3,7 @@ import Stripe from 'stripe';
 import { findDiscount } from '@/lib/discounts';
 import { discountError } from '@/lib/discount-text';
 import { clientIp, limiter } from '@/lib/form-guard';
+import { currencyForRequest } from '@/lib/currency-server';
 
 // Against guessing codes: at most 20 tries per IP address and hour (per server instance).
 const tooMany = limiter(20);
@@ -19,7 +20,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: t('Zu viele Versuche. Bitte versuche es in einer Stunde erneut.') }, { status: 429 });
   }
   try {
-    const result = await findDiscount(new Stripe(process.env.STRIPE_SECRET_KEY), body?.code);
+    // Prices in the visitor's currency, as on the page and in Checkout.
+    const result = await findDiscount(new Stripe(process.env.STRIPE_SECRET_KEY), body?.code, currencyForRequest(request.headers));
     if (!result.ok) return NextResponse.json({ error: t(result.error) }, { status: result.status });
     const { code, label, duration, months, prices } = result.discount;
     return NextResponse.json({ code, label, duration, months, prices });

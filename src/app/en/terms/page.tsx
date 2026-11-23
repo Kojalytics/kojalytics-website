@@ -128,7 +128,9 @@ export default function TermsPage() {
 
             <Section title="4. Prices and payment">
               <P>
-                All prices are final prices including VAT. You pay via Stripe by credit or debit card or with another
+                All prices are final prices. Prices in euros include statutory VAT. Depending on your country, we show prices in
+                your local currency (for example US dollars, pounds or Swiss francs); the amount shown on the website and in Stripe
+                Checkout in that currency then applies, without German VAT. You pay via Stripe by credit or debit card or with another
                 payment method shown in Stripe Checkout. The monthly subscription is billed monthly in advance from the
                 date of purchase; the one-time license is billed once at purchase.
               </P>
@@ -136,7 +138,7 @@ export default function TermsPage() {
 
             <Section title="5. Monthly subscription: term and cancellation">
               <P>
-                The monthly subscription costs {planText("monthly", "en").label} {planText("monthly", "en").per}. It runs
+                The monthly subscription costs {planText("monthly", "en").label} {planText("monthly", "en").per} (in other currencies, the amount shown). It runs
                 for one month at a time and renews automatically for a further month unless you cancel it.
               </P>
               <P>
@@ -153,7 +155,7 @@ export default function TermsPage() {
 
             <Section title="6. One-time license (dauerhafte Lizenz)">
               <P>
-                The one-time license costs {planText("lifetime", "en").label}, paid once. It has no expiry date and does
+                The one-time license costs {planText("lifetime", "en").label} (in other currencies, the amount shown), paid once. It has no expiry date and does
                 not renew; no further payments are due.
               </P>
             </Section>

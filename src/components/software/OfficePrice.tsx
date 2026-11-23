@@ -1,9 +1,10 @@
 "use client";
 
-import { PLANS, planText } from "@/lib/pricing";
+import { planText } from "@/lib/pricing";
 import { useDiscount } from "@/lib/discount-store";
 import { isOfferCode, offerText } from "@/lib/offer";
-import { euro, type Lang } from "@/lib/i18n";
+import { PRICES, money, vatIncluded } from "@/lib/currency";
+import { useCurrency } from "@/lib/use-currency";
 import { useLang } from "@/lib/use-lang";
 import BuyButton from "./BuyButton";
 
@@ -19,11 +20,14 @@ const de = {
       statt <s>{price}</s>
     </>
   ),
-  note: (
-    <>
-      einmalig · <span className="whitespace-nowrap">inkl. MwSt.</span>
-    </>
-  ),
+  note: (vat: boolean) =>
+    vat ? (
+      <>
+        einmalig · <span className="whitespace-nowrap">inkl. MwSt.</span>
+      </>
+    ) : (
+      <>einmalig</>
+    ),
   intro: (end: string) => (
     <>
       Einführungspreis bis <span className="whitespace-nowrap">{end}</span>
@@ -41,11 +45,14 @@ const de = {
     </>
   ),
   total: "Gesamt",
-  totalNote: (
-    <>
-      einmalig, <span>inkl. MwSt.</span>
-    </>
-  ),
+  totalNote: (vat: boolean) =>
+    vat ? (
+      <>
+        einmalig, <span>inkl. MwSt.</span>
+      </>
+    ) : (
+      <>einmalig</>
+    ),
   once: "einmal",
   save: (amount: string) => (
     <>
@@ -60,11 +67,14 @@ const en: typeof de = {
       instead of <s>{price}</s>
     </>
   ),
-  note: (
-    <>
-      one-time · <span className="whitespace-nowrap">incl. VAT</span>
-    </>
-  ),
+  note: (vat: boolean) =>
+    vat ? (
+      <>
+        one-time · <span className="whitespace-nowrap">incl. VAT</span>
+      </>
+    ) : (
+      <>one-time</>
+    ),
   intro: (end: string) => (
     <>
       Introductory price until <span className="whitespace-nowrap">{end}</span>
@@ -82,11 +92,14 @@ const en: typeof de = {
     </>
   ),
   total: "Total",
-  totalNote: (
-    <>
-      one-time, <span>incl. VAT</span>
-    </>
-  ),
+  totalNote: (vat: boolean) =>
+    vat ? (
+      <>
+        one-time, <span>incl. VAT</span>
+      </>
+    ) : (
+      <>one-time</>
+    ),
   once: "once",
   save: (amount: string) => (
     <>
@@ -99,28 +112,30 @@ const T = { de, en };
 
 function useOffer() {
   const discount = useDiscount();
+  const cur = useCurrency();
   const reduced = discount?.prices.lifetime;
-  return { discount: reduced !== undefined ? discount : null, cents: reduced ?? PLANS.lifetime.cents };
+  return { discount: reduced !== undefined ? discount : null, cents: reduced ?? PRICES[cur].lifetime, full: PRICES[cur].lifetime, cur };
 }
 
 /** The price as plain text inside a sentence or a headline. */
 export function Price() {
   const lang = useLang();
-  return <span className="whitespace-nowrap">{euro(useOffer().cents, lang)}</span>;
+  const { cents, cur } = useOffer();
+  return <span className="whitespace-nowrap">{money(cents, cur, lang)}</span>;
 }
 
 /** The price block of the hero, as in the ad: the yellow tag, the price, the regular price struck through. */
 export function HeroPrice() {
   const lang = useLang();
   const t = T[lang];
-  const { discount, cents } = useOffer();
+  const { discount, cents, cur } = useOffer();
   return (
     <div className={discount ? "ko-price" : "ko-price ko-price--plain"}>
       {discount && <span className="ko-tag">{discount.label}</span>}
-      <p className="ko-price-num">{euro(cents, lang)}</p>
-      {discount && <p className="ko-price-was">{t.was(planText("lifetime", lang).label)}</p>}
-      <p className="ko-price-note">{t.note}</p>
-      {isOfferCode(discount?.code) && <p className="ko-price-end">{t.intro(offerText(lang).endLong)}</p>}
+      <p className="ko-price-num">{money(cents, cur, lang)}</p>
+      {discount && <p className="ko-price-was">{t.was(planText("lifetime", lang, cur).label)}</p>}
+      <p className="ko-price-note">{t.note(vatIncluded(cur))}</p>
+      {isOfferCode(discount?.code) && <p className="ko-price-end">{t.intro(offerText(lang, cur).endLong)}</p>}
     </div>
   );
 }
@@ -141,17 +156,14 @@ export function CodeBar() {
   );
 }
 
-// An amount on the receipt always shows its cents: 79,00 € / €79.00.
-const amount = (cents: number, lang: Lang) => {
-  const n = (cents / 100).toLocaleString(lang === "de" ? "de-DE" : "en-IE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  return lang === "de" ? `${n} €` : `€${n}`;
-};
 
 /** The final offer as a receipt: the regular price, the code taken off, the total, and the buy button in one frame. */
 export function Receipt({ source }: { source: string }) {
   const lang = useLang();
   const t = T[lang];
-  const { discount, cents } = useOffer();
+  const { discount, cents, full, cur } = useOffer();
+  // An amount on the receipt always shows its cents: 79,00 € / €79.00 / $79.00.
+  const amount = (c: number) => money(c, cur, lang, true);
   return (
     <div className="ko-rcpt">
       <p className="ko-rcpt-head" aria-hidden>
@@ -161,7 +173,7 @@ export function Receipt({ source }: { source: string }) {
       <div className="ko-rcpt-line">
         <p>Koja Office 2026</p>
         <i aria-hidden />
-        <p className="ko-rcpt-amt">{amount(PLANS.lifetime.cents, lang)}</p>
+        <p className="ko-rcpt-amt">{amount(full)}</p>
       </div>
       <p className="ko-rcpt-sub">{t.sub}</p>
       {discount && (
@@ -170,15 +182,15 @@ export function Receipt({ source }: { source: string }) {
             Code <b>{discount.code}</b>
           </p>
           <i aria-hidden />
-          <p className="ko-rcpt-amt">−{amount(PLANS.lifetime.cents - cents, lang)}</p>
+          <p className="ko-rcpt-amt">−{amount(full - cents)}</p>
         </div>
       )}
       <div className="ko-rcpt-total">
         <p>
           {t.total}
-          <span>{t.totalNote}</span>
+          <span>{t.totalNote(vatIncluded(cur))}</span>
         </p>
-        <p className="ko-rcpt-price">{euro(cents, lang)}</p>
+        <p className="ko-rcpt-price">{money(cents, cur, lang)}</p>
       </div>
       <BuyButton source={source} from="office" className="ko-btn" />
     </div>
@@ -200,6 +212,6 @@ export function OnceBar({ totalCents }: { totalCents: number }) {
 /** What stays in the pocket after five years, against the subscription total. */
 export function Savings({ totalCents }: { totalCents: number }) {
   const lang = useLang();
-  const { cents } = useOffer();
-  return <p className="ko-save">{T[lang].save(euro(totalCents - cents, lang))}</p>;
+  const { cents, cur } = useOffer();
+  return <p className="ko-save">{T[lang].save(money(totalCents - cents, cur, lang))}</p>;
 }

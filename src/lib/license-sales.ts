@@ -1,4 +1,5 @@
 import Stripe from 'stripe';
+import { isCurrency, type Currency } from '@/lib/currency';
 import { createClient } from '@supabase/supabase-js';
 import { decryptKey, encryptKey, generateKey, hashKey, normalizeKey } from '@/lib/license';
 import { LAUNCHER_DOWNLOAD_URL } from '@/lib/pricing';
@@ -84,6 +85,8 @@ export async function issueLicenseForSession(session: Stripe.Checkout.Session): 
     date: new Date(session.created * 1000),
     // Set by /api/license/checkout from the page the buyer came from; older sessions have none (German).
     lang: session.metadata?.koja_lang === 'en' ? 'en' : 'de',
+    // The currency Checkout charged in (src/lib/currency.ts); euros for older sessions.
+    currency: isCurrency(session.currency?.toUpperCase()) ? (session.currency!.toUpperCase() as Currency) : 'EUR',
   });
 }
 
@@ -103,6 +106,8 @@ export type LicenseOrder = {
   date: Date;
   /** The language of the license email; German without it. */
   lang?: Lang;
+  /** The currency of paidCents; euros without it. */
+  currency?: Currency;
 };
 
 /** The license of `order`: created on first call, the same one on every later call. Emails it once when Resend is configured. */
@@ -163,6 +168,7 @@ export async function issueLicense(order: LicenseOrder): Promise<IssuedLicense> 
           date: order.date,
           devices: LICENSE_DEVICES,
           lang: order.lang,
+          currency: order.currency,
         });
         await sendEmail(issued.email, licenseEmailSubject(order.lang), text, { html });
       } catch (e) {

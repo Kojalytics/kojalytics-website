@@ -3,7 +3,8 @@ import { ArrowRight } from "lucide-react";
 import SectionBar from "@/components/instrument/SectionBar";
 import OfficeBoxStatic from "@/components/office/OfficeBoxStatic";
 import DownloadButton from "@/components/software/DownloadButton";
-import { TRIAL_DAYS, planText } from "@/lib/pricing";
+import { TRIAL_DAYS } from "@/lib/pricing";
+import { BandOfferPrice, BandRegularPrice } from "@/components/offer/BandPrice";
 import { OFFER_CODE, OFFER_HREF, isOfferRunning, offerText } from "@/lib/offer";
 import { href, type Lang } from "@/lib/i18n";
 
@@ -19,8 +20,6 @@ const T = {
         <span className="text-highlight">kein&nbsp;Abo</span>.
       </>
     ),
-    instead: "statt",
-    once: "einmalig, inkl. MwSt.",
     applied: "wird automatisch angewendet",
     see: "Koja Office ansehen",
     trial: `${TRIAL_DAYS} Tage kostenlos testen`,
@@ -42,8 +41,6 @@ const T = {
         <span className="text-highlight">no&nbsp;subscription</span>.
       </>
     ),
-    instead: "instead of",
-    once: "one-time, incl. VAT",
     applied: "applied automatically",
     see: "See Koja Office",
     trial: `Try it free for ${TRIAL_DAYS} days`,
@@ -65,7 +62,6 @@ const T = {
 export default function OfferBand({ lang = "de" }: { lang?: Lang }) {
   const t = T[lang];
   const offer = offerText(lang);
-  const regular = planText("lifetime", lang).label;
   const running = isOfferRunning();
   const over = running ? "offer-over" : "";
 
@@ -98,12 +94,7 @@ export default function OfferBand({ lang = "de" }: { lang?: Lang }) {
 
           {running && (
             <div className="offer-live">
-              <div className="mt-7 flex flex-wrap items-end gap-x-4 gap-y-1">
-                <p className="display text-[clamp(2.6rem,5vw,3.5rem)] leading-none">{offer.price}</p>
-                <p className="pb-1 text-[16px] text-muted">
-                  {t.instead} <s className="decoration-2">{regular}</s> · {t.once}
-                </p>
-              </div>
+              <BandOfferPrice lang={lang} />
               <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[16px] text-muted">
                 <span>
                   Code <span className="offer-code ml-1 text-[15px] text-foreground">{OFFER_CODE}</span>
@@ -113,10 +104,7 @@ export default function OfferBand({ lang = "de" }: { lang?: Lang }) {
             </div>
           )}
           <div className={over}>
-            <div className="mt-7 flex flex-wrap items-end gap-x-4 gap-y-1">
-              <p className="display text-[clamp(2.6rem,5vw,3.5rem)] leading-none">{regular}</p>
-              <p className="pb-1 text-[16px] text-muted">{t.once}</p>
-            </div>
+            <BandRegularPrice lang={lang} />
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

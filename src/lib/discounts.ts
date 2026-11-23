@@ -1,6 +1,7 @@
 import type Stripe from 'stripe';
 import { PLANS, type Plan } from '@/lib/pricing';
 import { isOfferCode, isOfferRunning } from '@/lib/offer';
+import { PRICES, money, type Currency } from '@/lib/currency';
 
 /**
  * Discount codes for the Koja-Apps are Stripe promotion codes (Stripe Dashboard → Produktkatalog → Gutscheine).
@@ -25,7 +26,11 @@ export type DiscountLookup = { ok: true; discount: Discount } | { ok: false; sta
 
 const euro = (cents: number) => (cents / 100).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
 
-export async function findDiscount(stripe: Stripe, raw: unknown): Promise<DiscountLookup> {
+/**
+ * `cur`: the visitor's currency. Prices come back in it; a percentage code works in every currency, a fixed-amount code
+ * only in its own currency (Stripe refuses it in another one).
+ */
+export async function findDiscount(stripe: Stripe, raw: unknown, cur: Currency = 'EUR'): Promise<DiscountLookup> {
   const code = typeof raw === 'string' ? raw.trim() : '';
   if (!code || code.length > 64) return { ok: false, status: 400, error: 'Bitte gib einen Rabattcode ein.' };
   // The public introductory code ends with the offer (src/lib/offer.ts), whatever Stripe still says.
@@ -47,18 +52,25 @@ export async function findDiscount(stripe: Stripe, raw: unknown): Promise<Discou
   const prices: Partial<Record<Plan, number>> = {};
   for (const plan of plans) {
     if (!(plan in PLANS)) continue;
-    const full = PLANS[plan].cents;
+    const full = PRICES[cur][plan];
     if (coupon.percent_off) prices[plan] = Math.round((full * (100 - coupon.percent_off)) / 100);
-    else if (coupon.amount_off && coupon.currency === 'eur') prices[plan] = Math.max(0, full - coupon.amount_off);
+    else if (coupon.amount_off && coupon.currency === cur.toLowerCase()) prices[plan] = Math.max(0, full - coupon.amount_off);
   }
-  if (!Object.keys(prices).length) return { ok: false, status: 410, error: 'Dieser Rabattcode ist nicht mehr gültig.' };
+  if (!Object.keys(prices).length) {
+    const otherCurrency = !coupon.percent_off && coupon.amount_off && coupon.currency !== cur.toLowerCase();
+    return { ok: false, status: otherCurrency ? 400 : 410, error: otherCurrency ? 'Dieser Rabattcode gilt nicht in deiner Währung.' : 'Dieser Rabattcode ist nicht mehr gültig.' };
+  }
 
   return {
     ok: true,
     discount: {
       code: promo.code,
       promotionCodeId: promo.id,
-      label: coupon.percent_off ? `−${coupon.percent_off.toLocaleString('de-DE')} %` : `−${euro(coupon.amount_off ?? 0)}`,
+      label: coupon.percent_off
+        ? `−${coupon.percent_off.toLocaleString('de-DE')} %`
+        : cur === 'EUR'
+          ? `−${euro(coupon.amount_off ?? 0)}`
+          : `−${money(coupon.amount_off ?? 0, cur, 'en')}`,
       duration: coupon.duration,
       months: coupon.duration_in_months,
       prices,

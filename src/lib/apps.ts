@@ -32,6 +32,7 @@ import pdfEn from "@/content/apps/en/pdf-koja.json";
 import cadEn from "@/content/apps/en/cad-koja.json";
 import extraEn from "@/content/apps/en/extra.json";
 import { href } from "@/lib/i18n";
+import { localizeAll, type Currency } from "@/lib/currency";
 
 export type AppGroup = "Foto & Design" | "Video & Audio" | "Büro & Technik";
 
@@ -193,9 +194,24 @@ function withShots(base: AppBase, lang: Lang = "de"): KojaApp {
 
 export const APPS: KojaApp[] = BASE.map((b) => withShots(b));
 
-/** The apps with their page copy in a language (English from src/content/apps/en). */
-export function appsFor(lang: Lang): KojaApp[] {
-  return lang === "en" ? APPS_EN : APPS;
+/**
+ * The apps with their page copy in a language (English from src/content/apps/en), the plan prices in their texts in the
+ * visitor's currency (src/lib/currency.ts). Built once per language and currency.
+ */
+const LOCALIZED = new Map<string, KojaApp[]>();
+export function appsFor(lang: Lang, cur: Currency = "EUR"): KojaApp[] {
+  const apps = lang === "en" ? APPS_EN : APPS;
+  if (cur === "EUR") return apps;
+  const key = `${lang}-${cur}`;
+  // Competitors' prices in the copy are German list prices in euros: the comparison says so.
+  const note = lang === "de" ? " Die Preise der anderen Hersteller sind deutsche Listenpreise in Euro." : " Other manufacturers' prices are German list prices in euros.";
+  if (!LOCALIZED.has(key)) {
+    LOCALIZED.set(
+      key,
+      localizeAll(apps, lang, cur).map((a) => ({ ...a, comparison: { ...a.comparison, note: a.comparison.note + note } })),
+    );
+  }
+  return LOCALIZED.get(key)!;
 }
 
 const APPS_EN: KojaApp[] = BASE.map((b) => withShots(b, "en"));
