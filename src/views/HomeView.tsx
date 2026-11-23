@@ -544,7 +544,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
                 {t.afterText}
               </p>
               <div className="mt-12">
-                <AfterPurchase lang={lang} film={lang === "en"} />
+                <AfterPurchase lang={lang} film />
               </div>
             </div>
           </section>
