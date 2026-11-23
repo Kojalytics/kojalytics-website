@@ -31,16 +31,16 @@ const mono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Kojalytics | Software-Studio aus Deutschland",
-    template: "%s | Kojalytics",
+    default: "Koja Office 2026: 13 Apps für Mac & Windows ohne Abo",
+    template: "%s | Koja Office",
   },
   description:
-    "Kojalytics ist ein Software-Studio aus Deutschland. Wir entwickeln Apps für Kunden und bieten die Koja-Apps für Mac und Windows an.",
+    "Koja Office: 13 Apps für Mac und Windows, von Office und PDF bis Foto, Video und CAD. Einmal zahlen, kein Abo, läuft offline.",
   openGraph: {
     siteName: SITE_NAME,
     type: "website",
     locale: "de_DE",
-    images: [{ url: "/og/kojalytics.jpg", width: 1200, height: 630, alt: "Kojalytics" }],
+    images: [{ url: "/og/software.jpg", width: 1200, height: 630, alt: "Koja Office auf dem Mac" }],
   },
   twitter: { card: "summary_large_image" },
 };

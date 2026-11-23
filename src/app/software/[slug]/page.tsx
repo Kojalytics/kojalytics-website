@@ -123,9 +123,8 @@ export default async function AppPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Startseite", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Software", item: `${SITE_URL}/software` },
-      { "@type": "ListItem", position: 3, name: app.name, item: `${SITE_URL}/software/${app.slug}` },
+      { "@type": "ListItem", position: 1, name: "Koja Office", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: app.name, item: `${SITE_URL}/software/${app.slug}` },
     ],
   };
 
@@ -146,7 +145,7 @@ export default async function AppPage({ params }: Props) {
               {/* On phones the button comes straight after the h1, so it shows on the first screen. */}
               <div className="flex min-w-0 flex-col">
                 <nav aria-label="Brotkrumen" className="hud rise-in flex items-center gap-2">
-                  <Link href="/software" className="-my-3.5 inline-flex min-h-11 items-center hover:text-foreground">
+                  <Link href="/" className="-my-3.5 inline-flex min-h-11 items-center hover:text-foreground">
                     Software
                   </Link>
                   <span aria-hidden className="text-faint">
@@ -421,7 +420,7 @@ export default async function AppPage({ params }: Props) {
               <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
                 Plus 12 weitere Apps <span className="text-highlight">ohne</span> Aufpreis
               </h2>
-              <Link href="/software#apps" className="link-hud -my-3.5 min-h-11 shrink-0">
+              <Link href="/#apps" className="link-hud -my-3.5 min-h-11 shrink-0">
                 Alle Apps ansehen <ArrowUpRight size={14} aria-hidden />
               </Link>
             </div>

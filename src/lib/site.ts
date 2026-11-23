@@ -5,7 +5,7 @@ export const SITE_NAME = "Kojalytics";
 export const OG_BASE = { siteName: SITE_NAME, locale: "de_DE", type: "website" as const };
 
 /** Share image for pages without their own; pages that set `openGraph` must list it again (Next replaces, not merges). */
-export const DEFAULT_OG_IMAGE = { url: "/og/kojalytics.jpg", width: 1200, height: 630, alt: "Kojalytics" };
+export const DEFAULT_OG_IMAGE = { url: "/og/software.jpg", width: 1200, height: 630, alt: "Koja Office auf dem Mac" };
 
 export const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
@@ -15,7 +15,7 @@ export const ORGANIZATION_JSON_LD = {
   logo: `${SITE_URL}/icon.png`,
   email: "support@kojalytics.com",
   description:
-    "Kojalytics ist ein Software-Studio aus Deutschland. Wir entwickeln Apps und Web-Plattformen für Kunden und bieten die Koja-Apps für Mac und Windows an.",
+    "Kojalytics aus Hamburg entwickelt Koja Office: 13 Apps für Mac und Windows, einmal zahlen, kein Abo.",
   address: { "@type": "PostalAddress", addressCountry: "DE" },
 };
 

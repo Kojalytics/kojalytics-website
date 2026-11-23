@@ -66,7 +66,7 @@ export default function WebAppsPage() {
               <p className="text-[15px] leading-relaxed text-muted">
                 <span className="text-foreground">Alle 13 Apps</span> für Mac und Windows bekommst du für einmal {PLANS.lifetime.label}, kein
                 Abo.{" "}
-                <Link href="/software#preise" className="text-foreground underline underline-offset-4">
+                <Link href="/#preise" className="text-foreground underline underline-offset-4">
                   Zu den Preisen
                 </Link>
               </p>

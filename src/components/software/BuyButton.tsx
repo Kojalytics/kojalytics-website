@@ -56,7 +56,7 @@ export default function BuyButton({
       window.location.href = data.url;
     } catch {
       setBusy(false);
-      window.location.href = from === "office" ? "/office#fragen" : "/software#preise";
+      window.location.href = from === "office" ? "/office#fragen" : "/#preise";
     }
   }
 

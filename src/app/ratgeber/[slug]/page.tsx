@@ -318,7 +318,7 @@ export default async function ArticlePage({ params }: Props) {
                   </p>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <DownloadButton source={`ratgeber-${article.slug}`} />
-                    <Link href="/software" className="btn-secondary">
+                    <Link href="/" className="btn-secondary">
                       Alle Apps ansehen
                     </Link>
                   </div>

@@ -28,25 +28,34 @@ const nextConfig: NextConfig = {
       //      landing page /office. The query string (code, utm_*) is kept. Remove once the ads link to /office. ----
       { source: '/software', has: [{ type: 'query', key: 'utm_source', value: 'meta' }], destination: '/office', permanent: false },
 
+      // ---- 2026-11: the site is only about Koja Office. /software became the homepage; the studio pages are gone. ----
+      { source: '/software', destination: '/', permanent: true },
+      { source: '/leistungen', destination: '/', permanent: true },
+      { source: '/leistungen/:path*', destination: '/', permanent: true },
+      { source: '/projekte', destination: '/', permanent: true },
+      { source: '/projekte/:path*', destination: '/', permanent: true },
+      { source: '/lizenzen', destination: '/', permanent: true },
+      { source: '/ueber-uns', destination: '/', permanent: true },
+
       // ---- Relaunch 2026-10: Koja apps live under /software ----
-      { source: '/koja-apps', destination: '/software', permanent: true },
+      { source: '/koja-apps', destination: '/', permanent: true },
       { source: '/koja-apps/danke', destination: '/software/danke', permanent: true },
 
       // ---- Relaunch 2026-10: German addresses. Only /contact was ever live; the rest guards old preview links. ----
       { source: '/contact', destination: '/kontakt', permanent: true },
-      { source: '/services', destination: '/leistungen', permanent: true },
-      { source: '/work', destination: '/projekte', permanent: true },
-      { source: '/work/ai-headshot', destination: '/projekte/ai-headshot', permanent: true },
-      { source: '/about', destination: '/ueber-uns', permanent: true },
+      { source: '/services', destination: '/', permanent: true },
+      { source: '/work', destination: '/', permanent: true },
+      { source: '/work/ai-headshot', destination: '/', permanent: true },
+      { source: '/about', destination: '/', permanent: true },
       { source: '/cancel', destination: '/kuendigen', permanent: true },
       { source: '/terms', destination: '/agb', permanent: true },
-      { source: '/licensing', destination: '/lizenzen', permanent: true },
+      { source: '/licensing', destination: '/', permanent: true },
       { source: '/software/thanks', destination: '/software/danke', permanent: true },
 
       // ---- AI Headshot is a case study now. The web app (/:locale/aiheadshot/app) and the
       //      privacy pages linked from the App Store stay where they are. ----
-      { source: '/aiheadshot', destination: '/projekte/ai-headshot', permanent: true },
-      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/aiheadshot', destination: '/projekte/ai-headshot', permanent: true },
+      { source: '/aiheadshot', destination: '/', permanent: true },
+      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/aiheadshot', destination: '/', permanent: true },
 
       // ---- Legacy /portraitpro ----
       {
@@ -54,16 +63,16 @@ const nextConfig: NextConfig = {
         destination: '/en/aiheadshot/privacypolicy',
         permanent: true,
       },
-      { source: '/portraitpro', destination: '/projekte/ai-headshot', permanent: true },
-      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/portraitpro', destination: '/projekte/ai-headshot', permanent: true },
+      { source: '/portraitpro', destination: '/', permanent: true },
+      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/portraitpro', destination: '/', permanent: true },
       {
         source: '/:locale(de|en|es|fr|it|da|nl|sv)/portraitpro/:path*',
         destination: '/:locale/aiheadshot/:path*',
         permanent: true,
       },
       // ---- Legacy /ai-headshot (with dash) ----
-      { source: '/ai-headshot', destination: '/projekte/ai-headshot', permanent: true },
-      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/ai-headshot', destination: '/projekte/ai-headshot', permanent: true },
+      { source: '/ai-headshot', destination: '/', permanent: true },
+      { source: '/:locale(de|en|es|fr|it|da|nl|sv)/ai-headshot', destination: '/', permanent: true },
       {
         source: '/:locale(de|en|es|fr|it|da|nl|sv)/ai-headshot/:path*',
         destination: '/:locale/aiheadshot/:path*',

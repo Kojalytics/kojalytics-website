@@ -10,7 +10,7 @@ import { PLANS } from "@/lib/pricing";
 export const OFFER_CODE = "KOJA50-B7RT";
 export const OFFER_PERCENT = 50;
 /** Linked with a plain <a> (a full page load), so /software reads the code from the URL even when coming from /software. */
-export const OFFER_HREF = `/software?code=${OFFER_CODE}`;
+export const OFFER_HREF = `/?code=${OFFER_CODE}`;
 /** The last day of the offer (ISO date). It runs until the end of this day, Berlin time. */
 export const OFFER_LAST_DAY = "2026-11-30";
 

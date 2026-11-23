@@ -71,7 +71,7 @@ export default function OfferBand() {
                 Koja Office ansehen <ArrowRight size={16} strokeWidth={2.2} aria-hidden />
               </a>
             )}
-            <Link href="/software" className={`btn-buy btn-lg ${over}`}>
+            <Link href="/" className={`btn-buy btn-lg ${over}`}>
               Koja Office ansehen <ArrowRight size={16} strokeWidth={2.2} aria-hidden />
             </Link>
             <DownloadButton
