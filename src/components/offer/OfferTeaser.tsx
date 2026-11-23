@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { PLANS } from "@/lib/pricing";
 import { OFFER_CODE, OFFER_END_LONG, OFFER_HREF, OFFER_LABEL, OFFER_PRICE, isOfferRunning } from "@/lib/offer";
 
-const icon = <Image src="/office/koja-office-icon.svg" alt="" width={44} height={44} unoptimized className="h-11 w-11" />;
+const icon = <Image src="/office/koja-office-icon.png" alt="" width={44} height={44} unoptimized className="h-11 w-11" />;
 
 /**
  * One line on Koja Office right after the first section of the busiest entry pages (home, /lizenzen), so nobody has

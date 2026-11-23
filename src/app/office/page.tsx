@@ -211,7 +211,7 @@ function OrderCard() {
     <div className="ko-ui">
       <p className="ko-ui-cap">Bestellung</p>
       <div className="ko-ui-row">
-        <Image src="/office/koja-office-icon.svg" alt="" width={34} height={34} unoptimized />
+        <Image src="/office/koja-office-icon.png" alt="" width={34} height={34} unoptimized />
         <span>
           <b>Koja Office 2026</b>
           <small>Dauerlizenz</small>
@@ -302,7 +302,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
               <div className="ko-col">
                 <div className="ko-brand">
                   <Link href="/software" title="Mehr über Kojalytics und die Koja-Apps" className="ko-brand-mark">
-                    <Image src="/office/koja-office-icon.svg" alt="" width={28} height={28} unoptimized priority />
+                    <Image src="/office/koja-office-icon.png" alt="" width={28} height={28} unoptimized priority />
                     <span>Kojalytics</span>
                   </Link>
                   <span className="ko-hud">Direkt vom Hersteller</span>
