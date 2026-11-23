@@ -1,0 +1,299 @@
+/* "Rechne selbst nach" (src/components/software/RunNumbers.tsx). Prefix rn-. The dark calculator of the old ad page,
+   carried over to the white home page: subscriptions in coral on a pale blush, Koja Office in the indigo of the box. */
+
+.rn {
+  --rn-indigo: #5145e5;
+  --rn-indigo-soft: #efeeff;
+  --rn-coral: #f0565c;
+  --rn-coral-soft: #fff4f3;
+  --rn-ink: #0e0e10;
+  --rn-text: #3d3d43;
+  --rn-line: #e3e3e1;
+  --rn-mono: var(--font-mono-ui), ui-monospace, Menlo, SFMono-Regular, monospace;
+  --rn-display: var(--font-heading), var(--font-body), system-ui, sans-serif;
+  container-type: inline-size;
+  color: var(--rn-ink);
+}
+
+.rn-chart {
+  position: relative;
+  border: 1px solid var(--rn-line);
+  background:
+    radial-gradient(90% 120% at 100% 0%, rgba(81, 69, 229, 0.07), transparent 60%),
+    linear-gradient(#fff, #fbfbfa);
+}
+
+/* Year ticks above the bars, lit one after the other */
+.rn-scale {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-left: var(--rn-label-w, 0);
+  margin-right: var(--rn-total-w, 0);
+  padding: 14px 18px 0;
+}
+.rn-scale span {
+  font-family: var(--rn-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b5b5ba;
+  border-left: 1px dashed var(--rn-line);
+  padding-left: 6px;
+  transition: color 0.3s;
+}
+.rn-scale span.is-on {
+  color: var(--rn-coral);
+}
+
+.rn-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 18px;
+  border-top: 1px solid var(--rn-line);
+  background: var(--rn-coral-soft);
+}
+.rn-row + .rn-row {
+  background: #fffaf9;
+}
+.rn-row--koja {
+  background: var(--rn-indigo-soft) !important;
+}
+.rn-scale + .rn-row {
+  margin-top: 10px;
+}
+
+.rn-label {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+}
+.rn-label b {
+  font-size: 1.05rem;
+}
+.rn-label span {
+  font-size: 0.92rem;
+  color: var(--rn-text);
+}
+.rn-label small {
+  font-family: var(--rn-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6a6a70;
+  border: 1px solid var(--rn-line);
+  background: #fff;
+  padding: 2px 6px;
+}
+
+.rn-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 26px;
+}
+.rn-bar {
+  display: block;
+  height: 100%;
+  background: linear-gradient(180deg, #ff7b80, var(--rn-coral));
+  flex: none;
+}
+.rn-bar--koja {
+  background: linear-gradient(180deg, #6d62ff, var(--rn-indigo));
+  box-shadow: 0 6px 16px -6px rgba(81, 69, 229, 0.7);
+  transition: opacity 0.3s;
+}
+.rn-once {
+  margin-left: 10px;
+  font-family: var(--rn-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rn-indigo);
+}
+.rn-once::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 40vw;
+  max-width: 520px;
+  margin-left: 10px;
+  border-top: 1.5px dashed rgba(81, 69, 229, 0.35);
+}
+.rn-track {
+  overflow: hidden;
+}
+
+.rn-total {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.rn-total b {
+  font-family: var(--rn-display);
+  font-weight: 900;
+  font-size: clamp(1.9rem, 6cqi, 2.8rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--rn-coral);
+  font-variant-numeric: tabular-nums;
+}
+.rn-row--koja .rn-total b {
+  color: var(--rn-indigo);
+}
+.rn-total span {
+  font-family: var(--rn-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6a6a70;
+}
+
+@container (min-width: 820px) {
+  .rn-chart {
+    --rn-label-w: 280px;
+    --rn-total-w: 230px;
+  }
+  .rn-row {
+    grid-template-columns: var(--rn-label-w) 1fr var(--rn-total-w);
+    align-items: center;
+    gap: 0;
+    padding: 20px 18px;
+  }
+  .rn-label {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 18px;
+  }
+  .rn-total {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  .rn-scale {
+    margin-left: calc(var(--rn-label-w) + 18px);
+    margin-right: calc(var(--rn-total-w) + 18px);
+    padding: 16px 0 0;
+  }
+}
+@container (max-width: 819px) {
+  .rn-scale {
+    display: none;
+  }
+  .rn-scale + .rn-row {
+    margin-top: 0;
+    border-top: 0;
+  }
+}
+
+.rn-save {
+  margin: 22px 0 0;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  line-height: 1.4;
+  font-weight: 600;
+  max-width: 820px;
+}
+.rn-save b {
+  font-family: var(--rn-display);
+  font-weight: 900;
+  color: var(--rn-indigo);
+  white-space: nowrap;
+}
+
+/* Three plain facts as marks */
+.rn-facts {
+  margin-top: 30px;
+  border: 1px solid var(--rn-line);
+}
+.rn-facts-head,
+.rn-fact {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(3, 1fr);
+}
+.rn-facts-head span {
+  padding: 12px 10px;
+  font-family: var(--rn-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6a6a70;
+  text-align: center;
+}
+.rn-fact {
+  border-top: 1px solid var(--rn-line);
+}
+.rn-fact > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 14px 8px;
+  text-align: center;
+}
+.rn-fact > span:first-child {
+  align-items: flex-start;
+  text-align: left;
+  font-weight: 600;
+  padding-left: 16px;
+}
+.rn-facts .is-koja {
+  background: var(--rn-indigo-soft);
+  color: var(--rn-indigo);
+  font-weight: 700;
+}
+.rn-fact small {
+  font-size: 11.5px;
+  line-height: 1.25;
+  color: #6a6a70;
+}
+.rn-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.rn-mark--yes {
+  background: #15803d;
+  color: #fff;
+}
+.rn-mark--no {
+  background: #fde8e8;
+  color: #c0343a;
+}
+.rn-mark--part {
+  background: #f3efe2;
+  color: #8a6d12;
+}
+
+.rn-details {
+  margin-top: 14px;
+}
+.rn-details summary {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--rn-indigo);
+  text-underline-offset: 4px;
+  list-style: none;
+}
+.rn-details summary::-webkit-details-marker {
+  display: none;
+}
+.rn-details summary::before {
+  content: "+";
+  font-family: var(--rn-mono);
+  color: var(--rn-indigo);
+}
+.rn-details[open] summary::before {
+  content: "–";
+}

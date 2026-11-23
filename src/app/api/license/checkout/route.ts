@@ -9,6 +9,7 @@ import { discountError } from '@/lib/discount-text';
 import { href, type Lang } from '@/lib/i18n';
 import { PRICES } from '@/lib/currency';
 import { currencyForRequest } from '@/lib/currency-server';
+import { OFFER_CODE, isOfferRunning } from '@/lib/offer';
 
 const ALLOWED_ORIGINS = new Set(['https://www.kojalytics.com', 'https://kojalytics.com']);
 // Local dev servers on any port (never a production redirect target: only this machine can open them).
@@ -35,12 +36,12 @@ const WITHDRAW = `14 Tage gesetzliches Widerrufsrecht (${link('so widerrufst du'
 const WITHDRAW_EN = `14-day statutory right of withdrawal (${link('how to withdraw', `${SITE_URL}${href('en', '/widerrufen')}`)}).`;
 const SUBMIT_TEXT: Record<Lang, Record<Plan, string>> = {
   de: {
-    lifetime: `Einmalzahlung, kein Abo. Deinen Lizenzschlüssel bekommst du sofort nach der Zahlung per E-Mail. ${WITHDRAW}`,
-    monthly: `Monatlich, jederzeit zum Ende des Abrechnungsmonats online kündbar (${link('Abo kündigen', `${SITE_URL}/kuendigen`)}). Deinen Lizenzschlüssel bekommst du sofort nach der Zahlung per E-Mail. ${WITHDRAW}`,
+    lifetime: `**An die E-Mail-Adresse oben schicken wir dir Koja Office sofort nach dem Kauf** (Download-Link und Lizenzschlüssel). Einmalzahlung, kein Abo. ${WITHDRAW}`,
+    monthly: `**An die E-Mail-Adresse oben schicken wir dir Koja Office sofort nach dem Kauf** (Download-Link und Lizenzschlüssel). Monatlich, jederzeit zum Ende des Abrechnungsmonats online kündbar (${link('Abo kündigen', `${SITE_URL}/kuendigen`)}). ${WITHDRAW}`,
   },
   en: {
-    lifetime: `One-time payment, no subscription. You get your license key by email right after payment. ${WITHDRAW_EN}`,
-    monthly: `Monthly, cancel online at any time to the end of the billing month (${link('cancel subscription', `${SITE_URL}${href('en', '/kuendigen')}`)}). You get your license key by email right after payment. ${WITHDRAW_EN}`,
+    lifetime: `**We send Koja Office to the email address above right after you buy** (download link and license key). One-time payment, no subscription. ${WITHDRAW_EN}`,
+    monthly: `**We send Koja Office to the email address above right after you buy** (download link and license key). Monthly, cancel online at any time to the end of the billing month (${link('cancel subscription', `${SITE_URL}${href('en', '/kuendigen')}`)}). ${WITHDRAW_EN}`,
   },
 };
 const AFTER_SUBMIT_TEXT: Record<Lang, string> = {
@@ -69,10 +70,28 @@ function productText(plan: Plan, fromOffice: boolean, lang: Lang) {
 }
 
 export async function POST(request: NextRequest) {
+  return checkout(request, await request.json().catch(() => ({})));
+}
+
+/*
+ * A plain link straight into Checkout: the buy button in the bar of the browser apps (public/web/*\/index.html) opens
+ * /api/license/checkout?lang=en and lands on Stripe's page right away, one-time purchase, with the running offer code.
+ * On any error it goes to the prices on the home page instead.
+ */
+export async function GET(request: NextRequest) {
+  const lang: Lang = request.nextUrl.searchParams.get('lang') === 'en' ? 'en' : 'de';
+  const body = { plan: 'lifetime', lang, from: 'web' };
+  let data = await (await checkout(request, isOfferRunning() ? { ...body, code: OFFER_CODE } : body)).json().catch(() => ({}));
+  // The offer code no longer valid (ended, used up): Checkout at the regular price, with its own code field.
+  if (typeof data?.url !== 'string' && isOfferRunning()) data = await (await checkout(request, body)).json().catch(() => ({}));
+  const to = typeof data?.url === 'string' ? data.url : `${SITE_URL}${href(lang, '/#preise')}`;
+  return NextResponse.redirect(to, 303);
+}
+
+async function checkout(request: NextRequest, body: { plan?: string; lang?: string; code?: string; from?: string }) {
   if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY.includes('REPLACE')) {
     return NextResponse.json({ error: 'Stripe is not configured yet' }, { status: 503 });
   }
-  const body = await request.json().catch(() => ({}));
   const plan: Plan = body?.plan === 'monthly' ? 'monthly' : 'lifetime';
   // From the English pages (/en …): Checkout, its texts, the return pages and the license email in English.
   const lang: Lang = body?.lang === 'en' ? 'en' : 'de';
@@ -92,12 +111,14 @@ export async function POST(request: NextRequest) {
       discount = found.discount;
     }
     // Only our own domains as redirect targets (no open redirect).
-    const rawOrigin = request.headers.get('origin') || '';
+    // A plain link (GET) sends no Origin header: then the address it was opened on counts.
+    const rawOrigin = request.headers.get('origin') || request.nextUrl.origin;
     const origin = ALLOWED_ORIGINS.has(rawOrigin) || LOCAL_ORIGIN.test(rawOrigin) ? rawOrigin : SITE_URL;
     // koja_lang: the language of the license email (src/lib/license-sales.ts); missing or "de" means German.
     const metadata = { product: LICENSE_PRODUCT, koja_plan: plan, koja_lang: lang, koja_currency: cur, ...(discount ? { koja_code: discount.code } : {}) };
-    // From the ad landing page (/office): Checkout uses its product name, and "Back" returns there with the code.
-    const fromOffice = body?.from === 'office' && plan === 'lifetime';
+    // From the old ad landing page (/office, now the home page) or the browser apps: Checkout uses the Koja Office
+    // product name, and "Back" returns to the home page with the code.
+    const fromOffice = (body?.from === 'office' || body?.from === 'web') && plan === 'lifetime';
     const back = `${CHECKOUT_BACK_PARAM}=${CHECKOUT_BACK_VALUE}`;
     const product_data = { images: [PRODUCT_IMAGE], ...productText(plan, fromOffice, lang) };
 
@@ -121,7 +142,7 @@ export async function POST(request: NextRequest) {
       success_url: `${origin}${href(lang, '/software/danke')}/start?session_id={CHECKOUT_SESSION_ID}`,
       // "Zurück" on Stripe's page: the marker shows the "Noch unsicher?" box at the top (src/lib/checkout-help.ts).
       cancel_url: fromOffice
-        ? `${origin}${href(lang, '/office')}?${discount ? `code=${encodeURIComponent(discount.code)}&` : ''}${back}`
+        ? `${origin}${href(lang, '/')}?${discount ? `code=${encodeURIComponent(discount.code)}&` : ''}${back}`
         : `${origin}${lang === 'en' ? href('en', '/') : '/software'}?${back}`,
       metadata,
       locale: lang,
