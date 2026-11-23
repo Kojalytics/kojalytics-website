@@ -11,6 +11,7 @@ import OfficeFilm from "@/components/office/OfficeFilm";
 import SendLinkForm from "@/components/office/SendLinkForm";
 import BuyButton from "@/components/software/BuyButton";
 import DownloadButton from "@/components/software/DownloadButton";
+import WebTestButton from "@/components/software/WebTestButton";
 import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import DiscountProvider from "@/components/software/DiscountProvider";
@@ -331,6 +332,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
                     Einmalzahlung · sicher über Stripe · Lizenzschlüssel sofort per {EMAIL} ·{" "}
                     <span className="whitespace-nowrap">14 Tage Widerrufsrecht</span>
                   </p>
+                  <WebTestButton className="mb-3 w-full max-md:hidden" />
                   <DownloadButton
                     source="office-hero"
                     variant="secondary"

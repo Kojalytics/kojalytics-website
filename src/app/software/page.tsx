@@ -8,6 +8,7 @@ import OfferDiscount from "@/components/software/OfferDiscount";
 import { isOfferRunning } from "@/lib/offer";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadButton from "@/components/software/DownloadButton";
+import WebTestButton from "@/components/software/WebTestButton";
 import BuyButton from "@/components/software/BuyButton";
 import LifetimePrice, { ActiveDiscountNote } from "@/components/software/LifetimePrice";
 import PricingCards from "@/components/software/PricingCards";
@@ -134,7 +135,8 @@ export default function SoftwarePage() {
                 <div className="sw-hero-cta flex w-full flex-col items-center lg:items-start">
                   <div className="rise-in flex w-full flex-col justify-center gap-3 [--i:2] sm:w-auto sm:flex-row lg:mt-8 lg:flex-col xl:flex-row">
                     <BuyButton source="software-hero" />
-                    <DownloadButton source="software-hero" variant="secondary" label={`${TRIAL_DAYS} Tage kostenlos testen`} />
+                    <WebTestButton className="max-md:hidden" />
+                    <DownloadButton source="software-hero" variant="secondary" label={`${TRIAL_DAYS} Tage kostenlos testen`} className="md:hidden" />
                   </div>
                   <ActiveDiscountNote />
                   <p className="rise-in mt-6 max-w-xl text-[17px] leading-relaxed text-muted [--i:3] md:text-lg">
@@ -163,7 +165,8 @@ export default function SoftwarePage() {
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row" data-reveal>
                   <BuyButton source="software-overview" />
-                  <Link href="#preise" className="btn-secondary">
+                  <WebTestButton className="max-md:hidden" label="Apps im Browser testen" />
+                  <Link href="#preise" className="btn-secondary md:hidden">
                     Preise und Rabattcode
                   </Link>
                 </div>
