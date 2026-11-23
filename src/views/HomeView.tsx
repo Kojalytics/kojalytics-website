@@ -13,6 +13,8 @@ import BuyButton from "@/components/software/BuyButton";
 import LifetimePrice, { ActiveDiscountNote } from "@/components/software/LifetimePrice";
 import PricingCards from "@/components/software/PricingCards";
 import AfterPurchase from "@/components/software/AfterPurchase";
+import RunNumbers from "@/components/software/RunNumbers";
+import NoMoreBills from "@/components/software/NoMoreBills";
 import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
@@ -24,7 +26,7 @@ import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
 import { softwareFaq } from "@/lib/software-faq";
 import { SITE_URL, jsonLd } from "@/lib/site";
 import { href, type Lang } from "@/lib/i18n";
-import { localizePrices } from "@/lib/currency";
+import { localizePrices, money } from "@/lib/currency";
 import { visitorCurrency } from "@/lib/currency-server";
 import compareDe from "@/content/software-compare.json";
 import compareEn from "@/content/software-compare.en.json";
@@ -91,10 +93,17 @@ const de = {
   onePrice: "13 Apps · 1 Preis",
   priceLine: (monthly: string, once: string) => `${monthly} / Monat · ${once} einmalig`,
   s2Label: "Preisvergleich",
-  s2Meta: "Was du im Jahr zahlst",
+  s2Meta: "Abo oder einmal zahlen · 5 Jahre",
   s2Title: (
     <>
-      Was du im <span className="text-highlight">Jahr</span> zahlst.
+      Rechne selbst <span className="text-highlight">nach</span>.
+    </>
+  ),
+  billsLabel: "Folgekosten",
+  billsMeta: "Nach dem Einmalkauf",
+  billsTitle: (
+    <>
+      Und danach? <span className="text-highlight">Keine Rechnung mehr</span>.
     </>
   ),
   afterLabel: "Nach dem Kauf",
@@ -233,10 +242,17 @@ const en: typeof de = {
   onePrice: "13 apps · 1 price",
   priceLine: (monthly: string, once: string) => `${monthly} / month · ${once} once`,
   s2Label: "Price comparison",
-  s2Meta: "What you pay per year",
+  s2Meta: "Subscription or pay once · 5 years",
   s2Title: (
     <>
-      What you pay per <span className="text-highlight">year</span>.
+      Run the <span className="text-highlight">numbers</span>.
+    </>
+  ),
+  billsLabel: "Ongoing costs",
+  billsMeta: "After the one-time purchase",
+  billsTitle: (
+    <>
+      And after that? <span className="text-highlight">No more bills</span>.
     </>
   ),
   afterLabel: "After you buy",
@@ -364,7 +380,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
   const faq = softwareFaq(lang, cur);
   // The price comparison quotes German euro list prices of Adobe and Microsoft: only for visitors who pay in euros.
   // Section numbers run on without gaps.
-  const sections = ["overview", ...(cur === "EUR" ? ["compare"] : []), "pricing", "after", "apps", "why", "what", "who", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
+  const sections = ["overview", ...(cur === "EUR" ? ["compare"] : []), "pricing", "bills", "after", "apps", "why", "what", "who", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
   const num = (id: string) => two(sections.indexOf(id) + 1);
   // Placeholder slots for real customer quotes: visible on preview deployments only, never in production.
   const showPlaceholders = process.env.VERCEL_ENV !== "production";
@@ -462,48 +478,26 @@ export default async function HomeView({ lang }: { lang: Lang }) {
               <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
                 {t.s2Title}
               </h2>
-              <div className="mt-10 grid gap-3 md:hidden">
-                {compare.rows.map((r) => (
-                  <div key={r.label} className="border border-border p-4">
-                    <p className="hud">{r.label}</p>
-                    <dl className="mt-3 grid gap-2 text-[15px]">
-                      {r.values.map((v, i) => (
-                        <div key={i}>
-                          <dt className={`font-semibold ${i === 0 ? "text-accent" : ""}`}>{compare.columns[i]}</dt>
-                          <dd className={i === 0 ? "font-semibold" : ""}>{v}</dd>
+              <div className="mt-10" data-reveal>
+                <RunNumbers
+                  details={
+                    <div className="mt-4 grid gap-3 md:grid-cols-2">
+                      {compare.rows.map((r) => (
+                        <div key={r.label} className="border border-border p-4">
+                          <p className="hud">{r.label}</p>
+                          <dl className="mt-3 grid gap-2 text-[15px]">
+                            {r.values.map((v, i) => (
+                              <div key={i}>
+                                <dt className={`font-semibold ${i === 0 ? "text-accent" : ""}`}>{compare.columns[i]}</dt>
+                                <dd className={i === 0 ? "font-semibold" : ""}>{v}</dd>
+                              </div>
+                            ))}
+                          </dl>
                         </div>
                       ))}
-                    </dl>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-10 hidden overflow-x-auto border border-border md:block" data-reveal>
-                <table className="w-full text-left text-[15px]">
-                  <thead>
-                    <tr className="border-b border-border">
-                      <th scope="col" className="p-4"></th>
-                      {compare.columns.map((c, i) => (
-                        <th key={c} scope="col" className={`hud p-4 ${i === 0 ? "!text-accent" : "!text-foreground"}`}>
-                          {c}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {compare.rows.map((r) => (
-                      <tr key={r.label} className="border-t border-border align-top first:border-t-0">
-                        <th scope="row" className="p-4 font-medium text-muted">
-                          {r.label}
-                        </th>
-                        {r.values.map((v, i) => (
-                          <td key={i} className={`border-l border-border p-4 ${i === 0 ? "bg-[#f4f7fd] font-semibold" : ""}`}>
-                            {v}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </div>
+                  }
+                />
               </div>
               <p className="mt-3 text-xs leading-relaxed text-muted">{compare.note}</p>
             </div>
@@ -522,6 +516,19 @@ export default async function HomeView({ lang }: { lang: Lang }) {
               </p>
               <div className="mt-12">
                 <PricingCards source="software-pricing" />
+              </div>
+            </div>
+          </section>
+
+          {/* Ongoing costs: a receipt of zeros next to the 3D box */}
+          <section className="rail crosshairs">
+            <SectionBar index={num("bills")} label={t.billsLabel} meta={t.billsMeta} />
+            <div className={`py-14 md:py-20 ${pad}`}>
+              <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+                {t.billsTitle}
+              </h2>
+              <div className="mt-12">
+                <NoMoreBills lang={lang} zero={money(0, cur, lang, true)} />
               </div>
             </div>
           </section>

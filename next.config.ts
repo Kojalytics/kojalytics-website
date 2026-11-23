@@ -24,9 +24,10 @@ const nextConfig: NextConfig = {
   async redirects() {
     // Exact paths come before the :path* rules: the first match wins, so nothing redirects twice.
     return [
-      // ---- Temporary, while the Meta ads still link to /software: their visitors (utm_source=meta) land on the ad
-      //      landing page /office. The query string (code, utm_*) is kept. Remove once the ads link to /office. ----
-      { source: '/software', has: [{ type: 'query', key: 'utm_source', value: 'meta' }], destination: '/office', permanent: false },
+      // ---- 2026-11: the ad landing page /office is merged into the homepage. Ads and old links keep working; the
+      //      query string (code, utm_*) is kept, so a code from the ad is active on the homepage too. ----
+      { source: '/office', destination: '/', permanent: false },
+      { source: '/en/office', destination: '/en', permanent: false },
 
       // ---- 2026-11: the site is only about Koja Office. /software became the homepage; the studio pages are gone. ----
       { source: '/software', destination: '/', permanent: true },
