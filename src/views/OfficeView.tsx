@@ -15,6 +15,7 @@ import TrackView from "@/components/software/TrackView";
 import DiscountProvider from "@/components/software/DiscountProvider";
 import { CodeBar, HeroPrice, OnceBar, Price, Receipt, Savings } from "@/components/software/OfficePrice";
 import Faq, { type FaqItem } from "@/components/software/Faq";
+import AfterPurchase from "@/components/software/AfterPurchase";
 import { appInk, appsFor } from "@/lib/apps";
 import { TRIAL_DAYS } from "@/lib/pricing";
 import { discountForPage } from "@/lib/discount-page";
@@ -232,6 +233,10 @@ const de = {
   ),
   withdraw: "Nach dem Kauf hast du 14 Tage Widerrufsrecht. Online, ohne Begründung.",
   withdrawLink: "Vertrag widerrufen",
+
+  paidHud: "Nach dem Kauf",
+  paidTitle: "Was nach dem Kauf passiert",
+  paidText: "Kein Rätselraten. Das sind die echten Schritte vom Bezahlen bis zu den fertigen Apps.",
 
   faqHud: "Fragen und Antworten",
   faqTitle: "Häufige Fragen",
@@ -455,6 +460,10 @@ const en: typeof de = {
   ),
   withdraw: "After you buy, you have a 14-day right of withdrawal. Online, no reason needed.",
   withdrawLink: "Withdraw from a contract",
+
+  paidHud: "After you buy",
+  paidTitle: "What happens after you buy",
+  paidText: "No guesswork. These are the real steps from paying to working apps.",
 
   faqHud: "Questions and answers",
   faqTitle: "Common questions",
@@ -887,6 +896,18 @@ export default async function OfficeView({
                     {t.withdrawLink}
                     <ArrowRight size={18} aria-hidden />
                   </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* 6 After you buy: the real steps from paying to working apps, and the facts that make buying safe */}
+            <section id="nach-dem-kauf" className="ko-sec scroll-mt-4">
+              <div className="ko-col">
+                <p className="ko-hud">{t.paidHud}</p>
+                <h2 className="ko-h2">{t.paidTitle}</h2>
+                <p className="ko-lead">{t.paidText}</p>
+                <div className="mt-8">
+                  <AfterPurchase lang={lang} film={lang === "en"} />
                 </div>
               </div>
             </section>
