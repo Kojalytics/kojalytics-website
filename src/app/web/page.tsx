@@ -34,7 +34,7 @@ export default function WebAppsPage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
               Öffne eine App und leg los: kein Konto, keine Installation. Deine Dateien öffnest und speicherst du direkt auf deinem Gerät,
-              nichts wird hochgeladen. Am besten am Computer in Chrome, Edge oder Safari.
+              nichts wird hochgeladen. Das klappt auch am Handy, am Computer hast du mehr Platz.
             </p>
 
             <ul className="cells mt-12 grid-cols-1 border border-border sm:grid-cols-2 lg:grid-cols-5">

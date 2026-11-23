@@ -8,7 +8,6 @@ import AppIcon from "@/components/ui/app-icon";
 import RevealManager from "@/components/instrument/RevealManager";
 import OfficeBox from "@/components/office/OfficeBox";
 import OfficeFilm from "@/components/office/OfficeFilm";
-import SendLinkForm from "@/components/office/SendLinkForm";
 import BuyButton from "@/components/software/BuyButton";
 import DownloadButton from "@/components/software/DownloadButton";
 import WebTestButton from "@/components/software/WebTestButton";
@@ -332,12 +331,12 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
                     Einmalzahlung · sicher über Stripe · Lizenzschlüssel sofort per {EMAIL} ·{" "}
                     <span className="whitespace-nowrap">14 Tage Widerrufsrecht</span>
                   </p>
-                  <WebTestButton className="mb-3 w-full max-md:hidden" />
+                  <WebTestButton className="mb-3 w-full" />
                   <DownloadButton
                     source="office-hero"
                     variant="secondary"
                     label={`${TRIAL_DAYS} Tage kostenlos testen`}
-                    shareLabel="Erst testen: Link an meinen Computer schicken"
+                    mobile="none"
                     className="ko-btn ko-btn--ghost"
                   />
                 </div>
@@ -526,31 +525,10 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
                 </ol>
 
                 <div className="ko-later" data-reveal>
-                  <svg viewBox="0 0 172 52" width="172" height="52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" aria-hidden>
-                    <rect x="1" y="3" width="27" height="46" />
-                    <path d="M11 8.5h7" />
-                    <path d="M40 26h20M92 26h8" strokeDasharray="1 6" />
-                    <rect x="66" y="19" width="20" height="14" fill="#fff" />
-                    <path d="M66.5 19.5l9.5 7.5 9.5-7.5" strokeLinecap="butt" />
-                    <path d="M99 19l8 7-8 7" />
-                    <rect x="122" y="6" width="44" height="30" />
-                    <path d="M114 44h57" />
-                    <g fill="#2a66d8" stroke="none">
-                      <rect x="136" y="13" width="4" height="4" />
-                      <rect x="142" y="13" width="4" height="4" />
-                      <rect x="148" y="13" width="4" height="4" />
-                      <rect x="136" y="19" width="4" height="4" />
-                      <rect x="142" y="19" width="4" height="4" />
-                      <rect x="148" y="19" width="4" height="4" />
-                      <rect x="136" y="25" width="4" height="4" />
-                      <rect x="142" y="25" width="4" height="4" />
-                      <rect x="148" y="25" width="4" height="4" />
-                    </g>
-                  </svg>
                   <p>
-                    <b>Gerade nur am Handy?</b> Schick dir den Link und installiere später am Computer.
+                    <b>Gerade nur am Handy?</b> Teste die Apps direkt hier im Browser, ohne Konto und ohne Download.
                   </p>
-                  <SendLinkForm source="office-steps" />
+                  <WebTestButton className="mt-[18px] w-full" />
                 </div>
               </div>
             </section>

@@ -2,8 +2,9 @@
 
 import { useId, useRef, useState, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
-import { Download, Send } from "lucide-react";
+import { Download, MousePointerClick, Send } from "lucide-react";
 import { DOWNLOAD_PATH, DOWNLOAD_PATH_WINDOWS, TRIAL_DAYS } from "@/lib/pricing";
+import { hasWebApp } from "@/lib/web-apps";
 import { track } from "@/lib/track";
 import DownloadToast from "./DownloadToast";
 
@@ -37,20 +38,27 @@ const subscribeToast = (listener: () => void) => {
 
 /**
  * On a Mac or a Windows PC: downloads the Kojalytics Launcher for that system and shows a short hint on what to do
- * with the file. On phones and tablets nothing can be installed, so the button opens a dialog that e-mails the
- * download links to the visitor (or shares the page) for their computer.
+ * with the file. On phones and tablets nothing can be installed, so by default the button opens the apps in the
+ * browser instead (/web, or the app's own browser version). `mobile="send"` keeps the dialog that e-mails the download
+ * links to the computer (after a purchase); `mobile="none"` shows nothing there, for places that already have a
+ * browser test button next to it.
  * The server always renders the Mac download link, so crawlers and the first paint see a link.
  */
 export default function DownloadButton({
   label = `Kostenlos laden · ${TRIAL_DAYS} Tage testen`,
-  shareLabel = "Link für den Computer senden",
+  webLabel,
+  app,
+  mobile = "web",
   source,
   className = "",
   variant = "primary",
 }: {
   label?: string;
-  /** Label on devices that cannot install the apps. */
-  shareLabel?: string;
+  /** Label of the browser test on phones and tablets. */
+  webLabel?: string;
+  /** The app whose browser version phones open (falls back to the /web overview). */
+  app?: string;
+  mobile?: "web" | "send" | "none";
   /** Where on the site the click happened, for the ad reports. */
   source: string;
   className?: string;
@@ -83,11 +91,23 @@ export default function DownloadButton({
     );
   }
 
+  if (mobile === "none") return null;
+
+  if (mobile === "web") {
+    const web = !!app && hasWebApp(app);
+    return (
+      <a href={web ? `/web/${app}` : "/web"} onClick={() => track("Lead", { content_name: `${source}-web` })} className={cls}>
+        <MousePointerClick size={16} strokeWidth={2.2} aria-hidden />
+        {webLabel ?? (app && !web ? "Apps im Browser testen" : "Sofort im Browser testen")}
+      </a>
+    );
+  }
+
   return (
     <>
       <button ref={triggerRef} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" className={cls}>
         <Send size={15} strokeWidth={2.2} aria-hidden />
-        {shareLabel}
+        Link für den Computer senden
       </button>
       {open && (
         <SendLinkDialog
