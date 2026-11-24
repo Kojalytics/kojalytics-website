@@ -128,9 +128,8 @@ export default function TermsPage() {
 
             <Section title="4. Prices and payment">
               <P>
-                All prices are final prices. Prices in euros include statutory VAT. Depending on your country, we show prices in
-                your local currency (for example US dollars, pounds or Swiss francs); the amount shown on the website and in Stripe
-                Checkout in that currency then applies, without German VAT. You pay via Stripe by credit or debit card or with another
+                All prices are final prices. Prices in euros include statutory VAT. On the English-language website we show prices in
+                US dollars; the amount shown on the website and in Stripe Checkout in US dollars then applies, without German VAT. You pay via Stripe by credit or debit card or with another
                 payment method shown in Stripe Checkout. The monthly subscription is billed monthly in advance from the
                 date of purchase; the one-time license is billed once at purchase.
               </P>

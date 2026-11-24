@@ -7,8 +7,7 @@ import { SITE_URL } from '@/lib/site';
 import { CHECKOUT_BACK_PARAM, CHECKOUT_BACK_VALUE, SUPPORT_EMAIL, SUPPORT_PHONE, SUPPORT_PHONE_HREF } from '@/lib/checkout-help';
 import { discountError } from '@/lib/discount-text';
 import { href, type Lang } from '@/lib/i18n';
-import { PRICES } from '@/lib/currency';
-import { currencyForRequest } from '@/lib/currency-server';
+import { PRICES, currencyFor } from '@/lib/currency';
 import { OFFER_CODE, isOfferRunning } from '@/lib/offer';
 
 const ALLOWED_ORIGINS = new Set(['https://www.kojalytics.com', 'https://kojalytics.com']);
@@ -95,8 +94,8 @@ async function checkout(request: NextRequest, body: { plan?: string; lang?: stri
   const plan: Plan = body?.plan === 'monthly' ? 'monthly' : 'lifetime';
   // From the English pages (/en …): Checkout, its texts, the return pages and the license email in English.
   const lang: Lang = body?.lang === 'en' ? 'en' : 'de';
-  // The visitor's currency from their country, the same one the page showed (src/lib/currency.ts).
-  const cur = currencyForRequest(request.headers);
+  // The currency of the page the visitor bought on: euros on the German pages, US dollars on the English ones.
+  const cur = currencyFor(lang);
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);

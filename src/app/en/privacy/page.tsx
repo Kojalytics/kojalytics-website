@@ -136,11 +136,9 @@ export default function PrivacyPage() {
                 (§ 25(2) no. 2 TDDDG, Art. 6(1)(f) GDPR).
               </P>
               <P>
-                Without consent we also set two technically necessary cookies:{" "}
-                <code className="font-mono text-[0.92em]">kj-cur</code> stores for one day the currency in which we show you prices. It
-                follows from the country our host Vercel determines for your IP address; we do not store the IP address for this.{" "}
+                Without consent we also set one technically necessary cookie:{" "}
                 <code className="font-mono text-[0.92em]">kj-lang</code> remembers for one year that you switched from the English to
-                the German version. Neither contains an identifier; both only serve to display the website (§ 25(2) no. 2 TDDDG,
+                the German version. It contains no identifier and only serves to display the website (§ 25(2) no. 2 TDDDG,
                 Art. 6(1)(f) GDPR).
               </P>
               <P>

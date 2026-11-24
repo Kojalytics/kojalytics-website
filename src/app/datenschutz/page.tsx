@@ -141,12 +141,9 @@ export default function DatenschutzPage() {
                 1 lit. f DSGVO).
               </P>
               <P>
-                Ohne Einwilligung setzen wir außerdem zwei technisch erforderliche Cookies:{" "}
-                <code className="font-mono text-[0.92em]">kj-cur</code> speichert für einen Tag die Währung, in der wir dir die Preise
-                anzeigen. Sie ergibt sich aus dem Land, das unser Hoster Vercel zu deiner IP-Adresse ermittelt; die IP-Adresse speichern
-                wir dafür nicht. <code className="font-mono text-[0.92em]">kj-lang</code> merkt sich für ein Jahr, dass du von der
-                englischen auf die deutsche Version gewechselt bist. Beide enthalten keine Kennung und dienen nur der Anzeige der
-                Website (§ 25 Abs. 2 Nr. 2 TDDDG, Art. 6 Abs. 1 lit. f DSGVO).
+                Ohne Einwilligung setzen wir außerdem ein technisch erforderliches Cookie:{" "}
+                <code className="font-mono text-[0.92em]">kj-lang</code> merkt sich für ein Jahr, dass du von der englischen auf die
+                deutsche Version gewechselt bist. Es enthält keine Kennung und dient nur der Anzeige der Website (§ 25 Abs. 2 Nr. 2 TDDDG, Art. 6 Abs. 1 lit. f DSGVO).
               </P>
               <P>
                 Rechtsgrundlage für die Dienste in den Abschnitten 4 bis 6 ist

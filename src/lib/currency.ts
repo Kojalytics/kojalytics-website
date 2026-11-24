@@ -1,6 +1,6 @@
-// The currency a visitor pays in, from their country: Europe pays in euros, the UK in pounds, Switzerland in francs,
-// Canada and Australia in their dollars, everyone else in US dollars. Prices are fixed per currency (round local prices,
-// not converted); Checkout charges the same amount in the same currency (src/app/api/license/checkout/route.ts).
+// The currency a visitor pays in follows the language of the page: euros on the German pages, US dollars on the English
+// ones (currencyFor). Prices are fixed per currency (round prices, not converted); Checkout charges the same amount in the
+// same currency (src/app/api/license/checkout/route.ts).
 
 import type { Lang } from "@/lib/i18n";
 import type { Plan } from "@/lib/pricing";
@@ -18,38 +18,11 @@ export const PRICES: Record<Currency, Record<Plan, number>> = {
   AUD: { monthly: 2999, lifetime: 11900 },
 };
 
-const BY_COUNTRY: Record<string, Currency> = {
-  US: "USD", PR: "USD", GU: "USD", VI: "USD", AS: "USD", MP: "USD", UM: "USD",
-  GB: "GBP", GG: "GBP", JE: "GBP", IM: "GBP",
-  CH: "CHF", LI: "CHF",
-  CA: "CAD",
-  AU: "AUD",
-};
-
-/** Europe (EU, EEA and the rest of the continent) pays in euros. */
-const EUROPE = new Set(
-  "AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS NO AD MC SM VA ME XK AL BA MK RS MD UA FO GL GI AX".split(" "),
-);
-
-/** The currency for a two-letter country code; euros when the country is unknown (local development, no geo data). */
-export function currencyFor(country: string | null | undefined): Currency {
-  if (!country) return "EUR";
-  const c = country.toUpperCase();
-  return BY_COUNTRY[c] ?? (EUROPE.has(c) ? "EUR" : "USD");
-}
-
-const BOTS = /bot|crawl|spider|slurp|facebookexternalhit|preview|lighthouse|headless/i;
-
 /**
- * The visitor's currency from the country Vercel resolves for each request (x-vercel-ip-country). Crawlers get euros,
- * so search engines see the prices of the structured data. Outside production the header x-kj-country stands in for
- * the country, to try other currencies locally.
+ * The currency of a page: the German pages (Germany, Austria, Switzerland) sell in euros, the English pages (everyone
+ * else) in US dollars. The other currencies stay defined for orders placed in them before November 2026.
  */
-export function currencyForRequest(h: Headers): Currency {
-  if (BOTS.test(h.get("user-agent") ?? "")) return "EUR";
-  const country = h.get("x-vercel-ip-country") ?? (process.env.NODE_ENV !== "production" ? h.get("x-kj-country") : null);
-  return currencyFor(country);
-}
+export const currencyFor = (lang: Lang): Currency => (lang === "en" ? "USD" : "EUR");
 
 export const isCurrency = (value: unknown): value is Currency => typeof value === "string" && (CURRENCIES as string[]).includes(value);
 

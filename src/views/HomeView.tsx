@@ -26,8 +26,7 @@ import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
 import { softwareFaq } from "@/lib/software-faq";
 import { SITE_URL, jsonLd } from "@/lib/site";
 import { href, type Lang } from "@/lib/i18n";
-import { localizePrices, money } from "@/lib/currency";
-import { visitorCurrency } from "@/lib/currency-server";
+import { currencyFor, localizePrices, money } from "@/lib/currency";
 import compareDe from "@/content/software-compare.json";
 import compareEn from "@/content/software-compare.en.json";
 
@@ -370,8 +369,8 @@ const two = (n: number) => String(n).padStart(2, "0");
 /** The Koja Office homepage (/ and /en). */
 export default async function HomeView({ lang }: { lang: Lang }) {
   const t = T[lang];
-  // Prices in the visitor's currency (from their country); the page renders per request.
-  const cur = await visitorCurrency();
+  // Prices in the currency of the page's language: euros in German, US dollars in English.
+  const cur = currencyFor(lang);
   const APPS = appsFor(lang, cur);
   const getApp = (slug: string) => APPS.find((a) => a.slug === slug);
   const monthly = planText("monthly", lang, cur).label;
