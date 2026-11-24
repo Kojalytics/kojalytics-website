@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { track } from "@/lib/track";
+import { GOOGLE_ADS_ID, KOJA_PURCHASE_LABEL } from "@/lib/gtag";
 
 /** Reports a completed purchase once per order; the order id also lets Google and Meta drop duplicates. */
 export default function TrackPurchase({
@@ -28,6 +29,8 @@ export default function TrackPurchase({
     // Tags load a moment after consent; give them time before reporting.
     const t = setTimeout(() => {
       track(subscription ? "Subscribe" : "Purchase", { value, currency, transaction_id: orderId }, { eventID: orderId });
+      // Google Ads conversion "Kauf Koja Office" (value, currency and order id; Google drops repeats of the same id).
+      window.gtag?.("event", "conversion", { send_to: `${GOOGLE_ADS_ID}/${KOJA_PURCHASE_LABEL}`, value, currency, transaction_id: orderId });
       // The same purchase from our server (Conversions API), so it still arrives when a blocker stops the pixel.
       fetch("/api/meta/purchase", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ orderId }) }).catch(() => {});
     }, 1500);
