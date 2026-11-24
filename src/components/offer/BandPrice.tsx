@@ -15,7 +15,7 @@ const num = "display text-[clamp(2.6rem,5vw,3.5rem)] leading-none";
 
 /**
  * The prices of the Koja Office band (OfferBand.tsx) in the visitor's currency. The band sits on static pages, so the
- * currency comes from the kj-cur cookie after hydration (src/lib/use-currency.tsx); German VAT is named only in euros.
+ * currency follows the page language (src/lib/use-currency.tsx); German VAT is named only in euros.
  */
 export function BandOfferPrice({ lang }: { lang: Lang }) {
   const cur = useCurrency();

@@ -1,7 +1,7 @@
 import { createContext, useContext, useSyncExternalStore } from "react";
 import type { Plan } from "@/lib/pricing";
 import { isOfferCode, isOfferRunning } from "@/lib/offer";
-import { euro as euroIn, type Lang } from "@/lib/i18n";
+import { euro as euroIn, langOf, type Lang } from "@/lib/i18n";
 
 /** A discount code checked with Stripe, as /api/license/discount returns it. */
 export type Discount = {
@@ -91,7 +91,8 @@ async function applyStoredCode() {
     const res = await fetch("/api/license/discount", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code }),
+      // The language of the page decides the currency of the prices (src/lib/currency.ts).
+      body: JSON.stringify({ code, lang: langOf(window.location.pathname) }),
     });
     const data = res.ok ? await res.json() : null;
     if (version !== v) return;

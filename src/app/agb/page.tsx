@@ -118,9 +118,9 @@ export default function TermsPage() {
 
             <Section title="4. Preise und Zahlung">
               <P>
-                Alle Preise sind Endpreise. Preise in Euro enthalten die gesetzliche Mehrwertsteuer. Je nach Land zeigen wir die Preise
-                in deiner Landeswährung an (zum Beispiel US-Dollar, Pfund oder Franken); dann gilt der auf der Website und im Stripe
-                Checkout angezeigte Betrag in dieser Währung, ohne deutsche Mehrwertsteuer. Du zahlst über Stripe per Kredit- oder Debitkarte oder mit
+                Alle Preise sind Endpreise. Preise in Euro enthalten die gesetzliche Mehrwertsteuer. Auf der englischsprachigen Website zeigen wir die
+                Preise in US-Dollar an; dann gilt der auf der Website und im Stripe Checkout angezeigte Betrag in US-Dollar, ohne deutsche
+                Mehrwertsteuer. Du zahlst über Stripe per Kredit- oder Debitkarte oder mit
                 einer anderen im Stripe Checkout angezeigten Zahlungsart. Das Monatsabo wird ab dem Kauf monatlich im Voraus abgerechnet, die dauerhafte
                 Lizenz einmalig beim Kauf.
               </P>

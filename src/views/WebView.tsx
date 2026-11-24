@@ -8,7 +8,7 @@ import { appsFor } from "@/lib/apps";
 import { WEB_APPS } from "@/lib/web-apps";
 import { planText } from "@/lib/pricing";
 import { href, type Lang } from "@/lib/i18n";
-import { visitorCurrency } from "@/lib/currency-server";
+import { currencyFor } from "@/lib/currency";
 import { CurrencyProvider } from "@/lib/use-currency";
 
 const de = {
@@ -58,7 +58,7 @@ const pad = "px-5 md:px-10";
 /** The browser versions of the Koja apps (/web and /en/web). */
 export default async function WebView({ lang }: { lang: Lang }) {
   const t = T[lang];
-  const cur = await visitorCurrency();
+  const cur = currencyFor(lang);
   const apps = appsFor(lang, cur).filter((a) => WEB_APPS.includes(a.slug));
   return (
     <CurrencyProvider currency={cur}>

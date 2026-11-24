@@ -24,7 +24,7 @@ import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
 import { softwareFaq } from "@/lib/software-faq";
 import { SITE_URL, jsonLd } from "@/lib/site";
 import { href, type Lang } from "@/lib/i18n";
-import { visitorCurrency } from "@/lib/currency-server";
+import { currencyFor } from "@/lib/currency";
 
 const de = {
   offerMonthly: "Monatlich, alle 13 Koja-Apps",
@@ -226,8 +226,8 @@ function Highlight({ text, word }: { text: string; word: string }) {
 /** The page of one Koja app (/software/<slug> and /en/software/<slug>). */
 export default async function AppView({ slug, lang }: { slug: string; lang: Lang }) {
   const t = T[lang];
-  // Prices in the visitor's currency (from their country); the page renders per request.
-  const cur = await visitorCurrency();
+  // Prices in the currency of the page's language: euros in German, US dollars in English.
+  const cur = currencyFor(lang);
   const APPS = appsFor(lang, cur);
   const app = APPS.find((a) => a.slug === slug);
   if (!app) notFound();
