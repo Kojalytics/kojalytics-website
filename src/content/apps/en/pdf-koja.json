@@ -78,7 +78,7 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "Acrobat Pro: €23.79 a month on an annual plan billed monthly, or €35.69 on a monthly plan. Acrobat Standard from €17.99 a month. Reader for viewing is free"
+        "other": "Acrobat Pro: $19.99 a month on an annual plan billed monthly, or $29.99 on a monthly plan. Acrobat Standard from $14.99 a month. Reader for viewing is free"
       },
       {
         "label": "Billing and cancellation",
@@ -111,12 +111,12 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you mainly read, organize, merge, fill in and password-protect PDFs on a Mac or PC",
     "you don’t want to upload contracts, invoices or tax documents to an online service",
-    "you no longer want to pay €23.79 a month for Acrobat Pro because you only use some of its features",
+    "you no longer want to pay $239.88 a year for Acrobat Pro because you only use some of its features",
     "you’re looking for a PDF app with page management, comment threads and password protection alongside Preview"
   ],
   "notFor": [
@@ -151,7 +151,7 @@
     },
     {
       "q": "Can I get PdfKoja without a subscription?",
-      "a": "Yes. For €79 once, you get PdfKoja and the 12 other Koja apps as a one-time purchase, valid on up to 3 devices. For comparison: Acrobat Pro costs €23.79 a month on an annual plan billed monthly, which comes to €285.48 a year. If you’d rather pay monthly, take the subscription for €19.99 a month, which you can cancel online any time with no fee: [see both options](/software#preise)."
+      "a": "Yes. For €79 once, you get PdfKoja and the 12 other Koja apps as a one-time purchase, valid on up to 3 devices. For comparison: Acrobat Pro costs $19.99 a month on an annual plan billed monthly, which comes to $239.88 a year. If you’d rather pay monthly, take the subscription for €19.99 a month, which you can cancel online any time with no fee: [see both options](/software#preise)."
     },
     {
       "q": "Does PdfKoja work offline, and which languages does it support?",

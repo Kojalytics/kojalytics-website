@@ -66,7 +66,7 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "€2,190 a year or €274 on a monthly plan; AutoCAD LT: €572 a year or €72 a month"
+        "other": "$2,095 a year or $260 on a monthly plan; AutoCAD LT: $540 a year or $70 a month"
       },
       {
         "label": "Billing and cancellation",
@@ -99,7 +99,7 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you create 2D drawings like floor plans, furniture plans or simple technical parts on a Mac or PC",
@@ -138,7 +138,7 @@
     },
     {
       "q": "Is CADKoja an alternative to AutoCAD LT?",
-      "a": "In its approach, yes, because like AutoCAD LT, CADKoja focuses on 2D drawing. AutoCAD LT costs €572 a year or €72 on a monthly plan at Autodesk; CADKoja costs €19.99 a month or €79 once. Not included are, for example, Xrefs, dynamic blocks and AutoLISP. So try it for 3 days with your own drawings."
+      "a": "In its approach, yes, because like AutoCAD LT, CADKoja focuses on 2D drawing. AutoCAD LT costs $540 a year or $70 on a monthly plan at Autodesk; CADKoja costs €19.99 a month or €79 once. Not included are, for example, Xrefs, dynamic blocks and AutoLISP. So try it for 3 days with your own drawings."
     },
     {
       "q": "What language is CADKoja in?",

@@ -377,9 +377,9 @@ export default async function HomeView({ lang }: { lang: Lang }) {
   const once = planText("lifetime", lang, cur).label;
   const compare = lang === "de" ? compareDe : compareEn;
   const faq = softwareFaq(lang, cur);
-  // The price comparison quotes German euro list prices of Adobe and Microsoft: only for visitors who pay in euros.
+  // The price comparison quotes the competitors' list prices in the page's currency (src/content/software-compare*.json).
   // Section numbers run on without gaps.
-  const sections = ["overview", ...(cur === "EUR" ? ["compare"] : []), "pricing", "bills", "after", "apps", "why", "what", "who", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
+  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "why", "what", "who", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
   const num = (id: string) => two(sections.indexOf(id) + 1);
   // Placeholder slots for real customer quotes: visible on preview deployments only, never in production.
   const showPlaceholders = process.env.VERCEL_ENV !== "production";
@@ -470,7 +470,6 @@ export default async function HomeView({ lang }: { lang: Lang }) {
           </section>
 
           {/* 02 Price comparison */}
-          {cur === "EUR" && (
           <section className="rail crosshairs">
             <SectionBar index={num("compare")} label={t.s2Label} meta={t.s2Meta} />
             <div className={`py-14 md:py-20 ${pad}`}>
@@ -501,7 +500,6 @@ export default async function HomeView({ lang }: { lang: Lang }) {
               <p className="mt-3 text-xs leading-relaxed text-muted">{compare.note}</p>
             </div>
           </section>
-          )}
 
           {/* 03 Pricing */}
           <section id="preise" className="rail crosshairs scroll-mt-12">

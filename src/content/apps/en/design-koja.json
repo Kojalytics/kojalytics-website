@@ -72,7 +72,7 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "€25.99 a month as a single app (annual plan, billed monthly), only available as a subscription"
+        "other": "$22.99 a month as a single app (annual plan, billed monthly), only available as a subscription"
       },
       {
         "label": "Billing and cancellation",
@@ -105,7 +105,7 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you want to design flyers, brochures, magazines or a club newsletter on a Mac or PC without paying for an Adobe subscription",
@@ -147,7 +147,7 @@
     },
     {
       "q": "How much does DesignKoja cost compared to InDesign?",
-      "a": "DesignKoja costs €19.99 a month for all 13 Koja apps, or €79 as a one-time purchase, each for up to 3 devices. InDesign costs €25.99 a month as a single app on an annual plan billed monthly, which comes to €311.88 a year. If you cancel this Adobe plan after the first 14 days, you pay 50% of the remaining contract value as a fee. You can cancel the DesignKoja monthly subscription online any time at [kojalytics.com/kuendigen](/kuendigen), with no fee."
+      "a": "DesignKoja costs €19.99 a month for all 13 Koja apps, or €79 as a one-time purchase, each for up to 3 devices. InDesign costs $22.99 a month as a single app on an annual plan billed monthly, which comes to $275.88 a year. If you cancel this Adobe plan after the first 14 days, you pay 50% of the remaining contract value as a fee. You can cancel the DesignKoja monthly subscription online any time at [kojalytics.com/kuendigen](/kuendigen), with no fee."
     },
     {
       "q": "Is DesignKoja free?",
