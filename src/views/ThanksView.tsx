@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import DownloadButton from "@/components/software/DownloadButton";
 import TrackPurchase from "@/components/software/TrackPurchase";
+import LicenseKey from "@/components/software/LicenseKey";
 import SectionBar from "@/components/instrument/SectionBar";
 import { issueLicenseForSession, LICENSE_DEVICES } from "@/lib/license-sales";
 import { href, type Lang } from "@/lib/i18n";
@@ -110,11 +111,8 @@ export default async function ThanksView({ lang, searchParams }: { lang: Lang; s
                   <h1 className="display rise-in mt-5 text-[clamp(2rem,4vw,3.2rem)] [--i:1]">
                     {t.title[0]}<span className="text-highlight">{t.title[1]}</span>{t.title[2]}
                   </h1>
-                  <div
-                    data-clarity-mask="true"
-                    className="rise-in mt-8 select-all border border-border-strong bg-surface p-5 font-mono text-base tracking-wider wrap-anywhere [--i:2] sm:text-lg"
-                  >
-                    {purchase.license.key}
+                  <div className="rise-in mt-8 [--i:2]">
+                    <LicenseKey value={purchase.license.key} lang={lang} />
                   </div>
                   <p className="rise-in mt-3 text-sm text-muted [--i:2]">
                     {purchase.license.email ? t.sentTo(purchase.license.email) : t.keep}
