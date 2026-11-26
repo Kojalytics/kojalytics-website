@@ -4,7 +4,7 @@ import { findDiscount } from '@/lib/discounts';
 import { LICENSE_DEVICES, LICENSE_PRODUCT } from '@/lib/license-sales';
 import type { Plan } from '@/lib/pricing';
 import { SITE_URL } from '@/lib/site';
-import { CHECKOUT_BACK_PARAM, CHECKOUT_BACK_VALUE, SUPPORT_EMAIL, SUPPORT_PHONE, SUPPORT_PHONE_HREF } from '@/lib/checkout-help';
+import { CHECKOUT_BACK_PARAM, CHECKOUT_BACK_VALUE } from '@/lib/checkout-help';
 import { discountError } from '@/lib/discount-text';
 import { href, type Lang } from '@/lib/i18n';
 import { PRICES, currencyFor } from '@/lib/currency';
@@ -28,25 +28,6 @@ const BRANDING = {
   border_style: 'rectangular' as const,
 };
 const PRODUCT_IMAGE = `${SITE_URL}/checkout/koja-office-box.jpg`;
-
-// Short and plain, right above and below the pay button (Stripe renders a little Markdown: links and **bold**).
-const link = (label: string, href: string) => `[${label}](${href})`;
-const WITHDRAW = `14 Tage gesetzliches Widerrufsrecht (${link('so widerrufst du', `${SITE_URL}/widerrufen`)}).`;
-const WITHDRAW_EN = `14-day statutory right of withdrawal (${link('how to withdraw', `${SITE_URL}${href('en', '/widerrufen')}`)}).`;
-const SUBMIT_TEXT: Record<Lang, Record<Plan, string>> = {
-  de: {
-    lifetime: `**An die E-Mail-Adresse oben schicken wir dir Koja Office sofort nach dem Kauf** (Download-Link und Lizenzschlüssel). Einmalzahlung, kein Abo. ${WITHDRAW}`,
-    monthly: `**An die E-Mail-Adresse oben schicken wir dir Koja Office sofort nach dem Kauf** (Download-Link und Lizenzschlüssel). Monatlich, jederzeit zum Ende des Abrechnungsmonats online kündbar (${link('Abo kündigen', `${SITE_URL}/kuendigen`)}). ${WITHDRAW}`,
-  },
-  en: {
-    lifetime: `**We send Koja Office to the email address above right after you buy** (download link and license key). One-time payment, no subscription. ${WITHDRAW_EN}`,
-    monthly: `**We send Koja Office to the email address above right after you buy** (download link and license key). Monthly, cancel online at any time to the end of the billing month (${link('cancel subscription', `${SITE_URL}${href('en', '/kuendigen')}`)}). ${WITHDRAW_EN}`,
-  },
-};
-const AFTER_SUBMIT_TEXT: Record<Lang, string> = {
-  de: `Fragen? ${link(SUPPORT_PHONE, SUPPORT_PHONE_HREF)} · ${link(SUPPORT_EMAIL, `mailto:${SUPPORT_EMAIL}`)} · Kojalytics, Hamburg`,
-  en: `Questions? ${link(SUPPORT_PHONE, SUPPORT_PHONE_HREF)} · ${link(SUPPORT_EMAIL, `mailto:${SUPPORT_EMAIL}`)} · Kojalytics, Hamburg, Germany`,
-};
 
 // Shown in Checkout right above the pay button (§ 312j (2) BGB): what, how long, how to end it.
 function productText(plan: Plan, fromOffice: boolean, lang: Lang) {
@@ -146,7 +127,6 @@ async function checkout(request: NextRequest, body: { plan?: string; lang?: stri
       metadata,
       locale: lang,
       branding_settings: BRANDING,
-      custom_text: { submit: { message: SUBMIT_TEXT[lang][plan] }, after_submit: { message: AFTER_SUBMIT_TEXT[lang] } },
     });
     return NextResponse.json({ url: session.url });
   } catch (err) {
