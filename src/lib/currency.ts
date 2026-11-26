@@ -61,7 +61,7 @@ export function localizePrices(text: string, lang: Lang, cur: Currency): string 
       : [
           [/€19\.99(?!\d)/g, p.monthly],
           [/€39\.50(?!\d)/g, offer],
-          [/€79(?![\d.,])/g, p.lifetime],
+          [/€79(?!\d|[.,]\d)/g, p.lifetime],
         ];
   return swap.reduce((t, [re, cents]) => t.replace(re, money(cents, cur, lang)), text);
 }

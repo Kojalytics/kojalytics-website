@@ -78,12 +78,12 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "€25.99 a month (annual plan, paid monthly) or €311.73 a year paid upfront"
+        "other": "$22.99 a month (annual plan, paid monthly) or $263.88 a year paid upfront"
       },
       {
         "label": "Billing and cancellation",
         "koja": "Monthly, cancel online any time, no fee. Or pay once and keep using it.",
-        "other": "Annual plan, renews automatically. If you pay monthly and cancel after 14 days, you pay 50% of the remaining contract value. Flexible monthly plan: €38.98 a month."
+        "other": "Annual plan, renews automatically. If you pay monthly and cancel after 14 days, you pay 50% of the remaining contract value. Flexible monthly plan: $34.49 a month."
       },
       {
         "label": "Account required",
@@ -111,7 +111,7 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you know Photoshop and no longer want to pay for an Adobe subscription for photos and graphics",

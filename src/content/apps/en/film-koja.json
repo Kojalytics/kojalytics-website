@@ -72,7 +72,7 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "€25.99 a month as a single app, €77.99 a month with Creative Cloud Pro (each on an annual plan, paid monthly)"
+        "other": "$22.99 a month as a single app, $69.99 a month with Creative Cloud Pro (each on an annual plan, paid monthly)"
       },
       {
         "label": "Billing and cancellation",
@@ -105,7 +105,7 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you edit on a Mac or PC and want to work with Source and Program Monitors, bins and a multitrack timeline",
@@ -146,7 +146,7 @@
     },
     {
       "q": "How much does FilmKoja cost compared to Premiere Pro?",
-      "a": "Adobe Premiere (formerly Premiere Pro) costs €25.99 a month incl. VAT as a single app on an annual plan paid monthly, and if you cancel after 14 days, you pay 50% of the remaining contract value. After 3 free trial days, FilmKoja costs €19.99 a month, and that includes all 13 Koja apps. You can cancel online any time with no fee, or pay €79 once as a one-time purchase; both cover up to 3 devices. You’ll find all the details under [Pricing](/software#preise)."
+      "a": "Adobe Premiere (formerly Premiere Pro) costs $22.99 a month as a single app on an annual plan paid monthly, and if you cancel after 14 days, you pay 50% of the remaining contract value. After 3 free trial days, FilmKoja costs €19.99 a month, and that includes all 13 Koja apps. You can cancel online any time with no fee, or pay €79 once as a one-time purchase; both cover up to 3 devices. You’ll find all the details under [Pricing](/software#preise)."
     },
     {
       "q": "Can I get Premiere Pro without a subscription?",

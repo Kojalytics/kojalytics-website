@@ -68,7 +68,7 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "€25.99 a month on an annual plan paid monthly"
+        "other": "$22.99 a month on an annual plan paid monthly"
       },
       {
         "label": "Billing and cancellation",
@@ -101,7 +101,7 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you animate titles, lower thirds, logo animations or explainer videos on a Mac or PC and want to work with compositions, layers and keyframes",
@@ -146,7 +146,7 @@
     },
     {
       "q": "Can I buy EffectKoja as a one-time purchase, without a subscription?",
-      "a": "Yes, besides €19.99 a month there’s a one-time purchase for €79. Both cover all 13 Koja apps on up to 3 devices; you’ll find all options under [Pricing](/software#preise). For comparison: After Effects alone costs €25.99 a month at Adobe on an annual plan paid monthly."
+      "a": "Yes, besides €19.99 a month there’s a one-time purchase for €79. Both cover all 13 Koja apps on up to 3 devices; you’ll find all options under [Pricing](/software#preise). For comparison: After Effects alone costs $22.99 a month at Adobe on an annual plan paid monthly."
     },
     {
       "q": "What do I get for my money?",

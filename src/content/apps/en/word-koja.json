@@ -84,7 +84,7 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "Microsoft 365 Single: €99 a year or €10 a month. Office Home 2024: €149 one-time purchase for 1 Mac. Word for the web: free"
+        "other": "Microsoft 365 Personal: $99.99 a year or $9.99 a month. Office Home 2024: $179.99 one-time purchase for 1 Mac. Word for the web: free"
       },
       {
         "label": "Billing and cancellation",
@@ -117,7 +117,7 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you write letters, job applications, term papers or reports on a Mac or PC and don’t want to pay for a Microsoft 365 subscription",
@@ -159,7 +159,7 @@
     },
     {
       "q": "Can I buy WordKoja without a subscription?",
-      "a": "Yes. You pay €79 once and keep using all 13 Koja apps on up to 3 devices, including [GridKoja](/software/grid-koja) for spreadsheets and [DeckKoja](/software/deck-koja) for presentations. If you’d rather pay monthly, it’s €19.99 a month, and you can cancel online any time. For comparison: Microsoft charges €149 one-time for Office Home 2024 for one Mac, and €99 a year for Microsoft 365 Single."
+      "a": "Yes. You pay €79 once and keep using all 13 Koja apps on up to 3 devices, including [GridKoja](/software/grid-koja) for spreadsheets and [DeckKoja](/software/deck-koja) for presentations. If you’d rather pay monthly, it’s €19.99 a month, and you can cancel online any time. For comparison: Microsoft charges $179.99 one-time for Office Home 2024 for one Mac, and $99.99 a year for Microsoft 365 Personal."
     },
     {
       "q": "Word is free in the browser. Why WordKoja?",

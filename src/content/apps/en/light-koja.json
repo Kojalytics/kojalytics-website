@@ -78,7 +78,7 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "€14.49 a month on an annual plan (with 1 TB cloud storage), €141.94 a year paid upfront, or €19.99 on a monthly plan"
+        "other": "$11.99 a month on an annual plan (with 1 TB cloud storage), $119.88 a year paid upfront, or $17.99 on a monthly plan"
       },
       {
         "label": "Billing and cancellation",
@@ -111,7 +111,7 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you want to develop RAW photos on a Mac or PC without tying yourself to an annual plan",
@@ -153,7 +153,7 @@
     },
     {
       "q": "Can I get LightKoja without a subscription?",
-      "a": "Yes. For €79 once, you get LightKoja and the 12 other Koja apps as a one-time purchase, valid on up to 3 devices. For comparison: Lightroom costs €141.94 a year on an annual plan paid upfront. If you’d rather pay monthly, take the subscription for €19.99 a month, which you can cancel online any time with no fee: [see both options](/software#preise)."
+      "a": "Yes. For €79 once, you get LightKoja and the 12 other Koja apps as a one-time purchase, valid on up to 3 devices. For comparison: Lightroom costs $119.88 a year on an annual plan paid upfront. If you’d rather pay monthly, take the subscription for €19.99 a month, which you can cancel online any time with no fee: [see both options](/software#preise)."
     },
     {
       "q": "Does LightKoja run on my Mac, and in which languages?",

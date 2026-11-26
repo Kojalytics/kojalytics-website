@@ -8,17 +8,17 @@
     {
       "label": "Price per month",
       "values": [
-        "€19.99 for all 13 apps, on up to 3 devices",
-        "€77.99 on the annual plan billed monthly, €116.99 on the flexible monthly plan",
-        "€10 for 1 person, on up to 5 devices at once"
+        "$19.99 for all 13 apps, on up to 3 devices",
+        "$69.99 on the annual plan billed monthly, $104.99 on the flexible monthly plan",
+        "$9.99 for 1 person, on up to 5 devices at once"
       ]
     },
     {
       "label": "Cost in the first year",
       "values": [
-        "€239.88 (12 × €19.99), or €79 once for a one-time license",
-        "€935.88 (12 × €77.99), or €905.92 paid upfront",
-        "€99 paid yearly, or €120 (12 × €10)"
+        "$239.88 (12 × $19.99), or $79 once for a one-time license",
+        "$839.88 (12 × $69.99), or $779.88 paid upfront",
+        "$99.99 paid yearly, or $119.88 (12 × $9.99)"
       ]
     },
     {
@@ -32,8 +32,8 @@
     {
       "label": "Cancelling",
       "values": [
-        "Cancel online any time at kojalytics.com/en/cancel, no fee. The €79 license is not a subscription.",
-        "If you cancel the annual plan billed monthly after the first 14 days, you pay a one-time fee of 50% of the remaining contract value. The monthly plan can be cancelled without a fee. Annual plans renew automatically; for consumers in Germany, after the first year only with at most one month's notice (§ 309 No. 9 BGB).",
+        "Cancel online any time at kojalytics.com/en/cancel, no fee. The $79 license is not a subscription.",
+        "If you cancel the annual plan billed monthly after the first 14 days, you pay a one-time fee of 50% of the remaining contract value. The monthly plan can be cancelled without a fee. Annual plans renew automatically.",
         "The subscription renews automatically at the regular price unless you cancel."
       ]
     },
@@ -62,5 +62,5 @@
       ]
     }
   ],
-  "note": "As of November 2026. Prices for Germany according to the manufacturers' websites, incl. VAT, without promotional discounts and without guarantee. The Koja apps don't offer every feature of the programs named. All product names mentioned are trademarks of their respective owners."
+  "note": "As of November 2026. US prices according to the manufacturers' websites, before sales tax, without promotional discounts and without guarantee. The Koja apps don't offer every feature of the programs named. All product names mentioned are trademarks of their respective owners."
 }

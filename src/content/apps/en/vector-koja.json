@@ -77,7 +77,7 @@
       {
         "label": "Price",
         "koja": "€19.99 a month for all 13 apps, or €79 as a one-time purchase",
-        "other": "€25.99 a month on an annual plan paid monthly, €38.98 on a monthly plan"
+        "other": "$22.99 a month on an annual plan paid monthly, $34.49 on a monthly plan"
       },
       {
         "label": "Billing and cancellation",
@@ -110,7 +110,7 @@
         "other": "On the market for many years"
       }
     ],
-    "note": "As of November 2026. Prices from the manufacturers’ websites, including VAT, without guarantee."
+    "note": "As of November 2026. US prices from the manufacturers’ websites, before sales tax, without guarantee."
   },
   "forWho": [
     "you draw logos, icons and illustrations on a Mac or PC and need the Pen tool, Pathfinder and Shape Builder for that",
@@ -151,7 +151,7 @@
     },
     {
       "q": "Can I buy VectorKoja without a subscription?",
-      "a": "Yes, besides the subscription for €19.99 a month, there’s a one-time purchase for €79. Both cover all 13 Koja apps on up to 3 devices. For comparison: Illustrator alone costs €25.99 a month at Adobe on an annual plan paid monthly. You’ll find all options under [Pricing](/software#preise)."
+      "a": "Yes, besides the subscription for €19.99 a month, there’s a one-time purchase for €79. Both cover all 13 Koja apps on up to 3 devices. For comparison: Illustrator alone costs $22.99 a month at Adobe on an annual plan paid monthly. You’ll find all options under [Pricing](/software#preise)."
     },
     {
       "q": "Does VectorKoja open Affinity files too?",

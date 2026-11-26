@@ -9,15 +9,18 @@ import { useLang } from "@/lib/use-lang";
 import "./run-numbers.css";
 
 /*
- * "Rechne selbst nach" on the home page (euro visitors only: German list prices). Five years of Adobe Creative Cloud Pro
+ * "Rechne selbst nach" on the home page: German list prices in euros, US list prices in dollars. Five years of Adobe Creative Cloud Pro
  * and Microsoft 365 against one payment for Koja Office, as bars that fill year by year when the block scrolls into
  * view, then three plain yes/no facts. The full comparison table with its sources stays one click away
  * (src/content/software-compare*.json). Koja's price follows the active discount, like every other price on the page.
  */
 
 const YEARS = 5;
-const ADOBE_YEAR = 93588; // 12 × 77,99 € (annual plan billed monthly)
-const MS_YEAR = 9900; // Microsoft 365 Single / Personal, paid yearly
+// One year of each subscription in cents: Germany incl. VAT, USA before sales tax (manufacturers' sites, November 2026).
+const YEAR_PRICES = {
+  EUR: { adobe: 93588, ms: 9900 }, // 12 × 77,99 € (Creative Cloud Pro, annual plan billed monthly); Microsoft 365 Single, paid yearly
+  USD: { adobe: 83988, ms: 9999 }, // 12 × $69.99; Microsoft 365 Personal, paid yearly
+};
 
 type Mark = "yes" | "no" | "part";
 
@@ -47,8 +50,8 @@ const de = {
 const en: typeof de = {
   year: (n: number) => `Year ${n}`,
   rows: [
-    { name: "Adobe Creative Cloud Pro", note: "€77.99 a month, annual plan" },
-    { name: "Microsoft 365 Personal", note: "€99 a year" },
+    { name: "Adobe Creative Cloud Pro", note: "$69.99 a month, annual plan" },
+    { name: "Microsoft 365 Personal", note: "$99.99 a year" },
     { name: "Koja Office", note: "pay once, no subscription" },
   ],
   once: "once",
@@ -84,7 +87,9 @@ export default function RunNumbers({ details }: { details: React.ReactNode }) {
   const cur = useCurrency();
   const discount = useDiscount();
   const koja = discount?.prices.lifetime ?? PRICES[cur].lifetime;
-  const eur = (c: number) => money(c, "EUR", lang);
+  const listCur = cur === "USD" ? "USD" : "EUR";
+  const { adobe: ADOBE_YEAR, ms: MS_YEAR } = YEAR_PRICES[listCur];
+  const eur = (c: number) => money(c, listCur, lang);
 
   const ref = useRef<HTMLDivElement>(null);
   // 0 → 1 while the five years fill; starts at the end without JavaScript or with reduced motion.
