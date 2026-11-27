@@ -26,11 +26,18 @@ export const OFFER_END_LONG = `${day}. ${MONTHS[month - 1]} ${year}`;
 /** "30.11." */
 export const OFFER_END_SHORT = `${String(day).padStart(2, "0")}.${String(month).padStart(2, "0")}.`;
 
-/** Whether the offer still runs at `now` (ms since 1970). */
-export const isOfferRunning = (now: number = Date.now()) => now < endsMs;
+/**
+ * Paused (owner decision, 27 Nov 2026): the site shows the regular price everywhere (79 € / $79), no offer band, teaser
+ * or pre-applied code, and ad links with ?code= no longer apply it. Typed into the price section or Stripe's code field,
+ * the code still works (findDiscount), as long as Stripe accepts it.
+ */
+export const OFFER_PAUSED = true;
 
-/** The end as ms since 1970, for the inline script in layout.tsx that switches static pages over at the end. */
-export const OFFER_ENDS_MS = endsMs;
+/** Whether the offer still runs (and is shown) at `now` (ms since 1970). */
+export const isOfferRunning = (now: number = Date.now()) => !OFFER_PAUSED && now < endsMs;
+
+/** The end as ms since 1970, for the inline script in layout.tsx that switches static pages over at the end (0 while paused). */
+export const OFFER_ENDS_MS = OFFER_PAUSED ? 0 : endsMs;
 
 const euro = (cents: number) =>
   (cents / 100).toLocaleString("de-DE", { minimumFractionDigits: cents % 100 ? 2 : 0, maximumFractionDigits: 2 }) + " €";

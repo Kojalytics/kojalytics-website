@@ -114,9 +114,12 @@ function OfferButton({ hidden = false }: { hidden?: boolean }) {
   const offer = offerText(lang, cur);
   // "invisible" (visibility: hidden) also takes it out of the tab order and the accessibility tree.
   const hide = hidden ? "invisible" : "";
+  // Once the offer has ended (or while it is paused), only the plain button is in the markup, also without scripts.
+  const running = isOfferRunning();
   return (
     <>
-      <a href={href(lang, OFFER_HREF)} aria-label={t.offerAria(offer.label, offer.endLong)} className={`offer-btn offer-live ${hide}`}>
+      {running && (
+        <a href={href(lang, OFFER_HREF)} aria-label={t.offerAria(offer.label, offer.endLong)} className={`offer-btn offer-live ${hide}`}>
         <span className="offer-tag">{offer.label}</span>
         <span>Koja Office</span>
         <span className="hidden items-center gap-2 xl:inline-flex">
@@ -127,8 +130,9 @@ function OfferButton({ hidden = false }: { hidden?: boolean }) {
           {t.until} {offer.endLong}
         </span>
         <ArrowRight size={14} strokeWidth={2.2} className="hidden shrink-0 sm:block" aria-hidden />
-      </a>
-      <Link href={href(lang, "/")} className={`offer-btn offer-over ${hide}`}>
+        </a>
+      )}
+      <Link href={href(lang, "/")} className={`offer-btn ${running ? "offer-over" : ""} ${hide}`}>
         <span>
           Koja Office{t.see && <span className="max-sm:hidden">{t.see}</span>}
         </span>
@@ -154,7 +158,7 @@ function BuyOrOffer() {
       <BuyButton
         source="nav"
         // While hidden it already holds a reduced price, so the slot does not widen when a code arrives.
-        label={`${buy ? money(reduced, cur, lang) : offerText(lang, cur).price} · ${T[lang].buy}`}
+        label={`${buy ? money(reduced, cur, lang) : isOfferRunning() ? offerText(lang, cur).price : planText("lifetime", lang, cur).label} · ${T[lang].buy}`}
         className={`!min-h-full !gap-2 !whitespace-nowrap !border-0 !px-3.5 !text-[11px] !tracking-[0.08em] lg:!hidden ${hide}`}
       />
       {/* As wide as its label, at the right end of the slot (the slot is as wide as the offer button) */}
