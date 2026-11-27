@@ -28,8 +28,8 @@ export async function GET() {
   if (!configured()) return NextResponse.json({ count: 0, average: 0, stars: [0, 0, 0, 0, 0], reviews: [] });
   try {
     const summary = await publishedSummary();
-    // Shared caches keep the list a minute; changes in the admin show up after that.
-    return NextResponse.json(summary, { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } });
+    // Shared caches keep the list 10 seconds, so a review published in the admin shows up almost at once.
+    return NextResponse.json(summary, { headers: { 'Cache-Control': 'public, s-maxage=10, stale-while-revalidate=20' } });
   } catch (err) {
     console.error('Reviews list failed:', err);
     return NextResponse.json({ error: 'unavailable' }, { status: 503 });
