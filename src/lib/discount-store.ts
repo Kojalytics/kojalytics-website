@@ -1,6 +1,6 @@
 import { createContext, useContext, useSyncExternalStore } from "react";
 import type { Plan } from "@/lib/pricing";
-import { isOfferCode, isOfferRunning } from "@/lib/offer";
+import { OFFER_PAUSED, isOfferCode, isOfferRunning } from "@/lib/offer";
 import { euro as euroIn, langOf, type Lang } from "@/lib/i18n";
 
 /** A discount code checked with Stripe, as /api/license/discount returns it. */
@@ -74,12 +74,20 @@ async function applyStoredCode() {
   let code = "";
   try {
     const params = new URLSearchParams(window.location.search);
-    code = (params.get("code") || params.get("rabatt") || sessionStorage.getItem(KEY) || "").trim();
-    // The offer's code ends with the offer, also in a tab kept open across the end.
-    if (isOfferCode(code) && !isOfferRunning()) {
-      sessionStorage.removeItem(KEY);
-      if (discount && isOfferCode(discount.code)) set(null);
-      return;
+    const fromLink = (params.get("code") || params.get("rabatt") || "").trim();
+    // Ad links still carry the offer's code: once the offer ended or is paused, a link no longer applies it (also in a
+    // tab kept open across the end). Typed into the price section it is kept in sessionStorage and still works.
+    if (isOfferCode(fromLink) && !isOfferRunning()) {
+      if (discount && isOfferCode(discount.code) && discount === seed) set(null);
+      code = (sessionStorage.getItem(KEY) || "").trim();
+      if (isOfferCode(code) && !OFFER_PAUSED) code = "";
+    } else {
+      code = (fromLink || sessionStorage.getItem(KEY) || "").trim();
+      if (isOfferCode(code) && !isOfferRunning() && !OFFER_PAUSED) {
+        sessionStorage.removeItem(KEY);
+        if (discount && isOfferCode(discount.code)) set(null);
+        return;
+      }
     }
     if (code) sessionStorage.setItem(KEY, code);
   } catch {}
