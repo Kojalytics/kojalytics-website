@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { clientIp, limiter } from '@/lib/form-guard';
-import { EMAIL, clean, configured, db, hasPurchase, isAdmin, type ReviewStatus } from '@/lib/reviews';
+import { ADMIN_PASSWORD_MIN, EMAIL, adminPassword, clean, configured, db, hasPurchase, isAdmin, type ReviewStatus } from '@/lib/reviews';
 
 // The admin side of the reviews (/admin/bewertungen): list all, publish, hide, mark verified, delete, import.
 // Every request carries the password from REVIEWS_ADMIN_PASSWORD in the header x-admin-password.
@@ -9,7 +9,11 @@ const wrongTries = limiter(10, 15 * 60_000);
 const STATUSES: ReviewStatus[] = ['pending', 'published', 'hidden'];
 
 function guard(request: NextRequest): NextResponse | null {
-  if (!process.env.REVIEWS_ADMIN_PASSWORD) return NextResponse.json({ error: 'REVIEWS_ADMIN_PASSWORD ist nicht gesetzt.' }, { status: 503 });
+  const set = adminPassword();
+  if (!set) return NextResponse.json({ error: 'REVIEWS_ADMIN_PASSWORD ist in Vercel nicht gesetzt.' }, { status: 503 });
+  if (set.length < ADMIN_PASSWORD_MIN) {
+    return NextResponse.json({ error: `Das Passwort in Vercel (REVIEWS_ADMIN_PASSWORD) ist kürzer als ${ADMIN_PASSWORD_MIN} Zeichen. Bitte dort ein längeres setzen und neu deployen.` }, { status: 503 });
+  }
   if (!configured()) return NextResponse.json({ error: 'Die Datenbank ist nicht konfiguriert.' }, { status: 503 });
   if (isAdmin(request.headers.get('x-admin-password'))) return null;
   const ip = clientIp(request.headers) || 'unknown';
