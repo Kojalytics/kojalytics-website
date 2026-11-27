@@ -421,7 +421,23 @@ export default function DatenschutzPage() {
               </P>
             </Section>
 
-            <Section title="11. Kontakt per E-Mail">
+            <Section title="11. Bewertungen">
+              <P>
+                Wenn du auf kojalytics.com eine Bewertung abgibst, verarbeiten wir deine Sterne, deinen Namen, deine
+                E-Mail-Adresse, die Überschrift und den Text deiner Bewertung sowie das Datum. Veröffentlicht werden nur
+                Sterne, Name, Überschrift, Text und Datum, nie deine E-Mail-Adresse. Mit der E-Mail-Adresse prüfen wir, ob
+                sie zu einer auf kojalytics.com gekauften Lizenz gehört („Verifizierter Kauf“), und können dich bei Fragen
+                zu deiner Bewertung erreichen. Über jede neue Bewertung informieren wir support@kojalytics.com per E-Mail
+                über Resend (Abschnitt 7). Gespeichert wird die Bewertung bei Supabase (Server in der EU, Abschnitt 7).
+              </P>
+              <P>
+                Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du beim Absenden gibst. Du kannst
+                sie jederzeit mit Wirkung für die Zukunft widerrufen, eine E-Mail an support@kojalytics.com genügt; dann
+                löschen wir deine Bewertung. Ohne Widerruf speichern wir sie, solange sie auf der Website steht.
+              </P>
+            </Section>
+
+            <Section title="12. Kontakt per E-Mail">
               <P>
                 Unsere{" "}
                 <Link href="/kontakt">
@@ -446,7 +462,7 @@ export default function DatenschutzPage() {
               </P>
             </Section>
 
-            <Section title="12. Deine Rechte">
+            <Section title="13. Deine Rechte">
               <P>Du hast gegenüber uns das Recht auf:</P>
               <List>
                 <li>Auskunft über deine gespeicherten Daten (Art. 15 DSGVO)</li>
@@ -474,7 +490,7 @@ export default function DatenschutzPage() {
               </P>
             </Section>
 
-            <Section title="13. Änderungen dieser Datenschutzerklärung">
+            <Section title="14. Änderungen dieser Datenschutzerklärung">
               <P>
                 Wir passen diese Datenschutzerklärung an, wenn sich unsere
                 Website, unsere Dienste oder die Rechtslage ändern. Es gilt die
@@ -737,7 +753,7 @@ export default function DatenschutzPage() {
                 Da die App keine Nutzerkonten verwendet, werden keine
                 personenbezogenen Daten dauerhaft gespeichert. Alle weiteren
                 Rechte, auch das Beschwerderecht bei einer Aufsichtsbehörde,
-                findest du in Teil A, Abschnitt 12. Bei Fragen oder zur Ausübung
+                findest du in Teil A, Abschnitt 13. Bei Fragen oder zur Ausübung
                 deiner Rechte erreichst du uns unter <SupportMail />.
               </P>
             </Section>

@@ -364,7 +364,23 @@ export default function PrivacyPage() {
               </P>
             </Section>
 
-            <Section title="11. Contact by email">
+            <Section title="11. Reviews">
+              <P>
+                When you submit a review on kojalytics.com, we process your star rating, your name, your email address, the
+                headline and text of your review and the date. Only the stars, name, headline, text and date are published,
+                never your email address. We use the email address to check whether it belongs to a licence bought on
+                kojalytics.com (“Verified purchase”) and to contact you about your review if needed. We notify
+                support@kojalytics.com of every new review by email via Resend (section 7). The review is stored with
+                Supabase (servers in the EU, section 7).
+              </P>
+              <P>
+                The legal basis is your consent (Art. 6(1)(a) GDPR), which you give when submitting. You can withdraw it at
+                any time with effect for the future; an email to support@kojalytics.com is enough, and we will delete your
+                review. Unless you withdraw it, we keep the review for as long as it is shown on the website.
+              </P>
+            </Section>
+
+            <Section title="12. Contact by email">
               <P>
                 Our{" "}
                 <Link href={href("en", "/kontakt")}>
@@ -383,7 +399,7 @@ export default function PrivacyPage() {
               </P>
             </Section>
 
-            <Section title="12. Your rights">
+            <Section title="13. Your rights">
               <P>You have the following rights with respect to us:</P>
               <List>
                 <li>access to your stored data (Art. 15 GDPR)</li>
@@ -406,7 +422,7 @@ export default function PrivacyPage() {
               </P>
             </Section>
 
-            <Section title="13. Changes to this privacy policy">
+            <Section title="14. Changes to this privacy policy">
               <P>
                 We update this privacy policy when our website, our services or the legal situation change. The version
                 published on this page at the time applies.
@@ -629,7 +645,7 @@ export default function PrivacyPage() {
               </List>
               <P>
                 As the app does not use user accounts, no personal data is stored permanently. All other rights, including
-                the right to lodge a complaint with a supervisory authority, can be found in Part A, section 12. If you
+                the right to lodge a complaint with a supervisory authority, can be found in Part A, section 13. If you
                 have any questions or wish to exercise your rights, you can reach us at <SupportMail />.
               </P>
             </Section>
