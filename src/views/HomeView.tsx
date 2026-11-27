@@ -18,6 +18,7 @@ import NoMoreBills from "@/components/software/NoMoreBills";
 import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
+import Reviews from "@/components/reviews/Reviews";
 import SectionBar from "@/components/instrument/SectionBar";
 import SolarSystem from "@/components/instrument/SolarSystem";
 import { appInk, appsFor } from "@/lib/apps";
@@ -379,10 +380,8 @@ export default async function HomeView({ lang }: { lang: Lang }) {
   const faq = softwareFaq(lang, cur);
   // The price comparison quotes the competitors' list prices in the page's currency (src/content/software-compare*.json).
   // Section numbers run on without gaps.
-  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "why", "what", "who", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
+  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "why", "what", "who", "reviews", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
   const num = (id: string) => two(sections.indexOf(id) + 1);
-  // Placeholder slots for real customer quotes: visible on preview deployments only, never in production.
-  const showPlaceholders = process.env.VERCEL_ENV !== "production";
 
   return (
     <>
@@ -690,12 +689,6 @@ export default async function HomeView({ lang }: { lang: Lang }) {
                     </span>
                   </li>
                 </ul>
-                {showPlaceholders && (
-                  <div className="mt-8 border border-dashed border-accent p-5 text-sm text-accent">
-                    [Platzhalter, nur in der Vorschau sichtbar] Hier 2–3 echte Kundenstimmen mit Name und Tätigkeit einsetzen. Keine
-                    erfundenen Zitate.
-                  </div>
-                )}
               </div>
               <div className="cells grid-cols-2 border border-border" data-reveal>
                 {["word-koja", "grid-koja", "photo-koja", "pdf-koja"].map((slug) => {
@@ -708,6 +701,25 @@ export default async function HomeView({ lang }: { lang: Lang }) {
                 })}
               </div>
             </div>
+          </section>
+
+          {/* Customer reviews: average, the published reviews, write one (src/components/reviews) */}
+          <section id="bewertungen" className="rail crosshairs scroll-mt-12">
+            <SectionBar index={num("reviews")} label={lang === "de" ? "Bewertungen" : "Reviews"} meta={lang === "de" ? "Erfahrungen von Kunden" : "What customers say"} />
+            <div className={`py-14 md:py-20 ${pad}`}>
+              <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+                {lang === "de" ? (
+                  <>
+                    Was Kunden über Koja Office <span className="text-highlight">sagen</span>.
+                  </>
+                ) : (
+                  <>
+                    What customers <span className="text-highlight">say</span> about Koja Office.
+                  </>
+                )}
+              </h2>
+            </div>
+            <Reviews lang={lang} />
           </section>
 
           {/* 08 Guides */}
