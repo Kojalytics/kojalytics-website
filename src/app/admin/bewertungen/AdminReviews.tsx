@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { BadgeCheck, Eye, EyeOff, LogOut, Trash2, Upload } from "lucide-react";
+import { BadgeCheck, Download, Eye, EyeOff, FileUp, LogOut, Trash2, Upload } from "lucide-react";
 import { Stars } from "@/components/reviews/Reviews";
 import type { ReviewRow, ReviewStatus } from "@/lib/reviews";
 
@@ -53,8 +53,62 @@ function parseImport(text: string): Record<string, string>[] {
   }
   row.push(cell);
   rows.push(row);
-  const head = rows[0].map((h) => h.trim().toLowerCase());
+  const head = rows[0].map((h) => h.replace(/^\uFEFF/, "").trim().toLowerCase());
   return rows.slice(1).filter((r) => r.some((c) => c.trim())).map((r) => Object.fromEntries(head.map((h, i) => [h, (r[i] ?? "").trim()])));
+}
+
+/** The template's columns (German, as Excel shows them) and the API field each one fills. */
+const TEMPLATE = ["Name", "Sterne", "Überschrift", "Text", "E-Mail", "Datum", "Sprache", "Quelle", "Verifiziert", "Status"];
+const COLUMN: Record<string, string> = {
+  name: "name",
+  sterne: "rating",
+  bewertung: "rating",
+  rating: "rating",
+  überschrift: "title",
+  titel: "title",
+  title: "title",
+  text: "body",
+  body: "body",
+  "e-mail": "email",
+  email: "email",
+  datum: "date",
+  date: "date",
+  sprache: "lang",
+  lang: "lang",
+  quelle: "source",
+  source: "source",
+  verifiziert: "verified",
+  verified: "verified",
+  status: "status",
+};
+/** Rows whose name ends with "(Beispiel)" are the template's example and are never imported. */
+const EXAMPLE = /\(beispiel\)\s*$/i;
+
+/** One template row in the form the admin API takes: German column names and values (ja/nein, 24.11.2026, Deutsch …). */
+function normalize(raw: Record<string, unknown>) {
+  const r: Record<string, string> = {};
+  for (const [k, v] of Object.entries(raw)) r[COLUMN[k.trim().toLowerCase()] ?? k.trim().toLowerCase()] = String(v ?? "").trim();
+  const stars = /★/.test(r.rating ?? "") ? (r.rating.match(/★/g) ?? []).length : Math.round(Number((r.rating ?? "").replace(",", ".")));
+  const d = (r.date ?? "").match(/^(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})$/);
+  const date = d ? `${d[3].length === 2 ? `20${d[3]}` : d[3]}-${d[2].padStart(2, "0")}-${d[1].padStart(2, "0")}` : r.date ?? "";
+  const lang = /^(en|englisch|english)$/i.test(r.lang ?? "") ? "en" : "de";
+  const verified = /^(ja|j|yes|y|true|wahr|1|x|✓)$/i.test(r.verified ?? "");
+  const st = (r.status ?? "").toLowerCase();
+  const status = /^(veröffentlicht|veroeffentlicht|published|live|online)$/.test(st) ? "published" : /^(ausgeblendet|versteckt|hidden)$/.test(st) ? "hidden" : "pending";
+  return { name: r.name ?? "", rating: stars, title: r.title ?? "", body: r.body ?? "", email: r.email ?? "", date, lang, source: r.source ?? "", verified, status };
+}
+
+/** The template as a CSV file Excel opens directly (semicolons, UTF-8 with BOM), with one example row. */
+function downloadTemplate() {
+  const example = ["Max M. (Beispiel)", "5", "Endlich ohne Abo", "Läuft super auf meinem MacBook. Diese Beispielzeile wird nicht importiert.", "max@example.com", "24.11.2026", "Deutsch", "E-Mail an den Support", "nein", "wartet"];
+  const line = (cells: string[]) => cells.map((c) => (/[;"\n]/.test(c) ? `"${c.replace(/"/g, '""')}"` : c)).join(";");
+  const csv = "\uFEFF" + [line(TEMPLATE), line(example)].join("\r\n") + "\r\n";
+  const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "koja-bewertungen-vorlage.csv";
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 export default function AdminReviews() {
@@ -144,17 +198,17 @@ export default function AdminReviews() {
 
   async function runImport() {
     setImportMsg("");
-    let rows: Record<string, string>[];
+    let rows: ReturnType<typeof normalize>[];
     try {
-      rows = parseImport(importText);
+      rows = parseImport(importText).map(normalize).filter((r) => !EXAMPLE.test(r.name));
     } catch {
-      return setImportMsg("Das Format ist ungültig. CSV mit Kopfzeile oder JSON-Liste.");
+      return setImportMsg("Das Format ist ungültig. Bitte die Vorlage verwenden (CSV) oder eine JSON-Liste.");
     }
-    if (!rows.length) return setImportMsg("Keine Zeilen gefunden.");
+    if (!rows.length) return setImportMsg("Keine Zeilen gefunden (die Beispielzeile wird übersprungen).");
     setBusy("import");
     try {
       const { imported } = await call("POST", { rows });
-      setImportMsg(`${imported} Bewertung(en) importiert. Sie warten auf Freigabe, wenn keine Spalte „status“ angegeben war.`);
+      setImportMsg(`${imported} Bewertung(en) importiert. Ohne Status „veröffentlicht“ warten sie oben unter „Wartet auf Freigabe“.`);
       setImportText("");
       await load();
     } catch (err) {
@@ -163,6 +217,14 @@ export default function AdminReviews() {
       setBusy(null);
     }
   }
+
+  const preview = useMemo(() => {
+    try {
+      return parseImport(importText).map(normalize).filter((r) => !EXAMPLE.test(r.name));
+    } catch {
+      return null;
+    }
+  }, [importText]);
 
   const counts = useMemo(() => {
     const c = { all: reviews.length, pending: 0, published: 0, hidden: 0 };
@@ -273,23 +335,118 @@ export default function AdminReviews() {
       <section className="mt-14 border-t border-border pt-8">
         <h2 className="display text-[1.4rem]">Bewertungen importieren</h2>
         <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted">
-          Für echte Bewertungen, die dich auf anderem Weg erreicht haben (z. B. per E-Mail an den Support oder von einer anderen Plattform). CSV mit Kopfzeile oder
-          JSON-Liste. Pflicht: <code>name</code>, <code>rating</code> (1–5), <code>body</code>. Optional: <code>title</code>, <code>email</code>, <code>date</code> (JJJJ-MM-TT),{" "}
-          <code>lang</code> (de/en), <code>source</code> (wird auf der Seite als „Quelle“ gezeigt), <code>verified</code> (ja/true), <code>status</code> (pending/published/hidden).
+          Für echte Bewertungen, die dich auf anderem Weg erreicht haben, z. B. per E-Mail an den Support oder über eine andere Plattform.
         </p>
-        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">
-          Erfundene oder gekaufte Bewertungen sind verboten (UWG). „Verifiziert“ nur, wenn der Kauf belegt ist.
+        <ol className="mt-5 grid max-w-3xl gap-2 text-[15px] leading-relaxed">
+          <li>
+            <span className="hud mr-2 text-faint">01</span>Vorlage herunterladen und in Excel oder Numbers öffnen.
+          </li>
+          <li>
+            <span className="hud mr-2 text-faint">02</span>Pro Bewertung eine Zeile ausfüllen. Die Beispielzeile „Max M. (Beispiel)“ wird nie importiert.
+          </li>
+          <li>
+            <span className="hud mr-2 text-faint">03</span>Als CSV speichern und hier hochladen, Vorschau prüfen, „Importieren“ klicken.
+          </li>
+        </ol>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <button type="button" className="btn-secondary" onClick={downloadTemplate}>
+            <Download size={15} aria-hidden /> Vorlage herunterladen (CSV)
+          </button>
+          <label className="btn-secondary cursor-pointer">
+            <FileUp size={15} aria-hidden /> Datei hochladen
+            <input
+              type="file"
+              accept=".csv,.txt,.json,text/csv,application/json"
+              className="sr-only"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                e.target.value = "";
+                if (file) {
+                  setImportMsg("");
+                  setImportText(await file.text());
+                }
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="mt-6 overflow-x-auto border border-border">
+          <table className="w-full min-w-[640px] text-left text-sm">
+            <thead className="bg-surface">
+              <tr>
+                {["Spalte", "Pflicht", "Was eintragen"].map((h) => (
+                  <th key={h} className="hud px-4 py-2 font-medium">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["Name", "ja", "Wie er auf der Seite steht, z. B. „Thomas K.“"],
+                ["Sterne", "ja", "1 bis 5"],
+                ["Überschrift", "", "Optional"],
+                ["Text", "ja", "Die Bewertung, wörtlich wie erhalten"],
+                ["E-Mail", "", "Wird nicht veröffentlicht; zeigt dir, ob sie zu einem Kauf passt"],
+                ["Datum", "", "Datum der Bewertung, z. B. 24.11.2026 (leer = heute)"],
+                ["Sprache", "", "Deutsch oder Englisch (leer = Deutsch)"],
+                ["Quelle", "", "Woher die Bewertung kommt; steht auf der Seite, z. B. „E-Mail an den Support“"],
+                ["Verifiziert", "", "ja = Siegel „Verifizierter Kauf“ (nur mit Kaufbeleg), sonst nein"],
+                ["Status", "", "veröffentlicht, wartet oder ausgeblendet (leer = wartet)"],
+              ].map(([c, req, what]) => (
+                <tr key={c} className="border-t border-border">
+                  <td className="px-4 py-2 font-semibold">{c}</td>
+                  <td className="px-4 py-2">{req}</td>
+                  <td className="px-4 py-2 text-muted">{what}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
+          Erfundene oder gekaufte Bewertungen sind verboten (UWG). „Verifiziert: ja“ nur, wenn der Kauf belegt ist.
         </p>
+
         <textarea
           value={importText}
           onChange={(e) => setImportText(e.target.value)}
-          rows={7}
-          placeholder={'name,rating,title,body,email,date,lang,source\n"Thomas K.",5,"Endlich ohne Abo","Läuft auf meinem MacBook …",thomas@example.com,2026-11-20,de,"E-Mail an den Support"'}
+          rows={5}
+          placeholder="Datei hochladen oder den Inhalt der Vorlage hier einfügen"
           className={`${field} mt-5 font-mono text-[13px]`}
         />
-        <div className="mt-3 flex flex-wrap items-center gap-4">
-          <button type="button" className="btn-primary" disabled={busy === "import" || !importText.trim()} onClick={runImport}>
-            <Upload size={15} aria-hidden /> Importieren
+
+        {importText.trim() && (
+          <div className="mt-4 border border-border">
+            <p className="hud border-b border-border bg-surface px-4 py-2">
+              {preview === null ? "Format ungültig" : `Vorschau: ${preview.length} Bewertung(en)`}
+            </p>
+            {preview && preview.length > 0 && (
+              <ul className="divide-y divide-border">
+                {preview.slice(0, 50).map((r, i) => {
+                  const ok = r.name && r.body && r.rating >= 1 && r.rating <= 5;
+                  return (
+                    <li key={i} className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2 text-sm">
+                      {ok ? <Stars value={r.rating} size={13} /> : <span className="font-semibold text-red-700">Name, Sterne (1–5) oder Text fehlt</span>}
+                      <span className="font-semibold">{r.name || "–"}</span>
+                      <span className="text-muted">{r.date || "heute"} · {r.lang.toUpperCase()}</span>
+                      {r.verified && (
+                        <span className="tag !border-success/40 !text-success">
+                          <BadgeCheck size={12} aria-hidden /> Verifiziert
+                        </span>
+                      )}
+                      <span className="tag">{STATUS_LABEL[r.status as ReviewStatus]}</span>
+                      <span className="w-full truncate text-muted">{r.body}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        )}
+
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          <button type="button" className="btn-primary" disabled={busy === "import" || !preview?.length} onClick={runImport}>
+            <Upload size={15} aria-hidden /> {preview?.length ? `${preview.length} importieren` : "Importieren"}
           </button>
           {importMsg && <p className="whitespace-pre-line text-sm">{importMsg}</p>}
         </div>
