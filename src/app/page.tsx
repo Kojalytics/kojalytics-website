@@ -3,6 +3,9 @@ import HomeView from "@/views/HomeView";
 import { OG_BASE } from "@/lib/site";
 import { alternates } from "@/lib/i18n";
 
+// Rebuilt at least hourly and right after the admin changes a review (src/app/api/admin/reviews).
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: { absolute: "Koja Office 2026: 13 Apps für Mac & Windows ohne Abo | Kojalytics" },
   description:

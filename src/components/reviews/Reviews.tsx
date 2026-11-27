@@ -10,7 +10,7 @@ import type { PublicReview, ReviewSummary } from "@/lib/reviews";
 /**
  * Customer reviews on the home page: the average with the count per star, the published reviews and a form to write one.
  * New reviews wait for the admin (/admin/bewertungen); "Verifizierter Kauf" is shown only where the admin set it.
- * The list loads from /api/reviews after the page, so the home page stays static.
+ * The home page renders the published reviews on the server; the browser refreshes them from /api/reviews.
  */
 
 const T = {
@@ -144,9 +144,10 @@ function ReviewCard({ r, t }: { r: PublicReview; t: (typeof T)["de"] }) {
   );
 }
 
-export default function Reviews({ lang }: { lang: Lang }) {
+export default function Reviews({ lang, initial = null }: { lang: Lang; initial?: ReviewSummary | null }) {
   const t = T[lang];
-  const [data, setData] = useState<ReviewSummary | null>(null);
+  // Rendered on the server with the published reviews (for visitors and search engines), then refreshed in the browser.
+  const [data, setData] = useState<ReviewSummary | null>(initial);
   const [all, setAll] = useState(false);
   const [open, setOpen] = useState(false);
 

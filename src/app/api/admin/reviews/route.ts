@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { clientIp, limiter } from '@/lib/form-guard';
 import { ADMIN_PASSWORD_MIN, EMAIL, adminPassword, clean, configured, db, hasPurchase, isAdmin, type ReviewStatus } from '@/lib/reviews';
 
@@ -20,6 +21,12 @@ function guard(request: NextRequest): NextResponse | null {
   if (wrongTries(ip)) return NextResponse.json({ error: 'Zu viele falsche Versuche. Bitte warte 15 Minuten.' }, { status: 429 });
   return NextResponse.json({ error: 'Falsches Passwort.' }, { status: 401 });
 }
+
+/** The home pages show the published reviews and their structured data: rebuild them after every change. */
+const refresh = () => {
+  revalidatePath('/');
+  revalidatePath('/en');
+};
 
 const fail = (err: unknown) => {
   console.error('Reviews admin failed:', err);
@@ -45,6 +52,7 @@ export async function PATCH(request: NextRequest) {
   if (typeof body?.id !== 'string' || !Object.keys(change).length) return NextResponse.json({ error: 'Ungültige Änderung.' }, { status: 400 });
   const { data, error } = await db().from('koja_reviews').update(change).eq('id', body.id).select('*').single();
   if (error) return fail(error);
+  refresh();
   return NextResponse.json({ review: data });
 }
 
@@ -56,6 +64,7 @@ export async function DELETE(request: NextRequest) {
   if (typeof body?.id !== 'string') return NextResponse.json({ error: 'Ungültige ID.' }, { status: 400 });
   const { error } = await db().from('koja_reviews').delete().eq('id', body.id);
   if (error) return fail(error);
+  refresh();
   return NextResponse.json({ ok: true });
 }
 
@@ -104,5 +113,6 @@ export async function POST(request: NextRequest) {
   if (errors.length) return NextResponse.json({ error: errors.slice(0, 10).join('\n') }, { status: 400 });
   const { error } = await db().from('koja_reviews').insert(insert);
   if (error) return fail(error);
+  refresh();
   return NextResponse.json({ imported: insert.length });
 }
