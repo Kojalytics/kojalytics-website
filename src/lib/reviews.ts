@@ -70,14 +70,15 @@ export async function publishedSummary(): Promise<ReviewSummary> {
   return { count: reviews.length, average, stars, reviews };
 }
 
-/**
- * The admin password (Vercel env REVIEWS_ADMIN_PASSWORD), compared in constant time. Without the variable the admin
- * API is off.
- */
+/** The admin password (Vercel env REVIEWS_ADMIN_PASSWORD) without spaces or line breaks around it from copying. */
+export const adminPassword = () => (process.env.REVIEWS_ADMIN_PASSWORD ?? '').trim();
+export const ADMIN_PASSWORD_MIN = 8;
+
+/** The given password against REVIEWS_ADMIN_PASSWORD, in constant time; spaces around either are ignored. */
 export function isAdmin(given: string | null): boolean {
-  const want = process.env.REVIEWS_ADMIN_PASSWORD;
-  if (!want || want.length < 12 || !given) return false;
-  const a = createHash('sha256').update(given).digest();
+  const want = adminPassword();
+  if (want.length < ADMIN_PASSWORD_MIN || !given) return false;
+  const a = createHash('sha256').update(given.trim()).digest();
   const b = createHash('sha256').update(want).digest();
   return timingSafeEqual(a, b);
 }
