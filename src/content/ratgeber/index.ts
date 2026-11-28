@@ -1,4 +1,5 @@
 // Order of the Ratgeber articles. Each entry is one JSON file in this folder.
+import excelAlternativeMac from "./excel-alternative-mac-ohne-abo.json";
 import adobeAboKuendigen from "./adobe-abo-kuendigen.json";
 import adobeAlternativeMac from "./adobe-alternative-mac.json";
 import office2021 from "./office-2021-mac-support-ende.json";
@@ -9,6 +10,7 @@ import pdfZusammenfuegen from "./pdf-zusammenfuegen-mac.json";
 import lightroomAlternative from "./lightroom-alternative-ohne-abo.json";
 
 export const ARTICLE_FILES: unknown[] = [
+  excelAlternativeMac,
   adobeAboKuendigen,
   adobeAlternativeMac,
   office2021,

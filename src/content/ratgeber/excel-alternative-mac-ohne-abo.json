@@ -1,0 +1,301 @@
+{
+  "slug": "excel-alternative-mac-ohne-abo",
+  "navTitle": "Excel-Alternative für Mac ohne Abo",
+  "h1": "Excel-Alternative für Mac ohne Abo: 5 Wege im Vergleich (2026)",
+  "metaTitle": "Excel-Alternative für Mac ohne Abo: 5 Wege (2026)",
+  "metaDescription": "Excel-Alternative für Mac ohne Abo: Numbers, LibreOffice Calc und Excel im Web kostenlos, Office Home 2024 für 149 € oder GridKoja. Preise und Grenzen.",
+  "primaryKeyword": "excel alternative mac ohne abo",
+  "updated": "2026-11-28",
+  "readingMinutes": 10,
+  "intro": [
+    "Eine Excel-Alternative für Mac ohne Abo findest du kostenlos und zum Kaufen. Gratis sind Apples Numbers, LibreOffice Calc und Excel im Browser. Wer echtes Excel will, kauft Office Home 2024 für 149 € einmalig für einen Mac. Dazu gibt es günstige Apps wie unser GridKoja, das XLSX-Dateien direkt öffnet und speichert. Welche Lösung passt, hängt vor allem davon ab, wie komplex deine Tabellen sind und mit wem du sie austauschst.",
+    "In diesem Ratgeber vergleichen wir alle fünf Wege mit Preisen (Stand 28. November 2026), zeigen dir Schritt für Schritt, wie du Excel-Dateien öffnest und zurück ins Excel-Format bringst, und sagen offen, wo jede Lösung an ihre Grenzen stößt. Auch bei GridKoja."
+  ],
+  "sections": [
+    {
+      "id": "ueberblick",
+      "h2": "Excel-Alternative für Mac ohne Abo: alle Wege im Überblick",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Diese Möglichkeiten hast du, wenn du am Mac mit Excel-Tabellen arbeiten willst, ohne Microsoft 365 zu abonnieren."
+        },
+        {
+          "type": "table",
+          "head": ["Option", "Kosten", "Excel-Dateien (XLSX)", "Größter Haken"],
+          "rows": [
+            ["Apple Numbers", "kostenlos", "öffnet XLSX, exportiert als XLSX", "eigene Bedienung, Darstellung kann abweichen"],
+            ["LibreOffice Calc", "kostenlos", "lädt und speichert XLSX", "Pivot-Tabellen, bedingte Formatierung und manche Formeln brauchen oft Nacharbeit"],
+            ["Excel im Web", "kostenlos", "Excel im Browser", "nur online, Dateien liegen auf OneDrive"],
+            ["Office Home 2024", "149 € einmalig", "echtes Excel, dazu Word, PowerPoint, OneNote", "1 Gerät, keine neuen Funktionen, Support bis Oktober 2029"],
+            ["GridKoja", "79 € einmalig oder 19,99 € im Monat, alle 13 Koja-Apps", "XLSX als Standardformat", "keine Makros (VBA), englische Funktionsnamen, Diagramm-Optionen können verloren gehen"]
+          ],
+          "caption": "Preise inkl. MwSt. laut Hersteller-Websites, Stand: 28. November 2026."
+        },
+        {
+          "type": "p",
+          "text": "Zum Vergleich: Microsoft 365 Single mit Excel kostet regulär 99 € im Jahr oder 10 € im Monat, Microsoft 365 Family für bis zu 6 Personen 129 € im Jahr oder 13 € im Monat."
+        }
+      ]
+    },
+    {
+      "id": "numbers",
+      "h2": "Kostenlos von Apple: Numbers",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Numbers ist Apples eigene Tabellenkalkulation. Laut Apple bleiben Keynote, Pages und Numbers für alle kostenlos. Nur Extras wie Premium-Vorlagen und KI-Funktionen, in Numbers etwa „Magic Fill“, das Inhalte oder Formeln für leere Zellen vorschlägt, gehören zum Abo Apple Creator Studio (12,99 € im Monat oder 129 € im Jahr). Für normale Tabellen brauchst du das nicht."
+        },
+        {
+          "type": "p",
+          "text": "Numbers öffnet laut Apple Excel-Dateien im Format XLSX sowie CSV- und Textdateien. Exportieren kannst du nach XLSX, PDF, CSV und TSV. Pivot-Tabellen gibt es in Numbers ebenfalls."
+        },
+        {
+          "type": "h3",
+          "text": "Excel-Datei in Numbers öffnen"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Klick im Finder mit gedrückter Ctrl-Taste auf die Excel-Datei.",
+            "Wähle „Öffnen mit“ und dann „Numbers“.",
+            "Alternativ öffnest du in Numbers „Ablage“ > „Öffnen …“, wählst die Datei aus und klickst auf „Öffnen“. Ist eine Datei grau dargestellt, liegt sie nicht in einem kompatiblen Format vor."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Tabelle als Excel-Datei weitergeben"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Klick in der Symbolleiste auf die Teilen-Taste und dann auf „Exportieren und senden“.",
+            "Wähle „Excel“ als Format.",
+            "Klick auf „Sichern“ und wähle einen Speicherort. Mit „Kopie senden“ verschickst du die Datei direkt."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Der Export erstellt eine Kopie, deine Numbers-Datei bleibt erhalten. Apple weist darauf hin, dass beim Öffnen eine Meldung zu fehlenden Schriften erscheinen oder die Datei anders dargestellt werden kann. Das alte Format XLS nennt Apple nicht als Exportziel. Wer XLS braucht, exportiert nach XLSX und speichert die Datei in Excel um."
+        }
+      ]
+    },
+    {
+      "id": "libreoffice-calc",
+      "h2": "Kostenlos und quelloffen: LibreOffice Calc",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "LibreOffice ist ein freies Office-Paket, Calc ist darin die Tabellenkalkulation. Laut LibreOffice-Hilfe laden und speichern die aktuellen Versionen das Excel-Format XLSX."
+        },
+        {
+          "type": "p",
+          "text": "Die Hilfe sagt aber auch offen, dass manche Layouts und Formatierungen in komplexen Office-Dokumenten anders oder gar nicht unterstützt werden und dann Handarbeit nötig ist. Bei Excel nennt sie als typische Problemstellen:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Pivot-Tabellen",
+            "neue Diagrammtypen",
+            "bedingte Formatierung",
+            "einige Funktionen und Formeln",
+            "AutoFormen, OLE-Objekte und manche Formular-Steuerelemente"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Ein Beispiel aus der Hilfe: Steht in zwei Zellen WAHR, liefert eine Summenformel in Calc 2, in Excel dagegen 0. Solche Unterschiede fallen nicht immer sofort auf. Visual-Basic-Makros kann LibreOffice laden, aber in der Regel nicht ausführen. Einige Excel-Makros laufen, wenn du das unter „Extras“ > „Optionen“ > „Laden/Speichern“ > „VBA-Eigenschaften“ einstellst."
+        }
+      ]
+    },
+    {
+      "id": "excel-im-web",
+      "h2": "Kostenlos von Microsoft: Excel im Browser",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Microsoft schreibt selbst, dass jeder Excel im Web kostenlos nutzen kann. Du meldest dich mit einem Microsoft-Konto an und bekommst 5 GB Cloud-Speicher dazu. Neben Excel laufen auch Word, PowerPoint und Outlook im Browser."
+        },
+        {
+          "type": "p",
+          "text": "Der Haken: Du arbeitest online, und zum Teilen müssen die Dateien laut Microsoft auf OneDrive gespeichert sein. Für gelegentliche Änderungen an einer Excel-Datei reicht das oft. Wer viel offline oder mit großen Arbeitsmappen arbeitet, ist mit einer installierten App besser bedient."
+        }
+      ]
+    },
+    {
+      "id": "office-home-2024",
+      "h2": "Echtes Excel ohne Abo: Office Home 2024",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Wenn du echtes Excel brauchst, aber kein Abo willst, bleibt Office Home 2024. Microsoft verkauft es für 149 € als einmaligen Kauf für 1 PC oder Mac. Enthalten sind Word, Excel, PowerPoint und OneNote. Am Mac verlangt Microsoft ein aktuelles macOS, 4 GB Arbeitsspeicher und 10 GB freien Speicherplatz."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Ein Upgrade auf die nächste Hauptversion ist nicht enthalten. Die müsstest du laut Microsoft zum vollen Preis neu kaufen.",
+            "Office 2024 folgt der Modern-Lifecycle-Richtlinie, der Support endet am 10. Oktober 2029.",
+            "Die Lizenz gilt für ein Gerät. Für einen zweiten Mac brauchst du eine zweite Lizenz."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Office Home 2024 ist die richtige Wahl, wenn Arbeitgeber, Kunden oder Schule exakt Excel erwarten oder deine Dateien Makros enthalten. Mehr zu allen Office-Varianten steht im Ratgeber [Office für Mac ohne Abo](/ratgeber/office-fuer-mac-ohne-abo)."
+        }
+      ]
+    },
+    {
+      "id": "gridkoja",
+      "h2": "GridKoja: XLSX mit Pivot-Tabellen für 79 € einmalig",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "[GridKoja](/software/grid-koja) ist unsere Tabellenkalkulation für macOS und Windows. Sie hat ein Menüband mit Registerkarten, Bearbeitungsleiste, Namenfeld und Blattregister, also vieles an den Stellen, die du aus Excel kennst. XLSX ist das Standardformat, du öffnest und speicherst Excel-Dateien also direkt, ohne Umwandeln."
+        },
+        {
+          "type": "app",
+          "app": "grid-koja",
+          "text": "Über 500 Tabellenfunktionen, dynamische Arrays, LET und LAMBDA, Pivot-Tabellen mit Feldliste, 17 Diagrammtypen, Sparklines und bedingte Formatierung. Läuft als Universal-App auf Apple-Silicon- und Intel-Macs, offline und ohne Konto."
+        },
+        {
+          "type": "p",
+          "text": "Formatvorlagen, Formeln, Tabellen, bedingte Formate, Datenüberprüfung, Kommentare, Bilder, Sparklines, Pivot-Tabellen und Druckeinstellungen bleiben beim Öffnen und Speichern von XLSX erhalten. Layout und Umbrüche können aber von Excel abweichen."
+        },
+        {
+          "type": "h3",
+          "text": "Was GridKoja nicht kann"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Makros (VBA) sind nicht geplant, Power Query und das Datenmodell gibt es nur in Ansätzen.",
+            "Bei Diagrammen können Typ und Optionen beim Speichern verloren gehen.",
+            "Formeln schreibst du mit englischen Funktionsnamen, also SUM statt SUMME und IF statt WENN. Das Menüband ist auf Deutsch, viele Dialoge sind englisch.",
+            "Ältere XLS-Dateien öffnet GridKoja mit Werten, Formeln und Zahlenformaten, aber ohne weitere Formatierung. Aus XLSB und ODS übernimmt es nur die Werte.",
+            "Sehr große Arbeitsmappen um 100 MB öffnen nicht. Eine iPad-Version gibt es nicht."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Preis und Bedingungen"
+        },
+        {
+          "type": "p",
+          "text": "Du kannst alle Koja-Apps 3 Tage kostenlos testen. Danach zahlst du 79 € einmalig für eine dauerhafte Lizenz oder 19,99 € im Monat, jederzeit online kündbar. Beides gilt für alle 13 Koja-Apps auf bis zu 3 Geräten, Mac oder Windows-PC. Updates bekommst du kostenlos. Im Preis stecken zum Beispiel auch [WordKoja](/software/word-koja) für Texte und [DeckKoja](/software/deck-koja) für Präsentationen. Alle Details stehen auf der [Preisseite](/software#preise)."
+        }
+      ]
+    },
+    {
+      "id": "kostenvergleich",
+      "h2": "Kostenvergleich über 3 und 5 Jahre",
+      "blocks": [
+        {
+          "type": "table",
+          "head": ["Option", "Preis", "Nach 3 Jahren", "Nach 5 Jahren"],
+          "rows": [
+            ["Microsoft 365 Single (Jahresabo)", "99 € pro Jahr", "297 €", "495 €"],
+            ["Microsoft 365 Single (Monatsabo)", "10 € pro Monat", "360 €", "600 €"],
+            ["Office Home 2024", "149 € einmalig", "149 €", "149 € plus Nachfolger*"],
+            ["GridKoja (monatlich, alle 13 Apps)", "19,99 € pro Monat", "719,64 €", "1.199,40 €"],
+            ["GridKoja (einmalig, alle 13 Apps)", "79 € einmalig", "79 €", "79 €"],
+            ["Numbers, LibreOffice Calc, Excel im Web", "kostenlos", "0 €", "0 €"]
+          ],
+          "caption": "* Office 2024 bekommt nur bis 10. Oktober 2029 Updates. Preise inkl. MwSt., ohne mögliche Preiserhöhungen, Stand: 28. November 2026."
+        },
+        {
+          "type": "p",
+          "text": "Das Monatsabo von GridKoja lohnt sich, wenn du nur ein paar Monate eine Tabellen-App brauchst. Wer länger plant, fährt mit einer Einmalzahlung günstiger: Office Home 2024 für echtes Excel auf einem Mac, die Koja-Lizenz für 79 € für alle 13 Apps auf bis zu 3 Geräten."
+        }
+      ]
+    },
+    {
+      "id": "welche-loesung-passt",
+      "h2": "Welche Excel-Alternative passt zu dir?",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Du öffnest nur ab und zu eine Excel-Datei: Numbers oder Excel im Web reichen meist.",
+            "Du willst nichts bezahlen, aber eine installierte App mit vielen Funktionen: Nimm LibreOffice Calc und prüf wichtige Dateien vor dem Versenden.",
+            "Deine Tabellen enthalten Makros oder müssen bei anderen exakt gleich aussehen: Kauf Office Home 2024 für 149 €.",
+            "Du willst XLSX direkt bearbeiten, mit Pivot-Tabellen und vertrautem Menüband, auf Mac und Windows-PC: Teste GridKoja 3 Tage kostenlos."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "So prüfst du eine Alternative mit deinen eigenen Dateien"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Leg Kopien von zwei, drei typischen Arbeitsmappen an, etwa Haushaltsbuch, Rechnungsliste und eine Auswertung mit Pivot-Tabelle.",
+            "Öffne die Kopien in der Alternative und vergleiche die Ergebnisse wichtiger Formeln mit den Werten aus Excel.",
+            "Ändere etwas, speichere als XLSX und öffne die Datei bei jemandem mit Excel oder in Excel im Web.",
+            "Achte auf Diagramme, bedingte Formatierung und Seitenumbrüche beim Drucken."
+          ]
+        },
+        {
+          "type": "tip",
+          "text": "Kündige ein laufendes Microsoft-365-Abo erst, wenn deine wichtigsten Dateien in der neuen App funktionieren. Bis dahin kannst du in Excel gegenprüfen."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Gibt es Excel für den Mac ohne Abo?",
+      "a": "Ja. Office Home 2024 kostet bei Microsoft 149 € einmalig und enthält Excel, Word, PowerPoint und OneNote für einen PC oder Mac. Der Support endet am 10. Oktober 2029, ein Upgrade auf die nächste Version ist nicht enthalten."
+    },
+    {
+      "q": "Welche Excel-Alternative für den Mac ist kostenlos?",
+      "a": "Apples Numbers, LibreOffice Calc und Excel im Web kosten nichts. Numbers und Calc öffnen XLSX-Dateien und speichern bzw. exportieren wieder als XLSX. Excel im Web läuft im Browser und braucht ein Microsoft-Konto."
+    },
+    {
+      "q": "Kann Numbers Excel-Dateien öffnen und speichern?",
+      "a": "Numbers öffnet XLSX-Dateien und exportiert über „Exportieren und senden“ > „Excel“ wieder als XLSX. Laut Apple können Schriften fehlen oder die Datei anders aussehen. Das alte XLS-Format kann Numbers nicht exportieren."
+    },
+    {
+      "q": "Funktionieren Excel-Makros in den Alternativen?",
+      "a": "Meist nicht. LibreOffice lädt VBA-Makros und führt einige Excel-Makros aus, wenn du das in den Einstellungen aktivierst. GridKoja unterstützt keine Makros. Wenn deine Arbeitsmappen auf Makros angewiesen sind, ist Office Home 2024 die sichere Wahl."
+    },
+    {
+      "q": "Was kostet GridKoja?",
+      "a": "Du kannst GridKoja 3 Tage kostenlos testen. Danach zahlst du 79 € einmalig oder 19,99 € im Monat, jederzeit online kündbar. Im Preis sind alle 13 Koja-Apps enthalten, auf bis zu 3 Geräten (Mac oder Windows-PC), Updates kostenlos."
+    }
+  ],
+  "apps": ["grid-koja", "word-koja", "deck-koja"],
+  "sources": [
+    {
+      "label": "Microsoft: Microsoft 365-Pläne und -Preise vergleichen",
+      "url": "https://www.microsoft.com/de-de/microsoft-365/buy/compare-all-microsoft-365-products"
+    },
+    {
+      "label": "Microsoft Store: Office Home 2024",
+      "url": "https://www.microsoft.com/de-de/microsoft-365/p/office-home-2024/cfq7ttc0pqvj"
+    },
+    {
+      "label": "Microsoft Lifecycle: Office 2024",
+      "url": "https://learn.microsoft.com/de-de/lifecycle/products/office-2024"
+    },
+    {
+      "label": "Microsoft: Microsoft 365 für das Web kostenlos nutzen",
+      "url": "https://www.microsoft.com/de-de/microsoft-365/free-office-online-for-the-web"
+    },
+    {
+      "label": "Apple Support: Office-Dateien mit Pages, Numbers und Keynote umwandeln",
+      "url": "https://support.apple.com/de-de/105050"
+    },
+    {
+      "label": "Apple Support: Pivot-Tabellen in Numbers auf dem Mac",
+      "url": "https://support.apple.com/de-de/guide/numbers/tan5420e3caa/mac"
+    },
+    {
+      "label": "Apple: Apple Creator Studio",
+      "url": "https://www.apple.com/de/apple-creator-studio/"
+    },
+    {
+      "label": "LibreOffice-Hilfe: Hinweise zur Konvertierung von Microsoft-Office-Dokumenten",
+      "url": "https://help.libreoffice.org/latest/de/text/shared/guide/ms_import_export_limitations.html"
+    }
+  ]
+}
