@@ -19,6 +19,7 @@ import TrackView from "@/components/software/TrackView";
 import Reviews from "@/components/reviews/Reviews";
 import { configured, publishedSummary, type ReviewSummary } from "@/lib/reviews";
 import SectionBar from "@/components/instrument/SectionBar";
+import RowArrows from "@/components/instrument/RowArrows";
 import SolarSystem from "@/components/instrument/SolarSystem";
 import { appInk, appsFor } from "@/lib/apps";
 import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
@@ -109,7 +110,8 @@ const de = {
   ),
   tryText: `Alle 13 Apps ${TRIAL_DAYS} Tage kostenlos, ohne Zahlungsdaten.`,
   download: `Kostenlos laden · ${TRIAL_DAYS} Tage testen`,
-  swipe: "Wischen für alle 13 Apps →",
+  prevApp: "Vorherige App",
+  nextApp: "Nächste App",
 };
 
 const en: typeof de = {
@@ -193,7 +195,8 @@ const en: typeof de = {
   ),
   tryText: `All 13 apps free for ${TRIAL_DAYS} days, no payment details.`,
   download: `Free download · ${TRIAL_DAYS}-day trial`,
-  swipe: "Swipe for all 13 apps →",
+  prevApp: "Previous app",
+  nextApp: "Next app",
 };
 
 const T = { de, en };
@@ -431,7 +434,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
             <SectionBar index={num("apps")} label={t.s4Label} meta={t.s4Meta} />
             {/* Phones: a swipe row that only moves sideways (overflow-y hidden: the cards' reveal offset must not make it scroll up and down).
                 No scroll snapping: it pulled short swipes back to the first card; the next card peeks in instead. */}
-            <div className="cells -mx-0 border-b border-border max-sm:flex max-sm:overflow-x-auto max-sm:overflow-y-hidden max-sm:overscroll-x-contain sm:grid-cols-2 lg:grid-cols-4">
+            <div id="apps-row" className="cells -mx-0 border-b border-border max-sm:flex max-sm:overflow-x-auto max-sm:overflow-y-hidden max-sm:overscroll-x-contain sm:grid-cols-2 lg:grid-cols-4">
               {APPS.map((app, i) => {
                 const ink = appInk(app.color);
                 return (
@@ -492,7 +495,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
               </div>
             </div>
             <div className={`flex flex-col gap-4 py-8 sm:hidden ${pad}`}>
-              <p className="hud">{t.swipe}</p>
+              <RowArrows target="apps-row" count={APPS.length} prev={t.prevApp} next={t.nextApp} />
               <DownloadButton source="software-mid" label={t.download} />
             </div>
           </section>
