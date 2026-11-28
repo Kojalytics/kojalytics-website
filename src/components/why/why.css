@@ -1,0 +1,298 @@
+/*
+ * Graphics of the "Warum Koja Office" page (src/views/WhyView.tsx). Every animation starts when its block scrolls in
+ * (RevealManager adds .is-in to [data-reveal]) and only when JS runs, so crawlers and no-JS visitors see the end state.
+ * With reduced motion everything is shown at once.
+ */
+
+/* ---------------------------------------------------------------- 01 subscription vs. once: the bill timeline */
+.why-bills {
+  display: grid;
+  gap: 18px;
+}
+.why-bills .row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  align-items: center;
+  gap: 14px;
+}
+@media (max-width: 639px) {
+  .why-bills .row {
+    grid-template-columns: 1fr auto;
+  }
+  .why-bills .row .lab {
+    grid-column: 1 / -1;
+  }
+}
+.why-bills .ticks {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4px;
+  height: 34px;
+}
+.why-bills .ticks i {
+  display: block;
+  background: #e5484d;
+  transform-origin: bottom;
+}
+.why-bills .ticks.once i {
+  background: transparent;
+  border: 1px dashed var(--color-border-strong);
+}
+.why-bills .ticks.once i:first-child {
+  background: var(--color-buy);
+  border: 0;
+}
+html.js .why-bills .ticks i {
+  transform: scaleY(0);
+}
+html.js [data-reveal].is-in .why-bills .ticks i {
+  animation: why-grow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--k, 0) * 110ms + 250ms);
+}
+@keyframes why-grow {
+  to {
+    transform: scaleY(1);
+  }
+}
+.why-bills .sum {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* The pains get struck through, then the fix arrives */
+.why-fix .pain {
+  position: relative;
+  display: inline;
+  color: var(--color-muted);
+}
+.why-fix .pain::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 55%;
+  height: 2px;
+  background: #e5484d;
+  transform-origin: left;
+}
+html.js .why-fix .pain::after {
+  transform: scaleX(0);
+}
+html.js .why-fix.is-in .pain::after,
+html.js [data-reveal].is-in .why-fix .pain::after {
+  transition: transform 0.6s cubic-bezier(0.6, 0, 0.2, 1) calc(var(--i, 0) * 120ms + 300ms);
+  transform: scaleX(1);
+}
+html.js .why-fix .fix {
+  opacity: 0;
+  transform: translateY(8px);
+}
+html.js .why-fix.is-in .fix,
+html.js [data-reveal].is-in .why-fix .fix {
+  transition:
+    opacity 0.5s ease calc(var(--i, 0) * 120ms + 800ms),
+    transform 0.5s ease calc(var(--i, 0) * 120ms + 800ms);
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------------- 02 built for your computer: files fly into the window */
+.why-mac {
+  position: relative;
+  border: 1px solid var(--color-foreground);
+  background: #fff;
+}
+.why-mac .bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+.why-mac .bar i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+}
+.why-mac .stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 22px;
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: -1px -1px;
+}
+.why-mac .file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 6px;
+  border: 1px solid var(--color-border-strong);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+html.js .why-mac .file {
+  opacity: 0;
+  transform: translate(var(--fx, 0), var(--fy, -40px)) rotate(var(--fr, -8deg)) scale(0.8);
+}
+html.js [data-reveal].is-in .why-mac .file {
+  transition:
+    opacity 0.5s ease,
+    transform 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.15);
+  transition-delay: calc(var(--k, 0) * 140ms + 200ms);
+  opacity: 1;
+  transform: none;
+}
+.why-mac .offline {
+  position: absolute;
+  right: 12px;
+  top: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-success);
+}
+.why-mac .offline .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-success);
+}
+html.js [data-reveal].is-in .why-mac .offline .dot {
+  animation: why-pulse 1.8s ease-in-out infinite 1.4s;
+}
+@keyframes why-pulse {
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-success) 18%, transparent);
+  }
+}
+
+/* Benefit icons pop in */
+html.js .why-icon {
+  transform: scale(0.6);
+  opacity: 0;
+}
+html.js [data-reveal].is-in .why-icon,
+html.js .cells > [data-reveal].is-in .why-icon {
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.4) calc(var(--i, 0) * 90ms + 150ms),
+    opacity 0.3s ease calc(var(--i, 0) * 90ms + 150ms);
+  transform: none;
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------- 03 who: the pipeline from code to your computer */
+.why-pipe {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.why-pipe .line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 27px;
+  height: 2px;
+  background: var(--color-foreground);
+  transform-origin: left;
+}
+html.js .why-pipe .line {
+  transform: scaleX(0);
+}
+html.js [data-reveal].is-in .why-pipe .line {
+  transition: transform 1.6s cubic-bezier(0.6, 0, 0.2, 1) 0.2s;
+  transform: scaleX(1);
+}
+.why-pipe .node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 0 4px;
+}
+.why-pipe .node .ring {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--color-foreground);
+  background: #fff;
+}
+.why-pipe .node:last-child .ring {
+  background: var(--color-buy);
+  border-color: var(--color-buy);
+  color: #fff;
+}
+html.js .why-pipe .node .ring,
+html.js .why-pipe .node .cap {
+  opacity: 0;
+  transform: translateY(10px) scale(0.85);
+}
+html.js [data-reveal].is-in .why-pipe .node .ring,
+html.js [data-reveal].is-in .why-pipe .node .cap {
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+  transition-delay: calc(var(--k, 0) * 320ms + 250ms);
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 639px) {
+  .why-pipe {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .why-pipe .line {
+    left: 27px;
+    right: auto;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    height: auto;
+    transform-origin: top;
+  }
+  html.js .why-pipe .line {
+    transform: scaleY(0);
+  }
+  html.js [data-reveal].is-in .why-pipe .line {
+    transform: scaleY(1);
+  }
+  .why-pipe .node {
+    flex-direction: row;
+    text-align: left;
+    gap: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .why-bills .ticks i,
+  html.js .why-fix .pain::after,
+  html.js .why-fix .fix,
+  html.js .why-mac .file,
+  html.js .why-icon,
+  html.js .why-pipe .line,
+  html.js .why-pipe .node .ring,
+  html.js .why-pipe .node .cap {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
