@@ -13,7 +13,6 @@ import DownloadButton from "@/components/software/DownloadButton";
 import WebTestButton from "@/components/software/WebTestButton";
 import AppDemo from "@/components/software/AppDemo";
 import PricingCards from "@/components/software/PricingCards";
-import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
 import SectionBar from "@/components/instrument/SectionBar";
@@ -673,7 +672,6 @@ export default async function AppView({ slug, lang }: { slug: string; lang: Lang
           </section>
         </main>
         <Footer offer={false} lang={lang} />
-        <StickyBuyBar source={`app-${app.slug}-buybar`} />
       </OfferDiscount>
     </>
   );
