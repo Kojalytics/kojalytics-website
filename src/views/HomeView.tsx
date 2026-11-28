@@ -23,6 +23,7 @@ import voices from "@/content/testimonial-videos.json";
 import { configured, publishedSummary, type ReviewSummary } from "@/lib/reviews";
 import SectionBar from "@/components/instrument/SectionBar";
 import RowArrows from "@/components/instrument/RowArrows";
+import EdgeArrows from "@/components/instrument/EdgeArrows";
 import SolarSystem from "@/components/instrument/SolarSystem";
 import { appInk, appsFor } from "@/lib/apps";
 import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
@@ -468,6 +469,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
             <SectionBar index={num("apps")} label={t.s4Label} meta={t.s4Meta} />
             {/* Phones: a swipe row that only moves sideways (overflow-y hidden: the cards' reveal offset must not make it scroll up and down).
                 No scroll snapping: it pulled short swipes back to the first card; the next card peeks in instead. */}
+            <div className="relative">
             <div id="apps-row" className="cells -mx-0 border-b border-border max-sm:flex max-sm:overflow-x-auto max-sm:overflow-y-hidden max-sm:overscroll-x-contain sm:grid-cols-2 lg:grid-cols-4">
               {APPS.map((app, i) => {
                 const ink = appInk(app.color);
@@ -486,7 +488,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
                       </span>
                       <span className="hud truncate">{app.kind}</span>
                     </div>
-                    <div className="relative aspect-[16/10] overflow-hidden border-y border-border bg-surface">
+                    <div data-row-anchor className="relative aspect-[16/10] overflow-hidden border-y border-border bg-surface">
                       <Image
                         src={app.card.src}
                         alt={app.card.alt}
@@ -528,6 +530,8 @@ export default async function HomeView({ lang }: { lang: Lang }) {
                 </div>
               </div>
             </div>
+              <EdgeArrows target="apps-row" prev={t.prevApp} next={t.nextApp} />
+            </div>
             <div className={`flex flex-col gap-4 py-8 sm:hidden ${pad}`}>
               <RowArrows target="apps-row" count={APPS.length} prev={t.prevApp} next={t.nextApp} />
               <DownloadButton source="software-mid" label={t.download} />
@@ -559,7 +563,14 @@ export default async function HomeView({ lang }: { lang: Lang }) {
                   : "Real quotes from our customers, shortened and re-enacted with AI: the people in the clips are not the customers themselves."}
               </p>
             </div>
-            <VideoTestimonials videos={VOICES} lang={lang} rowId="voices-row" />
+            <div className="relative">
+              <VideoTestimonials videos={VOICES} lang={lang} rowId="voices-row" />
+              <EdgeArrows
+                target="voices-row"
+                prev={lang === "de" ? "Vorherige Kundenstimme" : "Previous customer voice"}
+                next={lang === "de" ? "Nächste Kundenstimme" : "Next customer voice"}
+              />
+            </div>
             <div className={`py-8 ${pad}`}>
               <RowArrows
                 target="voices-row"
