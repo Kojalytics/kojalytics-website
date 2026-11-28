@@ -102,7 +102,7 @@ Geist Mono (`font-mono`, `.hud`).
 - First-visit intro (`IntroLogo` in Navigation.tsx, `.kj-intro-*` in globals.css): the K mark turns once,
   the wordmark slides out and back, the mark flies onto the header logo. 2 s, CSS only, once per visit
   (inline script in layout.tsx). Never delay page content behind it (LCP); keep it under 2 s.
-- No other animation libraries. No parallax, no carousels except the mobile swipe row.
+- No other animation libraries. No parallax, no carousels except the mobile swipe row and the customer-voices row.
 - Video only as the app demo loops (`<AppDemo />`, section "In Aktion" after the hero of each app page; owner
   request, Nov 2026): silent, never in the hero (LCP stays the screenshot), `preload="none"` with a poster,
   plays only while on screen, and not at all with reduced motion (poster plus player controls instead).
@@ -110,7 +110,14 @@ Geist Mono (`font-mono`, `.hud`).
   `node scripts/app-demos/render.mjs [slug]`. One continuous camera move over the app's windows on graph
   paper, a sliding blue focus frame and a pointer that clicks; no cuts, no fades to white, and no words in
   the picture (only numbers and the app name), so the video works in every language and the feature names
-  stay translatable page text. No other autoplaying video.
+  stay translatable page text.
+- Customer voices (`<VideoTestimonials />`, homepage section "Kundenstimmen" before the reviews; owner request, Nov 2026):
+  a sideways `.cells` row of 7-second vertical clips (`src/content/testimonial-videos.json`, files in `public/stimmen`,
+  540x960 H.264 under ~750 KB each, versioned names, cached a year via next.config headers). They are AI re-enactments
+  of real, shortened customer quotes and always say so (section lead, card note, JSON-LD description); never mark them
+  up as reviews. Nothing loads until a card is near the screen (no poster, no bytes), clips play silently while 60 %
+  visible, one sound button per card, captions are page text (German on /, English on /en), the full quote sits below
+  the clip. Reduced motion or data saver: no autoplay, player controls instead. No other autoplaying video.
 
 ## Don'ts
 

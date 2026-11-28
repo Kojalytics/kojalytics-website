@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
   turbopack: { root: process.cwd() },
   // The persistent dev cache went stale and corrupted .next/dev manifests under heavy load; dev only.
   experimental: { turbopackFileSystemCacheForDev: false },
+  // Customer-voice clips and posters (public/stimmen) carry their version in the file name: cache them for a year.
+  async headers() {
+    return [{ source: '/stimmen/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] }];
+  },
   async redirects() {
     // Exact paths come before the :path* rules: the first match wins, so nothing redirects twice.
     return [
