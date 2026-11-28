@@ -137,6 +137,27 @@ html.js .nmb-paper[data-reveal].is-in .nmb-row dd {
   transition-delay: calc(0.25s + var(--i, 3) * 0.15s);
 }
 
+/* Stamp and, below 900px, the box on the receipt */
+.nmb-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.nmb-paper-box {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 6px -6px -18px 0;
+  padding: 10px 14px 4px;
+  background: radial-gradient(closest-side at 50% 55%, rgba(120, 108, 255, 0.3), rgba(81, 69, 229, 0) 85%);
+}
+@media (min-width: 900px) {
+  .nmb-paper-box {
+    display: none;
+  }
+}
+
 /* The box on its stage */
 .nmb-stage {
   position: relative;
@@ -179,5 +200,12 @@ html.js .nmb-paper[data-reveal].is-in .nmb-row dd {
   html.js .nmb-paper[data-reveal] .nmb-row dd {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Below 900px the box sits on the receipt (.nmb-paper-box), not alone on its stage */
+@media (max-width: 899px) {
+  .nmb-stage {
+    display: none;
   }
 }

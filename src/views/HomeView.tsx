@@ -16,15 +16,12 @@ import AfterPurchase from "@/components/software/AfterPurchase";
 import RunNumbers from "@/components/software/RunNumbers";
 import NoMoreBills from "@/components/software/NoMoreBills";
 import TrackView from "@/components/software/TrackView";
-import Faq, { faqJsonLd } from "@/components/software/Faq";
 import Reviews from "@/components/reviews/Reviews";
 import { configured, publishedSummary, type ReviewSummary } from "@/lib/reviews";
 import SectionBar from "@/components/instrument/SectionBar";
 import SolarSystem from "@/components/instrument/SolarSystem";
 import { appInk, appsFor } from "@/lib/apps";
-import { ARTICLES } from "@/lib/ratgeber";
 import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
-import { softwareFaq } from "@/lib/software-faq";
 import { SITE_URL, jsonLd } from "@/lib/site";
 import { href, type Lang } from "@/lib/i18n";
 import { currencyFor, money } from "@/lib/currency";
@@ -113,21 +110,6 @@ const de = {
   tryText: `Alle 13 Apps ${TRIAL_DAYS} Tage kostenlos, ohne Zahlungsdaten.`,
   download: `Kostenlos laden · ${TRIAL_DAYS} Tage testen`,
   swipe: "Wischen für alle 13 Apps →",
-  s9Label: "Fragen",
-  s9Meta: "Bevor du lädst",
-  s9Title: (
-    <>
-      Bevor du <span className="text-highlight">lädst</span>.
-    </>
-  ),
-  finalHud: "Offline · ohne Konto · kein Abo",
-  finalTitle: (price: ReactNode) => <>Dein Kreativ- und Büro-Paket für einmal {price}.</>,
-  finalText: (monthly: string) => (
-    <>
-      13 Apps ohne Ablaufdatum. Oder <span className="whitespace-nowrap">{monthly}</span> im Monat, jederzeit online kündbar.
-    </>
-  ),
-  trial: `${TRIAL_DAYS} Tage kostenlos testen`,
 };
 
 const en: typeof de = {
@@ -212,21 +194,6 @@ const en: typeof de = {
   tryText: `All 13 apps free for ${TRIAL_DAYS} days, no payment details.`,
   download: `Free download · ${TRIAL_DAYS}-day trial`,
   swipe: "Swipe for all 13 apps →",
-  s9Label: "Questions",
-  s9Meta: "Before you download",
-  s9Title: (
-    <>
-      Before you <span className="text-highlight">download</span>.
-    </>
-  ),
-  finalHud: "Offline · no account · no subscription",
-  finalTitle: (price: ReactNode) => <>Your creative and office suite for {price} once.</>,
-  finalText: (monthly: string) => (
-    <>
-      13 apps with no expiry date. Or <span className="whitespace-nowrap">{monthly}</span> a month, cancel online any time.
-    </>
-  ),
-  trial: `Try it free for ${TRIAL_DAYS} days`,
 };
 
 const T = { de, en };
@@ -293,17 +260,15 @@ export default async function HomeView({ lang }: { lang: Lang }) {
   const monthly = planText("monthly", lang, cur).label;
   const once = planText("lifetime", lang, cur).label;
   const compare = lang === "de" ? compareDe : compareEn;
-  const faq = softwareFaq(lang, cur);
   // The price comparison quotes the competitors' list prices in the page's currency (src/content/software-compare*.json).
   // Section numbers run on without gaps.
-  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "reviews", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
+  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "reviews"];
   const num = (id: string) => two(sections.indexOf(id) + 1);
 
   return (
     <>
       <OfferDiscount running={isOfferRunning()} currency={cur}>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(productJsonLd(lang, reviews))} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(faq))} />
         <TrackView name={lang === "de" ? "software" : "software-en"} />
         <Navigation cta="buy" />
 
@@ -550,67 +515,6 @@ export default async function HomeView({ lang }: { lang: Lang }) {
             <Reviews lang={lang} initial={reviews} />
           </section>
 
-          {/* 08 Guides */}
-          {lang === "de" && ARTICLES.length > 0 && (
-            <section className="rail crosshairs">
-              <SectionBar index={num("guides")} label="Ratgeber" meta="Umstieg ohne Abo" />
-              <div className={`flex flex-col justify-between gap-4 py-14 md:flex-row md:items-end md:py-20 ${pad}`}>
-                <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
-                  Ratgeber zum <span className="text-highlight">Umstieg</span>.
-                </h2>
-                <Link href="/ratgeber" className="link-hud">
-                  Alle Ratgeber <ArrowUpRight size={14} aria-hidden />
-                </Link>
-              </div>
-              <div className="cells border-y border-border md:grid-cols-3">
-                {ARTICLES.slice(0, 3).map((a, i) => (
-                  <Link key={a.slug} href={`/ratgeber/${a.slug}`} className="group flex flex-col p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
-                    <p className="hud">
-                      <span className="text-faint">{two(i + 1)}</span> · {a.readingMinutes} Min. Lesezeit
-                    </p>
-                    <h3 className="mt-5 text-xl font-semibold leading-snug group-hover:text-accent">{a.h1}</h3>
-                    <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{a.metaDescription}</p>
-                    <span className="link-hud mt-6">
-                      Lesen <ArrowUpRight size={14} aria-hidden />
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* 09 FAQ */}
-          <section id="fragen" className="rail crosshairs scroll-mt-12">
-            <SectionBar index={num("faq")} label={t.s9Label} meta={t.s9Meta} />
-            <div className={`grid gap-10 py-14 md:py-20 lg:grid-cols-[0.8fr_1.2fr] ${pad}`}>
-              <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
-                {t.s9Title}
-              </h2>
-              <Faq items={faq} />
-            </div>
-          </section>
-
-          {/* Final CTA */}
-          <section className="rail crosshairs border-t border-border">
-            <div className={`flex flex-col items-center py-20 text-center md:py-28 ${pad}`}>
-              <p className="hud">{t.finalHud}</p>
-              <div className="mt-8 flex -space-x-2">
-                {APPS.slice(0, 7).map((a) => (
-                  <AppIcon key={a.slug} slug={a.slug} name={a.name} size={48} lang={lang} />
-                ))}
-              </div>
-              <h2 className="display mt-8 max-w-4xl text-[clamp(2.2rem,5vw,4.4rem)]" data-reveal>
-                {t.finalTitle(<span className="whitespace-nowrap"><LifetimePrice /></span>)}
-              </h2>
-              <p className="mt-5 max-w-xl text-lg text-muted">
-                {t.finalText(monthly)}
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <BuyButton source="software-final-cta" />
-                <DownloadButton source="software-final-cta" variant="secondary" label={t.trial} />
-              </div>
-            </div>
-          </section>
         </main>
         <Footer offer={false} lang={lang} />
       </OfferDiscount>
