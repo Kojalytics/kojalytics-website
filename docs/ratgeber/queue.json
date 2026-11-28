@@ -1,0 +1,284 @@
+{
+ "_note": "Queue for the daily Ratgeber article (see docs/ratgeber/RULES.md). The task takes the first entry with done=false, writes it, sets done=true and published=<date>. Add new topics at the end.",
+ "queue": [
+  {
+   "slug": "excel-alternative-mac-ohne-abo",
+   "keyword": "excel alternative mac ohne abo",
+   "apps": [
+    "grid-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "powerpoint-alternative-ohne-abo",
+   "keyword": "powerpoint alternative ohne abo",
+   "apps": [
+    "deck-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "word-alternative-mac-ohne-abo",
+   "keyword": "word alternative mac ohne abo",
+   "apps": [
+    "word-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "psd-oeffnen-ohne-photoshop-mac",
+   "keyword": "psd datei öffnen ohne photoshop mac",
+   "apps": [
+    "photo-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "pdf-unterschreiben-mac",
+   "keyword": "pdf unterschreiben mac",
+   "apps": [
+    "pdf-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "illustrator-alternative-ohne-abo",
+   "keyword": "illustrator alternative ohne abo",
+   "apps": [
+    "vector-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "indesign-alternative-mac",
+   "keyword": "indesign alternative mac",
+   "apps": [
+    "design-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "premiere-pro-alternative-ohne-abo",
+   "keyword": "premiere pro alternative ohne abo",
+   "apps": [
+    "film-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "microsoft-365-kuendigen",
+   "keyword": "microsoft 365 kündigen",
+   "apps": [
+    "word-koja",
+    "grid-koja",
+    "deck-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "acrobat-pro-alternative-ohne-abo",
+   "keyword": "acrobat pro alternative ohne abo",
+   "apps": [
+    "pdf-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "docx-oeffnen-mac-ohne-word",
+   "keyword": "docx öffnen mac ohne word",
+   "apps": [
+    "word-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "after-effects-alternative-mac",
+   "keyword": "after effects alternative mac",
+   "apps": [
+    "effect-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "raw-fotos-bearbeiten-ohne-lightroom",
+   "keyword": "raw fotos bearbeiten ohne lightroom",
+   "apps": [
+    "light-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "xlsx-oeffnen-mac-ohne-excel",
+   "keyword": "xlsx öffnen mac ohne excel",
+   "apps": [
+    "grid-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "pdf-schwaerzen-mac",
+   "keyword": "pdf schwärzen mac",
+   "apps": [
+    "pdf-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "autocad-lt-alternative-mac",
+   "keyword": "autocad lt alternative mac",
+   "apps": [
+    "cad-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "creative-cloud-kuendigungsgebuehr",
+   "keyword": "creative cloud kündigungsgebühr",
+   "apps": [
+    "photo-koja",
+    "vector-koja",
+    "film-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "pptx-oeffnen-ohne-powerpoint",
+   "keyword": "pptx öffnen ohne powerpoint",
+   "apps": [
+    "deck-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "pdf-verkleinern-mac-ohne-upload",
+   "keyword": "pdf verkleinern mac ohne upload",
+   "apps": [
+    "pdf-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "audition-alternative-ohne-abo",
+   "keyword": "adobe audition alternative ohne abo",
+   "apps": [
+    "sound-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "figma-alternative-offline",
+   "keyword": "figma alternative offline",
+   "apps": [
+    "fig-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "video-schneiden-mac-ohne-abo",
+   "keyword": "video schneiden mac ohne abo",
+   "apps": [
+    "film-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "office-home-2024-oder-microsoft-365",
+   "keyword": "office home 2024 oder microsoft 365",
+   "apps": [
+    "word-koja",
+    "grid-koja",
+    "deck-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "pdf-bearbeiten-windows-ohne-acrobat",
+   "keyword": "pdf bearbeiten windows ohne acrobat",
+   "apps": [
+    "pdf-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "software-kaufen-statt-abo",
+   "keyword": "software kaufen statt abo",
+   "apps": [
+    "photo-koja",
+    "word-koja",
+    "pdf-koja",
+    "film-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "svg-erstellen-mac",
+   "keyword": "svg erstellen mac",
+   "apps": [
+    "vector-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "flyer-gestalten-mac-ohne-indesign",
+   "keyword": "flyer gestalten mac ohne indesign",
+   "apps": [
+    "design-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "podcast-schneiden-mac",
+   "keyword": "podcast schneiden mac",
+   "apps": [
+    "sound-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "bildbearbeitung-windows-ohne-abo",
+   "keyword": "bildbearbeitung windows ohne abo",
+   "apps": [
+    "photo-koja"
+   ],
+   "done": false,
+   "published": null
+  },
+  {
+   "slug": "photoshop-elements-alternative",
+   "keyword": "photoshop elements alternative",
+   "apps": [
+    "photo-koja"
+   ],
+   "done": false,
+   "published": null
+  }
+ ]
+}
