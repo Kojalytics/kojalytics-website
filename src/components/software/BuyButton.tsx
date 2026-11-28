@@ -28,6 +28,7 @@ const en: typeof de = {
 export default function BuyButton({
   plan = "lifetime",
   label,
+  caption,
   action = "kaufen",
   from,
   source,
@@ -35,6 +36,8 @@ export default function BuyButton({
 }: {
   plan?: Plan;
   label?: string;
+  /** A short line above the label (the header's "Einmalkauf · kein Abo"). */
+  caption?: string;
   /** The German verb after the price in the default label: "Für 39,50 € kaufen". English pages say "Buy for €39.50". */
   action?: string;
   /** "office": the ad landing page; Checkout then names Koja Office and its Back link returns there. */
@@ -80,7 +83,16 @@ export default function BuyButton({
   return (
     <button type="button" onClick={buy} disabled={busy} className={`btn-buy ${className}`}>
       <ShoppingBag size={15} strokeWidth={2.2} aria-hidden />
-      {busy ? t.busy : (label ?? t.label(reduced !== undefined ? money(reduced, cur, lang) : planText(plan, lang, cur).label, action))}
+      {caption && !busy ? (
+        <span className="flex flex-col items-start leading-tight">
+          <span className="text-[9.5px] font-normal normal-case tracking-[0.04em] opacity-85">{caption}</span>
+          <span>{label}</span>
+        </span>
+      ) : busy ? (
+        t.busy
+      ) : (
+        (label ?? t.label(reduced !== undefined ? money(reduced, cur, lang) : planText(plan, lang, cur).label, action))
+      )}
     </button>
   );
 }

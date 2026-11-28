@@ -116,7 +116,7 @@ const de = {
   ),
   afterText: "Kein Rätselraten: Du bekommst deinen Lizenzschlüssel sofort und richtest die Apps in wenigen Minuten ein. So läuft es ab.",
   s3Label: "Preise",
-  s3Meta: "Einmal oder monatlich · Rabattcode einlösen",
+  s3Meta: "Einmal oder monatlich · Mac und Windows",
   s3Title: (
     <>
       Einmal zahlen. Dauerhaft <span className="text-highlight">nutzen</span>.
@@ -265,7 +265,7 @@ const en: typeof de = {
   ),
   afterText: "No guesswork: you get your license key right away and set up the apps in a few minutes. Here's how it works.",
   s3Label: "Pricing",
-  s3Meta: "Once or monthly · redeem a discount code",
+  s3Meta: "Once or monthly · Mac and Windows",
   s3Title: (
     <>
       Pay once. Keep <span className="text-highlight">using it</span>.

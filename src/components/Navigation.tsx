@@ -33,6 +33,8 @@ const T = {
     until: "bis",
     see: " ansehen",
     buy: "Kaufen",
+    buyHead: "Einmalkauf · kein Abo",
+    buyLong: (price: string) => `Koja Office kaufen · ${price}`,
     menuPlain: (price: string) => `13 Apps für Mac und Windows, einmal ${price}, kein Abo.`,
     seeFull: "Koja Office ansehen",
     intro: "Einführungspreis bis",
@@ -58,6 +60,8 @@ const T = {
     until: "until",
     see: "",
     buy: "Buy",
+    buyHead: "One-time purchase · no subscription",
+    buyLong: (price: string) => `Buy Koja Office · ${price}`,
     menuPlain: (price: string) => `13 apps for Mac and Windows, ${price} once, no subscription.`,
     seeFull: "See Koja Office",
     intro: "Introductory price until",
@@ -163,6 +167,34 @@ function BuyOrOffer() {
       />
       {/* As wide as its label, at the right end of the slot (the slot is as wide as the offer button) */}
       <BuyButton source="nav" className={`hidden !min-h-full justify-self-end !border-0 !px-6 !text-[11.5px] lg:inline-flex ${hide}`} />
+    </div>
+  );
+}
+
+/**
+ * The right side of the header while no offer runs: straight to checkout for the one-time licence. Phones and tablets:
+ * "79 € · Kaufen"; from lg a small heading line ("Einmalkauf · kein Abo") above "Koja Office kaufen · 79 €".
+ * An active discount code shows its price.
+ */
+function HeaderBuy() {
+  const lang = useLang();
+  const cur = useCurrency();
+  const t = T[lang];
+  const reduced = useDiscount()?.prices.lifetime;
+  const price = reduced !== undefined ? money(reduced, cur, lang) : planText("lifetime", lang, cur).label;
+  return (
+    <div className="flex max-[359px]:flex-1">
+      <BuyButton
+        source="nav"
+        label={`${price} · ${t.buy}`}
+        className="!min-h-full !gap-2 !whitespace-nowrap !border-0 !px-3.5 !text-[11px] !tracking-[0.08em] max-[359px]:flex-1 lg:!hidden"
+      />
+      <BuyButton
+        source="nav"
+        label={t.buyLong(price)}
+        caption={t.buyHead}
+        className="hidden !min-h-full !gap-2.5 !whitespace-nowrap !border-0 !px-6 !text-[11.5px] lg:!inline-flex"
+      />
     </div>
   );
 }
@@ -294,6 +326,8 @@ export default function Navigation({ cta = "download" }: { cta?: "download" | "c
                   className="!min-h-full !gap-2 !border-0 !px-4 !text-[11px] lg:!hidden"
                 />
               </>
+            ) : !isOfferRunning() ? (
+              <HeaderBuy />
             ) : cta === "buy" ? (
               <BuyOrOffer />
             ) : (
