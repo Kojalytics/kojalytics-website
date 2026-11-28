@@ -75,7 +75,7 @@ const de = {
   ),
   allApps: "Alle Apps ansehen",
   priceLabel: "Preise",
-  priceMeta: "Einmal oder monatlich · Rabattcode einlösen",
+  priceMeta: "Einmal oder monatlich · Mac und Windows",
   priceTitle: (name: string): ReactNode => (
     <>
       {name} und 12 weitere Apps. Ein <span className="text-highlight">Preis</span>.
@@ -158,7 +158,7 @@ const en: typeof de = {
   ),
   allApps: "See all apps",
   priceLabel: "Pricing",
-  priceMeta: "Once or monthly · redeem a discount code",
+  priceMeta: "Once or monthly · Mac and Windows",
   priceTitle: (name: string): ReactNode => (
     <>
       {name} and 12 more apps. One <span className="text-highlight">price</span>.

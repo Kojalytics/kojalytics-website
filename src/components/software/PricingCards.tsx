@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Check, Tag, X } from "lucide-react";
+import { Check, ShoppingBag, Tag, X } from "lucide-react";
 import { TRIAL_DAYS, planText, type Plan } from "@/lib/pricing";
 import { applyDiscount, clearDiscount, useDiscount } from "@/lib/discount-store";
 import { PRICES, money, vatIncluded } from "@/lib/currency";
@@ -53,6 +53,9 @@ const de = {
   trialTitle: "Erst testen?",
   trial: ["Lade die Apps und nutze sie ", " Tage lang kostenlos, ohne Zahlungsdaten."],
   download: "Kostenlos laden",
+  choose: "Wähle deine Option",
+  haveCode: "Rabattcode einlösen",
+  included_title: "Das ist dabei",
 };
 
 const en: typeof de = {
@@ -91,6 +94,9 @@ const en: typeof de = {
   trialTitle: "Try first?",
   trial: ["Download the apps and use them free for ", " days, no payment details needed."],
   download: "Download free",
+  choose: "Choose your option",
+  haveCode: "Redeem a discount code",
+  included_title: "What you get",
 };
 
 // The one-time purchase is the plan we recommend; it comes first and gets the dark button.
@@ -106,6 +112,8 @@ export default function PricingCards({ source }: { source: string }) {
   const [code, setCode] = useState("");
   const [checking, setChecking] = useState(false);
   const [codeError, setCodeError] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Plan>("lifetime");
+  const [codeOpen, setCodeOpen] = useState(false);
   // Shared with the other buy buttons; an ad link (?code=X) fills it on its own.
   const discount = useDiscount();
 
@@ -163,115 +171,158 @@ export default function PricingCards({ source }: { source: string }) {
     }
   }
 
+  const plan = selected;
+  const p = planText(plan, lang, cur);
+  const recommended = plan === "lifetime";
+  const reduced = discount?.prices[plan];
+  const firstMonthOnly = plan === "monthly" && reduced !== undefined && discount?.duration !== "forever";
+
   return (
     <div className="grid gap-6">
-      {/* Discount code: checked with Stripe, the prices below change right away */}
-      <div className="border-2 border-dashed border-buy bg-[color-mix(in_srgb,var(--color-buy)_5%,#fff)] p-4 sm:p-5">
-        {discount ? (
-          <div className="flex flex-wrap items-center justify-between gap-3" role="status">
-            <p className="flex items-center gap-2.5 text-[15px]">
-              <Tag size={16} className="shrink-0 text-success" aria-hidden />
-              <span>
-                {t.applied[0]}<span className="font-mono font-semibold tracking-[0.06em]">{discount.code}</span>{t.applied[1]}{" "}
-                <span className="whitespace-nowrap font-semibold">{discountLabel(discount.label, lang)}</span>
-                {isOfferCode(discount.code) && <span className="block text-muted">{t.introUntil}{offerText(lang, cur).endLong}</span>}
-              </span>
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                clearDiscount();
-                setCode("");
-              }}
-              className="hud -my-2 inline-flex min-h-11 items-center gap-1.5 hover:text-foreground"
-            >
-              <X size={13} aria-hidden />{t.remove}
-            </button>
-          </div>
-        ) : (
-          <form onSubmit={redeem} className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <label htmlFor="discount-code" className="flex shrink-0 items-center gap-2 text-[15px] font-semibold text-foreground">
-              <Tag size={17} className="text-buy" aria-hidden />{t.redeemLabel}
-            </label>
-            <input
-              id="discount-code"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              autoComplete="off"
-              autoCapitalize="characters"
-              spellCheck={false}
-              maxLength={64}
-              placeholder={t.placeholder}
-              aria-invalid={codeError ? true : undefined}
-              aria-describedby={codeError ? "discount-error" : undefined}
-              className="min-h-12 w-full flex-1 border border-border-strong bg-white px-4 font-mono uppercase tracking-[0.06em] text-foreground placeholder:normal-case placeholder:tracking-normal placeholder:text-muted focus:border-foreground focus:outline-none"
-            />
-            <button type="submit" disabled={checking || !code.trim()} className="btn-primary sm:w-auto">
-              {checking ? t.checking : t.redeem}
-            </button>
-          </form>
-        )}
-        {codeError && !discount && (
-          <p id="discount-error" className="mt-3 text-sm font-medium text-red-700" role="alert">
-            {codeError}
+      {/* Apple-store style: both options side by side as selectable tiles (both prices visible on phones too), then the
+          details and one buy button for the chosen one. */}
+      <div className="grid border border-border lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="border-b border-border p-4 sm:p-8 lg:border-b-0 lg:border-r">
+          <p className="hud mb-4" id="plan-choice">
+            {t.choose}
           </p>
-        )}
-      </div>
-
-      <div className="cells border border-border md:grid-cols-2">
-        {ORDER.map((plan, i) => {
-          const p = planText(plan, lang, cur);
-          const recommended = plan === "lifetime";
-          const reduced = discount?.prices[plan];
-          const firstMonthOnly = plan === "monthly" && reduced !== undefined && discount?.duration !== "forever";
-          return (
-            <div key={plan} className={`relative flex flex-col p-6 sm:p-8 ${recommended ? "outline outline-2 -outline-offset-1 outline-buy" : ""}`}>
-              <div className="flex items-center justify-between gap-3">
-                <p className="hud">
-                  <span className="text-faint">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="mx-2 text-faint">/</span>
-                  <span className="text-foreground">{p.name}</span>
-                </p>
-                {recommended && <span className="tag !border-buy bg-buy !text-white">{t.recommended}</span>}
-              </div>
-              <p className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                {reduced !== undefined && (
-                  <span className="display whitespace-nowrap text-3xl text-faint line-through decoration-2">{p.label}</span>
-                )}
-                <span className="display whitespace-nowrap text-6xl">{reduced !== undefined ? money(reduced, cur, lang) : p.label}</span>
-                <span className="hud">{firstMonthOnly ? (discount?.duration === "repeating" && discount.months ? t.firstMonths(discount.months) : t.firstMonth) : p.per}</span>
-              </p>
-              <p className="mt-2 text-sm text-muted">
-                {firstMonthOnly ? t.thenMonthly(p.label, vat) : t.note(plan, breakEven(reduced ?? p.cents, PRICES[cur].monthly), vat)}
-              </p>
-              {/* German list prices of Adobe and Microsoft: only next to euro prices */}
-              {recommended && cur === "EUR" && (
-                <p className="mt-3 border-l-2 border-buy pl-3 text-sm leading-relaxed text-foreground">
-                  {t.compare}{" "}
-                  <span className="text-muted">{t.compareAsOf}</span>
-                </p>
-              )}
-              <ul className="mb-8 mt-6 grid gap-3">
-                {t.included[plan].map((item) => (
-                  <li key={item} className="flex gap-3 text-[15px]">
-                    <Check size={18} strokeWidth={2.6} className="mt-0.5 shrink-0 text-success" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto grid gap-3">
-                <button onClick={() => checkout(plan)} disabled={busy !== null} className={`w-full ${recommended ? "btn-buy" : "btn-secondary"}`}>
-                  {busy === plan ? t.busy : reduced !== undefined ? t.ctaReduced(plan, money(reduced, cur, lang)) : t.cta(plan, p.label)}
+          <div role="radiogroup" aria-labelledby="plan-choice" className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+            {ORDER.map((option, i) => {
+              const o = planText(option, lang, cur);
+              const on = option === selected;
+              const r = discount?.prices[option];
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  role="radio"
+                  aria-checked={on}
+                  onClick={() => setSelected(option)}
+                  className={`relative flex flex-col items-start p-3.5 text-left transition-colors sm:p-5 ${
+                    on ? "bg-[color-mix(in_srgb,var(--color-buy)_5%,#fff)] outline outline-2 -outline-offset-2 outline-buy" : "border border-border-strong hover:border-foreground"
+                  }`}
+                >
+                  <span
+                    aria-hidden
+                    className={`absolute right-3 top-3 grid h-5 w-5 place-items-center border sm:right-4 sm:top-4 ${on ? "border-buy bg-buy text-white" : "border-border-strong bg-white"}`}
+                  >
+                    {on && <Check size={13} strokeWidth={3} />}
+                  </span>
+                  <span className="hud pr-7">
+                    <span className="text-faint max-sm:hidden">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="mx-1.5 text-faint max-sm:hidden">/</span>
+                    <span className="text-foreground">{o.name}</span>
+                  </span>
+                  <span className="mt-4 flex flex-wrap items-baseline gap-x-2">
+                    {r !== undefined && <span className="display whitespace-nowrap text-lg text-faint line-through decoration-2">{o.label}</span>}
+                    <span className="display whitespace-nowrap text-[clamp(1.65rem,7vw,2.6rem)] leading-none">{r !== undefined ? money(r, cur, lang) : o.label}</span>
+                  </span>
+                  <span className="hud mt-2">{o.per}</span>
+                  {option === "lifetime" && (
+                    <span className="tag mt-3 !border-buy bg-buy !text-white">{t.recommended}</span>
+                  )}
                 </button>
-                {error?.plan === plan && busy === null && (
-                  <p className="text-sm font-medium text-red-700" role="alert">
-                    {error.message}
-                  </p>
-                )}
+              );
+            })}
+          </div>
+        </div>
+
+        {/* The chosen option */}
+        <div className="flex flex-col p-5 sm:p-8">
+          <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            {reduced !== undefined && <span className="display whitespace-nowrap text-2xl text-faint line-through decoration-2">{p.label}</span>}
+            <span className="display whitespace-nowrap text-5xl sm:text-6xl">{reduced !== undefined ? money(reduced, cur, lang) : p.label}</span>
+            <span className="hud">{firstMonthOnly ? (discount?.duration === "repeating" && discount.months ? t.firstMonths(discount.months) : t.firstMonth) : p.per}</span>
+          </p>
+          <p className="mt-2 text-sm text-muted">
+            {firstMonthOnly ? t.thenMonthly(p.label, vat) : t.note(plan, breakEven(reduced ?? p.cents, PRICES[cur].monthly), vat)}
+          </p>
+          {/* German list prices of Adobe and Microsoft: only next to euro prices */}
+          {recommended && cur === "EUR" && (
+            <p className="mt-3 border-l-2 border-buy pl-3 text-sm leading-relaxed text-foreground">
+              {t.compare} <span className="text-muted">{t.compareAsOf}</span>
+            </p>
+          )}
+          <p className="hud mt-6">{t.included_title}</p>
+          <ul className="mb-8 mt-3 grid gap-3">
+            {t.included[plan].map((item) => (
+              <li key={item} className="flex gap-3 text-[15px]">
+                <Check size={18} strokeWidth={2.6} className="mt-0.5 shrink-0 text-success" aria-hidden />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-auto grid gap-3">
+            <button onClick={() => checkout(plan)} disabled={busy !== null} className={`w-full ${recommended ? "btn-buy" : "btn-primary"}`}>
+              <ShoppingBag size={15} strokeWidth={2.2} aria-hidden />
+              {busy === plan ? t.busy : reduced !== undefined ? t.ctaReduced(plan, money(reduced, cur, lang)) : t.cta(plan, p.label)}
+            </button>
+            {error?.plan === plan && busy === null && (
+              <p className="text-sm font-medium text-red-700" role="alert">
+                {error.message}
+              </p>
+            )}
+
+            {/* Discount code: small, for people who have one; an applied code shows its status here */}
+            {discount ? (
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-border pt-3 text-sm" role="status">
+                <p className="flex items-center gap-2">
+                  <Tag size={15} className="shrink-0 text-success" aria-hidden />
+                  <span>
+                    {t.applied[0]}
+                    <span className="font-mono font-semibold tracking-[0.06em]">{discount.code}</span>
+                    {t.applied[1]} <span className="whitespace-nowrap font-semibold">{discountLabel(discount.label, lang)}</span>
+                    {isOfferCode(discount.code) && <span className="block text-muted">{t.introUntil}{offerText(lang, cur).endLong}</span>}
+                  </span>
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    clearDiscount();
+                    setCode("");
+                  }}
+                  className="hud inline-flex min-h-11 items-center gap-1.5 hover:text-foreground"
+                >
+                  <X size={13} aria-hidden />
+                  {t.remove}
+                </button>
               </div>
-            </div>
-          );
-        })}
+            ) : !codeOpen ? (
+              <button type="button" onClick={() => setCodeOpen(true)} className="hud inline-flex min-h-11 items-center gap-1.5 justify-self-start hover:text-foreground">
+                <Tag size={13} aria-hidden />
+                {t.haveCode}
+              </button>
+            ) : (
+              <form onSubmit={redeem} className="flex gap-2 border-t border-border pt-3">
+                <label htmlFor="discount-code" className="sr-only">
+                  {t.redeemLabel}
+                </label>
+                <input
+                  id="discount-code"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  autoFocus
+                  autoComplete="off"
+                  autoCapitalize="characters"
+                  spellCheck={false}
+                  maxLength={64}
+                  placeholder={t.placeholder}
+                  aria-invalid={codeError ? true : undefined}
+                  aria-describedby={codeError ? "discount-error" : undefined}
+                  className="min-h-11 w-full min-w-0 flex-1 border border-border-strong bg-white px-3 font-mono text-sm uppercase tracking-[0.06em] text-foreground placeholder:normal-case placeholder:tracking-normal placeholder:text-muted focus:border-foreground focus:outline-none"
+                />
+                <button type="submit" disabled={checking || !code.trim()} className="btn-secondary !min-h-11 !px-4">
+                  {checking ? t.checking : t.redeem}
+                </button>
+              </form>
+            )}
+            {codeError && !discount && (
+              <p id="discount-error" className="text-sm font-medium text-red-700" role="alert">
+                {codeError}
+              </p>
+            )}
+          </div>
+        </div>
       </div>
 
       <p className="-mt-2 text-xs leading-relaxed text-muted">
