@@ -72,7 +72,7 @@ export default function FaqView({ lang }: { lang: Lang }) {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <BuyButton source="faq" />
-              <DownloadButton source="faq" variant="secondary" label={t.trial} />
+              <DownloadButton source="faq" variant="secondary" label={t.trial} mobile="send" />
               {lang === "de" && (
                 <Link href="/ratgeber" className="link-hud sm:ml-4">
                   {t.guides} <ArrowUpRight size={14} aria-hidden />
