@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...APPS.flatMap((a) => both(`/software/${a.slug}`, 0.9, 'weekly')),
     page('/ratgeber', 0.8, 'weekly'),
     ...ARTICLES.map((a) => page(`/ratgeber/${a.slug}`, 0.8, 'monthly', new Date(a.updated))),
+    ...both('/warum-koja', 0.6),
     ...both('/kontakt', 0.5),
     ...both('/support', 0.4),
     ...both('/support/windows-installation', 0.4),

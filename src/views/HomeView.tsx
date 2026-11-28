@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Check, CloudOff, FileText, Lock, MousePointerClick, ShieldCheck, Zap } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OfferDiscount from "@/components/software/OfferDiscount";
@@ -27,37 +27,11 @@ import { PLANS, TRIAL_DAYS, planText } from "@/lib/pricing";
 import { softwareFaq } from "@/lib/software-faq";
 import { SITE_URL, jsonLd } from "@/lib/site";
 import { href, type Lang } from "@/lib/i18n";
-import { currencyFor, localizePrices, money } from "@/lib/currency";
+import { currencyFor, money } from "@/lib/currency";
 import compareDe from "@/content/software-compare.json";
 import compareEn from "@/content/software-compare.en.json";
 
 const de = {
-  problems: [
-    {
-      pain: "Monatliche Abo-Kosten, die nie enden, und eine Gebühr, wenn du vorzeitig gehst.",
-      fix: "19,99 € im Monat und jederzeit online kündbar. Oder einmal 79 € zahlen und behalten.",
-    },
-    {
-      pain: "Erst Konto, Cloud und Anmeldung, bevor du eine Datei öffnen darfst.",
-      fix: "Echte Desktop-Apps, die offline starten. Ohne Konto, ohne Upload.",
-    },
-    {
-      pain: "Ein komplett neues Programm lernen, wenn die Deadline drückt.",
-      fix: "Ebenen, Zeitleisten, Menübänder und Kurzbefehle da, wo du sie erwartest.",
-    },
-  ],
-  benefits: [
-    { icon: Zap, title: "Echte Desktop-Apps", text: "Native Programme, die schnell starten und ohne Internet weiterlaufen." },
-    {
-      icon: FileText,
-      title: "Gängige Dateiformate",
-      text: ".docx, .xlsx, .pptx, .psd und PDF öffnest du direkt, ohne Umwandeln. Layout und Umbrüche können abweichen, teste deshalb mit Kopien deiner Dateien.",
-    },
-    { icon: CloudOff, title: "Kein Konto, keine Cloud", text: "Nichts anmelden, nichts hochladen. Deine Arbeit bleibt auf deinem Computer." },
-    { icon: MousePointerClick, title: "Online kündigen, jederzeit", text: "Name und E-Mail eingeben, „Jetzt kündigen“ klicken. Ohne Gebühr, ohne Anruf, ohne Kündigungsschreiben." },
-    { icon: Lock, title: "Geprüft und signiert", text: "Kojalytics entwickelt, prüft und signiert die Koja-Apps und liefert sie mit Launcher, Aktivierung und automatischen Updates aus." },
-    { icon: ShieldCheck, title: "Ein echtes Unternehmen", text: "Kojalytics aus Hamburg entwickelt Koja Office. Mit Impressum und Support per E-Mail, von Menschen beantwortet." },
-  ],
   ldDescription:
     "13 Apps für Mac und Windows: Bildbearbeitung, RAW-Fotos, Vektorgrafik, Layout, Interface-Design, Videoschnitt, Motion Graphics, Audio, Textverarbeitung, Tabellen, Präsentationen, PDF und CAD.",
   heroA: "13 Apps für Mac und Windows.",
@@ -139,30 +113,6 @@ const de = {
   tryText: `Alle 13 Apps ${TRIAL_DAYS} Tage kostenlos, ohne Zahlungsdaten.`,
   download: `Kostenlos laden · ${TRIAL_DAYS} Tage testen`,
   swipe: "Wischen für alle 13 Apps →",
-  s5Label: "Warum Leute wechseln",
-  s5Meta: "Abo-Frust, gelöst",
-  s5Title: (
-    <>
-      Du willst etwas erschaffen. <span className="text-highlight">Keine</span> Abos verwalten.
-    </>
-  ),
-  s6Label: "Was du bekommst",
-  s6Meta: "Für jede App gleich",
-  s6Title: (
-    <>
-      Gebaut für deinen <span className="text-highlight">Computer</span>.
-    </>
-  ),
-  s6Text: "Nicht für ein Abo-Dashboard. Jede Koja-App folgt denselben Regeln.",
-  s7Label: "Wer dahinter steht",
-  s7Title: (
-    <>
-      Ein kleines Studio. <span className="text-highlight">Echter</span> Support.
-    </>
-  ),
-  s7Text: `Hinter Koja Office steht Kojalytics aus Hamburg. Wir entwickeln, prüfen und signieren die Koja-Apps und liefern sie mit Launcher, Aktivierung und automatischen Updates für Mac und Windows aus. Deine E-Mails beantworten wir selbst. Die Apps werden laufend weiterentwickelt, Updates und neue Funktionen bekommst du automatisch und kostenlos. Teste alles ${TRIAL_DAYS} Tage kostenlos, bevor du zahlst.`,
-  trust: ["Sichere Zahlung über Stripe", "Unternehmen mit Sitz in Hamburg"],
-  supportAt: "Support unter",
   s9Label: "Fragen",
   s9Meta: "Bevor du lädst",
   s9Title: (
@@ -181,32 +131,6 @@ const de = {
 };
 
 const en: typeof de = {
-  problems: [
-    {
-      pain: "Monthly subscription fees that never end, and a fee if you leave early.",
-      fix: "€19.99 a month, cancel online any time. Or pay €79 once and keep using it.",
-    },
-    {
-      pain: "An account, the cloud and a sign-in before you're even allowed to open a file.",
-      fix: "Real desktop apps that start offline. No account, no upload.",
-    },
-    {
-      pain: "Learning a whole new program while a deadline is looming.",
-      fix: "Layers, timelines, ribbons and shortcuts where you expect them.",
-    },
-  ],
-  benefits: [
-    { icon: Zap, title: "Real desktop apps", text: "Native programs that start fast and keep running without the internet." },
-    {
-      icon: FileText,
-      title: "Common file formats",
-      text: "Open .docx, .xlsx, .pptx, .psd and PDF directly, without converting. Layout and line breaks can differ, so test with copies of your files.",
-    },
-    { icon: CloudOff, title: "No account, no cloud", text: "Nothing to sign up for, nothing to upload. Your work stays on your computer." },
-    { icon: MousePointerClick, title: "Cancel online, any time", text: "Enter your name and email, click “Cancel now”. No fee, no phone call, no letter." },
-    { icon: Lock, title: "Tested and signed", text: "Kojalytics develops, tests and signs the Koja apps and delivers them with a launcher, activation and automatic updates." },
-    { icon: ShieldCheck, title: "A real company", text: "Koja Office is made by Kojalytics, based in Hamburg, Germany. With a legal imprint and email support answered by people." },
-  ],
   ldDescription:
     "13 apps for Mac and Windows: photo editing, RAW photos, vector graphics, layout, interface design, video editing, motion graphics, audio, word processing, spreadsheets, presentations, PDF and CAD.",
   heroA: "13 apps for Mac and Windows.",
@@ -288,30 +212,6 @@ const en: typeof de = {
   tryText: `All 13 apps free for ${TRIAL_DAYS} days, no payment details.`,
   download: `Free download · ${TRIAL_DAYS}-day trial`,
   swipe: "Swipe for all 13 apps →",
-  s5Label: "Why people switch",
-  s5Meta: "Subscription fatigue, solved",
-  s5Title: (
-    <>
-      You want to create things. <span className="text-highlight">Not</span> manage subscriptions.
-    </>
-  ),
-  s6Label: "What you get",
-  s6Meta: "The same for every app",
-  s6Title: (
-    <>
-      Built for your <span className="text-highlight">computer</span>.
-    </>
-  ),
-  s6Text: "Not for a subscription dashboard. Every Koja app follows the same rules.",
-  s7Label: "Who's behind it",
-  s7Title: (
-    <>
-      A small studio. <span className="text-highlight">Real</span> support.
-    </>
-  ),
-  s7Text: `Koja Office is made by Kojalytics, based in Hamburg, Germany. We develop, test and sign the Koja apps and deliver them for Mac and Windows with a launcher, activation and automatic updates. We answer your emails ourselves. The apps are under active development, and you get updates and new features automatically and for free. Try everything free for ${TRIAL_DAYS} days before you pay.`,
-  trust: ["Secure payment via Stripe", "Company based in Hamburg, Germany"],
-  supportAt: "Support at",
   s9Label: "Questions",
   s9Meta: "Before you download",
   s9Title: (
@@ -390,14 +290,13 @@ export default async function HomeView({ lang }: { lang: Lang }) {
   // Prices in the currency of the page's language: euros in German, US dollars in English.
   const cur = currencyFor(lang);
   const APPS = appsFor(lang, cur);
-  const getApp = (slug: string) => APPS.find((a) => a.slug === slug);
   const monthly = planText("monthly", lang, cur).label;
   const once = planText("lifetime", lang, cur).label;
   const compare = lang === "de" ? compareDe : compareEn;
   const faq = softwareFaq(lang, cur);
   // The price comparison quotes the competitors' list prices in the page's currency (src/content/software-compare*.json).
   // Section numbers run on without gaps.
-  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "why", "what", "who", "reviews", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
+  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "reviews", ...(lang === "de" && ARTICLES.length > 0 ? ["guides"] : []), "faq"];
   const num = (id: string) => two(sections.indexOf(id) + 1);
 
   return (
@@ -629,94 +528,6 @@ export default async function HomeView({ lang }: { lang: Lang }) {
             <div className={`flex flex-col gap-4 py-8 sm:hidden ${pad}`}>
               <p className="hud">{t.swipe}</p>
               <DownloadButton source="software-mid" label={t.download} />
-            </div>
-          </section>
-
-          {/* 05 Why people switch */}
-          <section className="rail crosshairs">
-            <SectionBar index={num("why")} label={t.s5Label} meta={t.s5Meta} />
-            <div className={`py-14 md:py-20 ${pad}`}>
-              <h2 className="display max-w-4xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
-                {t.s5Title}
-              </h2>
-            </div>
-            <div className="cells border-y border-border md:grid-cols-3">
-              {t.problems.map((p, i) => (
-                <div key={p.pain} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i }}>
-                  <p className="hud text-faint">{two(i + 1)}</p>
-                  <p className="mt-5 text-muted line-through decoration-muted/40">{p.pain}</p>
-                  <p className="mt-4 text-lg font-semibold leading-snug">{localizePrices(p.fix, lang, cur)}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 06 Principles */}
-          <section className="rail crosshairs">
-            <SectionBar index={num("what")} label={t.s6Label} meta={t.s6Meta} />
-            <div className={`py-14 md:py-20 ${pad}`}>
-              <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
-                {t.s6Title}
-              </h2>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted" data-reveal>
-                {t.s6Text}
-              </p>
-            </div>
-            <div className="cells border-y border-border sm:grid-cols-2 lg:grid-cols-3">
-              {t.benefits.map(({ icon: Icon, title, text }, i) => (
-                <div key={title} className="p-6 md:p-8" data-reveal style={{ ["--i" as string]: i % 3 }}>
-                  <div className="flex items-start justify-between">
-                    <span className="icon-box">
-                      <Icon size={18} aria-hidden />
-                    </span>
-                    <span className="hud text-faint">{two(i + 1)}</span>
-                  </div>
-                  <h3 className="display mt-6 text-[1.35rem]">{title}</h3>
-                  <p className="mt-3 leading-relaxed text-muted">{text}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 07 Trust */}
-          <section className="rail crosshairs">
-            <SectionBar index={num("who")} label={t.s7Label} meta="Kojalytics · Hamburg" />
-            <div className={`grid gap-12 py-14 md:py-20 lg:grid-cols-2 lg:items-center ${pad}`}>
-              <div data-reveal>
-                <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)]">
-                  {t.s7Title}
-                </h2>
-                <p className="mt-6 text-lg leading-relaxed text-muted">
-                  {t.s7Text}
-                </p>
-                <ul className="mt-6 grid gap-2.5">
-                  {t.trust.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <Check size={18} strokeWidth={2.4} className="mt-1 shrink-0 text-success" aria-hidden />
-                      {item}
-                    </li>
-                  ))}
-                  <li className="flex gap-3">
-                    <Check size={18} strokeWidth={2.4} className="mt-1 shrink-0 text-success" aria-hidden />
-                    <span>
-                      {t.supportAt}{" "}
-                      <a href="mailto:support@kojalytics.com" className="underline underline-offset-4">
-                        support@kojalytics.com
-                      </a>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div className="cells grid-cols-2 border border-border" data-reveal>
-                {["word-koja", "grid-koja", "photo-koja", "pdf-koja"].map((slug) => {
-                  const app = getApp(slug);
-                  return app ? (
-                    <div key={slug} className="relative aspect-[16/10]">
-                      <Image src={app.card.src} alt={app.card.alt} fill sizes="(max-width: 1024px) 50vw, 300px" className="object-cover" />
-                    </div>
-                  ) : null;
-                })}
-              </div>
             </div>
           </section>
 
