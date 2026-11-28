@@ -15,6 +15,7 @@ const EN_PATHS: Record<string, string> = {
   "/widerrufen": "/en/withdrawal",
   "/kuendigen": "/en/cancel",
   "/warum-koja": "/en/why-koja",
+  "/fragen": "/en/faq",
   "/software/danke": "/en/thanks",
 };
 const DE_PATHS: Record<string, string> = Object.fromEntries(Object.entries(EN_PATHS).map(([de, en]) => [en, de]));

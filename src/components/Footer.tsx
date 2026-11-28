@@ -14,7 +14,7 @@ const T = {
       { href: "/web", label: "Im Browser testen" },
       { href: "/#preise", label: "Preise" },
       { href: "/warum-koja", label: "Warum Koja Office" },
-      { href: "/#fragen", label: "Häufige Fragen" },
+      { href: "/fragen", label: "Häufige Fragen" },
       { href: "/kontakt", label: "Kontakt" },
     ],
     help: [
@@ -38,7 +38,7 @@ const T = {
       { href: "/web", label: "Try in your browser" },
       { href: "/#preise", label: "Pricing" },
       { href: "/warum-koja", label: "Why Koja Office" },
-      { href: "/#fragen", label: "FAQ" },
+      { href: "/fragen", label: "FAQ" },
       { href: "/kontakt", label: "Contact" },
     ],
     help: [

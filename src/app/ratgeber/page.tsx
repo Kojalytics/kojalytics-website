@@ -99,6 +99,20 @@ export default function RatgeberIndex() {
             {ARTICLES.length % 2 === 1 && <div className="hidden md:block" aria-hidden />}
           </div>
         </section>
+
+        {/* 03 FAQ: its own page */}
+        <section className="rail crosshairs">
+          <SectionBar index="03" label="Häufige Fragen" meta="Preis · Lizenz · Daten" />
+          <Link href="/fragen" className="group flex flex-col justify-between gap-4 px-5 py-10 md:flex-row md:items-center md:px-10 md:py-14" data-reveal>
+            <div>
+              <h2 className="display text-[clamp(1.6rem,3vw,2.4rem)] group-hover:text-accent">Fragen vor dem Kauf</h2>
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted">Preis, Lizenz für 3 Geräte, Konto, Dateiformate, Kündigung und Sprache der Apps.</p>
+            </div>
+            <span className="link-hud">
+              Alle Antworten <ArrowUpRight size={14} aria-hidden />
+            </span>
+          </Link>
+        </section>
       </main>
       <Footer />
     </>

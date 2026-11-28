@@ -55,9 +55,15 @@ export default function NoMoreBills({ lang, zero }: { lang: Lang; zero: string }
             <dd>{zero}</dd>
           </div>
         </dl>
-        <span className="nmb-stamp" aria-hidden>
-          {t.stamp}
-        </span>
+        <div className="nmb-foot">
+          <span className="nmb-stamp" aria-hidden>
+            {t.stamp}
+          </span>
+          {/* Phones and tablets: the box sits on the receipt instead of alone on its own stage below it */}
+          <div className="nmb-paper-box" aria-hidden>
+            <OfficeBox width="128px" tone="light" />
+          </div>
+        </div>
       </div>
       <div className="nmb-stage" data-reveal style={{ ["--i" as string]: 1 }}>
         <OfficeBox width="clamp(170px, 26vw, 270px)" tone="light" />
