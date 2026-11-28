@@ -338,7 +338,7 @@ export default function PricingCards({ source }: { source: string }) {
           <span className="hud mr-2 text-foreground">{t.trialTitle}</span>
           <span className="text-muted">{t.trial[0]}{TRIAL_DAYS}{t.trial[1]}</span>
         </p>
-        <DownloadButton source={source} label={t.download} />
+        <DownloadButton source={source} label={t.download} mobile="send" />
       </div>
     </div>
   );

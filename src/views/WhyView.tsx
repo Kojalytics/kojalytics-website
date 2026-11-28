@@ -337,7 +337,7 @@ export default function WhyView({ lang }: { lang: Lang }) {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row" data-reveal>
               <BuyButton source="why-cta" />
-              <DownloadButton source="why-cta" variant="secondary" label={t.trial} />
+              <DownloadButton source="why-cta" variant="secondary" label={t.trial} mobile="send" />
             </div>
             <Link href={href(lang, "/#apps")} className="link-hud mt-8">
               {t.apps} <ArrowUpRight size={14} aria-hidden />

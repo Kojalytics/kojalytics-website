@@ -429,8 +429,9 @@ export default async function HomeView({ lang }: { lang: Lang }) {
           {/* 04 Lineup */}
           <section id="apps" className="rail crosshairs scroll-mt-12">
             <SectionBar index={num("apps")} label={t.s4Label} meta={t.s4Meta} />
-            {/* Phones: a swipe row that only moves sideways (overflow-y hidden: the cards' reveal offset must not make it scroll up and down) */}
-            <div className="cells -mx-0 border-b border-border max-sm:flex max-sm:snap-x max-sm:snap-mandatory max-sm:overflow-x-auto max-sm:overflow-y-hidden max-sm:overscroll-x-contain sm:grid-cols-2 lg:grid-cols-4">
+            {/* Phones: a swipe row that only moves sideways (overflow-y hidden: the cards' reveal offset must not make it scroll up and down).
+                No scroll snapping: it pulled short swipes back to the first card; the next card peeks in instead. */}
+            <div className="cells -mx-0 border-b border-border max-sm:flex max-sm:overflow-x-auto max-sm:overflow-y-hidden max-sm:overscroll-x-contain sm:grid-cols-2 lg:grid-cols-4">
               {APPS.map((app, i) => {
                 const ink = appInk(app.color);
                 return (
@@ -440,7 +441,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
                     prefetch={false}
                     data-reveal
                     style={{ ["--i" as string]: i % 4 }}
-                    className="group flex shrink-0 flex-col max-sm:w-[84%] max-sm:snap-start"
+                    className="group flex shrink-0 flex-col max-sm:w-[78%]"
                   >
                     <div className="flex items-center justify-between gap-3 px-5 py-3">
                       <span className="grid h-6 min-w-8 place-items-center px-1.5 font-mono text-[11px] font-semibold text-white" style={{ background: ink }}>
