@@ -19,6 +19,7 @@ import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
 import Reviews from "@/components/reviews/Reviews";
+import { configured, publishedSummary, type ReviewSummary } from "@/lib/reviews";
 import SectionBar from "@/components/instrument/SectionBar";
 import SolarSystem from "@/components/instrument/SolarSystem";
 import { appInk, appsFor } from "@/lib/apps";
@@ -331,7 +332,7 @@ const en: typeof de = {
 
 const T = { de, en };
 
-const productJsonLd = (lang: Lang) => ({
+const productJsonLd = (lang: Lang, reviews: ReviewSummary | null) => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Koja Office",
@@ -362,6 +363,21 @@ const productJsonLd = (lang: Lang) => ({
       availability: "https://schema.org/InStock",
     },
   ],
+  // The customer reviews shown on the page (src/components/reviews), so search engines can show the stars.
+  ...(reviews && reviews.count > 0
+    ? {
+        aggregateRating: { "@type": "AggregateRating", ratingValue: reviews.average.toFixed(1), reviewCount: reviews.count, ratingCount: reviews.count, bestRating: "5", worstRating: "1" },
+        review: reviews.reviews.slice(0, 20).map((r) => ({
+          "@type": "Review",
+          author: { "@type": "Person", name: r.name },
+          datePublished: r.reviewed_on,
+          inLanguage: r.lang,
+          ...(r.title && { name: r.title }),
+          reviewBody: r.body,
+          reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5", worstRating: "1" },
+        })),
+      }
+    : {}),
 });
 
 const pad = "px-5 md:px-10";
@@ -370,6 +386,8 @@ const two = (n: number) => String(n).padStart(2, "0");
 /** The Koja Office homepage (/ and /en). */
 export default async function HomeView({ lang }: { lang: Lang }) {
   const t = T[lang];
+  // The published reviews, in the HTML and the structured data (the page is rebuilt when the admin changes them).
+  const reviews = configured() ? await publishedSummary().catch(() => null) : null;
   // Prices in the currency of the page's language: euros in German, US dollars in English.
   const cur = currencyFor(lang);
   const APPS = appsFor(lang, cur);
@@ -386,7 +404,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
   return (
     <>
       <OfferDiscount running={isOfferRunning()} currency={cur}>
-        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(productJsonLd(lang))} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(productJsonLd(lang, reviews))} />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(faq))} />
         <TrackView name={lang === "de" ? "software" : "software-en"} />
         <Navigation cta="buy" />
@@ -719,7 +737,7 @@ export default async function HomeView({ lang }: { lang: Lang }) {
                 )}
               </h2>
             </div>
-            <Reviews lang={lang} />
+            <Reviews lang={lang} initial={reviews} />
           </section>
 
           {/* 08 Guides */}
