@@ -635,7 +635,7 @@ html:not([data-kj-consent]):has(.kj-consent),
 html:has(.kj-consent:not(.kj-consent-pending)) {
   overflow: hidden;
 }
-/* The phone buy bar (StickyBuyBar.tsx) waits until the cookie banner is answered. */
+/* The phone buy bar of the partner page (DigistoreStickyBuyBar.tsx) waits until the cookie banner is answered. */
 html:has(#kj-consent-title) .kj-buybar {
   display: none;
 }

@@ -15,7 +15,6 @@ import PricingCards from "@/components/software/PricingCards";
 import AfterPurchase from "@/components/software/AfterPurchase";
 import RunNumbers from "@/components/software/RunNumbers";
 import NoMoreBills from "@/components/software/NoMoreBills";
-import StickyBuyBar from "@/components/software/StickyBuyBar";
 import TrackView from "@/components/software/TrackView";
 import Faq, { faqJsonLd } from "@/components/software/Faq";
 import Reviews from "@/components/reviews/Reviews";
@@ -803,7 +802,6 @@ export default async function HomeView({ lang }: { lang: Lang }) {
           </section>
         </main>
         <Footer offer={false} lang={lang} />
-        <StickyBuyBar source="software-buybar" />
       </OfferDiscount>
     </>
   );
