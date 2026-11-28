@@ -17,6 +17,9 @@ import RunNumbers from "@/components/software/RunNumbers";
 import NoMoreBills from "@/components/software/NoMoreBills";
 import TrackView from "@/components/software/TrackView";
 import Reviews from "@/components/reviews/Reviews";
+import VideoTestimonials from "@/components/software/VideoTestimonials";
+import { posterSrc, videoSrc, type TestimonialVideo } from "@/lib/testimonial-videos";
+import voices from "@/content/testimonial-videos.json";
 import { configured, publishedSummary, type ReviewSummary } from "@/lib/reviews";
 import SectionBar from "@/components/instrument/SectionBar";
 import RowArrows from "@/components/instrument/RowArrows";
@@ -250,6 +253,36 @@ const productJsonLd = (lang: Lang, reviews: ReviewSummary | null) => ({
 });
 
 const pad = "px-5 md:px-10";
+
+// The customer-voices clips as an ItemList of VideoObjects. Honest about what they are: AI re-enactments of real
+// customer quotes. Deliberately no Review markup (the reviews section carries the real, published reviews).
+const VOICES = voices.videos as TestimonialVideo[];
+const voicesJsonLd = (lang: Lang) => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: lang === "de" ? "Kundenstimmen zu Koja Office" : "Customer voices about Koja Office",
+  itemListElement: VOICES.map((v, i) => {
+    const quote = v.cues.map((c) => c.en).join(" ");
+    return {
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "VideoObject",
+        name: lang === "de" ? `Kundenstimme zu Koja Office: ${v.role.de}` : `Customer voice on Koja Office: ${v.role.en}`,
+        description:
+          lang === "de"
+            ? `Mit KI nachgestellte Kundenstimme auf Basis einer echten Kundenaussage: „${v.cues.map((c) => c.de).join(" ")}“`
+            : `Customer voice re-enacted with AI, based on a real customer quote: “${quote}”`,
+        thumbnailUrl: `${SITE_URL}${posterSrc(v)}`,
+        contentUrl: `${SITE_URL}${videoSrc(v)}`,
+        uploadDate: voices.uploadDate,
+        duration: `PT${voices.duration}S`,
+        inLanguage: "en",
+        transcript: quote,
+      },
+    };
+  }),
+});
 const two = (n: number) => String(n).padStart(2, "0");
 
 /** The Koja Office homepage (/ and /en). */
@@ -265,13 +298,14 @@ export default async function HomeView({ lang }: { lang: Lang }) {
   const compare = lang === "de" ? compareDe : compareEn;
   // The price comparison quotes the competitors' list prices in the page's currency (src/content/software-compare*.json).
   // Section numbers run on without gaps.
-  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "reviews"];
+  const sections = ["overview", "compare", "pricing", "bills", "after", "apps", "voices", "reviews"];
   const num = (id: string) => two(sections.indexOf(id) + 1);
 
   return (
     <>
       <OfferDiscount running={isOfferRunning()} currency={cur}>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(productJsonLd(lang, reviews))} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(voicesJsonLd(lang))} />
         <TrackView name={lang === "de" ? "software" : "software-en"} />
         <Navigation cta="buy" />
 
@@ -497,6 +531,42 @@ export default async function HomeView({ lang }: { lang: Lang }) {
             <div className={`flex flex-col gap-4 py-8 sm:hidden ${pad}`}>
               <RowArrows target="apps-row" count={APPS.length} prev={t.prevApp} next={t.nextApp} />
               <DownloadButton source="software-mid" label={t.download} />
+            </div>
+          </section>
+
+          {/* Customer voices: AI re-enactments of real customer quotes, a sideways row of silent vertical clips (owner request, Nov 2026) */}
+          <section id="stimmen" className="rail crosshairs scroll-mt-12">
+            <SectionBar
+              index={num("voices")}
+              label={lang === "de" ? "Kundenstimmen" : "Customer voices"}
+              meta={lang === "de" ? "Nachgestellt mit KI · echte Aussagen" : "Re-enacted with AI · real quotes"}
+            />
+            <div className={`py-14 md:py-20 ${pad}`}>
+              <h2 className="display max-w-3xl text-[clamp(2rem,4.2vw,3.6rem)]" data-reveal>
+                {lang === "de" ? (
+                  <>
+                    Warum Leute zu Koja <span className="text-highlight">wechseln</span>.
+                  </>
+                ) : (
+                  <>
+                    Why people <span className="text-highlight">switch</span> to Koja.
+                  </>
+                )}
+              </h2>
+              <p className="mt-5 max-w-2xl leading-relaxed text-muted" data-reveal>
+                {lang === "de"
+                  ? "Echte Aussagen unserer Kunden, gekürzt und mit KI nachgestellt: Die Personen im Video sind nicht die Kunden selbst. Gesprochen wird Englisch, die Untertitel sind auf Deutsch."
+                  : "Real quotes from our customers, shortened and re-enacted with AI: the people in the clips are not the customers themselves."}
+              </p>
+            </div>
+            <VideoTestimonials videos={VOICES} lang={lang} rowId="voices-row" />
+            <div className={`py-8 ${pad}`}>
+              <RowArrows
+                target="voices-row"
+                count={VOICES.length}
+                prev={lang === "de" ? "Vorherige Kundenstimme" : "Previous customer voice"}
+                next={lang === "de" ? "Nächste Kundenstimme" : "Next customer voice"}
+              />
             </div>
           </section>
 

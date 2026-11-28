@@ -1,0 +1,72 @@
+{
+  "_note": "Kundenstimmen-Slider (src/components/software/VideoTestimonials.tsx). Die Personen sind mit KI nachgestellt (Higgsfield, Seedance 2.5); die Aussagen stammen aus echtem Kundenfeedback und wurden nur gekürzt. Gesprochen wird Englisch; cues = Untertitel in Sekunden. Dateien: public/stimmen/<slug>-v<version>.mp4/.webp (540x960, H.264 CRF 27, faststart). Neue Datei = neue Version im Namen (die Dateien werden ein Jahr gecacht).",
+  "uploadDate": "2026-11-28",
+  "duration": 7,
+  "videos": [
+    {
+      "slug": "thomas",
+      "version": 1,
+      "role": { "de": "Abo-müde", "en": "Done with subscriptions" },
+      "cues": [
+        { "start": 0.4, "end": 3.6, "en": "Honestly? I got tired of paying monthly for five different apps.", "de": "Ehrlich? Ich hatte keine Lust mehr, jeden Monat für fünf Apps zu zahlen." },
+        { "start": 3.8, "end": 7, "en": "Koja Office. Paid once, runs locally. Just works.", "de": "Koja Office: einmal bezahlt, läuft lokal. Funktioniert einfach." }
+      ]
+    },
+    {
+      "slug": "frank",
+      "version": 1,
+      "role": { "de": "Pendler, Windows", "en": "Commuter, Windows" },
+      "cues": [
+        { "start": 0.6, "end": 3.8, "en": "On the train, I don't have time to fight bad Wi-Fi.", "de": "Im Zug habe ich keine Zeit, mich mit schlechtem WLAN herumzuschlagen." },
+        { "start": 4.2, "end": 7, "en": "Koja runs straight off my laptop. Paid once.", "de": "Koja läuft direkt auf meinem Laptop. Einmal bezahlt." }
+      ]
+    },
+    {
+      "slug": "michael",
+      "version": 1,
+      "role": { "de": "Mac-Nutzer", "en": "Mac user" },
+      "cues": [
+        { "start": 0.45, "end": 3.45, "en": "No more subscriptions, no apps that feel like a cockpit.", "de": "Keine Abos mehr, keine Apps, die sich wie ein Cockpit anfühlen." },
+        { "start": 3.9, "end": 7, "en": "Pay once, open it, it works. Fits my Mac.", "de": "Einmal zahlen, öffnen, läuft. Passt zu meinem Mac." }
+      ]
+    },
+    {
+      "slug": "rainer",
+      "version": 1,
+      "role": { "de": "Arztpraxis", "en": "Medical practice" },
+      "cues": [
+        { "start": 0.35, "end": 2.25, "en": "I'm a doctor, not an IT guy.", "de": "Ich bin Arzt, kein IT-Mensch." },
+        { "start": 2.75, "end": 4.75, "en": "One-time purchase, runs offline.", "de": "Einmalkauf, läuft offline." },
+        { "start": 4.95, "end": 7, "en": "We haven't had to think about it since.", "de": "Seitdem mussten wir nicht mehr darüber nachdenken." }
+      ]
+    },
+    {
+      "slug": "juergen",
+      "version": 1,
+      "role": { "de": "Handwerk, viel unterwegs", "en": "Trades, always on the road" },
+      "cues": [
+        { "start": 0.4, "end": 3.9, "en": "I'm always on the road. Open it, write the quote, send it out.", "de": "Ich bin ständig unterwegs. Öffnen, Angebot schreiben, rausschicken." },
+        { "start": 4.35, "end": 7, "en": "No subscription, no clutter, no nonsense.", "de": "Kein Abo, kein Kram, kein Unsinn." }
+      ]
+    },
+    {
+      "slug": "stefan",
+      "version": 1,
+      "role": { "de": "Selbstständig, Coworking", "en": "Self-employed, coworking" },
+      "cues": [
+        { "start": 0.7, "end": 2.6, "en": "Twenty years running my own projects.", "de": "Seit zwanzig Jahren mache ich meine eigenen Projekte." },
+        { "start": 3.0, "end": 4.7, "en": "I'm done renting software every month.", "de": "Ich miete keine Software mehr jeden Monat." },
+        { "start": 5.2, "end": 7, "en": "Buy it once, it's yours.", "de": "Einmal kaufen, dann gehört sie dir." }
+      ]
+    },
+    {
+      "slug": "andreas",
+      "version": 1,
+      "role": { "de": "Privat und Freiberuf", "en": "Home and freelance" },
+      "cues": [
+        { "start": 0.4, "end": 3.3, "en": "I barely used five percent of those big office suites.", "de": "Von den großen Office-Paketen habe ich kaum fünf Prozent genutzt." },
+        { "start": 3.4, "end": 7, "en": "Koja: pay once, runs offline, no accounts. Refreshingly simple.", "de": "Koja: einmal zahlen, läuft offline, kein Konto. Herrlich einfach." }
+      ]
+    }
+  ]
+}
