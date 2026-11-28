@@ -170,7 +170,7 @@ export default function AdminReviews() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function change(r: ReviewRow, patch: { status?: ReviewStatus; verified?: boolean }) {
+  async function change(r: ReviewRow, patch: { status?: ReviewStatus; verified?: boolean; reviewed_on?: string }) {
     if (patch.verified && !r.purchase_match && !confirm("Diese E-Mail-Adresse passt zu keinem Kauf auf kojalytics.com. Trotzdem als „Verifizierter Kauf“ markieren? Nur wenn du den Kauf anders belegen kannst (z. B. Rechnung).")) return;
     setBusy(r.id);
     try {
@@ -300,8 +300,22 @@ export default function AdminReviews() {
               <Stars value={r.rating} size={16} label={`${r.rating} von 5`} />
               <span className="font-semibold">{r.name}</span>
               <span className="text-sm text-muted">{r.email ?? "keine E-Mail"}</span>
+              <label className="flex items-center gap-2 text-sm text-muted" title="Datum, das auf der Seite bei der Bewertung steht">
+                <span className="hud">Datum</span>
+                <input
+                  type="date"
+                  defaultValue={r.reviewed_on}
+                  key={r.reviewed_on}
+                  min="2020-01-01"
+                  max={new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Berlin" })}
+                  disabled={busy === r.id}
+                  onBlur={(e) => e.target.value && e.target.value !== r.reviewed_on && change(r, { reviewed_on: e.target.value })}
+                  onKeyDown={(e) => e.key === "Enter" && (e.target as HTMLInputElement).blur()}
+                  className="min-h-9 border border-border-strong bg-white px-2 py-1 font-mono text-[13px] text-foreground focus:border-foreground focus:outline-none"
+                />
+              </label>
               <span className="hud">
-                {r.reviewed_on} · {r.lang.toUpperCase()} · {r.source}
+                {r.lang.toUpperCase()} · {r.source}
               </span>
               <span className={`tag ml-auto ${r.status === "published" ? "!border-success/40 !text-success" : r.status === "pending" ? "!border-accent/40 !text-accent" : ""}`}>{STATUS_LABEL[r.status]}</span>
             </div>
