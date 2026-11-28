@@ -103,6 +103,9 @@ Geist Mono (`font-mono`, `.hud`).
   the wordmark slides out and back, the mark flies onto the header logo. 2 s, CSS only, once per visit
   (inline script in layout.tsx). Never delay page content behind it (LCP); keep it under 2 s.
 - No other animation libraries. No parallax, no carousels except the mobile swipe row and the customer-voices row.
+- Swipe rows get `<EdgeArrows target="…" />` (src/components/instrument/EdgeArrows.tsx) in a `relative` wrapper: square,
+  translucent prev/next buttons on the picture's edges (centred on the first card's `[data-row-anchor]`), shown only
+  while the row scrolls; "next" nudges twice on first view (not with reduced motion). The counter row below stays.
 - Video only as the app demo loops (`<AppDemo />`, section "In Aktion" after the hero of each app page; owner
   request, Nov 2026): silent, never in the hero (LCP stays the screenshot), `preload="none"` with a poster,
   plays only while on screen, and not at all with reduced motion (poster plus player controls instead).

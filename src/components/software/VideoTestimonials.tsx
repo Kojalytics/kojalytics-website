@@ -108,7 +108,7 @@ function Card({
         <span className="grid h-6 min-w-8 place-items-center bg-foreground px-1.5 font-mono text-[11px] font-semibold text-white">{two(index + 1)}</span>
         <span className="hud truncate">{role}</span>
       </div>
-      <div className="relative aspect-[9/16] overflow-hidden border-y border-border bg-surface">
+      <div data-row-anchor className="relative aspect-[9/16] overflow-hidden border-y border-border bg-surface">
         <video
           ref={ref}
           className="absolute inset-0 h-full w-full object-cover"
